@@ -1,7 +1,7 @@
 # Web Library — Design Spec
 
 Date: 2026-10-08
-Status: Approved in brainstorming, pending written-spec review
+Status: Approved
 
 ## 1. Purpose
 
@@ -375,8 +375,7 @@ examples. The FAQ uses `<details>`/`<summary>` (native, no JS); dropdown
 
 ## 9. Repository and delivery
 
-- Git repository with a public GitHub repo `Web-Library` (created after
-  explicit confirmation).
+- Git repository with a public GitHub repo `w0x7y/Web-Design-Library`.
 - `AGENTS.md`: component authoring rules (4.5), folder layout, and the
   "add a component" checklist, so human, agent, and future community
   authors follow one process.
