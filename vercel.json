@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "build/client",
+  "framework": null,
+  "rewrites": [{ "source": "/(.*)", "destination": "/__spa-fallback.html" }]
+}
