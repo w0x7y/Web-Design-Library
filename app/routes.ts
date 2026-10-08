@@ -4,6 +4,7 @@ export default [
   layout('routes/shell.tsx', [
     index('routes/browse.tsx'),
     route('browse/:category', 'routes/browse.tsx', { id: 'browse-category' }),
+    route('c/:slug', 'routes/detail.tsx'),
     route('*', 'routes/not-found.tsx'),
   ]),
   route('preview/:slug', 'routes/preview.tsx'),

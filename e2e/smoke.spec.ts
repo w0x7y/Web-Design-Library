@@ -1,4 +1,7 @@
 import { expect, test } from '@playwright/test'
+import { loadLibrary } from '../scripts/load-library'
+
+const LIBRARY = (await loadLibrary()).map((item) => item.entry.meta)
 
 test('home page renders with site title', async ({ page }) => {
   await page.goto('/')
@@ -74,4 +77,106 @@ test('theme toggle persists', async ({ page }) => {
   expect(await isDark()).toBe(!before)
   await page.reload()
   expect(await isDark()).toBe(!before)
+})
+
+test('detail page is pre-rendered with title and Open Graph tags', async ({ request }) => {
+  const html = await (await request.get('/c/hero-split-image')).text()
+  expect(html).toContain('Split hero with image')
+  expect(html).toMatch(/property="og:title"/)
+  expect(html).toContain('rel="canonical" href="https://web-design-library.vercel.app/c/hero-split-image"')
+})
+
+test('preview viewport toggle resizes the frame', async ({ page }) => {
+  await page.goto('/c/hero-split-image')
+  const frame = page.locator('iframe[title="Split hero with image preview"]')
+  await expect(frame).toHaveAttribute('width', '1440')
+  await page.getByRole('radio', { name: 'Mobile' }).click()
+  await expect(frame).toHaveAttribute('width', '390')
+})
+
+test('code tab shows files for the selected format', async ({ page }) => {
+  await page.goto('/c/hero-split-image')
+  await page.getByRole('tab', { name: 'Code' }).click()
+  await expect(page.locator('[data-code-file="Component.tsx"]')).toContainText('export default function')
+  await page.getByRole('radio', { name: 'HTML' }).click()
+  await expect(page.locator('[data-code-file="index.html"]')).toBeVisible()
+  await expect(page.locator('[data-code-file="styles.css"]')).toBeVisible()
+})
+
+test('unknown component and category show not-found views', async ({ page }) => {
+  await page.goto('/c/does-not-exist')
+  await expect(page.getByRole('heading', { name: 'Component not found' })).toBeVisible()
+  await expect(page.getByRole('searchbox', { name: 'Search components' })).toBeVisible()
+  await page.goto('/browse/nope')
+  await expect(page.getByRole('heading', { name: 'Category not found' })).toBeVisible()
+})
+
+test('preview frame scales its viewport down to fit the page', async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 800 })
+  await page.goto('/c/hero-split-image')
+  const frame = page.locator('iframe[title="Split hero with image preview"]')
+  await expect(frame).toHaveCSS('opacity', '1') // shown once measured
+  const desktop = (await frame.boundingBox())!
+  expect(desktop.width).toBeLessThan(1024)
+  expect(desktop.height / desktop.width).toBeCloseTo(900 / 1440, 2)
+  await page.getByRole('radio', { name: 'Mobile' }).click()
+  await expect.poll(async () => (await frame.boundingBox())?.width).toBeCloseTo(390, 0)
+  expect((await frame.boundingBox())!.height).toBeCloseTo(844, 0)
+})
+
+test('detail tabs follow the keyboard pattern', async ({ page }) => {
+  await page.goto('/c/hero-split-image')
+  const preview = page.getByRole('tab', { name: 'Preview' })
+  const code = page.getByRole('tab', { name: 'Code' })
+  await expect(preview).toBeEnabled()
+  await preview.focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(code).toBeFocused()
+  await expect(code).toHaveAttribute('aria-selected', 'true')
+  await expect(page.getByRole('tabpanel', { name: 'Code' })).toBeVisible()
+  await expect(page.getByRole('radiogroup', { name: 'Preview width' })).toHaveCount(0)
+  await page.keyboard.press('Home')
+  await expect(preview).toHaveAttribute('aria-selected', 'true')
+  await expect(page.getByRole('tabpanel', { name: 'Preview' })).toBeVisible()
+  await expect(page.getByRole('radiogroup', { name: 'Code format' })).toHaveCount(1)
+})
+
+test('format choice persists across reloads', async ({ page }) => {
+  await page.goto('/c/hero-split-image')
+  await page.getByRole('radio', { name: 'HTML' }).click()
+  await page.reload()
+  await expect(page.getByRole('radio', { name: 'HTML' })).toBeChecked()
+  await page.getByRole('tab', { name: 'Code' }).click()
+  await expect(page.locator('[data-code-file="index.html"]')).toBeVisible()
+  await expect(page.locator('[data-code-file="Component.tsx"]')).toHaveCount(0)
+})
+
+test('related section lists up to three others from the same category', async ({ page }) => {
+  for (const meta of LIBRARY) {
+    const peers = LIBRARY.filter((other) => other.category === meta.category && other.slug !== meta.slug).map((other) => other.name)
+    await page.goto(`/c/${meta.slug}`)
+    await expect(page.getByRole('heading', { level: 1, name: meta.name })).toBeVisible()
+    const section = page.getByRole('region', { name: /^More in / })
+    if (peers.length === 0) {
+      await expect(section).toHaveCount(0)
+      continue
+    }
+    const names = await section.getByRole('heading', { level: 3 }).allTextContents()
+    expect(names).toHaveLength(Math.min(3, peers.length))
+    for (const name of names) expect(peers).toContain(name)
+  }
+})
+
+test('detail page hydrates and switches views without errors', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', (error) => errors.push(error.message))
+  page.on('console', (message) => {
+    if (message.type() === 'error' && !message.text().startsWith('Failed to load resource')) errors.push(message.text())
+  })
+  await page.goto('/c/hero-split-image')
+  await page.getByRole('radio', { name: 'Tablet' }).click()
+  await page.getByRole('tab', { name: 'Code' }).click()
+  await page.getByRole('radio', { name: 'HTML' }).click()
+  await expect(page.locator('[data-code-file="styles.css"]')).toBeVisible()
+  expect(errors).toEqual([])
 })

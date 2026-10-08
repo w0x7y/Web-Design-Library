@@ -17,3 +17,10 @@
 body:has([data-not-found]) [data-header-search] {
   display: none;
 }
+
+/* Shiki dual themes: light colours are inline; under .dark switch to the --shiki-dark ones */
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
