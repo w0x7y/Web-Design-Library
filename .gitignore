@@ -28,3 +28,6 @@ build
 .react-router
 test-results
 playwright-report
+
+# Local design-tool cache
+.impeccable/

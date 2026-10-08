@@ -1,3 +1,4 @@
+import { IMAGES } from './assets'
 import { checkComponent } from './rules'
 import type { CategoryId } from './taxonomy'
 import type { ComponentBrief, ComponentMeta, ComponentSources, LibraryEntry } from './types'
@@ -17,10 +18,10 @@ const resetCss = (slug: string) => `/* Scoped reset: mirrors Tailwind preflight 
 .${slug} summary { display: list-item; }
 `
 
-function validEntry(): LibraryEntry {
+function validEntry(slug = 'demo'): LibraryEntry {
   return {
     meta: {
-      slug: 'demo',
+      slug,
       name: 'Demo',
       category: 'hero',
       tags: ['minimal'],
@@ -32,8 +33,8 @@ function validEntry(): LibraryEntry {
     },
     sources: {
       tsx: 'export default function Demo() { return <section className="p-8">Hi</section> }\n',
-      html: '<section class="demo">Hi</section>\n',
-      css: resetCss('demo'),
+      html: `<section class="${slug}">Hi</section>\n`,
+      css: resetCss(slug),
     },
   }
 }
@@ -85,4 +86,68 @@ test.each<Case>([
   ['html contains <link>/<style>/<script>', (e) => withSources(e, { html: e.sources.html + '<style></style>' }), 'demo', /<style>/],
 ])('%s is reported', (_n, mutate, folder, pattern, slugs = ['demo']) => {
   expect(checkComponent(mutate(validEntry()), folder, slugs).join('\n')).toMatch(pattern)
+})
+
+// Each mutation must produce exactly one violation: the intended one.
+test.each<Case>([
+  ['no default export', (e) => withSources(e, { tsx: e.sources.tsx.replace('export default ', '') }), 'demo', /exactly one default export \(found 0\)/],
+  ['two default exports', (e) => withSources(e, { tsx: e.sources.tsx + 'export default function Other() { return null }\n' }), 'demo', /exactly one default export \(found 2\)/],
+  ['side-effect import', (e) => withSources(e, { tsx: "import './demo.css'\n" + e.sources.tsx }), 'demo', /imports "\.\/demo\.css"/],
+  ['dynamic import', (e) => withSources(e, { tsx: "const load = () => import('lodash')\n" + e.sources.tsx }), 'demo', /imports "lodash"/],
+  [
+    'fonts comment names only some fonts',
+    (e) => withSources(withMeta(e, { fonts: ['Inter:wght@400', 'Lora:ital@0;1'] }), { tsx: '// Fonts: Inter\n' + e.sources.tsx }),
+    'demo',
+    /comment does not name Lora/,
+  ],
+  [
+    'html img missing alt/size',
+    (e) => withSources(e, { html: `<section class="demo"><img src="${IMAGES.officeBright}"></section>` }),
+    'demo',
+    /index\.html: <img> is missing alt, width, height/,
+  ],
+  [
+    'html img src not in IMAGES',
+    (e) => withSources(e, { html: '<section class="demo"><img src="https://example.com/a.jpg" alt="" width="1" height="1"></section>' }),
+    'demo',
+    /index\.html: <img> src "https:\/\/example\.com\/a\.jpg" is not a URL from IMAGES/,
+  ],
+  ['non-kebab slug', () => validEntry('Demo_X'), 'Demo_X', /must be kebab-case/, ['Demo_X']],
+  ['empty name', (e) => withMeta(e, { name: ' ' }), 'demo', /meta\.name is empty/],
+  ['empty description', (e) => withMeta(e, { description: '' }), 'demo', /meta\.description is empty/],
+  ['no style tags', (e) => withMeta(e, { tags: [] }), 'demo', /at least one style tag/],
+  [
+    'parity override without reason',
+    (e) => withMeta(e, { preview: { kind: 'section', parity: { maxDiffRatio: 0.02, reason: ' ' } } }),
+    'demo',
+    /parity tolerance without a reason/,
+  ],
+  ['@import in css', (e) => withSources(e, { css: e.sources.css + '\n@import url("fonts.css");' }), 'demo', /must not use @import/],
+  ['reset not the first rule', (e) => withSources(e, { css: '.demo { color: red; }\n' + e.sources.css }), 'demo', /must begin with the scoped reset/],
+  ['unparseable css', (e) => withSources(e, { css: e.sources.css + '\n.demo {' }), 'demo', /does not parse/],
+  ['selector scoped to a longer class (.demox)', (e) => withSources(e, { css: e.sources.css + '\n.demox { color: red; }' }), 'demo', /"\.demox" is not scoped under \.demo/],
+])('%s is the only violation', (_n, mutate, folder, pattern, slugs = ['demo']) => {
+  const violations = checkComponent(mutate(validEntry()), folder, slugs)
+  expect(violations).toHaveLength(1)
+  expect(violations[0]).toMatch(pattern)
+})
+
+test('allowed patterns raise no violations', () => {
+  const e = validEntry()
+  const entry = withSources(withMeta(e, { fonts: ['Inter:wght@400', 'Lora:ital@0;1'] }), {
+    tsx: [
+      '// Fonts: Inter, Lora',
+      "import { type ReactNode } from 'react'",
+      `export default function Demo() { return <section className="p-8 hover:bg-zinc-50"><img src="${IMAGES.officeBright}" alt="" width={1600} height={1067} /></section> }`,
+      'export type Slot = ReactNode',
+      '',
+    ].join('\n'),
+    html: `<!-- Demo -->\n<section class="demo hero"><img src="${IMAGES.officeBright}" alt="" width="1600" height="1067"></section>\n`,
+    css:
+      e.sources.css +
+      '\n@keyframes demo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }' +
+      '\n@media (width >= 40rem) { .demo .demo__title { font-size: 2rem; } }' +
+      '\n.demo:hover { color: red; }',
+  })
+  expect(checkComponent(entry, 'demo', ['demo'])).toEqual([])
 })
