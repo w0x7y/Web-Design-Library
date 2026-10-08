@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { fontStylesheetHref } from '../../src/library/fonts'
 
 // Neutral stage for a library component: white, black text, default sans,
-// light color scheme, whatever the site theme. The parity harness
+// default font smoothing, light color scheme, whatever the site theme. The parity harness
 // (e2e/lib/parity-page.ts) mirrors this layout in inline styles.
 export function PreviewSurface({
   kind,
@@ -19,7 +19,7 @@ export function PreviewSurface({
 }) {
   const fontHref = fontStylesheetHref(fonts)
   const backdrop = [
-    'bg-white text-black font-sans [color-scheme:light]',
+    'bg-white text-black font-sans subpixel-antialiased [color-scheme:light]',
     mode === 'page' ? 'min-h-screen' : 'h-full',
     kind === 'element' ? 'flex items-center justify-center p-12' : '',
   ]

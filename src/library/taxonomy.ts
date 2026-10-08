@@ -47,3 +47,7 @@ export function groupOf(category: CategoryId): (typeof GROUPS)[number] {
   if (!group) throw new Error(`Unknown category: ${category}`)
   return group
 }
+
+export function isCategoryId(value: string): value is CategoryId {
+  return (CATEGORY_IDS as string[]).includes(value)
+}

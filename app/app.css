@@ -12,3 +12,8 @@
   transition: none !important;
   animation: none !important;
 }
+
+/* Not-found views carry their own search field; hide the header's copy so the page has one */
+body:has([data-not-found]) [data-header-search] {
+  display: none;
+}
