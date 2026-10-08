@@ -1,11 +1,13 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react'
+import { flushSync } from 'react-dom'
 import { data, isRouteErrorResponse, Link } from 'react-router'
+import { ActionBar } from '~/components/ActionBar'
 import { CodeView } from '~/components/CodeView'
 import { ComponentCard } from '~/components/ComponentCard'
-import { FormatSwitch } from '~/components/FormatSwitch'
 import { NotFoundView } from '~/components/NotFoundView'
 import { PreviewFrame } from '~/components/PreviewFrame'
 import { ViewportToggle } from '~/components/ViewportToggle'
+import { copyWithFeedback } from '~/lib/copy-feedback'
 import { filtersSearch } from '~/lib/filters'
 import { useFormatPreference } from '~/lib/format-preference'
 import { highlight } from '~/lib/highlight.server'
@@ -83,8 +85,31 @@ function ComponentDetail({
   const [tab, setTab] = useState<TabId>('preview')
   const [viewport, setViewport] = useState<ViewportId>('desktop')
   const id = useId()
+  const codeRef = useRef<HTMLDivElement>(null)
   const related = relatedMetas(component, ALL)
   const categoryLabel = CATEGORY_LABELS[component.category]
+
+  // After a refused clipboard write: show the Code tab and select a file (the first, or the one just
+  // copied), so Ctrl/⌘+C still works.
+  function revealCode(fileName?: string) {
+    flushSync(() => setTab('code')) // the panel is hidden until the tab switches, and a hidden node can't be selected
+    const pre = codeRef.current?.querySelector(fileName ? `[data-code-file="${fileName}"] pre` : '[data-code-file] pre')
+    const selection = getSelection()
+    if (!pre || !selection) return
+    const range = document.createRange()
+    range.selectNodeContents(pre)
+    selection.removeAllRanges()
+    selection.addRange(range)
+  }
+
+  function copyFile({ name, code }: { name: string; code: string }) {
+    void copyWithFeedback(code, {
+      // Component.tsx is the whole React code; a single HTML or CSS file is not "HTML + CSS", so it is named.
+      message: format === 'react' ? 'Copied React code' : `Copied ${name}`,
+      event: { name: 'copy_code', slug: component.slug, format },
+      onFailure: () => revealCode(name),
+    })
+  }
 
   return (
     <main className="mx-auto w-full max-w-(--breakpoint-2xl) px-4 pt-8 pb-24 sm:px-6 lg:px-8 lg:pt-10">
@@ -122,22 +147,25 @@ function ComponentDetail({
         ))}
       </ul>
 
-      <div className="mt-10 flex flex-wrap items-center">
-        {/* On sm+ the tabs and the controls share one hairline; below sm the controls wrap under it. */}
+      <div className="mt-6">
+        <ActionBar meta={component} sources={sources} format={format} onFormatChange={onFormatChange} onCopyFailed={() => revealCode()} />
+      </div>
+
+      <div className="mt-8 flex flex-wrap items-center">
+        {/* On sm+ the tabs and the viewport toggle share one hairline; below sm the toggle wraps under it. */}
         <DetailTabs id={id} active={tab} onSelect={setTab} />
-        <div className="mt-3 flex w-full items-center gap-2 sm:mt-0 sm:h-11 sm:w-auto sm:border-b sm:border-zinc-200 sm:pl-4 dark:sm:border-zinc-800">
-          {tab === 'preview' && <ViewportToggle value={viewport} onChange={setViewport} />}
-          <div className="ml-auto">
-            <FormatSwitch value={format} onChange={onFormatChange} />
+        {tab === 'preview' && (
+          <div className="mt-3 flex w-full items-center gap-2 sm:mt-0 sm:h-11 sm:w-auto sm:border-b sm:border-zinc-200 sm:pl-4 dark:sm:border-zinc-800">
+            <ViewportToggle value={viewport} onChange={setViewport} />
           </div>
-        </div>
+        )}
       </div>
 
       <div role="tabpanel" id={`${id}-preview`} aria-labelledby={`${id}-preview-tab`} hidden={tab !== 'preview'} className="mt-4">
         <PreviewFrame slug={component.slug} name={component.name} kind={component.preview.kind} viewport={viewport} />
       </div>
-      <div role="tabpanel" id={`${id}-code`} aria-labelledby={`${id}-code-tab`} hidden={tab !== 'code'} className="mt-4">
-        <CodeView format={format} highlighted={highlighted} sources={sources} />
+      <div ref={codeRef} role="tabpanel" id={`${id}-code`} aria-labelledby={`${id}-code-tab`} hidden={tab !== 'code'} className="mt-4">
+        <CodeView format={format} highlighted={highlighted} sources={sources} onCopyFile={copyFile} />
       </div>
 
       {related.length > 0 && (

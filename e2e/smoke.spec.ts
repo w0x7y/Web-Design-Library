@@ -1,7 +1,11 @@
-import { expect, test } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
+import { expect, test, type Page } from '@playwright/test'
+import { PNG } from 'pngjs'
 import { loadLibrary } from '../scripts/load-library'
 
-const LIBRARY = (await loadLibrary()).map((item) => item.entry.meta)
+const ITEMS = await loadLibrary()
+const LIBRARY = ITEMS.map((item) => item.entry.meta)
+const HERO = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry.sources
 
 test('home page renders with site title', async ({ page }) => {
   await page.goto('/')
@@ -188,4 +192,286 @@ test('code body renders in the shell mono font', async ({ page }) => {
   await expect(code).toBeVisible()
   expect(await code.evaluate((el) => getComputedStyle(el).fontFamily)).toContain('Geist Mono')
   expect(await code.locator('span').first().evaluate((el) => getComputedStyle(el).fontFamily)).toContain('Geist Mono')
+})
+
+test.describe('copy and export', () => {
+  test.use({ permissions: ['clipboard-read', 'clipboard-write'] })
+
+  const readClipboard = (page: Page) => page.evaluate(() => navigator.clipboard.readText())
+
+  // The page is interactive once the capture buttons enable; before that clicks would be lost.
+  async function openDetail(page: Page, slug = 'hero-split-image') {
+    await page.goto(`/c/${slug}`)
+    await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
+  }
+
+  test('there is exactly one format switch, and it sits in the action bar', async ({ page }) => {
+    await openDetail(page)
+    await expect(page.getByRole('radiogroup', { name: 'Code format' })).toHaveCount(1)
+    await expect(page.getByRole('radio', { name: 'HTML' })).toHaveCount(1)
+  })
+
+  test('copy code (react) puts Component.tsx on the clipboard', async ({ page }) => {
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy code' }).click()
+    await expect(page.getByText('Copied React code')).toBeVisible()
+    expect(await readClipboard(page)).toBe(HERO.tsx)
+  })
+
+  test('html format copies a single snippet and persists across reloads', async ({ page }) => {
+    await openDetail(page)
+    await page.getByRole('radio', { name: 'HTML' }).click()
+    await page.getByRole('button', { name: 'Copy code' }).click()
+    await expect(page.getByText('Copied HTML + CSS')).toBeVisible()
+    const text = await readClipboard(page)
+    // The font link comes first (hero-split-image loads Hanken Grotesk), then the scoped CSS, then the markup.
+    expect(text).toMatch(/^<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com\/css2\?family=Hanken\+Grotesk[^"]*">\n<style>\n\/\* Scoped reset/)
+    expect(text).toContain(`<style>\n${HERO.css.trim()}\n</style>\n${HERO.html.trim()}\n`)
+    await page.reload()
+    await expect(page.getByRole('radio', { name: 'HTML' })).toBeChecked()
+  })
+
+  test('copy for AI puts the brief on the clipboard in the chosen format', async ({ page }) => {
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy for AI' }).click()
+    await expect(page.getByText('Copied AI brief')).toBeVisible()
+    const brief = await readClipboard(page)
+    expect(brief).toMatch(/^# Split hero with image \(Web Library\)\n/)
+    expect(brief).toContain('## Reference code (React + Tailwind v4)')
+
+    await page.getByRole('radio', { name: 'HTML' }).click()
+    await page.getByRole('button', { name: 'Copy for AI' }).click()
+    await expect.poll(() => readClipboard(page)).toContain('## Reference code (HTML + CSS)')
+  })
+
+  test('each file in the Code tab has its own copy button', async ({ page }) => {
+    await openDetail(page)
+    await page.getByRole('tab', { name: 'Code' }).click()
+    await page.getByRole('button', { name: 'Copy Component.tsx' }).click()
+    await expect(page.getByText('Copied React code')).toBeVisible()
+    expect(await readClipboard(page)).toBe(HERO.tsx)
+
+    await page.getByRole('radio', { name: 'HTML' }).click()
+    await page.getByRole('button', { name: 'Copy styles.css' }).click()
+    await expect(page.getByText('Copied styles.css')).toBeVisible()
+    expect(await readClipboard(page)).toBe(HERO.css)
+  })
+
+  test('download desktop and mobile PNGs at 2x', async ({ page }) => {
+    await openDetail(page)
+    for (const [label, width, name] of [['Desktop PNG', 2880, 'desktop'], ['Mobile PNG', 780, 'mobile']] as const) {
+      await page.getByRole('button', { name: 'Download' }).click()
+      const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: label }).click()])
+      expect(dl.suggestedFilename()).toBe(`web-library-hero-split-image-${name}.png`)
+      expect(PNG.sync.read(await readFile(await dl.path())).width).toBe(width)
+      await expect(page.getByText(`Downloaded web-library-hero-split-image-${name}.png`)).toBeVisible()
+    }
+  })
+
+  test('transparent element capture has alpha and no backdrop', async ({ page }) => {
+    await openDetail(page, 'buttons-minimal')
+    await page.getByRole('button', { name: 'Download' }).click()
+    await page.getByRole('menuitemcheckbox', { name: 'Transparent background' }).click()
+    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Desktop PNG' }).click()])
+    const png = PNG.sync.read(await readFile(await dl.path()))
+    expect(png.width).toBeLessThan(2880)
+    expect(png.data.some((v, i) => i % 4 === 3 && v === 0)).toBe(true) // some fully transparent pixel
+  })
+
+  test('opaque element capture keeps the white backdrop at the full frame width', async ({ page }) => {
+    await openDetail(page, 'buttons-minimal')
+    await page.getByRole('button', { name: 'Download' }).click()
+    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Desktop PNG' }).click()])
+    const png = PNG.sync.read(await readFile(await dl.path()))
+    expect({ width: png.width, height: png.height }).toEqual({ width: 2880, height: 960 })
+    expect(png.data.some((v, i) => i % 4 === 3 && v !== 255)).toBe(false) // fully opaque
+  })
+
+  test('copy image writes a PNG to the clipboard', async ({ page }) => {
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy image' }).click()
+    await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
+    expect(await page.evaluate(async () => (await navigator.clipboard.read())[0].types)).toContain('image/png')
+  })
+
+  test('the capture buttons are disabled while a capture runs', async ({ page }) => {
+    await openDetail(page)
+    const copyImage = page.getByRole('button', { name: 'Copy image' })
+    await copyImage.click()
+    await expect(copyImage).toBeDisabled()
+    await expect(page.getByRole('button', { name: 'Download' })).toBeDisabled()
+    await expect(copyImage).toBeEnabled({ timeout: 12_000 })
+    await expect(page.getByRole('button', { name: 'Download' })).toBeEnabled()
+  })
+
+  test('clipboard failure falls back to selected code', async ({ page }) => {
+    await page.addInitScript(() => {
+      navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
+    })
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy code' }).click()
+    await expect(page.getByText("Couldn't copy")).toBeVisible()
+    await expect(page.getByText('Your browser blocked clipboard access.')).toBeVisible()
+    await expect(page.getByRole('tab', { name: 'Code' })).toHaveAttribute('aria-selected', 'true')
+    expect(await page.evaluate(() => getSelection()?.toString())).toContain('export default function')
+  })
+
+  test('capture survives failed images and cleans up', async ({ page }) => {
+    await page.route('https://images.unsplash.com/**', (r) => r.abort())
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Download' }).click()
+    const [dl] = await Promise.all([
+      page.waitForEvent('download', { timeout: 12_000 }),
+      page.getByRole('menuitem', { name: 'Desktop PNG' }).click(),
+    ])
+    expect(dl.suggestedFilename()).toMatch(/desktop\.png$/)
+    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
+    await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
+  })
+
+  test('a failed capture offers Retry, removes its frame, and Retry reruns the same capture', async ({ page }) => {
+    test.setTimeout(45_000)
+    let failing = true
+    await page.route(/\/preview\/hero-split-image\?capture=1/, (route) => (failing ? route.abort() : route.continue()))
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Download' }).click()
+    await page.getByRole('menuitem', { name: 'Mobile PNG' }).click()
+    await expect(page.getByText("Couldn't create image")).toBeVisible({ timeout: 15_000 }) // after the 10 s timeout
+    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
+    await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
+
+    failing = false
+    const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 15_000 }), page.getByRole('button', { name: 'Retry' }).click()])
+    expect(dl.suggestedFilename()).toBe('web-library-hero-split-image-mobile.png')
+  })
+
+  test('a failed Copy image capture offers Retry too, and Retry copies the image', async ({ page }) => {
+    test.setTimeout(45_000)
+    let failing = true
+    await page.route(/\/preview\/hero-split-image\?capture=1/, (route) => (failing ? route.abort() : route.continue()))
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy image' }).click()
+    // A capture failure is not a clipboard failure: it must offer Retry, not the manual-copy hint.
+    await expect(page.getByText("Couldn't create image")).toBeVisible({ timeout: 15_000 })
+    await expect(page.getByText("Couldn't copy")).toHaveCount(0)
+    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
+
+    failing = false
+    await page.getByRole('button', { name: 'Retry' }).click()
+    await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
+    expect(await page.evaluate(async () => (await navigator.clipboard.read())[0].types)).toContain('image/png')
+  })
+
+  test('a refused copy of one file selects that file', async ({ page }) => {
+    await page.addInitScript(() => {
+      navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
+    })
+    await openDetail(page)
+    await page.getByRole('radio', { name: 'HTML' }).click()
+    await page.getByRole('tab', { name: 'Code' }).click()
+    await page.getByRole('button', { name: 'Copy styles.css' }).click()
+    await expect(page.getByText("Couldn't copy")).toBeVisible()
+    expect(await page.evaluate(() => getSelection()?.toString())).toContain('/* Scoped reset')
+  })
+
+  test('the download menu follows the menu keyboard pattern', async ({ page }) => {
+    await openDetail(page)
+    const trigger = page.getByRole('button', { name: 'Download' })
+    const desktop = page.getByRole('menuitem', { name: 'Desktop PNG' })
+    const mobile = page.getByRole('menuitem', { name: 'Mobile PNG' })
+    const transparent = page.getByRole('menuitemcheckbox', { name: 'Transparent background' })
+
+    await expect(trigger).toHaveAttribute('aria-haspopup', 'menu')
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false')
+    await trigger.focus()
+    await page.keyboard.press('ArrowDown')
+    await expect(page.getByRole('menu')).toBeVisible()
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true')
+    await expect(desktop).toBeFocused()
+    await page.keyboard.press('ArrowDown')
+    await expect(mobile).toBeFocused()
+    await page.keyboard.press('ArrowDown')
+    await expect(transparent).toBeFocused()
+    await expect(transparent).toHaveAttribute('aria-checked', 'false')
+    await page.keyboard.press('Space') // toggling keeps the menu open
+    await expect(transparent).toHaveAttribute('aria-checked', 'true')
+    await page.keyboard.press('ArrowDown') // wraps
+    await expect(desktop).toBeFocused()
+    await page.keyboard.press('ArrowUp') // wraps back
+    await expect(transparent).toBeFocused()
+    await page.keyboard.press('Home')
+    await expect(desktop).toBeFocused()
+    await page.keyboard.press('End')
+    await expect(transparent).toBeFocused()
+    await page.keyboard.press('Escape')
+    await expect(page.getByRole('menu')).toHaveCount(0)
+    await expect(trigger).toBeFocused()
+
+    await trigger.click()
+    await expect(page.getByRole('menu')).toBeVisible()
+    await page.getByRole('heading', { level: 1 }).click()
+    await expect(page.getByRole('menu')).toHaveCount(0)
+  })
+
+  test('analytics events fire only after success, with exactly their props', async ({ page }) => {
+    await page.addInitScript(() => {
+      const calls: unknown[][] = []
+      Object.assign(window, { __va: calls, va: (...args: unknown[]) => calls.push(args) })
+    })
+    const events = () =>
+      page.evaluate(() =>
+        (window as unknown as { __va: [string, { name: string; data: unknown }][] }).__va
+          .filter(([kind]) => kind === 'event')
+          .map(([, event]) => ({ name: event.name, data: event.data })),
+      )
+    await openDetail(page)
+
+    await page.getByRole('button', { name: 'Copy code' }).click()
+    await expect(page.getByText('Copied React code')).toBeVisible()
+    await page.getByRole('radio', { name: 'HTML' }).click()
+    await page.getByRole('button', { name: 'Copy for AI' }).click()
+    await expect(page.getByText('Copied AI brief')).toBeVisible()
+    await page.getByRole('button', { name: 'Download' }).click()
+    await page.getByRole('menuitem', { name: 'Mobile PNG' }).click()
+    await expect(page.getByText('Downloaded web-library-hero-split-image-mobile.png')).toBeVisible({ timeout: 12_000 })
+    await page.getByRole('button', { name: 'Copy image' }).click()
+    await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
+
+    expect(await events()).toEqual([
+      { name: 'copy_code', data: { slug: 'hero-split-image', format: 'react' } },
+      { name: 'copy_ai', data: { slug: 'hero-split-image', format: 'html' } },
+      { name: 'download_png', data: { slug: 'hero-split-image', viewport: 'mobile' } },
+      { name: 'copy_image', data: { slug: 'hero-split-image' } },
+    ])
+  })
+
+  test('a failed copy records no analytics event', async ({ page }) => {
+    await page.addInitScript(() => {
+      navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
+      Object.assign(window, { __va: [], va: (...args: unknown[]) => (window as unknown as { __va: unknown[] }).__va.push(args) })
+    })
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy for AI' }).click()
+    await expect(page.getByText("Couldn't copy")).toBeVisible()
+    const events = await page.evaluate(() => (window as unknown as { __va: unknown[][] }).__va.filter(([kind]) => kind === 'event'))
+    expect(events).toEqual([])
+  })
+
+  test('the detail page and its actions log no console errors or warnings', async ({ page }) => {
+    const problems: string[] = []
+    page.on('console', (message) => {
+      // The static test server has no Vercel Web Analytics endpoint, so the tracker script 404s here (and only here).
+      if (message.location().url.includes('/_vercel/insights/')) return
+      if (message.type() === 'error' || message.type() === 'warning') problems.push(`${message.type()}: ${message.text()}`)
+    })
+    page.on('pageerror', (error) => problems.push(`pageerror: ${error.message}`))
+    await openDetail(page)
+    await page.getByRole('button', { name: 'Copy code' }).click()
+    await expect(page.getByText('Copied React code')).toBeVisible()
+    await page.getByRole('button', { name: 'Download' }).click()
+    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Mobile PNG' }).click()])
+    await dl.path()
+    await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
+    expect(problems).toEqual([])
+  })
 })

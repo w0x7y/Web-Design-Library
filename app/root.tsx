@@ -1,6 +1,9 @@
+import { Analytics } from '@vercel/analytics/react'
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import { Toaster } from 'sonner'
 import type { Route } from './+types/root'
 import { NotFoundView } from './components/NotFoundView'
+import { beforeSend } from './lib/analytics'
 import { themeInitScript, useTheme } from './lib/theme'
 import './app.css'
 
@@ -33,6 +36,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <Toaster position="bottom-right" theme={theme} />
+        <Analytics beforeSend={beforeSend} />
         <ScrollRestoration />
         <Scripts />
       </body>

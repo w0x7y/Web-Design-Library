@@ -14,11 +14,14 @@
     "serve:build": "sirv build/client --port 4317 --single __spa-fallback.html"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "isbot": "^5.2.2",
+    "modern-screenshot": "^4.7.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router": "^8.4.0",
-    "shiki": "^4.5.0"
+    "shiki": "^4.5.0",
+    "sonner": "^2.0.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.0",
