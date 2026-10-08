@@ -180,3 +180,12 @@ test('detail page hydrates and switches views without errors', async ({ page }) 
   await expect(page.locator('[data-code-file="styles.css"]')).toBeVisible()
   expect(errors).toEqual([])
 })
+
+test('code body renders in the shell mono font', async ({ page }) => {
+  await page.goto('/c/hero-split-image')
+  await page.getByRole('tab', { name: 'Code' }).click()
+  const code = page.locator('[data-code-file="Component.tsx"] code')
+  await expect(code).toBeVisible()
+  expect(await code.evaluate((el) => getComputedStyle(el).fontFamily)).toContain('Geist Mono')
+  expect(await code.locator('span').first().evaluate((el) => getComputedStyle(el).fontFamily)).toContain('Geist Mono')
+})

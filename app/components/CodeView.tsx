@@ -57,9 +57,10 @@ export function CodeView({
                 </button>
               )}
             </figcaption>
-            {/* Shiki's <pre> is focusable (tabindex=0) so keyboard users can scroll long files. */}
+            {/* Shiki's <pre> is focusable (tabindex=0) so keyboard users can scroll long files.
+                Preflight gives <code> its own mono stack, so the inner <code> needs the shell font too. */}
             <div
-              className="[&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:px-4 [&_pre]:py-3.5 [&_pre]:font-shell-mono [&_pre]:text-[13px]/[1.7] [&_pre]:[scrollbar-color:var(--color-zinc-300)_transparent] [&_pre]:[scrollbar-width:thin] [&_pre]:[tab-size:2] [&_pre]:focus-visible:outline-2 [&_pre]:focus-visible:-outline-offset-2 [&_pre]:focus-visible:outline-zinc-900 dark:[&_pre]:[scrollbar-color:var(--color-zinc-700)_transparent] dark:[&_pre]:focus-visible:outline-zinc-100"
+              className="[&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:px-4 [&_pre]:py-3.5 [&_pre]:font-shell-mono [&_pre_code]:font-shell-mono [&_pre]:text-[13px]/[1.7] [&_pre]:[scrollbar-color:var(--color-zinc-300)_transparent] [&_pre]:[scrollbar-width:thin] [&_pre]:[tab-size:2] [&_pre]:focus-visible:outline-2 [&_pre]:focus-visible:-outline-offset-2 [&_pre]:focus-visible:outline-zinc-900 dark:[&_pre]:[scrollbar-color:var(--color-zinc-700)_transparent] dark:[&_pre]:focus-visible:outline-zinc-100"
               dangerouslySetInnerHTML={{ __html: highlighted[key] }}
             />
           </figure>
