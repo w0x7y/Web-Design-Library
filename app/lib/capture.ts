@@ -47,6 +47,8 @@ function createFrame(meta: ComponentMeta, viewport: CaptureViewport) {
   frame.setAttribute('data-capture-frame', '')
   frame.setAttribute('aria-hidden', 'true')
   frame.tabIndex = -1
+  // A page taller than the frame would get a scrollbar that, where scrollbars take layout width, narrows the layout below the target width.
+  frame.setAttribute('scrolling', 'no')
   frame.style.cssText = 'position:fixed;left:-100000px;top:0;border:0'
   frame.width = String(width)
   frame.height = String(height)
