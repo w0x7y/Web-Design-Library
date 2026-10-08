@@ -163,7 +163,7 @@ Run: `npx vitest run src/library/paths.test.ts`. Expected: FAIL with an import e
   test: vitest run
   test:e2e: playwright test
   test:parity: playwright test e2e/parity.spec.ts
-  serve:build: sirv build/client --port 4173 --single __spa-fallback.html
+  serve:build: sirv build/client --port 4317 --single __spa-fallback.html
   ```
 - `.gitignore`: add `build`, `.react-router`, `test-results`, `playwright-report`.
 - `.oxlintrc.json`: turn `react/only-export-components` off for `app/root.tsx` and `app/routes/**` (route modules export `loader`/`meta`).
@@ -187,8 +187,8 @@ test('unknown path renders not-found page', async ({ page }) => {
 ```
 
 `playwright.config.ts`:
-- `testDir: 'e2e'`, chromium project only, `baseURL: 'http://localhost:4173'`.
-- `webServer: { command: 'npm run build && npm run serve:build', url: 'http://localhost:4173', reuseExistingServer: !process.env.CI, timeout: 180_000 }`.
+- `testDir: 'e2e'`, chromium project only, `baseURL: 'http://localhost:4317'`.
+- `webServer: { command: 'npm run build && npm run serve:build', url: 'http://localhost:4317', reuseExistingServer: !process.env.CI, timeout: 180_000 }`.
 
 - [ ] **Step 7: Add CI**
 

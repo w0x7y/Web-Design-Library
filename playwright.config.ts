@@ -4,11 +4,11 @@ export default defineConfig({
   testDir: 'e2e',
   forbidOnly: !!process.env.CI,
   reporter: process.env.CI ? [['html', { open: 'never' }]] : 'list',
-  use: { baseURL: 'http://localhost:4173' },
+  use: { baseURL: 'http://localhost:4317' },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
     command: 'npm run build && npm run serve:build',
-    url: 'http://localhost:4173',
+    url: 'http://localhost:4317',
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },
