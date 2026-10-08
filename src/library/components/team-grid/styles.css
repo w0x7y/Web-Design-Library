@@ -1,0 +1,248 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.team-grid, .team-grid *, .team-grid *::before, .team-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.team-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.team-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.team-grid a { color: inherit; text-decoration: inherit; }
+.team-grid :is(b, strong) { font-weight: bolder; }
+.team-grid :is(ol, ul, menu) { list-style: none; }
+.team-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.team-grid :is(img, video) { max-width: 100%; height: auto; }
+.team-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.team-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.team-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.team-grid summary { display: list-item; }
+
+/* Component */
+.team-grid {
+  background-color: #fff;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(20.8% 0.042 265.755); /* slate-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.team-grid .team-grid__inner {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 5rem 1.25rem;
+}
+
+.team-grid .team-grid__header {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.team-grid .team-grid__title {
+  max-width: 36rem;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+.team-grid .team-grid__intro {
+  max-width: 36rem;
+}
+
+.team-grid .team-grid__lede {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  text-wrap: pretty;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.team-grid .team-grid__roles {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: oklch(45% 0.085 224.283); /* cyan-800 */
+  text-decoration-line: underline;
+  text-decoration-color: oklch(45% 0.085 224.283 / 0.3); /* cyan-800 / 30% */
+  text-underline-offset: 4px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.team-grid .team-grid__roles svg {
+  width: 1rem;
+  height: 1rem;
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Each group is a row between hairlines: label on the left, people on the right from 1024px */
+.team-grid .team-grid__groups {
+  margin-top: 3.5rem;
+  border-top: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+}
+
+.team-grid .team-grid__group {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 2.5rem;
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+}
+
+.team-grid .team-grid__group-title {
+  font-weight: 600;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+.team-grid .team-grid__group-note {
+  max-width: 20rem;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.team-grid .team-grid__people {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+  row-gap: 2.5rem;
+}
+
+.team-grid .team-grid__person {
+  position: relative;
+  border-radius: 0.375rem;
+}
+
+/* Greyscale evens out mismatched photo backgrounds; colour returns on hover and focus */
+.team-grid .team-grid__photo {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  border-radius: 0.375rem;
+  background-color: oklch(96.8% 0.007 247.896); /* slate-100 */
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition-property: filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.team-grid .team-grid__name {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+/* The name link stretches over the whole card, so the card is one link */
+.team-grid .team-grid__name a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.team-grid .team-grid__role {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.team-grid .team-grid__before {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
+}
+
+.team-grid .team-grid__person:focus-within .team-grid__photo {
+  filter: grayscale(0%);
+}
+
+.team-grid .team-grid__roles:focus-visible,
+.team-grid .team-grid__person:has(:focus-visible) {
+  outline: 2px solid oklch(45% 0.085 224.283); /* cyan-800 */
+  outline-offset: 4px;
+}
+
+/* The ring is drawn on the card, so the link itself draws none */
+.team-grid .team-grid__name a:focus-visible {
+  outline-style: none;
+}
+
+/* Windows high contrast: the link keeps a visible focus outline */
+@media (forced-colors: active) {
+  .team-grid .team-grid__name a:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+@media (hover: hover) {
+  .team-grid .team-grid__roles:hover {
+    text-decoration-color: oklch(45% 0.085 224.283); /* cyan-800 */
+  }
+  .team-grid .team-grid__roles:hover svg {
+    translate: 0.125rem 0;
+  }
+  .team-grid .team-grid__person:hover .team-grid__photo {
+    filter: grayscale(0%);
+  }
+}
+
+@media (width >= 40rem) {
+  .team-grid .team-grid__inner {
+    padding-inline: 2rem;
+  }
+  .team-grid .team-grid__title {
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+  .team-grid .team-grid__lede {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .team-grid .team-grid__people {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+/* From 1024px: headline in columns 1–7, intro in 9–12; each group label in columns 1–3, people in 4–12 */
+@media (width >= 64rem) {
+  .team-grid .team-grid__inner {
+    padding-block: 7rem;
+  }
+  .team-grid .team-grid__header {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    gap: 2rem;
+  }
+  .team-grid .team-grid__title {
+    grid-column: span 7 / span 7;
+  }
+  .team-grid .team-grid__intro {
+    grid-column: 9 / span 4;
+  }
+  .team-grid .team-grid__groups {
+    margin-top: 5rem;
+  }
+  .team-grid .team-grid__group {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem;
+    padding-block: 3rem;
+  }
+  .team-grid .team-grid__group-intro {
+    grid-column: span 3 / span 3;
+  }
+  .team-grid .team-grid__people {
+    grid-column: span 9 / span 9;
+  }
+}
