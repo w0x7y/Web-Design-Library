@@ -1,0 +1,193 @@
+<!-- The prices follow the billing switch with CSS alone (:has(#pricing-three-tier-yearly:checked)) -->
+<section class="pricing-three-tier">
+  <div class="pricing-three-tier__inner">
+    <div class="pricing-three-tier__header">
+      <h2 class="pricing-three-tier__title">Know it&rsquo;s down before your customers do.</h2>
+      <p class="pricing-three-tier__lede">
+        Every plan checks from 14 regions and comes with a public status page. Pay monthly, or pay yearly and get
+        two months free.
+      </p>
+    </div>
+
+    <fieldset class="pricing-three-tier__billing">
+      <legend class="pricing-three-tier__sr-only">Billing period</legend>
+      <label class="pricing-three-tier__period">
+        <input type="radio" name="pricing-three-tier-billing" value="monthly" checked class="pricing-three-tier__sr-only" />
+        Monthly
+      </label>
+      <label class="pricing-three-tier__period">
+        <input id="pricing-three-tier-yearly" type="radio" name="pricing-three-tier-billing" value="yearly" class="pricing-three-tier__sr-only" />
+        Yearly
+        <span class="pricing-three-tier__saving">2 months free</span>
+      </label>
+    </fieldset>
+
+    <div class="pricing-three-tier__plans">
+      <!-- Hobby -->
+      <div class="pricing-three-tier__plan pricing-three-tier__plan--first">
+        <h3 class="pricing-three-tier__name">Hobby</h3>
+        <p class="pricing-three-tier__summary">For side projects and personal sites.</p>
+        <p class="pricing-three-tier__price">
+          <span class="pricing-three-tier__amount">$0</span>
+          <span class="pricing-three-tier__unit">per month</span>
+        </p>
+        <p class="pricing-three-tier__billed">Free for as long as you like</p>
+        <a href="#" class="pricing-three-tier__cta">Start monitoring</a>
+        <ul class="pricing-three-tier__features">
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            10 monitors
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Checks every 3 minutes
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Email alerts
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            One public status page
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            30 days of history
+          </li>
+        </ul>
+      </div>
+
+      <!-- Team: the highlighted plan, lifted above the other two on desktop -->
+      <div class="pricing-three-tier__plan pricing-three-tier__plan--featured">
+        <div class="pricing-three-tier__name-row">
+          <h3 class="pricing-three-tier__name">Team</h3>
+          <span class="pricing-three-tier__badge">Most popular</span>
+        </div>
+        <p class="pricing-three-tier__summary">For product teams with customers depending on them.</p>
+        <p class="pricing-three-tier__price">
+          <span class="pricing-three-tier__amount">
+            <span class="pricing-three-tier__monthly">$30</span>
+            <span class="pricing-three-tier__yearly">$25</span>
+          </span>
+          <span class="pricing-three-tier__unit">per month</span>
+        </p>
+        <p class="pricing-three-tier__billed">
+          <span class="pricing-three-tier__monthly">Billed monthly</span>
+          <span class="pricing-three-tier__yearly">$300 billed once a year</span>
+        </p>
+        <a href="#" class="pricing-three-tier__cta pricing-three-tier__cta--featured">Start a 14-day trial</a>
+        <ul class="pricing-three-tier__features">
+          <li class="pricing-three-tier__includes">Everything in Hobby, plus:</li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            50 monitors
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Checks every 30 seconds
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Slack, SMS and phone-call alerts
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            On-call rotations
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Status page on your own domain
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            One year of history
+          </li>
+        </ul>
+      </div>
+
+      <!-- Business -->
+      <div class="pricing-three-tier__plan pricing-three-tier__plan--last">
+        <h3 class="pricing-three-tier__name">Business</h3>
+        <p class="pricing-three-tier__summary">For companies with uptime written into their contracts.</p>
+        <p class="pricing-three-tier__price">
+          <span class="pricing-three-tier__amount">
+            <span class="pricing-three-tier__monthly">$90</span>
+            <span class="pricing-three-tier__yearly">$75</span>
+          </span>
+          <span class="pricing-three-tier__unit">per month</span>
+        </p>
+        <p class="pricing-three-tier__billed">
+          <span class="pricing-three-tier__monthly">Billed monthly</span>
+          <span class="pricing-three-tier__yearly">$900 billed once a year</span>
+        </p>
+        <a href="#" class="pricing-three-tier__cta">Start a 14-day trial</a>
+        <ul class="pricing-three-tier__features">
+          <li class="pricing-three-tier__includes">Everything in Team, plus:</li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            250 monitors
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Checks every 10 seconds
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            SAML single sign-on
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Audit log
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Monthly SLA reports
+          </li>
+          <li class="pricing-three-tier__feature">
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pricing-three-tier__check">
+              <path d="m3.5 8.5 3 3 6-7" />
+            </svg>
+            Support that answers within an hour
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="pricing-three-tier__note">
+      Prices in US dollars, before tax. Monitoring more than 250 endpoints?
+      <a href="#" class="pricing-three-tier__note-link">Talk to us</a>
+    </p>
+  </div>
+</section>

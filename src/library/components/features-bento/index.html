@@ -1,0 +1,182 @@
+<section class="features-bento">
+  <div aria-hidden="true" class="features-bento__glow"></div>
+
+  <div class="features-bento__inner">
+    <div class="features-bento__header">
+      <div class="features-bento__intro">
+        <h2 class="features-bento__title">Edit the conversation, not the waveform.</h2>
+        <p class="features-bento__lede">
+          Murmur transcribes every take while you record. Delete a sentence from the transcript and the audio goes
+          with it.
+        </p>
+      </div>
+      <a href="#" class="features-bento__cta">
+        Start editing free
+        <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="features-bento__arrow">
+          <path d="M2.5 8h10M8.5 4l4 4-4 4" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="features-bento__grid">
+      <!-- The transcript editor: struck words are cut from the audio, the highlight is the current selection -->
+      <article class="features-bento__tile features-bento__tile--editor">
+        <div class="features-bento__editor-head">
+          <h3 class="features-bento__name">Cut a sentence, cut the sound</h3>
+          <p class="features-bento__text features-bento__text--narrow">
+            Select words in the transcript and press delete. Murmur trims both tracks and smooths the join, so nobody
+            hears the edit.
+          </p>
+        </div>
+        <div class="features-bento__transcript">
+          <div>
+            <p class="features-bento__speaker features-bento__speaker--noor">Noor <span class="features-bento__timestamp">00:41</span></p>
+            <p class="features-bento__line">
+              So the first thing we did was <del class="features-bento__cut">um,</del> rent a
+              van, and <mark class="features-bento__selection">we drove north until the road ran out.</mark>
+            </p>
+          </div>
+          <div>
+            <p class="features-bento__speaker features-bento__speaker--theo">Theo <span class="features-bento__timestamp">00:52</span></p>
+            <p class="features-bento__line">
+              <del class="features-bento__cut">You know, like,</del> nobody told us the ferry
+              only runs on Tuesdays.
+            </p>
+          </div>
+        </div>
+        <svg aria-hidden="true" viewBox="0 0 960 96" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="4" stroke-linecap="round" class="features-bento__wave">
+          <defs>
+            <linearGradient id="features-bento-wave" x1="0" y1="0" x2="960" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="oklch(87.9% 0.169 91.605)" />
+              <stop offset="0.4" stop-color="oklch(70.5% 0.213 47.604)" />
+              <stop offset="0.7" stop-color="oklch(64.5% 0.246 16.439)" />
+              <stop offset="1" stop-color="oklch(66.7% 0.295 322.15)" />
+            </linearGradient>
+          </defs>
+          <rect x="412" y="0" width="120" height="96" class="features-bento__wave-cut-band" />
+          <path stroke="url(#features-bento-wave)" d="M4 31v34M12 25v46M20 28v40M28 23v50M36 23v50M44 34v28M52 36v24M60 22v52M68 33v30M76 35v26M84 28v40M92 36v24M100 35v26M108 40v16M116 41v14M124 44v8M132 42v12M140 42v12M148 42v12M156 40v16M164 39v18M172 41v14M180 33v30M188 32v32M196 33v30M204 36v24M212 19v58M220 25v46M228 48v0M236 48v0M244 48v0M252 48v0M260 13v70M268 32v32M276 32v32M284 31v34M292 19v58M300 30v36M308 28v40M316 34v28M324 33v30M332 35v26M340 36v24M348 33v30M356 33v30M364 28v40M372 30v36M380 26v44M388 26v44M396 23v50M404 28v40M412 35v26M532 37v22M540 38v20M548 35v26M556 26v44M564 21v54M572 35v26M580 21v54M588 32v32M596 15v66M604 24v48M612 9v78M620 7v82M628 20v56M636 10v76M644 27v42M652 34v28M660 26v44M668 37v22M676 36v24M684 35v26M692 35v26M700 40v16M708 48v0M716 48v0M724 48v0M732 39v18M740 38v20M748 36v24M756 35v26M764 34v28M772 32v32M780 27v42M788 31v34M796 32v32M804 27v42M812 34v28M820 34v28M828 24v48M836 31v34M844 32v32M852 39v18M860 35v26M868 33v30M876 40v16M884 33v30M892 32v32M900 38v20M908 30v36M916 31v34M924 26v44M932 30v36M940 21v54M948 19v58M956 33v30" />
+          <path class="features-bento__wave-cut" d="M420 25v46M428 24v48M436 26v44M444 32v32M452 31v34M460 38v20M468 33v30M476 37v22M484 40v16M492 42v12M500 37v22M508 37v22M516 42v12M524 36v24" />
+          <path stroke="#fff" stroke-width="2" d="M600 0v96" />
+        </svg>
+      </article>
+
+      <!-- Noise removal: the same phrase before and after -->
+      <article class="features-bento__tile">
+        <h3 class="features-bento__name">Studio sound in one click</h3>
+        <p class="features-bento__text">Room echo, laptop fans and street noise go. The voice stays.</p>
+        <div class="features-bento__compare">
+          <div class="features-bento__compare-row">
+            <span class="features-bento__compare-label">Before</span>
+            <svg aria-hidden="true" viewBox="0 0 320 40" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="features-bento__mini-wave features-bento__mini-wave--noisy">
+              <path d="M4 12v16M12 7v26M20 9v22M28 12v16M36 7v26M44 14v12M52 13v14M60 15v10M68 12v16M76 12v16M84 15v10M92 11v18M100 12v16M108 13v14M116 16v8M124 17v6M132 17v6M140 18v4M148 11v18M156 9v22M164 12v16M172 12v16M180 6v28M188 6v28M196 6v28M204 16v8M212 13v14M220 14v12M228 15v10M236 10v20M244 18v4M252 17v6M260 18v4M268 14v12M276 10v20M284 13v14M292 15v10M300 15v10M308 14v12M316 13v14" />
+            </svg>
+          </div>
+          <div class="features-bento__compare-row">
+            <span class="features-bento__compare-label">After</span>
+            <svg aria-hidden="true" viewBox="0 0 320 40" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="4" stroke-linecap="round" class="features-bento__mini-wave">
+              <defs>
+                <linearGradient id="features-bento-clean" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="oklch(87.9% 0.169 91.605)" />
+                  <stop offset="0.5" stop-color="oklch(70.5% 0.213 47.604)" />
+                  <stop offset="1" stop-color="oklch(64.5% 0.246 16.439)" />
+                </linearGradient>
+              </defs>
+              <path stroke="url(#features-bento-clean)" d="M4 16v8M12 13v14M20 7v26M28 12v16M36 12v16M44 13v14M52 18v4M60 18v4M68 19v2M76 15v10M84 18v4M92 15v10M100 16v8M108 8v24M116 20v0M124 20v0M132 20v0M140 20v0M148 17v6M156 14v12M164 17v6M172 17v6M180 11v18M188 17v6M196 16v8M204 17v6M212 20v0M220 19v2M228 17v6M236 11v18M244 20v0M252 20v0M260 20v0M268 11v18M276 15v10M284 18v4M292 18v4M300 16v8M308 13v14M316 11v18" />
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <!-- Filler words, counted and struck -->
+      <article class="features-bento__tile">
+        <h3 class="features-bento__name">Every &ldquo;um&rdquo;, gone at once</h3>
+        <p class="features-bento__text">Murmur finds the filler words in an episode. Review them, then remove the lot.</p>
+        <ul class="features-bento__chips">
+        <li class="features-bento__chip">
+          <del class="features-bento__chip-word">um</del>
+          <span class="features-bento__chip-count">38</span>
+        </li>
+        <li class="features-bento__chip">
+          <del class="features-bento__chip-word">uh</del>
+          <span class="features-bento__chip-count">21</span>
+        </li>
+        <li class="features-bento__chip">
+          <del class="features-bento__chip-word">you know</del>
+          <span class="features-bento__chip-count">17</span>
+        </li>
+        <li class="features-bento__chip">
+          <del class="features-bento__chip-word">like</del>
+          <span class="features-bento__chip-count">52</span>
+        </li>
+        <li class="features-bento__chip">
+          <del class="features-bento__chip-word">sort of</del>
+          <span class="features-bento__chip-count">9</span>
+        </li>
+        </ul>
+      </article>
+
+      <!-- Remote guests, each recorded on their own machine -->
+      <article class="features-bento__tile">
+        <h3 class="features-bento__name">Guests record locally</h3>
+        <p class="features-bento__text">
+          Every voice is captured at 48 kHz on its own machine and uploads as you talk. A dropped call never costs a
+          take.
+        </p>
+        <ul class="features-bento__guests">
+          <li class="features-bento__guest">
+            <span aria-hidden="true" class="features-bento__avatar features-bento__avatar--noor">NA</span>
+            <span class="features-bento__guest-info">
+              <span class="features-bento__guest-name">Noor Aziz</span>
+              <span class="features-bento__guest-place">Lisbon</span>
+            </span>
+            <span class="features-bento__status">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="features-bento__status-icon"><path d="m3.5 8.5 3 3 6-7" /></svg>
+              Uploaded
+            </span>
+          </li>
+          <li class="features-bento__guest">
+            <span aria-hidden="true" class="features-bento__avatar features-bento__avatar--theo">TH</span>
+            <span class="features-bento__guest-info">
+              <span class="features-bento__guest-name">Theo Hale</span>
+              <span class="features-bento__guest-place">Bergen</span>
+            </span>
+            <span class="features-bento__status features-bento__status--progress">
+              <span aria-hidden="true" class="features-bento__progress">
+                <span class="features-bento__progress-bar"></span>
+              </span>
+              72%
+            </span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Chapters: the one tile drenched in the gradient -->
+      <article class="features-bento__tile features-bento__tile--chapters">
+        <div>
+          <h3 class="features-bento__name">Chapters and show notes, drafted</h3>
+          <p class="features-bento__text features-bento__text--dark">
+            Murmur splits the episode where the topic turns and writes notes you can publish as they are, or edit.
+          </p>
+        </div>
+        <ol class="features-bento__chapters">
+        <li class="features-bento__chapter">
+          <span class="features-bento__time">00:00</span>
+          Cold open
+        </li>
+        <li class="features-bento__chapter">
+          <span class="features-bento__time">03:12</span>
+          Why we left the city
+        </li>
+        <li class="features-bento__chapter">
+          <span class="features-bento__time">18:40</span>
+          The ferry that never came
+        </li>
+        <li class="features-bento__chapter">
+          <span class="features-bento__time">41:05</span>
+          What we would do differently
+        </li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
