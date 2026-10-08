@@ -27,7 +27,8 @@ export function PreviewSurface({
     .join(' ')
   return (
     <div data-preview-backdrop="" data-capture={capture ? '' : undefined} className={backdrop}>
-      {fontHref && <link rel="stylesheet" href={fontHref} precedence="default" />}
+      {/* crossOrigin lets PNG capture read this sheet's @font-face rules (cross-origin sheets without CORS are unreadable) and embed the fonts. */}
+      {fontHref && <link rel="stylesheet" href={fontHref} crossOrigin="anonymous" precedence="default" />}
       <div data-capture-root="" className={kind === 'section' ? 'w-full' : 'w-fit'}>
         {children}
       </div>
