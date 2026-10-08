@@ -2,7 +2,7 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'dropdowns-dark',
-  name: 'Dropdown triggers',
+  name: 'Dropdowns — Dark',
   category: 'dropdowns',
   tags: ['dark', 'minimal'],
   description:

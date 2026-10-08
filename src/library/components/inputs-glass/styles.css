@@ -124,7 +124,7 @@
 /* Invalid: the attribute drives the style, and the message below says what to fix */
 .inputs-glass .inputs-glass__control[aria-invalid="true"] {
   border-color: oklch(81% 0.117 11.638); /* rose-300 */
-  outline-color: oklch(81% 0.117 11.638 / 0.4); /* rose-300 / 40% */
+  outline-color: oklch(81% 0.117 11.638 / 0.7); /* rose-300 / 70%: 5.4:1 against the panel */
 }
 
 .inputs-glass .inputs-glass__error {

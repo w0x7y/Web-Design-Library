@@ -34,7 +34,7 @@ export default function InputsGlass() {
           defaultValue="aino.virtanen@"
           aria-invalid="true"
           aria-describedby="inputs-glass-email-error"
-          className="mt-1.5 block h-10 w-full rounded-xl border border-white/35 bg-stone-950/50 px-3.5 text-[0.9375rem] text-white backdrop-blur-xl transition-colors placeholder:text-stone-400 hover:border-white/55 focus-visible:border-amber-200 focus-visible:outline-3 focus-visible:outline-amber-200/40 aria-invalid:border-rose-300 aria-invalid:outline-rose-300/40"
+          className="mt-1.5 block h-10 w-full rounded-xl border border-white/35 bg-stone-950/50 px-3.5 text-[0.9375rem] text-white backdrop-blur-xl transition-colors placeholder:text-stone-400 hover:border-white/55 focus-visible:border-amber-200 focus-visible:outline-3 focus-visible:outline-amber-200/40 aria-invalid:border-rose-300 aria-invalid:outline-rose-300/70"
         />
         <p id="inputs-glass-email-error" className="mt-1.5 flex items-center gap-1.5 text-[0.8125rem] text-rose-200">
           <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" className="size-4 shrink-0">
