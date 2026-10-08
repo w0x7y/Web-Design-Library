@@ -6,4 +6,5 @@ export default [
     route('browse/:category', 'routes/browse.tsx', { id: 'browse-category' }),
     route('*', 'routes/not-found.tsx'),
   ]),
+  route('preview/:slug', 'routes/preview.tsx'),
 ] satisfies RouteConfig
