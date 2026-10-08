@@ -1,0 +1,247 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-newsletter, .cta-newsletter *, .cta-newsletter *::before, .cta-newsletter *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-newsletter { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-newsletter :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-newsletter a { color: inherit; text-decoration: inherit; }
+.cta-newsletter :is(b, strong) { font-weight: bolder; }
+.cta-newsletter :is(ol, ul, menu) { list-style: none; }
+.cta-newsletter :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-newsletter :is(img, video) { max-width: 100%; height: auto; }
+.cta-newsletter :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-newsletter ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-newsletter table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-newsletter summary { display: list-item; }
+
+/* Component */
+.cta-newsletter {
+  background-color: #fff;
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  color: oklch(21.6% 0.006 56.043); /* stone-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cta-newsletter .cta-newsletter__inner {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 5rem 1.5rem;
+}
+
+.cta-newsletter .cta-newsletter__title {
+  max-width: 56rem;
+  font-size: 2.75rem;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* A dark rule under the headline opens the body */
+.cta-newsletter .cta-newsletter__body {
+  display: grid;
+  gap: 4rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid oklch(21.6% 0.006 56.043); /* stone-900 */
+}
+
+/* Keeps the measure readable while the body is stacked */
+.cta-newsletter .cta-newsletter__pitch {
+  max-width: 36rem;
+}
+
+.cta-newsletter .cta-newsletter__lede {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+  text-wrap: pretty;
+}
+
+.cta-newsletter .cta-newsletter__form {
+  margin-top: 2.5rem;
+}
+
+.cta-newsletter .cta-newsletter__label {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* Input and button share one underline, which darkens and doubles while the input has keyboard focus */
+.cta-newsletter .cta-newsletter__field {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  border-bottom: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.cta-newsletter .cta-newsletter__field:has(input:focus-visible) {
+  border-color: oklch(21.6% 0.006 56.043); /* stone-900 */
+  box-shadow: 0 1px 0 currentColor;
+}
+
+.cta-newsletter .cta-newsletter__input {
+  flex: 1;
+  min-width: 0;
+  height: 3rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  outline-style: none;
+}
+
+.cta-newsletter .cta-newsletter__input::placeholder {
+  color: oklch(55.3% 0.013 58.071); /* stone-500 */
+}
+
+.cta-newsletter .cta-newsletter__submit {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cta-newsletter .cta-newsletter__arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.cta-newsletter .cta-newsletter__hint {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  color: oklch(55.3% 0.013 58.071); /* stone-500 */
+}
+
+.cta-newsletter .cta-newsletter__recent-title {
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-style: italic;
+}
+
+.cta-newsletter .cta-newsletter__list {
+  margin-top: 0.5rem;
+}
+
+.cta-newsletter .cta-newsletter__item:not(:last-child) {
+  border-bottom: 1px solid oklch(92.3% 0.003 48.717); /* stone-200 */
+}
+
+.cta-newsletter .cta-newsletter__letter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-block: 1rem;
+  border-radius: 0.25rem;
+}
+
+.cta-newsletter .cta-newsletter__letter-title {
+  font-size: 1.375rem;
+  line-height: 1.375;
+  letter-spacing: -0.01em;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.cta-newsletter .cta-newsletter__letter-meta {
+  flex-shrink: 0;
+  font-size: 0.9375rem;
+  color: oklch(55.3% 0.013 58.071); /* stone-500 */
+}
+
+.cta-newsletter .cta-newsletter__archive {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-color: oklch(86.9% 0.005 56.366); /* stone-300 */
+  text-underline-offset: 4px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.cta-newsletter .cta-newsletter__letter:focus-visible {
+  outline: 2px solid oklch(21.6% 0.006 56.043); /* stone-900 */
+  outline-offset: 2px;
+}
+
+.cta-newsletter :is(.cta-newsletter__submit, .cta-newsletter__archive):focus-visible {
+  outline: 2px solid oklch(21.6% 0.006 56.043); /* stone-900 */
+  outline-offset: 4px;
+}
+
+/* Windows high contrast: the input keeps a visible focus outline */
+@media (forced-colors: active) {
+  .cta-newsletter .cta-newsletter__input {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+@media (hover: hover) {
+  .cta-newsletter .cta-newsletter__submit:hover .cta-newsletter__arrow {
+    translate: 0.25rem 0;
+  }
+  .cta-newsletter .cta-newsletter__letter:hover .cta-newsletter__letter-title {
+    text-decoration-color: oklch(21.6% 0.006 56.043); /* stone-900 */
+  }
+  .cta-newsletter .cta-newsletter__archive:hover {
+    text-decoration-color: oklch(21.6% 0.006 56.043); /* stone-900 */
+  }
+}
+
+@media (width >= 40rem) {
+  .cta-newsletter .cta-newsletter__inner {
+    padding-block: 6rem;
+  }
+  .cta-newsletter .cta-newsletter__title {
+    font-size: 3.75rem;
+  }
+  .cta-newsletter .cta-newsletter__lede {
+    font-size: 1.25rem;
+  }
+  .cta-newsletter .cta-newsletter__letter {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+}
+
+/* From 1024px: pitch and form in columns 1–5, recent letters in columns 7–12 */
+@media (width >= 64rem) {
+  .cta-newsletter .cta-newsletter__inner {
+    padding: 8rem 2rem;
+  }
+  .cta-newsletter .cta-newsletter__title {
+    font-size: 4.5rem;
+  }
+  .cta-newsletter .cta-newsletter__body {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+  .cta-newsletter .cta-newsletter__pitch {
+    grid-column: span 5 / span 5;
+  }
+  .cta-newsletter .cta-newsletter__recent {
+    grid-column: 7 / span 6;
+  }
+}
