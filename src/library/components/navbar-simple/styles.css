@@ -1,0 +1,276 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.navbar-simple, .navbar-simple *, .navbar-simple *::before, .navbar-simple *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.navbar-simple { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.navbar-simple :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.navbar-simple a { color: inherit; text-decoration: inherit; }
+.navbar-simple :is(b, strong) { font-weight: bolder; }
+.navbar-simple :is(ol, ul, menu) { list-style: none; }
+.navbar-simple :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.navbar-simple :is(img, video) { max-width: 100%; height: auto; }
+.navbar-simple :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.navbar-simple ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.navbar-simple table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.navbar-simple summary { display: list-item; }
+
+/* Component */
+.navbar-simple {
+  position: relative;
+  border-bottom: 1px solid oklch(92% 0.004 286.32); /* zinc-200 */
+  background-color: #fff;
+  color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-simple .navbar-simple__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 80rem;
+  height: 4rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.navbar-simple .navbar-simple__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.navbar-simple .navbar-simple__logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.navbar-simple .navbar-simple__wordmark {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.navbar-simple .navbar-simple__nav {
+  display: none;
+}
+
+.navbar-simple .navbar-simple__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar-simple .navbar-simple__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  padding-inline: 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(44.2% 0.017 285.786); /* zinc-600 */
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-simple .navbar-simple__link--current {
+  color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+}
+
+/* The current page is marked by a 1px line that sits on the header's bottom border */
+.navbar-simple .navbar-simple__link--current::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.75rem;
+  bottom: -15px;
+  height: 1px;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+}
+
+.navbar-simple .navbar-simple__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.navbar-simple .navbar-simple__login {
+  display: none;
+  align-items: center;
+  height: 2.25rem;
+  padding-inline: 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(44.2% 0.017 285.786); /* zinc-600 */
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-simple .navbar-simple__cta {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  padding-inline: 1rem;
+  border-radius: 0.5rem;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile menu */
+.navbar-simple .navbar-simple__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid oklch(92% 0.004 286.32); /* zinc-200 */
+  border-radius: 0.5rem;
+  color: oklch(37% 0.013 285.805); /* zinc-700 */
+  list-style-type: none;
+  cursor: pointer;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-simple .navbar-simple__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.navbar-simple .navbar-simple__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.navbar-simple .navbar-simple__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.navbar-simple .navbar-simple__icon--close,
+.navbar-simple .navbar-simple__menu[open] .navbar-simple__icon--open {
+  display: none;
+}
+
+.navbar-simple .navbar-simple__menu[open] .navbar-simple__icon--close {
+  display: block;
+}
+
+.navbar-simple .navbar-simple__panel {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: 10;
+  padding: 0.5rem 1rem 1.25rem;
+  border-bottom: 1px solid oklch(92% 0.004 286.32); /* zinc-200 */
+  background-color: #fff;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.navbar-simple .navbar-simple__panel-links > li:not(:last-child) {
+  border-bottom: 1px solid oklch(96.7% 0.001 286.375); /* zinc-100 */
+}
+
+.navbar-simple .navbar-simple__panel-link {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: oklch(37% 0.013 285.805); /* zinc-700 */
+}
+
+.navbar-simple .navbar-simple__panel-link--current {
+  justify-content: space-between;
+  color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+}
+
+.navbar-simple .navbar-simple__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+}
+
+.navbar-simple .navbar-simple__panel-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  margin-top: 0.75rem;
+  border: 1px solid oklch(92% 0.004 286.32); /* zinc-200 */
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-simple :is(.navbar-simple__link, .navbar-simple__login, .navbar-simple__cta, .navbar-simple__toggle, .navbar-simple__panel-link, .navbar-simple__panel-login):focus-visible {
+  outline: 2px solid oklch(14.1% 0.005 285.823); /* zinc-950 */
+  outline-offset: 2px;
+}
+
+.navbar-simple .navbar-simple__brand:focus-visible {
+  outline: 2px solid oklch(14.1% 0.005 285.823); /* zinc-950 */
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .navbar-simple .navbar-simple__link:hover {
+    background-color: oklch(96.7% 0.001 286.375); /* zinc-100 */
+    color: oklch(14.1% 0.005 285.823);
+  }
+  .navbar-simple .navbar-simple__login:hover,
+  .navbar-simple .navbar-simple__panel-link:hover {
+    color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  }
+  .navbar-simple .navbar-simple__cta:hover {
+    background-color: oklch(27.4% 0.006 286.033); /* zinc-800 */
+  }
+  .navbar-simple .navbar-simple__toggle:hover {
+    background-color: oklch(98.5% 0 0); /* zinc-50 */
+    color: oklch(14.1% 0.005 285.823);
+  }
+  .navbar-simple .navbar-simple__panel-login:hover {
+    background-color: oklch(98.5% 0 0); /* zinc-50 */
+  }
+}
+
+@media (width >= 40rem) {
+  .navbar-simple .navbar-simple__inner {
+    padding-inline: 1.5rem;
+  }
+  .navbar-simple .navbar-simple__panel {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* From 1024px the links and Log in show inline and the menu button goes away */
+@media (width >= 64rem) {
+  .navbar-simple .navbar-simple__inner {
+    padding-inline: 2rem;
+  }
+  .navbar-simple .navbar-simple__nav {
+    display: block;
+  }
+  .navbar-simple .navbar-simple__login {
+    display: flex;
+  }
+  .navbar-simple .navbar-simple__menu {
+    display: none;
+  }
+}

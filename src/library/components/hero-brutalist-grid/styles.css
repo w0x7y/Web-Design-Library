@@ -1,0 +1,299 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.hero-brutalist-grid, .hero-brutalist-grid *, .hero-brutalist-grid *::before, .hero-brutalist-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.hero-brutalist-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.hero-brutalist-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.hero-brutalist-grid a { color: inherit; text-decoration: inherit; }
+.hero-brutalist-grid :is(b, strong) { font-weight: bolder; }
+.hero-brutalist-grid :is(ol, ul, menu) { list-style: none; }
+.hero-brutalist-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.hero-brutalist-grid :is(img, video) { max-width: 100%; height: auto; }
+.hero-brutalist-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.hero-brutalist-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.hero-brutalist-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.hero-brutalist-grid summary { display: list-item; }
+
+/* Component */
+.hero-brutalist-grid {
+  padding: 0.75rem;
+  background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
+  font-family: "Martian Mono", ui-monospace, monospace;
+  color: #000;
+}
+
+/* The black grid lines are the container showing through 4px gaps between cells */
+.hero-brutalist-grid .hero-brutalist-grid__grid {
+  display: grid;
+  gap: 0.25rem;
+  border: 4px solid #000;
+  background-color: #000;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__logo {
+  width: 1rem;
+  height: 1rem;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__signal {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: oklch(70.5% 0.213 47.604); /* orange-500 */
+  box-shadow: 0 0 0 2px #000;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__headline {
+  padding: 2.5rem 1rem 2rem;
+  background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
+}
+
+/* 11ch keeps the break at "Bare metal, / billed by / the second." at every size */
+.hero-brutalist-grid .hero-brutalist-grid__title {
+  max-width: 11ch;
+  font-size: 3rem;
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  font-stretch: 75%;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__pitch {
+  padding: 1rem;
+  background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__copy {
+  max-width: 24rem;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__docs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__docs:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__docs-arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 11rem;
+  padding: 1rem;
+  background-color: oklch(70.5% 0.213 47.604); /* orange-500 */
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__cta:focus-visible {
+  outline: 4px solid #000;
+  outline-offset: -8px;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__cta-note {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  text-transform: uppercase;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__cta-label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.875rem;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  font-stretch: 75%;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__cta-arrow {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Spec sheet: rows stretch to fill the cell */
+.hero-brutalist-grid .hero-brutalist-grid__specs {
+  display: flex;
+  flex-direction: column;
+  background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__spec {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__spec:not(:last-child) {
+  border-bottom: 2px solid #000;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__spec dt {
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+  text-transform: uppercase;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__spec dd {
+  text-align: right;
+  font-weight: 600;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__terminal {
+  padding: 1rem;
+  background-color: #000;
+  color: oklch(86.9% 0.005 56.366); /* stone-300 */
+}
+
+/* Browsers give <pre> a monospace stack of its own, so name the font again */
+.hero-brutalist-grid .hero-brutalist-grid__code {
+  overflow-x: auto;
+  font-family: "Martian Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.625;
+  font-stretch: 87.5%;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__command {
+  color: #fff;
+}
+
+.hero-brutalist-grid .hero-brutalist-grid__ready {
+  color: oklch(75% 0.183 55.934); /* orange-400 */
+}
+
+@media (hover: hover) {
+  .hero-brutalist-grid .hero-brutalist-grid__docs:hover {
+    background-color: #000;
+    color: oklch(92.3% 0.003 48.717); /* stone-200 */
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__cta:hover {
+    background-color: #000;
+    color: oklch(70.5% 0.213 47.604); /* orange-500 */
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__cta:hover .hero-brutalist-grid__cta-arrow {
+    translate: 0.25rem 0;
+  }
+}
+
+@media (width >= 40rem) {
+  .hero-brutalist-grid {
+    padding: 1.25rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hero-brutalist-grid :is(.hero-brutalist-grid__bar, .hero-brutalist-grid__headline) {
+    grid-column: span 2 / span 2;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__title {
+    font-size: 4.5rem;
+  }
+}
+
+/* Twelve columns: headline (8) beside the spec sheet (4), then pitch, terminal and call to action (4 each) */
+@media (width >= 64rem) {
+  .hero-brutalist-grid {
+    padding: 1.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__bar {
+    grid-column: span 12 / span 12;
+    padding-inline: 1.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__headline {
+    grid-column: span 8 / span 8;
+    grid-row-start: 2;
+    padding: 3.5rem 1.5rem 2.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__title {
+    font-size: 6rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__specs {
+    grid-column: 9 / span 4;
+    grid-row-start: 2;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__spec {
+    padding-inline: 1.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__pitch {
+    grid-column: 1 / span 4;
+    grid-row-start: 3;
+    padding: 1.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__terminal {
+    grid-column: 5 / span 4;
+    grid-row-start: 3;
+    padding: 1.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__code {
+    font-size: 0.8125rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__cta {
+    grid-column: 9 / span 4;
+    grid-row-start: 3;
+    padding: 1.5rem;
+  }
+  .hero-brutalist-grid .hero-brutalist-grid__cta-label {
+    font-size: 2.25rem;
+  }
+}
+
+@media (width >= 80rem) {
+  .hero-brutalist-grid .hero-brutalist-grid__title {
+    font-size: 7rem;
+  }
+}

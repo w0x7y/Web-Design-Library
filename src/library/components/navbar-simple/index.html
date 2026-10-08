@@ -1,0 +1,56 @@
+<header class="navbar-simple">
+  <div class="navbar-simple__inner">
+    <a href="#" class="navbar-simple__brand">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="navbar-simple__logo">
+        <rect x="3" y="4" width="18" height="3.5" rx="1.75" />
+        <rect x="3" y="10.25" width="13" height="3.5" rx="1.75" />
+        <rect x="3" y="16.5" width="8" height="3.5" rx="1.75" />
+      </svg>
+      <span class="navbar-simple__wordmark">Linea</span>
+    </a>
+
+    <nav aria-label="Main" class="navbar-simple__nav">
+      <ul class="navbar-simple__links">
+        <li><a href="#" class="navbar-simple__link">Product</a></li>
+        <li><a href="#" aria-current="page" class="navbar-simple__link navbar-simple__link--current">Docs</a></li>
+        <li><a href="#" class="navbar-simple__link">Pricing</a></li>
+        <li><a href="#" class="navbar-simple__link">Customers</a></li>
+        <li><a href="#" class="navbar-simple__link">Changelog</a></li>
+      </ul>
+    </nav>
+
+    <div class="navbar-simple__actions">
+      <a href="#" class="navbar-simple__login">Log in</a>
+      <a href="#" class="navbar-simple__cta">Start writing</a>
+
+      <!-- Mobile menu: a native disclosure, so it opens and closes without JavaScript -->
+      <details class="navbar-simple__menu">
+        <summary class="navbar-simple__toggle">
+          <span class="navbar-simple__sr-only">Menu</span>
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="navbar-simple__icon navbar-simple__icon--open">
+            <path d="M2.5 5h11M2.5 11h11" />
+          </svg>
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="navbar-simple__icon navbar-simple__icon--close">
+            <path d="m4 4 8 8M12 4l-8 8" />
+          </svg>
+        </summary>
+
+        <nav aria-label="Main" class="navbar-simple__panel">
+          <ul class="navbar-simple__panel-links">
+            <li><a href="#" class="navbar-simple__panel-link">Product</a></li>
+            <li>
+              <a href="#" aria-current="page" class="navbar-simple__panel-link navbar-simple__panel-link--current">
+                Docs
+                <span aria-hidden="true" class="navbar-simple__dot"></span>
+              </a>
+            </li>
+            <li><a href="#" class="navbar-simple__panel-link">Pricing</a></li>
+            <li><a href="#" class="navbar-simple__panel-link">Customers</a></li>
+            <li><a href="#" class="navbar-simple__panel-link">Changelog</a></li>
+          </ul>
+          <a href="#" class="navbar-simple__panel-login">Log in</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

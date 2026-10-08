@@ -39,4 +39,5 @@ export const IMAGES = {
   laptopCodeDesk: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80',
   laptopTyping: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1600&q=80',
   mountainsDawn: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80',
+  hikerRidgeHaze: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80',
 } as const

@@ -2,10 +2,29 @@ import { readFile } from 'node:fs/promises'
 import { expect, test, type Page } from '@playwright/test'
 import { PNG } from 'pngjs'
 import { loadLibrary } from '../scripts/load-library'
+import type { CategoryId, StyleTag } from '../src/library/taxonomy'
 
 const ITEMS = await loadLibrary()
 const LIBRARY = ITEMS.map((item) => item.entry.meta)
 const HERO = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry.sources
+
+// How many cards browse should show, worked out from the library on disk the way the UI filters:
+// exact category, every selected tag, and every search term in the name or description (case-insensitive).
+function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: StyleTag[]; q?: string }): number {
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean)
+  return LIBRARY.filter(
+    (meta) =>
+      (category === undefined || meta.category === category) &&
+      tags.every((tag) => meta.tags.includes(tag)) &&
+      terms.every((term) => meta.name.toLowerCase().includes(term) || meta.description.toLowerCase().includes(term)),
+  ).length
+}
+
+// A filter assertion only means something if the filter keeps some cards and drops others.
+function expectNarrowing(count: number) {
+  expect(count).toBeGreaterThan(0)
+  expect(count).toBeLessThan(LIBRARY.length)
+}
 
 test('home page renders with site title', async ({ page }) => {
   await page.goto('/')
@@ -38,29 +57,35 @@ test('agent files are served', async ({ request }) => {
 })
 
 test('browse lists all components and filters by category', async ({ page }) => {
+  const heroes = expectedCount({ category: 'hero' })
+  expectNarrowing(heroes)
   await page.goto('/')
-  await expect(page.getByTestId('component-card')).toHaveCount(3)
+  await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
   await page.getByRole('link', { name: /^Hero/ }).first().click()
   await expect(page).toHaveURL(/\/browse\/hero/)
   await expect(page.getByRole('heading', { level: 1, name: 'Hero' })).toBeVisible()
-  await expect(page.getByTestId('component-card')).toHaveCount(1)
+  await expect(page.getByTestId('component-card')).toHaveCount(heroes)
 })
 
 test('search and tag filters sync with the URL', async ({ page }) => {
+  const glass = expectedCount({ q: 'glass' })
+  const minimal = expectedCount({ tags: ['minimal'] })
+  expectNarrowing(glass)
+  expectNarrowing(minimal)
   await page.goto('/')
   await page.getByRole('searchbox', { name: 'Search components' }).fill('glass')
   await expect(page).toHaveURL(/q=glass/)
-  await expect(page.getByTestId('component-card')).toHaveCount(1)
+  await expect(page.getByTestId('component-card')).toHaveCount(glass)
   await page.goto('/?tags=minimal')
   await expect(page.getByRole('button', { name: 'minimal', pressed: true })).toBeVisible()
-  await expect(page.getByTestId('component-card')).toHaveCount(2)
+  await expect(page.getByTestId('component-card')).toHaveCount(minimal)
 })
 
 test('zero results show empty state with working reset', async ({ page }) => {
   await page.goto('/?q=zzzz&tags=brutalist,unknown')
   await expect(page.getByText('No components match')).toBeVisible()
   await page.getByRole('button', { name: 'Clear filters' }).click()
-  await expect(page.getByTestId('component-card')).toHaveCount(3)
+  await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
 })
 
 test('site dark mode does not restyle component renders', async ({ page }) => {
