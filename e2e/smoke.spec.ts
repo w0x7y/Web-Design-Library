@@ -42,6 +42,8 @@ test('preview ?capture=1 freezes motion after hydration', async ({ page }) => {
 
 test('preview without ?capture=1 keeps motion', async ({ page }) => {
   await page.goto(previewPath('buttons-minimal'))
+  // Ready means hydrated, so a capture flag would have been set by now.
+  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'ready')
   await expect(page.locator('[data-capture-root] .animate-spin').first()).toHaveCSS('animation-name', 'spin')
   await expect(page.locator('[data-preview-backdrop]')).not.toHaveAttribute('data-capture')
 })

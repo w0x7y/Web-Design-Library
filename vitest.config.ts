@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
+  // The `~/` alias for app/ (tsconfig.json paths), as vite.config.ts resolves it for the app.
+  resolve: { tsconfigPaths: true },
   test: {
     environment: 'node',
     include: ['src/**/*.test.ts', 'app/**/*.test.ts', 'scripts/**/*.test.ts'],

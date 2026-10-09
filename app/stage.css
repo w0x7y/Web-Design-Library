@@ -12,6 +12,8 @@
 
 [data-preview-backdrop] {
   --stage-padding: 48px;
+  /* As Tailwind's preflight sets it on the preview page; the parity page has no preflight. */
+  box-sizing: border-box;
   background-color: #fff;
   color: #000;
   color-scheme: light;

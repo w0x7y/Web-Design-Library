@@ -35,4 +35,9 @@ describe('listComponentSlugs with a real directory', () => {
   test('returns sorted directory names, ignoring files', () => {
     expect(listComponentSlugs(tmp)).toEqual(['a', 'b'])
   })
+
+  // Only a missing folder means "no components"; anything else must fail the build, not pre-render an empty library.
+  test('throws when the path is not a directory', () => {
+    expect(() => listComponentSlugs(join(tmp, 'x.txt'))).toThrow(/ENOTDIR/)
+  })
 })
