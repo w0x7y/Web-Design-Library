@@ -7,7 +7,7 @@ import { ComponentCard } from '~/components/ComponentCard'
 import { NotFoundView } from '~/components/NotFoundView'
 import { PreviewFrame } from '~/components/PreviewFrame'
 import { ViewportToggle } from '~/components/ViewportToggle'
-import { copyWithFeedback } from '~/lib/copy-feedback'
+import { useComponentActions } from '~/lib/component-actions'
 import { filtersSearch } from '~/lib/filters'
 import { useFormatPreference } from '~/lib/format-preference'
 import { highlight } from '~/lib/highlight.server'
@@ -86,6 +86,8 @@ function ComponentDetail({
   const [viewport, setViewport] = useState<ViewportId>('desktop')
   const id = useId()
   const codeRef = useRef<HTMLDivElement>(null)
+  // Unmounting (opening another component remounts this) aborts a running capture and silences its toasts.
+  const { actions, busy } = useComponentActions(component, sources)
   const related = relatedMetas(component, ALL)
   const categoryLabel = CATEGORY_LABELS[component.category]
 
@@ -100,15 +102,6 @@ function ComponentDetail({
     range.selectNodeContents(pre)
     selection.removeAllRanges()
     selection.addRange(range)
-  }
-
-  function copyFile({ name, code }: { name: string; code: string }) {
-    void copyWithFeedback(code, {
-      // Component.tsx is the whole React code; a single HTML or CSS file is not "HTML + CSS", so it is named.
-      message: format === 'react' ? 'Copied React code' : `Copied ${name}`,
-      event: { name: 'copy_code', slug: component.slug, format },
-      onFailure: () => revealCode(name),
-    })
   }
 
   return (
@@ -148,7 +141,7 @@ function ComponentDetail({
       </ul>
 
       <div className="mt-6">
-        <ActionBar meta={component} sources={sources} format={format} onFormatChange={onFormatChange} onCopyFailed={() => revealCode()} />
+        <ActionBar actions={actions} busy={busy} format={format} onFormatChange={onFormatChange} onCopyRefused={() => revealCode()} />
       </div>
 
       <div className="mt-8 flex flex-wrap items-center">
@@ -165,7 +158,12 @@ function ComponentDetail({
         <PreviewFrame slug={component.slug} name={component.name} kind={component.preview.kind} viewport={viewport} />
       </div>
       <div ref={codeRef} role="tabpanel" id={`${id}-code`} aria-labelledby={`${id}-code-tab`} hidden={tab !== 'code'} className="mt-4">
-        <CodeView format={format} highlighted={highlighted} sources={sources} onCopyFile={copyFile} />
+        <CodeView
+          format={format}
+          highlighted={highlighted}
+          sources={sources}
+          onCopyFile={(file) => void actions.copyFile(format, file, () => revealCode(file.name))}
+        />
       </div>
 
       {related.length > 0 && (

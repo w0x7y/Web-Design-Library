@@ -8,18 +8,20 @@ const ITEM =
 
 /**
  * The Download menu button: a disclosure menu (aria menu pattern) with a PNG per size and a
- * Transparent background switch. Toggling the switch keeps the menu open; picking a size closes it.
- * The trigger's look and content come from the parent, so it matches the other action buttons.
+ * Transparent background switch. Toggling the switch keeps the menu open; picking a size closes it
+ * and returns focus to the trigger. While `busy` the trigger is aria-disabled, so it keeps focus,
+ * and it won't open. The trigger's look and content come from the parent, so it matches the other
+ * action buttons.
  */
 export function DownloadMenu({
-  disabled,
+  busy,
   transparent,
   onTransparentChange,
   onDownload,
   buttonClassName,
   children,
 }: {
-  disabled: boolean
+  busy: boolean
   transparent: boolean
   onTransparentChange(transparent: boolean): void
   onDownload(viewport: CaptureViewport): void
@@ -48,6 +50,7 @@ export function DownloadMenu({
   }, [open])
 
   function openMenu(focus: 'first' | 'last') {
+    if (busy) return
     focusOnOpen.current = focus
     setOpen(true)
   }
@@ -94,7 +97,7 @@ export function DownloadMenu({
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={open ? menuId : undefined}
-        disabled={disabled}
+        aria-disabled={busy}
         onClick={() => (open ? setOpen(false) : openMenu('first'))}
         onKeyDown={onTriggerKeyDown}
         className={buttonClassName}

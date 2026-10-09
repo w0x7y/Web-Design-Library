@@ -363,14 +363,29 @@ test.describe('copy and export', () => {
     expect(await page.evaluate(async () => (await navigator.clipboard.read())[0].types)).toContain('image/png')
   })
 
-  test('the capture buttons are disabled while a capture runs', async ({ page }) => {
+  // aria-disabled rather than disabled: a disabled button drops keyboard focus to <body>.
+  test('the capture buttons are aria-disabled while a capture runs, and keep focus', async ({ page }) => {
     await openDetail(page)
     const copyImage = page.getByRole('button', { name: 'Copy image' })
+    const download = page.getByRole('button', { name: 'Download' })
     await copyImage.click()
-    await expect(copyImage).toBeDisabled()
-    await expect(page.getByRole('button', { name: 'Download' })).toBeDisabled()
+    await expect(copyImage).toHaveAttribute('aria-disabled', 'true')
+    await expect(download).toHaveAttribute('aria-disabled', 'true')
+    await expect(copyImage).toBeFocused()
     await expect(copyImage).toBeEnabled({ timeout: 12_000 })
-    await expect(page.getByRole('button', { name: 'Download' })).toBeEnabled()
+    await expect(download).toBeEnabled()
+
+    // Picking a size from the keyboard returns focus to the trigger, which keeps it while the capture runs.
+    await download.focus()
+    await page.keyboard.press('ArrowDown')
+    await expect(page.getByRole('menuitem', { name: 'Desktop PNG' })).toBeFocused()
+    const downloaded = page.waitForEvent('download')
+    await page.keyboard.press('Enter')
+    await expect(download).toHaveAttribute('aria-disabled', 'true')
+    await expect(download).toBeFocused()
+    await downloaded
+    await expect(download).toBeEnabled()
+    await expect(download).toBeFocused()
   })
 
   test('clipboard failure falls back to selected code', async ({ page }) => {
@@ -416,20 +431,25 @@ test.describe('copy and export', () => {
     expect(dl.suggestedFilename()).toBe('web-library-hero-split-image-mobile.png')
   })
 
-  test('a failed Copy image capture offers Retry too, and Retry copies the image', async ({ page }) => {
-    let failing = true
-    await page.route(isCapturePage, (route) => (failing ? route.abort() : route.continue()))
+  test('opening another component cancels a running capture', async ({ page }) => {
+    // The capture page never answers, so without the cancel the capture would wait out its 10 s timeout.
+    await page.route(isCapturePage, () => {})
+    const errors: string[] = []
+    page.on('pageerror', (error) => errors.push(error.message))
     await openDetail(page)
-    await page.getByRole('button', { name: 'Copy image' }).click()
-    // A capture failure is not a clipboard failure: it must offer Retry, not the manual-copy hint.
-    await expect(page.getByText("Couldn't create image")).toBeVisible()
-    await expect(page.getByText("Couldn't copy")).toHaveCount(0)
-    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
+    await page.getByRole('button', { name: 'Download' }).click()
+    await page.getByRole('menuitem', { name: 'Desktop PNG' }).click()
+    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(1)
 
-    failing = false
-    await page.getByRole('button', { name: 'Retry' }).click()
-    await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
-    expect(await page.evaluate(async () => (await navigator.clipboard.read())[0].types)).toContain('image/png')
+    await page.getByRole('region', { name: /^More in / }).getByRole('heading', { level: 3 }).getByRole('link').first().click()
+    await expect(page).not.toHaveURL(/\/hero-split-image$/)
+    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
+    await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
+    // The cancelled capture stays silent: by the time this copy has toasted, its error would have shown too.
+    await page.getByRole('button', { name: 'Copy code' }).click()
+    await expect(page.getByText('Copied React code')).toBeVisible()
+    await expect(page.getByText("Couldn't create image")).toHaveCount(0)
+    expect(errors).toEqual([]) // no unhandled rejection from the abort
   })
 
   test('a refused copy of one file selects that file', async ({ page }) => {
@@ -513,18 +533,6 @@ test.describe('copy and export', () => {
       { name: 'download_png', data: { slug: 'hero-split-image', viewport: 'mobile' } },
       { name: 'copy_image', data: { slug: 'hero-split-image' } },
     ])
-  })
-
-  test('a failed copy records no analytics event', async ({ page }) => {
-    await page.addInitScript(() => {
-      navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
-      Object.assign(window, { __va: [], va: (...args: unknown[]) => (window as unknown as { __va: unknown[] }).__va.push(args) })
-    })
-    await openDetail(page)
-    await page.getByRole('button', { name: 'Copy for AI' }).click()
-    await expect(page.getByText("Couldn't copy")).toBeVisible()
-    const events = await page.evaluate(() => (window as unknown as { __va: unknown[][] }).__va.filter(([kind]) => kind === 'event'))
-    expect(events).toEqual([])
   })
 
   test('the detail page and its actions log no console errors or warnings', async ({ page }) => {

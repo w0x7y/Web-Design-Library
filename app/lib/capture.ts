@@ -1,6 +1,5 @@
 import { domToBlob } from 'modern-screenshot'
 import type { ComponentMeta } from '../../src/library/types'
-import { SITE } from '../site'
 import { previewPath, type PreviewState } from './preview-ready'
 import { frameSize, type CaptureViewport } from './viewports'
 
@@ -8,10 +7,6 @@ export const CAPTURE_SCALE = 2
 export const CAPTURE_TIMEOUT_MS = 10_000
 
 const POLL_MS = 50
-
-export function pngFileName(slug: string, viewport: CaptureViewport): string {
-  return `${SITE.slug}-${slug}-${viewport}.png`
-}
 
 /** Rejects with "Capture timed out" if `work` has not settled after `ms`. */
 export function withTimeout<T>(work: Promise<T>, ms: number): Promise<T> {
@@ -76,21 +71,35 @@ async function render(frame: HTMLIFrameElement, meta: ComponentMeta, transparent
   })
 }
 
+/** Rejects with the signal's reason once it aborts. */
+function aborted(signal: AbortSignal): Promise<never> {
+  return new Promise((_, reject) => {
+    if (signal.aborted) reject(signal.reason)
+    else signal.addEventListener('abort', () => reject(signal.reason), { once: true })
+  })
+}
+
 /**
  * Renders the component's own preview page (/preview/<slug>?capture=1) in a hidden iframe at the
  * target width and captures it as a PNG at CAPTURE_SCALE. Transparent mode drops the preview
  * page's padding and backdrop, keeping only the component (a section's own background stays).
- * Rejects after CAPTURE_TIMEOUT_MS; the iframe is always removed.
+ * Rejects after CAPTURE_TIMEOUT_MS, or as soon as `signal` aborts; the iframe is always removed.
  */
 export async function captureComponent(
   meta: ComponentMeta,
-  { viewport, transparent }: { viewport: CaptureViewport; transparent: boolean },
+  { viewport, transparent, signal }: { viewport: CaptureViewport; transparent: boolean; signal: AbortSignal },
 ): Promise<Blob> {
+  signal.throwIfAborted()
   const abort = new AbortController()
+  const stop = () => abort.abort(signal.reason)
+  signal.addEventListener('abort', stop, { once: true })
   const frame = createFrame(meta, viewport)
   try {
-    return await withTimeout(render(frame, meta, transparent, abort.signal), CAPTURE_TIMEOUT_MS)
+    // Loading the frame and taking the screenshot don't watch the signal themselves, so race them against it.
+    const work = Promise.race([render(frame, meta, transparent, abort.signal), aborted(abort.signal)])
+    return await withTimeout(work, CAPTURE_TIMEOUT_MS)
   } finally {
+    signal.removeEventListener('abort', stop)
     abort.abort()
     frame.remove()
   }

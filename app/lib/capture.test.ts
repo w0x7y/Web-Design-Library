@@ -1,9 +1,4 @@
-import { pngFileName, withTimeout } from './capture'
-
-test('pngFileName', () => {
-  expect(pngFileName('hero-split-image', 'mobile')).toBe('web-library-hero-split-image-mobile.png')
-  expect(pngFileName('buttons-minimal', 'desktop')).toBe('web-library-buttons-minimal-desktop.png')
-})
+import { withTimeout } from './capture'
 
 describe('withTimeout', () => {
   beforeEach(() => {

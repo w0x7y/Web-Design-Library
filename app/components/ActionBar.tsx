@@ -1,110 +1,47 @@
 import { useState } from 'react'
-import { toast } from 'sonner'
-import { trackEvent } from '~/lib/analytics'
-import { captureComponent, pngFileName } from '~/lib/capture'
-import { copyImage } from '~/lib/clipboard'
-import { copyWithFeedback } from '~/lib/copy-feedback'
+import type { ComponentActions } from '~/lib/component-actions'
 import { useHydrated } from '~/lib/use-hydrated'
-import type { CaptureViewport } from '~/lib/viewports'
-import { buildBrief, codeForFormat } from '../../src/library/brief'
-import type { ComponentMeta, ComponentSources, Format } from '../../src/library/types'
+import type { Format } from '../../src/library/types'
 import { DownloadMenu } from './DownloadMenu'
 import { FormatSwitch } from './FormatSwitch'
 
-const COPIED_CODE: Record<Format, string> = { react: 'Copied React code', html: 'Copied HTML + CSS' }
-
+// Unavailable buttons are aria-disabled rather than disabled, so a focused button keeps focus while a
+// capture runs; the actions themselves ignore a capture asked for while one is running.
 const BUTTON =
-  'inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border px-3 text-[13px] font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 disabled:cursor-default disabled:opacity-60 dark:focus-visible:outline-zinc-100'
+  'inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border px-3 text-[13px] font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 aria-disabled:cursor-default aria-disabled:opacity-60 dark:focus-visible:outline-zinc-100'
 const PRIMARY =
-  'border-zinc-900 bg-zinc-900 text-white enabled:hover:bg-zinc-700 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:enabled:hover:bg-zinc-300'
+  'border-zinc-900 bg-zinc-900 text-white not-aria-disabled:hover:bg-zinc-700 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:not-aria-disabled:hover:bg-zinc-300'
 const SECONDARY =
-  'border-zinc-200 bg-white text-zinc-800 enabled:hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:enabled:hover:bg-zinc-900'
-
-/** Starts a download of `blob` as `fileName`. The object URL is released once the browser has taken the file. */
-function saveBlob(blob: Blob, fileName: string) {
-  const url = URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  link.href = url
-  link.download = fileName
-  link.click()
-  setTimeout(() => URL.revokeObjectURL(url), 10_000)
-}
+  'border-zinc-200 bg-white text-zinc-800 not-aria-disabled:hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 dark:not-aria-disabled:hover:bg-zinc-900'
 
 /**
- * Format switch, Copy code, Copy for AI, Download menu and Copy image. The two image actions
- * lock while a capture runs; `onCopyFailed` lets the page reveal the code for a manual copy.
+ * Format switch, Copy code, Copy for AI, Download menu and Copy image. The two image actions show
+ * as unavailable while a capture runs (`busy`); `onCopyRefused` lets the page reveal the code for a manual copy.
  */
 export function ActionBar({
-  meta,
-  sources,
+  actions,
+  busy,
   format,
   onFormatChange,
-  onCopyFailed,
+  onCopyRefused,
 }: {
-  meta: ComponentMeta
-  sources: ComponentSources
+  actions: ComponentActions
+  busy: boolean
   format: Format
   onFormatChange(format: Format): void
-  onCopyFailed(): void
+  onCopyRefused(): void
 }) {
+  // Before hydration the buttons have no handlers yet, so they show as unavailable too.
   const hydrated = useHydrated()
-  const [capturing, setCapturing] = useState(false)
   const [transparent, setTransparent] = useState(false)
-  const { slug } = meta
-
-  const captureFailed = (retry: () => void) =>
-    toast.error("Couldn't create image", { action: { label: 'Retry', onClick: retry } })
-
-  function download(viewport: CaptureViewport, isTransparent: boolean) {
-    const fileName = pngFileName(slug, viewport)
-    setCapturing(true)
-    captureComponent(meta, { viewport, transparent: isTransparent })
-      .then(
-        (png) => {
-          saveBlob(png, fileName)
-          toast.success(`Downloaded ${fileName}`)
-          trackEvent({ name: 'download_png', slug, viewport })
-        },
-        () => captureFailed(() => download(viewport, isTransparent)),
-      )
-      .finally(() => setCapturing(false))
-  }
-
-  // Runs inside the click handler (and the Retry click): copyImage must build its ClipboardItem synchronously.
-  function copyImageToClipboard(isTransparent: boolean) {
-    setCapturing(true)
-    let captureRejected = false
-    const png = captureComponent(meta, { viewport: 'desktop', transparent: isTransparent })
-    png.catch(() => {
-      captureRejected = true
-    })
-    void copyImage(png)
-      .then((copied) => {
-        if (copied) {
-          toast.success('Copied image')
-          trackEvent({ name: 'copy_image', slug })
-        } else if (captureRejected) {
-          captureFailed(() => copyImageToClipboard(isTransparent))
-        } else {
-          toast.error("Couldn't copy", { description: 'Your browser blocked clipboard access. Use Download to save the PNG instead.' })
-        }
-      })
-      .finally(() => setCapturing(false))
-  }
 
   return (
     <div role="group" aria-label="Component actions" className="flex flex-wrap items-center gap-2">
       <FormatSwitch value={format} onChange={onFormatChange} />
       <button
         type="button"
-        disabled={!hydrated}
-        onClick={() =>
-          copyWithFeedback(codeForFormat(meta, sources, format), {
-            message: COPIED_CODE[format],
-            event: { name: 'copy_code', slug, format },
-            onFailure: onCopyFailed,
-          })
-        }
+        aria-disabled={!hydrated}
+        onClick={() => void actions.copyCode(format, onCopyRefused)}
         className={`${BUTTON} ${PRIMARY}`}
       >
         <CopyIcon />
@@ -112,27 +49,21 @@ export function ActionBar({
       </button>
       <button
         type="button"
-        disabled={!hydrated}
-        onClick={() =>
-          copyWithFeedback(buildBrief(meta, sources, format), {
-            message: 'Copied AI brief',
-            event: { name: 'copy_ai', slug, format },
-            onFailure: onCopyFailed,
-          })
-        }
+        aria-disabled={!hydrated}
+        onClick={() => void actions.copyBrief(format, onCopyRefused)}
         className={`${BUTTON} ${SECONDARY}`}
       >
         <SparkleIcon />
         Copy for AI
       </button>
       <DownloadMenu
-        disabled={!hydrated || capturing}
+        busy={!hydrated || busy}
         transparent={transparent}
         onTransparentChange={setTransparent}
-        onDownload={(viewport) => download(viewport, transparent)}
+        onDownload={(viewport) => void actions.download(viewport, transparent)}
         buttonClassName={`${BUTTON} ${SECONDARY}`}
       >
-        {capturing ? <Spinner /> : <DownloadIcon />}
+        {busy ? <Spinner /> : <DownloadIcon />}
         Download
         <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="-mr-1 size-3.5 opacity-60">
           <path d="m4 6 4 4 4-4" />
@@ -140,11 +71,12 @@ export function ActionBar({
       </DownloadMenu>
       <button
         type="button"
-        disabled={!hydrated || capturing}
-        onClick={() => copyImageToClipboard(transparent)}
+        aria-disabled={!hydrated || busy}
+        // Synchronous inside the click: Safari only accepts the clipboard write within it.
+        onClick={() => void actions.copyImage(transparent)}
         className={`${BUTTON} ${SECONDARY}`}
       >
-        {capturing ? <Spinner /> : <ImageIcon />}
+        {busy ? <Spinner /> : <ImageIcon />}
         Copy image
       </button>
     </div>
