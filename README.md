@@ -129,9 +129,20 @@ Page views are recorded on every plan, Hobby included. The four custom events ne
 
 Events fire only after the action succeeds, and each carries at most two props, which is the Pro plan's limit. The stage page (`/preview/<slug>`) does not load analytics.
 
-## Deployment follow-ups
+## Production deployment
 
-On 2026-10-09, the configured public URL (`https://web-design-library.vercel.app`) still served an older "Web Design Library" page. Deploy the current build, then verify the production canonical URLs, component pages, agent files, response headers and enabled Web Analytics. The repository changes are covered by local checks; publishing and project settings are separate steps.
+The Vercel project is `w0x7y/patternbook-w0x7y`, with production domain [patternbook-w0x7y.vercel.app](https://patternbook-w0x7y.vercel.app). `SITE.url` uses this domain. The project uses Node 22, `npm ci`, `npm run build`, and no Output Directory override. Web Analytics is enabled on Hobby.
+
+To deploy the generated Build Output API files through the CLI:
+
+```bash
+npx vercel login
+npx vercel link --yes --scope w0x7y --project patternbook-w0x7y
+npm run build
+npx vercel deploy --prebuilt --prod --scope w0x7y
+```
+
+After each release, verify the live canonical URLs, component pages, markdown briefs, `llms.txt`, response headers, image downloads, and Web Analytics delivery.
 
 ## License
 
