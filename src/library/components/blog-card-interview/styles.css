@@ -1,0 +1,179 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.blog-card-interview, .blog-card-interview *, .blog-card-interview *::before, .blog-card-interview *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.blog-card-interview { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.blog-card-interview :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.blog-card-interview a { color: inherit; text-decoration: inherit; }
+.blog-card-interview :is(b, strong) { font-weight: bolder; }
+.blog-card-interview :is(ol, ul, menu) { list-style: none; }
+.blog-card-interview :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.blog-card-interview :is(img, video) { max-width: 100%; height: auto; }
+.blog-card-interview :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.blog-card-interview ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.blog-card-interview table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.blog-card-interview summary { display: list-item; }
+
+@layer properties;
+.blog-card-interview {
+  --blog-card-interview-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --blog-card-interview-color-orange-200: oklch(90.1% 0.076 70.697);
+  --blog-card-interview-color-orange-800: oklch(47% 0.157 37.304);
+  --blog-card-interview-color-indigo-700: oklch(45.7% 0.24 277.023);
+  --blog-card-interview-color-indigo-800: oklch(39.8% 0.195 277.366);
+  --blog-card-interview-color-indigo-950: oklch(25.7% 0.09 281.288);
+  --blog-card-interview-color-white: #fff;
+  --blog-card-interview-spacing: 0.25rem;
+  --blog-card-interview-text-xs: 0.75rem;
+  --blog-card-interview-text-xs--line-height: calc(1 / 0.75);
+  --blog-card-interview-text-xl: 1.25rem;
+  --blog-card-interview-text-xl--line-height: calc(1.75 / 1.25);
+  --blog-card-interview-text-3xl: 1.875rem;
+  --blog-card-interview-text-3xl--line-height: calc(2.25 / 1.875);
+  --blog-card-interview-text-6xl: 3.75rem;
+  --blog-card-interview-text-6xl--line-height: 1;
+  --blog-card-interview-font-weight-medium: 500;
+  --blog-card-interview-font-weight-semibold: 600;
+  --blog-card-interview-font-weight-bold: 700;
+  --blog-card-interview-tracking-tight: -0.025em;
+  --blog-card-interview-radius-sm: 0.25rem;
+  --blog-card-interview-radius-2xl: 1rem;
+}
+.blog-card-interview.blog-card-interview__part-1, .blog-card-interview .blog-card-interview__part-1 {
+  width: calc(var(--blog-card-interview-spacing) * 72);
+  border-radius: var(--blog-card-interview-radius-2xl);
+  border-style: var(--blog-card-interview-tw-border-style);
+  border-width: 2px;
+  border-color: var(--blog-card-interview-color-indigo-950);
+  background-color: var(--blog-card-interview-color-white);
+  color: var(--blog-card-interview-color-indigo-950);
+}
+@media (width >= 40rem) {
+  .blog-card-interview.blog-card-interview__part-1, .blog-card-interview .blog-card-interview__part-1 {
+    width: calc(var(--blog-card-interview-spacing) * 80);
+  }
+}
+.blog-card-interview.blog-card-interview__part-2, .blog-card-interview .blog-card-interview__part-2 {
+  display: flex;
+  height: calc(var(--blog-card-interview-spacing) * 28);
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 0.875rem;
+  border-top-right-radius: 0.875rem;
+  border-bottom-style: var(--blog-card-interview-tw-border-style);
+  border-bottom-width: 2px;
+  border-color: var(--blog-card-interview-color-indigo-950);
+  background-color: var(--blog-card-interview-color-orange-200);
+  padding-inline: calc(var(--blog-card-interview-spacing) * 5);
+}
+.blog-card-interview.blog-card-interview__part-3, .blog-card-interview .blog-card-interview__part-3 {
+  font-family: var(--blog-card-interview-font-serif);
+  font-size: var(--blog-card-interview-text-6xl);
+  line-height: var(--blog-card-interview-tw-leading, var(--blog-card-interview-text-6xl--line-height));
+  --blog-card-interview-tw-tracking: var(--blog-card-interview-tracking-tight);
+  letter-spacing: var(--blog-card-interview-tracking-tight);
+  font-style: italic;
+}
+.blog-card-interview.blog-card-interview__part-4, .blog-card-interview .blog-card-interview__part-4 {
+  padding-inline: var(--blog-card-interview-spacing);
+  font-size: var(--blog-card-interview-text-3xl);
+  line-height: var(--blog-card-interview-tw-leading, var(--blog-card-interview-text-3xl--line-height));
+}
+.blog-card-interview.blog-card-interview__part-5, .blog-card-interview .blog-card-interview__part-5 {
+  border-radius: calc(infinity * 1px);
+  border-style: var(--blog-card-interview-tw-border-style);
+  border-width: 1px;
+  border-color: var(--blog-card-interview-color-indigo-950);
+  padding-inline: calc(var(--blog-card-interview-spacing) * 2.5);
+  padding-block: var(--blog-card-interview-spacing);
+  font-size: 10px;
+  --blog-card-interview-tw-font-weight: var(--blog-card-interview-font-weight-semibold);
+  font-weight: var(--blog-card-interview-font-weight-semibold);
+}
+.blog-card-interview.blog-card-interview__part-6, .blog-card-interview .blog-card-interview__part-6 {
+  padding: calc(var(--blog-card-interview-spacing) * 4);
+}
+.blog-card-interview.blog-card-interview__part-7, .blog-card-interview .blog-card-interview__part-7 {
+  font-size: 10px;
+  --blog-card-interview-tw-font-weight: var(--blog-card-interview-font-weight-bold);
+  font-weight: var(--blog-card-interview-font-weight-bold);
+  --blog-card-interview-tw-tracking: 0.14em;
+  letter-spacing: 0.14em;
+  color: var(--blog-card-interview-color-indigo-700);
+  text-transform: uppercase;
+}
+.blog-card-interview.blog-card-interview__part-8, .blog-card-interview .blog-card-interview__part-8 {
+  margin-top: calc(var(--blog-card-interview-spacing) * 2);
+  font-size: var(--blog-card-interview-text-xl);
+  line-height: var(--blog-card-interview-tw-leading, var(--blog-card-interview-text-xl--line-height));
+  --blog-card-interview-tw-leading: calc(var(--blog-card-interview-spacing) * 7);
+  line-height: calc(var(--blog-card-interview-spacing) * 7);
+  --blog-card-interview-tw-font-weight: var(--blog-card-interview-font-weight-bold);
+  font-weight: var(--blog-card-interview-font-weight-bold);
+  --blog-card-interview-tw-tracking: var(--blog-card-interview-tracking-tight);
+  letter-spacing: var(--blog-card-interview-tracking-tight);
+}
+.blog-card-interview.blog-card-interview__part-9, .blog-card-interview .blog-card-interview__part-9 {
+  border-radius: var(--blog-card-interview-radius-sm);
+}
+@media (hover: hover) {
+  .blog-card-interview.blog-card-interview__part-9:hover, .blog-card-interview .blog-card-interview__part-9:hover {
+    color: var(--blog-card-interview-color-orange-800);
+  }
+}
+.blog-card-interview.blog-card-interview__part-9:focus-visible, .blog-card-interview .blog-card-interview__part-9:focus-visible {
+  outline-style: var(--blog-card-interview-tw-outline-style);
+  outline-width: 2px;
+}
+.blog-card-interview.blog-card-interview__part-9:focus-visible, .blog-card-interview .blog-card-interview__part-9:focus-visible {
+  outline-offset: 2px;
+}
+.blog-card-interview.blog-card-interview__part-9:focus-visible, .blog-card-interview .blog-card-interview__part-9:focus-visible {
+  outline-color: var(--blog-card-interview-color-indigo-950);
+}
+.blog-card-interview.blog-card-interview__part-10, .blog-card-interview .blog-card-interview__part-10 {
+  margin-top: calc(var(--blog-card-interview-spacing) * 2);
+  font-size: var(--blog-card-interview-text-xs);
+  line-height: var(--blog-card-interview-tw-leading, var(--blog-card-interview-text-xs--line-height));
+  --blog-card-interview-tw-leading: calc(var(--blog-card-interview-spacing) * 5);
+  line-height: calc(var(--blog-card-interview-spacing) * 5);
+  color: var(--blog-card-interview-color-indigo-800);
+}
+.blog-card-interview.blog-card-interview__part-11, .blog-card-interview .blog-card-interview__part-11 {
+  margin-top: calc(var(--blog-card-interview-spacing) * 4);
+  font-size: 11px;
+  --blog-card-interview-tw-font-weight: var(--blog-card-interview-font-weight-medium);
+  font-weight: var(--blog-card-interview-font-weight-medium);
+  color: var(--blog-card-interview-color-indigo-700);
+}
+@property --blog-card-interview-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --blog-card-interview-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --blog-card-interview-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --blog-card-interview-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --blog-card-interview-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .blog-card-interview *, .blog-card-interview ::before, .blog-card-interview ::after, .blog-card-interview ::backdrop {
+      --blog-card-interview-tw-border-style: solid;
+      --blog-card-interview-tw-tracking: initial;
+      --blog-card-interview-tw-font-weight: initial;
+      --blog-card-interview-tw-leading: initial;
+      --blog-card-interview-tw-outline-style: solid;
+    }
+  }
+}

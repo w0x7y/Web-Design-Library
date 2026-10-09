@@ -1,0 +1,318 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.pricing-enterprise-contract, .pricing-enterprise-contract *, .pricing-enterprise-contract *::before, .pricing-enterprise-contract *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.pricing-enterprise-contract { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.pricing-enterprise-contract :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.pricing-enterprise-contract a { color: inherit; text-decoration: inherit; }
+.pricing-enterprise-contract :is(b, strong) { font-weight: bolder; }
+.pricing-enterprise-contract :is(ol, ul, menu) { list-style: none; }
+.pricing-enterprise-contract :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.pricing-enterprise-contract :is(img, video) { max-width: 100%; height: auto; }
+.pricing-enterprise-contract :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.pricing-enterprise-contract ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.pricing-enterprise-contract table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.pricing-enterprise-contract summary { display: list-item; }
+
+@layer properties;
+.pricing-enterprise-contract {
+  --pricing-enterprise-contract-color-blue-50: oklch(97% 0.014 254.604);
+  --pricing-enterprise-contract-color-blue-700: oklch(48.8% 0.243 264.376);
+  --pricing-enterprise-contract-color-blue-800: oklch(42.4% 0.199 265.638);
+  --pricing-enterprise-contract-color-slate-50: oklch(98.4% 0.003 247.858);
+  --pricing-enterprise-contract-color-slate-200: oklch(92.9% 0.013 255.508);
+  --pricing-enterprise-contract-color-slate-500: oklch(55.4% 0.046 257.417);
+  --pricing-enterprise-contract-color-slate-600: oklch(44.6% 0.043 257.281);
+  --pricing-enterprise-contract-color-slate-950: oklch(12.9% 0.042 264.695);
+  --pricing-enterprise-contract-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --pricing-enterprise-contract-color-white: #fff;
+  --pricing-enterprise-contract-spacing: 0.25rem;
+  --pricing-enterprise-contract-container-6xl: 72rem;
+  --pricing-enterprise-contract-text-xs: 0.75rem;
+  --pricing-enterprise-contract-text-xs--line-height: calc(1 / 0.75);
+  --pricing-enterprise-contract-text-sm: 0.875rem;
+  --pricing-enterprise-contract-text-sm--line-height: calc(1.25 / 0.875);
+  --pricing-enterprise-contract-text-xl: 1.25rem;
+  --pricing-enterprise-contract-text-xl--line-height: calc(1.75 / 1.25);
+  --pricing-enterprise-contract-text-4xl: 2.25rem;
+  --pricing-enterprise-contract-text-4xl--line-height: calc(2.5 / 2.25);
+  --pricing-enterprise-contract-text-5xl: 3rem;
+  --pricing-enterprise-contract-text-5xl--line-height: 1;
+  --pricing-enterprise-contract-font-weight-normal: 400;
+  --pricing-enterprise-contract-font-weight-medium: 500;
+  --pricing-enterprise-contract-font-weight-semibold: 600;
+  --pricing-enterprise-contract-tracking-tight: -0.025em;
+  --pricing-enterprise-contract-tracking-widest: 0.1em;
+  --pricing-enterprise-contract-leading-tight: 1.25;
+  --pricing-enterprise-contract-leading-relaxed: 1.625;
+  --pricing-enterprise-contract-radius-lg: 0.5rem;
+  --pricing-enterprise-contract-radius-xl: 0.75rem;
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-1, .pricing-enterprise-contract .pricing-enterprise-contract__part-1 {
+  background-color: var(--pricing-enterprise-contract-color-slate-50);
+  color: var(--pricing-enterprise-contract-color-slate-950);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-2, .pricing-enterprise-contract .pricing-enterprise-contract__part-2 {
+  margin-inline: auto;
+  max-width: var(--pricing-enterprise-contract-container-6xl);
+  padding-inline: calc(var(--pricing-enterprise-contract-spacing) * 6);
+  padding-block: calc(var(--pricing-enterprise-contract-spacing) * 20);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-3, .pricing-enterprise-contract .pricing-enterprise-contract__part-3 {
+  display: grid;
+  gap: calc(var(--pricing-enterprise-contract-spacing) * 10);
+}
+@media (width >= 64rem) {
+  .pricing-enterprise-contract.pricing-enterprise-contract__part-3, .pricing-enterprise-contract .pricing-enterprise-contract__part-3 {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-4, .pricing-enterprise-contract .pricing-enterprise-contract__part-4 {
+  font-size: var(--pricing-enterprise-contract-text-xs);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-xs--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  --pricing-enterprise-contract-tw-tracking: var(--pricing-enterprise-contract-tracking-widest);
+  letter-spacing: var(--pricing-enterprise-contract-tracking-widest);
+  color: var(--pricing-enterprise-contract-color-blue-700);
+  text-transform: uppercase;
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-5, .pricing-enterprise-contract .pricing-enterprise-contract__part-5 {
+  margin-top: calc(var(--pricing-enterprise-contract-spacing) * 4);
+  font-size: var(--pricing-enterprise-contract-text-4xl);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-4xl--line-height));
+  --pricing-enterprise-contract-tw-leading: var(--pricing-enterprise-contract-leading-tight);
+  line-height: var(--pricing-enterprise-contract-leading-tight);
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  --pricing-enterprise-contract-tw-tracking: var(--pricing-enterprise-contract-tracking-tight);
+  letter-spacing: var(--pricing-enterprise-contract-tracking-tight);
+}
+@media (width >= 40rem) {
+  .pricing-enterprise-contract.pricing-enterprise-contract__part-5, .pricing-enterprise-contract .pricing-enterprise-contract__part-5 {
+    font-size: var(--pricing-enterprise-contract-text-5xl);
+    line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-5xl--line-height));
+  }
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-6, .pricing-enterprise-contract .pricing-enterprise-contract__part-6 {
+  margin-top: calc(var(--pricing-enterprise-contract-spacing) * 5);
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  --pricing-enterprise-contract-tw-leading: var(--pricing-enterprise-contract-leading-relaxed);
+  line-height: var(--pricing-enterprise-contract-leading-relaxed);
+  color: var(--pricing-enterprise-contract-color-slate-600);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-7, .pricing-enterprise-contract .pricing-enterprise-contract__part-7 {
+  display: grid;
+  gap: calc(var(--pricing-enterprise-contract-spacing) * 5);
+}
+@media (width >= 40rem) {
+  .pricing-enterprise-contract.pricing-enterprise-contract__part-7, .pricing-enterprise-contract .pricing-enterprise-contract__part-7 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-8, .pricing-enterprise-contract .pricing-enterprise-contract__part-8 {
+  border-radius: var(--pricing-enterprise-contract-radius-xl);
+  border-style: var(--pricing-enterprise-contract-tw-border-style);
+  border-width: 1px;
+  border-color: var(--pricing-enterprise-contract-color-slate-200);
+  background-color: var(--pricing-enterprise-contract-color-white);
+  padding: calc(var(--pricing-enterprise-contract-spacing) * 6);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-9, .pricing-enterprise-contract .pricing-enterprise-contract__part-9 {
+  font-size: var(--pricing-enterprise-contract-text-xl);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-xl--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-10, .pricing-enterprise-contract .pricing-enterprise-contract__part-10 {
+  margin-top: calc(var(--pricing-enterprise-contract-spacing) * 2);
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  color: var(--pricing-enterprise-contract-color-slate-600);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-11, .pricing-enterprise-contract .pricing-enterprise-contract__part-11 {
+  margin-top: calc(var(--pricing-enterprise-contract-spacing) * 7);
+  font-size: var(--pricing-enterprise-contract-text-4xl);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-4xl--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  --pricing-enterprise-contract-tw-tracking: var(--pricing-enterprise-contract-tracking-tight);
+  letter-spacing: var(--pricing-enterprise-contract-tracking-tight);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-12, .pricing-enterprise-contract .pricing-enterprise-contract__part-12 {
+  margin-left: var(--pricing-enterprise-contract-spacing);
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-normal);
+  font-weight: var(--pricing-enterprise-contract-font-weight-normal);
+  color: var(--pricing-enterprise-contract-color-slate-600);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-13, .pricing-enterprise-contract .pricing-enterprise-contract__part-13 {
+  margin-top: calc(var(--pricing-enterprise-contract-spacing) * 2);
+  font-size: var(--pricing-enterprise-contract-text-xs);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-xs--line-height));
+  color: var(--pricing-enterprise-contract-color-slate-500);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-14, .pricing-enterprise-contract .pricing-enterprise-contract__part-14 {
+  margin-block: calc(var(--pricing-enterprise-contract-spacing) * 7);
+}
+.pricing-enterprise-contract :where(.pricing-enterprise-contract.pricing-enterprise-contract__part-14 > :not(:last-child)), .pricing-enterprise-contract :where(.pricing-enterprise-contract .pricing-enterprise-contract__part-14 > :not(:last-child)) {
+  --pricing-enterprise-contract-tw-space-y-reverse: 0;
+  margin-block-start: calc(calc(var(--pricing-enterprise-contract-spacing) * 3) * var(--pricing-enterprise-contract-tw-space-y-reverse));
+  margin-block-end: calc(calc(var(--pricing-enterprise-contract-spacing) * 3) * calc(1 - var(--pricing-enterprise-contract-tw-space-y-reverse)));
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-14, .pricing-enterprise-contract .pricing-enterprise-contract__part-14 {
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  color: var(--pricing-enterprise-contract-color-slate-600);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-15, .pricing-enterprise-contract .pricing-enterprise-contract__part-15 {
+  display: flex;
+  min-height: calc(var(--pricing-enterprise-contract-spacing) * 11);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--pricing-enterprise-contract-radius-lg);
+  background-color: var(--pricing-enterprise-contract-color-blue-700);
+  padding-inline: calc(var(--pricing-enterprise-contract-spacing) * 4);
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  color: var(--pricing-enterprise-contract-color-white);
+}
+@media (hover: hover) {
+  .pricing-enterprise-contract.pricing-enterprise-contract__part-15:hover, .pricing-enterprise-contract .pricing-enterprise-contract__part-15:hover {
+    background-color: var(--pricing-enterprise-contract-color-blue-800);
+  }
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-15:focus-visible, .pricing-enterprise-contract .pricing-enterprise-contract__part-15:focus-visible {
+  outline-style: var(--pricing-enterprise-contract-tw-outline-style);
+  outline-width: 2px;
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-15:focus-visible, .pricing-enterprise-contract .pricing-enterprise-contract__part-15:focus-visible {
+  outline-offset: 2px;
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-15:focus-visible, .pricing-enterprise-contract .pricing-enterprise-contract__part-15:focus-visible {
+  outline-color: var(--pricing-enterprise-contract-color-zinc-950);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-16, .pricing-enterprise-contract .pricing-enterprise-contract__part-16 {
+  border-radius: var(--pricing-enterprise-contract-radius-xl);
+  border-style: var(--pricing-enterprise-contract-tw-border-style);
+  border-width: 2px;
+  border-color: var(--pricing-enterprise-contract-color-blue-700);
+  background-color: var(--pricing-enterprise-contract-color-white);
+  padding: calc(var(--pricing-enterprise-contract-spacing) * 6);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-17, .pricing-enterprise-contract .pricing-enterprise-contract__part-17 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc(var(--pricing-enterprise-contract-spacing) * 2);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-18, .pricing-enterprise-contract .pricing-enterprise-contract__part-18 {
+  border-radius: calc(infinity * 1px);
+  background-color: var(--pricing-enterprise-contract-color-blue-50);
+  padding-inline: calc(var(--pricing-enterprise-contract-spacing) * 2);
+  padding-block: var(--pricing-enterprise-contract-spacing);
+  font-size: var(--pricing-enterprise-contract-text-xs);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-xs--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-medium);
+  font-weight: var(--pricing-enterprise-contract-font-weight-medium);
+  color: var(--pricing-enterprise-contract-color-blue-700);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-19, .pricing-enterprise-contract .pricing-enterprise-contract__part-19 {
+  display: flex;
+  min-height: calc(var(--pricing-enterprise-contract-spacing) * 11);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--pricing-enterprise-contract-radius-lg);
+  border-style: var(--pricing-enterprise-contract-tw-border-style);
+  border-width: 1px;
+  border-color: var(--pricing-enterprise-contract-color-blue-700);
+  padding-inline: calc(var(--pricing-enterprise-contract-spacing) * 4);
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  --pricing-enterprise-contract-tw-font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  font-weight: var(--pricing-enterprise-contract-font-weight-semibold);
+  color: var(--pricing-enterprise-contract-color-blue-700);
+}
+@media (hover: hover) {
+  .pricing-enterprise-contract.pricing-enterprise-contract__part-19:hover, .pricing-enterprise-contract .pricing-enterprise-contract__part-19:hover {
+    background-color: var(--pricing-enterprise-contract-color-blue-50);
+  }
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-19:focus-visible, .pricing-enterprise-contract .pricing-enterprise-contract__part-19:focus-visible {
+  outline-style: var(--pricing-enterprise-contract-tw-outline-style);
+  outline-width: 2px;
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-19:focus-visible, .pricing-enterprise-contract .pricing-enterprise-contract__part-19:focus-visible {
+  outline-offset: 2px;
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-19:focus-visible, .pricing-enterprise-contract .pricing-enterprise-contract__part-19:focus-visible {
+  outline-color: var(--pricing-enterprise-contract-color-zinc-950);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-20, .pricing-enterprise-contract .pricing-enterprise-contract__part-20 {
+  margin-top: calc(var(--pricing-enterprise-contract-spacing) * 10);
+  display: grid;
+  gap: calc(var(--pricing-enterprise-contract-spacing) * 5);
+  border-top-style: var(--pricing-enterprise-contract-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--pricing-enterprise-contract-color-slate-200);
+  padding-top: calc(var(--pricing-enterprise-contract-spacing) * 6);
+  font-size: var(--pricing-enterprise-contract-text-sm);
+  line-height: var(--pricing-enterprise-contract-tw-leading, var(--pricing-enterprise-contract-text-sm--line-height));
+  color: var(--pricing-enterprise-contract-color-slate-600);
+}
+@media (width >= 48rem) {
+  .pricing-enterprise-contract.pricing-enterprise-contract__part-20, .pricing-enterprise-contract .pricing-enterprise-contract__part-20 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-21, .pricing-enterprise-contract .pricing-enterprise-contract__part-21 {
+  display: flex;
+  gap: calc(var(--pricing-enterprise-contract-spacing) * 3);
+}
+.pricing-enterprise-contract.pricing-enterprise-contract__part-22, .pricing-enterprise-contract .pricing-enterprise-contract__part-22 {
+  width: calc(var(--pricing-enterprise-contract-spacing) * 5);
+  height: calc(var(--pricing-enterprise-contract-spacing) * 5);
+  flex-shrink: 0;
+  color: var(--pricing-enterprise-contract-color-blue-700);
+}
+@property --pricing-enterprise-contract-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --pricing-enterprise-contract-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --pricing-enterprise-contract-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --pricing-enterprise-contract-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --pricing-enterprise-contract-tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --pricing-enterprise-contract-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .pricing-enterprise-contract *, .pricing-enterprise-contract ::before, .pricing-enterprise-contract ::after, .pricing-enterprise-contract ::backdrop {
+      --pricing-enterprise-contract-tw-font-weight: initial;
+      --pricing-enterprise-contract-tw-tracking: initial;
+      --pricing-enterprise-contract-tw-leading: initial;
+      --pricing-enterprise-contract-tw-border-style: solid;
+      --pricing-enterprise-contract-tw-space-y-reverse: 0;
+      --pricing-enterprise-contract-tw-outline-style: solid;
+    }
+  }
+}

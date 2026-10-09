@@ -1,0 +1,254 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-event-reservation, .cta-event-reservation *, .cta-event-reservation *::before, .cta-event-reservation *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-event-reservation { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-event-reservation :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-event-reservation a { color: inherit; text-decoration: inherit; }
+.cta-event-reservation :is(b, strong) { font-weight: bolder; }
+.cta-event-reservation :is(ol, ul, menu) { list-style: none; }
+.cta-event-reservation :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-event-reservation :is(img, video) { max-width: 100%; height: auto; }
+.cta-event-reservation :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-event-reservation ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-event-reservation table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-event-reservation summary { display: list-item; }
+
+@layer properties;
+.cta-event-reservation {
+  --cta-event-reservation-color-orange-700: oklch(55.3% 0.195 38.402);
+  --cta-event-reservation-color-orange-800: oklch(47% 0.157 37.304);
+  --cta-event-reservation-color-lime-100: oklch(96.7% 0.067 122.328);
+  --cta-event-reservation-color-emerald-950: oklch(26.2% 0.051 172.552);
+  --cta-event-reservation-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --cta-event-reservation-color-white: #fff;
+  --cta-event-reservation-spacing: 0.25rem;
+  --cta-event-reservation-container-md: 28rem;
+  --cta-event-reservation-container-6xl: 72rem;
+  --cta-event-reservation-text-xs: 0.75rem;
+  --cta-event-reservation-text-xs--line-height: calc(1 / 0.75);
+  --cta-event-reservation-text-sm: 0.875rem;
+  --cta-event-reservation-text-sm--line-height: calc(1.25 / 0.875);
+  --cta-event-reservation-text-xl: 1.25rem;
+  --cta-event-reservation-text-xl--line-height: calc(1.75 / 1.25);
+  --cta-event-reservation-text-4xl: 2.25rem;
+  --cta-event-reservation-text-4xl--line-height: calc(2.5 / 2.25);
+  --cta-event-reservation-text-5xl: 3rem;
+  --cta-event-reservation-text-5xl--line-height: 1;
+  --cta-event-reservation-font-weight-semibold: 600;
+  --cta-event-reservation-font-weight-bold: 700;
+  --cta-event-reservation-font-weight-black: 900;
+  --cta-event-reservation-tracking-tight: -0.025em;
+  --cta-event-reservation-tracking-widest: 0.1em;
+  --cta-event-reservation-leading-tight: 1.25;
+  --cta-event-reservation-leading-relaxed: 1.625;
+  --cta-event-reservation-radius-2xl: 1rem;
+}
+.cta-event-reservation.cta-event-reservation__part-1, .cta-event-reservation .cta-event-reservation__part-1 {
+  background-color: var(--cta-event-reservation-color-lime-100);
+  color: var(--cta-event-reservation-color-emerald-950);
+}
+.cta-event-reservation.cta-event-reservation__part-2, .cta-event-reservation .cta-event-reservation__part-2 {
+  margin-inline: auto;
+  display: grid;
+  max-width: var(--cta-event-reservation-container-6xl);
+  align-items: center;
+  gap: calc(var(--cta-event-reservation-spacing) * 10);
+  padding-inline: calc(var(--cta-event-reservation-spacing) * 6);
+  padding-block: calc(var(--cta-event-reservation-spacing) * 16);
+}
+@media (width >= 64rem) {
+  .cta-event-reservation.cta-event-reservation__part-2, .cta-event-reservation .cta-event-reservation__part-2 {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+.cta-event-reservation.cta-event-reservation__part-3, .cta-event-reservation .cta-event-reservation__part-3 {
+  font-size: var(--cta-event-reservation-text-xs);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-xs--line-height));
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-bold);
+  font-weight: var(--cta-event-reservation-font-weight-bold);
+  --cta-event-reservation-tw-tracking: var(--cta-event-reservation-tracking-widest);
+  letter-spacing: var(--cta-event-reservation-tracking-widest);
+  text-transform: uppercase;
+}
+.cta-event-reservation.cta-event-reservation__part-4, .cta-event-reservation .cta-event-reservation__part-4 {
+  margin-top: calc(var(--cta-event-reservation-spacing) * 5);
+  font-size: var(--cta-event-reservation-text-4xl);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-4xl--line-height));
+  --cta-event-reservation-tw-leading: var(--cta-event-reservation-leading-tight);
+  line-height: var(--cta-event-reservation-leading-tight);
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-bold);
+  font-weight: var(--cta-event-reservation-font-weight-bold);
+  --cta-event-reservation-tw-tracking: var(--cta-event-reservation-tracking-tight);
+  letter-spacing: var(--cta-event-reservation-tracking-tight);
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-4, .cta-event-reservation .cta-event-reservation__part-4 {
+    font-size: var(--cta-event-reservation-text-5xl);
+    line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-5xl--line-height));
+  }
+}
+.cta-event-reservation.cta-event-reservation__part-5, .cta-event-reservation .cta-event-reservation__part-5 {
+  margin-top: calc(var(--cta-event-reservation-spacing) * 5);
+  max-width: var(--cta-event-reservation-container-md);
+  --cta-event-reservation-tw-leading: var(--cta-event-reservation-leading-relaxed);
+  line-height: var(--cta-event-reservation-leading-relaxed);
+}
+.cta-event-reservation.cta-event-reservation__part-6, .cta-event-reservation .cta-event-reservation__part-6 {
+  margin-top: calc(var(--cta-event-reservation-spacing) * 6);
+  font-size: var(--cta-event-reservation-text-sm);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-sm--line-height));
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-semibold);
+  font-weight: var(--cta-event-reservation-font-weight-semibold);
+}
+.cta-event-reservation.cta-event-reservation__part-7, .cta-event-reservation .cta-event-reservation__part-7 {
+  border-radius: var(--cta-event-reservation-radius-2xl);
+  border-style: var(--cta-event-reservation-tw-border-style);
+  border-width: 2px;
+  border-color: var(--cta-event-reservation-color-emerald-950);
+  background-color: var(--cta-event-reservation-color-white);
+  padding: calc(var(--cta-event-reservation-spacing) * 6);
+}
+.cta-event-reservation.cta-event-reservation__part-8, .cta-event-reservation .cta-event-reservation__part-8 {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cta-event-reservation-spacing) * 6);
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-8, .cta-event-reservation .cta-event-reservation__part-8 {
+    flex-direction: row;
+  }
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-8, .cta-event-reservation .cta-event-reservation__part-8 {
+    align-items: center;
+  }
+}
+.cta-event-reservation.cta-event-reservation__part-9, .cta-event-reservation .cta-event-reservation__part-9 {
+  flex-shrink: 0;
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-9, .cta-event-reservation .cta-event-reservation__part-9 {
+    border-right-style: var(--cta-event-reservation-tw-border-style);
+    border-right-width: 1px;
+  }
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-9, .cta-event-reservation .cta-event-reservation__part-9 {
+    --cta-event-reservation-tw-border-style: dashed;
+    border-style: dashed;
+  }
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-9, .cta-event-reservation .cta-event-reservation__part-9 {
+    border-color: var(--cta-event-reservation-color-emerald-950);
+  }
+}
+@media (width >= 40rem) {
+  .cta-event-reservation.cta-event-reservation__part-9, .cta-event-reservation .cta-event-reservation__part-9 {
+    padding-right: calc(var(--cta-event-reservation-spacing) * 6);
+  }
+}
+.cta-event-reservation.cta-event-reservation__part-10, .cta-event-reservation .cta-event-reservation__part-10 {
+  font-size: var(--cta-event-reservation-text-xs);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-xs--line-height));
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-bold);
+  font-weight: var(--cta-event-reservation-font-weight-bold);
+  text-transform: uppercase;
+}
+.cta-event-reservation.cta-event-reservation__part-11, .cta-event-reservation .cta-event-reservation__part-11 {
+  margin-top: var(--cta-event-reservation-spacing);
+  font-size: var(--cta-event-reservation-text-5xl);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-5xl--line-height));
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-black);
+  font-weight: var(--cta-event-reservation-font-weight-black);
+  --cta-event-reservation-tw-tracking: var(--cta-event-reservation-tracking-tight);
+  letter-spacing: var(--cta-event-reservation-tracking-tight);
+}
+.cta-event-reservation.cta-event-reservation__part-12, .cta-event-reservation .cta-event-reservation__part-12 {
+  margin-top: var(--cta-event-reservation-spacing);
+  font-size: var(--cta-event-reservation-text-xs);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-xs--line-height));
+}
+.cta-event-reservation.cta-event-reservation__part-13, .cta-event-reservation .cta-event-reservation__part-13 {
+  font-size: var(--cta-event-reservation-text-xl);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-xl--line-height));
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-bold);
+  font-weight: var(--cta-event-reservation-font-weight-bold);
+}
+.cta-event-reservation.cta-event-reservation__part-14, .cta-event-reservation .cta-event-reservation__part-14 {
+  margin-top: calc(var(--cta-event-reservation-spacing) * 3);
+  font-size: var(--cta-event-reservation-text-sm);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-sm--line-height));
+}
+.cta-event-reservation.cta-event-reservation__part-15, .cta-event-reservation .cta-event-reservation__part-15 {
+  margin-top: calc(var(--cta-event-reservation-spacing) * 3);
+  font-size: var(--cta-event-reservation-text-sm);
+  line-height: var(--cta-event-reservation-tw-leading, var(--cta-event-reservation-text-sm--line-height));
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-semibold);
+  font-weight: var(--cta-event-reservation-font-weight-semibold);
+}
+.cta-event-reservation.cta-event-reservation__part-16, .cta-event-reservation .cta-event-reservation__part-16 {
+  margin-top: calc(var(--cta-event-reservation-spacing) * 6);
+  display: flex;
+  min-height: calc(var(--cta-event-reservation-spacing) * 12);
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--cta-event-reservation-spacing) * 3);
+  border-radius: calc(infinity * 1px);
+  background-color: var(--cta-event-reservation-color-orange-700);
+  padding-inline: calc(var(--cta-event-reservation-spacing) * 5);
+  --cta-event-reservation-tw-font-weight: var(--cta-event-reservation-font-weight-semibold);
+  font-weight: var(--cta-event-reservation-font-weight-semibold);
+  color: var(--cta-event-reservation-color-white);
+}
+@media (hover: hover) {
+  .cta-event-reservation.cta-event-reservation__part-16:hover, .cta-event-reservation .cta-event-reservation__part-16:hover {
+    background-color: var(--cta-event-reservation-color-orange-800);
+  }
+}
+.cta-event-reservation.cta-event-reservation__part-16:focus-visible, .cta-event-reservation .cta-event-reservation__part-16:focus-visible {
+  outline-style: var(--cta-event-reservation-tw-outline-style);
+  outline-width: 2px;
+}
+.cta-event-reservation.cta-event-reservation__part-16:focus-visible, .cta-event-reservation .cta-event-reservation__part-16:focus-visible {
+  outline-offset: 2px;
+}
+.cta-event-reservation.cta-event-reservation__part-16:focus-visible, .cta-event-reservation .cta-event-reservation__part-16:focus-visible {
+  outline-color: var(--cta-event-reservation-color-zinc-950);
+}
+.cta-event-reservation.cta-event-reservation__part-17, .cta-event-reservation .cta-event-reservation__part-17 {
+  width: calc(var(--cta-event-reservation-spacing) * 4);
+  height: calc(var(--cta-event-reservation-spacing) * 4);
+}
+@property --cta-event-reservation-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --cta-event-reservation-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --cta-event-reservation-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --cta-event-reservation-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --cta-event-reservation-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .cta-event-reservation *, .cta-event-reservation ::before, .cta-event-reservation ::after, .cta-event-reservation ::backdrop {
+      --cta-event-reservation-tw-font-weight: initial;
+      --cta-event-reservation-tw-tracking: initial;
+      --cta-event-reservation-tw-leading: initial;
+      --cta-event-reservation-tw-border-style: solid;
+      --cta-event-reservation-tw-outline-style: solid;
+    }
+  }
+}

@@ -1,0 +1,149 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonial-card-verified-purchase, .testimonial-card-verified-purchase *, .testimonial-card-verified-purchase *::before, .testimonial-card-verified-purchase *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonial-card-verified-purchase { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonial-card-verified-purchase :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonial-card-verified-purchase a { color: inherit; text-decoration: inherit; }
+.testimonial-card-verified-purchase :is(b, strong) { font-weight: bolder; }
+.testimonial-card-verified-purchase :is(ol, ul, menu) { list-style: none; }
+.testimonial-card-verified-purchase :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonial-card-verified-purchase :is(img, video) { max-width: 100%; height: auto; }
+.testimonial-card-verified-purchase :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonial-card-verified-purchase ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonial-card-verified-purchase table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonial-card-verified-purchase summary { display: list-item; }
+
+@layer properties;
+.testimonial-card-verified-purchase {
+  --testimonial-card-verified-purchase-color-amber-700: oklch(55.5% 0.163 48.998);
+  --testimonial-card-verified-purchase-color-emerald-50: oklch(97.9% 0.021 166.113);
+  --testimonial-card-verified-purchase-color-emerald-800: oklch(43.2% 0.095 166.913);
+  --testimonial-card-verified-purchase-color-neutral-200: oklch(92.2% 0 none);
+  --testimonial-card-verified-purchase-color-neutral-600: oklch(43.9% 0 none);
+  --testimonial-card-verified-purchase-color-neutral-700: oklch(37.1% 0 none);
+  --testimonial-card-verified-purchase-color-neutral-950: oklch(14.5% 0 none);
+  --testimonial-card-verified-purchase-color-white: #fff;
+  --testimonial-card-verified-purchase-spacing: 0.25rem;
+  --testimonial-card-verified-purchase-text-xs: 0.75rem;
+  --testimonial-card-verified-purchase-text-xs--line-height: calc(1 / 0.75);
+  --testimonial-card-verified-purchase-text-sm: 0.875rem;
+  --testimonial-card-verified-purchase-text-sm--line-height: calc(1.25 / 0.875);
+  --testimonial-card-verified-purchase-text-base: 1rem;
+  --testimonial-card-verified-purchase-text-base--line-height: calc(1.5 / 1);
+  --testimonial-card-verified-purchase-text-lg: 1.125rem;
+  --testimonial-card-verified-purchase-text-lg--line-height: calc(1.75 / 1.125);
+  --testimonial-card-verified-purchase-font-weight-medium: 500;
+  --testimonial-card-verified-purchase-font-weight-semibold: 600;
+  --testimonial-card-verified-purchase-tracking-wider: 0.05em;
+  --testimonial-card-verified-purchase-radius-xl: 0.75rem;
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-1, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-1 {
+  width: calc(var(--testimonial-card-verified-purchase-spacing) * 72);
+  border-radius: var(--testimonial-card-verified-purchase-radius-xl);
+  border-style: var(--testimonial-card-verified-purchase-tw-border-style);
+  border-width: 1px;
+  border-color: var(--testimonial-card-verified-purchase-color-neutral-200);
+  background-color: var(--testimonial-card-verified-purchase-color-white);
+  padding: calc(var(--testimonial-card-verified-purchase-spacing) * 5);
+  color: var(--testimonial-card-verified-purchase-color-neutral-950);
+}
+@media (width >= 40rem) {
+  .testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-1, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-1 {
+    width: calc(var(--testimonial-card-verified-purchase-spacing) * 80);
+  }
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-2, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--testimonial-card-verified-purchase-spacing) * 2);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-3, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-3 {
+  font-size: var(--testimonial-card-verified-purchase-text-lg);
+  line-height: var(--testimonial-card-verified-purchase-tw-leading, var(--testimonial-card-verified-purchase-text-lg--line-height));
+  --testimonial-card-verified-purchase-tw-tracking: var(--testimonial-card-verified-purchase-tracking-wider);
+  letter-spacing: var(--testimonial-card-verified-purchase-tracking-wider);
+  color: var(--testimonial-card-verified-purchase-color-amber-700);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-4, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-4 {
+  border-radius: calc(infinity * 1px);
+  background-color: var(--testimonial-card-verified-purchase-color-emerald-50);
+  padding-inline: calc(var(--testimonial-card-verified-purchase-spacing) * 2);
+  padding-block: var(--testimonial-card-verified-purchase-spacing);
+  font-size: 10px;
+  --testimonial-card-verified-purchase-tw-font-weight: var(--testimonial-card-verified-purchase-font-weight-medium);
+  font-weight: var(--testimonial-card-verified-purchase-font-weight-medium);
+  color: var(--testimonial-card-verified-purchase-color-emerald-800);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-5, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-5 {
+  margin-top: calc(var(--testimonial-card-verified-purchase-spacing) * 4);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-6, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-6 {
+  font-size: var(--testimonial-card-verified-purchase-text-base);
+  line-height: var(--testimonial-card-verified-purchase-tw-leading, var(--testimonial-card-verified-purchase-text-base--line-height));
+  --testimonial-card-verified-purchase-tw-font-weight: var(--testimonial-card-verified-purchase-font-weight-semibold);
+  font-weight: var(--testimonial-card-verified-purchase-font-weight-semibold);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-7, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-7 {
+  margin-top: calc(var(--testimonial-card-verified-purchase-spacing) * 2);
+  font-size: var(--testimonial-card-verified-purchase-text-sm);
+  line-height: var(--testimonial-card-verified-purchase-tw-leading, var(--testimonial-card-verified-purchase-text-sm--line-height));
+  --testimonial-card-verified-purchase-tw-leading: calc(var(--testimonial-card-verified-purchase-spacing) * 6);
+  line-height: calc(var(--testimonial-card-verified-purchase-spacing) * 6);
+  color: var(--testimonial-card-verified-purchase-color-neutral-700);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-8, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-8 {
+  margin-top: calc(var(--testimonial-card-verified-purchase-spacing) * 5);
+  border-top-style: var(--testimonial-card-verified-purchase-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--testimonial-card-verified-purchase-color-neutral-200);
+  padding-top: calc(var(--testimonial-card-verified-purchase-spacing) * 4);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-9, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-9 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--testimonial-card-verified-purchase-spacing) * 3);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-10, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-10 {
+  font-size: var(--testimonial-card-verified-purchase-text-xs);
+  line-height: var(--testimonial-card-verified-purchase-tw-leading, var(--testimonial-card-verified-purchase-text-xs--line-height));
+  --testimonial-card-verified-purchase-tw-font-weight: var(--testimonial-card-verified-purchase-font-weight-semibold);
+  font-weight: var(--testimonial-card-verified-purchase-font-weight-semibold);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-11, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-11 {
+  font-size: 11px;
+  color: var(--testimonial-card-verified-purchase-color-neutral-600);
+}
+.testimonial-card-verified-purchase.testimonial-card-verified-purchase__part-12, .testimonial-card-verified-purchase .testimonial-card-verified-purchase__part-12 {
+  margin-top: calc(var(--testimonial-card-verified-purchase-spacing) * 2);
+  font-size: 11px;
+  color: var(--testimonial-card-verified-purchase-color-neutral-600);
+}
+@property --testimonial-card-verified-purchase-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --testimonial-card-verified-purchase-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --testimonial-card-verified-purchase-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --testimonial-card-verified-purchase-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .testimonial-card-verified-purchase *, .testimonial-card-verified-purchase ::before, .testimonial-card-verified-purchase ::after, .testimonial-card-verified-purchase ::backdrop {
+      --testimonial-card-verified-purchase-tw-border-style: solid;
+      --testimonial-card-verified-purchase-tw-tracking: initial;
+      --testimonial-card-verified-purchase-tw-font-weight: initial;
+      --testimonial-card-verified-purchase-tw-leading: initial;
+    }
+  }
+}

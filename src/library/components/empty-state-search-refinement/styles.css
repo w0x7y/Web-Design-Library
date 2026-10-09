@@ -1,0 +1,152 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.empty-state-search-refinement, .empty-state-search-refinement *, .empty-state-search-refinement *::before, .empty-state-search-refinement *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.empty-state-search-refinement { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.empty-state-search-refinement :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.empty-state-search-refinement a { color: inherit; text-decoration: inherit; }
+.empty-state-search-refinement :is(b, strong) { font-weight: bolder; }
+.empty-state-search-refinement :is(ol, ul, menu) { list-style: none; }
+.empty-state-search-refinement :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.empty-state-search-refinement :is(img, video) { max-width: 100%; height: auto; }
+.empty-state-search-refinement :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.empty-state-search-refinement ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.empty-state-search-refinement table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.empty-state-search-refinement summary { display: list-item; }
+
+@layer properties;
+.empty-state-search-refinement {
+  --empty-state-search-refinement-color-blue-700: oklch(48.8% 0.243 264.376);
+  --empty-state-search-refinement-color-slate-50: oklch(98.4% 0.003 247.858);
+  --empty-state-search-refinement-color-slate-300: oklch(86.9% 0.022 252.894);
+  --empty-state-search-refinement-color-slate-500: oklch(55.4% 0.046 257.417);
+  --empty-state-search-refinement-color-slate-600: oklch(44.6% 0.043 257.281);
+  --empty-state-search-refinement-color-slate-950: oklch(12.9% 0.042 264.695);
+  --empty-state-search-refinement-color-stone-950: oklch(14.7% 0.004 49.25);
+  --empty-state-search-refinement-color-white: #fff;
+  --empty-state-search-refinement-spacing: 0.25rem;
+  --empty-state-search-refinement-text-xs: 0.75rem;
+  --empty-state-search-refinement-text-xs--line-height: calc(1 / 0.75);
+  --empty-state-search-refinement-text-lg: 1.125rem;
+  --empty-state-search-refinement-text-lg--line-height: calc(1.75 / 1.125);
+  --empty-state-search-refinement-font-weight-semibold: 600;
+  --empty-state-search-refinement-radius-lg: 0.5rem;
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-1, .empty-state-search-refinement .empty-state-search-refinement__part-1 {
+  width: calc(var(--empty-state-search-refinement-spacing) * 72);
+  background-color: var(--empty-state-search-refinement-color-slate-50);
+  padding: calc(var(--empty-state-search-refinement-spacing) * 6);
+  color: var(--empty-state-search-refinement-color-slate-950);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-2, .empty-state-search-refinement .empty-state-search-refinement__part-2 {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--empty-state-search-refinement-spacing) * 4);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-3, .empty-state-search-refinement .empty-state-search-refinement__part-3 {
+  color: var(--empty-state-search-refinement-color-slate-500);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-4, .empty-state-search-refinement .empty-state-search-refinement__part-4 {
+  width: calc(var(--empty-state-search-refinement-spacing) * 12);
+  height: calc(var(--empty-state-search-refinement-spacing) * 12);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-5, .empty-state-search-refinement .empty-state-search-refinement__part-5 {
+  border-radius: calc(infinity * 1px);
+  border-style: var(--empty-state-search-refinement-tw-border-style);
+  border-width: 1px;
+  border-color: var(--empty-state-search-refinement-color-slate-300);
+  padding-inline: calc(var(--empty-state-search-refinement-spacing) * 3);
+  padding-block: var(--empty-state-search-refinement-spacing);
+  font-size: var(--empty-state-search-refinement-text-xs);
+  line-height: var(--empty-state-search-refinement-tw-leading, var(--empty-state-search-refinement-text-xs--line-height));
+  color: var(--empty-state-search-refinement-color-slate-600);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-6, .empty-state-search-refinement .empty-state-search-refinement__part-6 {
+  margin-top: calc(var(--empty-state-search-refinement-spacing) * 5);
+  font-size: var(--empty-state-search-refinement-text-lg);
+  line-height: var(--empty-state-search-refinement-tw-leading, var(--empty-state-search-refinement-text-lg--line-height));
+  --empty-state-search-refinement-tw-font-weight: var(--empty-state-search-refinement-font-weight-semibold);
+  font-weight: var(--empty-state-search-refinement-font-weight-semibold);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-7, .empty-state-search-refinement .empty-state-search-refinement__part-7 {
+  margin-top: calc(var(--empty-state-search-refinement-spacing) * 4);
+  display: grid;
+  gap: calc(var(--empty-state-search-refinement-spacing) * 2);
+  font-size: var(--empty-state-search-refinement-text-xs);
+  line-height: var(--empty-state-search-refinement-tw-leading, var(--empty-state-search-refinement-text-xs--line-height));
+  --empty-state-search-refinement-tw-leading: calc(var(--empty-state-search-refinement-spacing) * 5);
+  line-height: calc(var(--empty-state-search-refinement-spacing) * 5);
+  color: var(--empty-state-search-refinement-color-slate-600);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-8, .empty-state-search-refinement .empty-state-search-refinement__part-8 {
+  margin-top: calc(var(--empty-state-search-refinement-spacing) * 6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--empty-state-search-refinement-spacing) * 3);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-9, .empty-state-search-refinement .empty-state-search-refinement__part-9 {
+  border-radius: var(--empty-state-search-refinement-radius-lg);
+  background-color: var(--empty-state-search-refinement-color-blue-700);
+  padding-inline: calc(var(--empty-state-search-refinement-spacing) * 3);
+  padding-block: calc(var(--empty-state-search-refinement-spacing) * 2.5);
+  font-size: var(--empty-state-search-refinement-text-xs);
+  line-height: var(--empty-state-search-refinement-tw-leading, var(--empty-state-search-refinement-text-xs--line-height));
+  --empty-state-search-refinement-tw-font-weight: var(--empty-state-search-refinement-font-weight-semibold);
+  font-weight: var(--empty-state-search-refinement-font-weight-semibold);
+  color: var(--empty-state-search-refinement-color-white);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-9:focus-visible, .empty-state-search-refinement .empty-state-search-refinement__part-9:focus-visible {
+  outline-style: var(--empty-state-search-refinement-tw-outline-style);
+  outline-width: 2px;
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-9:focus-visible, .empty-state-search-refinement .empty-state-search-refinement__part-9:focus-visible {
+  outline-offset: 2px;
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-9:focus-visible, .empty-state-search-refinement .empty-state-search-refinement__part-9:focus-visible {
+  outline-color: var(--empty-state-search-refinement-color-stone-950);
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-10, .empty-state-search-refinement .empty-state-search-refinement__part-10 {
+  align-self: center;
+  font-size: var(--empty-state-search-refinement-text-xs);
+  line-height: var(--empty-state-search-refinement-tw-leading, var(--empty-state-search-refinement-text-xs--line-height));
+  --empty-state-search-refinement-tw-font-weight: var(--empty-state-search-refinement-font-weight-semibold);
+  font-weight: var(--empty-state-search-refinement-font-weight-semibold);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-10:focus-visible, .empty-state-search-refinement .empty-state-search-refinement__part-10:focus-visible {
+  outline-style: var(--empty-state-search-refinement-tw-outline-style);
+  outline-width: 2px;
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-10:focus-visible, .empty-state-search-refinement .empty-state-search-refinement__part-10:focus-visible {
+  outline-offset: 2px;
+}
+.empty-state-search-refinement.empty-state-search-refinement__part-10:focus-visible, .empty-state-search-refinement .empty-state-search-refinement__part-10:focus-visible {
+  outline-color: currentcolor;
+}
+@property --empty-state-search-refinement-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --empty-state-search-refinement-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --empty-state-search-refinement-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --empty-state-search-refinement-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .empty-state-search-refinement *, .empty-state-search-refinement ::before, .empty-state-search-refinement ::after, .empty-state-search-refinement ::backdrop {
+      --empty-state-search-refinement-tw-border-style: solid;
+      --empty-state-search-refinement-tw-font-weight: initial;
+      --empty-state-search-refinement-tw-leading: initial;
+      --empty-state-search-refinement-tw-outline-style: solid;
+    }
+  }
+}

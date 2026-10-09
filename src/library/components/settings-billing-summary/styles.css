@@ -1,0 +1,322 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.settings-billing-summary, .settings-billing-summary *, .settings-billing-summary *::before, .settings-billing-summary *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.settings-billing-summary { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.settings-billing-summary :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.settings-billing-summary a { color: inherit; text-decoration: inherit; }
+.settings-billing-summary :is(b, strong) { font-weight: bolder; }
+.settings-billing-summary :is(ol, ul, menu) { list-style: none; }
+.settings-billing-summary :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.settings-billing-summary :is(img, video) { max-width: 100%; height: auto; }
+.settings-billing-summary :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.settings-billing-summary ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.settings-billing-summary table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.settings-billing-summary summary { display: list-item; }
+
+@layer properties;
+.settings-billing-summary {
+  --settings-billing-summary-color-zinc-100: oklch(96.7% 0.001 286.375);
+  --settings-billing-summary-color-zinc-200: oklch(92% 0.004 286.32);
+  --settings-billing-summary-color-zinc-300: oklch(87.1% 0.006 286.286);
+  --settings-billing-summary-color-zinc-600: oklch(44.2% 0.017 285.786);
+  --settings-billing-summary-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --settings-billing-summary-color-stone-100: oklch(97% 0.001 106.424);
+  --settings-billing-summary-color-stone-600: oklch(44.4% 0.011 73.639);
+  --settings-billing-summary-color-stone-700: oklch(37.4% 0.01 67.558);
+  --settings-billing-summary-color-stone-950: oklch(14.7% 0.004 49.25);
+  --settings-billing-summary-color-white: #fff;
+  --settings-billing-summary-spacing: 0.25rem;
+  --settings-billing-summary-container-3xl: 48rem;
+  --settings-billing-summary-text-xs: 0.75rem;
+  --settings-billing-summary-text-xs--line-height: calc(1 / 0.75);
+  --settings-billing-summary-text-sm: 0.875rem;
+  --settings-billing-summary-text-sm--line-height: calc(1.25 / 0.875);
+  --settings-billing-summary-text-lg: 1.125rem;
+  --settings-billing-summary-text-lg--line-height: calc(1.75 / 1.125);
+  --settings-billing-summary-text-2xl: 1.5rem;
+  --settings-billing-summary-text-2xl--line-height: calc(2 / 1.5);
+  --settings-billing-summary-text-3xl: 1.875rem;
+  --settings-billing-summary-text-3xl--line-height: calc(2.25 / 1.875);
+  --settings-billing-summary-font-weight-medium: 500;
+  --settings-billing-summary-font-weight-semibold: 600;
+  --settings-billing-summary-tracking-tight: -0.025em;
+  --settings-billing-summary-tracking-widest: 0.1em;
+  --settings-billing-summary-radius-lg: 0.5rem;
+  --settings-billing-summary-radius-xl: 0.75rem;
+}
+.settings-billing-summary.settings-billing-summary__part-1, .settings-billing-summary .settings-billing-summary__part-1 {
+  background-color: var(--settings-billing-summary-color-white);
+  padding-inline: calc(var(--settings-billing-summary-spacing) * 6);
+  padding-block: calc(var(--settings-billing-summary-spacing) * 10);
+  color: var(--settings-billing-summary-color-zinc-950);
+}
+@media (width >= 40rem) {
+  .settings-billing-summary.settings-billing-summary__part-1, .settings-billing-summary .settings-billing-summary__part-1 {
+    padding-inline: calc(var(--settings-billing-summary-spacing) * 12);
+  }
+}
+.settings-billing-summary.settings-billing-summary__part-2, .settings-billing-summary .settings-billing-summary__part-2 {
+  margin-inline: auto;
+  max-width: var(--settings-billing-summary-container-3xl);
+}
+.settings-billing-summary.settings-billing-summary__part-3, .settings-billing-summary .settings-billing-summary__part-3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: calc(var(--settings-billing-summary-spacing) * 5);
+}
+.settings-billing-summary.settings-billing-summary__part-4, .settings-billing-summary .settings-billing-summary__part-4 {
+  display: grid;
+  gap: calc(var(--settings-billing-summary-spacing) * 2);
+}
+.settings-billing-summary.settings-billing-summary__part-5, .settings-billing-summary .settings-billing-summary__part-5 {
+  font-size: var(--settings-billing-summary-text-3xl);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-3xl--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-semibold);
+  font-weight: var(--settings-billing-summary-font-weight-semibold);
+  --settings-billing-summary-tw-tracking: var(--settings-billing-summary-tracking-tight);
+  letter-spacing: var(--settings-billing-summary-tracking-tight);
+}
+.settings-billing-summary.settings-billing-summary__part-6, .settings-billing-summary .settings-billing-summary__part-6 {
+  font-size: var(--settings-billing-summary-text-sm);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-sm--line-height));
+  --settings-billing-summary-tw-leading: calc(var(--settings-billing-summary-spacing) * 6);
+  line-height: calc(var(--settings-billing-summary-spacing) * 6);
+  color: var(--settings-billing-summary-color-stone-600);
+}
+.settings-billing-summary.settings-billing-summary__part-7, .settings-billing-summary .settings-billing-summary__part-7 {
+  display: inline-flex;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--settings-billing-summary-color-stone-100);
+  padding-inline: calc(var(--settings-billing-summary-spacing) * 3);
+  padding-block: var(--settings-billing-summary-spacing);
+  font-size: var(--settings-billing-summary-text-xs);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-xs--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-medium);
+  font-weight: var(--settings-billing-summary-font-weight-medium);
+  color: var(--settings-billing-summary-color-stone-700);
+}
+.settings-billing-summary.settings-billing-summary__part-8, .settings-billing-summary .settings-billing-summary__part-8 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 7);
+  display: grid;
+  gap: calc(var(--settings-billing-summary-spacing) * 5);
+}
+@media (width >= 48rem) {
+  .settings-billing-summary.settings-billing-summary__part-8, .settings-billing-summary .settings-billing-summary__part-8 {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+.settings-billing-summary.settings-billing-summary__part-9, .settings-billing-summary .settings-billing-summary__part-9 {
+  border-radius: var(--settings-billing-summary-radius-xl);
+  border-style: var(--settings-billing-summary-tw-border-style);
+  border-width: 1px;
+  border-color: var(--settings-billing-summary-color-zinc-200);
+  padding: calc(var(--settings-billing-summary-spacing) * 6);
+}
+.settings-billing-summary.settings-billing-summary__part-10, .settings-billing-summary .settings-billing-summary__part-10 {
+  font-size: var(--settings-billing-summary-text-xs);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-xs--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-medium);
+  font-weight: var(--settings-billing-summary-font-weight-medium);
+  --settings-billing-summary-tw-tracking: var(--settings-billing-summary-tracking-widest);
+  letter-spacing: var(--settings-billing-summary-tracking-widest);
+  color: var(--settings-billing-summary-color-zinc-600);
+}
+.settings-billing-summary.settings-billing-summary__part-11, .settings-billing-summary .settings-billing-summary__part-11 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 4);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: calc(var(--settings-billing-summary-spacing) * 4);
+}
+.settings-billing-summary.settings-billing-summary__part-12, .settings-billing-summary .settings-billing-summary__part-12 {
+  font-size: var(--settings-billing-summary-text-2xl);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-2xl--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-semibold);
+  font-weight: var(--settings-billing-summary-font-weight-semibold);
+}
+.settings-billing-summary.settings-billing-summary__part-13, .settings-billing-summary .settings-billing-summary__part-13 {
+  font-size: var(--settings-billing-summary-text-lg);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-lg--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-semibold);
+  font-weight: var(--settings-billing-summary-font-weight-semibold);
+  --settings-billing-summary-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--settings-billing-summary-tw-ordinal,) var(--settings-billing-summary-tw-slashed-zero,) var(--settings-billing-summary-tw-numeric-figure,) var(--settings-billing-summary-tw-numeric-spacing,) var(--settings-billing-summary-tw-numeric-fraction,);
+}
+.settings-billing-summary.settings-billing-summary__part-14, .settings-billing-summary .settings-billing-summary__part-14 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 6);
+  font-size: var(--settings-billing-summary-text-sm);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-sm--line-height));
+  color: var(--settings-billing-summary-color-zinc-600);
+}
+.settings-billing-summary.settings-billing-summary__part-15, .settings-billing-summary .settings-billing-summary__part-15 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 3);
+  height: calc(var(--settings-billing-summary-spacing) * 3);
+  width: 100%;
+  accent-color: var(--settings-billing-summary-color-zinc-950);
+}
+.settings-billing-summary.settings-billing-summary__part-16, .settings-billing-summary .settings-billing-summary__part-16 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 6);
+  display: inline-flex;
+  font-size: var(--settings-billing-summary-text-sm);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-sm--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-medium);
+  font-weight: var(--settings-billing-summary-font-weight-medium);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.settings-billing-summary.settings-billing-summary__part-16:focus-visible, .settings-billing-summary .settings-billing-summary__part-16:focus-visible {
+  outline-style: var(--settings-billing-summary-tw-outline-style);
+  outline-width: 2px;
+}
+.settings-billing-summary.settings-billing-summary__part-16:focus-visible, .settings-billing-summary .settings-billing-summary__part-16:focus-visible {
+  outline-offset: 2px;
+}
+.settings-billing-summary.settings-billing-summary__part-16:focus-visible, .settings-billing-summary .settings-billing-summary__part-16:focus-visible {
+  outline-color: currentcolor;
+}
+.settings-billing-summary.settings-billing-summary__part-17, .settings-billing-summary .settings-billing-summary__part-17 {
+  border-radius: var(--settings-billing-summary-radius-xl);
+  background-color: var(--settings-billing-summary-color-zinc-100);
+  padding: calc(var(--settings-billing-summary-spacing) * 6);
+}
+.settings-billing-summary.settings-billing-summary__part-18, .settings-billing-summary .settings-billing-summary__part-18 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 5);
+  font-size: var(--settings-billing-summary-text-lg);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-lg--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-medium);
+  font-weight: var(--settings-billing-summary-font-weight-medium);
+}
+.settings-billing-summary.settings-billing-summary__part-19, .settings-billing-summary .settings-billing-summary__part-19 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 2);
+  font-size: var(--settings-billing-summary-text-xs);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-xs--line-height));
+  color: var(--settings-billing-summary-color-zinc-600);
+}
+.settings-billing-summary.settings-billing-summary__part-20, .settings-billing-summary .settings-billing-summary__part-20 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 6);
+  border-radius: var(--settings-billing-summary-radius-lg);
+  border-style: var(--settings-billing-summary-tw-border-style);
+  border-width: 1px;
+  border-color: var(--settings-billing-summary-color-zinc-300);
+  background-color: var(--settings-billing-summary-color-white);
+  padding-inline: calc(var(--settings-billing-summary-spacing) * 3);
+  padding-block: calc(var(--settings-billing-summary-spacing) * 2);
+  font-size: var(--settings-billing-summary-text-xs);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-xs--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-semibold);
+  font-weight: var(--settings-billing-summary-font-weight-semibold);
+}
+.settings-billing-summary.settings-billing-summary__part-20:focus-visible, .settings-billing-summary .settings-billing-summary__part-20:focus-visible {
+  outline-style: var(--settings-billing-summary-tw-outline-style);
+  outline-width: 2px;
+}
+.settings-billing-summary.settings-billing-summary__part-20:focus-visible, .settings-billing-summary .settings-billing-summary__part-20:focus-visible {
+  outline-offset: 2px;
+}
+.settings-billing-summary.settings-billing-summary__part-20:focus-visible, .settings-billing-summary .settings-billing-summary__part-20:focus-visible {
+  outline-color: var(--settings-billing-summary-color-stone-950);
+}
+.settings-billing-summary.settings-billing-summary__part-21, .settings-billing-summary .settings-billing-summary__part-21 {
+  margin-top: calc(var(--settings-billing-summary-spacing) * 6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--settings-billing-summary-spacing) * 5);
+  border-top-style: var(--settings-billing-summary-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--settings-billing-summary-color-zinc-200);
+  padding-top: calc(var(--settings-billing-summary-spacing) * 6);
+}
+.settings-billing-summary.settings-billing-summary__part-22, .settings-billing-summary .settings-billing-summary__part-22 {
+  display: grid;
+  gap: var(--settings-billing-summary-spacing);
+}
+.settings-billing-summary.settings-billing-summary__part-23, .settings-billing-summary .settings-billing-summary__part-23 {
+  font-size: var(--settings-billing-summary-text-sm);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-sm--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-medium);
+  font-weight: var(--settings-billing-summary-font-weight-medium);
+}
+.settings-billing-summary.settings-billing-summary__part-24, .settings-billing-summary .settings-billing-summary__part-24 {
+  font-size: var(--settings-billing-summary-text-xs);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-xs--line-height));
+  color: var(--settings-billing-summary-color-zinc-600);
+}
+.settings-billing-summary.settings-billing-summary__part-25, .settings-billing-summary .settings-billing-summary__part-25 {
+  font-size: var(--settings-billing-summary-text-sm);
+  line-height: var(--settings-billing-summary-tw-leading, var(--settings-billing-summary-text-sm--line-height));
+  --settings-billing-summary-tw-font-weight: var(--settings-billing-summary-font-weight-medium);
+  font-weight: var(--settings-billing-summary-font-weight-medium);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.settings-billing-summary.settings-billing-summary__part-25:focus-visible, .settings-billing-summary .settings-billing-summary__part-25:focus-visible {
+  outline-style: var(--settings-billing-summary-tw-outline-style);
+  outline-width: 2px;
+}
+.settings-billing-summary.settings-billing-summary__part-25:focus-visible, .settings-billing-summary .settings-billing-summary__part-25:focus-visible {
+  outline-offset: 2px;
+}
+.settings-billing-summary.settings-billing-summary__part-25:focus-visible, .settings-billing-summary .settings-billing-summary__part-25:focus-visible {
+  outline-color: currentcolor;
+}
+@property --settings-billing-summary-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --settings-billing-summary-tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-billing-summary-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .settings-billing-summary *, .settings-billing-summary ::before, .settings-billing-summary ::after, .settings-billing-summary ::backdrop {
+      --settings-billing-summary-tw-font-weight: initial;
+      --settings-billing-summary-tw-tracking: initial;
+      --settings-billing-summary-tw-leading: initial;
+      --settings-billing-summary-tw-border-style: solid;
+      --settings-billing-summary-tw-ordinal: initial;
+      --settings-billing-summary-tw-slashed-zero: initial;
+      --settings-billing-summary-tw-numeric-figure: initial;
+      --settings-billing-summary-tw-numeric-spacing: initial;
+      --settings-billing-summary-tw-numeric-fraction: initial;
+      --settings-billing-summary-tw-outline-style: solid;
+    }
+  }
+}

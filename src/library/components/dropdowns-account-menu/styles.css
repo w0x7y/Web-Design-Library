@@ -1,0 +1,212 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dropdowns-account-menu, .dropdowns-account-menu *, .dropdowns-account-menu *::before, .dropdowns-account-menu *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dropdowns-account-menu { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dropdowns-account-menu :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dropdowns-account-menu a { color: inherit; text-decoration: inherit; }
+.dropdowns-account-menu :is(b, strong) { font-weight: bolder; }
+.dropdowns-account-menu :is(ol, ul, menu) { list-style: none; }
+.dropdowns-account-menu :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dropdowns-account-menu :is(img, video) { max-width: 100%; height: auto; }
+.dropdowns-account-menu :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dropdowns-account-menu ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dropdowns-account-menu table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dropdowns-account-menu summary { display: list-item; }
+
+@layer properties;
+.dropdowns-account-menu {
+  --dropdowns-account-menu-color-lime-300: oklch(89.7% 0.196 126.665);
+  --dropdowns-account-menu-color-cyan-200: oklch(91.7% 0.08 205.041);
+  --dropdowns-account-menu-color-rose-300: oklch(81% 0.117 11.638);
+  --dropdowns-account-menu-color-slate-100: oklch(96.8% 0.007 247.896);
+  --dropdowns-account-menu-color-slate-400: oklch(70.4% 0.04 256.788);
+  --dropdowns-account-menu-color-slate-500: oklch(55.4% 0.046 257.417);
+  --dropdowns-account-menu-color-slate-700: oklch(37.2% 0.044 257.287);
+  --dropdowns-account-menu-color-slate-800: oklch(27.9% 0.041 260.031);
+  --dropdowns-account-menu-color-slate-950: oklch(12.9% 0.042 264.695);
+  --dropdowns-account-menu-spacing: 0.25rem;
+  --dropdowns-account-menu-text-xs: 0.75rem;
+  --dropdowns-account-menu-text-xs--line-height: calc(1 / 0.75);
+  --dropdowns-account-menu-text-sm: 0.875rem;
+  --dropdowns-account-menu-text-sm--line-height: calc(1.25 / 0.875);
+  --dropdowns-account-menu-font-weight-semibold: 600;
+  --dropdowns-account-menu-radius-lg: 0.5rem;
+  --dropdowns-account-menu-radius-2xl: 1rem;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-1, .dropdowns-account-menu .dropdowns-account-menu__part-1 {
+  width: calc(var(--dropdowns-account-menu-spacing) * 72);
+  border-radius: var(--dropdowns-account-menu-radius-2xl);
+  border-style: var(--dropdowns-account-menu-tw-border-style);
+  border-width: 1px;
+  border-color: var(--dropdowns-account-menu-color-slate-700);
+  background-color: var(--dropdowns-account-menu-color-slate-950);
+  padding: calc(var(--dropdowns-account-menu-spacing) * 4);
+  color: var(--dropdowns-account-menu-color-slate-100);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-2, .dropdowns-account-menu .dropdowns-account-menu__part-2 {
+  display: flex;
+  cursor: pointer;
+  list-style-type: none;
+  align-items: center;
+  gap: calc(var(--dropdowns-account-menu-spacing) * 3);
+  border-radius: var(--dropdowns-account-menu-radius-lg);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-2:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-2:focus-visible {
+  outline-style: var(--dropdowns-account-menu-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-2:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-2:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-2:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-2:focus-visible {
+  outline-color: var(--dropdowns-account-menu-color-lime-300);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-2::-webkit-details-marker, .dropdowns-account-menu .dropdowns-account-menu__part-2::-webkit-details-marker {
+  display: none;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-3, .dropdowns-account-menu .dropdowns-account-menu__part-3 {
+  display: flex;
+  width: calc(var(--dropdowns-account-menu-spacing) * 11);
+  height: calc(var(--dropdowns-account-menu-spacing) * 11);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--dropdowns-account-menu-color-cyan-200);
+  font-size: var(--dropdowns-account-menu-text-sm);
+  line-height: var(--dropdowns-account-menu-tw-leading, var(--dropdowns-account-menu-text-sm--line-height));
+  --dropdowns-account-menu-tw-font-weight: var(--dropdowns-account-menu-font-weight-semibold);
+  font-weight: var(--dropdowns-account-menu-font-weight-semibold);
+  color: var(--dropdowns-account-menu-color-slate-950);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-4, .dropdowns-account-menu .dropdowns-account-menu__part-4 {
+  display: block;
+  font-size: var(--dropdowns-account-menu-text-sm);
+  line-height: var(--dropdowns-account-menu-tw-leading, var(--dropdowns-account-menu-text-sm--line-height));
+  --dropdowns-account-menu-tw-font-weight: var(--dropdowns-account-menu-font-weight-semibold);
+  font-weight: var(--dropdowns-account-menu-font-weight-semibold);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-5, .dropdowns-account-menu .dropdowns-account-menu__part-5 {
+  margin-top: calc(var(--dropdowns-account-menu-spacing) * 0.5);
+  display: block;
+  font-size: 10px;
+  color: var(--dropdowns-account-menu-color-slate-400);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-6, .dropdowns-account-menu .dropdowns-account-menu__part-6 {
+  margin-left: auto;
+  width: calc(var(--dropdowns-account-menu-spacing) * 4);
+  height: calc(var(--dropdowns-account-menu-spacing) * 4);
+  color: var(--dropdowns-account-menu-color-slate-400);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-6:is(:where(.dropdowns-account-menu__group):is([open], :popover-open, :open) *), .dropdowns-account-menu .dropdowns-account-menu__part-6:is(:where(.dropdowns-account-menu__group):is([open], :popover-open, :open) *) {
+  rotate: 180deg;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-7, .dropdowns-account-menu .dropdowns-account-menu__part-7 {
+  margin-top: calc(var(--dropdowns-account-menu-spacing) * 4);
+  border-top-style: var(--dropdowns-account-menu-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--dropdowns-account-menu-color-slate-800);
+  padding-top: calc(var(--dropdowns-account-menu-spacing) * 3);
+}
+.dropdowns-account-menu :where(:is(.dropdowns-account-menu.dropdowns-account-menu__part-8, .dropdowns-account-menu .dropdowns-account-menu__part-8) > :not(:last-child)) {
+  --dropdowns-account-menu-tw-space-y-reverse: 0;
+  margin-block-start: calc(var(--dropdowns-account-menu-spacing) * var(--dropdowns-account-menu-tw-space-y-reverse));
+  margin-block-end: calc(var(--dropdowns-account-menu-spacing) * calc(1 - var(--dropdowns-account-menu-tw-space-y-reverse)));
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-9, .dropdowns-account-menu .dropdowns-account-menu__part-9 {
+  display: flex;
+  height: calc(var(--dropdowns-account-menu-spacing) * 9);
+  align-items: center;
+  gap: calc(var(--dropdowns-account-menu-spacing) * 3);
+  border-radius: var(--dropdowns-account-menu-radius-lg);
+  padding-inline: calc(var(--dropdowns-account-menu-spacing) * 2);
+  font-size: var(--dropdowns-account-menu-text-xs);
+  line-height: var(--dropdowns-account-menu-tw-leading, var(--dropdowns-account-menu-text-xs--line-height));
+}
+@media (hover: hover) {
+  .dropdowns-account-menu.dropdowns-account-menu__part-9:hover, .dropdowns-account-menu .dropdowns-account-menu__part-9:hover {
+    background-color: var(--dropdowns-account-menu-color-slate-800);
+  }
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-9:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-9:focus-visible {
+  outline-style: var(--dropdowns-account-menu-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-9:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-9:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-9:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-9:focus-visible {
+  outline-color: var(--dropdowns-account-menu-color-lime-300);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-10, .dropdowns-account-menu .dropdowns-account-menu__part-10 {
+  width: calc(var(--dropdowns-account-menu-spacing) * 4);
+  height: calc(var(--dropdowns-account-menu-spacing) * 4);
+  color: var(--dropdowns-account-menu-color-slate-400);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-11, .dropdowns-account-menu .dropdowns-account-menu__part-11 {
+  margin-left: auto;
+  width: calc(var(--dropdowns-account-menu-spacing) * 3.5);
+  height: calc(var(--dropdowns-account-menu-spacing) * 3.5);
+  flex-shrink: 0;
+  color: var(--dropdowns-account-menu-color-slate-500);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-12, .dropdowns-account-menu .dropdowns-account-menu__part-12 {
+  margin-top: calc(var(--dropdowns-account-menu-spacing) * 3);
+  border-top-style: var(--dropdowns-account-menu-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--dropdowns-account-menu-color-slate-800);
+  padding-top: calc(var(--dropdowns-account-menu-spacing) * 3);
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-13, .dropdowns-account-menu .dropdowns-account-menu__part-13 {
+  height: calc(var(--dropdowns-account-menu-spacing) * 9);
+  width: 100%;
+  border-radius: var(--dropdowns-account-menu-radius-lg);
+  padding-inline: calc(var(--dropdowns-account-menu-spacing) * 2);
+  text-align: left;
+  font-size: var(--dropdowns-account-menu-text-xs);
+  line-height: var(--dropdowns-account-menu-tw-leading, var(--dropdowns-account-menu-text-xs--line-height));
+  color: var(--dropdowns-account-menu-color-rose-300);
+}
+@media (hover: hover) {
+  .dropdowns-account-menu.dropdowns-account-menu__part-13:hover, .dropdowns-account-menu .dropdowns-account-menu__part-13:hover {
+    background-color: var(--dropdowns-account-menu-color-slate-800);
+  }
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-13:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-13:focus-visible {
+  outline-style: var(--dropdowns-account-menu-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-13:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-13:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-account-menu.dropdowns-account-menu__part-13:focus-visible, .dropdowns-account-menu .dropdowns-account-menu__part-13:focus-visible {
+  outline-color: var(--dropdowns-account-menu-color-lime-300);
+}
+@property --dropdowns-account-menu-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --dropdowns-account-menu-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --dropdowns-account-menu-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --dropdowns-account-menu-tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .dropdowns-account-menu *, .dropdowns-account-menu ::before, .dropdowns-account-menu ::after, .dropdowns-account-menu ::backdrop {
+      --dropdowns-account-menu-tw-border-style: solid;
+      --dropdowns-account-menu-tw-outline-style: solid;
+      --dropdowns-account-menu-tw-font-weight: initial;
+      --dropdowns-account-menu-tw-space-y-reverse: 0;
+    }
+  }
+}

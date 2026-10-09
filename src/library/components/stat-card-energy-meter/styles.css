@@ -1,0 +1,176 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-energy-meter, .stat-card-energy-meter *, .stat-card-energy-meter *::before, .stat-card-energy-meter *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-energy-meter { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-energy-meter :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-energy-meter a { color: inherit; text-decoration: inherit; }
+.stat-card-energy-meter :is(b, strong) { font-weight: bolder; }
+.stat-card-energy-meter :is(ol, ul, menu) { list-style: none; }
+.stat-card-energy-meter :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-energy-meter :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-energy-meter :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-energy-meter ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-energy-meter table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-energy-meter summary { display: list-item; }
+
+@layer properties;
+.stat-card-energy-meter {
+  --stat-card-energy-meter-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --stat-card-energy-meter-color-lime-300: oklch(89.7% 0.196 126.665);
+  --stat-card-energy-meter-color-zinc-100: oklch(96.7% 0.001 286.375);
+  --stat-card-energy-meter-color-zinc-300: oklch(87.1% 0.006 286.286);
+  --stat-card-energy-meter-color-zinc-700: oklch(37% 0.013 285.805);
+  --stat-card-energy-meter-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --stat-card-energy-meter-spacing: 0.25rem;
+  --stat-card-energy-meter-text-sm: 0.875rem;
+  --stat-card-energy-meter-text-sm--line-height: calc(1.25 / 0.875);
+  --stat-card-energy-meter-text-base: 1rem;
+  --stat-card-energy-meter-text-base--line-height: calc(1.5 / 1);
+  --stat-card-energy-meter-text-5xl: 3rem;
+  --stat-card-energy-meter-text-5xl--line-height: 1;
+  --stat-card-energy-meter-font-weight-medium: 500;
+  --stat-card-energy-meter-font-weight-black: 900;
+  --stat-card-energy-meter-tracking-tight: -0.025em;
+  --stat-card-energy-meter-tracking-wider: 0.05em;
+  --stat-card-energy-meter-tracking-widest: 0.1em;
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-1, .stat-card-energy-meter .stat-card-energy-meter__part-1 {
+  width: calc(var(--stat-card-energy-meter-spacing) * 72);
+  border-style: var(--stat-card-energy-meter-tw-border-style);
+  border-width: 2px;
+  border-color: var(--stat-card-energy-meter-color-lime-300);
+  background-color: var(--stat-card-energy-meter-color-zinc-950);
+  color: var(--stat-card-energy-meter-color-lime-300);
+}
+@media (width >= 40rem) {
+  .stat-card-energy-meter.stat-card-energy-meter__part-1, .stat-card-energy-meter .stat-card-energy-meter__part-1 {
+    width: calc(var(--stat-card-energy-meter-spacing) * 80);
+  }
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-2, .stat-card-energy-meter .stat-card-energy-meter__part-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-style: var(--stat-card-energy-meter-tw-border-style);
+  border-bottom-width: 2px;
+  border-color: var(--stat-card-energy-meter-color-lime-300);
+  padding-inline: calc(var(--stat-card-energy-meter-spacing) * 4);
+  padding-block: calc(var(--stat-card-energy-meter-spacing) * 3);
+  font-family: var(--stat-card-energy-meter-font-mono);
+  font-size: 10px;
+  --stat-card-energy-meter-tw-tracking: var(--stat-card-energy-meter-tracking-wider);
+  letter-spacing: var(--stat-card-energy-meter-tracking-wider);
+  text-transform: uppercase;
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-3, .stat-card-energy-meter .stat-card-energy-meter__part-3 {
+  padding: calc(var(--stat-card-energy-meter-spacing) * 5);
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-4, .stat-card-energy-meter .stat-card-energy-meter__part-4 {
+  font-family: var(--stat-card-energy-meter-font-mono);
+  font-size: 10px;
+  --stat-card-energy-meter-tw-tracking: var(--stat-card-energy-meter-tracking-widest);
+  letter-spacing: var(--stat-card-energy-meter-tracking-widest);
+  color: var(--stat-card-energy-meter-color-zinc-300);
+  text-transform: uppercase;
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-5, .stat-card-energy-meter .stat-card-energy-meter__part-5 {
+  margin-top: calc(var(--stat-card-energy-meter-spacing) * 3);
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--stat-card-energy-meter-spacing) * 2);
+  font-size: var(--stat-card-energy-meter-text-5xl);
+  line-height: var(--stat-card-energy-meter-tw-leading, var(--stat-card-energy-meter-text-5xl--line-height));
+  --stat-card-energy-meter-tw-font-weight: var(--stat-card-energy-meter-font-weight-black);
+  font-weight: var(--stat-card-energy-meter-font-weight-black);
+  --stat-card-energy-meter-tw-tracking: var(--stat-card-energy-meter-tracking-tight);
+  letter-spacing: var(--stat-card-energy-meter-tracking-tight);
+  --stat-card-energy-meter-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--stat-card-energy-meter-tw-ordinal,) var(--stat-card-energy-meter-tw-slashed-zero,) var(--stat-card-energy-meter-tw-numeric-figure,) var(--stat-card-energy-meter-tw-numeric-spacing,) var(--stat-card-energy-meter-tw-numeric-fraction,);
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-6, .stat-card-energy-meter .stat-card-energy-meter__part-6 {
+  font-size: var(--stat-card-energy-meter-text-base);
+  line-height: var(--stat-card-energy-meter-tw-leading, var(--stat-card-energy-meter-text-base--line-height));
+  --stat-card-energy-meter-tw-font-weight: var(--stat-card-energy-meter-font-weight-medium);
+  font-weight: var(--stat-card-energy-meter-font-weight-medium);
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-7, .stat-card-energy-meter .stat-card-energy-meter__part-7 {
+  margin-top: calc(var(--stat-card-energy-meter-spacing) * 6);
+  height: calc(var(--stat-card-energy-meter-spacing) * 4);
+  border-style: var(--stat-card-energy-meter-tw-border-style);
+  border-width: 1px;
+  border-color: var(--stat-card-energy-meter-color-lime-300);
+  padding: calc(var(--stat-card-energy-meter-spacing) * 0.5);
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-8, .stat-card-energy-meter .stat-card-energy-meter__part-8 {
+  height: 100%;
+  width: 74%;
+  background-color: var(--stat-card-energy-meter-color-lime-300);
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-9, .stat-card-energy-meter .stat-card-energy-meter__part-9 {
+  margin-top: calc(var(--stat-card-energy-meter-spacing) * 2);
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--stat-card-energy-meter-spacing) * 3);
+  font-family: var(--stat-card-energy-meter-font-mono);
+  font-size: 10px;
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-10, .stat-card-energy-meter .stat-card-energy-meter__part-10 {
+  margin-top: calc(var(--stat-card-energy-meter-spacing) * 5);
+  border-top-style: var(--stat-card-energy-meter-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--stat-card-energy-meter-color-zinc-700);
+  padding-top: calc(var(--stat-card-energy-meter-spacing) * 4);
+  font-size: var(--stat-card-energy-meter-text-sm);
+  line-height: var(--stat-card-energy-meter-tw-leading, var(--stat-card-energy-meter-text-sm--line-height));
+  color: var(--stat-card-energy-meter-color-zinc-100);
+}
+.stat-card-energy-meter.stat-card-energy-meter__part-11, .stat-card-energy-meter .stat-card-energy-meter__part-11 {
+  color: var(--stat-card-energy-meter-color-lime-300);
+}
+@property --stat-card-energy-meter-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --stat-card-energy-meter-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-energy-meter-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-energy-meter-tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-energy-meter-tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-energy-meter-tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-energy-meter-tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-energy-meter-tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .stat-card-energy-meter *, .stat-card-energy-meter ::before, .stat-card-energy-meter ::after, .stat-card-energy-meter ::backdrop {
+      --stat-card-energy-meter-tw-border-style: solid;
+      --stat-card-energy-meter-tw-tracking: initial;
+      --stat-card-energy-meter-tw-font-weight: initial;
+      --stat-card-energy-meter-tw-ordinal: initial;
+      --stat-card-energy-meter-tw-slashed-zero: initial;
+      --stat-card-energy-meter-tw-numeric-figure: initial;
+      --stat-card-energy-meter-tw-numeric-spacing: initial;
+      --stat-card-energy-meter-tw-numeric-fraction: initial;
+    }
+  }
+}

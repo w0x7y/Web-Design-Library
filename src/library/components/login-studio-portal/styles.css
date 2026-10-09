@@ -1,0 +1,268 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-studio-portal, .login-studio-portal *, .login-studio-portal *::before, .login-studio-portal *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-studio-portal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-studio-portal :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-studio-portal a { color: inherit; text-decoration: inherit; }
+.login-studio-portal :is(b, strong) { font-weight: bolder; }
+.login-studio-portal :is(ol, ul, menu) { list-style: none; }
+.login-studio-portal :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-studio-portal :is(img, video) { max-width: 100%; height: auto; }
+.login-studio-portal :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-studio-portal ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-studio-portal table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-studio-portal summary { display: list-item; }
+
+@layer properties;
+.login-studio-portal {
+  --login-studio-portal-color-stone-100: oklch(97% 0.001 106.424);
+  --login-studio-portal-color-stone-200: oklch(92.3% 0.003 48.717);
+  --login-studio-portal-color-stone-500: oklch(55.3% 0.013 58.071);
+  --login-studio-portal-color-stone-600: oklch(44.4% 0.011 73.639);
+  --login-studio-portal-color-stone-950: oklch(14.7% 0.004 49.25);
+  --login-studio-portal-color-white: #fff;
+  --login-studio-portal-spacing: 0.25rem;
+  --login-studio-portal-container-md: 28rem;
+  --login-studio-portal-text-xs: 0.75rem;
+  --login-studio-portal-text-xs--line-height: calc(1 / 0.75);
+  --login-studio-portal-text-sm: 0.875rem;
+  --login-studio-portal-text-sm--line-height: calc(1.25 / 0.875);
+  --login-studio-portal-text-3xl: 1.875rem;
+  --login-studio-portal-text-3xl--line-height: calc(2.25 / 1.875);
+  --login-studio-portal-font-weight-normal: 400;
+  --login-studio-portal-font-weight-medium: 500;
+  --login-studio-portal-font-weight-semibold: 600;
+  --login-studio-portal-tracking-tight: -0.025em;
+  --login-studio-portal-radius-lg: 0.5rem;
+  --login-studio-portal-radius-2xl: 1rem;
+}
+.login-studio-portal.login-studio-portal__part-1, .login-studio-portal .login-studio-portal__part-1 {
+  background-color: var(--login-studio-portal-color-stone-100);
+  padding-inline: calc(var(--login-studio-portal-spacing) * 6);
+  padding-block: calc(var(--login-studio-portal-spacing) * 12);
+  color: var(--login-studio-portal-color-stone-950);
+}
+@media (width >= 40rem) {
+  .login-studio-portal.login-studio-portal__part-1, .login-studio-portal .login-studio-portal__part-1 {
+    padding-inline: calc(var(--login-studio-portal-spacing) * 12);
+  }
+}
+.login-studio-portal.login-studio-portal__part-2, .login-studio-portal .login-studio-portal__part-2 {
+  margin-inline: auto;
+  max-width: var(--login-studio-portal-container-md);
+  border-radius: var(--login-studio-portal-radius-2xl);
+  border-style: var(--login-studio-portal-tw-border-style);
+  border-width: 1px;
+  border-color: var(--login-studio-portal-color-stone-200);
+  background-color: var(--login-studio-portal-color-white);
+  padding: calc(var(--login-studio-portal-spacing) * 6);
+}
+@media (width >= 40rem) {
+  .login-studio-portal.login-studio-portal__part-2, .login-studio-portal .login-studio-portal__part-2 {
+    padding: calc(var(--login-studio-portal-spacing) * 10);
+  }
+}
+.login-studio-portal.login-studio-portal__part-3, .login-studio-portal .login-studio-portal__part-3 {
+  font-size: var(--login-studio-portal-text-xs);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-xs--line-height));
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-semibold);
+  font-weight: var(--login-studio-portal-font-weight-semibold);
+  --login-studio-portal-tw-tracking: 0.2em;
+  letter-spacing: 0.2em;
+  color: var(--login-studio-portal-color-stone-500);
+}
+.login-studio-portal.login-studio-portal__part-4, .login-studio-portal .login-studio-portal__part-4 {
+  margin-top: calc(var(--login-studio-portal-spacing) * 5);
+  font-size: var(--login-studio-portal-text-3xl);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-3xl--line-height));
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-semibold);
+  font-weight: var(--login-studio-portal-font-weight-semibold);
+  --login-studio-portal-tw-tracking: var(--login-studio-portal-tracking-tight);
+  letter-spacing: var(--login-studio-portal-tracking-tight);
+}
+.login-studio-portal.login-studio-portal__part-5, .login-studio-portal .login-studio-portal__part-5 {
+  margin-top: calc(var(--login-studio-portal-spacing) * 3);
+  font-size: var(--login-studio-portal-text-sm);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-sm--line-height));
+  --login-studio-portal-tw-leading: calc(var(--login-studio-portal-spacing) * 6);
+  line-height: calc(var(--login-studio-portal-spacing) * 6);
+  color: var(--login-studio-portal-color-stone-600);
+}
+.login-studio-portal.login-studio-portal__part-6, .login-studio-portal .login-studio-portal__part-6 {
+  margin-top: calc(var(--login-studio-portal-spacing) * 7);
+  display: grid;
+  gap: calc(var(--login-studio-portal-spacing) * 5);
+}
+.login-studio-portal.login-studio-portal__part-7, .login-studio-portal .login-studio-portal__part-7 {
+  display: grid;
+  gap: calc(var(--login-studio-portal-spacing) * 2);
+  font-size: var(--login-studio-portal-text-sm);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-sm--line-height));
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-medium);
+  font-weight: var(--login-studio-portal-font-weight-medium);
+}
+.login-studio-portal.login-studio-portal__part-8, .login-studio-portal .login-studio-portal__part-8 {
+  width: 100%;
+  min-width: 0px;
+  border-radius: var(--login-studio-portal-radius-lg);
+  border-style: var(--login-studio-portal-tw-border-style);
+  border-width: 1px;
+  border-color: currentcolor;
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .login-studio-portal.login-studio-portal__part-8, .login-studio-portal .login-studio-portal__part-8 {
+    border-color: color-mix(in oklab, currentcolor 25%, transparent);
+  }
+}
+.login-studio-portal.login-studio-portal__part-8, .login-studio-portal .login-studio-portal__part-8 {
+  background-color: transparent;
+  padding-inline: calc(var(--login-studio-portal-spacing) * 3);
+  padding-block: calc(var(--login-studio-portal-spacing) * 2.5);
+  --login-studio-portal-tw-leading: normal;
+  line-height: normal;
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-normal);
+  font-weight: var(--login-studio-portal-font-weight-normal);
+  filter: opacity(1);
+}
+.login-studio-portal.login-studio-portal__part-8::placeholder, .login-studio-portal .login-studio-portal__part-8::placeholder {
+  color: currentcolor;
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .login-studio-portal.login-studio-portal__part-8::placeholder, .login-studio-portal .login-studio-portal__part-8::placeholder {
+    color: color-mix(in oklab, currentcolor 60%, transparent);
+  }
+}
+.login-studio-portal.login-studio-portal__part-8:focus-visible, .login-studio-portal .login-studio-portal__part-8:focus-visible {
+  outline-style: var(--login-studio-portal-tw-outline-style);
+  outline-width: 2px;
+}
+.login-studio-portal.login-studio-portal__part-8:focus-visible, .login-studio-portal .login-studio-portal__part-8:focus-visible {
+  outline-offset: 2px;
+}
+.login-studio-portal.login-studio-portal__part-8:focus-visible, .login-studio-portal .login-studio-portal__part-8:focus-visible {
+  outline-color: currentcolor;
+}
+.login-studio-portal.login-studio-portal__part-9, .login-studio-portal .login-studio-portal__part-9 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--login-studio-portal-spacing) * 3);
+}
+.login-studio-portal.login-studio-portal__part-10, .login-studio-portal .login-studio-portal__part-10 {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--login-studio-portal-spacing) * 3);
+  font-size: var(--login-studio-portal-text-sm);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-sm--line-height));
+}
+.login-studio-portal.login-studio-portal__part-11, .login-studio-portal .login-studio-portal__part-11 {
+  margin-top: var(--login-studio-portal-spacing);
+  width: calc(var(--login-studio-portal-spacing) * 4);
+  height: calc(var(--login-studio-portal-spacing) * 4);
+  flex-shrink: 0;
+  accent-color: currentcolor;
+}
+.login-studio-portal.login-studio-portal__part-11:focus-visible, .login-studio-portal .login-studio-portal__part-11:focus-visible {
+  outline-style: var(--login-studio-portal-tw-outline-style);
+  outline-width: 2px;
+}
+.login-studio-portal.login-studio-portal__part-11:focus-visible, .login-studio-portal .login-studio-portal__part-11:focus-visible {
+  outline-offset: 2px;
+}
+.login-studio-portal.login-studio-portal__part-11:focus-visible, .login-studio-portal .login-studio-portal__part-11:focus-visible {
+  outline-color: currentcolor;
+}
+.login-studio-portal.login-studio-portal__part-12, .login-studio-portal .login-studio-portal__part-12 {
+  display: grid;
+  gap: var(--login-studio-portal-spacing);
+}
+.login-studio-portal.login-studio-portal__part-13, .login-studio-portal .login-studio-portal__part-13 {
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-medium);
+  font-weight: var(--login-studio-portal-font-weight-medium);
+}
+.login-studio-portal.login-studio-portal__part-14, .login-studio-portal .login-studio-portal__part-14 {
+  font-size: var(--login-studio-portal-text-xs);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-xs--line-height));
+  --login-studio-portal-tw-leading: calc(var(--login-studio-portal-spacing) * 5);
+  line-height: calc(var(--login-studio-portal-spacing) * 5);
+  opacity: 70%;
+}
+.login-studio-portal.login-studio-portal__part-15, .login-studio-portal .login-studio-portal__part-15 {
+  font-size: var(--login-studio-portal-text-sm);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-sm--line-height));
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-medium);
+  font-weight: var(--login-studio-portal-font-weight-medium);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.login-studio-portal.login-studio-portal__part-15:focus-visible, .login-studio-portal .login-studio-portal__part-15:focus-visible {
+  outline-style: var(--login-studio-portal-tw-outline-style);
+  outline-width: 2px;
+}
+.login-studio-portal.login-studio-portal__part-15:focus-visible, .login-studio-portal .login-studio-portal__part-15:focus-visible {
+  outline-offset: 2px;
+}
+.login-studio-portal.login-studio-portal__part-15:focus-visible, .login-studio-portal .login-studio-portal__part-15:focus-visible {
+  outline-color: currentcolor;
+}
+.login-studio-portal.login-studio-portal__part-16, .login-studio-portal .login-studio-portal__part-16 {
+  border-radius: var(--login-studio-portal-radius-lg);
+  background-color: var(--login-studio-portal-color-stone-950);
+  padding-inline: calc(var(--login-studio-portal-spacing) * 4);
+  padding-block: calc(var(--login-studio-portal-spacing) * 3);
+  font-size: var(--login-studio-portal-text-sm);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-sm--line-height));
+  --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-semibold);
+  font-weight: var(--login-studio-portal-font-weight-semibold);
+  color: var(--login-studio-portal-color-white);
+}
+.login-studio-portal.login-studio-portal__part-16:focus-visible, .login-studio-portal .login-studio-portal__part-16:focus-visible {
+  outline-style: var(--login-studio-portal-tw-outline-style);
+  outline-width: 2px;
+}
+.login-studio-portal.login-studio-portal__part-16:focus-visible, .login-studio-portal .login-studio-portal__part-16:focus-visible {
+  outline-offset: 2px;
+}
+.login-studio-portal.login-studio-portal__part-16:focus-visible, .login-studio-portal .login-studio-portal__part-16:focus-visible {
+  outline-color: var(--login-studio-portal-color-stone-950);
+}
+.login-studio-portal.login-studio-portal__part-17, .login-studio-portal .login-studio-portal__part-17 {
+  margin-top: calc(var(--login-studio-portal-spacing) * 6);
+  text-align: center;
+  font-size: var(--login-studio-portal-text-xs);
+  line-height: var(--login-studio-portal-tw-leading, var(--login-studio-portal-text-xs--line-height));
+  color: var(--login-studio-portal-color-stone-500);
+}
+@property --login-studio-portal-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --login-studio-portal-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --login-studio-portal-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --login-studio-portal-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --login-studio-portal-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .login-studio-portal *, .login-studio-portal ::before, .login-studio-portal ::after, .login-studio-portal ::backdrop {
+      --login-studio-portal-tw-border-style: solid;
+      --login-studio-portal-tw-font-weight: initial;
+      --login-studio-portal-tw-tracking: initial;
+      --login-studio-portal-tw-leading: initial;
+      --login-studio-portal-tw-outline-style: solid;
+    }
+  }
+}

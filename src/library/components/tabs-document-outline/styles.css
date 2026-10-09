@@ -1,0 +1,270 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.tabs-document-outline, .tabs-document-outline *, .tabs-document-outline *::before, .tabs-document-outline *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.tabs-document-outline { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.tabs-document-outline :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.tabs-document-outline a { color: inherit; text-decoration: inherit; }
+.tabs-document-outline :is(b, strong) { font-weight: bolder; }
+.tabs-document-outline :is(ol, ul, menu) { list-style: none; }
+.tabs-document-outline :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.tabs-document-outline :is(img, video) { max-width: 100%; height: auto; }
+.tabs-document-outline :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.tabs-document-outline ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.tabs-document-outline table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.tabs-document-outline summary { display: list-item; }
+
+@layer properties;
+.tabs-document-outline {
+  --tabs-document-outline-color-emerald-50: oklch(97.9% 0.021 166.113);
+  --tabs-document-outline-color-emerald-800: oklch(43.2% 0.095 166.913);
+  --tabs-document-outline-color-blue-50: oklch(97% 0.014 254.604);
+  --tabs-document-outline-color-blue-800: oklch(42.4% 0.199 265.638);
+  --tabs-document-outline-color-slate-100: oklch(96.8% 0.007 247.896);
+  --tabs-document-outline-color-slate-200: oklch(92.9% 0.013 255.508);
+  --tabs-document-outline-color-slate-500: oklch(55.4% 0.046 257.417);
+  --tabs-document-outline-color-slate-600: oklch(44.6% 0.043 257.281);
+  --tabs-document-outline-color-slate-900: oklch(20.8% 0.042 265.755);
+  --tabs-document-outline-color-white: #fff;
+  --tabs-document-outline-spacing: 0.25rem;
+  --tabs-document-outline-text-sm: 0.875rem;
+  --tabs-document-outline-text-sm--line-height: calc(1.25 / 0.875);
+  --tabs-document-outline-font-weight-medium: 500;
+  --tabs-document-outline-font-weight-semibold: 600;
+  --tabs-document-outline-tracking-widest: 0.1em;
+  --tabs-document-outline-radius-md: 0.375rem;
+  --tabs-document-outline-radius-xl: 0.75rem;
+}
+.tabs-document-outline.tabs-document-outline__part-1, .tabs-document-outline .tabs-document-outline__part-1 {
+  width: calc(var(--tabs-document-outline-spacing) * 72);
+  border-radius: var(--tabs-document-outline-radius-xl);
+  border-style: var(--tabs-document-outline-tw-border-style);
+  border-width: 1px;
+  border-color: var(--tabs-document-outline-color-slate-200);
+  background-color: var(--tabs-document-outline-color-white);
+  padding: calc(var(--tabs-document-outline-spacing) * 4);
+  color: var(--tabs-document-outline-color-slate-900);
+}
+.tabs-document-outline.tabs-document-outline__part-2, .tabs-document-outline .tabs-document-outline__part-2 {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--tabs-document-outline-spacing) * 2);
+  border-bottom-style: var(--tabs-document-outline-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--tabs-document-outline-color-slate-200);
+  padding-bottom: calc(var(--tabs-document-outline-spacing) * 3);
+}
+.tabs-document-outline.tabs-document-outline__part-3, .tabs-document-outline .tabs-document-outline__part-3 {
+  display: flex;
+  width: calc(var(--tabs-document-outline-spacing) * 7);
+  height: calc(var(--tabs-document-outline-spacing) * 7);
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  background-color: var(--tabs-document-outline-color-blue-50);
+  color: var(--tabs-document-outline-color-blue-800);
+}
+.tabs-document-outline.tabs-document-outline__part-4, .tabs-document-outline .tabs-document-outline__part-4 {
+  width: calc(var(--tabs-document-outline-spacing) * 4);
+  height: calc(var(--tabs-document-outline-spacing) * 4);
+}
+.tabs-document-outline.tabs-document-outline__part-5, .tabs-document-outline .tabs-document-outline__part-5 {
+  font-size: var(--tabs-document-outline-text-sm);
+  line-height: var(--tabs-document-outline-tw-leading, var(--tabs-document-outline-text-sm--line-height));
+  --tabs-document-outline-tw-font-weight: var(--tabs-document-outline-font-weight-semibold);
+  font-weight: var(--tabs-document-outline-font-weight-semibold);
+}
+.tabs-document-outline.tabs-document-outline__part-6, .tabs-document-outline .tabs-document-outline__part-6 {
+  margin-top: calc(var(--tabs-document-outline-spacing) * 4);
+  display: grid;
+  grid-template-columns: 72px minmax(0,1fr);
+  gap: calc(var(--tabs-document-outline-spacing) * 3);
+}
+.tabs-document-outline.tabs-document-outline__part-7, .tabs-document-outline .tabs-document-outline__part-7 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+.tabs-document-outline :where(.tabs-document-outline.tabs-document-outline__part-8 > :not(:last-child)), .tabs-document-outline :where(.tabs-document-outline .tabs-document-outline__part-8 > :not(:last-child)) {
+  --tabs-document-outline-tw-space-y-reverse: 0;
+  margin-block-start: calc(var(--tabs-document-outline-spacing) * var(--tabs-document-outline-tw-space-y-reverse));
+  margin-block-end: calc(var(--tabs-document-outline-spacing) * calc(1 - var(--tabs-document-outline-tw-space-y-reverse)));
+}
+.tabs-document-outline.tabs-document-outline__part-8, .tabs-document-outline .tabs-document-outline__part-8 {
+  border-right-style: var(--tabs-document-outline-tw-border-style);
+  border-right-width: 1px;
+  border-color: var(--tabs-document-outline-color-slate-200);
+  padding-right: calc(var(--tabs-document-outline-spacing) * 2);
+}
+.tabs-document-outline.tabs-document-outline__part-9, .tabs-document-outline .tabs-document-outline__part-9 {
+  display: flex;
+  height: calc(var(--tabs-document-outline-spacing) * 9);
+  cursor: pointer;
+  align-items: center;
+  border-radius: var(--tabs-document-outline-radius-md);
+  padding-inline: calc(var(--tabs-document-outline-spacing) * 2);
+  font-size: 10px;
+}
+@media (hover: hover) {
+  .tabs-document-outline.tabs-document-outline__part-9:hover, .tabs-document-outline .tabs-document-outline__part-9:hover {
+    background-color: var(--tabs-document-outline-color-slate-100);
+  }
+}
+.tabs-document-outline.tabs-document-outline__part-9:has(*:checked), .tabs-document-outline .tabs-document-outline__part-9:has(*:checked) {
+  background-color: var(--tabs-document-outline-color-blue-50);
+}
+.tabs-document-outline.tabs-document-outline__part-9:has(*:checked), .tabs-document-outline .tabs-document-outline__part-9:has(*:checked) {
+  --tabs-document-outline-tw-font-weight: var(--tabs-document-outline-font-weight-semibold);
+  font-weight: var(--tabs-document-outline-font-weight-semibold);
+}
+.tabs-document-outline.tabs-document-outline__part-9:has(*:checked), .tabs-document-outline .tabs-document-outline__part-9:has(*:checked) {
+  color: var(--tabs-document-outline-color-blue-800);
+}
+.tabs-document-outline.tabs-document-outline__part-9:has(*:focus-visible), .tabs-document-outline .tabs-document-outline__part-9:has(*:focus-visible) {
+  outline-style: var(--tabs-document-outline-tw-outline-style);
+  outline-width: 2px;
+}
+.tabs-document-outline.tabs-document-outline__part-9:has(*:focus-visible), .tabs-document-outline .tabs-document-outline__part-9:has(*:focus-visible) {
+  outline-offset: 2px;
+}
+.tabs-document-outline.tabs-document-outline__part-9:has(*:focus-visible), .tabs-document-outline .tabs-document-outline__part-9:has(*:focus-visible) {
+  outline-color: var(--tabs-document-outline-color-slate-900);
+}
+.tabs-document-outline.tabs-document-outline__part-10, .tabs-document-outline .tabs-document-outline__part-10 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+.tabs-document-outline.tabs-document-outline__part-10:focus-visible, .tabs-document-outline .tabs-document-outline__part-10:focus-visible {
+  outline-style: var(--tabs-document-outline-tw-outline-style);
+  outline-width: 2px;
+}
+.tabs-document-outline.tabs-document-outline__part-10:focus-visible, .tabs-document-outline .tabs-document-outline__part-10:focus-visible {
+  outline-offset: 2px;
+}
+.tabs-document-outline.tabs-document-outline__part-10:focus-visible, .tabs-document-outline .tabs-document-outline__part-10:focus-visible {
+  outline-color: var(--tabs-document-outline-color-slate-900);
+}
+.tabs-document-outline.tabs-document-outline__part-11, .tabs-document-outline .tabs-document-outline__part-11 {
+  display: none;
+}
+.tabs-document-outline.tabs-document-outline__part-11:is(:where(.tabs-document-outline__group):has(*:is(#tabs-document-outline-overview:checked)) *), .tabs-document-outline .tabs-document-outline__part-11:is(:where(.tabs-document-outline__group):has(*:is(#tabs-document-outline-overview:checked)) *) {
+  display: block;
+}
+.tabs-document-outline.tabs-document-outline__part-12, .tabs-document-outline .tabs-document-outline__part-12 {
+  font-size: 9px;
+  --tabs-document-outline-tw-tracking: var(--tabs-document-outline-tracking-widest);
+  letter-spacing: var(--tabs-document-outline-tracking-widest);
+  color: var(--tabs-document-outline-color-slate-500);
+  text-transform: uppercase;
+}
+.tabs-document-outline.tabs-document-outline__part-13, .tabs-document-outline .tabs-document-outline__part-13 {
+  margin-top: calc(var(--tabs-document-outline-spacing) * 2);
+  font-size: var(--tabs-document-outline-text-sm);
+  line-height: var(--tabs-document-outline-tw-leading, var(--tabs-document-outline-text-sm--line-height));
+  --tabs-document-outline-tw-font-weight: var(--tabs-document-outline-font-weight-semibold);
+  font-weight: var(--tabs-document-outline-font-weight-semibold);
+}
+.tabs-document-outline.tabs-document-outline__part-14, .tabs-document-outline .tabs-document-outline__part-14 {
+  margin-top: calc(var(--tabs-document-outline-spacing) * 2);
+  font-size: 11px;
+  --tabs-document-outline-tw-leading: calc(var(--tabs-document-outline-spacing) * 5);
+  line-height: calc(var(--tabs-document-outline-spacing) * 5);
+  color: var(--tabs-document-outline-color-slate-600);
+}
+.tabs-document-outline.tabs-document-outline__part-15, .tabs-document-outline .tabs-document-outline__part-15 {
+  margin-top: calc(var(--tabs-document-outline-spacing) * 3);
+  display: inline-flex;
+  border-radius: 0.25rem;
+  background-color: var(--tabs-document-outline-color-emerald-50);
+  padding-inline: calc(var(--tabs-document-outline-spacing) * 2);
+  padding-block: var(--tabs-document-outline-spacing);
+  font-size: 9px;
+  --tabs-document-outline-tw-font-weight: var(--tabs-document-outline-font-weight-medium);
+  font-weight: var(--tabs-document-outline-font-weight-medium);
+  color: var(--tabs-document-outline-color-emerald-800);
+}
+.tabs-document-outline.tabs-document-outline__part-16, .tabs-document-outline .tabs-document-outline__part-16 {
+  display: none;
+}
+.tabs-document-outline.tabs-document-outline__part-16:is(:where(.tabs-document-outline__group):has(*:is(#tabs-document-outline-plan:checked)) *), .tabs-document-outline .tabs-document-outline__part-16:is(:where(.tabs-document-outline__group):has(*:is(#tabs-document-outline-plan:checked)) *) {
+  display: block;
+}
+.tabs-document-outline.tabs-document-outline__part-17, .tabs-document-outline .tabs-document-outline__part-17 {
+  margin-top: calc(var(--tabs-document-outline-spacing) * 3);
+}
+.tabs-document-outline :where(.tabs-document-outline.tabs-document-outline__part-17 > :not(:last-child)), .tabs-document-outline :where(.tabs-document-outline .tabs-document-outline__part-17 > :not(:last-child)) {
+  --tabs-document-outline-tw-space-y-reverse: 0;
+  margin-block-start: calc(calc(var(--tabs-document-outline-spacing) * 2) * var(--tabs-document-outline-tw-space-y-reverse));
+  margin-block-end: calc(calc(var(--tabs-document-outline-spacing) * 2) * calc(1 - var(--tabs-document-outline-tw-space-y-reverse)));
+}
+.tabs-document-outline.tabs-document-outline__part-17, .tabs-document-outline .tabs-document-outline__part-17 {
+  font-size: 11px;
+  --tabs-document-outline-tw-leading: calc(var(--tabs-document-outline-spacing) * 5);
+  line-height: calc(var(--tabs-document-outline-spacing) * 5);
+  color: var(--tabs-document-outline-color-slate-600);
+}
+.tabs-document-outline.tabs-document-outline__part-18, .tabs-document-outline .tabs-document-outline__part-18 {
+  display: none;
+}
+.tabs-document-outline.tabs-document-outline__part-18:is(:where(.tabs-document-outline__group):has(*:is(#tabs-document-outline-team:checked)) *), .tabs-document-outline .tabs-document-outline__part-18:is(:where(.tabs-document-outline__group):has(*:is(#tabs-document-outline-team:checked)) *) {
+  display: block;
+}
+.tabs-document-outline.tabs-document-outline__part-19, .tabs-document-outline .tabs-document-outline__part-19 {
+  margin-top: calc(var(--tabs-document-outline-spacing) * 5);
+  border-top-style: var(--tabs-document-outline-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--tabs-document-outline-color-slate-200);
+  padding-top: calc(var(--tabs-document-outline-spacing) * 3);
+  font-size: 9px;
+  color: var(--tabs-document-outline-color-slate-500);
+}
+@property --tabs-document-outline-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tabs-document-outline-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tabs-document-outline-tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tabs-document-outline-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tabs-document-outline-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tabs-document-outline-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .tabs-document-outline *, .tabs-document-outline ::before, .tabs-document-outline ::after, .tabs-document-outline ::backdrop {
+      --tabs-document-outline-tw-border-style: solid;
+      --tabs-document-outline-tw-font-weight: initial;
+      --tabs-document-outline-tw-space-y-reverse: 0;
+      --tabs-document-outline-tw-outline-style: solid;
+      --tabs-document-outline-tw-tracking: initial;
+      --tabs-document-outline-tw-leading: initial;
+    }
+  }
+}

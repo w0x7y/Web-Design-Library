@@ -1,0 +1,301 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dashboard-sales-pipeline, .dashboard-sales-pipeline *, .dashboard-sales-pipeline *::before, .dashboard-sales-pipeline *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dashboard-sales-pipeline { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dashboard-sales-pipeline :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dashboard-sales-pipeline a { color: inherit; text-decoration: inherit; }
+.dashboard-sales-pipeline :is(b, strong) { font-weight: bolder; }
+.dashboard-sales-pipeline :is(ol, ul, menu) { list-style: none; }
+.dashboard-sales-pipeline :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dashboard-sales-pipeline :is(img, video) { max-width: 100%; height: auto; }
+.dashboard-sales-pipeline :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dashboard-sales-pipeline ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dashboard-sales-pipeline table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dashboard-sales-pipeline summary { display: list-item; }
+
+@layer properties;
+.dashboard-sales-pipeline {
+  --dashboard-sales-pipeline-color-emerald-50: oklch(97.9% 0.021 166.113);
+  --dashboard-sales-pipeline-color-emerald-700: oklch(50.8% 0.118 165.612);
+  --dashboard-sales-pipeline-color-emerald-950: oklch(26.2% 0.051 172.552);
+  --dashboard-sales-pipeline-color-zinc-50: oklch(98.5% 0 none);
+  --dashboard-sales-pipeline-color-zinc-200: oklch(92% 0.004 286.32);
+  --dashboard-sales-pipeline-color-zinc-500: oklch(55.2% 0.016 285.938);
+  --dashboard-sales-pipeline-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --dashboard-sales-pipeline-color-stone-100: oklch(97% 0.001 106.424);
+  --dashboard-sales-pipeline-color-stone-700: oklch(37.4% 0.01 67.558);
+  --dashboard-sales-pipeline-color-white: #fff;
+  --dashboard-sales-pipeline-spacing: 0.25rem;
+  --dashboard-sales-pipeline-container-6xl: 72rem;
+  --dashboard-sales-pipeline-text-xs: 0.75rem;
+  --dashboard-sales-pipeline-text-xs--line-height: calc(1 / 0.75);
+  --dashboard-sales-pipeline-text-sm: 0.875rem;
+  --dashboard-sales-pipeline-text-sm--line-height: calc(1.25 / 0.875);
+  --dashboard-sales-pipeline-text-lg: 1.125rem;
+  --dashboard-sales-pipeline-text-lg--line-height: calc(1.75 / 1.125);
+  --dashboard-sales-pipeline-text-2xl: 1.5rem;
+  --dashboard-sales-pipeline-text-2xl--line-height: calc(2 / 1.5);
+  --dashboard-sales-pipeline-text-3xl: 1.875rem;
+  --dashboard-sales-pipeline-text-3xl--line-height: calc(2.25 / 1.875);
+  --dashboard-sales-pipeline-font-weight-medium: 500;
+  --dashboard-sales-pipeline-font-weight-semibold: 600;
+  --dashboard-sales-pipeline-tracking-tight: -0.025em;
+  --dashboard-sales-pipeline-tracking-widest: 0.1em;
+  --dashboard-sales-pipeline-radius-lg: 0.5rem;
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-1, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-1 {
+  background-color: var(--dashboard-sales-pipeline-color-white);
+  padding-inline: calc(var(--dashboard-sales-pipeline-spacing) * 6);
+  padding-block: calc(var(--dashboard-sales-pipeline-spacing) * 10);
+  color: var(--dashboard-sales-pipeline-color-zinc-950);
+}
+@media (width >= 40rem) {
+  .dashboard-sales-pipeline.dashboard-sales-pipeline__part-1, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-1 {
+    padding-inline: calc(var(--dashboard-sales-pipeline-spacing) * 12);
+  }
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-2, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-2 {
+  margin-inline: auto;
+  max-width: var(--dashboard-sales-pipeline-container-6xl);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-3, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 4);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-4, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-4 {
+  font-size: var(--dashboard-sales-pipeline-text-3xl);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-3xl--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  --dashboard-sales-pipeline-tw-tracking: var(--dashboard-sales-pipeline-tracking-tight);
+  letter-spacing: var(--dashboard-sales-pipeline-tracking-tight);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-5, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-5 {
+  display: inline-flex;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--dashboard-sales-pipeline-color-stone-100);
+  padding-inline: calc(var(--dashboard-sales-pipeline-spacing) * 3);
+  padding-block: var(--dashboard-sales-pipeline-spacing);
+  font-size: var(--dashboard-sales-pipeline-text-xs);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-xs--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  color: var(--dashboard-sales-pipeline-color-stone-700);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-6, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-6 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 7);
+  display: grid;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 4);
+}
+@media (width >= 40rem) {
+  .dashboard-sales-pipeline.dashboard-sales-pipeline__part-6, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (width >= 64rem) {
+  .dashboard-sales-pipeline.dashboard-sales-pipeline__part-6, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-6 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-7, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-7 {
+  display: grid;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 2);
+  border-radius: var(--dashboard-sales-pipeline-radius-lg);
+  background-color: var(--dashboard-sales-pipeline-color-zinc-50);
+  padding: calc(var(--dashboard-sales-pipeline-spacing) * 5);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-8, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-8 {
+  font-size: var(--dashboard-sales-pipeline-text-xs);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-xs--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  opacity: 70%;
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-9, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-9 {
+  font-size: var(--dashboard-sales-pipeline-text-3xl);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-3xl--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  --dashboard-sales-pipeline-tw-tracking: var(--dashboard-sales-pipeline-tracking-tight);
+  letter-spacing: var(--dashboard-sales-pipeline-tracking-tight);
+  --dashboard-sales-pipeline-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--dashboard-sales-pipeline-tw-ordinal,) var(--dashboard-sales-pipeline-tw-slashed-zero,) var(--dashboard-sales-pipeline-tw-numeric-figure,) var(--dashboard-sales-pipeline-tw-numeric-spacing,) var(--dashboard-sales-pipeline-tw-numeric-fraction,);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-10, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-10 {
+  font-size: var(--dashboard-sales-pipeline-text-xs);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-xs--line-height));
+  opacity: 70%;
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-11, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-11 {
+  display: grid;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 2);
+  border-radius: var(--dashboard-sales-pipeline-radius-lg);
+  background-color: var(--dashboard-sales-pipeline-color-emerald-50);
+  padding: calc(var(--dashboard-sales-pipeline-spacing) * 5);
+  color: var(--dashboard-sales-pipeline-color-emerald-950);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-12, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-12 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 8);
+  display: grid;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 8);
+}
+@media (width >= 64rem) {
+  .dashboard-sales-pipeline.dashboard-sales-pipeline__part-12, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-12 {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-13, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-13 {
+  font-size: var(--dashboard-sales-pipeline-text-lg);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-lg--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-14, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-14 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 5);
+  display: grid;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 5);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-15, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-15 {
+  border-bottom-style: var(--dashboard-sales-pipeline-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--dashboard-sales-pipeline-color-zinc-200);
+  padding-bottom: calc(var(--dashboard-sales-pipeline-spacing) * 5);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-16, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-16 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 3);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-17, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-17 {
+  display: grid;
+  gap: calc(var(--dashboard-sales-pipeline-spacing) * 2);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-18, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-18 {
+  font-size: var(--dashboard-sales-pipeline-text-sm);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-sm--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-19, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-19 {
+  font-size: var(--dashboard-sales-pipeline-text-xs);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-xs--line-height));
+  color: var(--dashboard-sales-pipeline-color-zinc-500);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-20, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-20 {
+  font-size: var(--dashboard-sales-pipeline-text-sm);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-sm--line-height));
+  --dashboard-sales-pipeline-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--dashboard-sales-pipeline-tw-ordinal,) var(--dashboard-sales-pipeline-tw-slashed-zero,) var(--dashboard-sales-pipeline-tw-numeric-figure,) var(--dashboard-sales-pipeline-tw-numeric-spacing,) var(--dashboard-sales-pipeline-tw-numeric-fraction,);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-21, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-21 {
+  border-left-style: var(--dashboard-sales-pipeline-tw-border-style);
+  border-left-width: 2px;
+  border-color: var(--dashboard-sales-pipeline-color-emerald-700);
+  padding-left: calc(var(--dashboard-sales-pipeline-spacing) * 6);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-22, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-22 {
+  font-size: var(--dashboard-sales-pipeline-text-xs);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-xs--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  --dashboard-sales-pipeline-tw-tracking: var(--dashboard-sales-pipeline-tracking-widest);
+  letter-spacing: var(--dashboard-sales-pipeline-tracking-widest);
+  color: var(--dashboard-sales-pipeline-color-zinc-500);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-23, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-23 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 5);
+  font-size: var(--dashboard-sales-pipeline-text-2xl);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-2xl--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-semibold);
+  --dashboard-sales-pipeline-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--dashboard-sales-pipeline-tw-ordinal,) var(--dashboard-sales-pipeline-tw-slashed-zero,) var(--dashboard-sales-pipeline-tw-numeric-figure,) var(--dashboard-sales-pipeline-tw-numeric-spacing,) var(--dashboard-sales-pipeline-tw-numeric-fraction,);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-24, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-24 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 4);
+  height: calc(var(--dashboard-sales-pipeline-spacing) * 3);
+  width: 100%;
+  accent-color: var(--dashboard-sales-pipeline-color-emerald-700);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-25, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-25 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 3);
+  font-size: var(--dashboard-sales-pipeline-text-xs);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-xs--line-height));
+  color: var(--dashboard-sales-pipeline-color-zinc-500);
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-26, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-26 {
+  margin-top: calc(var(--dashboard-sales-pipeline-spacing) * 7);
+  display: inline-flex;
+  font-size: var(--dashboard-sales-pipeline-text-sm);
+  line-height: var(--dashboard-sales-pipeline-tw-leading, var(--dashboard-sales-pipeline-text-sm--line-height));
+  --dashboard-sales-pipeline-tw-font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  font-weight: var(--dashboard-sales-pipeline-font-weight-medium);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-26:focus-visible, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-26:focus-visible {
+  outline-style: var(--dashboard-sales-pipeline-tw-outline-style);
+  outline-width: 2px;
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-26:focus-visible, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-26:focus-visible {
+  outline-offset: 2px;
+}
+.dashboard-sales-pipeline.dashboard-sales-pipeline__part-26:focus-visible, .dashboard-sales-pipeline .dashboard-sales-pipeline__part-26:focus-visible {
+  outline-color: currentcolor;
+}
+@property --dashboard-sales-pipeline-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-sales-pipeline-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --dashboard-sales-pipeline-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .dashboard-sales-pipeline *, .dashboard-sales-pipeline ::before, .dashboard-sales-pipeline ::after, .dashboard-sales-pipeline ::backdrop {
+      --dashboard-sales-pipeline-tw-font-weight: initial;
+      --dashboard-sales-pipeline-tw-tracking: initial;
+      --dashboard-sales-pipeline-tw-ordinal: initial;
+      --dashboard-sales-pipeline-tw-slashed-zero: initial;
+      --dashboard-sales-pipeline-tw-numeric-figure: initial;
+      --dashboard-sales-pipeline-tw-numeric-spacing: initial;
+      --dashboard-sales-pipeline-tw-numeric-fraction: initial;
+      --dashboard-sales-pipeline-tw-border-style: solid;
+      --dashboard-sales-pipeline-tw-outline-style: solid;
+    }
+  }
+}

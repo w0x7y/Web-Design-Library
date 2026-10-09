@@ -1,0 +1,156 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.faq-service-contract, .faq-service-contract *, .faq-service-contract *::before, .faq-service-contract *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.faq-service-contract { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.faq-service-contract :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.faq-service-contract a { color: inherit; text-decoration: inherit; }
+.faq-service-contract :is(b, strong) { font-weight: bolder; }
+.faq-service-contract :is(ol, ul, menu) { list-style: none; }
+.faq-service-contract :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.faq-service-contract :is(img, video) { max-width: 100%; height: auto; }
+.faq-service-contract :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.faq-service-contract ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.faq-service-contract table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.faq-service-contract summary { display: list-item; }
+
+@layer properties;
+.faq-service-contract {
+  --faq-service-contract-color-zinc-50: oklch(98.5% 0 none);
+  --faq-service-contract-color-zinc-200: oklch(92% 0.004 286.32);
+  --faq-service-contract-color-zinc-500: oklch(55.2% 0.016 285.938);
+  --faq-service-contract-color-zinc-600: oklch(44.2% 0.017 285.786);
+  --faq-service-contract-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --faq-service-contract-color-white: #fff;
+  --faq-service-contract-spacing: 0.25rem;
+  --faq-service-contract-container-6xl: 72rem;
+  --faq-service-contract-text-xs: 0.75rem;
+  --faq-service-contract-text-xs--line-height: calc(1 / 0.75);
+  --faq-service-contract-text-sm: 0.875rem;
+  --faq-service-contract-text-sm--line-height: calc(1.25 / 0.875);
+  --faq-service-contract-text-xl: 1.25rem;
+  --faq-service-contract-text-xl--line-height: calc(1.75 / 1.25);
+  --faq-service-contract-text-4xl: 2.25rem;
+  --faq-service-contract-text-4xl--line-height: calc(2.5 / 2.25);
+  --faq-service-contract-font-weight-medium: 500;
+  --faq-service-contract-font-weight-semibold: 600;
+  --faq-service-contract-tracking-tight: -0.025em;
+  --faq-service-contract-tracking-widest: 0.1em;
+  --faq-service-contract-leading-tight: 1.25;
+  --faq-service-contract-leading-relaxed: 1.625;
+  --faq-service-contract-radius-xl: 0.75rem;
+}
+.faq-service-contract.faq-service-contract__part-1, .faq-service-contract .faq-service-contract__part-1 {
+  background-color: var(--faq-service-contract-color-white);
+  color: var(--faq-service-contract-color-zinc-950);
+}
+.faq-service-contract.faq-service-contract__part-2, .faq-service-contract .faq-service-contract__part-2 {
+  margin-inline: auto;
+  display: grid;
+  max-width: var(--faq-service-contract-container-6xl);
+  gap: calc(var(--faq-service-contract-spacing) * 10);
+  padding-inline: calc(var(--faq-service-contract-spacing) * 6);
+  padding-block: calc(var(--faq-service-contract-spacing) * 20);
+}
+@media (width >= 64rem) {
+  .faq-service-contract.faq-service-contract__part-2, .faq-service-contract .faq-service-contract__part-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+@media (width >= 64rem) {
+  .faq-service-contract.faq-service-contract__part-2, .faq-service-contract .faq-service-contract__part-2 {
+    gap: calc(var(--faq-service-contract-spacing) * 20);
+  }
+}
+.faq-service-contract.faq-service-contract__part-3, .faq-service-contract .faq-service-contract__part-3 {
+  font-size: var(--faq-service-contract-text-xs);
+  line-height: var(--faq-service-contract-tw-leading, var(--faq-service-contract-text-xs--line-height));
+  --faq-service-contract-tw-font-weight: var(--faq-service-contract-font-weight-semibold);
+  font-weight: var(--faq-service-contract-font-weight-semibold);
+  --faq-service-contract-tw-tracking: var(--faq-service-contract-tracking-widest);
+  letter-spacing: var(--faq-service-contract-tracking-widest);
+  color: var(--faq-service-contract-color-zinc-500);
+  text-transform: uppercase;
+}
+.faq-service-contract.faq-service-contract__part-4, .faq-service-contract .faq-service-contract__part-4 {
+  margin-top: calc(var(--faq-service-contract-spacing) * 5);
+  font-size: var(--faq-service-contract-text-4xl);
+  line-height: var(--faq-service-contract-tw-leading, var(--faq-service-contract-text-4xl--line-height));
+  --faq-service-contract-tw-leading: var(--faq-service-contract-leading-tight);
+  line-height: var(--faq-service-contract-leading-tight);
+  --faq-service-contract-tw-font-weight: var(--faq-service-contract-font-weight-semibold);
+  font-weight: var(--faq-service-contract-font-weight-semibold);
+  --faq-service-contract-tw-tracking: var(--faq-service-contract-tracking-tight);
+  letter-spacing: var(--faq-service-contract-tracking-tight);
+}
+.faq-service-contract.faq-service-contract__part-5, .faq-service-contract .faq-service-contract__part-5 {
+  margin-top: calc(var(--faq-service-contract-spacing) * 7);
+  border-radius: var(--faq-service-contract-radius-xl);
+  background-color: var(--faq-service-contract-color-zinc-50);
+  padding: calc(var(--faq-service-contract-spacing) * 5);
+}
+.faq-service-contract.faq-service-contract__part-6, .faq-service-contract .faq-service-contract__part-6 {
+  font-size: var(--faq-service-contract-text-sm);
+  line-height: var(--faq-service-contract-tw-leading, var(--faq-service-contract-text-sm--line-height));
+  --faq-service-contract-tw-font-weight: var(--faq-service-contract-font-weight-semibold);
+  font-weight: var(--faq-service-contract-font-weight-semibold);
+}
+.faq-service-contract.faq-service-contract__part-7, .faq-service-contract .faq-service-contract__part-7 {
+  margin-top: calc(var(--faq-service-contract-spacing) * 2);
+  font-size: var(--faq-service-contract-text-sm);
+  line-height: var(--faq-service-contract-tw-leading, var(--faq-service-contract-text-sm--line-height));
+  --faq-service-contract-tw-leading: var(--faq-service-contract-leading-relaxed);
+  line-height: var(--faq-service-contract-leading-relaxed);
+  color: var(--faq-service-contract-color-zinc-600);
+}
+.faq-service-contract.faq-service-contract__part-8, .faq-service-contract .faq-service-contract__part-8 {
+  border-top-style: var(--faq-service-contract-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--faq-service-contract-color-zinc-200);
+  padding-block: calc(var(--faq-service-contract-spacing) * 6);
+}
+.faq-service-contract.faq-service-contract__part-9, .faq-service-contract .faq-service-contract__part-9 {
+  font-size: var(--faq-service-contract-text-xl);
+  line-height: var(--faq-service-contract-tw-leading, var(--faq-service-contract-text-xl--line-height));
+  --faq-service-contract-tw-font-weight: var(--faq-service-contract-font-weight-medium);
+  font-weight: var(--faq-service-contract-font-weight-medium);
+}
+.faq-service-contract.faq-service-contract__part-10, .faq-service-contract .faq-service-contract__part-10 {
+  margin-top: calc(var(--faq-service-contract-spacing) * 3);
+  font-size: var(--faq-service-contract-text-sm);
+  line-height: var(--faq-service-contract-tw-leading, var(--faq-service-contract-text-sm--line-height));
+  --faq-service-contract-tw-leading: var(--faq-service-contract-leading-relaxed);
+  line-height: var(--faq-service-contract-leading-relaxed);
+  color: var(--faq-service-contract-color-zinc-600);
+}
+.faq-service-contract.faq-service-contract__part-11, .faq-service-contract .faq-service-contract__part-11 {
+  border-block-style: var(--faq-service-contract-tw-border-style);
+  border-block-width: 1px;
+  border-color: var(--faq-service-contract-color-zinc-200);
+  padding-block: calc(var(--faq-service-contract-spacing) * 6);
+}
+@property --faq-service-contract-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --faq-service-contract-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --faq-service-contract-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --faq-service-contract-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .faq-service-contract *, .faq-service-contract ::before, .faq-service-contract ::after, .faq-service-contract ::backdrop {
+      --faq-service-contract-tw-font-weight: initial;
+      --faq-service-contract-tw-tracking: initial;
+      --faq-service-contract-tw-leading: initial;
+      --faq-service-contract-tw-border-style: solid;
+    }
+  }
+}

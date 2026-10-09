@@ -1,0 +1,220 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-pantry-labels, .badges-pantry-labels *, .badges-pantry-labels *::before, .badges-pantry-labels *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-pantry-labels { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-pantry-labels :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-pantry-labels a { color: inherit; text-decoration: inherit; }
+.badges-pantry-labels :is(b, strong) { font-weight: bolder; }
+.badges-pantry-labels :is(ol, ul, menu) { list-style: none; }
+.badges-pantry-labels :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-pantry-labels :is(img, video) { max-width: 100%; height: auto; }
+.badges-pantry-labels :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-pantry-labels ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-pantry-labels table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-pantry-labels summary { display: list-item; }
+
+@layer properties;
+.badges-pantry-labels {
+  --badges-pantry-labels-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --badges-pantry-labels-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --badges-pantry-labels-color-amber-50: oklch(98.7% 0.022 95.277);
+  --badges-pantry-labels-color-emerald-800: oklch(43.2% 0.095 166.913);
+  --badges-pantry-labels-color-emerald-950: oklch(26.2% 0.051 172.552);
+  --badges-pantry-labels-spacing: 0.25rem;
+  --badges-pantry-labels-text-2xl: 1.5rem;
+  --badges-pantry-labels-text-2xl--line-height: calc(2 / 1.5);
+  --badges-pantry-labels-font-weight-semibold: 600;
+  --badges-pantry-labels-tracking-widest: 0.1em;
+}
+.badges-pantry-labels.badges-pantry-labels__part-1, .badges-pantry-labels .badges-pantry-labels__part-1 {
+  width: calc(var(--badges-pantry-labels-spacing) * 72);
+  border-style: var(--badges-pantry-labels-tw-border-style);
+  border-width: 1px;
+  border-color: var(--badges-pantry-labels-color-emerald-800);
+  background-color: var(--badges-pantry-labels-color-amber-50);
+  padding: calc(var(--badges-pantry-labels-spacing) * 6);
+  color: var(--badges-pantry-labels-color-emerald-950);
+}
+.badges-pantry-labels.badges-pantry-labels__part-2, .badges-pantry-labels .badges-pantry-labels__part-2 {
+  text-align: center;
+  font-size: 10px;
+  --badges-pantry-labels-tw-tracking: 0.2em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.badges-pantry-labels.badges-pantry-labels__part-3, .badges-pantry-labels .badges-pantry-labels__part-3 {
+  margin-inline: auto;
+  margin-top: calc(var(--badges-pantry-labels-spacing) * 5);
+  display: flex;
+  height: calc(var(--badges-pantry-labels-spacing) * 20);
+  width: calc(var(--badges-pantry-labels-spacing) * 32);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-style: var(--badges-pantry-labels-tw-border-style);
+  border-width: 1px;
+  border-color: var(--badges-pantry-labels-color-emerald-800);
+  --badges-pantry-labels-tw-ring-shadow: var(--badges-pantry-labels-tw-ring-inset,) 0 0 0 calc(1px + var(--badges-pantry-labels-tw-ring-offset-width)) var(--badges-pantry-labels-tw-ring-color, currentcolor);
+  box-shadow: var(--badges-pantry-labels-tw-inset-shadow), var(--badges-pantry-labels-tw-inset-ring-shadow), var(--badges-pantry-labels-tw-ring-offset-shadow), var(--badges-pantry-labels-tw-ring-shadow), var(--badges-pantry-labels-tw-shadow);
+  --badges-pantry-labels-tw-ring-color: var(--badges-pantry-labels-color-emerald-800);
+  --badges-pantry-labels-tw-ring-offset-width: 4px;
+  --badges-pantry-labels-tw-ring-offset-shadow: var(--badges-pantry-labels-tw-ring-inset,) 0 0 0 var(--badges-pantry-labels-tw-ring-offset-width) var(--badges-pantry-labels-tw-ring-offset-color);
+  --badges-pantry-labels-tw-ring-offset-color: var(--badges-pantry-labels-color-amber-50);
+}
+.badges-pantry-labels.badges-pantry-labels__part-4, .badges-pantry-labels .badges-pantry-labels__part-4 {
+  font-size: 9px;
+  --badges-pantry-labels-tw-tracking: var(--badges-pantry-labels-tracking-widest);
+  letter-spacing: var(--badges-pantry-labels-tracking-widest);
+  text-transform: uppercase;
+}
+.badges-pantry-labels.badges-pantry-labels__part-5, .badges-pantry-labels .badges-pantry-labels__part-5 {
+  font-family: var(--badges-pantry-labels-font-serif);
+  font-size: var(--badges-pantry-labels-text-2xl);
+  line-height: var(--badges-pantry-labels-tw-leading, var(--badges-pantry-labels-text-2xl--line-height));
+}
+.badges-pantry-labels.badges-pantry-labels__part-6, .badges-pantry-labels .badges-pantry-labels__part-6 {
+  margin-top: calc(var(--badges-pantry-labels-spacing) * 7);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(var(--badges-pantry-labels-spacing) * 2);
+}
+.badges-pantry-labels.badges-pantry-labels__part-7, .badges-pantry-labels .badges-pantry-labels__part-7 {
+  border-style: var(--badges-pantry-labels-tw-border-style);
+  border-width: 1px;
+  border-color: var(--badges-pantry-labels-color-emerald-800);
+  padding-inline: calc(var(--badges-pantry-labels-spacing) * 2.5);
+  padding-block: var(--badges-pantry-labels-spacing);
+  font-size: 10px;
+  --badges-pantry-labels-tw-font-weight: var(--badges-pantry-labels-font-weight-semibold);
+  font-weight: var(--badges-pantry-labels-font-weight-semibold);
+  text-transform: uppercase;
+}
+.badges-pantry-labels.badges-pantry-labels__part-8, .badges-pantry-labels .badges-pantry-labels__part-8 {
+  border-style: var(--badges-pantry-labels-tw-border-style);
+  border-width: 1px;
+  border-color: var(--badges-pantry-labels-color-emerald-800);
+  background-color: var(--badges-pantry-labels-color-emerald-800);
+  padding-inline: calc(var(--badges-pantry-labels-spacing) * 2.5);
+  padding-block: var(--badges-pantry-labels-spacing);
+  font-size: 10px;
+  --badges-pantry-labels-tw-font-weight: var(--badges-pantry-labels-font-weight-semibold);
+  font-weight: var(--badges-pantry-labels-font-weight-semibold);
+  color: var(--badges-pantry-labels-color-amber-50);
+  text-transform: uppercase;
+}
+.badges-pantry-labels.badges-pantry-labels__part-9, .badges-pantry-labels .badges-pantry-labels__part-9 {
+  margin-top: calc(var(--badges-pantry-labels-spacing) * 5);
+  display: flex;
+  justify-content: space-between;
+  border-top-style: var(--badges-pantry-labels-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--badges-pantry-labels-color-emerald-800);
+  padding-top: calc(var(--badges-pantry-labels-spacing) * 3);
+  font-size: 10px;
+}
+.badges-pantry-labels.badges-pantry-labels__part-10, .badges-pantry-labels .badges-pantry-labels__part-10 {
+  font-family: var(--badges-pantry-labels-font-mono);
+}
+@property --badges-pantry-labels-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --badges-pantry-labels-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-pantry-labels-tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --badges-pantry-labels-tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-pantry-labels-tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --badges-pantry-labels-tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --badges-pantry-labels-tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-pantry-labels-tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --badges-pantry-labels-tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-pantry-labels-tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --badges-pantry-labels-tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-pantry-labels-tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --badges-pantry-labels-tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-pantry-labels-tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --badges-pantry-labels-tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --badges-pantry-labels-tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --badges-pantry-labels-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .badges-pantry-labels *, .badges-pantry-labels ::before, .badges-pantry-labels ::after, .badges-pantry-labels ::backdrop {
+      --badges-pantry-labels-tw-border-style: solid;
+      --badges-pantry-labels-tw-tracking: initial;
+      --badges-pantry-labels-tw-shadow: 0 0 #0000;
+      --badges-pantry-labels-tw-shadow-color: initial;
+      --badges-pantry-labels-tw-shadow-alpha: 100%;
+      --badges-pantry-labels-tw-inset-shadow: 0 0 #0000;
+      --badges-pantry-labels-tw-inset-shadow-color: initial;
+      --badges-pantry-labels-tw-inset-shadow-alpha: 100%;
+      --badges-pantry-labels-tw-ring-color: initial;
+      --badges-pantry-labels-tw-ring-shadow: 0 0 #0000;
+      --badges-pantry-labels-tw-inset-ring-color: initial;
+      --badges-pantry-labels-tw-inset-ring-shadow: 0 0 #0000;
+      --badges-pantry-labels-tw-ring-inset: initial;
+      --badges-pantry-labels-tw-ring-offset-width: 0px;
+      --badges-pantry-labels-tw-ring-offset-color: #fff;
+      --badges-pantry-labels-tw-ring-offset-shadow: 0 0 #0000;
+      --badges-pantry-labels-tw-font-weight: initial;
+    }
+  }
+}

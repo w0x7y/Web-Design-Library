@@ -1,0 +1,158 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.empty-state-team-invitation, .empty-state-team-invitation *, .empty-state-team-invitation *::before, .empty-state-team-invitation *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.empty-state-team-invitation { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.empty-state-team-invitation :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.empty-state-team-invitation a { color: inherit; text-decoration: inherit; }
+.empty-state-team-invitation :is(b, strong) { font-weight: bolder; }
+.empty-state-team-invitation :is(ol, ul, menu) { list-style: none; }
+.empty-state-team-invitation :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.empty-state-team-invitation :is(img, video) { max-width: 100%; height: auto; }
+.empty-state-team-invitation :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.empty-state-team-invitation ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.empty-state-team-invitation table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.empty-state-team-invitation summary { display: list-item; }
+
+@layer properties;
+.empty-state-team-invitation {
+  --empty-state-team-invitation-color-orange-50: oklch(98% 0.016 73.684);
+  --empty-state-team-invitation-color-orange-100: oklch(95.4% 0.038 75.164);
+  --empty-state-team-invitation-color-orange-200: oklch(90.1% 0.076 70.697);
+  --empty-state-team-invitation-color-orange-900: oklch(40.8% 0.123 38.172);
+  --empty-state-team-invitation-color-orange-950: oklch(26.6% 0.079 36.259);
+  --empty-state-team-invitation-color-stone-950: oklch(14.7% 0.004 49.25);
+  --empty-state-team-invitation-color-white: #fff;
+  --empty-state-team-invitation-spacing: 0.25rem;
+  --empty-state-team-invitation-text-sm: 0.875rem;
+  --empty-state-team-invitation-text-sm--line-height: calc(1.25 / 0.875);
+  --empty-state-team-invitation-text-xl: 1.25rem;
+  --empty-state-team-invitation-text-xl--line-height: calc(1.75 / 1.25);
+  --empty-state-team-invitation-text-2xl: 1.5rem;
+  --empty-state-team-invitation-text-2xl--line-height: calc(2 / 1.5);
+  --empty-state-team-invitation-font-weight-bold: 700;
+  --empty-state-team-invitation-radius-3xl: 1.5rem;
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-1, .empty-state-team-invitation .empty-state-team-invitation__part-1 {
+  width: calc(var(--empty-state-team-invitation-spacing) * 72);
+  border-radius: var(--empty-state-team-invitation-radius-3xl);
+  background-color: var(--empty-state-team-invitation-color-orange-50);
+  padding: calc(var(--empty-state-team-invitation-spacing) * 6);
+  color: var(--empty-state-team-invitation-color-orange-950);
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-2, .empty-state-team-invitation .empty-state-team-invitation__part-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: calc(var(--empty-state-team-invitation-spacing) * 2);
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-3, .empty-state-team-invitation .empty-state-team-invitation__part-3 {
+  display: flex;
+  width: calc(var(--empty-state-team-invitation-spacing) * 14);
+  height: calc(var(--empty-state-team-invitation-spacing) * 14);
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--empty-state-team-invitation-tw-border-style);
+  border-width: 4px;
+  border-color: var(--empty-state-team-invitation-color-orange-50);
+  background-color: var(--empty-state-team-invitation-color-orange-200);
+  --empty-state-team-invitation-tw-font-weight: var(--empty-state-team-invitation-font-weight-bold);
+  font-weight: var(--empty-state-team-invitation-font-weight-bold);
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-4, .empty-state-team-invitation .empty-state-team-invitation__part-4 {
+  margin-left: calc(var(--empty-state-team-invitation-spacing) * -3);
+  display: flex;
+  width: calc(var(--empty-state-team-invitation-spacing) * 14);
+  height: calc(var(--empty-state-team-invitation-spacing) * 14);
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--empty-state-team-invitation-tw-border-style);
+  border-width: 4px;
+  border-color: var(--empty-state-team-invitation-color-orange-50);
+  background-color: var(--empty-state-team-invitation-color-orange-100);
+  font-size: var(--empty-state-team-invitation-text-2xl);
+  line-height: var(--empty-state-team-invitation-tw-leading, var(--empty-state-team-invitation-text-2xl--line-height));
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-5, .empty-state-team-invitation .empty-state-team-invitation__part-5 {
+  margin-left: calc(var(--empty-state-team-invitation-spacing) * -3);
+  display: flex;
+  width: calc(var(--empty-state-team-invitation-spacing) * 14);
+  height: calc(var(--empty-state-team-invitation-spacing) * 14);
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--empty-state-team-invitation-tw-border-style);
+  border-width: 4px;
+  border-color: var(--empty-state-team-invitation-color-orange-50);
+  background-color: var(--empty-state-team-invitation-color-orange-200);
+  font-size: var(--empty-state-team-invitation-text-xl);
+  line-height: var(--empty-state-team-invitation-tw-leading, var(--empty-state-team-invitation-text-xl--line-height));
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-6, .empty-state-team-invitation .empty-state-team-invitation__part-6 {
+  margin-top: calc(var(--empty-state-team-invitation-spacing) * 4);
+  text-align: center;
+  font-size: var(--empty-state-team-invitation-text-xl);
+  line-height: var(--empty-state-team-invitation-tw-leading, var(--empty-state-team-invitation-text-xl--line-height));
+  --empty-state-team-invitation-tw-font-weight: var(--empty-state-team-invitation-font-weight-bold);
+  font-weight: var(--empty-state-team-invitation-font-weight-bold);
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-7, .empty-state-team-invitation .empty-state-team-invitation__part-7 {
+  margin-top: calc(var(--empty-state-team-invitation-spacing) * 3);
+  text-align: center;
+  font-size: var(--empty-state-team-invitation-text-sm);
+  line-height: var(--empty-state-team-invitation-tw-leading, var(--empty-state-team-invitation-text-sm--line-height));
+  --empty-state-team-invitation-tw-leading: calc(var(--empty-state-team-invitation-spacing) * 6);
+  line-height: calc(var(--empty-state-team-invitation-spacing) * 6);
+  color: var(--empty-state-team-invitation-color-orange-900);
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-8, .empty-state-team-invitation .empty-state-team-invitation__part-8 {
+  margin-top: calc(var(--empty-state-team-invitation-spacing) * 6);
+  width: 100%;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--empty-state-team-invitation-color-orange-900);
+  padding-inline: calc(var(--empty-state-team-invitation-spacing) * 4);
+  padding-block: calc(var(--empty-state-team-invitation-spacing) * 3);
+  font-size: var(--empty-state-team-invitation-text-sm);
+  line-height: var(--empty-state-team-invitation-tw-leading, var(--empty-state-team-invitation-text-sm--line-height));
+  --empty-state-team-invitation-tw-font-weight: var(--empty-state-team-invitation-font-weight-bold);
+  font-weight: var(--empty-state-team-invitation-font-weight-bold);
+  color: var(--empty-state-team-invitation-color-white);
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-8:focus-visible, .empty-state-team-invitation .empty-state-team-invitation__part-8:focus-visible {
+  outline-style: var(--empty-state-team-invitation-tw-outline-style);
+  outline-width: 2px;
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-8:focus-visible, .empty-state-team-invitation .empty-state-team-invitation__part-8:focus-visible {
+  outline-offset: 2px;
+}
+.empty-state-team-invitation.empty-state-team-invitation__part-8:focus-visible, .empty-state-team-invitation .empty-state-team-invitation__part-8:focus-visible {
+  outline-color: var(--empty-state-team-invitation-color-stone-950);
+}
+@property --empty-state-team-invitation-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --empty-state-team-invitation-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --empty-state-team-invitation-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --empty-state-team-invitation-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .empty-state-team-invitation *, .empty-state-team-invitation ::before, .empty-state-team-invitation ::after, .empty-state-team-invitation ::backdrop {
+      --empty-state-team-invitation-tw-border-style: solid;
+      --empty-state-team-invitation-tw-font-weight: initial;
+      --empty-state-team-invitation-tw-leading: initial;
+      --empty-state-team-invitation-tw-outline-style: solid;
+    }
+  }
+}

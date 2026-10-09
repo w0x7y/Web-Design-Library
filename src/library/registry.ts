@@ -1,4 +1,4 @@
-import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
+import { lazy, type ComponentType } from 'react'
 import { slugOfGlobPath, sortMetas } from './catalog'
 import type { ComponentMeta } from './types'
 
@@ -12,7 +12,7 @@ const componentLoaders = import.meta.glob<{ default: ComponentType }>('./compone
 const METAS = sortMetas(Object.values(metaModules).map((module) => module.default))
 const META_BY_SLUG = new Map(METAS.map((meta) => [meta.slug, meta]))
 const LOADER_BY_SLUG = new Map(Object.entries(componentLoaders).map(([path, load]) => [slugOfGlobPath(path), load]))
-const lazyCache = new Map<string, LazyExoticComponent<ComponentType>>()
+const componentCache = new Map<string, ComponentType>()
 
 /** Every component's meta, in library order. */
 export function allMetas(): ComponentMeta[] {
@@ -23,13 +23,21 @@ export function metaBySlug(slug: string): ComponentMeta | undefined {
   return META_BY_SLUG.get(slug)
 }
 
-export function lazyComponent(slug: string): LazyExoticComponent<ComponentType> {
-  let component = lazyCache.get(slug)
+/** The preview's build-time loader resolves before rendering, avoiding hidden Suspense copies of native controls. */
+export async function preloadComponent(slug: string): Promise<void> {
+  const load = LOADER_BY_SLUG.get(slug)
+  if (!load) throw new Error(`Unknown component: ${slug}`)
+  const module = await load()
+  componentCache.set(slug, module.default)
+}
+
+export function lazyComponent(slug: string): ComponentType {
+  let component = componentCache.get(slug)
   if (!component) {
     const load = LOADER_BY_SLUG.get(slug)
     if (!load) throw new Error(`Unknown component: ${slug}`)
     component = lazy(load)
-    lazyCache.set(slug, component)
+    componentCache.set(slug, component)
   }
   return component
 }

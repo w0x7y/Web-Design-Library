@@ -1,0 +1,186 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-revenue-ledger, .stat-card-revenue-ledger *, .stat-card-revenue-ledger *::before, .stat-card-revenue-ledger *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-revenue-ledger { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-revenue-ledger :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-revenue-ledger a { color: inherit; text-decoration: inherit; }
+.stat-card-revenue-ledger :is(b, strong) { font-weight: bolder; }
+.stat-card-revenue-ledger :is(ol, ul, menu) { list-style: none; }
+.stat-card-revenue-ledger :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-revenue-ledger :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-revenue-ledger :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-revenue-ledger ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-revenue-ledger table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-revenue-ledger summary { display: list-item; }
+
+@layer properties;
+.stat-card-revenue-ledger {
+  --stat-card-revenue-ledger-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --stat-card-revenue-ledger-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --stat-card-revenue-ledger-color-green-800: oklch(44.8% 0.119 151.328);
+  --stat-card-revenue-ledger-color-stone-300: oklch(86.9% 0.005 56.366);
+  --stat-card-revenue-ledger-color-stone-600: oklch(44.4% 0.011 73.639);
+  --stat-card-revenue-ledger-color-stone-900: oklch(21.6% 0.006 56.043);
+  --stat-card-revenue-ledger-spacing: 0.25rem;
+  --stat-card-revenue-ledger-text-xs: 0.75rem;
+  --stat-card-revenue-ledger-text-xs--line-height: calc(1 / 0.75);
+  --stat-card-revenue-ledger-text-4xl: 2.25rem;
+  --stat-card-revenue-ledger-text-4xl--line-height: calc(2.5 / 2.25);
+  --stat-card-revenue-ledger-font-weight-semibold: 600;
+  --stat-card-revenue-ledger-tracking-tight: -0.025em;
+  --stat-card-revenue-ledger-tracking-wider: 0.05em;
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-1, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-1 {
+  width: calc(var(--stat-card-revenue-ledger-spacing) * 72);
+  border-top-style: var(--stat-card-revenue-ledger-tw-border-style);
+  border-top-width: 2px;
+  border-color: var(--stat-card-revenue-ledger-color-stone-900);
+  background-color: #f7f4ec;
+  padding: calc(var(--stat-card-revenue-ledger-spacing) * 5);
+  color: var(--stat-card-revenue-ledger-color-stone-900);
+}
+@media (width >= 40rem) {
+  .stat-card-revenue-ledger.stat-card-revenue-ledger__part-1, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-1 {
+    width: calc(var(--stat-card-revenue-ledger-spacing) * 80);
+  }
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-2, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--stat-card-revenue-ledger-font-mono);
+  font-size: 10px;
+  --stat-card-revenue-ledger-tw-tracking: var(--stat-card-revenue-ledger-tracking-wider);
+  letter-spacing: var(--stat-card-revenue-ledger-tracking-wider);
+  text-transform: uppercase;
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-3, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-3 {
+  margin-top: calc(var(--stat-card-revenue-ledger-spacing) * 5);
+  font-family: var(--stat-card-revenue-ledger-font-serif);
+  font-size: var(--stat-card-revenue-ledger-text-4xl);
+  line-height: var(--stat-card-revenue-ledger-tw-leading, var(--stat-card-revenue-ledger-text-4xl--line-height));
+  --stat-card-revenue-ledger-tw-tracking: var(--stat-card-revenue-ledger-tracking-tight);
+  letter-spacing: var(--stat-card-revenue-ledger-tracking-tight);
+  --stat-card-revenue-ledger-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--stat-card-revenue-ledger-tw-ordinal,) var(--stat-card-revenue-ledger-tw-slashed-zero,) var(--stat-card-revenue-ledger-tw-numeric-figure,) var(--stat-card-revenue-ledger-tw-numeric-spacing,) var(--stat-card-revenue-ledger-tw-numeric-fraction,);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-4, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-4 {
+  margin-top: calc(var(--stat-card-revenue-ledger-spacing) * 2);
+  font-size: var(--stat-card-revenue-ledger-text-xs);
+  line-height: var(--stat-card-revenue-ledger-tw-leading, var(--stat-card-revenue-ledger-text-xs--line-height));
+  color: var(--stat-card-revenue-ledger-color-stone-600);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-5, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-5 {
+  --stat-card-revenue-ledger-tw-font-weight: var(--stat-card-revenue-ledger-font-weight-semibold);
+  font-weight: var(--stat-card-revenue-ledger-font-weight-semibold);
+  color: var(--stat-card-revenue-ledger-color-green-800);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-6, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-6 {
+  margin-top: calc(var(--stat-card-revenue-ledger-spacing) * 6);
+  display: grid;
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 20);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: flex-end;
+  gap: calc(var(--stat-card-revenue-ledger-spacing) * 3);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-7, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-7 {
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 8);
+  background-color: var(--stat-card-revenue-ledger-color-stone-300);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-8, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-8 {
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 11);
+  background-color: var(--stat-card-revenue-ledger-color-stone-300);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-9, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-9 {
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 10);
+  background-color: var(--stat-card-revenue-ledger-color-stone-300);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-10, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-10 {
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 14);
+  background-color: var(--stat-card-revenue-ledger-color-stone-300);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-11, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-11 {
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 16);
+  background-color: var(--stat-card-revenue-ledger-color-stone-300);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-12, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-12 {
+  height: calc(var(--stat-card-revenue-ledger-spacing) * 20);
+  background-color: var(--stat-card-revenue-ledger-color-stone-900);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-13, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-13 {
+  margin-top: calc(var(--stat-card-revenue-ledger-spacing) * 2);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: calc(var(--stat-card-revenue-ledger-spacing) * 3);
+  text-align: center;
+  font-family: var(--stat-card-revenue-ledger-font-mono);
+  font-size: 9px;
+  color: var(--stat-card-revenue-ledger-color-stone-600);
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-14, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-14 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+.stat-card-revenue-ledger.stat-card-revenue-ledger__part-15, .stat-card-revenue-ledger .stat-card-revenue-ledger__part-15 {
+  margin-top: calc(var(--stat-card-revenue-ledger-spacing) * 5);
+  border-top-style: var(--stat-card-revenue-ledger-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--stat-card-revenue-ledger-color-stone-300);
+  padding-top: calc(var(--stat-card-revenue-ledger-spacing) * 3);
+  font-size: 11px;
+  color: var(--stat-card-revenue-ledger-color-stone-600);
+}
+@property --stat-card-revenue-ledger-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --stat-card-revenue-ledger-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-revenue-ledger-tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-revenue-ledger-tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-revenue-ledger-tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-revenue-ledger-tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-revenue-ledger-tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --stat-card-revenue-ledger-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .stat-card-revenue-ledger *, .stat-card-revenue-ledger ::before, .stat-card-revenue-ledger ::after, .stat-card-revenue-ledger ::backdrop {
+      --stat-card-revenue-ledger-tw-border-style: solid;
+      --stat-card-revenue-ledger-tw-tracking: initial;
+      --stat-card-revenue-ledger-tw-ordinal: initial;
+      --stat-card-revenue-ledger-tw-slashed-zero: initial;
+      --stat-card-revenue-ledger-tw-numeric-figure: initial;
+      --stat-card-revenue-ledger-tw-numeric-spacing: initial;
+      --stat-card-revenue-ledger-tw-numeric-fraction: initial;
+      --stat-card-revenue-ledger-tw-font-weight: initial;
+    }
+  }
+}

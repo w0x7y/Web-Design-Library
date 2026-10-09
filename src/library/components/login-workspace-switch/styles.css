@@ -1,0 +1,284 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-workspace-switch, .login-workspace-switch *, .login-workspace-switch *::before, .login-workspace-switch *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-workspace-switch { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-workspace-switch :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-workspace-switch a { color: inherit; text-decoration: inherit; }
+.login-workspace-switch :is(b, strong) { font-weight: bolder; }
+.login-workspace-switch :is(ol, ul, menu) { list-style: none; }
+.login-workspace-switch :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-workspace-switch :is(img, video) { max-width: 100%; height: auto; }
+.login-workspace-switch :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-workspace-switch ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-workspace-switch table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-workspace-switch summary { display: list-item; }
+
+@layer properties;
+.login-workspace-switch {
+  --login-workspace-switch-color-blue-700: oklch(48.8% 0.243 264.376);
+  --login-workspace-switch-color-slate-100: oklch(96.8% 0.007 247.896);
+  --login-workspace-switch-color-slate-200: oklch(92.9% 0.013 255.508);
+  --login-workspace-switch-color-slate-500: oklch(55.4% 0.046 257.417);
+  --login-workspace-switch-color-slate-600: oklch(44.6% 0.043 257.281);
+  --login-workspace-switch-color-slate-950: oklch(12.9% 0.042 264.695);
+  --login-workspace-switch-color-stone-600: oklch(44.4% 0.011 73.639);
+  --login-workspace-switch-color-stone-950: oklch(14.7% 0.004 49.25);
+  --login-workspace-switch-color-white: #fff;
+  --login-workspace-switch-spacing: 0.25rem;
+  --login-workspace-switch-container-sm: 24rem;
+  --login-workspace-switch-container-5xl: 64rem;
+  --login-workspace-switch-text-xs: 0.75rem;
+  --login-workspace-switch-text-xs--line-height: calc(1 / 0.75);
+  --login-workspace-switch-text-sm: 0.875rem;
+  --login-workspace-switch-text-sm--line-height: calc(1.25 / 0.875);
+  --login-workspace-switch-text-3xl: 1.875rem;
+  --login-workspace-switch-text-3xl--line-height: calc(2.25 / 1.875);
+  --login-workspace-switch-text-4xl: 2.25rem;
+  --login-workspace-switch-text-4xl--line-height: calc(2.5 / 2.25);
+  --login-workspace-switch-font-weight-normal: 400;
+  --login-workspace-switch-font-weight-medium: 500;
+  --login-workspace-switch-font-weight-semibold: 600;
+  --login-workspace-switch-tracking-tight: -0.025em;
+  --login-workspace-switch-tracking-widest: 0.1em;
+  --login-workspace-switch-radius-lg: 0.5rem;
+  --login-workspace-switch-radius-2xl: 1rem;
+}
+.login-workspace-switch.login-workspace-switch__part-1, .login-workspace-switch .login-workspace-switch__part-1 {
+  background-color: var(--login-workspace-switch-color-white);
+  padding-inline: calc(var(--login-workspace-switch-spacing) * 6);
+  padding-block: calc(var(--login-workspace-switch-spacing) * 12);
+  color: var(--login-workspace-switch-color-slate-950);
+}
+@media (width >= 40rem) {
+  .login-workspace-switch.login-workspace-switch__part-1, .login-workspace-switch .login-workspace-switch__part-1 {
+    padding-inline: calc(var(--login-workspace-switch-spacing) * 12);
+  }
+}
+.login-workspace-switch.login-workspace-switch__part-2, .login-workspace-switch .login-workspace-switch__part-2 {
+  margin-inline: auto;
+  display: grid;
+  max-width: var(--login-workspace-switch-container-5xl);
+  gap: calc(var(--login-workspace-switch-spacing) * 10);
+}
+@media (width >= 48rem) {
+  .login-workspace-switch.login-workspace-switch__part-2, .login-workspace-switch .login-workspace-switch__part-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.login-workspace-switch.login-workspace-switch__part-3, .login-workspace-switch .login-workspace-switch__part-3 {
+  border-radius: var(--login-workspace-switch-radius-2xl);
+  background-color: var(--login-workspace-switch-color-slate-100);
+  padding: calc(var(--login-workspace-switch-spacing) * 6);
+}
+@media (width >= 40rem) {
+  .login-workspace-switch.login-workspace-switch__part-3, .login-workspace-switch .login-workspace-switch__part-3 {
+    padding: calc(var(--login-workspace-switch-spacing) * 8);
+  }
+}
+.login-workspace-switch.login-workspace-switch__part-4, .login-workspace-switch .login-workspace-switch__part-4 {
+  font-size: var(--login-workspace-switch-text-xs);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-xs--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-semibold);
+  font-weight: var(--login-workspace-switch-font-weight-semibold);
+  --login-workspace-switch-tw-tracking: var(--login-workspace-switch-tracking-widest);
+  letter-spacing: var(--login-workspace-switch-tracking-widest);
+  color: var(--login-workspace-switch-color-slate-600);
+}
+.login-workspace-switch.login-workspace-switch__part-5, .login-workspace-switch .login-workspace-switch__part-5 {
+  margin-top: calc(var(--login-workspace-switch-spacing) * 6);
+  max-width: var(--login-workspace-switch-container-sm);
+  font-size: var(--login-workspace-switch-text-4xl);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-4xl--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-semibold);
+  font-weight: var(--login-workspace-switch-font-weight-semibold);
+  --login-workspace-switch-tw-tracking: var(--login-workspace-switch-tracking-tight);
+  letter-spacing: var(--login-workspace-switch-tracking-tight);
+}
+.login-workspace-switch.login-workspace-switch__part-6, .login-workspace-switch .login-workspace-switch__part-6 {
+  margin-top: calc(var(--login-workspace-switch-spacing) * 8);
+  display: grid;
+  gap: calc(var(--login-workspace-switch-spacing) * 3);
+}
+.login-workspace-switch.login-workspace-switch__part-7, .login-workspace-switch .login-workspace-switch__part-7 {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--login-workspace-switch-spacing) * 3);
+  border-radius: var(--login-workspace-switch-radius-lg);
+  border-style: var(--login-workspace-switch-tw-border-style);
+  border-width: 1px;
+  border-color: var(--login-workspace-switch-color-slate-200);
+  background-color: var(--login-workspace-switch-color-white);
+  padding: calc(var(--login-workspace-switch-spacing) * 4);
+}
+.login-workspace-switch.login-workspace-switch__part-8, .login-workspace-switch .login-workspace-switch__part-8 {
+  display: flex;
+  width: calc(var(--login-workspace-switch-spacing) * 9);
+  height: calc(var(--login-workspace-switch-spacing) * 9);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--login-workspace-switch-radius-lg);
+  background-color: var(--login-workspace-switch-color-slate-100);
+  font-size: var(--login-workspace-switch-text-sm);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-sm--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-semibold);
+  font-weight: var(--login-workspace-switch-font-weight-semibold);
+}
+.login-workspace-switch.login-workspace-switch__part-9, .login-workspace-switch .login-workspace-switch__part-9 {
+  display: grid;
+  gap: var(--login-workspace-switch-spacing);
+}
+.login-workspace-switch.login-workspace-switch__part-10, .login-workspace-switch .login-workspace-switch__part-10 {
+  font-size: var(--login-workspace-switch-text-sm);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-sm--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-semibold);
+  font-weight: var(--login-workspace-switch-font-weight-semibold);
+}
+.login-workspace-switch.login-workspace-switch__part-11, .login-workspace-switch .login-workspace-switch__part-11 {
+  font-size: var(--login-workspace-switch-text-xs);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-xs--line-height));
+  color: var(--login-workspace-switch-color-slate-500);
+}
+.login-workspace-switch.login-workspace-switch__part-12, .login-workspace-switch .login-workspace-switch__part-12 {
+  display: grid;
+  align-content: center;
+  gap: calc(var(--login-workspace-switch-spacing) * 5);
+}
+.login-workspace-switch.login-workspace-switch__part-13, .login-workspace-switch .login-workspace-switch__part-13 {
+  font-size: var(--login-workspace-switch-text-3xl);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-3xl--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-semibold);
+  font-weight: var(--login-workspace-switch-font-weight-semibold);
+  --login-workspace-switch-tw-tracking: var(--login-workspace-switch-tracking-tight);
+  letter-spacing: var(--login-workspace-switch-tracking-tight);
+}
+.login-workspace-switch.login-workspace-switch__part-14, .login-workspace-switch .login-workspace-switch__part-14 {
+  font-size: var(--login-workspace-switch-text-sm);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-sm--line-height));
+  --login-workspace-switch-tw-leading: calc(var(--login-workspace-switch-spacing) * 6);
+  line-height: calc(var(--login-workspace-switch-spacing) * 6);
+  color: var(--login-workspace-switch-color-stone-600);
+}
+.login-workspace-switch.login-workspace-switch__part-15, .login-workspace-switch .login-workspace-switch__part-15 {
+  display: grid;
+  gap: calc(var(--login-workspace-switch-spacing) * 2);
+  font-size: var(--login-workspace-switch-text-sm);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-sm--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-medium);
+  font-weight: var(--login-workspace-switch-font-weight-medium);
+}
+.login-workspace-switch.login-workspace-switch__part-16, .login-workspace-switch .login-workspace-switch__part-16 {
+  width: 100%;
+  min-width: 0px;
+  border-radius: var(--login-workspace-switch-radius-lg);
+  border-style: var(--login-workspace-switch-tw-border-style);
+  border-width: 1px;
+  border-color: currentcolor;
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .login-workspace-switch.login-workspace-switch__part-16, .login-workspace-switch .login-workspace-switch__part-16 {
+    border-color: color-mix(in oklab, currentcolor 25%, transparent);
+  }
+}
+.login-workspace-switch.login-workspace-switch__part-16, .login-workspace-switch .login-workspace-switch__part-16 {
+  background-color: transparent;
+  padding-inline: calc(var(--login-workspace-switch-spacing) * 3);
+  padding-block: calc(var(--login-workspace-switch-spacing) * 2.5);
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-normal);
+  font-weight: var(--login-workspace-switch-font-weight-normal);
+}
+.login-workspace-switch.login-workspace-switch__part-16::placeholder, .login-workspace-switch .login-workspace-switch__part-16::placeholder {
+  color: currentcolor;
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .login-workspace-switch.login-workspace-switch__part-16::placeholder, .login-workspace-switch .login-workspace-switch__part-16::placeholder {
+    color: color-mix(in oklab, currentcolor 60%, transparent);
+  }
+}
+.login-workspace-switch.login-workspace-switch__part-16:focus-visible, .login-workspace-switch .login-workspace-switch__part-16:focus-visible {
+  outline-style: var(--login-workspace-switch-tw-outline-style);
+  outline-width: 2px;
+}
+.login-workspace-switch.login-workspace-switch__part-16:focus-visible, .login-workspace-switch .login-workspace-switch__part-16:focus-visible {
+  outline-offset: 2px;
+}
+.login-workspace-switch.login-workspace-switch__part-16:focus-visible, .login-workspace-switch .login-workspace-switch__part-16:focus-visible {
+  outline-color: currentcolor;
+}
+.login-workspace-switch.login-workspace-switch__part-17, .login-workspace-switch .login-workspace-switch__part-17 {
+  border-radius: var(--login-workspace-switch-radius-lg);
+  background-color: var(--login-workspace-switch-color-blue-700);
+  padding-inline: calc(var(--login-workspace-switch-spacing) * 4);
+  padding-block: calc(var(--login-workspace-switch-spacing) * 3);
+  font-size: var(--login-workspace-switch-text-sm);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-sm--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-semibold);
+  font-weight: var(--login-workspace-switch-font-weight-semibold);
+  color: var(--login-workspace-switch-color-white);
+}
+.login-workspace-switch.login-workspace-switch__part-17:focus-visible, .login-workspace-switch .login-workspace-switch__part-17:focus-visible {
+  outline-style: var(--login-workspace-switch-tw-outline-style);
+  outline-width: 2px;
+}
+.login-workspace-switch.login-workspace-switch__part-17:focus-visible, .login-workspace-switch .login-workspace-switch__part-17:focus-visible {
+  outline-offset: 2px;
+}
+.login-workspace-switch.login-workspace-switch__part-17:focus-visible, .login-workspace-switch .login-workspace-switch__part-17:focus-visible {
+  outline-color: var(--login-workspace-switch-color-stone-950);
+}
+.login-workspace-switch.login-workspace-switch__part-18, .login-workspace-switch .login-workspace-switch__part-18 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc(var(--login-workspace-switch-spacing) * 3);
+}
+.login-workspace-switch.login-workspace-switch__part-19, .login-workspace-switch .login-workspace-switch__part-19 {
+  font-size: var(--login-workspace-switch-text-sm);
+  line-height: var(--login-workspace-switch-tw-leading, var(--login-workspace-switch-text-sm--line-height));
+  --login-workspace-switch-tw-font-weight: var(--login-workspace-switch-font-weight-medium);
+  font-weight: var(--login-workspace-switch-font-weight-medium);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.login-workspace-switch.login-workspace-switch__part-19:focus-visible, .login-workspace-switch .login-workspace-switch__part-19:focus-visible {
+  outline-style: var(--login-workspace-switch-tw-outline-style);
+  outline-width: 2px;
+}
+.login-workspace-switch.login-workspace-switch__part-19:focus-visible, .login-workspace-switch .login-workspace-switch__part-19:focus-visible {
+  outline-offset: 2px;
+}
+.login-workspace-switch.login-workspace-switch__part-19:focus-visible, .login-workspace-switch .login-workspace-switch__part-19:focus-visible {
+  outline-color: currentcolor;
+}
+@property --login-workspace-switch-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --login-workspace-switch-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --login-workspace-switch-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --login-workspace-switch-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --login-workspace-switch-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .login-workspace-switch *, .login-workspace-switch ::before, .login-workspace-switch ::after, .login-workspace-switch ::backdrop {
+      --login-workspace-switch-tw-font-weight: initial;
+      --login-workspace-switch-tw-tracking: initial;
+      --login-workspace-switch-tw-border-style: solid;
+      --login-workspace-switch-tw-leading: initial;
+      --login-workspace-switch-tw-outline-style: solid;
+    }
+  }
+}

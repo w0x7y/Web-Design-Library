@@ -1,0 +1,240 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-calendar-actions, .buttons-calendar-actions *, .buttons-calendar-actions *::before, .buttons-calendar-actions *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-calendar-actions { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-calendar-actions :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-calendar-actions a { color: inherit; text-decoration: inherit; }
+.buttons-calendar-actions :is(b, strong) { font-weight: bolder; }
+.buttons-calendar-actions :is(ol, ul, menu) { list-style: none; }
+.buttons-calendar-actions :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-calendar-actions :is(img, video) { max-width: 100%; height: auto; }
+.buttons-calendar-actions :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-calendar-actions ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-calendar-actions table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-calendar-actions summary { display: list-item; }
+
+@layer properties;
+.buttons-calendar-actions {
+  --buttons-calendar-actions-color-red-50: oklch(97.1% 0.013 17.38);
+  --buttons-calendar-actions-color-red-700: oklch(50.5% 0.213 27.518);
+  --buttons-calendar-actions-color-blue-50: oklch(97% 0.014 254.604);
+  --buttons-calendar-actions-color-blue-700: oklch(48.8% 0.243 264.376);
+  --buttons-calendar-actions-color-blue-800: oklch(42.4% 0.199 265.638);
+  --buttons-calendar-actions-color-blue-900: oklch(37.9% 0.146 265.522);
+  --buttons-calendar-actions-color-slate-50: oklch(98.4% 0.003 247.858);
+  --buttons-calendar-actions-color-slate-200: oklch(92.9% 0.013 255.508);
+  --buttons-calendar-actions-color-slate-300: oklch(86.9% 0.022 252.894);
+  --buttons-calendar-actions-color-slate-600: oklch(44.6% 0.043 257.281);
+  --buttons-calendar-actions-color-slate-900: oklch(20.8% 0.042 265.755);
+  --buttons-calendar-actions-color-white: #fff;
+  --buttons-calendar-actions-spacing: 0.25rem;
+  --buttons-calendar-actions-text-xs: 0.75rem;
+  --buttons-calendar-actions-text-xs--line-height: calc(1 / 0.75);
+  --buttons-calendar-actions-text-sm: 0.875rem;
+  --buttons-calendar-actions-text-sm--line-height: calc(1.25 / 0.875);
+  --buttons-calendar-actions-text-xl: 1.25rem;
+  --buttons-calendar-actions-text-xl--line-height: calc(1.75 / 1.25);
+  --buttons-calendar-actions-font-weight-medium: 500;
+  --buttons-calendar-actions-font-weight-semibold: 600;
+  --buttons-calendar-actions-font-weight-bold: 700;
+  --buttons-calendar-actions-radius-lg: 0.5rem;
+  --buttons-calendar-actions-radius-xl: 0.75rem;
+  --buttons-calendar-actions-default-transition-duration: 150ms;
+  --buttons-calendar-actions-default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-1, .buttons-calendar-actions .buttons-calendar-actions__part-1 {
+  width: calc(var(--buttons-calendar-actions-spacing) * 72);
+  border-radius: var(--buttons-calendar-actions-radius-xl);
+  border-style: var(--buttons-calendar-actions-tw-border-style);
+  border-width: 1px;
+  border-color: var(--buttons-calendar-actions-color-slate-200);
+  background-color: var(--buttons-calendar-actions-color-white);
+  padding: calc(var(--buttons-calendar-actions-spacing) * 5);
+  color: var(--buttons-calendar-actions-color-slate-900);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-2, .buttons-calendar-actions .buttons-calendar-actions__part-2 {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--buttons-calendar-actions-spacing) * 3);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-3, .buttons-calendar-actions .buttons-calendar-actions__part-3 {
+  display: flex;
+  width: calc(var(--buttons-calendar-actions-spacing) * 12);
+  height: calc(var(--buttons-calendar-actions-spacing) * 12);
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--buttons-calendar-actions-radius-lg);
+  background-color: var(--buttons-calendar-actions-color-blue-50);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-4, .buttons-calendar-actions .buttons-calendar-actions__part-4 {
+  font-size: 10px;
+  --buttons-calendar-actions-tw-font-weight: var(--buttons-calendar-actions-font-weight-semibold);
+  font-weight: var(--buttons-calendar-actions-font-weight-semibold);
+  color: var(--buttons-calendar-actions-color-blue-700);
+  text-transform: uppercase;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-5, .buttons-calendar-actions .buttons-calendar-actions__part-5 {
+  font-size: var(--buttons-calendar-actions-text-xl);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-xl--line-height));
+  --buttons-calendar-actions-tw-leading: 1;
+  line-height: 1;
+  --buttons-calendar-actions-tw-font-weight: var(--buttons-calendar-actions-font-weight-bold);
+  font-weight: var(--buttons-calendar-actions-font-weight-bold);
+  color: var(--buttons-calendar-actions-color-blue-900);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-6, .buttons-calendar-actions .buttons-calendar-actions__part-6 {
+  font-size: var(--buttons-calendar-actions-text-sm);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-sm--line-height));
+  --buttons-calendar-actions-tw-font-weight: var(--buttons-calendar-actions-font-weight-semibold);
+  font-weight: var(--buttons-calendar-actions-font-weight-semibold);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-7, .buttons-calendar-actions .buttons-calendar-actions__part-7 {
+  margin-top: var(--buttons-calendar-actions-spacing);
+  font-size: var(--buttons-calendar-actions-text-xs);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-xs--line-height));
+  color: var(--buttons-calendar-actions-color-slate-600);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-8, .buttons-calendar-actions .buttons-calendar-actions__part-8 {
+  margin-top: calc(var(--buttons-calendar-actions-spacing) * 4);
+  font-size: var(--buttons-calendar-actions-text-xs);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-xs--line-height));
+  --buttons-calendar-actions-tw-leading: calc(var(--buttons-calendar-actions-spacing) * 5);
+  line-height: calc(var(--buttons-calendar-actions-spacing) * 5);
+  color: var(--buttons-calendar-actions-color-slate-600);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-9, .buttons-calendar-actions .buttons-calendar-actions__part-9 {
+  margin-top: calc(var(--buttons-calendar-actions-spacing) * 4);
+  height: calc(var(--buttons-calendar-actions-spacing) * 11);
+  width: 100%;
+  border-radius: var(--buttons-calendar-actions-radius-lg);
+  background-color: var(--buttons-calendar-actions-color-blue-700);
+  font-size: var(--buttons-calendar-actions-text-sm);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-sm--line-height));
+  --buttons-calendar-actions-tw-font-weight: var(--buttons-calendar-actions-font-weight-semibold);
+  font-weight: var(--buttons-calendar-actions-font-weight-semibold);
+  color: var(--buttons-calendar-actions-color-white);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --buttons-calendar-actions-tw-gradient-from, --buttons-calendar-actions-tw-gradient-via, --buttons-calendar-actions-tw-gradient-to;
+  transition-timing-function: var(--buttons-calendar-actions-tw-ease, var(--buttons-calendar-actions-default-transition-timing-function));
+  transition-duration: var(--buttons-calendar-actions-tw-duration, var(--buttons-calendar-actions-default-transition-duration));
+}
+@media (hover: hover) {
+  .buttons-calendar-actions.buttons-calendar-actions__part-9:hover, .buttons-calendar-actions .buttons-calendar-actions__part-9:hover {
+    background-color: var(--buttons-calendar-actions-color-blue-800);
+  }
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-9:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-9:focus-visible {
+  outline-style: var(--buttons-calendar-actions-tw-outline-style);
+  outline-width: 2px;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-9:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-9:focus-visible {
+  outline-offset: 2px;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-9:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-9:focus-visible {
+  outline-color: var(--buttons-calendar-actions-color-slate-900);
+}
+@media (prefers-reduced-motion: reduce) {
+  .buttons-calendar-actions.buttons-calendar-actions__part-9, .buttons-calendar-actions .buttons-calendar-actions__part-9 {
+    transition-property: none;
+  }
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-10, .buttons-calendar-actions .buttons-calendar-actions__part-10 {
+  margin-top: calc(var(--buttons-calendar-actions-spacing) * 3);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--buttons-calendar-actions-spacing) * 2);
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-11, .buttons-calendar-actions .buttons-calendar-actions__part-11 {
+  height: calc(var(--buttons-calendar-actions-spacing) * 9);
+  border-radius: var(--buttons-calendar-actions-radius-lg);
+  border-style: var(--buttons-calendar-actions-tw-border-style);
+  border-width: 1px;
+  border-color: var(--buttons-calendar-actions-color-slate-300);
+  font-size: var(--buttons-calendar-actions-text-xs);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-xs--line-height));
+  --buttons-calendar-actions-tw-font-weight: var(--buttons-calendar-actions-font-weight-medium);
+  font-weight: var(--buttons-calendar-actions-font-weight-medium);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --buttons-calendar-actions-tw-gradient-from, --buttons-calendar-actions-tw-gradient-via, --buttons-calendar-actions-tw-gradient-to;
+  transition-timing-function: var(--buttons-calendar-actions-tw-ease, var(--buttons-calendar-actions-default-transition-timing-function));
+  transition-duration: var(--buttons-calendar-actions-tw-duration, var(--buttons-calendar-actions-default-transition-duration));
+}
+@media (hover: hover) {
+  .buttons-calendar-actions.buttons-calendar-actions__part-11:hover, .buttons-calendar-actions .buttons-calendar-actions__part-11:hover {
+    background-color: var(--buttons-calendar-actions-color-slate-50);
+  }
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-11:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-11:focus-visible {
+  outline-style: var(--buttons-calendar-actions-tw-outline-style);
+  outline-width: 2px;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-11:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-11:focus-visible {
+  outline-offset: 2px;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-11:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-11:focus-visible {
+  outline-color: var(--buttons-calendar-actions-color-slate-900);
+}
+@media (prefers-reduced-motion: reduce) {
+  .buttons-calendar-actions.buttons-calendar-actions__part-11, .buttons-calendar-actions .buttons-calendar-actions__part-11 {
+    transition-property: none;
+  }
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-12, .buttons-calendar-actions .buttons-calendar-actions__part-12 {
+  height: calc(var(--buttons-calendar-actions-spacing) * 9);
+  border-radius: var(--buttons-calendar-actions-radius-lg);
+  font-size: var(--buttons-calendar-actions-text-xs);
+  line-height: var(--buttons-calendar-actions-tw-leading, var(--buttons-calendar-actions-text-xs--line-height));
+  --buttons-calendar-actions-tw-font-weight: var(--buttons-calendar-actions-font-weight-medium);
+  font-weight: var(--buttons-calendar-actions-font-weight-medium);
+  color: var(--buttons-calendar-actions-color-red-700);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --buttons-calendar-actions-tw-gradient-from, --buttons-calendar-actions-tw-gradient-via, --buttons-calendar-actions-tw-gradient-to;
+  transition-timing-function: var(--buttons-calendar-actions-tw-ease, var(--buttons-calendar-actions-default-transition-timing-function));
+  transition-duration: var(--buttons-calendar-actions-tw-duration, var(--buttons-calendar-actions-default-transition-duration));
+}
+@media (hover: hover) {
+  .buttons-calendar-actions.buttons-calendar-actions__part-12:hover, .buttons-calendar-actions .buttons-calendar-actions__part-12:hover {
+    background-color: var(--buttons-calendar-actions-color-red-50);
+  }
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-12:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-12:focus-visible {
+  outline-style: var(--buttons-calendar-actions-tw-outline-style);
+  outline-width: 2px;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-12:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-12:focus-visible {
+  outline-offset: 2px;
+}
+.buttons-calendar-actions.buttons-calendar-actions__part-12:focus-visible, .buttons-calendar-actions .buttons-calendar-actions__part-12:focus-visible {
+  outline-color: var(--buttons-calendar-actions-color-slate-900);
+}
+@media (prefers-reduced-motion: reduce) {
+  .buttons-calendar-actions.buttons-calendar-actions__part-12, .buttons-calendar-actions .buttons-calendar-actions__part-12 {
+    transition-property: none;
+  }
+}
+@property --buttons-calendar-actions-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --buttons-calendar-actions-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --buttons-calendar-actions-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --buttons-calendar-actions-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .buttons-calendar-actions *, .buttons-calendar-actions ::before, .buttons-calendar-actions ::after, .buttons-calendar-actions ::backdrop {
+      --buttons-calendar-actions-tw-border-style: solid;
+      --buttons-calendar-actions-tw-font-weight: initial;
+      --buttons-calendar-actions-tw-leading: initial;
+      --buttons-calendar-actions-tw-outline-style: solid;
+    }
+  }
+}
