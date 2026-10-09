@@ -3,7 +3,7 @@ export default function SignupCourseRegistration() {
     <section className="bg-orange-50 px-6 py-12 text-orange-950 sm:px-12">
       <div className="mx-auto max-w-3xl">
         <header className="flex flex-wrap items-center justify-between gap-4 border-b border-orange-200 pb-6">
-          <h2 className="text-2xl font-bold tracking-tight">Field School</h2>
+          <p className="text-2xl font-bold tracking-tight">Field School</p>
           <span className="inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-medium">
             Cohort 06 · Begins November 2
           </span>
@@ -30,6 +30,7 @@ export default function SignupCourseRegistration() {
           <form
             className="grid gap-5 rounded-2xl border-2 border-orange-200 bg-white p-6"
             action="#"
+            method="post"
           >
             <label
               className="grid gap-2 text-sm font-medium"
@@ -37,7 +38,7 @@ export default function SignupCourseRegistration() {
             >
               Your name
               <input
-                className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 id="signup-course-registration-name"
                 name="name"
                 type="text"
@@ -52,7 +53,7 @@ export default function SignupCourseRegistration() {
             >
               Email address
               <input
-                className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 id="signup-course-registration-email"
                 name="email"
                 type="email"
@@ -67,7 +68,7 @@ export default function SignupCourseRegistration() {
             >
               Drawing experience
               <select
-                className="w-full rounded-lg border border-orange-200 bg-white px-3 py-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                className="min-w-0 w-full rounded-lg border border-orange-700 bg-white px-3 py-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 name="experience"
                 id="signup-course-registration-experience"
               >

@@ -28,15 +28,16 @@ export default function LoginEmailLink() {
           Enter your email and we’ll send a sign-in link. No password to
           remember.
         </p>
-        <form className="mt-8 grid gap-4 text-left" action="#">
+        <form className="mt-8 grid gap-4 text-left" action="#" method="post">
           <label
             className="grid gap-2 text-sm font-medium"
             htmlFor="login-email-link-email"
           >
             Email address
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="login-email-link-email"
+              aria-describedby="login-email-link-expiry"
               name="email"
               type="email"
               autoComplete="email"
@@ -51,7 +52,7 @@ export default function LoginEmailLink() {
             Send sign-in link
           </button>
         </form>
-        <p className="mt-5 text-xs text-teal-200">
+        <p id="login-email-link-expiry" className="mt-5 text-xs text-teal-200">
           The link expires after 15 minutes.
         </p>
         <div className="mt-8 border-t border-teal-700 pt-5">

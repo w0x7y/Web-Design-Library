@@ -18,7 +18,7 @@ export default function LoginStudioPortal() {
           >
             Email address
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal] [filter:opacity(1)]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="login-studio-portal-email"
               name="email"
               type="email"
@@ -33,7 +33,7 @@ export default function LoginStudioPortal() {
           >
             Password
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal] [filter:opacity(1)]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="login-studio-portal-password"
               name="password"
               type="password"

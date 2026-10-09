@@ -9,8 +9,8 @@ export default function LoginWorkspaceSwitch() {
           <h2 className="mt-6 max-w-sm text-4xl font-semibold tracking-tight">
             A clear view of what’s next.
           </h2>
-          <div className="mt-8 grid gap-3">
-            <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4">
+          <ol role="list" className="mt-8 grid gap-3">
+            <li className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4">
               <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-sm font-semibold">
                 1
               </span>
@@ -20,8 +20,8 @@ export default function LoginWorkspaceSwitch() {
                   Design review · 4 people
                 </p>
               </div>
-            </div>
-            <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4">
+            </li>
+            <li className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4">
               <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-sm font-semibold">
                 2
               </span>
@@ -31,8 +31,8 @@ export default function LoginWorkspaceSwitch() {
                   Ready to start · 2 people
                 </p>
               </div>
-            </div>
-            <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4">
+            </li>
+            <li className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-4">
               <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-sm font-semibold">
                 3
               </span>
@@ -40,14 +40,14 @@ export default function LoginWorkspaceSwitch() {
                 <p className="text-sm font-semibold">October planning</p>
                 <p className="text-xs text-slate-500">In progress · 6 people</p>
               </div>
-            </div>
-          </div>
+            </li>
+          </ol>
         </div>
         <form className="grid content-center gap-5" action="#" method="post">
           <h2 className="text-3xl font-semibold tracking-tight">
             Welcome back
           </h2>
-          <p className="text-sm leading-6 text-stone-600">
+          <p className="text-sm leading-6 text-slate-600">
             Sign in to your team’s workspace.
           </p>
           <label
@@ -56,7 +56,7 @@ export default function LoginWorkspaceSwitch() {
           >
             Work email
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               id="login-workspace-switch-email"
               name="email"
               type="email"
@@ -71,7 +71,7 @@ export default function LoginWorkspaceSwitch() {
           >
             Password
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               id="login-workspace-switch-password"
               name="password"
               type="password"

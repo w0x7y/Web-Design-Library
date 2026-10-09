@@ -12,217 +12,106 @@
 .login-email-link table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .login-email-link summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .login-email-link {
-  --login-email-link-color-teal-50: oklch(98.4% 0.014 180.72);
-  --login-email-link-color-teal-100: oklch(95.3% 0.051 180.801);
-  --login-email-link-color-teal-200: oklch(91% 0.096 180.426);
-  --login-email-link-color-teal-700: oklch(51.1% 0.096 186.391);
-  --login-email-link-color-teal-950: oklch(27.7% 0.046 192.524);
-  --login-email-link-spacing: 0.25rem;
-  --login-email-link-container-sm: 24rem;
-  --login-email-link-container-xl: 36rem;
-  --login-email-link-text-xs: 0.75rem;
-  --login-email-link-text-xs--line-height: calc(1 / 0.75);
-  --login-email-link-text-sm: 0.875rem;
-  --login-email-link-text-sm--line-height: calc(1.25 / 0.875);
-  --login-email-link-text-base: 1rem;
-  --login-email-link-text-base--line-height: calc(1.5 / 1);
-  --login-email-link-text-4xl: 2.25rem;
-  --login-email-link-text-4xl--line-height: calc(2.5 / 2.25);
-  --login-email-link-font-weight-normal: 400;
-  --login-email-link-font-weight-medium: 500;
-  --login-email-link-font-weight-semibold: 600;
-  --login-email-link-tracking-tight: -0.025em;
-  --login-email-link-radius-lg: 0.5rem;
+  padding: 4rem 1.5rem;
+  background-color: oklch(27.7% 0.046 192.524); /* teal-950 */
+  color: oklch(98.4% 0.014 180.72); /* teal-50 */
 }
-.login-email-link.login-email-link__part-1, .login-email-link .login-email-link__part-1 {
-  background-color: var(--login-email-link-color-teal-950);
-  padding-inline: calc(var(--login-email-link-spacing) * 6);
-  padding-block: calc(var(--login-email-link-spacing) * 16);
-  color: var(--login-email-link-color-teal-50);
-}
-@media (width >= 40rem) {
-  .login-email-link.login-email-link__part-1, .login-email-link .login-email-link__part-1 {
-    padding-inline: calc(var(--login-email-link-spacing) * 12);
-  }
-}
-.login-email-link.login-email-link__part-2, .login-email-link .login-email-link__part-2 {
+.login-email-link .login-email-link__inner {
+  max-width: 36rem;
   margin-inline: auto;
-  max-width: var(--login-email-link-container-xl);
   text-align: center;
 }
-.login-email-link.login-email-link__part-3, .login-email-link .login-email-link__part-3 {
-  margin-inline: auto;
+/* Email link explanation */
+.login-email-link .login-email-link__mark {
   display: flex;
-  width: calc(var(--login-email-link-spacing) * 16);
-  height: calc(var(--login-email-link-spacing) * 16);
   align-items: center;
   justify-content: center;
-  border-radius: calc(infinity * 1px);
-  border-style: var(--login-email-link-tw-border-style);
-  border-width: 1px;
-  border-color: var(--login-email-link-color-teal-700);
-  color: var(--login-email-link-color-teal-200);
-}
-.login-email-link.login-email-link__part-4, .login-email-link .login-email-link__part-4 {
-  width: calc(var(--login-email-link-spacing) * 12);
-  height: calc(var(--login-email-link-spacing) * 12);
-}
-.login-email-link.login-email-link__part-5, .login-email-link .login-email-link__part-5 {
-  margin-top: calc(var(--login-email-link-spacing) * 6);
-  font-size: var(--login-email-link-text-4xl);
-  line-height: var(--login-email-link-tw-leading, var(--login-email-link-text-4xl--line-height));
-  --login-email-link-tw-font-weight: var(--login-email-link-font-weight-medium);
-  font-weight: var(--login-email-link-font-weight-medium);
-  --login-email-link-tw-tracking: var(--login-email-link-tracking-tight);
-  letter-spacing: var(--login-email-link-tracking-tight);
-}
-.login-email-link.login-email-link__part-6, .login-email-link .login-email-link__part-6 {
+  width: 4rem;
+  height: 4rem;
   margin-inline: auto;
-  margin-top: calc(var(--login-email-link-spacing) * 4);
-  max-width: var(--login-email-link-container-sm);
-  font-size: var(--login-email-link-text-base);
-  line-height: var(--login-email-link-tw-leading, var(--login-email-link-text-base--line-height));
-  --login-email-link-tw-leading: calc(var(--login-email-link-spacing) * 7);
-  line-height: calc(var(--login-email-link-spacing) * 7);
-  color: var(--login-email-link-color-teal-200);
+  border: 1px solid oklch(51.1% 0.096 186.391); /* teal-700 */
+  border-radius: 9999px;
+  color: oklch(91% 0.096 180.426); /* teal-200 */
 }
-.login-email-link.login-email-link__part-7, .login-email-link .login-email-link__part-7 {
-  margin-top: calc(var(--login-email-link-spacing) * 8);
+.login-email-link .login-email-link__envelope { width: 3rem; height: 3rem; }
+.login-email-link .login-email-link__heading {
+  margin-top: 1.5rem;
+  font-size: 2.25rem;
+  line-height: calc(2.5 / 2.25);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.login-email-link .login-email-link__description {
+  max-width: 24rem;
+  margin: 1rem auto 0;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: oklch(91% 0.096 180.426); /* teal-200 */
+}
+/* Email form */
+.login-email-link .login-email-link__form {
   display: grid;
-  gap: calc(var(--login-email-link-spacing) * 4);
+  gap: 1rem;
+  margin-top: 2rem;
   text-align: left;
 }
-.login-email-link.login-email-link__part-8, .login-email-link .login-email-link__part-8 {
+.login-email-link .login-email-link__field {
   display: grid;
-  gap: calc(var(--login-email-link-spacing) * 2);
-  font-size: var(--login-email-link-text-sm);
-  line-height: var(--login-email-link-tw-leading, var(--login-email-link-text-sm--line-height));
-  --login-email-link-tw-font-weight: var(--login-email-link-font-weight-medium);
-  font-weight: var(--login-email-link-font-weight-medium);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
 }
-.login-email-link.login-email-link__part-9, .login-email-link .login-email-link__part-9 {
+.login-email-link .login-email-link__input {
   width: 100%;
-  min-width: 0px;
-  border-radius: var(--login-email-link-radius-lg);
-  border-style: var(--login-email-link-tw-border-style);
-  border-width: 1px;
-  border-color: currentcolor;
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .login-email-link.login-email-link__part-9, .login-email-link .login-email-link__part-9 {
-    border-color: color-mix(in oklab, currentcolor 25%, transparent);
-  }
-}
-.login-email-link.login-email-link__part-9, .login-email-link .login-email-link__part-9 {
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid color-mix(in oklab, currentColor 60%, transparent);
+  border-radius: 0.5rem;
   background-color: transparent;
-  padding-inline: calc(var(--login-email-link-spacing) * 3);
-  padding-block: calc(var(--login-email-link-spacing) * 2.5);
-  --login-email-link-tw-leading: normal;
+  font-weight: 400;
   line-height: normal;
-  --login-email-link-tw-font-weight: var(--login-email-link-font-weight-normal);
-  font-weight: var(--login-email-link-font-weight-normal);
 }
-.login-email-link.login-email-link__part-9::placeholder, .login-email-link .login-email-link__part-9::placeholder {
-  color: currentcolor;
+.login-email-link .login-email-link__input::placeholder {
+  color: color-mix(in oklab, currentColor 60%, transparent);
 }
-@supports (color: color-mix(in lab, red, red)) {
-  .login-email-link.login-email-link__part-9::placeholder, .login-email-link .login-email-link__part-9::placeholder {
-    color: color-mix(in oklab, currentcolor 60%, transparent);
-  }
+.login-email-link .login-email-link__submit {
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background-color: oklch(95.3% 0.051 180.801); /* teal-100 */
+  color: oklch(27.7% 0.046 192.524); /* teal-950 */
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
 }
-.login-email-link.login-email-link__part-9:focus-visible, .login-email-link .login-email-link__part-9:focus-visible {
-  outline-style: var(--login-email-link-tw-outline-style);
-  outline-width: 2px;
+.login-email-link .login-email-link__expiry {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(91% 0.096 180.426); /* teal-200 */
 }
-.login-email-link.login-email-link__part-9:focus-visible, .login-email-link .login-email-link__part-9:focus-visible {
-  outline-offset: 2px;
+.login-email-link .login-email-link__footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid oklch(51.1% 0.096 186.391); /* teal-700 */
 }
-.login-email-link.login-email-link__part-9:focus-visible, .login-email-link .login-email-link__part-9:focus-visible {
-  outline-color: currentcolor;
-}
-.login-email-link.login-email-link__part-10, .login-email-link .login-email-link__part-10 {
-  border-radius: calc(infinity * 1px);
-  background-color: var(--login-email-link-color-teal-100);
-  padding-inline: calc(var(--login-email-link-spacing) * 5);
-  padding-block: calc(var(--login-email-link-spacing) * 3);
-  font-size: var(--login-email-link-text-sm);
-  line-height: var(--login-email-link-tw-leading, var(--login-email-link-text-sm--line-height));
-  --login-email-link-tw-font-weight: var(--login-email-link-font-weight-semibold);
-  font-weight: var(--login-email-link-font-weight-semibold);
-  color: var(--login-email-link-color-teal-950);
-}
-.login-email-link.login-email-link__part-10:focus-visible, .login-email-link .login-email-link__part-10:focus-visible {
-  outline-style: var(--login-email-link-tw-outline-style);
-  outline-width: 2px;
-}
-.login-email-link.login-email-link__part-10:focus-visible, .login-email-link .login-email-link__part-10:focus-visible {
-  outline-offset: 2px;
-}
-.login-email-link.login-email-link__part-10:focus-visible, .login-email-link .login-email-link__part-10:focus-visible {
-  outline-color: var(--login-email-link-color-teal-200);
-}
-.login-email-link.login-email-link__part-11, .login-email-link .login-email-link__part-11 {
-  margin-top: calc(var(--login-email-link-spacing) * 5);
-  font-size: var(--login-email-link-text-xs);
-  line-height: var(--login-email-link-tw-leading, var(--login-email-link-text-xs--line-height));
-  color: var(--login-email-link-color-teal-200);
-}
-.login-email-link.login-email-link__part-12, .login-email-link .login-email-link__part-12 {
-  margin-top: calc(var(--login-email-link-spacing) * 8);
-  border-top-style: var(--login-email-link-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--login-email-link-color-teal-700);
-  padding-top: calc(var(--login-email-link-spacing) * 5);
-}
-.login-email-link.login-email-link__part-13, .login-email-link .login-email-link__part-13 {
-  font-size: var(--login-email-link-text-sm);
-  line-height: var(--login-email-link-tw-leading, var(--login-email-link-text-sm--line-height));
-  color: var(--login-email-link-color-teal-100);
+.login-email-link .login-email-link__back {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(95.3% 0.051 180.801); /* teal-100 */
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
-.login-email-link.login-email-link__part-13:focus-visible, .login-email-link .login-email-link__part-13:focus-visible {
-  outline-style: var(--login-email-link-tw-outline-style);
-  outline-width: 2px;
-}
-.login-email-link.login-email-link__part-13:focus-visible, .login-email-link .login-email-link__part-13:focus-visible {
+.login-email-link :is(.login-email-link__input, .login-email-link__back):focus-visible {
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-.login-email-link.login-email-link__part-13:focus-visible, .login-email-link .login-email-link__part-13:focus-visible {
-  outline-color: currentcolor;
+.login-email-link .login-email-link__submit:focus-visible {
+  outline: 2px solid oklch(91% 0.096 180.426); /* teal-200 */
+  outline-offset: 2px;
 }
-@property --login-email-link-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --login-email-link-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --login-email-link-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --login-email-link-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --login-email-link-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .login-email-link *, .login-email-link ::before, .login-email-link ::after, .login-email-link ::backdrop {
-      --login-email-link-tw-border-style: solid;
-      --login-email-link-tw-font-weight: initial;
-      --login-email-link-tw-tracking: initial;
-      --login-email-link-tw-leading: initial;
-      --login-email-link-tw-outline-style: solid;
-    }
-  }
+@media (width >= 40rem) {
+  .login-email-link { padding-inline: 3rem; }
 }
