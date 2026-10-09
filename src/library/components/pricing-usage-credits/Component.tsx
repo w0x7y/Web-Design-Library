@@ -95,23 +95,23 @@ export default function PricingUsageCredits() {
           <dl className="mt-8 space-y-5 text-sm">
             <div className="flex justify-between gap-4">
               <dt className="text-zinc-400">Messages delivered</dt>
-              <dd className="font-mono tabular-nums">100,000</dd>
+              <dd className="shrink-0 font-mono tabular-nums">100,000</dd>
             </div>
             <div className="flex justify-between gap-4">
               <dt className="text-zinc-400">Free allowance</dt>
-              <dd className="font-mono tabular-nums">−10,000</dd>
+              <dd className="shrink-0 font-mono tabular-nums">−10,000</dd>
             </div>
             <div className="flex justify-between gap-4">
               <dt className="text-zinc-400">Billable messages</dt>
-              <dd className="font-mono tabular-nums">90,000</dd>
+              <dd className="shrink-0 font-mono tabular-nums">90,000</dd>
             </div>
             <div className="flex justify-between gap-4">
               <dt className="text-zinc-400">Platform fee</dt>
-              <dd className="font-mono">$0</dd>
+              <dd className="shrink-0 font-mono">$0</dd>
             </div>
             <div className="flex items-end justify-between gap-4 border-t border-zinc-700 pt-6">
               <dt className="font-medium">Monthly total</dt>
-              <dd className="font-mono text-4xl text-cyan-300">$36</dd>
+              <dd className="shrink-0 font-mono text-4xl text-cyan-300">$36</dd>
             </div>
           </dl>
           <p className="mt-6 border-t border-zinc-700 pt-5 text-xs leading-relaxed text-zinc-400">
