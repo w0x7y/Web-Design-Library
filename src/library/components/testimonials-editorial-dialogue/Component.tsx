@@ -12,12 +12,12 @@ export default function TestimonialsEditorialDialogue() {
           We asked two Small Hours students what changed in the way they work,
           six months after finishing the course.
         </p>
-        <figure className="mt-10 grid gap-6 border-t border-stone-300 py-8 md:grid-cols-[14rem_1fr]">
+        <article className="mt-10 grid gap-6 border-t border-stone-300 py-8 md:grid-cols-[14rem_1fr]">
           <div>
             <p className="font-mono text-xs text-orange-800">QUESTION 01</p>
             <p className="mt-3 text-sm font-medium">What do you notice now?</p>
           </div>
-          <div>
+          <figure>
             <blockquote className="font-serif text-2xl leading-relaxed">
               I notice the space between things. My work has fewer elements now,
               but each one has a clearer job. That was a small shift that
@@ -29,14 +29,14 @@ export default function TestimonialsEditorialDialogue() {
                 Product designer, class of Spring 2026
               </span>
             </figcaption>
-          </div>
-        </figure>
-        <figure className="grid gap-6 border-y border-stone-300 py-8 md:grid-cols-[14rem_1fr]">
+          </figure>
+        </article>
+        <article className="grid gap-6 border-y border-stone-300 py-8 md:grid-cols-[14rem_1fr]">
           <div>
             <p className="font-mono text-xs text-orange-800">QUESTION 02</p>
             <p className="mt-3 text-sm font-medium">What became easier?</p>
           </div>
-          <div>
+          <figure>
             <blockquote className="font-serif text-2xl leading-relaxed">
               Explaining my choices. I used to say something felt right. Now I
               can talk about hierarchy, rhythm and what I want someone to notice
@@ -48,8 +48,8 @@ export default function TestimonialsEditorialDialogue() {
                 Independent illustrator, class of Winter 2026
               </span>
             </figcaption>
-          </div>
-        </figure>
+          </figure>
+        </article>
       </div>
     </section>
   )

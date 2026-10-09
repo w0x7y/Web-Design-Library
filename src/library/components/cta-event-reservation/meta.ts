@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 1152px lime section pairs event title and description with a bordered date ticket. Ticket has a date block, time and venue details, and an orange booking action. Section padding is 64px vertical.',
+      'A centered 1152px container with 24px side and 64px vertical padding, centered grid items and a 40px gap. Event eyebrow, two-line heading, 448px-wide invitation and capacity note precede a ticket. Ticket has 24px padding, a date block, event title, time/venue, price and a full-width booking link with 48px minimum height and a 16px arrow.',
     style:
-      'Lime-100 background, emerald-950 text, orange-700 action, white ticket with 2px emerald-950 outline and a dashed internal divider. Main heading is 48px bold sans and date number is 48px.',
+      'Lime-100 canvas and emerald-950 system sans type. Ticket is white with a 2px emerald-950 border and 16px radius. Heading is 36px bold with 1.25 line height and -0.025em tracking. Date number is 48px black weight with 1.0 line height; month is 12px bold uppercase and weekday is 12px. Event title is 20px bold, details are 14px and price is semibold. Booking link is an orange-700 pill with white semibold text, 20px side padding and 12px icon gap.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Booking link fills orange-800 on hover on devices that support hover. Keyboard focus shows a 2px zinc-950 outline offset 2px. No transitions or animations.',
     responsive:
-      'Columns start at 1024px. Ticket date and details stack below 640px, otherwise sit side by side. Title is 36px on phones. Booking button remains full width.',
+      'Below 1024px the invitation and ticket stack. At 640px heading becomes 48px, ticket date/details form a centered row with a 24px gap, and the date gains a 1px dashed emerald-950 right divider with 24px right padding. At 1024px the main grid becomes 1.2fr / 1fr columns. Booking link stays full width.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

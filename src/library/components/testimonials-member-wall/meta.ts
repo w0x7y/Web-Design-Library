@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 1152px pale yellow section has an introductory column with a 2800-member counter and three story cards in a two-column grid. The first story spans both grid columns, while two smaller stories sit beneath.',
+      'A centered 1152px container with 24px side and 80px vertical padding and a 40px grid gap. The introduction has an eyebrow, two-line heading, paragraph, 2800-member tally and community link. The story wall has a lead figure with a 40px initials avatar and two smaller figures, with 20px gaps. Story captions begin 24px below quotes.',
     style:
-      'Amber-50 background, amber-950 text, orange-100 lead story, lime-100 and sky-100 secondary stories. Cards have 24px radius, 24px padding, 20px quote text and initial badges.',
+      'Amber-50 canvas and amber-950 system sans text. The lead story is orange-100; supporting stories are lime-100 and sky-100. Cards have 24px radii and 24px padding. Heading and tally are 36px bold with -0.025em tracking; heading has 1.25 line height. Lead quote is 20px medium and supporting quotes are 18px, all with 1.625 line height. Eyebrow is 12px bold uppercase orange-800. The orange-200 initials badge uses 12px bold text, names use bold type and the lead role is 12px orange-900.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'The community link underlines on hover on devices that support hover. Keyboard focus shows a 2px zinc-950 outline offset 2px. No transitions or animations.',
     responsive:
-      'Intro and story wall become side by side at 1024px. Story cards stack on phones and form two columns at 640px. The lead spans both columns above 640px.',
+      'Stories stack below 640px. At 640px the wall becomes two equal columns; the lead spans both and gets 32px padding. At 1024px the introduction and wall sit in 1fr / 2fr columns with a 40px gap. Smaller cards retain 24px padding.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

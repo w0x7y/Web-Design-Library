@@ -4,10 +4,10 @@ export default function CtaFieldGuideDownload() {
       <div className="mx-auto grid max-w-5xl items-center gap-10 px-6 py-16 md:grid-cols-[14rem_1fr] md:gap-16">
         <div
           aria-hidden="true"
-          className="mx-auto flex aspect-[3/4] w-56 flex-col justify-between bg-blue-700 p-6 text-white shadow-lg"
+          className="mx-auto flex aspect-[3/4] w-56 flex-col justify-between gap-4 bg-blue-700 p-6 text-white shadow-lg"
         >
           <p className="text-xs uppercase tracking-widest">Compass research</p>
-          <p className="text-3xl leading-tight font-semibold tracking-tight">
+          <p className="text-[1.75rem] leading-tight font-semibold tracking-tight">
             The small
             <br />
             team's guide
@@ -54,6 +54,7 @@ export default function CtaFieldGuideDownload() {
           </ul>
           <a
             href="#"
+            aria-describedby="cta-field-guide-download-format"
             className="mt-7 inline-flex min-h-12 items-center gap-3 rounded-lg bg-blue-700 px-5 text-sm font-semibold text-white hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
           >
             Get the free field guide{' '}
@@ -70,7 +71,7 @@ export default function CtaFieldGuideDownload() {
               <path d="M5 12h14m-6-6 6 6-6 6" />
             </svg>
           </a>
-          <p className="mt-3 text-xs text-slate-500">
+          <p id="cta-field-guide-download-format" className="mt-3 text-xs text-slate-500">
             PDF format. No email address required.
           </p>
         </div>

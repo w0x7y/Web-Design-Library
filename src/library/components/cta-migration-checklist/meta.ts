@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 1152px dark panel lays out a small migration label, 48px headline, paragraph and action beside a bordered three-step checklist. Each step has a 32px outlined number circle and explanatory text.',
+      'A centered 1152px container with 24px side and 64px vertical padding, centered grid items and a 40px gap. Invitation includes eyebrow, two-line heading, 448px-wide paragraph and two links in a wrapping row with 20px gaps. A three-step ordered list has 24px padding and 24px between rows; each row has a 32px number circle and a flexible text block separated by 16px.',
     style:
-      'Blue-950 canvas, white headline, blue-200 body and sky-300 action. Checklist uses blue-800 borders and blue-900/50 fill with 16px radius. Steps are 14px with medium titles.',
+      'Blue-950 canvas, white system sans heading, blue-200 body text and sky-300 accents. Heading is 36px semibold with 1.25 leading and -0.025em tracking. Primary action has sky-300 fill, blue-950 semibold type, 8px radius, 48px minimum height, 20px side padding and 12px arrow gap. Secondary action is 14px blue-200. Checklist has a 1px blue-800 border, blue-900 fill at 50% and 16px radius. Number circles have 1px blue-700 borders and 12px sky-300 text; titles are 14px semibold and descriptions 14px with 1.625 leading.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'On hover-capable devices the primary action fills sky-200; the secondary becomes white and underlines. Both links show 2px white outlines offset 2px on keyboard focus. The ordered list has role="list" to preserve Safari list semantics. No transitions or animations.',
     responsive:
-      'Two columns begin at 768px. Title is 36px on phones and 48px at 640px. Each checklist row wraps text in a flexible column. Actions wrap into a second row on phones.',
+      'Below 768px the invitation and checklist stack. At 640px the heading becomes 48px and checklist padding 32px. At 768px the grid becomes two equal columns with a 64px gap. Action links wrap when needed; number circles never shrink.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta
