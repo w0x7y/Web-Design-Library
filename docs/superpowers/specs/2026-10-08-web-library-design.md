@@ -107,8 +107,8 @@ Vercel serves `build/client` as a static site.
 
 ### 3.3 Site name
 
-A single `SITE` constant (`app/site.ts`) holds the name, tagline, and
-canonical URL. Every page title, brief header, `.md` header, `llms.txt`
+A single `SITE` constant (`src/site.ts`, re-exported by `app/site.ts`) holds
+the name, tagline, and canonical URL. Every page title, brief header, `.md` header, `llms.txt`
 header, and download filename prefix reads from it. Renaming the site is a
 one-line change.
 
@@ -161,9 +161,13 @@ field is reserved for community submissions; v1 leaves it unset.
 ### 4.3 Registry
 
 `src/library/registry.ts` collects every component with
-`import.meta.glob` (eager for metadata and raw sources, lazy for the
-rendered module on the browse grid) and exposes typed lookups:
-`allComponents()`, `bySlug()`, `byCategory()`, `search(q, tags)`.
+`import.meta.glob` (eager for metadata, lazy for the rendered module) and
+exposes typed lookups: `allMetas()`, `metaBySlug()` and `lazyComponent()`.
+Raw sources load in `src/library/sources.server.ts`, used only by route
+loaders at build time, and `src/library/catalog.ts` owns the folder
+convention, the library order and the grouping by taxonomy. Browse
+filtering by category, search and tags is `filterMetas()` in
+`app/lib/filters.ts`.
 
 ### 4.4 Taxonomy
 
@@ -381,9 +385,11 @@ examples. The FAQ uses `<details>`/`<summary>` (native, no JS); dropdown
   authors follow one process.
 - No `LICENSE` file until a license is chosen; README states this. A
   license must be chosen before public launch.
-- Vercel: the owner connects the GitHub repo to a Vercel project
-  (framework preset React Router; output `build/client`). The README
-  documents the steps.
+- Vercel: the owner connects the GitHub repo to a Vercel project.
+  `vercel.json` sets the build command, the output directory
+  (`build/client`) and `framework: null` (no framework preset), so the
+  project serves the static output as it is. The README documents the
+  steps.
 - GitHub Actions: lint, typecheck, Vitest, build, and Playwright parity +
   smoke tests on every push and PR.
 

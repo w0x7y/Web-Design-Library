@@ -10,7 +10,8 @@ Web Library is a static site of copy-paste UI components. This file is the autho
 4. Write `index.html` and `styles.css`. `styles.css` begins with the reset template below.
 5. Run `npm test`. Done when the library test reports no violations for your folder.
 6. Run `npm run test:parity`. Done when both the `desktop` (1440px wide) and `mobile` (390px wide) tests pass. Each one renders in the frame the PNG is captured in. Fix the CSS, not the tolerance.
-7. Check `/c/<slug>` in `npm run dev` at desktop and mobile widths, in both the light and dark site themes. Until the detail page exists, check `/preview/<slug>`.
+7. Run `npx playwright test e2e/focus.spec.ts e2e/layout.spec.ts`. Done when every control of both versions shows a focus outline in forced-colors mode, a section reflows from 320px up without horizontal scrolling, and an element fits its frame (see `preview.kind` below).
+8. Check `/c/<slug>` in `npm run dev` at desktop and mobile widths, in both the light and dark site themes.
 
 ## Folder layout
 
@@ -105,6 +106,15 @@ Every `styles.css` begins with this block, with `SLUG` replaced by the slug:
 ```
 
 The template is `resetCss()` in `src/library/reset.ts`, and `rules.ts` checks every line of it, ignoring line endings and trailing whitespace. The `font-family` line is Tailwind's default `--font-sans`. If a Tailwind upgrade changes that default, `npm test` fails: update `reset.ts`, this block and every `styles.css` together.
+
+## Accessibility details
+
+Rule 8 in practice, as `e2e/focus.spec.ts` checks it and the library does it:
+
+- **Focus.** Give every control a visible `focus-visible:` outline. When a wrapper or sibling shows focus instead (a field's border, a card's ring), remove the control's own outline with `focus-visible:outline-hidden`, never a bare `outline-hidden` or `outline-none`: forced-colors mode turns `outline-hidden`'s transparent outline into a visible one, so a bare one rings the control all the time, and `outline-none` leaves no focus cue there at all. In the twin, put `outline-style: none` on the `:focus-visible` selector and add `@media (forced-colors: active) { … :focus-visible { outline: 2px solid transparent; outline-offset: 2px; } }`.
+- **Forced colours.** Forced-colors mode repaints text, backgrounds and borders in system colours. Don't draw state with a fill alone (give a switch's track a `forced-colors:` border and its knob a system colour such as `CanvasText`), and hide an icon with opacity rather than a colour that matches its background.
+- **Lists.** Give a styled `<ul>` or `<ol>` `role="list"`: Safari drops the list semantics of `list-style: none` lists.
+- **Hints and names.** Tie hint and error text to its field with `aria-describedby`. A repeated control (Add, Save, Remove) names its item in its label.
 
 ## Writing the HTML/CSS twin
 

@@ -2,7 +2,7 @@
 
 Copy-paste UI layouts for developers building with AI agents.
 
-Web Library is a static site of 36 UI components in four groups: Sections (hero, navbar, features, pricing, testimonials, call to action, FAQ, footer), Cards & profiles, Elements (buttons, inputs, badges, toggles, tabs, dropdowns) and App UI (login, sign-up, settings, data table, empty state, dashboard).
+Web Library is a static site of copy-paste UI components (36 today) in four groups: Sections (hero, navbar, features, pricing, testimonials, call to action, FAQ, footer), Cards & profiles (profile, team, product, stat, testimonial and blog cards), Elements (buttons, inputs, badges, toggles, tabs, dropdowns) and App UI (login, sign-up, settings, data table, empty state, dashboard).
 
 Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. On a component's page (`/c/<slug>`) you can:
 
@@ -10,15 +10,15 @@ Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. O
 - **Copy code** in the format you picked;
 - **Copy for AI**, a text brief (layout, visual style, states, responsive behaviour and the full source) to paste into an AI agent;
 - **Download** a PNG at desktop or mobile size, optionally with a transparent background;
-- **Copy image**, the same PNG straight to the clipboard.
+- **Copy image**, the desktop PNG straight to the clipboard (transparent if the Download menu's Transparent background option is on).
 
 AI agents can also fetch components without a browser: `/llms.txt` lists every component, and `/c/<slug>.md` returns the brief for one.
 
-It is built with React Router 8 in framework mode (`ssr: false`, every route pre-rendered), Vite and Tailwind CSS v4. The output is plain static files, and it is deployed to Vercel.
+It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, component and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files, and it is deployed to Vercel.
 
 ## Getting started
 
-You need Node 22 or newer.
+You need Node 22.22 or newer (React Router 8's minimum).
 
 ```bash
 npm install
@@ -50,12 +50,14 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run te
 - **Smoke** (`e2e/smoke.spec.ts`): the pre-rendered site in Chromium. Browse and filters, theme, detail page, the preview stage, copy and export actions, analytics events, and the served agent files.
 - **Parity** (`e2e/parity.spec.ts`): for each component at desktop and mobile size, the HTML + CSS version must render like the React version, within 1% of pixels by default.
 - **Capture** (`e2e/capture-fonts.spec.ts`, `e2e/capture-placeholders.spec.ts`, `e2e/capture-scrollbars.spec.ts`): a downloaded PNG shows the component's web fonts and its placeholder colours, and a section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide.
+- **Focus** (`e2e/focus.spec.ts`): in forced-colors mode, tabbing to each control of both versions of every component makes a focus outline appear.
+- **Layout** (`e2e/layout.spec.ts`): every section reflows from 320px up without horizontal scrolling, and every element fits its frame inside the stage padding.
 
 ## Adding a component
 
 Create a folder in `src/library/components/<slug>/` with `meta.ts`, `Component.tsx`, `index.html` and `styles.css`. Nothing else needs registering: the folder is picked up by the catalog, the pre-render list and the agent files. [`AGENTS.md`](AGENTS.md) is the full guide. It has the checklist, the `meta.ts` fields, the authoring rules, the `styles.css` reset template and the details that make the HTML + CSS twin pass parity.
 
-When the folder is ready, `npm test` must report no violations and `npm run test:parity` must pass.
+When the folder is ready, `npm test` must report no violations, and `npm run test:parity`, `e2e/focus.spec.ts` and `e2e/layout.spec.ts` must pass.
 
 ## Project structure
 
@@ -83,7 +85,7 @@ docs/superpowers/     design spec and implementation plan
 ### How a component page works
 
 - **The preview stage.** `/preview/<slug>` renders one component alone on a bare page. It has none of the site's theme, fonts, toasts or analytics, and it is `noindex`. The detail page shows it in an iframe, so site dark mode never restyles a component. Opening it with `?capture=1` freezes motion.
-- **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `web-library-<slug>-<desktop|mobile>.png`.
+- **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `web-library-<slug>-<desktop|mobile>.png`. Known limitation: `modern-screenshot` draws `backdrop-filter` blur differently from the browser, so a glass component's PNG (navbar-glass, for example) differs slightly from its preview behind the frosted areas.
 - **Preferences.** The site theme and the React/HTML choice are kept in `localStorage` (`wl:theme` and `wl:format`).
 
 ### Agent files
@@ -93,13 +95,13 @@ docs/superpowers/     design spec and implementation plan
 - `c/<slug>.md` for each component: the same brief that Copy for AI produces, but with the reference code in both React + Tailwind and HTML + CSS (Copy for AI includes only the format you picked);
 - `llms.txt`: an index of every component by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
 
-The build logs `Agent files: 37 written` (36 components plus `llms.txt`). The files are static, and `vercel.json` serves them with the right `Content-Type`.
+The build logs `Agent files: <n> written`: one per component plus `llms.txt` (37 today). The files are static, and `vercel.json` serves them with the right `Content-Type`.
 
 ## Deploying to Vercel
 
 The site is static, so Vercel only serves `build/client`.
 
-1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a new project. `vercel.json` already sets everything: the build command (`npm run build`), the output directory (`build/client`), `framework: null` (no framework preset), the `Content-Type` headers for `/c/<slug>.md` and `/llms.txt`, and a rewrite that sends unknown paths to `/__spa-fallback.html`. Make sure the project uses Node 22 or newer.
+1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a new project. `vercel.json` already sets everything: the build command (`npm run build`), the output directory (`build/client`), `framework: null` (no framework preset), the `Content-Type` headers for `/c/<slug>.md` and `/llms.txt`, and a rewrite that sends unknown paths to `/__spa-fallback.html`. Make sure the project uses Node 22.22 or newer.
 2. **Set the real URL.** After the first deploy, set `SITE.url` in `src/site.ts` to the production domain, with no trailing slash, and redeploy. (`app/site.ts` re-exports it, so this is the only place to edit.) `SITE.url` builds the canonical and Open Graph URLs on component pages, the `Source:` line in each brief, and every link in `llms.txt`, so they are wrong until it matches the real domain.
 3. **Turn on Web Analytics.** In the Vercel project, open the Analytics tab and enable Web Analytics. `@vercel/analytics` is already mounted in the site layout.
 
