@@ -22,58 +22,107 @@ export default function DropdownsShippingSelector() {
           <path d="m4 6 4 4 4-4" />
         </svg>
       </summary>
-      <fieldset className="mt-5 space-y-2">
+      <fieldset
+        aria-describedby="dropdowns-shipping-selector-note"
+        className="mt-5 space-y-2"
+      >
         <legend className="sr-only">Shipping method</legend>
         <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-stone-300 bg-white p-3 has-checked:border-emerald-800 has-checked:bg-emerald-50">
           <input
             type="radio"
             name="dropdowns-shipping-selector-method"
             value="standard"
+            aria-labelledby="dropdowns-shipping-selector-standard-name dropdowns-shipping-selector-standard-price"
+            aria-describedby="dropdowns-shipping-selector-standard-hint"
             defaultChecked
             className="size-4 shrink-0 accent-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span className="flex-1">
-            <span className="block text-xs font-semibold">Standard</span>
-            <span className="mt-1 block text-[10px] text-stone-600">
+            <span
+              id="dropdowns-shipping-selector-standard-name"
+              className="block text-xs font-semibold"
+            >
+              Standard
+            </span>
+            <span
+              id="dropdowns-shipping-selector-standard-hint"
+              className="mt-1 block text-[10px] text-stone-600"
+            >
               3–5 working days
             </span>
           </span>
-          <span className="text-xs font-semibold">Free</span>
+          <span
+            id="dropdowns-shipping-selector-standard-price"
+            className="text-xs font-semibold"
+          >
+            Free
+          </span>
         </label>
         <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-stone-300 bg-white p-3 has-checked:border-emerald-800 has-checked:bg-emerald-50">
           <input
             type="radio"
             name="dropdowns-shipping-selector-method"
             value="express"
+            aria-labelledby="dropdowns-shipping-selector-express-name dropdowns-shipping-selector-express-price"
+            aria-describedby="dropdowns-shipping-selector-express-hint"
             className="size-4 shrink-0 accent-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span className="flex-1">
-            <span className="block text-xs font-semibold">Express</span>
-            <span className="mt-1 block text-[10px] text-stone-600">
+            <span
+              id="dropdowns-shipping-selector-express-name"
+              className="block text-xs font-semibold"
+            >
+              Express
+            </span>
+            <span
+              id="dropdowns-shipping-selector-express-hint"
+              className="mt-1 block text-[10px] text-stone-600"
+            >
               1–2 working days
             </span>
           </span>
-          <span className="text-xs font-semibold">$8</span>
+          <span
+            id="dropdowns-shipping-selector-express-price"
+            className="text-xs font-semibold"
+          >
+            $8
+          </span>
         </label>
         <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-stone-300 bg-white p-3 has-checked:border-emerald-800 has-checked:bg-emerald-50">
           <input
             type="radio"
             name="dropdowns-shipping-selector-method"
             value="pickup"
+            aria-labelledby="dropdowns-shipping-selector-pickup-name dropdowns-shipping-selector-pickup-price"
+            aria-describedby="dropdowns-shipping-selector-pickup-hint"
             className="size-4 shrink-0 accent-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span className="flex-1">
-            <span className="block text-xs font-semibold">
+            <span
+              id="dropdowns-shipping-selector-pickup-name"
+              className="block text-xs font-semibold"
+            >
               Store collection
             </span>
-            <span className="mt-1 block text-[10px] text-stone-600">
-              Ready tomorrow after 10
+            <span
+              id="dropdowns-shipping-selector-pickup-hint"
+              className="mt-1 block text-[10px] text-stone-600"
+            >
+              Ready tomorrow, 10am
             </span>
           </span>
-          <span className="text-xs font-semibold">Free</span>
+          <span
+            id="dropdowns-shipping-selector-pickup-price"
+            className="text-xs font-semibold"
+          >
+            Free
+          </span>
         </label>
       </fieldset>
-      <p className="mt-4 text-[10px] leading-4 text-stone-600">
+      <p
+        id="dropdowns-shipping-selector-note"
+        className="mt-4 text-[10px] leading-4 text-stone-600"
+      >
         Orders are packed with care, Monday to Friday.
       </p>
     </details>

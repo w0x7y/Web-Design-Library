@@ -1,1 +1,48 @@
-<details open="" class="dropdowns-typography-menu dropdowns-typography-menu__part-1 dropdowns-typography-menu__group"><summary class="dropdowns-typography-menu__part-2"><span aria-hidden="true" class="dropdowns-typography-menu__part-3">Aa</span><span class="dropdowns-typography-menu__part-4">Text style</span><svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="dropdowns-typography-menu__part-5"><path d="m4 6 4 4 4-4"></path></svg></summary><fieldset class="dropdowns-typography-menu__part-6"><legend class="dropdowns-typography-menu__part-7">Font family</legend><p class="dropdowns-typography-menu__part-8">Font family</p><label class="dropdowns-typography-menu__part-9"><input type="radio" class="dropdowns-typography-menu__part-10" name="dropdowns-typography-menu-family" checked="" value="sans"><span aria-hidden="true" class="dropdowns-typography-menu__part-11">Aa</span><span><span class="dropdowns-typography-menu__part-12">Modern sans</span><span class="dropdowns-typography-menu__part-13">Clean and familiar</span></span></label><label class="dropdowns-typography-menu__part-9"><input type="radio" class="dropdowns-typography-menu__part-10" name="dropdowns-typography-menu-family" value="serif"><span aria-hidden="true" class="dropdowns-typography-menu__part-14">Aa</span><span><span class="dropdowns-typography-menu__part-12">Classic serif</span><span class="dropdowns-typography-menu__part-13">A little more character</span></span></label><label class="dropdowns-typography-menu__part-9"><input type="radio" class="dropdowns-typography-menu__part-10" name="dropdowns-typography-menu-family" value="mono"><span aria-hidden="true" class="dropdowns-typography-menu__part-15">Aa</span><span><span class="dropdowns-typography-menu__part-12">Monospace</span><span class="dropdowns-typography-menu__part-13">Precise, even spacing</span></span></label></fieldset><div class="dropdowns-typography-menu__part-16"><label for="dropdowns-typography-menu-size" class="dropdowns-typography-menu__part-17">Type size</label><select id="dropdowns-typography-menu-size" name="size" class="dropdowns-typography-menu__part-18"><option value="14">14 px</option><option value="16" selected="">16 px</option><option value="18">18 px</option><option value="20">20 px</option></select></div></details>
+<details open class="dropdowns-typography-menu">
+  <summary class="dropdowns-typography-menu__summary">
+    <span aria-hidden="true" class="dropdowns-typography-menu__tile">Aa</span>
+    <span class="dropdowns-typography-menu__title">Text style</span>
+    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="dropdowns-typography-menu__chevron">
+      <path d="m4 6 4 4 4-4" />
+    </svg>
+  </summary>
+
+  <fieldset class="dropdowns-typography-menu__families">
+    <legend class="dropdowns-typography-menu__sr-only">Font family</legend>
+    <p class="dropdowns-typography-menu__eyebrow">Font family</p>
+    <label class="dropdowns-typography-menu__family">
+      <input type="radio" name="dropdowns-typography-menu-family" value="sans" aria-labelledby="dropdowns-typography-menu-sans-name" aria-describedby="dropdowns-typography-menu-sans-hint" checked class="dropdowns-typography-menu__radio" />
+      <span aria-hidden="true" class="dropdowns-typography-menu__sample">Aa</span>
+      <span>
+        <span id="dropdowns-typography-menu-sans-name" class="dropdowns-typography-menu__family-name">Modern sans</span>
+        <span id="dropdowns-typography-menu-sans-hint" class="dropdowns-typography-menu__family-description">Clean and familiar</span>
+      </span>
+    </label>
+    <label class="dropdowns-typography-menu__family">
+      <input type="radio" name="dropdowns-typography-menu-family" value="serif" aria-labelledby="dropdowns-typography-menu-serif-name" aria-describedby="dropdowns-typography-menu-serif-hint" class="dropdowns-typography-menu__radio" />
+      <span aria-hidden="true" class="dropdowns-typography-menu__sample dropdowns-typography-menu__sample--serif">Aa</span>
+      <span>
+        <span id="dropdowns-typography-menu-serif-name" class="dropdowns-typography-menu__family-name">Classic serif</span>
+        <span id="dropdowns-typography-menu-serif-hint" class="dropdowns-typography-menu__family-description">A little more character</span>
+      </span>
+    </label>
+    <label class="dropdowns-typography-menu__family">
+      <input type="radio" name="dropdowns-typography-menu-family" value="mono" aria-labelledby="dropdowns-typography-menu-mono-name" aria-describedby="dropdowns-typography-menu-mono-hint" class="dropdowns-typography-menu__radio" />
+      <span aria-hidden="true" class="dropdowns-typography-menu__sample dropdowns-typography-menu__sample--mono">Aa</span>
+      <span>
+        <span id="dropdowns-typography-menu-mono-name" class="dropdowns-typography-menu__family-name">Monospace</span>
+        <span id="dropdowns-typography-menu-mono-hint" class="dropdowns-typography-menu__family-description">Precise, even spacing</span>
+      </span>
+    </label>
+  </fieldset>
+
+  <div class="dropdowns-typography-menu__size-row">
+    <label for="dropdowns-typography-menu-size" class="dropdowns-typography-menu__size-label">Type size</label>
+    <select id="dropdowns-typography-menu-size" name="size" class="dropdowns-typography-menu__size">
+      <option value="14">14 px</option>
+      <option value="16" selected>16 px</option>
+      <option value="18">18 px</option>
+      <option value="20">20 px</option>
+    </select>
+  </div>
+</details>

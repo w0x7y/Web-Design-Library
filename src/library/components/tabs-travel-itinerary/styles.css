@@ -12,61 +12,39 @@
 .tabs-travel-itinerary table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .tabs-travel-itinerary summary { display: list-item; }
 
-@layer properties;
+
+/* Component */
 .tabs-travel-itinerary {
-  --tabs-travel-itinerary-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --tabs-travel-itinerary-color-emerald-50: oklch(97.9% 0.021 166.113);
-  --tabs-travel-itinerary-color-emerald-900: oklch(37.8% 0.077 168.94);
-  --tabs-travel-itinerary-color-emerald-950: oklch(26.2% 0.051 172.552);
-  --tabs-travel-itinerary-color-slate-100: oklch(96.8% 0.007 247.896);
-  --tabs-travel-itinerary-color-slate-200: oklch(92.9% 0.013 255.508);
-  --tabs-travel-itinerary-color-slate-500: oklch(55.4% 0.046 257.417);
-  --tabs-travel-itinerary-color-slate-900: oklch(20.8% 0.042 265.755);
-  --tabs-travel-itinerary-color-white: #fff;
-  --tabs-travel-itinerary-spacing: 0.25rem;
-  --tabs-travel-itinerary-text-xs: 0.75rem;
-  --tabs-travel-itinerary-text-xs--line-height: calc(1 / 0.75);
-  --tabs-travel-itinerary-text-sm: 0.875rem;
-  --tabs-travel-itinerary-text-sm--line-height: calc(1.25 / 0.875);
-  --tabs-travel-itinerary-text-xl: 1.25rem;
-  --tabs-travel-itinerary-text-xl--line-height: calc(1.75 / 1.25);
-  --tabs-travel-itinerary-font-weight-medium: 500;
-  --tabs-travel-itinerary-font-weight-semibold: 600;
-  --tabs-travel-itinerary-tracking-widest: 0.1em;
-  --tabs-travel-itinerary-radius-md: 0.375rem;
-  --tabs-travel-itinerary-radius-lg: 0.5rem;
-  --tabs-travel-itinerary-radius-2xl: 1rem;
+  width: 18rem;
+  padding: 1.25rem;
+  border: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  border-radius: 1rem;
+  background-color: #fff;
+  color: oklch(20.8% 0.042 265.755); /* slate-900 */
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-1, .tabs-travel-itinerary .tabs-travel-itinerary__part-1 {
-  width: calc(var(--tabs-travel-itinerary-spacing) * 72);
-  border-radius: var(--tabs-travel-itinerary-radius-2xl);
-  border-style: var(--tabs-travel-itinerary-tw-border-style);
-  border-width: 1px;
-  border-color: var(--tabs-travel-itinerary-color-slate-200);
-  background-color: var(--tabs-travel-itinerary-color-white);
-  padding: calc(var(--tabs-travel-itinerary-spacing) * 5);
-  color: var(--tabs-travel-itinerary-color-slate-900);
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-2, .tabs-travel-itinerary .tabs-travel-itinerary__part-2 {
-  font-size: 10px;
-  --tabs-travel-itinerary-tw-tracking: var(--tabs-travel-itinerary-tracking-widest);
-  letter-spacing: var(--tabs-travel-itinerary-tracking-widest);
-  color: var(--tabs-travel-itinerary-color-slate-500);
+
+/* Destination */
+.tabs-travel-itinerary .tabs-travel-itinerary__eyebrow {
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-3, .tabs-travel-itinerary .tabs-travel-itinerary__part-3 {
-  margin-top: var(--tabs-travel-itinerary-spacing);
-  font-size: var(--tabs-travel-itinerary-text-xl);
-  line-height: var(--tabs-travel-itinerary-tw-leading, var(--tabs-travel-itinerary-text-xl--line-height));
-  --tabs-travel-itinerary-tw-font-weight: var(--tabs-travel-itinerary-font-weight-semibold);
-  font-weight: var(--tabs-travel-itinerary-font-weight-semibold);
-  color: var(--tabs-travel-itinerary-color-emerald-950);
+
+.tabs-travel-itinerary .tabs-travel-itinerary__city {
+  margin-top: 0.25rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 600;
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-4, .tabs-travel-itinerary .tabs-travel-itinerary__part-4 {
-  margin-top: calc(var(--tabs-travel-itinerary-spacing) * 4);
+
+/* Day choices */
+.tabs-travel-itinerary .tabs-travel-itinerary__days {
+  margin-top: 1rem;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-5, .tabs-travel-itinerary .tabs-travel-itinerary__part-5 {
+
+.tabs-travel-itinerary :is(.tabs-travel-itinerary__sr-only, .tabs-travel-itinerary__radio) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -77,247 +55,116 @@
   white-space: nowrap;
   border-width: 0;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-6, .tabs-travel-itinerary .tabs-travel-itinerary__part-6 {
+
+.tabs-travel-itinerary .tabs-travel-itinerary__tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--tabs-travel-itinerary-spacing);
-  border-radius: var(--tabs-travel-itinerary-radius-lg);
-  background-color: var(--tabs-travel-itinerary-color-slate-100);
-  padding: var(--tabs-travel-itinerary-spacing);
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  background-color: oklch(96.8% 0.007 247.896); /* slate-100 */
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7, .tabs-travel-itinerary .tabs-travel-itinerary__part-7 {
+
+.tabs-travel-itinerary .tabs-travel-itinerary__tab {
   display: flex;
-  height: calc(var(--tabs-travel-itinerary-spacing) * 8);
-  cursor: pointer;
   align-items: center;
   justify-content: center;
-  border-radius: var(--tabs-travel-itinerary-radius-md);
-  font-size: var(--tabs-travel-itinerary-text-xs);
-  line-height: var(--tabs-travel-itinerary-tw-leading, var(--tabs-travel-itinerary-text-xs--line-height));
-  --tabs-travel-itinerary-tw-font-weight: var(--tabs-travel-itinerary-font-weight-medium);
-  font-weight: var(--tabs-travel-itinerary-font-weight-medium);
+  height: 2rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+  cursor: pointer;
 }
+
+.tabs-travel-itinerary .tabs-travel-itinerary__tab:has(:checked) {
+  background-color: #fff;
+  color: oklch(37.8% 0.077 168.94); /* emerald-900 */
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.tabs-travel-itinerary .tabs-travel-itinerary__tab:has(:focus-visible) {
+  outline: 2px solid oklch(20.8% 0.042 265.755); /* slate-900 */
+  outline-offset: 2px;
+}
+
+.tabs-travel-itinerary .tabs-travel-itinerary__radio:focus-visible {
+  outline-style: none;
+}
+
 @media (hover: hover) {
-  .tabs-travel-itinerary.tabs-travel-itinerary__part-7:hover, .tabs-travel-itinerary .tabs-travel-itinerary__part-7:hover {
-    background-color: var(--tabs-travel-itinerary-color-emerald-50);
+  .tabs-travel-itinerary .tabs-travel-itinerary__tab:hover {
+    background-color: oklch(97.9% 0.021 166.113); /* emerald-50 */
+  }
+  .tabs-travel-itinerary .tabs-travel-itinerary__tab:has(:checked):hover {
+    background-color: #fff;
   }
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7:has(*:checked), .tabs-travel-itinerary .tabs-travel-itinerary__part-7:has(*:checked) {
-  background-color: var(--tabs-travel-itinerary-color-white);
+
+@media (forced-colors: active) {
+  .tabs-travel-itinerary .tabs-travel-itinerary__radio:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .tabs-travel-itinerary .tabs-travel-itinerary__tab:has(:checked) {
+    text-decoration-line: underline;
+  }
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7:has(*:checked), .tabs-travel-itinerary .tabs-travel-itinerary__part-7:has(*:checked) {
-  color: var(--tabs-travel-itinerary-color-emerald-900);
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7:has(*:checked), .tabs-travel-itinerary .tabs-travel-itinerary__part-7:has(*:checked) {
-  --tabs-travel-itinerary-tw-shadow: 0 1px 2px 0 var(--tabs-travel-itinerary-tw-shadow-color, rgb(0 0 0 / 0.05));
-  box-shadow: var(--tabs-travel-itinerary-tw-inset-shadow), var(--tabs-travel-itinerary-tw-inset-ring-shadow), var(--tabs-travel-itinerary-tw-ring-offset-shadow), var(--tabs-travel-itinerary-tw-ring-shadow), var(--tabs-travel-itinerary-tw-shadow);
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7:has(*:focus-visible), .tabs-travel-itinerary .tabs-travel-itinerary__part-7:has(*:focus-visible) {
-  outline-style: var(--tabs-travel-itinerary-tw-outline-style);
-  outline-width: 2px;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7:has(*:focus-visible), .tabs-travel-itinerary .tabs-travel-itinerary__part-7:has(*:focus-visible) {
-  outline-offset: 2px;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-7:has(*:focus-visible), .tabs-travel-itinerary .tabs-travel-itinerary__part-7:has(*:focus-visible) {
-  outline-color: var(--tabs-travel-itinerary-color-slate-900);
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-8, .tabs-travel-itinerary .tabs-travel-itinerary__part-8 {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border-width: 0;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-8:focus-visible, .tabs-travel-itinerary .tabs-travel-itinerary__part-8:focus-visible {
-  outline-style: var(--tabs-travel-itinerary-tw-outline-style);
-  outline-width: 2px;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-8:focus-visible, .tabs-travel-itinerary .tabs-travel-itinerary__part-8:focus-visible {
-  outline-offset: 2px;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-8:focus-visible, .tabs-travel-itinerary .tabs-travel-itinerary__part-8:focus-visible {
-  outline-color: var(--tabs-travel-itinerary-color-slate-900);
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-9, .tabs-travel-itinerary .tabs-travel-itinerary__part-9 {
-  margin-top: calc(var(--tabs-travel-itinerary-spacing) * 5);
+
+/* Timed stops */
+.tabs-travel-itinerary .tabs-travel-itinerary__panel {
   display: none;
+  margin-top: 1.25rem;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-9:is(:where(.tabs-travel-itinerary__group):has(*:is(#tabs-travel-itinerary-friday:checked)) *), .tabs-travel-itinerary .tabs-travel-itinerary__part-9:is(:where(.tabs-travel-itinerary__group):has(*:is(#tabs-travel-itinerary-friday:checked)) *) {
+
+.tabs-travel-itinerary:has(#tabs-travel-itinerary-friday:checked) .tabs-travel-itinerary__panel--friday,
+.tabs-travel-itinerary:has(#tabs-travel-itinerary-saturday:checked) .tabs-travel-itinerary__panel--saturday,
+.tabs-travel-itinerary:has(#tabs-travel-itinerary-sunday:checked) .tabs-travel-itinerary__panel--sunday {
   display: block;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-10, .tabs-travel-itinerary .tabs-travel-itinerary__part-10 {
-  font-size: var(--tabs-travel-itinerary-text-sm);
-  line-height: var(--tabs-travel-itinerary-tw-leading, var(--tabs-travel-itinerary-text-sm--line-height));
-  --tabs-travel-itinerary-tw-font-weight: var(--tabs-travel-itinerary-font-weight-semibold);
-  font-weight: var(--tabs-travel-itinerary-font-weight-semibold);
+
+.tabs-travel-itinerary .tabs-travel-itinerary__heading {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-11, .tabs-travel-itinerary .tabs-travel-itinerary__part-11 {
-  margin-top: calc(var(--tabs-travel-itinerary-spacing) * 4);
+
+.tabs-travel-itinerary .tabs-travel-itinerary__stops {
+  margin-top: 1rem;
 }
-.tabs-travel-itinerary :where(.tabs-travel-itinerary.tabs-travel-itinerary__part-11 > :not(:last-child)), .tabs-travel-itinerary :where(.tabs-travel-itinerary .tabs-travel-itinerary__part-11 > :not(:last-child)) {
-  --tabs-travel-itinerary-tw-space-y-reverse: 0;
-  margin-block-start: calc(calc(var(--tabs-travel-itinerary-spacing) * 4) * var(--tabs-travel-itinerary-tw-space-y-reverse));
-  margin-block-end: calc(calc(var(--tabs-travel-itinerary-spacing) * 4) * calc(1 - var(--tabs-travel-itinerary-tw-space-y-reverse)));
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-12, .tabs-travel-itinerary .tabs-travel-itinerary__part-12 {
+
+.tabs-travel-itinerary .tabs-travel-itinerary__stop {
   display: flex;
-  gap: calc(var(--tabs-travel-itinerary-spacing) * 3);
+  gap: 0.75rem;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-13, .tabs-travel-itinerary .tabs-travel-itinerary__part-13 {
-  padding-top: calc(var(--tabs-travel-itinerary-spacing) * 0.5);
-  font-family: var(--tabs-travel-itinerary-font-mono);
-  font-size: 10px;
-  color: var(--tabs-travel-itinerary-color-slate-500);
+
+.tabs-travel-itinerary .tabs-travel-itinerary__stop:not(:last-child) {
+  margin-bottom: 1rem;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-14, .tabs-travel-itinerary .tabs-travel-itinerary__part-14 {
-  font-size: var(--tabs-travel-itinerary-text-xs);
-  line-height: var(--tabs-travel-itinerary-tw-leading, var(--tabs-travel-itinerary-text-xs--line-height));
-  --tabs-travel-itinerary-tw-font-weight: var(--tabs-travel-itinerary-font-weight-medium);
-  font-weight: var(--tabs-travel-itinerary-font-weight-medium);
+
+.tabs-travel-itinerary .tabs-travel-itinerary__time {
+  padding-top: 0.125rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-15, .tabs-travel-itinerary .tabs-travel-itinerary__part-15 {
-  margin-top: var(--tabs-travel-itinerary-spacing);
-  font-size: 11px;
-  color: var(--tabs-travel-itinerary-color-slate-500);
+
+.tabs-travel-itinerary .tabs-travel-itinerary__activity {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-16, .tabs-travel-itinerary .tabs-travel-itinerary__part-16 {
-  margin-top: calc(var(--tabs-travel-itinerary-spacing) * 5);
-  display: none;
+
+.tabs-travel-itinerary .tabs-travel-itinerary__detail {
+  margin-top: 0.25rem;
+  font-size: 0.6875rem;
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
 }
-.tabs-travel-itinerary.tabs-travel-itinerary__part-16:is(:where(.tabs-travel-itinerary__group):has(*:is(#tabs-travel-itinerary-saturday:checked)) *), .tabs-travel-itinerary .tabs-travel-itinerary__part-16:is(:where(.tabs-travel-itinerary__group):has(*:is(#tabs-travel-itinerary-saturday:checked)) *) {
-  display: block;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-17, .tabs-travel-itinerary .tabs-travel-itinerary__part-17 {
-  margin-top: calc(var(--tabs-travel-itinerary-spacing) * 5);
-  display: none;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-17:is(:where(.tabs-travel-itinerary__group):has(*:is(#tabs-travel-itinerary-sunday:checked)) *), .tabs-travel-itinerary .tabs-travel-itinerary__part-17:is(:where(.tabs-travel-itinerary__group):has(*:is(#tabs-travel-itinerary-sunday:checked)) *) {
-  display: block;
-}
-.tabs-travel-itinerary.tabs-travel-itinerary__part-18, .tabs-travel-itinerary .tabs-travel-itinerary__part-18 {
-  margin-top: calc(var(--tabs-travel-itinerary-spacing) * 5);
-  border-top-style: var(--tabs-travel-itinerary-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--tabs-travel-itinerary-color-slate-200);
-  padding-top: calc(var(--tabs-travel-itinerary-spacing) * 3);
-  font-size: 10px;
-  color: var(--tabs-travel-itinerary-color-slate-500);
-}
-@property --tabs-travel-itinerary-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tabs-travel-itinerary-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tabs-travel-itinerary-tw-shadow-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-shadow-alpha {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
-}
-@property --tabs-travel-itinerary-tw-inset-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tabs-travel-itinerary-tw-inset-shadow-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-inset-shadow-alpha {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 100%;
-}
-@property --tabs-travel-itinerary-tw-ring-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-ring-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tabs-travel-itinerary-tw-inset-ring-color {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-inset-ring-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tabs-travel-itinerary-tw-ring-inset {
-  syntax: "*";
-  inherits: false;
-}
-@property --tabs-travel-itinerary-tw-ring-offset-width {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0px;
-}
-@property --tabs-travel-itinerary-tw-ring-offset-color {
-  syntax: "*";
-  inherits: false;
-  initial-value: #fff;
-}
-@property --tabs-travel-itinerary-tw-ring-offset-shadow {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0 0 #0000;
-}
-@property --tabs-travel-itinerary-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tabs-travel-itinerary-tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .tabs-travel-itinerary *, .tabs-travel-itinerary ::before, .tabs-travel-itinerary ::after, .tabs-travel-itinerary ::backdrop {
-      --tabs-travel-itinerary-tw-border-style: solid;
-      --tabs-travel-itinerary-tw-tracking: initial;
-      --tabs-travel-itinerary-tw-font-weight: initial;
-      --tabs-travel-itinerary-tw-shadow: 0 0 #0000;
-      --tabs-travel-itinerary-tw-shadow-color: initial;
-      --tabs-travel-itinerary-tw-shadow-alpha: 100%;
-      --tabs-travel-itinerary-tw-inset-shadow: 0 0 #0000;
-      --tabs-travel-itinerary-tw-inset-shadow-color: initial;
-      --tabs-travel-itinerary-tw-inset-shadow-alpha: 100%;
-      --tabs-travel-itinerary-tw-ring-color: initial;
-      --tabs-travel-itinerary-tw-ring-shadow: 0 0 #0000;
-      --tabs-travel-itinerary-tw-inset-ring-color: initial;
-      --tabs-travel-itinerary-tw-inset-ring-shadow: 0 0 #0000;
-      --tabs-travel-itinerary-tw-ring-inset: initial;
-      --tabs-travel-itinerary-tw-ring-offset-width: 0px;
-      --tabs-travel-itinerary-tw-ring-offset-color: #fff;
-      --tabs-travel-itinerary-tw-ring-offset-shadow: 0 0 #0000;
-      --tabs-travel-itinerary-tw-outline-style: solid;
-      --tabs-travel-itinerary-tw-space-y-reverse: 0;
-    }
-  }
+
+.tabs-travel-itinerary .tabs-travel-itinerary__footer {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  font-size: 0.625rem;
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
 }

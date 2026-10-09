@@ -13,34 +13,34 @@ export default function TabsTravelItinerary() {
       <fieldset className="mt-4">
         <legend className="sr-only">Choose itinerary day</legend>
         <div className="grid grid-cols-3 gap-1 rounded-lg bg-slate-100 p-1">
-          <label className="flex h-8 cursor-pointer items-center justify-center rounded-md text-xs font-medium hover:bg-emerald-50 has-checked:bg-white has-checked:text-emerald-900 has-checked:shadow-xs has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-900">
+          <label className="flex h-8 cursor-pointer items-center justify-center rounded-md text-xs font-medium hover:bg-emerald-50 has-checked:bg-white has-checked:text-emerald-900 has-checked:shadow-xs forced-colors:has-checked:underline has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-900">
             <input
               id="tabs-travel-itinerary-friday"
               type="radio"
               name="tabs-travel-itinerary-day"
               value="friday"
               defaultChecked
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Fri 16
           </label>
-          <label className="flex h-8 cursor-pointer items-center justify-center rounded-md text-xs font-medium hover:bg-emerald-50 has-checked:bg-white has-checked:text-emerald-900 has-checked:shadow-xs has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-900">
+          <label className="flex h-8 cursor-pointer items-center justify-center rounded-md text-xs font-medium hover:bg-emerald-50 has-checked:bg-white has-checked:text-emerald-900 has-checked:shadow-xs forced-colors:has-checked:underline has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-900">
             <input
               id="tabs-travel-itinerary-saturday"
               type="radio"
               name="tabs-travel-itinerary-day"
               value="saturday"
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Sat 17
           </label>
-          <label className="flex h-8 cursor-pointer items-center justify-center rounded-md text-xs font-medium hover:bg-emerald-50 has-checked:bg-white has-checked:text-emerald-900 has-checked:shadow-xs has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-900">
+          <label className="flex h-8 cursor-pointer items-center justify-center rounded-md text-xs font-medium hover:bg-emerald-50 has-checked:bg-white has-checked:text-emerald-900 has-checked:shadow-xs forced-colors:has-checked:underline has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-slate-900">
             <input
               id="tabs-travel-itinerary-sunday"
               type="radio"
               name="tabs-travel-itinerary-day"
               value="sunday"
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Sun 18
           </label>

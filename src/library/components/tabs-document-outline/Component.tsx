@@ -32,7 +32,7 @@ export default function TabsDocumentOutline() {
                 name="tabs-document-outline-section"
                 value="overview"
                 defaultChecked
-                className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="sr-only focus-visible:outline-hidden"
               />
               Overview
             </label>
@@ -42,7 +42,7 @@ export default function TabsDocumentOutline() {
                 type="radio"
                 name="tabs-document-outline-section"
                 value="plan"
-                className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="sr-only focus-visible:outline-hidden"
               />
               Timeline
             </label>
@@ -52,7 +52,7 @@ export default function TabsDocumentOutline() {
                 type="radio"
                 name="tabs-document-outline-section"
                 value="team"
-                className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                className="sr-only focus-visible:outline-hidden"
               />
               Team
             </label>

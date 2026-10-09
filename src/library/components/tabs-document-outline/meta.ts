@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 288px-wide white panel with 16px padding. A title precedes a two-column area with a 72px vertical radio rail, a 12px gap and a flexible text panel.',
+      'A 288px-wide panel with 16px padding. A 28px document tile and 14px title sit in a flex header with an 8px gap and 12px bottom padding. Below, a grid has a 72px radio rail, 12px gap and flexible content column. The rail has an 8px right inset and a divider. Three 36px-high choices switch overview, timeline and team sections. A separated update line sits 20px below the content.',
     style:
-      'Use a slate-200 border, 12px outer radius and slate-50 rail. Active labels have blue-50 backgrounds and blue-800 text; a 14px title and 11px panel body keep it compact.',
+      'Default sans font, white background, slate-900 text, 1px slate-200 borders and 12px outer radius. Rail labels are 10px with 6px radii and 8px horizontal padding; checked labels use blue-50, blue-800 and semibold text. Section eyebrows and the footer are 9px slate-500; 14px semibold headings have 8px top margins. Body and lists are 11px slate-600 with 20px line height. Overview has a 9px emerald-800 badge on emerald-50 with 4px radius and 4px by 8px padding. Lists have 8px row gaps.',
     states:
-      'Native radio selection switches the visible document section with group-has selectors. Arrow keys navigate choices. Focus adds a 2px slate-900 label outline with 2px offset; hover uses slate-100.',
+      'Overview is selected initially. Native radio selection and arrow keys switch the visible section using :has. Unchecked labels turn slate-100 on hover; checked labels remain blue-50. Keyboard focus outlines the label in slate-900 at 2px with 2px offset. Hidden inputs use focus-visible:outline-hidden with a transparent 2px forced-colors fallback. Selection also uses semibold text so it survives forced colours. No animation.',
     responsive:
-      'The root stays 288px wide at all viewport widths. Keep the same compact arrangement on mobile and desktop; no breakpoint changes are required.',
+      'The root remains 288px wide at 320px, 390px, 768px and 1440px. The rail and content stay side by side; there are no breakpoint changes.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

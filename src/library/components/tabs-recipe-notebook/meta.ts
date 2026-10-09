@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 288px-wide amber-50 notebook with 20px padding. A 24px serif title precedes two 36px ruled tabs and a compact ingredients or method panel.',
+      'A 288px-wide square notebook with 20px padding. A kitchen eyebrow, 24px title and serving summary precede two equal-width 36px radio tabs with a bottom rule, separated from the header by 20px. The selected panel starts 16px below. Ingredients has an 18px serif heading and four rows with names left and quantities right; Method has the same heading and two numbered paragraphs.',
     style:
-      'Use stone-800 text, amber-200 border, square corners and emerald-800 active bottom rules. Panel lists use 12px sans and an 18px serif subheading; quantities are right aligned.',
+      'Default sans font with system serif headings and system monospace 10px quantities. Amber-50 paper, a 1px amber-200 border and stone-800 text. The 9px uppercase eyebrow has 0.2em tracking. The 10px serving line uses stone-600. Tabs and ingredient names are 12px with 16px line height; checked tabs have a 2px emerald-800 bottom border and semibold type. Ingredient rows have 8px vertical padding and stone-200 dividers except on the last row. Method uses 12px text, 20px line height and 12px paragraph gaps. There are no radii or shadows.',
     states:
-      'Native radios switch the visible ingredients or method section through group-has. Arrow keys switch choices; focus draws a 2px slate-900 outline with 2px offset on labels. There are no animated states.',
+      'Ingredients is selected initially. Native radios and arrow keys switch ingredients and method via :has. Keyboard focus gives the label a 2px slate-900 outline offset 2px; the hidden input uses focus-visible:outline-hidden and a transparent 2px forced-colors fallback. The selected bottom border persists in forced colours. No hover changes or animation.',
     responsive:
-      'The root stays 288px wide at all viewport widths. Keep the same compact arrangement on mobile and desktop; no breakpoint changes are required.',
+      'The notebook remains 288px wide at 320px, 390px, 768px and 1440px. Keep two tabs side by side and allow method paragraphs to wrap. There are no breakpoint changes.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

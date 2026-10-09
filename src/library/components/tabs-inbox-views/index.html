@@ -1,1 +1,62 @@
-<section aria-label="Shared inbox views" class="tabs-inbox-views tabs-inbox-views__part-1 tabs-inbox-views__group"><div class="tabs-inbox-views__part-2"><h2 class="tabs-inbox-views__part-3">Inbox</h2><span class="tabs-inbox-views__part-4">8 new</span></div><fieldset class="tabs-inbox-views__part-5"><legend class="tabs-inbox-views__part-6">Choose message view</legend><div class="tabs-inbox-views__part-7"><label class="tabs-inbox-views__part-8"><input id="tabs-inbox-views-all" type="radio" class="tabs-inbox-views__part-9" name="tabs-inbox-views-filter" checked="" value="all">All</label><label class="tabs-inbox-views__part-8"><input id="tabs-inbox-views-unread" type="radio" class="tabs-inbox-views__part-9" name="tabs-inbox-views-filter" value="unread">Unread</label><label class="tabs-inbox-views__part-8"><input id="tabs-inbox-views-mine" type="radio" class="tabs-inbox-views__part-9" name="tabs-inbox-views-filter" value="mine">Assigned</label></div></fieldset><ul role="list" aria-label="All messages" class="tabs-inbox-views__part-10"><li class="tabs-inbox-views__part-11"><span aria-hidden="true" class="tabs-inbox-views__part-12">LC</span><div class="tabs-inbox-views__part-13"><p class="tabs-inbox-views__part-14">October delivery</p><p class="tabs-inbox-views__part-15">Lena Chen · 12 min ago</p></div><span class="tabs-inbox-views__part-16"><span class="tabs-inbox-views__part-6">Unread</span></span></li><li class="tabs-inbox-views__part-17"><span aria-hidden="true" class="tabs-inbox-views__part-18">OB</span><div><p class="tabs-inbox-views__part-14">Invoice received, thanks!</p><p class="tabs-inbox-views__part-15">Owen Brooks · 34 min ago</p></div></li></ul><ul role="list" aria-label="Unread messages" class="tabs-inbox-views__part-19"><li class="tabs-inbox-views__part-20"><p class="tabs-inbox-views__part-14">October delivery</p><p class="tabs-inbox-views__part-15">Lena Chen · Delivery question</p></li><li class="tabs-inbox-views__part-21"><p class="tabs-inbox-views__part-14">New wholesale enquiry</p><p class="tabs-inbox-views__part-15">Noah Kim · 1 hour ago</p></li></ul><ul role="list" aria-label="Assigned messages" class="tabs-inbox-views__part-22"><li class="tabs-inbox-views__part-20"><p class="tabs-inbox-views__part-14">Return label request</p><p class="tabs-inbox-views__part-15">Bea Lewis · Assigned to you</p></li><li class="tabs-inbox-views__part-21"><p class="tabs-inbox-views__part-14">Order #1048 address update</p><p class="tabs-inbox-views__part-15">Milo Reed · Assigned to you</p></li></ul></section>
+<section aria-label="Shared inbox views" class="tabs-inbox-views">
+  <div class="tabs-inbox-views__header">
+    <h2 class="tabs-inbox-views__title">Inbox</h2>
+    <span class="tabs-inbox-views__badge">8 new</span>
+  </div>
+
+  <fieldset class="tabs-inbox-views__filters">
+    <legend class="tabs-inbox-views__sr-only">Choose message view</legend>
+    <div class="tabs-inbox-views__tabs">
+      <label class="tabs-inbox-views__tab">
+        <input id="tabs-inbox-views-all" type="radio" name="tabs-inbox-views-filter" value="all" checked class="tabs-inbox-views__radio" />
+        All
+      </label>
+      <label class="tabs-inbox-views__tab">
+        <input id="tabs-inbox-views-unread" type="radio" name="tabs-inbox-views-filter" value="unread" class="tabs-inbox-views__radio" />
+        Unread
+      </label>
+      <label class="tabs-inbox-views__tab">
+        <input id="tabs-inbox-views-mine" type="radio" name="tabs-inbox-views-filter" value="mine" class="tabs-inbox-views__radio" />
+        Assigned
+      </label>
+    </div>
+  </fieldset>
+
+  <ul role="list" aria-label="All messages" class="tabs-inbox-views__messages tabs-inbox-views__messages--all">
+    <li class="tabs-inbox-views__message tabs-inbox-views__message--with-avatar">
+      <span aria-hidden="true" class="tabs-inbox-views__avatar">LC</span>
+      <div class="tabs-inbox-views__message-body">
+        <p class="tabs-inbox-views__subject">October delivery</p>
+        <p class="tabs-inbox-views__sender">Lena Chen · 12 min ago</p>
+      </div>
+      <span class="tabs-inbox-views__unread-dot"><span class="tabs-inbox-views__sr-only">Unread</span></span>
+    </li>
+    <li class="tabs-inbox-views__message tabs-inbox-views__message--with-avatar">
+      <span aria-hidden="true" class="tabs-inbox-views__avatar tabs-inbox-views__avatar--sky">OB</span>
+      <div>
+        <p class="tabs-inbox-views__subject">Invoice received, thanks!</p>
+        <p class="tabs-inbox-views__sender">Owen Brooks · 34 min ago</p>
+      </div>
+    </li>
+  </ul>
+  <ul role="list" aria-label="Unread messages" class="tabs-inbox-views__messages tabs-inbox-views__messages--unread">
+    <li class="tabs-inbox-views__message">
+      <p class="tabs-inbox-views__subject">October delivery</p>
+      <p class="tabs-inbox-views__sender">Lena Chen · Delivery question</p>
+    </li>
+    <li class="tabs-inbox-views__message">
+      <p class="tabs-inbox-views__subject">New wholesale enquiry</p>
+      <p class="tabs-inbox-views__sender">Noah Kim · 1 hour ago</p>
+    </li>
+  </ul>
+  <ul role="list" aria-label="Assigned messages" class="tabs-inbox-views__messages tabs-inbox-views__messages--assigned">
+    <li class="tabs-inbox-views__message">
+      <p class="tabs-inbox-views__subject">Return label request</p>
+      <p class="tabs-inbox-views__sender">Bea Lewis · Assigned to you</p>
+    </li>
+    <li class="tabs-inbox-views__message">
+      <p class="tabs-inbox-views__subject">Order #1048 address update</p>
+      <p class="tabs-inbox-views__sender">Milo Reed · Assigned to you</p>
+    </li>
+  </ul>
+</section>
