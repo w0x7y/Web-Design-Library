@@ -13,9 +13,9 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 288px-wide amber-100 panel with 20px padding and a 2px border. Use one 56px primary button, then two equally sized 64px utility buttons in a two-column grid.',
+      'A fixed 288px amber-100 panel with a 2px black border, 16px radius and 20px padding. A 10px eyebrow and 24px heading precede a full-width 56px play button after 20px. A two-column grid of 64px utility buttons follows after 16px, with 12px gaps. End with a centered caption after 20px.',
     style:
-      'Black outlines, lime-300 and white button fills, 12px corners, and a 4px black offset shadow. A bold 24px heading and tiny monospace label establish the arcade tone.',
+      'Default sans with black text. The heading is 900 weight with -0.025em tracking; the 10px eyebrow and caption use the system monospace stack. Buttons have 2px black borders, 12px radii and 4px black offset shadows. Play uses lime-300, an 18px black label and 16px triangle. White utility buttons use 12px bold labels and a star or 20px speaker icon.',
     states:
       'Hover raises button backgrounds to lime-200 or amber-50. Pressed buttons translate 2px down and lose half their shadow. Focus uses a 2px slate-900 outline with 2px offset; reduced motion removes transitions.',
     responsive:

@@ -1,1 +1,38 @@
-<section aria-label="Invoice fields" class="inputs-invoice-fields inputs-invoice-fields__part-1"><div class="inputs-invoice-fields__part-2"><h2 class="inputs-invoice-fields__part-3">Invoice details</h2><span class="inputs-invoice-fields__part-4">DRAFT</span></div><label for="inputs-invoice-fields-amount" class="inputs-invoice-fields__part-5">Amount</label><div class="inputs-invoice-fields__part-6"><span aria-hidden="true" class="inputs-invoice-fields__part-7">USD</span><input id="inputs-invoice-fields-amount" type="number" step="0.01" min="0" class="inputs-invoice-fields__part-8" name="amount" value="1250.00"></div><label for="inputs-invoice-fields-reference" class="inputs-invoice-fields__part-9">Invoice reference</label><input id="inputs-invoice-fields-reference" type="text" class="inputs-invoice-fields__part-10" name="reference" value="INV-2026-048"><label for="inputs-invoice-fields-due" class="inputs-invoice-fields__part-9">Due date</label><input id="inputs-invoice-fields-due" type="date" aria-describedby="inputs-invoice-fields-hint" class="inputs-invoice-fields__part-11" name="due" value="2026-10-30"><p id="inputs-invoice-fields-hint" class="inputs-invoice-fields__part-12">Payment terms: 20 days from issue.</p></section>
+<section aria-label="Invoice fields" class="inputs-invoice-fields">
+  <div class="inputs-invoice-fields__header">
+    <h2 class="inputs-invoice-fields__heading">Invoice details</h2>
+    <span class="inputs-invoice-fields__status">DRAFT</span>
+  </div>
+  <label for="inputs-invoice-fields-amount" class="inputs-invoice-fields__label">Amount</label>
+  <div class="inputs-invoice-fields__amount-field">
+    <span id="inputs-invoice-fields-currency" class="inputs-invoice-fields__currency">USD</span>
+    <input
+      id="inputs-invoice-fields-amount"
+      aria-describedby="inputs-invoice-fields-currency"
+      type="number"
+      step="0.01"
+      min="0"
+      class="inputs-invoice-fields__amount"
+      name="amount"
+      value="1250.00"
+    />
+  </div>
+  <label for="inputs-invoice-fields-reference" class="inputs-invoice-fields__label inputs-invoice-fields__label--spaced">Invoice reference</label>
+  <input
+    id="inputs-invoice-fields-reference"
+    type="text"
+    class="inputs-invoice-fields__reference"
+    name="reference"
+    value="INV-2026-048"
+  />
+  <label for="inputs-invoice-fields-due" class="inputs-invoice-fields__label inputs-invoice-fields__label--spaced">Due date</label>
+  <input
+    id="inputs-invoice-fields-due"
+    type="date"
+    aria-describedby="inputs-invoice-fields-hint"
+    class="inputs-invoice-fields__date"
+    name="due"
+    value="2026-10-30"
+  />
+  <p id="inputs-invoice-fields-hint" class="inputs-invoice-fields__hint">Payment terms: 20 days from issue.</p>
+</section>

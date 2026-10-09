@@ -12,183 +12,100 @@
 .buttons-editorial-actions table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .buttons-editorial-actions summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .buttons-editorial-actions {
-  --buttons-editorial-actions-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --buttons-editorial-actions-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --buttons-editorial-actions-color-slate-900: oklch(20.8% 0.042 265.755);
-  --buttons-editorial-actions-color-stone-50: oklch(98.5% 0.001 106.423);
-  --buttons-editorial-actions-color-stone-100: oklch(97% 0.001 106.424);
-  --buttons-editorial-actions-color-stone-200: oklch(92.3% 0.003 48.717);
-  --buttons-editorial-actions-color-stone-300: oklch(86.9% 0.005 56.366);
-  --buttons-editorial-actions-color-stone-600: oklch(44.4% 0.011 73.639);
-  --buttons-editorial-actions-color-stone-700: oklch(37.4% 0.01 67.558);
-  --buttons-editorial-actions-color-stone-900: oklch(21.6% 0.006 56.043);
-  --buttons-editorial-actions-spacing: 0.25rem;
-  --buttons-editorial-actions-text-xs: 0.75rem;
-  --buttons-editorial-actions-text-xs--line-height: calc(1 / 0.75);
-  --buttons-editorial-actions-text-sm: 0.875rem;
-  --buttons-editorial-actions-text-sm--line-height: calc(1.25 / 0.875);
-  --buttons-editorial-actions-text-2xl: 1.5rem;
-  --buttons-editorial-actions-text-2xl--line-height: calc(2 / 1.5);
-  --buttons-editorial-actions-font-weight-medium: 500;
-  --buttons-editorial-actions-font-weight-semibold: 600;
-  --buttons-editorial-actions-tracking-wider: 0.05em;
-  --buttons-editorial-actions-leading-tight: 1.25;
-  --buttons-editorial-actions-default-transition-duration: 150ms;
-  --buttons-editorial-actions-default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 18rem;
+  padding: 1.5rem;
+  border: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
+  background-color: oklch(97% 0.001 106.424); /* stone-100 */
+  color: oklch(21.6% 0.006 56.043); /* stone-900 */
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-1, .buttons-editorial-actions .buttons-editorial-actions__part-1 {
-  width: calc(var(--buttons-editorial-actions-spacing) * 72);
-  border-style: var(--buttons-editorial-actions-tw-border-style);
-  border-width: 1px;
-  border-color: var(--buttons-editorial-actions-color-stone-300);
-  background-color: var(--buttons-editorial-actions-color-stone-100);
-  padding: calc(var(--buttons-editorial-actions-spacing) * 6);
-  color: var(--buttons-editorial-actions-color-stone-900);
-}
-.buttons-editorial-actions.buttons-editorial-actions__part-2, .buttons-editorial-actions .buttons-editorial-actions__part-2 {
-  font-size: 10px;
-  --buttons-editorial-actions-tw-font-weight: var(--buttons-editorial-actions-font-weight-medium);
-  font-weight: var(--buttons-editorial-actions-font-weight-medium);
-  --buttons-editorial-actions-tw-tracking: 0.2em;
+
+/* Journal masthead */
+.buttons-editorial-actions .buttons-editorial-actions__eyebrow {
+  font-size: 0.625rem;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-3, .buttons-editorial-actions .buttons-editorial-actions__part-3 {
-  margin-top: calc(var(--buttons-editorial-actions-spacing) * 4);
-  font-family: var(--buttons-editorial-actions-font-serif);
-  font-size: var(--buttons-editorial-actions-text-2xl);
-  line-height: var(--buttons-editorial-actions-tw-leading, var(--buttons-editorial-actions-text-2xl--line-height));
-  --buttons-editorial-actions-tw-leading: var(--buttons-editorial-actions-leading-tight);
-  line-height: var(--buttons-editorial-actions-leading-tight);
+
+.buttons-editorial-actions .buttons-editorial-actions__heading {
+  margin-top: 1rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-4, .buttons-editorial-actions .buttons-editorial-actions__part-4 {
-  margin-top: calc(var(--buttons-editorial-actions-spacing) * 5);
-  border-top-style: var(--buttons-editorial-actions-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--buttons-editorial-actions-color-stone-300);
+
+.buttons-editorial-actions .buttons-editorial-actions__reading-actions {
+  margin-top: 1.25rem;
+  border-top: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-5, .buttons-editorial-actions .buttons-editorial-actions__part-5 {
+
+/* Numbered reading actions and subscription */
+.buttons-editorial-actions .buttons-editorial-actions__button {
   display: flex;
-  height: calc(var(--buttons-editorial-actions-spacing) * 11);
-  width: 100%;
   align-items: center;
-  gap: calc(var(--buttons-editorial-actions-spacing) * 4);
-  border-bottom-style: var(--buttons-editorial-actions-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: var(--buttons-editorial-actions-color-stone-300);
-  font-size: var(--buttons-editorial-actions-text-sm);
-  line-height: var(--buttons-editorial-actions-tw-leading, var(--buttons-editorial-actions-text-sm--line-height));
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --buttons-editorial-actions-tw-gradient-from, --buttons-editorial-actions-tw-gradient-via, --buttons-editorial-actions-tw-gradient-to;
-  transition-timing-function: var(--buttons-editorial-actions-tw-ease, var(--buttons-editorial-actions-default-transition-timing-function));
-  transition-duration: var(--buttons-editorial-actions-tw-duration, var(--buttons-editorial-actions-default-transition-duration));
+  gap: 1rem;
+  width: 100%;
+  height: 2.75rem;
+  border-bottom: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
 }
-@media (hover: hover) {
-  .buttons-editorial-actions.buttons-editorial-actions__part-5:hover, .buttons-editorial-actions .buttons-editorial-actions__part-5:hover {
-    background-color: var(--buttons-editorial-actions-color-stone-200);
-  }
+
+.buttons-editorial-actions .buttons-editorial-actions__number {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-5:focus-visible, .buttons-editorial-actions .buttons-editorial-actions__part-5:focus-visible {
-  outline-style: var(--buttons-editorial-actions-tw-outline-style);
-  outline-width: 2px;
-}
-.buttons-editorial-actions.buttons-editorial-actions__part-5:focus-visible, .buttons-editorial-actions .buttons-editorial-actions__part-5:focus-visible {
-  outline-offset: 2px;
-}
-.buttons-editorial-actions.buttons-editorial-actions__part-5:focus-visible, .buttons-editorial-actions .buttons-editorial-actions__part-5:focus-visible {
-  outline-color: var(--buttons-editorial-actions-color-slate-900);
-}
-@media (prefers-reduced-motion: reduce) {
-  .buttons-editorial-actions.buttons-editorial-actions__part-5, .buttons-editorial-actions .buttons-editorial-actions__part-5 {
-    transition-property: none;
-  }
-}
-.buttons-editorial-actions.buttons-editorial-actions__part-6, .buttons-editorial-actions .buttons-editorial-actions__part-6 {
-  font-family: var(--buttons-editorial-actions-font-mono);
-  font-size: var(--buttons-editorial-actions-text-xs);
-  line-height: var(--buttons-editorial-actions-tw-leading, var(--buttons-editorial-actions-text-xs--line-height));
-  color: var(--buttons-editorial-actions-color-stone-600);
-}
-.buttons-editorial-actions.buttons-editorial-actions__part-7, .buttons-editorial-actions .buttons-editorial-actions__part-7 {
+
+.buttons-editorial-actions .buttons-editorial-actions__plus {
   margin-left: auto;
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-8, .buttons-editorial-actions .buttons-editorial-actions__part-8 {
-  margin-left: auto;
-  width: calc(var(--buttons-editorial-actions-spacing) * 4);
-  height: calc(var(--buttons-editorial-actions-spacing) * 4);
+
+.buttons-editorial-actions .buttons-editorial-actions__share-icon {
   flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-9, .buttons-editorial-actions .buttons-editorial-actions__part-9 {
-  margin-top: calc(var(--buttons-editorial-actions-spacing) * 5);
+
+.buttons-editorial-actions .buttons-editorial-actions__subscribe {
   display: flex;
-  height: calc(var(--buttons-editorial-actions-spacing) * 11);
   align-items: center;
   justify-content: center;
-  background-color: var(--buttons-editorial-actions-color-stone-900);
-  font-size: var(--buttons-editorial-actions-text-xs);
-  line-height: var(--buttons-editorial-actions-tw-leading, var(--buttons-editorial-actions-text-xs--line-height));
-  --buttons-editorial-actions-tw-font-weight: var(--buttons-editorial-actions-font-weight-semibold);
-  font-weight: var(--buttons-editorial-actions-font-weight-semibold);
-  --buttons-editorial-actions-tw-tracking: var(--buttons-editorial-actions-tracking-wider);
-  letter-spacing: var(--buttons-editorial-actions-tracking-wider);
-  color: var(--buttons-editorial-actions-color-stone-50);
+  height: 2.75rem;
+  margin-top: 1.25rem;
+  background-color: oklch(21.6% 0.006 56.043); /* stone-900 */
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --buttons-editorial-actions-tw-gradient-from, --buttons-editorial-actions-tw-gradient-via, --buttons-editorial-actions-tw-gradient-to;
-  transition-timing-function: var(--buttons-editorial-actions-tw-ease, var(--buttons-editorial-actions-default-transition-timing-function));
-  transition-duration: var(--buttons-editorial-actions-tw-duration, var(--buttons-editorial-actions-default-transition-duration));
+  color: oklch(98.5% 0.001 106.423); /* stone-50 */
 }
+
+.buttons-editorial-actions :is(.buttons-editorial-actions__button, .buttons-editorial-actions__subscribe) {
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @media (hover: hover) {
-  .buttons-editorial-actions.buttons-editorial-actions__part-9:hover, .buttons-editorial-actions .buttons-editorial-actions__part-9:hover {
-    background-color: var(--buttons-editorial-actions-color-stone-700);
+  .buttons-editorial-actions .buttons-editorial-actions__button:hover {
+    background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
+  }
+  .buttons-editorial-actions .buttons-editorial-actions__subscribe:hover {
+    background-color: oklch(37.4% 0.01 67.558); /* stone-700 */
   }
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-9:focus-visible, .buttons-editorial-actions .buttons-editorial-actions__part-9:focus-visible {
-  outline-style: var(--buttons-editorial-actions-tw-outline-style);
-  outline-width: 2px;
-}
-.buttons-editorial-actions.buttons-editorial-actions__part-9:focus-visible, .buttons-editorial-actions .buttons-editorial-actions__part-9:focus-visible {
+
+.buttons-editorial-actions :is(.buttons-editorial-actions__button, .buttons-editorial-actions__subscribe):focus-visible {
+  outline: 2px solid oklch(20.8% 0.042 265.755); /* slate-900 */
   outline-offset: 2px;
 }
-.buttons-editorial-actions.buttons-editorial-actions__part-9:focus-visible, .buttons-editorial-actions .buttons-editorial-actions__part-9:focus-visible {
-  outline-color: var(--buttons-editorial-actions-color-slate-900);
-}
+
 @media (prefers-reduced-motion: reduce) {
-  .buttons-editorial-actions.buttons-editorial-actions__part-9, .buttons-editorial-actions .buttons-editorial-actions__part-9 {
-    transition-property: none;
-  }
-}
-@property --buttons-editorial-actions-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --buttons-editorial-actions-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --buttons-editorial-actions-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --buttons-editorial-actions-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --buttons-editorial-actions-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .buttons-editorial-actions *, .buttons-editorial-actions ::before, .buttons-editorial-actions ::after, .buttons-editorial-actions ::backdrop {
-      --buttons-editorial-actions-tw-border-style: solid;
-      --buttons-editorial-actions-tw-font-weight: initial;
-      --buttons-editorial-actions-tw-tracking: initial;
-      --buttons-editorial-actions-tw-leading: initial;
-      --buttons-editorial-actions-tw-outline-style: solid;
-    }
+  .buttons-editorial-actions :is(.buttons-editorial-actions__button, .buttons-editorial-actions__subscribe) {
+    transition: none;
   }
 }

@@ -1,1 +1,71 @@
-<section aria-label="Verification fields" class="inputs-verification-code inputs-verification-code__part-1"><span aria-hidden="true" class="inputs-verification-code__part-2"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" class="inputs-verification-code__part-3"><path d="m10 2 7 3v5c0 4-7 8-7 8s-7-4-7-8V5zM7 9l2 2 4-4"></path></svg></span><h2 class="inputs-verification-code__part-4">Check your inbox</h2><p id="inputs-verification-code-hint" class="inputs-verification-code__part-5">Enter the four digits sent to your email.</p><fieldset class="inputs-verification-code__part-6"><legend class="inputs-verification-code__part-7">Verification code</legend><div class="inputs-verification-code__part-8"><input type="text" aria-label="Verification code digit 1" aria-describedby="inputs-verification-code-hint" inputmode="numeric" pattern="[0-9]" maxlength="1" autocomplete="one-time-code" class="inputs-verification-code__part-9" name="digit-1" value="4"><input type="text" aria-label="Verification code digit 2" aria-describedby="inputs-verification-code-hint" inputmode="numeric" pattern="[0-9]" maxlength="1" class="inputs-verification-code__part-9" name="digit-2" value="8"><input type="text" aria-label="Verification code digit 3" aria-describedby="inputs-verification-code-hint" inputmode="numeric" pattern="[0-9]" maxlength="1" class="inputs-verification-code__part-10" name="digit-3"><input type="text" aria-label="Verification code digit 4" aria-describedby="inputs-verification-code-hint" inputmode="numeric" pattern="[0-9]" maxlength="1" class="inputs-verification-code__part-10" name="digit-4"></div></fieldset><label for="inputs-verification-code-recovery" class="inputs-verification-code__part-11">Recovery email</label><input id="inputs-verification-code-recovery" type="email" autocomplete="email" placeholder="backup@example.com" aria-describedby="inputs-verification-code-privacy" class="inputs-verification-code__part-12" name="recovery-email"><p id="inputs-verification-code-privacy" class="inputs-verification-code__part-13">Used only if you lose access to your account.</p></section>
+<section aria-label="Verification fields" class="inputs-verification-code">
+  <span aria-hidden="true" class="inputs-verification-code__shield-tile">
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" class="inputs-verification-code__shield-icon">
+      <path d="m10 2 7 3v5c0 4-7 8-7 8s-7-4-7-8V5zM7 9l2 2 4-4" />
+    </svg>
+  </span>
+  <h2 class="inputs-verification-code__heading">Check your inbox</h2>
+  <p id="inputs-verification-code-hint" class="inputs-verification-code__instructions">Enter the four digits sent to your email.</p>
+  <fieldset class="inputs-verification-code__code">
+    <legend class="inputs-verification-code__legend">Verification code</legend>
+    <div class="inputs-verification-code__digits">
+      <input
+        type="text"
+        aria-label="Verification code digit 1"
+        aria-describedby="inputs-verification-code-hint"
+        inputmode="numeric"
+        pattern="[0-9]"
+        maxlength="1"
+        autocomplete="off"
+        class="inputs-verification-code__digit inputs-verification-code__digit--filled"
+        name="digit-1"
+        value="4"
+      />
+      <input
+        type="text"
+        aria-label="Verification code digit 2"
+        aria-describedby="inputs-verification-code-hint"
+        inputmode="numeric"
+        pattern="[0-9]"
+        maxlength="1"
+        autocomplete="off"
+        class="inputs-verification-code__digit inputs-verification-code__digit--filled"
+        name="digit-2"
+        value="8"
+      />
+      <input
+        type="text"
+        aria-label="Verification code digit 3"
+        aria-describedby="inputs-verification-code-hint"
+        inputmode="numeric"
+        pattern="[0-9]"
+        maxlength="1"
+        autocomplete="off"
+        class="inputs-verification-code__digit"
+        name="digit-3"
+      />
+      <input
+        type="text"
+        aria-label="Verification code digit 4"
+        aria-describedby="inputs-verification-code-hint"
+        inputmode="numeric"
+        pattern="[0-9]"
+        maxlength="1"
+        autocomplete="off"
+        class="inputs-verification-code__digit"
+        name="digit-4"
+      />
+    </div>
+  </fieldset>
+  <label for="inputs-verification-code-recovery" class="inputs-verification-code__label">Recovery email</label>
+  <input
+    id="inputs-verification-code-recovery"
+    type="email"
+    autocomplete="email"
+    placeholder="backup@example.com"
+    aria-describedby="inputs-verification-code-privacy"
+    class="inputs-verification-code__recovery"
+    name="recovery-email"
+  />
+  <p id="inputs-verification-code-privacy" class="inputs-verification-code__privacy">Used only if you lose access to your account.</p>
+</section>

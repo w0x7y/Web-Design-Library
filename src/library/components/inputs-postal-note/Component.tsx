@@ -25,7 +25,7 @@ export default function InputsPostalNote() {
         type="text"
         autoComplete="name"
         defaultValue="Jules"
-        className="mt-1 h-10 w-full border-b border-stone-400 px-1 font-serif text-lg focus-visible:border-amber-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+        className="mt-1 block h-10 w-full border-b border-stone-500 px-1 font-serif text-lg focus-visible:border-amber-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
       />
       <label
         htmlFor="inputs-postal-note-message"
@@ -39,7 +39,7 @@ export default function InputsPostalNote() {
         aria-describedby="inputs-postal-note-hint"
         maxLength={180}
         defaultValue="For the slow mornings and the good conversations. Happy birthday, Bea."
-        className="mt-2 h-24 w-full resize-none border border-stone-300 bg-white p-3 font-serif text-base leading-6 focus-visible:border-amber-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+        className="mt-2 block h-28 w-full resize-none border border-stone-500 bg-white p-3 font-serif text-base leading-6 focus-visible:border-amber-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
       />
       <p
         id="inputs-postal-note-hint"
