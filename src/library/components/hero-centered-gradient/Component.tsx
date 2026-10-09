@@ -69,7 +69,7 @@ export default function HeroCenteredGradient() {
             required
             autoComplete="email"
             placeholder="you@darksky.org"
-            className="h-11 min-w-0 flex-1 px-4 text-base text-white outline-none placeholder:text-slate-400"
+            className="h-11 min-w-0 flex-1 px-4 text-base text-white placeholder:text-slate-400 focus-visible:outline-hidden"
           />
           <button
             type="submit"

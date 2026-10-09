@@ -164,7 +164,18 @@
   font-size: 1rem;
   line-height: 1.5;
   color: #fff;
+}
+
+.hero-centered-gradient .hero-centered-gradient__input:focus-visible {
   outline-style: none;
+}
+
+/* Windows high contrast: the input keeps a visible focus outline */
+@media (forced-colors: active) {
+  .hero-centered-gradient .hero-centered-gradient__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
 }
 
 .hero-centered-gradient .hero-centered-gradient__input::placeholder {

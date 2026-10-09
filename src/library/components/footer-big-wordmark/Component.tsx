@@ -19,7 +19,7 @@ export default function FooterBigWordmark() {
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
-                className="h-14 min-w-0 flex-1 border-2 border-r-0 border-neutral-100 px-4 text-xl font-semibold outline-hidden placeholder:text-neutral-400 focus-visible:bg-neutral-100 focus-visible:text-neutral-950 focus-visible:placeholder:text-neutral-600"
+                className="h-14 min-w-0 flex-1 border-2 border-r-0 border-neutral-100 px-4 text-xl font-semibold placeholder:text-neutral-400 focus-visible:bg-neutral-100 focus-visible:text-neutral-950 focus-visible:outline-hidden focus-visible:placeholder:text-neutral-600"
               />
               <button
                 type="submit"

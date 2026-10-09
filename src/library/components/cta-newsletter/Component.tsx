@@ -8,7 +8,7 @@ export default function CtaNewsletter() {
         </h2>
 
         <div className="mt-12 grid gap-16 border-t border-stone-900 pt-10 lg:mt-16 lg:grid-cols-12 lg:gap-8 lg:pt-12">
-          <div className="max-w-xl lg:col-span-5">
+          <div className="max-w-xl min-w-0 lg:col-span-5">
             <p className="text-lg leading-relaxed text-pretty text-stone-600 sm:text-xl">
               Small Batch is a letter from founders who build and sell software alone: what they shipped, what it
               earned, and what they would not do again. About ten minutes to read.
@@ -26,7 +26,8 @@ export default function CtaNewsletter() {
                   required
                   autoComplete="email"
                   placeholder="you@example.com"
-                  className="h-12 min-w-0 flex-1 text-lg outline-hidden placeholder:text-stone-500"
+                  aria-describedby="cta-newsletter-hint"
+                  className="h-12 min-w-0 flex-1 text-lg placeholder:text-stone-500 focus-visible:outline-hidden"
                 />
                 <button
                   type="submit"
@@ -38,7 +39,7 @@ export default function CtaNewsletter() {
                   </svg>
                 </button>
               </div>
-              <p className="mt-3 text-[0.9375rem] text-stone-500">4,200 readers. Unsubscribe with one click.</p>
+              <p id="cta-newsletter-hint" className="mt-3 text-[0.9375rem] text-stone-500">4,200 readers. Unsubscribe with one click.</p>
             </form>
           </div>
 

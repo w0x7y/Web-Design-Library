@@ -44,9 +44,11 @@
   border-top: 1px solid oklch(21.6% 0.006 56.043); /* stone-900 */
 }
 
-/* Keeps the measure readable while the body is stacked */
+/* Keeps the measure readable while the body is stacked, and lets the column shrink below the field's
+   intrinsic width on narrow screens */
 .cta-newsletter .cta-newsletter__pitch {
   max-width: 36rem;
+  min-width: 0;
 }
 
 .cta-newsletter .cta-newsletter__lede {
@@ -88,6 +90,10 @@
   height: 3rem;
   font-size: 1.125rem;
   line-height: calc(1.75 / 1.125);
+}
+
+/* The field's bottom border shows focus, so the input draws no outline of its own */
+.cta-newsletter .cta-newsletter__input:focus-visible {
   outline-style: none;
 }
 
@@ -188,7 +194,7 @@
 
 /* Windows high contrast: the input keeps a visible focus outline */
 @media (forced-colors: active) {
-  .cta-newsletter .cta-newsletter__input {
+  .cta-newsletter .cta-newsletter__input:focus-visible {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }

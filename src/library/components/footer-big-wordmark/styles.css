@@ -76,7 +76,6 @@
   font-size: 1.25rem;
   line-height: calc(1.75 / 1.25);
   font-weight: 600;
-  outline-style: none;
 }
 
 .footer-big-wordmark .footer-big-wordmark__input::placeholder {
@@ -86,6 +85,7 @@
 .footer-big-wordmark .footer-big-wordmark__input:focus-visible {
   background-color: oklch(97% 0 none); /* neutral-100 */
   color: oklch(14.5% 0 none); /* neutral-950 */
+  outline-style: none;
 }
 
 .footer-big-wordmark .footer-big-wordmark__input:focus-visible::placeholder {
@@ -223,7 +223,7 @@
 
 /* Windows high contrast: the input keeps a visible focus outline */
 @media (forced-colors: active) {
-  .footer-big-wordmark .footer-big-wordmark__input {
+  .footer-big-wordmark .footer-big-wordmark__input:focus-visible {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }

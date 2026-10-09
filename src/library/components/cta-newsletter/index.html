@@ -14,7 +14,7 @@
         <form action="#" class="cta-newsletter__form">
           <label for="cta-newsletter-email" class="cta-newsletter__label">Your email</label>
           <div class="cta-newsletter__field">
-            <input id="cta-newsletter-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" class="cta-newsletter__input" />
+            <input id="cta-newsletter-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="cta-newsletter-hint" class="cta-newsletter__input" />
             <button type="submit" class="cta-newsletter__submit">
               Subscribe
               <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="cta-newsletter__arrow">
@@ -22,7 +22,7 @@
               </svg>
             </button>
           </div>
-          <p class="cta-newsletter__hint">4,200 readers. Unsubscribe with one click.</p>
+          <p id="cta-newsletter-hint" class="cta-newsletter__hint">4,200 readers. Unsubscribe with one click.</p>
         </form>
       </div>
 
