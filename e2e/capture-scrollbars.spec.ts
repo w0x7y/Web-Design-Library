@@ -1,7 +1,6 @@
-import { readFile } from 'node:fs/promises'
 import { expect, test } from '@playwright/test'
-import { PNG } from 'pngjs'
-import { previewPath } from '../app/lib/preview-ready'
+import { previewPath } from '../src/library/urls'
+import { downloadPng, openDetail } from './lib/pages'
 
 // Headless Chromium hides scrollbars by default, which hides this bug: where scrollbars take layout width
 // (Windows, Linux, Firefox), a page taller than the capture frame lays out ~15px narrower than the target,
@@ -22,16 +21,14 @@ test('desktop and mobile PNGs of a section taller than the capture frame are sti
     })
     await route.fulfill({ response, body: html })
   })
-  await page.goto('/c/hero-split-image')
-  await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
+  await openDetail(page, 'hero-split-image')
   // Precondition: this browser really reserves scrollbar width (the detail page itself scrolls).
   expect(await page.evaluate(() => window.innerWidth - document.documentElement.clientWidth)).toBeGreaterThan(0)
 
-  for (const [label, width, name] of [['Desktop PNG', 2880, 'desktop'], ['Mobile PNG', 780, 'mobile']] as const) {
-    await page.getByRole('button', { name: 'Download' }).click()
-    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: label }).click()])
-    expect(dl.suggestedFilename()).toBe(`web-library-hero-split-image-${name}.png`)
-    expect(PNG.sync.read(await readFile(await dl.path())).width).toBe(width)
+  for (const [viewport, width] of [['desktop', 2880], ['mobile', 780]] as const) {
+    const { png, filename } = await downloadPng(page, viewport)
+    expect(filename).toBe(`patternbook-hero-split-image-${viewport}.png`)
+    expect(png.width).toBe(width)
   }
   expect(injections, 'each capture page got the overflow style').toBe(2)
 })

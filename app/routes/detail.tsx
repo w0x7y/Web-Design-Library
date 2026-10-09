@@ -2,23 +2,25 @@ import { useId, useRef, useState, type KeyboardEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { data, isRouteErrorResponse, Link } from 'react-router'
 import { ActionBar } from '~/components/ActionBar'
-import { CodeView } from '~/components/CodeView'
+import { CodeView, type CodeViewHandle } from '~/components/CodeView'
 import { ComponentCard } from '~/components/ComponentCard'
 import { NotFoundView } from '~/components/NotFoundView'
 import { PreviewFrame } from '~/components/PreviewFrame'
+import { chip, TEXT_LINK } from '~/components/ui'
 import { ViewportToggle } from '~/components/ViewportToggle'
 import { useComponentActions } from '~/lib/component-actions'
 import { filtersSearch } from '~/lib/filters'
-import { useFormatPreference } from '~/lib/format-preference'
+import { useFormat } from '~/lib/format-preference'
 import { highlight } from '~/lib/highlight.server'
 import { relatedMetas } from '~/lib/related'
 import { useHydrated } from '~/lib/use-hydrated'
+import { useMediaQuery } from '~/lib/use-media-query'
 import type { ViewportId } from '~/lib/viewports'
 import { SITE } from '~/site'
 import { allMetas, metaBySlug } from '../../src/library/registry'
 import { sourcesFor } from '../../src/library/sources.server'
 import { CATEGORY_LABELS, groupOf } from '../../src/library/taxonomy'
-import type { Format } from '../../src/library/types'
+import { absoluteUrl, browsePath, componentPath } from '../../src/library/urls'
 import type { Route } from './+types/detail'
 
 // "/c/:slug". The loader runs at build time only (every slug is pre-rendered),
@@ -44,7 +46,7 @@ export const meta: Route.MetaFunction = ({ loaderData, error, params }) => {
   }
   const { name, slug, description } = loaderData.meta
   const title = `${name} — ${SITE.name}`
-  const url = `${SITE.url}/c/${slug}`
+  const url = absoluteUrl(componentPath(slug))
   return [
     { title },
     { name: 'description', content: description },
@@ -68,24 +70,23 @@ type TabId = (typeof TABS)[number]['id']
 const FOCUS_RING =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus'
 
+/** Below Tailwind's sm breakpoint. */
+const SMALL_SCREEN = '(width < 40rem)'
+
 export default function Detail({ loaderData }: Route.ComponentProps) {
-  // The format is a site-wide preference, so it lives above the key and survives moving between components.
-  const [format, setFormat] = useFormatPreference()
-  // Keyed by slug: opening another component (e.g. a related card) starts on its Preview at Desktop, like a full page load.
-  return <ComponentDetail key={loaderData.meta.slug} {...loaderData} format={format} onFormatChange={setFormat} />
+  // Keyed by slug: opening another component (e.g. a related card) starts on its Preview, like a full page load.
+  return <ComponentDetail key={loaderData.meta.slug} {...loaderData} />
 }
 
-function ComponentDetail({
-  meta: component,
-  sources,
-  highlighted,
-  format,
-  onFormatChange,
-}: Route.ComponentProps['loaderData'] & { format: Format; onFormatChange(format: Format): void }) {
+function ComponentDetail({ meta: component, sources, highlighted }: Route.ComponentProps['loaderData']) {
+  const format = useFormat()
   const [tab, setTab] = useState<TabId>('preview')
-  const [viewport, setViewport] = useState<ViewportId>('desktop')
+  // Until a width is picked, the preview shows Desktop, or Mobile on a phone, where a 1440px layout shrunk to fit can't be read.
+  const [chosenViewport, setViewport] = useState<ViewportId | null>(null)
+  const smallScreen = useMediaQuery(SMALL_SCREEN)
+  const viewport = chosenViewport ?? (smallScreen ? 'mobile' : 'desktop')
   const id = useId()
-  const codeRef = useRef<HTMLDivElement>(null)
+  const codeView = useRef<CodeViewHandle>(null)
   // Unmounting (opening another component remounts this) aborts a running capture and silences its toasts.
   const { actions, busy } = useComponentActions(component, sources)
   const related = relatedMetas(component, ALL)
@@ -95,53 +96,51 @@ function ComponentDetail({
   // copied), so Ctrl/⌘+C still works.
   function revealCode(fileName?: string) {
     flushSync(() => setTab('code')) // the panel is hidden until the tab switches, and a hidden node can't be selected
-    const pre = codeRef.current?.querySelector(fileName ? `[data-code-file="${fileName}"] pre` : '[data-code-file] pre')
-    const selection = getSelection()
-    if (!pre || !selection) return
-    const range = document.createRange()
-    range.selectNodeContents(pre)
-    selection.removeAllRanges()
-    selection.addRange(range)
+    codeView.current?.select(fileName)
   }
 
   return (
     <main className="mx-auto w-full max-w-(--breakpoint-2xl) px-4 pt-8 pb-24 sm:px-6 lg:px-8 lg:pt-10">
-      <nav aria-label="Breadcrumb">
-        <ol role="list" className="flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400">
-          <li>{groupOf(component.category).label}</li>
-          <li className="flex items-center gap-1.5">
-            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-3.5 text-zinc-300 dark:text-zinc-600">
-              <path d="m6 3.5 4.5 4.5L6 12.5" />
-            </svg>
-            <Link
-              to={`/browse/${component.category}`}
-              className={`-mx-0.5 rounded-sm px-0.5 text-zinc-600 underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:text-zinc-950 hover:decoration-zinc-300 dark:text-zinc-300 dark:hover:text-white dark:hover:decoration-zinc-600 ${FOCUS_RING}`}
-            >
-              {categoryLabel}
-            </Link>
-          </li>
-        </ol>
-      </nav>
+      {/* From xl the actions sit beside the title block, level with the tags, instead of on a row of their own. */}
+      <div className="xl:flex xl:items-end xl:justify-between xl:gap-10">
+        <div className="min-w-0 xl:flex-1">
+          <nav aria-label="Breadcrumb">
+            <ol role="list" className="flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400">
+              <li>{groupOf(component.category).label}</li>
+              <li className="flex items-center gap-1.5">
+                <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-3.5 text-zinc-300 dark:text-zinc-600">
+                  <path d="m6 3.5 4.5 4.5L6 12.5" />
+                </svg>
+                <Link
+                  to={browsePath(component.category)}
+                  className={`-mx-0.5 rounded-sm px-0.5 text-zinc-600 underline decoration-transparent underline-offset-4 transition-colors duration-150 hover:text-zinc-950 hover:decoration-zinc-300 dark:text-zinc-300 dark:hover:text-white dark:hover:decoration-zinc-600 ${FOCUS_RING}`}
+                >
+                  {categoryLabel}
+                </Link>
+              </li>
+            </ol>
+          </nav>
 
-      <h1 className="mt-3 text-2xl font-semibold tracking-tight text-balance text-zinc-950 sm:text-3xl dark:text-white">
-        {component.name}
-      </h1>
-      <p className="mt-2.5 max-w-2xl text-pretty text-zinc-600 dark:text-zinc-400">{component.description}</p>
-      <ul role="list" aria-label="Style tags" className="mt-4 flex flex-wrap gap-1.5">
-        {component.tags.map((tag) => (
-          <li key={tag}>
-            <Link
-              to={`/${filtersSearch({ q: '', tags: [tag] })}`}
-              className={`inline-flex h-7 items-center rounded-full border border-zinc-200 px-3 text-[13px] text-zinc-600 transition-colors duration-150 hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white ${FOCUS_RING}`}
-            >
-              {tag}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-6">
-        <ActionBar actions={actions} busy={busy} format={format} onFormatChange={onFormatChange} onCopyRefused={() => revealCode()} />
+          <h1 className="mt-3 text-2xl font-semibold tracking-tight text-balance text-zinc-950 sm:text-3xl dark:text-white">
+            {component.name}
+          </h1>
+          <p className="mt-2.5 max-w-2xl text-pretty text-zinc-600 dark:text-zinc-400">{component.description}</p>
+          <ul role="list" aria-label="Style tags" className="mt-4 flex flex-wrap gap-1.5">
+            {component.tags.map((tag) => (
+              <li key={tag}>
+                <Link
+                  to={browsePath(null, filtersSearch({ q: '', tags: [tag] }))}
+                  className={chip()}
+                >
+                  {tag}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-6 xl:mt-0 xl:shrink-0">
+          <ActionBar actions={actions} busy={busy} onCopyRefused={() => revealCode()} />
+        </div>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center">
@@ -157,12 +156,16 @@ function ComponentDetail({
       <div role="tabpanel" id={`${id}-preview`} aria-labelledby={`${id}-preview-tab`} hidden={tab !== 'preview'} className="mt-4">
         <PreviewFrame slug={component.slug} name={component.name} kind={component.preview.kind} viewport={viewport} />
       </div>
-      <div ref={codeRef} role="tabpanel" id={`${id}-code`} aria-labelledby={`${id}-code-tab`} hidden={tab !== 'code'} className="mt-4">
+      <div role="tabpanel" id={`${id}-code`} aria-labelledby={`${id}-code-tab`} hidden={tab !== 'code'} className="mt-4">
         <CodeView
-          format={format}
+          ref={codeView}
           highlighted={highlighted}
           sources={sources}
-          onCopyFile={(file) => void actions.copyFile(format, file, () => revealCode(file.name))}
+          onCopyFile={(file) =>
+            void actions.copyFile(format, file).then((result) => {
+              if (result === 'refused') revealCode(file.name)
+            })
+          }
         />
       </div>
 
@@ -173,8 +176,8 @@ function ComponentDetail({
               More in {categoryLabel}
             </h2>
             <Link
-              to={`/browse/${component.category}`}
-              className={`rounded-sm text-sm font-medium text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition-colors duration-150 hover:text-zinc-950 hover:decoration-zinc-500 dark:text-zinc-400 dark:decoration-zinc-700 dark:hover:text-white dark:hover:decoration-zinc-400 ${FOCUS_RING}`}
+              to={browsePath(component.category)}
+              className={TEXT_LINK}
             >
               View all<span className="sr-only"> {categoryLabel} components</span>
             </Link>

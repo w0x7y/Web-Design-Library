@@ -1,10 +1,9 @@
-import { loadLibrary } from '../../scripts/load-library'
-import { listComponentSlugs } from './paths'
+import { listComponentSlugs, loadLibrary } from '../../scripts/load-library'
 import { allMetas, lazyComponent, metaBySlug } from './registry'
 import { sourcesFor } from './sources.server'
 
 // The component folders reach the app through Vite's import.meta.glob (registry.ts, sources.server.ts)
-// and reach Node through fs (load-library.ts, paths.ts: build scripts, the rules test, e2e and the
+// and reach Node through fs (load-library.ts: the build config, build scripts, the rules test, e2e and the
 // prerender list). Glob patterns must be string literals, so they can't share catalog.ts's constants;
 // this test runs both adapters over the real library and checks they agree.
 // (vitest.config.ts opts `.css?raw` imports into CSS processing; Vitest would otherwise return '' for styles.css.)

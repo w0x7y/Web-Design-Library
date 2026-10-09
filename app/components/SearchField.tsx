@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { filtersSearch, isBrowsePath } from '~/lib/filters'
+import { filtersSearch } from '~/lib/filters'
+import { isBrowsePath } from '../../src/library/urls'
 import { useFilters } from '~/lib/use-filters'
 import { useHydrated } from '~/lib/use-hydrated'
 

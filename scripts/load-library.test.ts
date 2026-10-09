@@ -1,18 +1,7 @@
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { listComponentSlugs, prerenderPaths } from './paths'
-
-test('prerenderPaths lists home, categories, details and previews in order', () => {
-  expect(prerenderPaths({ slugs: ['a', 'b'], categories: ['hero'] })).toEqual([
-    '/',
-    '/browse/hero',
-    '/c/a',
-    '/preview/a',
-    '/c/b',
-    '/preview/b',
-  ])
-})
+import { listComponentSlugs } from './load-library'
 
 test('listComponentSlugs returns [] for a missing directory', () => {
   expect(listComponentSlugs('does/not/exist')).toEqual([])

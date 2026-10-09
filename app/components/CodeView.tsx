@@ -1,4 +1,7 @@
+import { useImperativeHandle, useRef, type Ref } from 'react'
+import { useFormat } from '~/lib/format-preference'
 import { SOURCE_FILES } from '../../src/library/catalog'
+import { CopyIcon } from './icons'
 import type { ComponentSources, Format } from '../../src/library/types'
 
 type HighlightedSources = Record<keyof ComponentSources, string>
@@ -8,23 +11,46 @@ const FILES: Record<Format, (keyof ComponentSources)[]> = { react: ['tsx'], html
 
 const lineCount = (text: string) => text.replace(/\n$/, '').split('\n').length
 
+export interface CodeViewHandle {
+  /**
+   * Selects a file's code (the first file's when `fileName` is not shown), so Ctrl/⌘+C copies it
+   * when the clipboard is blocked. The view must be visible: a hidden node can't be selected.
+   */
+  select(fileName?: string): void
+}
+
 /**
- * The files for one format, each a captioned figure holding Shiki's
+ * The files for the picked format, each a captioned figure holding Shiki's
  * pre-rendered (dual-theme) HTML. With `onCopyFile`, each caption gets a copy button.
  */
 export function CodeView({
-  format,
   highlighted,
   sources,
   onCopyFile,
+  ref,
 }: {
-  format: Format
   highlighted: HighlightedSources
   sources: ComponentSources
   onCopyFile?(file: { name: string; code: string }): void
+  ref?: Ref<CodeViewHandle>
 }) {
+  const format = useFormat()
+  const root = useRef<HTMLDivElement>(null)
+  useImperativeHandle(ref, () => ({
+    select(fileName) {
+      const figures = [...(root.current?.querySelectorAll<HTMLElement>('[data-code-file]') ?? [])]
+      const file = figures.find((figure) => figure.dataset.codeFile === fileName) ?? figures[0]
+      const pre = file?.querySelector('pre')
+      const selection = getSelection()
+      if (!pre || !selection) return
+      const range = document.createRange()
+      range.selectNodeContents(pre)
+      selection.removeAllRanges()
+      selection.addRange(range)
+    },
+  }))
   return (
-    <div className="space-y-4">
+    <div ref={root} className="space-y-4">
       {FILES[format].map((key) => {
         const name = SOURCE_FILES[key]
         const lines = lineCount(sources[key])
@@ -47,10 +73,7 @@ export function CodeView({
                   onClick={() => onCopyFile({ name, code: sources[key] })}
                   className="ml-auto inline-flex size-7 items-center justify-center rounded-md text-zinc-500 transition-colors duration-150 hover:bg-zinc-200/60 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-focus dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
                 >
-                  <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" className="size-4">
-                    <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" />
-                    <path d="M10.5 5.5V4A1.5 1.5 0 0 0 9 2.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5" />
-                  </svg>
+                  <CopyIcon />
                 </button>
               )}
             </figcaption>

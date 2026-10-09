@@ -1,20 +1,21 @@
-import { readFile } from 'node:fs/promises'
 import { expect, test, type Page } from '@playwright/test'
-import { PNG } from 'pngjs'
-import { filterMetas } from '../app/lib/filters'
-import { previewPath } from '../app/lib/preview-ready'
+import { browseResults } from '../app/lib/filters'
+import { STAGE } from '../app/lib/stage'
+import { STORAGE_KEYS } from '../app/lib/storage'
 import { relatedMetas } from '../app/lib/related'
-import { frameSize } from '../app/lib/viewports'
+import { frameSize, previewBox } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
+import { previewPath } from '../src/library/urls'
+import { downloadPng, openDetail } from './lib/pages'
 
 const ITEMS = await loadLibrary()
 const LIBRARY = ITEMS.map((item) => item.entry.meta) // in library order, the order the site shows
 const HERO = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry.sources
 
-// How many cards browse should show: the library on disk through the app's own filter (unit-tested in filters.test.ts).
+// How many cards browse should show: the library on disk through browse's own results (unit-tested in filters.test.ts).
 function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: StyleTag[]; q?: string }): number {
-  return filterMetas(LIBRARY, { category, tags, q }).length
+  return browseResults(LIBRARY, category ?? null, { tags, q }).results.length
 }
 
 // A filter assertion only means something if the filter keeps some cards and drops others.
@@ -25,7 +26,17 @@ function expectNarrowing(count: number) {
 
 test('home page renders with site title', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle(/Web Library/)
+  await expect(page).toHaveTitle(/Patternbook/)
+})
+
+test('the home page leads with the hero, whose heading is the page h1', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Copy-paste UI for you and your agent.')
+  await expect(page.getByRole('heading', { level: 2, name: 'All components' })).toBeVisible()
+  // A search hides the hero, so the results lead the page and their heading becomes the h1.
+  await page.getByRole('searchbox', { name: 'Search components' }).fill('glass')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('All components')
+  await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toHaveCount(0)
 })
 
 test('unknown path renders not-found page', async ({ page }) => {
@@ -35,25 +46,25 @@ test('unknown path renders not-found page', async ({ page }) => {
 
 test('preview ?capture=1 freezes motion after hydration', async ({ page }) => {
   await page.goto(previewPath('buttons-minimal', { capture: true }))
-  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'ready')
-  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-capture', '')
-  await expect(page.locator('[data-capture-root] .animate-spin').first()).toHaveCSS('animation-name', 'none')
+  await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'ready')
+  await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-capture', '')
+  await expect(page.locator(`${STAGE.root} .animate-spin`).first()).toHaveCSS('animation-name', 'none')
 })
 
 test('preview without ?capture=1 keeps motion', async ({ page }) => {
   await page.goto(previewPath('buttons-minimal'))
   // Ready means hydrated, so a capture flag would have been set by now.
-  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'ready')
-  await expect(page.locator('[data-capture-root] .animate-spin').first()).toHaveCSS('animation-name', 'spin')
-  await expect(page.locator('[data-preview-backdrop]')).not.toHaveAttribute('data-capture')
+  await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'ready')
+  await expect(page.locator(`${STAGE.root} .animate-spin`).first()).toHaveCSS('animation-name', 'spin')
+  await expect(page.locator(STAGE.backdrop)).not.toHaveAttribute('data-capture')
 })
 
 test('the preview page is a bare stage: no site theme, fonts, toaster or analytics', async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem('wl:theme', 'dark'))
+  await page.addInitScript(([key, theme]) => localStorage.setItem(key, theme), [STORAGE_KEYS.theme, 'dark'])
   const requests: string[] = []
   page.on('request', (request) => requests.push(request.url()))
   await page.goto(previewPath('buttons-minimal'))
-  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'ready') // hydrated, so the site's effects would have run
+  await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'ready') // hydrated, so the site's effects would have run
   expect(await page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(false)
   await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
   await expect(page.locator('section[aria-label^="Notifications"]')).toHaveCount(0) // Sonner's toaster region
@@ -65,10 +76,10 @@ test('the stage fills the frame and centres an element at its own width inside 4
   const frame = frameSize('element', 'desktop')
   await page.setViewportSize(frame)
   await page.goto(previewPath('buttons-minimal'))
-  const backdrop = page.locator('[data-preview-backdrop][data-preview-state="ready"]')
+  const backdrop = page.locator(STAGE.ready)
   await expect(backdrop).toHaveCSS('padding', '48px')
   const stage = (await backdrop.boundingBox())!
-  const root = (await page.locator('[data-capture-root]').boundingBox())!
+  const root = (await page.locator(STAGE.root).boundingBox())!
   expect(stage).toEqual({ x: 0, y: 0, ...frame })
   // Not stretched to the stage, so a transparent PNG is only as wide as the element.
   expect(root.width).toBeLessThan(stage.width - 2 * 48)
@@ -79,12 +90,12 @@ test('the stage fills the frame and centres an element at its own width inside 4
 test('a preview whose component fails to load reports failed', async ({ page }) => {
   await page.route('**/Component-*.js', (route) => route.abort())
   await page.goto(previewPath('buttons-minimal'))
-  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'failed')
+  await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'failed')
 })
 
 test('a preview of an unknown component reports failed', async ({ page }) => {
   await page.goto(previewPath('does-not-exist'))
-  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'failed')
+  await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'failed')
 })
 
 test('agent files are served', async ({ request }) => {
@@ -104,6 +115,24 @@ test('browse lists all components and filters by category', async ({ page }) => 
   await expect(page).toHaveURL(/\/browse\/hero/)
   await expect(page.getByRole('heading', { level: 1, name: 'Hero' })).toBeVisible()
   await expect(page.getByTestId('component-card')).toHaveCount(heroes)
+})
+
+test("the sidebar opens the current category's group and keeps the others closed", async ({ page }) => {
+  await page.goto('/browse/toggles')
+  const nav = page.getByRole('navigation', { name: 'Categories' })
+  const group = (label: string) => nav.locator('details').filter({ has: page.locator('summary', { hasText: label }) })
+  await expect(group('Elements')).toHaveAttribute('open', '')
+  await expect(group('Sections')).not.toHaveAttribute('open')
+  await expect(nav.getByRole('link', { name: /^Toggles/ })).toHaveAttribute('aria-current', 'page')
+  await expect(nav.getByRole('link', { name: /^Hero/ })).toBeHidden()
+  // A closed group opens from the keyboard, and moving to one of its categories keeps the current group open too.
+  await group('App UI').locator('summary').focus()
+  await page.keyboard.press('Enter')
+  await expect(group('App UI')).toHaveAttribute('open', '')
+  await nav.getByRole('link', { name: /^Settings/ }).click()
+  await expect(page).toHaveURL(/\/browse\/settings/)
+  await expect(group('App UI')).toHaveAttribute('open', '')
+  await expect(group('Elements')).toHaveAttribute('open', '')
 })
 
 test('search and tag filters sync with the URL', async ({ page }) => {
@@ -127,11 +156,24 @@ test('zero results show empty state with working reset', async ({ page }) => {
   await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
 })
 
+// Clearing a search brings the hero back, which turns the grid's <h1> into an <h2>: focus must follow.
+for (const path of ['/?q=zzzz', '/browse/hero?q=zzzz']) {
+  test(`Clear filters keeps keyboard focus on the heading (${path})`, async ({ page }) => {
+    await page.goto(path)
+    const clear = page.getByRole('button', { name: 'Clear filters' })
+    await expect(clear).toBeEnabled()
+    await clear.focus()
+    await page.keyboard.press('Enter')
+    await expect(page.getByTestId('component-card').first()).toBeVisible()
+    await expect(page.getByRole('heading', { name: path.startsWith('/browse') ? 'Hero' : 'All components', exact: true })).toBeFocused()
+  })
+}
+
 test('site dark mode does not restyle component renders', async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem('wl:theme', 'dark'))
+  await page.addInitScript(([key, theme]) => localStorage.setItem(key, theme), [STORAGE_KEYS.theme, 'dark'])
   await page.goto('/')
   expect(await page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(true)
-  const surface = page.locator('[data-preview-backdrop]').first()
+  const surface = page.locator(STAGE.backdrop).first()
   await expect(surface).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await expect(surface).toHaveCSS('color', 'rgb(0, 0, 0)')
   expect(await surface.evaluate(el => getComputedStyle(el).fontFamily)).not.toContain('Geist')
@@ -183,7 +225,7 @@ const FOCUS_LIGHT = 'oklch(0.21 0.006 285.885)'
 const FOCUS_DARK = 'oklch(0.967 0.001 286.375)'
 
 test('focus rings take the focus colour of the current theme', async ({ page }) => {
-  await page.addInitScript(() => localStorage.setItem('wl:theme', 'light'))
+  await page.addInitScript(([key, theme]) => localStorage.setItem(key, theme), [STORAGE_KEYS.theme, 'light'])
   await page.goto('/')
   const toggle = page.getByRole('button', { name: /^Switch to/ })
   await expect(toggle).toBeEnabled()
@@ -245,6 +287,13 @@ test('preview viewport toggle resizes the frame', async ({ page }) => {
   await expect(frame).toHaveAttribute('width', '390')
 })
 
+test('on a phone the preview starts at the Mobile width', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/c/hero-split-image')
+  await expect(page.getByRole('radio', { name: 'Mobile' })).toBeChecked()
+  await expect(page.locator('iframe[title="Split hero with image preview"]')).toHaveAttribute('width', '390')
+})
+
 test('code tab shows files for the selected format', async ({ page }) => {
   await page.goto('/c/hero-split-image')
   await page.getByRole('tab', { name: 'Code' }).click()
@@ -280,20 +329,40 @@ test('a section shorter than the viewport shows no empty stage below it', async 
   const frame = page.locator('iframe[title="Column footer preview"]')
   await expect(frame).toHaveCSS('opacity', '1')
   const box = frame.locator('xpath=..')
-  const footer = frame.contentFrame().locator('[data-capture-root]')
-  await expect(frame.contentFrame().locator('[data-preview-state="ready"]')).toBeAttached()
+  const footer = frame.contentFrame().locator(STAGE.root)
+  await expect(frame.contentFrame().locator(STAGE.ready)).toBeAttached()
   const footerHeight = await footer.evaluate((el) => el.getBoundingClientRect().height)
-  expect(footerHeight).toBeLessThan(900) // the case this guards: a short section in a 900px frame
+  const desktop = frameSize('section', 'desktop')
+  expect(footerHeight).toBeLessThan(desktop.height) // the case this guards: a short section in its frame
   const { width, height } = (await box.boundingBox())!
-  // The visible box is the footer's own height at the preview's scale, not the 900px frame's.
-  expect(height).toBeCloseTo(footerHeight * (width / 1440), 0)
+  // The visible box is previewBox's (the footer's own height), at the preview's scale.
+  expect(height).toBeCloseTo(previewBox('section', desktop, footerHeight).height * (width / desktop.width), 0)
+})
+
+test('an element preview is clipped to the element and the stage padding, and stays centred', async ({ page }) => {
+  await page.goto('/c/buttons-minimal')
+  const frame = page.locator('iframe[title="Buttons — Minimal preview"]')
+  await expect(frame).toHaveCSS('opacity', '1')
+  await expect(frame.contentFrame().locator(STAGE.ready)).toBeAttached()
+  const root = frame.contentFrame().locator(STAGE.root)
+  const elementHeight = await root.evaluate((el) => el.getBoundingClientRect().height)
+  const desktop = frameSize('element', 'desktop')
+  const clipped = previewBox('element', desktop, elementHeight)
+  expect(clipped.height).toBeLessThan(desktop.height) // the case this guards: an element shorter than its frame
+  const box = frame.locator('xpath=..')
+  const scale = (await box.boundingBox())!.width / desktop.width
+  await expect.poll(async () => (await box.boundingBox())!.height).toBeCloseTo(clipped.height * scale, 0)
+  // The element sits in the middle of the visible box.
+  const outer = (await box.boundingBox())!
+  const inner = (await root.boundingBox())!
+  expect(Math.abs(inner.y - outer.y - (outer.y + outer.height - (inner.y + inner.height)))).toBeLessThan(2)
 })
 
 test('a short section thumbnail is centred on its own background', async ({ page }) => {
   await page.goto('/browse/footer')
   const card = page.getByTestId('component-card').filter({ hasText: 'Column footer' })
   const frame = card.locator('[inert]')
-  const footer = frame.locator('[data-capture-root] > * > *').first()
+  const footer = frame.locator(`${STAGE.root} > * > *`).first()
   await expect(footer).toBeVisible()
   // The card's frame takes the footer's own background colour instead of showing a white band.
   const footerColour = await footer.evaluate((el) => getComputedStyle(el).backgroundColor)
@@ -380,27 +449,24 @@ test.describe('copy and export', () => {
 
   const readClipboard = (page: Page) => page.evaluate(() => navigator.clipboard.readText())
 
-  // The page is interactive once the capture buttons enable; before that clicks would be lost.
-  async function openDetail(page: Page, slug = 'hero-split-image') {
-    await page.goto(`/c/${slug}`)
-    await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
-  }
+  // The page is interactive once the actions enable; before that clicks would be lost.
+  const openHero = (page: Page) => openDetail(page, 'hero-split-image')
 
   test('there is exactly one format switch, and it sits in the action bar', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     await expect(page.getByRole('radiogroup', { name: 'Code format' })).toHaveCount(1)
     await expect(page.getByRole('radio', { name: 'HTML' })).toHaveCount(1)
   })
 
   test('copy code (react) puts Component.tsx on the clipboard', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Copy code' }).click()
     await expect(page.getByText('Copied React code')).toBeVisible()
     expect(await readClipboard(page)).toBe(HERO.tsx)
   })
 
   test('html format copies a single snippet and persists across reloads', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('radio', { name: 'HTML' }).click()
     await page.getByRole('button', { name: 'Copy code' }).click()
     await expect(page.getByText('Copied HTML + CSS')).toBeVisible()
@@ -413,11 +479,11 @@ test.describe('copy and export', () => {
   })
 
   test('copy for AI puts the brief on the clipboard in the chosen format', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Copy for AI' }).click()
     await expect(page.getByText('Copied AI brief')).toBeVisible()
     const brief = await readClipboard(page)
-    expect(brief).toMatch(/^# Split hero with image \(Web Library\)\n/)
+    expect(brief).toMatch(/^# Split hero with image \(Patternbook\)\n/)
     expect(brief).toContain('## Reference code (React + Tailwind v4)')
 
     await page.getByRole('radio', { name: 'HTML' }).click()
@@ -426,7 +492,7 @@ test.describe('copy and export', () => {
   })
 
   test('each file in the Code tab has its own copy button', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('tab', { name: 'Code' }).click()
     await page.getByRole('button', { name: 'Copy Component.tsx' }).click()
     await expect(page.getByText('Copied React code')).toBeVisible()
@@ -441,37 +507,31 @@ test.describe('copy and export', () => {
   // PNG sizes are the spec's numbers written out (frame size × capture scale 2), not derived from frameSize:
   // they check what the frame geometry and the capture produce together.
   test('download desktop and mobile PNGs at 2x', async ({ page }) => {
-    await openDetail(page)
-    for (const [label, width, name] of [['Desktop PNG', 2880, 'desktop'], ['Mobile PNG', 780, 'mobile']] as const) {
-      await page.getByRole('button', { name: 'Download' }).click()
-      const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: label }).click()])
-      expect(dl.suggestedFilename()).toBe(`web-library-hero-split-image-${name}.png`)
-      expect(PNG.sync.read(await readFile(await dl.path())).width).toBe(width)
-      await expect(page.getByText(`Downloaded web-library-hero-split-image-${name}.png`)).toBeVisible()
+    await openHero(page)
+    for (const [viewport, width] of [['desktop', 2880], ['mobile', 780]] as const) {
+      const { png, filename } = await downloadPng(page, viewport)
+      expect(filename).toBe(`patternbook-hero-split-image-${viewport}.png`)
+      expect(png.width).toBe(width)
+      await expect(page.getByText(`Downloaded ${filename}`)).toBeVisible()
     }
   })
 
   test('transparent element capture has alpha and no backdrop', async ({ page }) => {
     await openDetail(page, 'buttons-minimal')
-    await page.getByRole('button', { name: 'Download' }).click()
-    await page.getByRole('menuitemcheckbox', { name: 'Transparent background' }).click()
-    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Desktop PNG' }).click()])
-    const png = PNG.sync.read(await readFile(await dl.path()))
+    const { png } = await downloadPng(page, 'desktop', { transparent: true })
     expect(png.width).toBeLessThan(2880)
     expect(png.data.some((v, i) => i % 4 === 3 && v === 0)).toBe(true) // some fully transparent pixel
   })
 
   test('opaque element capture keeps the white backdrop at the full frame width', async ({ page }) => {
     await openDetail(page, 'buttons-minimal')
-    await page.getByRole('button', { name: 'Download' }).click()
-    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Desktop PNG' }).click()])
-    const png = PNG.sync.read(await readFile(await dl.path()))
+    const { png } = await downloadPng(page, 'desktop')
     expect({ width: png.width, height: png.height }).toEqual({ width: 2880, height: 960 })
     expect(png.data.some((v, i) => i % 4 === 3 && v !== 255)).toBe(false) // fully opaque
   })
 
   test('copy image writes a PNG to the clipboard', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Copy image' }).click()
     await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
     expect(await page.evaluate(async () => (await navigator.clipboard.read())[0].types)).toContain('image/png')
@@ -479,7 +539,7 @@ test.describe('copy and export', () => {
 
   // aria-disabled rather than disabled: a disabled button drops keyboard focus to <body>.
   test('the capture buttons are aria-disabled while a capture runs, and keep focus', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     const copyImage = page.getByRole('button', { name: 'Copy image' })
     const download = page.getByRole('button', { name: 'Download' })
     await copyImage.click()
@@ -506,7 +566,7 @@ test.describe('copy and export', () => {
     await page.addInitScript(() => {
       navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
     })
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Copy code' }).click()
     await expect(page.getByText("Couldn't copy")).toBeVisible()
     await expect(page.getByText('Your browser blocked clipboard access.')).toBeVisible()
@@ -516,7 +576,7 @@ test.describe('copy and export', () => {
 
   test('capture survives failed images and cleans up', async ({ page }) => {
     await page.route('https://images.unsplash.com/**', (r) => r.abort())
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Download' }).click()
     const [dl] = await Promise.all([
       page.waitForEvent('download', { timeout: 12_000 }),
@@ -533,7 +593,7 @@ test.describe('copy and export', () => {
   test('a failed capture offers Retry, removes its frame, and Retry reruns the same capture', async ({ page }) => {
     let failing = true
     await page.route(isCapturePage, (route) => (failing ? route.abort() : route.continue()))
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Download' }).click()
     await page.getByRole('menuitem', { name: 'Mobile PNG' }).click()
     await expect(page.getByText("Couldn't create image")).toBeVisible()
@@ -542,7 +602,7 @@ test.describe('copy and export', () => {
 
     failing = false
     const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Retry' }).click()])
-    expect(dl.suggestedFilename()).toBe('web-library-hero-split-image-mobile.png')
+    expect(dl.suggestedFilename()).toBe('patternbook-hero-split-image-mobile.png')
   })
 
   test('opening another component cancels a running capture', async ({ page }) => {
@@ -550,7 +610,7 @@ test.describe('copy and export', () => {
     await page.route(isCapturePage, () => {})
     const errors: string[] = []
     page.on('pageerror', (error) => errors.push(error.message))
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Download' }).click()
     await page.getByRole('menuitem', { name: 'Desktop PNG' }).click()
     await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(1)
@@ -570,7 +630,7 @@ test.describe('copy and export', () => {
     await page.addInitScript(() => {
       navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
     })
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('radio', { name: 'HTML' }).click()
     await page.getByRole('tab', { name: 'Code' }).click()
     await page.getByRole('button', { name: 'Copy styles.css' }).click()
@@ -579,7 +639,7 @@ test.describe('copy and export', () => {
   })
 
   test('the download menu follows the menu keyboard pattern', async ({ page }) => {
-    await openDetail(page)
+    await openHero(page)
     const trigger = page.getByRole('button', { name: 'Download' })
     const desktop = page.getByRole('menuitem', { name: 'Desktop PNG' })
     const mobile = page.getByRole('menuitem', { name: 'Mobile PNG' })
@@ -635,7 +695,7 @@ test.describe('copy and export', () => {
           .filter(([kind]) => kind === 'event')
           .map(([, event]) => ({ name: event.name, data: event.data })),
       )
-    await openDetail(page)
+    await openHero(page)
 
     await page.getByRole('button', { name: 'Copy code' }).click()
     await expect(page.getByText('Copied React code')).toBeVisible()
@@ -644,7 +704,7 @@ test.describe('copy and export', () => {
     await expect(page.getByText('Copied AI brief')).toBeVisible()
     await page.getByRole('button', { name: 'Download' }).click()
     await page.getByRole('menuitem', { name: 'Mobile PNG' }).click()
-    await expect(page.getByText('Downloaded web-library-hero-split-image-mobile.png')).toBeVisible({ timeout: 12_000 })
+    await expect(page.getByText('Downloaded patternbook-hero-split-image-mobile.png')).toBeVisible({ timeout: 12_000 })
     await page.getByRole('button', { name: 'Copy image' }).click()
     await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
 
@@ -664,7 +724,7 @@ test.describe('copy and export', () => {
       if (message.type() === 'error' || message.type() === 'warning') problems.push(`${message.type()}: ${message.text()}`)
     })
     page.on('pageerror', (error) => problems.push(`pageerror: ${error.message}`))
-    await openDetail(page)
+    await openHero(page)
     await page.getByRole('button', { name: 'Copy code' }).click()
     await expect(page.getByText('Copied React code')).toBeVisible()
     await page.getByRole('button', { name: 'Download' }).click()

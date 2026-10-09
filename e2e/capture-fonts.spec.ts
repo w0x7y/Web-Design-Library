@@ -1,11 +1,10 @@
-import { readFile } from 'node:fs/promises'
-import { expect, test, type Page } from '@playwright/test'
+import { expect, test, type Locator } from '@playwright/test'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
 import { loadLibrary } from '../scripts/load-library'
 import { fontDisplayName } from '../src/library/fonts'
-import { previewPath } from '../app/lib/preview-ready'
-import { frameSize } from '../app/lib/viewports'
+import { STAGE } from '../app/lib/stage'
+import { downloadPng, openCapturePage, openDetail } from './lib/pages'
 import { crop, grayscale } from './lib/png'
 
 // A downloaded PNG must show the component in the fonts its preview shows. The failure this guards
@@ -50,9 +49,8 @@ test('the library has components with web fonts to check', () => {
   expect(WITH_FONTS.length).toBeGreaterThanOrEqual(13)
 })
 
-/** Natively screenshots what captureComponent captures for this component: the section, or an element with its backdrop. */
-async function screenshotPreview(page: Page, isElement: boolean) {
-  const target = page.locator(isElement ? '[data-preview-backdrop]' : '[data-capture-root]')
+/** Natively screenshots what captureComponent captures (openCapturePage's target). */
+async function screenshotTarget(target: Locator) {
   return PNG.sync.read(await target.screenshot({ animations: 'disabled' }))
 }
 
@@ -69,14 +67,8 @@ const count = (mask: Uint8Array) => mask.reduce((sum, value) => sum + value, 0)
 
 for (const meta of WITH_FONTS) {
   test(`${meta.slug}: the Desktop PNG shows the component's web fonts`, async ({ page }, testInfo) => {
-    // The reference renders in the Desktop PNG's capture frame (an element's is shorter than the screen),
-    // and an element is captured with its backdrop.
-    const isElement = meta.preview.kind === 'element'
-    await page.setViewportSize(frameSize(meta.preview.kind, 'desktop'))
-
-    // The capture waits for the page to report ready with motion frozen; so does a reference.
-    await page.goto(previewPath(meta.slug, { capture: true }))
-    await page.locator('[data-preview-backdrop][data-preview-state="ready"][data-capture]').waitFor()
+    // The reference renders as the Desktop PNG does: in its capture frame, ready with motion frozen.
+    const target = await openCapturePage(page, meta)
     // Without this the reference could be in fallback fonts too, and the comparison would prove nothing.
     const wanted = meta.fonts.map(fontDisplayName)
     const loaded = await page.evaluate(
@@ -84,15 +76,12 @@ for (const meta of WITH_FONTS) {
       wanted,
     )
     expect(loaded, 'every declared family is loaded in the reference page').toEqual(wanted)
-    const reference = await screenshotPreview(page, isElement)
-    await page.addStyleTag({ content: '[data-capture-root], [data-capture-root] * { color: transparent !important; text-shadow: none !important; -webkit-text-fill-color: transparent !important }' })
-    const noText = await screenshotPreview(page, isElement)
+    const reference = await screenshotTarget(target)
+    await page.addStyleTag({ content: `${STAGE.root}, ${STAGE.root} * { color: transparent !important; text-shadow: none !important; -webkit-text-fill-color: transparent !important }` })
+    const noText = await screenshotTarget(target)
 
-    await page.goto(`/c/${meta.slug}`)
-    await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
-    await page.getByRole('button', { name: 'Download' }).click()
-    const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Desktop PNG' }).click()])
-    const captured = PNG.sync.read(await readFile(await download.path()))
+    await openDetail(page, meta.slug)
+    const { png: captured } = await downloadPng(page, 'desktop')
 
     // Playwright rounds an element's box out to whole CSS pixels (up to 2 device pixels taller at 2x);
     // the capture is the exact box, truncated to whole device pixels.

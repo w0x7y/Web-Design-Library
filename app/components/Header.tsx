@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { SITE } from '~/site'
+import { LogoMark } from './Logo'
 import { SearchField } from './SearchField'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -16,12 +17,7 @@ export function Header() {
             to="/"
             className="-mx-1 flex items-center gap-2.5 rounded-md px-1 py-1 text-[15px] font-semibold tracking-tight text-zinc-950 focus-visible:outline-2 focus-visible:outline-focus dark:text-white"
           >
-            <svg aria-hidden="true" viewBox="0 0 20 20" className="size-5">
-              <rect x="2" y="2" width="7" height="7" rx="1.75" fill="currentColor" />
-              <rect x="11" y="2" width="7" height="7" rx="1.75" fill="currentColor" opacity="0.35" />
-              <rect x="2" y="11" width="7" height="7" rx="1.75" fill="currentColor" opacity="0.35" />
-              <rect x="11" y="11" width="7" height="7" rx="1.75" fill="currentColor" opacity="0.35" />
-            </svg>
+            <LogoMark />
             {SITE.name}
           </Link>
         </div>

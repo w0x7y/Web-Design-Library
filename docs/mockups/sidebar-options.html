@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidebar options — Patternbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&display=swap">
+<style>
+  :root {
+    --bg: #fff; --panel: #fafafa; --ink: #09090b; --ink-2: #52525b; --ink-3: #71717a; --line: #e4e4e7; --line-2: #d4d4d8;
+    --active: #f4f4f5; --thumb: #f4f4f5; --thumb-line: #e4e4e7; --accent: #18181b; --accent-ink: #fff; --page: #f4f4f5;
+  }
+  .dark {
+    --bg: #09090b; --panel: #121215; --ink: #fafafa; --ink-2: #a1a1aa; --ink-3: #8b8b94; --line: #27272a; --line-2: #3f3f46;
+    --active: #18181b; --thumb: #18181b; --thumb-line: #27272a; --accent: #f4f4f5; --accent-ink: #09090b; --page: #000;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Geist, ui-sans-serif, system-ui, sans-serif; background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 48px 24px 96px; }
+  .top { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; }
+  .lede { margin-top: 8px; color: var(--ink-2); max-width: 680px; line-height: 1.55; }
+  .toggle { font: inherit; font-size: 13px; font-weight: 500; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; height: 32px; padding: 0 12px; cursor: pointer; }
+  .toc { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 24px; }
+  .toc a { font-size: 13px; color: var(--ink-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; height: 28px; display: inline-flex; align-items: center; padding: 0 12px; background: var(--bg); }
+  .toc a:hover { color: var(--ink); border-color: var(--line-2); }
+
+  .option { margin-top: 64px; scroll-margin-top: 24px; }
+  .option-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px; align-items: start; }
+  @media (max-width: 900px) { .option-head { grid-template-columns: 1fr; gap: 12px; } }
+  .tag { font-size: 12px; font-weight: 500; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; }
+  h2 { margin-top: 6px; font-size: 22px; font-weight: 600; letter-spacing: -0.015em; }
+  .summary { margin-top: 6px; color: var(--ink-2); line-height: 1.55; font-size: 15px; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+  .pc h3 { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .pc ul { padding-left: 16px; display: grid; gap: 4px; }
+  .rec { display: inline-flex; margin-left: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #166534; background: #dcfce7; border-radius: 999px; padding: 2px 8px; vertical-align: middle; }
+  .dark .rec { color: #86efac; background: #14532d; }
+
+  /* The mock browser window */
+  .mock { margin-top: 20px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--bg); box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 16px 40px -24px rgb(0 0 0 / 0.25); }
+  .mock-scroll { overflow: hidden; }
+  .site { width: 1200px; height: 640px; overflow: hidden; display: flex; flex-direction: column; background: var(--bg); position: relative; }
+  .bar { height: 52px; flex-shrink: 0; display: flex; align-items: center; gap: 40px; padding: 0 28px; border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 15px; letter-spacing: -0.01em; width: 220px; }
+  .brand svg { width: 20px; height: 20px; }
+  .search { width: 340px; height: 34px; border: 1px solid var(--line); border-radius: 8px; display: flex; align-items: center; gap: 8px; padding: 0 12px; color: var(--ink-3); font-size: 14px; }
+  .body { flex: 1; display: flex; gap: 36px; padding: 0 28px; min-height: 0; }
+  .main { flex: 1; min-width: 0; padding-top: 32px; overflow: hidden; }
+  .h { display: flex; align-items: baseline; gap: 10px; }
+  .h b { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; }
+  .h span { font-size: 13px; color: var(--ink-3); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 20px; margin-top: 20px; }
+  .grid.four { grid-template-columns: repeat(4, 1fr); }
+  .card .t { aspect-ratio: 16 / 10; border-radius: 8px; border: 1px solid var(--thumb-line); background: var(--thumb); position: relative; overflow: hidden; }
+  .card .t.light { background: #fff; }
+  .card .t.light::before { content: ""; position: absolute; left: 10%; top: 28%; width: 44%; height: 9%; border-radius: 3px; background: #e4e4e7; box-shadow: 0 16px 0 -2px #f0f0f2, 0 30px 0 -2px #f0f0f2; }
+  .card .t.light::after { content: ""; position: absolute; right: 9%; top: 18%; width: 30%; height: 62%; border-radius: 5px; background: #ececef; }
+  .card .t.dark { background: linear-gradient(160deg, #18181b, #09090b); }
+  .card .t.dark::before { content: ""; position: absolute; left: 22%; right: 22%; top: 34%; height: 10%; border-radius: 3px; background: #3f3f46; box-shadow: 0 18px 0 -3px #27272a; }
+  .card .t.grad { background: linear-gradient(120deg, #fde68a, #f9a8d4 55%, #a5b4fc); }
+  .card .t.grad::before { content: ""; position: absolute; left: 12%; top: 32%; width: 46%; height: 12%; border-radius: 3px; background: rgb(255 255 255 / 0.7); }
+  .card .n { margin-top: 9px; font-size: 13px; font-weight: 500; }
+  .card .m { margin-top: 2px; font-size: 12px; color: var(--ink-3); }
+
+  /* Sidebar primitives */
+  .side { width: 220px; flex-shrink: 0; padding-top: 28px; overflow: hidden; font-size: 13.5px; }
+  .row { display: flex; align-items: center; justify-content: space-between; height: 30px; padding: 0 10px; margin: 0 -10px; border-radius: 6px; color: var(--ink-2); }
+  .row.on { background: var(--active); color: var(--ink); font-weight: 500; }
+  .row .c { font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .glabel { font-size: 12px; font-weight: 500; color: var(--ink-3); margin: 18px 0 4px; }
+  .fade { position: absolute; inset: auto 0 0 0; height: 60px; background: linear-gradient(transparent, var(--bg)); pointer-events: none; }
+
+  /* B: collapsible */
+  .acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; height: 32px; margin: 0 -10px; padding: 0 10px; border-radius: 6px; font-weight: 500; color: var(--ink); }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary:hover { background: var(--active); }
+  .acc summary .chev { width: 14px; height: 14px; color: var(--ink-3); transition: transform 0.15s; }
+  .acc details[open] summary .chev { transform: rotate(90deg); }
+  .acc summary .l { display: flex; align-items: center; gap: 6px; }
+  .acc .kids { padding: 2px 0 8px 14px; border-left: 1px solid var(--line); margin-left: 6px; }
+  .acc .kids .row { margin-left: 0; }
+  .acc details + details { margin-top: 2px; }
+
+  /* C: contents + scrollspy */
+  .toc-side .row { height: 28px; }
+  .toc-side .row.on { background: none; color: var(--ink); position: relative; }
+  .toc-side .row.on::before { content: ""; position: absolute; left: -1px; top: 6px; bottom: 6px; width: 2px; border-radius: 2px; background: var(--ink); }
+  .toc-side .list { border-left: 1px solid var(--line); padding-left: 12px; }
+  .toc-side .glabel:first-child { margin-top: 0; }
+  .sec-h { display: flex; align-items: baseline; gap: 8px; margin-top: 28px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .sec-h:first-child { margin-top: 0; }
+  .sec-h b { font-size: 15px; font-weight: 600; }
+  .sec-h span { font-size: 12px; color: var(--ink-3); }
+  .sec-h a { margin-left: auto; font-size: 12px; color: var(--ink-3); }
+  .grid.tight { margin-top: 14px; }
+
+  /* D: top bar */
+  .seg { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--active); }
+  .seg span { height: 30px; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border-radius: 7px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
+  .seg span.on { background: var(--bg); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 0 0 1px var(--line); }
+  .seg span i { font-style: normal; font-size: 11.5px; color: var(--ink-3); font-weight: 400; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .chip { height: 28px; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--ink-2); }
+  .chip.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .chip i { font-style: normal; font-size: 11.5px; opacity: 0.6; }
+  .divider { width: 1px; height: 16px; background: var(--line); align-self: center; margin: 0 4px; }
+
+  /* E: chip sidebar */
+  .pill-side .grp { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .pill-side .grp:first-child { padding-top: 0; }
+  .pill-side .gh { display: flex; align-items: center; justify-content: space-between; font-weight: 500; font-size: 13.5px; }
+  .pill-side .gh span { font-size: 12px; color: var(--ink-3); font-weight: 400; }
+  .pill-side .pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .pill-side .pills span { font-size: 12.5px; height: 26px; display: inline-flex; align-items: center; padding: 0 9px; border-radius: 6px; background: var(--active); color: var(--ink-2); }
+  .pill-side .pills span.on { background: var(--accent); color: var(--accent-ink); }
+  .pill-side .all { display: flex; align-items: center; justify-content: space-between; height: 32px; padding: 0 10px; margin: 0 -10px 14px; border-radius: 6px; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Sidebar options</h1>
+      <p class="lede">Today's sidebar lists all 26 categories in one long column. 19 of them hold a single component, so most rows end in "1", and the App UI group sits below the fold at 900px. Below are five other ways to lay out the same 36 components. Every mock uses the real categories and counts.</p>
+    </div>
+    <button class="toggle" type="button" onclick="document.documentElement.classList.toggle('dark')">Toggle dark</button>
+  </div>
+  <nav class="toc" aria-label="Options">
+    <a href="#today">Today</a><a href="#a">A · Collapsible groups</a><a href="#b">B · Contents + scroll</a><a href="#c">C · Top bar, no sidebar</a><a href="#d">D · Fewer categories</a><a href="#e">E · Category chips</a>
+  </nav>
+  <div id="options"></div>
+</div>
+
+<script>
+const ITEMS = [["Brutalist hero","hero","light"],["Centered gradient hero","hero","dark"],["Editorial hero","hero","light"],["Split hero with image","hero","light"],["Glass navbar","navbar","dark"],["Simple navbar","navbar","light"],["Alternating features","features","light"],["Bento features","features","dark"],["Icon feature grid","features","light"],["Brutalist pricing","pricing","light"],["Three-tier pricing","pricing","light"],["Large quote","testimonials","dark"],["Testimonial grid","testimonials","light"],["Gradient CTA banner","cta","grad"],["Newsletter signup","cta","light"],["FAQ accordion","faq","light"],["Column footer","footer","light"],["Wordmark footer","footer","dark"],["Glass profile card","profile-card","grad"],["Team grid","team","light"],["Minimal product card","product-card","light"],["Stat cards","stat-card","dark"],["Playful testimonial card","testimonial-card","light"],["Editorial blog card","blog-card","light"],["Buttons — Minimal","buttons","light"],["Inputs — Glass","inputs","dark"],["Badges — Playful","badges","light"],["Toggles — Corporate","toggles","light"],["Tabs — Brutalist","tabs","light"],["Dropdowns — Dark","dropdowns","dark"],["Split login","login","light"],["Gradient sign-up card","signup","grad"],["Settings panel","settings","light"],["Data table","data-table","light"],["Playful empty state","empty-state","light"],["Dark stats dashboard","dashboard","dark"]]
+const GROUPS = [
+  ['Sections', [['hero','Hero'],['navbar','Navbar'],['features','Features'],['pricing','Pricing'],['testimonials','Testimonials'],['cta','Call to action'],['faq','FAQ'],['footer','Footer']]],
+  ['Cards & profiles', [['profile-card','Profile cards'],['team','Team'],['product-card','Product cards'],['stat-card','Stat cards'],['testimonial-card','Testimonial cards'],['blog-card','Blog cards']]],
+  ['Elements', [['buttons','Buttons'],['inputs','Inputs'],['badges','Badges'],['toggles','Toggles'],['tabs','Tabs'],['dropdowns','Dropdowns']]],
+  ['App UI', [['login','Login'],['signup','Sign-up'],['settings','Settings'],['data-table','Data table'],['empty-state','Empty state'],['dashboard','Dashboard']]],
+]
+// D: the same 36 components in 14 fuller categories.
+const MERGED = [
+  ['Sections', [['Hero',['hero']],['Navigation',['navbar']],['Features',['features']],['Pricing',['pricing']],['Social proof',['testimonials','testimonial-card']],['Call to action',['cta']],['FAQ',['faq']],['Footer',['footer']]]],
+  ['Cards', [['Cards',['profile-card','team','product-card','stat-card','blog-card']]]],
+  ['Elements', [['Buttons & badges',['buttons','badges']],['Form controls',['inputs','toggles','dropdowns','tabs']]]],
+  ['App UI', [['Auth',['login','signup']],['Data & dashboards',['data-table','dashboard']],['App screens',['settings','empty-state']]]],
+]
+const count = (cats) => ITEMS.filter((i) => cats.includes(i[1])).length
+const groupCount = (g) => count(g[1].map((c) => c[0]))
+const MARK = '<svg viewBox="0 0 20 20"><mask id="m"><path d="M2 5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6.5L11.5 18H5a3 3 0 0 1-3-3Z" fill="#fff"/><rect x="5" y="5" width="4" height="4" rx="1" fill="#000"/><rect x="11" y="5" width="4" height="4" rx="1" fill="#777"/><rect x="5" y="11" width="4" height="4" rx="1" fill="#777"/></mask><rect width="20" height="20" fill="currentColor" mask="url(#m)"/><path d="M11.5 18v-3.5a3 3 0 0 1 3-3H18Z" fill="currentColor" opacity=".4"/></svg>'
+const SEARCH = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>'
+const CHEV = '<svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg>'
+
+const bar = () => '<div class="bar"><div class="brand">' + MARK + 'Patternbook</div><div class="search">' + SEARCH + 'Search components</div></div>'
+const card = (i) => '<div class="card"><div class="t ' + i[2] + '"></div><div class="n">' + i[0] + '</div><div class="m">' + i[1] + '</div></div>'
+const cards = (list, n = 6, cls = '') => '<div class="grid ' + cls + '">' + list.slice(0, n).map(card).join('') + '</div>'
+const row = (label, c, on, hideOne) => '<div class="row' + (on ? ' on' : '') + '"><span>' + label + '</span><span class="c">' + (hideOne && c === 1 ? '' : c) + '</span></div>'
+const site = (side, main) => '<div class="mock"><div class="mock-scroll"><div class="site">' + bar() + '<div class="body">' + side + '<div class="main">' + main + '</div></div><div class="fade"></div></div></div></div>'
+const heading = (title, n) => '<div class="h"><b>' + title + '</b><span>' + n + '</span></div>'
+
+function today() {
+  let s = '<div class="side">' + row('All components', 36, true)
+  for (const g of GROUPS) s += '<div class="glabel">' + g[0] + '</div>' + g[1].map((c) => row(c[1], count([c[0]]))).join('')
+  return site(s + '</div>', heading('All components', 36) + cards(ITEMS))
+}
+
+function collapsible() {
+  let s = '<div class="side acc">' + row('All components', 36, false) + '<div style="height:10px"></div>'
+  GROUPS.forEach((g, gi) => {
+    s += '<details' + (gi === 0 ? ' open' : '') + '><summary><span class="l">' + CHEV + g[0] + '</span><span class="c" style="font-size:12px;color:var(--ink-3);font-weight:400">' + groupCount(g) + '</span></summary><div class="kids">'
+    s += g[1].map((c) => row(c[1], count([c[0]]), c[0] === 'features', true)).join('') + '</div></details>'
+  })
+  return site(s + '</div>', heading('Features', 3) + cards(ITEMS.filter((i) => i[1] === 'features'), 3))
+}
+
+function contents() {
+  let s = '<div class="side toc-side">'
+  for (const g of GROUPS) s += '<div class="glabel">' + g[0] + '</div><div class="list">' + g[1].map((c) => row(c[1], count([c[0]]), c[0] === 'hero', true)).join('') + '</div>'
+  let m = ''
+  for (const c of GROUPS[0][1].slice(0, 3)) {
+    const list = ITEMS.filter((i) => i[1] === c[0])
+    m += '<div class="sec-h"><b>' + c[1] + '</b><span>' + list.length + '</span><a>View all →</a></div>' + cards(list, 6, 'tight')
+  }
+  return site(s + '</div>', m)
+}
+
+function topbar() {
+  const segs = '<div class="seg"><span class="on">All <i>36</i></span>' + GROUPS.map((g) => '<span>' + g[0] + ' <i>' + groupCount(g) + '</i></span>').join('') + '</div>'
+  const chips = '<div class="chips">' + GROUPS[0][1].map((c, k) => '<span class="chip' + (k === 0 ? '' : '') + '">' + c[1] + ' <i>' + count([c[0]]) + '</i></span>').join('') +
+    '<span class="divider"></span><span class="chip">minimal</span><span class="chip">dark</span><span class="chip">glass</span></div>'
+  return site('', segs + chips + '<div style="height:6px"></div>' + cards(ITEMS, 8, 'four')).replace('<div class="body">', '<div class="body" style="gap:0">')
+}
+
+function merged() {
+  let s = '<div class="side">' + row('All components', 36, true)
+  for (const g of MERGED) s += '<div class="glabel">' + g[0] + '</div>' + g[1].map((c) => row(c[0], count(c[1]))).join('')
+  return site(s + '</div>', heading('All components', 36) + cards(ITEMS))
+}
+
+function pills() {
+  let s = '<div class="side pill-side"><div class="all row on" style="margin:0 -10px 14px"><span>All components</span><span class="c">36</span></div>'
+  for (const g of GROUPS) s += '<div class="grp"><div class="gh">' + g[0] + '<span>' + groupCount(g) + '</span></div><div class="pills">' + g[1].map((c) => '<span>' + c[1] + '</span>').join('') + '</div></div>'
+  return site(s + '</div>', heading('All components', 36) + cards(ITEMS))
+}
+
+const OPTIONS = [
+  ['today', 'Reference', "Today's sidebar", 'One flat column per group, a count on every row.', today,
+    ['Everything is one click away', 'Familiar docs-site pattern'],
+    ['26 rows; 19 of them say "1", so the library looks thin', 'Taller than a laptop screen: App UI is hidden until you scroll the sidebar', 'Rows, labels and counts all have the same weight, so nothing stands out']],
+  ['a', 'Option A', 'Collapsible groups', 'Four group headers with totals. Only the group you are in is open, and rows that hold a single component drop the "1".', collapsible,
+    ['Fits on any screen: 4 rows closed, at most 12 open', 'Group totals (18, 6, 6, 6) say more than a column of 1s', 'Same URLs and routes as today'],
+    ['One extra click to reach a category in a closed group', 'Hides the shape of the library until you open things']],
+  ['b', 'Option B', 'Contents + scroll', '"All components" becomes one long page with a heading per category, and the sidebar is its table of contents. The current section is marked as you scroll; clicking jumps to it.', contents,
+    ['Single-item categories stop looking empty: they are short sections, not separate pages', 'Browsing everything is just scrolling; the sidebar always shows where you are', 'The pattern Tailwind UI and shadcn blocks use'],
+    ['Needs a scroll-spy (a little JS) and anchor links', 'Category pages still exist for links, but the sidebar no longer leads to them']],
+  ['c', 'Option C', 'Top bar, no sidebar', 'Group tabs with totals, then the selected group’s categories as chips next to the style filters. The grid gets the full width: four columns.', topbar,
+    ['Most room for the components (4 columns instead of 3)', 'One navigation model on desktop and mobile (mobile already uses a scrolling bar)', 'Categories and style tags sit together, so filtering reads as one control'],
+    ['Category list is no longer always visible', 'Two rows of chips above the grid push the first thumbnails down']],
+  ['d', 'Option D', 'Fewer, fuller categories', 'Keep the sidebar but merge thin categories: 14 instead of 26 (e.g. Social proof = testimonials + testimonial cards; Form controls = inputs, toggles, dropdowns, tabs).', merged,
+    ['Smallest change to the UI; fits above the fold', 'Only FAQ still holds a single component; the other rows hold 2–5'],
+    ['Changes the taxonomy (taxonomy.ts, URLs, meta.category of components)', 'Categories will need splitting again as the library grows']],
+  ['e', 'Option E', 'Category chips', 'Each group is a short block: name and total, then its categories as small chips that wrap. The whole taxonomy fits in about 400px.', pills,
+    ['Shows every category at once, compactly', 'Reads as a filter panel, matching the tag chips'],
+    ['Chips are harder to scan than a list', 'No per-category counts without crowding the chips']],
+]
+
+document.getElementById('options').innerHTML = OPTIONS.map(([id, tag, title, summary, render, pros, cons]) =>
+  '<section class="option" id="' + id + '"><div class="option-head"><div><div class="tag">' + tag + '</div><h2>' + title + (id === 'b' ? '<span class="rec">Recommended</span>' : '') + '</h2><p class="summary">' + summary + '</p></div>' +
+  '<div class="pc"><div><h3>Good</h3><ul>' + pros.map((p) => '<li>' + p + '</li>').join('') + '</ul></div><div><h3>Costs</h3><ul>' + cons.map((p) => '<li>' + p + '</li>').join('') + '</ul></div></div></div>' +
+  render() + '</section>').join('')
+
+// Each mock is drawn at 1200px and zoomed to fit its frame, so it reads the same at any width.
+function fit() {
+  for (const mock of document.querySelectorAll('.mock')) mock.querySelector('.site').style.zoom = Math.min(1, mock.clientWidth / 1200)
+}
+fit()
+addEventListener('resize', fit)
+</script>
+</body>
+</html>

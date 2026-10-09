@@ -1,5 +1,5 @@
 import type { ComponentMeta } from '../../src/library/types'
-import { filterMetas, filtersSearch, isBrowsePath, parseFilters, serializeFilters } from './filters'
+import { browseResults, filterMetas, filtersSearch, parseFilters, serializeFilters } from './filters'
 
 function fixture(slug: string, category: ComponentMeta['category'], tags: ComponentMeta['tags'], name: string): ComponentMeta {
   return {
@@ -43,26 +43,25 @@ test('filtersSearch builds a readable query string', () => {
   expect(filtersSearch({ q: ' glass card ', tags: ['dark', 'has-image'] })).toBe('?q=glass+card&tags=dark,has-image')
 })
 
-test('filterMetas: category exact, tags AND, every q term matches name or description case-insensitively', () => {
+test('filterMetas: tags AND, every q term matches name or description case-insensitively', () => {
   // fixtures: A hero [minimal, light] "Split hero", B hero [dark] "Gradient hero", C pricing [minimal] "Three tier pricing"
-  expect(filterMetas(all, { q: '', tags: [], category: 'hero' }).map((m) => m.slug)).toEqual(['a', 'b'])
   expect(filterMetas(all, { q: '', tags: ['minimal', 'light'] }).map((m) => m.slug)).toEqual(['a'])
   expect(filterMetas(all, { q: 'HERO gradient', tags: [] }).map((m) => m.slug)).toEqual(['b'])
   expect(filterMetas(all, { q: 'zzz', tags: [] })).toEqual([])
 })
 
-test('filterMetas searches descriptions and combines every filter', () => {
+test('filterMetas searches descriptions', () => {
   expect(filterMetas(all, { q: 'tier DESCRIPTION', tags: [] }).map((m) => m.slug)).toEqual(['c'])
-  expect(filterMetas(all, { q: 'split', tags: ['minimal'], category: 'hero' }).map((m) => m.slug)).toEqual(['a'])
-  expect(filterMetas(all, { q: 'split', tags: ['minimal'], category: 'pricing' })).toEqual([])
   expect(filterMetas(all, { q: '', tags: [] })).toEqual(all)
 })
 
-test('isBrowsePath matches the index and known categories only', () => {
-  expect(isBrowsePath('/')).toBe(true)
-  expect(isBrowsePath('/browse/hero')).toBe(true)
-  expect(isBrowsePath('/browse/hero/')).toBe(true)
-  expect(isBrowsePath('/browse/nope')).toBe(false)
-  expect(isBrowsePath('/browse')).toBe(false)
-  expect(isBrowsePath('/c/hero-split-image')).toBe(false)
+test('browseResults: the category in view, then the filters within it', () => {
+  const slugs = (metas: ComponentMeta[]) => metas.map((m) => m.slug)
+  const hero = browseResults(all, 'hero', { q: '', tags: [] })
+  expect([slugs(hero.inView), slugs(hero.results), hero.filtered]).toEqual([['a', 'b'], ['a', 'b'], false])
+  const split = browseResults(all, 'hero', { q: 'split', tags: ['minimal'] })
+  expect([slugs(split.inView), slugs(split.results), split.filtered]).toEqual([['a', 'b'], ['a'], true])
+  expect(browseResults(all, 'pricing', { q: 'split', tags: ['minimal'] }).results).toEqual([])
+  const everything = browseResults(all, null, { q: '', tags: ['minimal'] })
+  expect([everything.inView, slugs(everything.results), everything.filtered]).toEqual([all, ['a', 'c'], true])
 })

@@ -1,10 +1,10 @@
 import { domToBlob } from 'modern-screenshot'
 import type { ComponentMeta } from '../../src/library/types'
-import { previewPath, type PreviewState } from './preview-ready'
-import { frameSize, type CaptureViewport } from './viewports'
+import { previewPath } from '../../src/library/urls'
+import { captureTargetSelector, readStage } from './stage'
+import { CAPTURE_SCALE, frameSize, type CaptureViewport } from './viewports'
 
-export const CAPTURE_SCALE = 2
-export const CAPTURE_TIMEOUT_MS = 10_000
+const CAPTURE_TIMEOUT_MS = 10_000
 
 const POLL_MS = 50
 
@@ -55,14 +55,11 @@ async function render(frame: HTMLIFrameElement, meta: ComponentMeta, transparent
   // (data-capture) once hydrated; a capture needs both. The document is read afresh on every poll, in
   // case the frame swaps documents while it loads.
   const backdrop = await until(() => {
-    const el = frame.contentDocument?.querySelector<HTMLElement>('[data-preview-backdrop]')
-    const state = el?.dataset.previewState as PreviewState | undefined
-    if (state === 'failed') throw new Error('The preview page failed to render')
-    return state === 'ready' && el?.hasAttribute('data-capture') ? el : null
+    const stage = frame.contentDocument && readStage(frame.contentDocument)
+    if (stage?.state === 'failed') throw new Error('The preview page failed to render')
+    return stage?.state === 'ready' && stage.frozen ? stage.backdrop : null
   }, signal)
-  const root = backdrop.querySelector<HTMLElement>('[data-capture-root]')!
-
-  const target = meta.preview.kind === 'element' && !transparent ? backdrop : root
+  const target = backdrop.ownerDocument.querySelector<HTMLElement>(captureTargetSelector(meta.preview.kind, transparent))!
   return domToBlob(target, {
     scale: CAPTURE_SCALE,
     backgroundColor: transparent ? null : '#ffffff',

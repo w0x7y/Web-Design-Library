@@ -1,10 +1,9 @@
-import { readFile } from 'node:fs/promises'
 import { expect, test } from '@playwright/test'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
-import { previewPath } from '../app/lib/preview-ready'
-import { frameSize } from '../app/lib/viewports'
+import { CAPTURE_SCALE } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
+import { downloadPng, openCapturePage, openDetail } from './lib/pages'
 import { crop } from './lib/png'
 
 // A downloaded PNG must show an empty field's placeholder as the preview does. modern-screenshot leaves
@@ -16,8 +15,8 @@ import { crop } from './lib/png'
 // with the text colour, and 0 to 1 pixel with the placeholder styles restored; the one filled field
 // (inputs-glass, which shows its value instead) differs by 0.03% either way.
 const MAX_DIFFERING_SHARE = 0.003
-// The PNG's pixel ratio (CAPTURE_SCALE); the reference screenshot is taken at the same ratio.
-const SCALE = 2
+// The reference screenshot is taken at the PNG's pixel ratio.
+const SCALE = CAPTURE_SCALE
 
 const WITH_PLACEHOLDERS = (await loadLibrary()).map((item) => item.entry).filter(({ sources }) => /\splaceholder=/.test(sources.tsx))
 
@@ -29,12 +28,7 @@ test('the library has components with placeholders to check', () => {
 
 for (const { meta } of WITH_PLACEHOLDERS) {
   test(`${meta.slug}: fields with a placeholder look the same in the Desktop PNG`, async ({ page }) => {
-    const isElement = meta.preview.kind === 'element'
-    await page.setViewportSize(frameSize(meta.preview.kind, 'desktop'))
-    await page.goto(previewPath(meta.slug, { capture: true }))
-    await page.locator('[data-preview-backdrop][data-preview-state="ready"][data-capture]').waitFor()
-    // What captureComponent captures: the section, or an element with its backdrop.
-    const target = page.locator(isElement ? '[data-preview-backdrop]' : '[data-capture-root]')
+    const target = await openCapturePage(page, meta)
     const origin = (await target.boundingBox())!
     const fields = await page.evaluate(() =>
       [...document.querySelectorAll('input[placeholder], textarea[placeholder]')].map((field) => field.getBoundingClientRect().toJSON() as DOMRect),
@@ -42,11 +36,8 @@ for (const { meta } of WITH_PLACEHOLDERS) {
     expect(fields.length).toBeGreaterThan(0)
     const reference = PNG.sync.read(await target.screenshot({ animations: 'disabled' }))
 
-    await page.goto(`/c/${meta.slug}`)
-    await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
-    await page.getByRole('button', { name: 'Download' }).click()
-    const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Desktop PNG' }).click()])
-    const captured = PNG.sync.read(await readFile(await download.path()))
+    await openDetail(page, meta.slug)
+    const { png: captured } = await downloadPng(page, 'desktop')
 
     for (const field of fields) {
       // The field's box in device pixels, relative to the captured element.

@@ -1,11 +1,9 @@
 import { useFilters } from '~/lib/use-filters'
 import { useHydrated } from '~/lib/use-hydrated'
-import { STYLE_TAGS, type StyleTag } from '../../src/library/taxonomy'
+import { STYLE_TAGS, TAG_GROUPS, type StyleTag } from '../../src/library/taxonomy'
+import { chip } from './ui'
 
-const CHIP =
-  'inline-flex h-7 shrink-0 items-center rounded-full border px-3 text-[13px] whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus'
-
-/** One toggle per style tag; the selection lives in ?tags. A component must carry every selected tag. */
+/** One toggle per style tag, clustered by TAG_GROUPS; the selection lives in ?tags. A component must carry every selected tag. */
 export function TagFilter() {
   const { filters, setFilters } = useFilters()
   // A click before hydration would be lost, so the chips open up once React is live.
@@ -24,31 +22,33 @@ export function TagFilter() {
       aria-label="Filter by style"
       className="-mx-4 -my-1 flex gap-1.5 overflow-x-auto px-4 py-1 [scrollbar-width:none] sm:mx-0 sm:my-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:py-0 [&::-webkit-scrollbar]:hidden"
     >
-      {STYLE_TAGS.map((tag) => {
-        const pressed = filters.tags.includes(tag)
-        return (
-          <button
-            key={tag}
-            type="button"
-            aria-pressed={pressed}
-            disabled={!hydrated}
-            onClick={() => toggle(tag)}
-            className={`${CHIP} ${
-              pressed
-                ? 'border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950'
-                : 'border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-700 dark:hover:text-white'
-            }`}
-          >
-            {tag}
-          </button>
-        )
-      })}
+      {TAG_GROUPS.map((group, index) => (
+        // display: contents keeps every chip a flex item of the row, so the chips wrap as one list.
+        <div key={group.label} role="group" aria-label={group.label} className="contents">
+          {index > 0 && <span aria-hidden="true" className="mx-1.5 h-4 w-px shrink-0 self-center bg-zinc-200 dark:bg-zinc-800" />}
+          {group.tags.map((tag) => {
+            const pressed = filters.tags.includes(tag)
+            return (
+              <button
+                key={tag}
+                type="button"
+                aria-pressed={pressed}
+                disabled={!hydrated}
+                onClick={() => toggle(tag)}
+                className={chip(pressed ? 'on' : 'off')}
+              >
+                {tag}
+              </button>
+            )
+          })}
+        </div>
+      ))}
       {filters.tags.length > 0 && (
         <button
           type="button"
           onClick={() => setFilters({ ...filters, tags: [] })}
           aria-label="Clear style filters"
-          className={`${CHIP} gap-1 border-transparent text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white`}
+          className={chip('bare')}
         >
           <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="size-3">
             <path d="m3 3 6 6M9 3 3 9" />

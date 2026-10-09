@@ -3,12 +3,17 @@ import type { ComponentMeta, ComponentSources } from './types'
 
 // The component-folder convention: where the folders live, which file holds which source, and the
 // order and grouping the library is shown in. Two adapters load the folders: Vite's import.meta.glob
-// for the app (registry.ts, sources.server.ts) and fs for Node (scripts/load-library.ts, paths.ts).
+// for the app (registry.ts, sources.server.ts) and fs for Node (scripts/load-library.ts).
 // Both take the convention from here. Glob patterns must be string literals, so they repeat the file
 // names; catalog.contract.test.ts checks that the two adapters agree.
 
 /** The folder that holds one folder per component, from the project root. */
 export const COMPONENTS_DIR = 'src/library/components'
+
+/** Whether `value` is a valid slug: kebab-case, so it is safe as a folder name, a URL segment and a file name. */
+export function isSlug(value: string): boolean {
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)
+}
 
 /** The file in a component folder that holds each source format. */
 export const SOURCE_FILES = {

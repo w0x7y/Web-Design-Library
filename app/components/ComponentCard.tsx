@@ -1,25 +1,20 @@
 import { Fragment } from 'react'
 import { Link } from 'react-router'
-import { lazyComponent } from '../../src/library/registry'
 import type { ComponentMeta } from '../../src/library/types'
+import { componentPath } from '../../src/library/urls'
 import { LiveThumbnail } from './LiveThumbnail'
 
 /** A live thumbnail, name and style tags; the whole card links to the component's page. */
 export function ComponentCard({ meta }: { meta: ComponentMeta }) {
-  const Preview = lazyComponent(meta.slug)
   return (
     <article data-testid="component-card" className="group relative">
       <LiveThumbnail
-        kind={meta.preview.kind}
-        fonts={meta.fonts}
-        className="transition-colors duration-150 group-hover:border-zinc-300 dark:group-hover:border-zinc-700"
-      >
-        {/* oxlint-disable-next-line react/static-components -- lazyComponent() memoizes per slug, so the type is stable across renders */}
-        <Preview />
-      </LiveThumbnail>
+        meta={meta}
+        className="transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-zinc-300 group-hover:shadow-[0_12px_32px_-14px_rgb(0_0_0/0.28)] dark:group-hover:border-zinc-600 dark:group-hover:shadow-[0_12px_32px_-14px_rgb(0_0_0/0.9)]"
+      />
       <h3 className="mt-3 text-sm/5 font-medium text-zinc-900 dark:text-zinc-100">
         <Link
-          to={`/c/${meta.slug}`}
+          to={componentPath(meta.slug)}
           className="underline decoration-transparent underline-offset-4 transition-colors duration-150 group-hover:decoration-zinc-300 after:absolute after:-inset-2 after:rounded-xl focus-visible:outline-hidden focus-visible:after:outline-2 focus-visible:after:outline-focus dark:group-hover:decoration-zinc-600"
         >
           {meta.name}

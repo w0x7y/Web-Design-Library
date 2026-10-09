@@ -165,9 +165,9 @@ field is reserved for community submissions; v1 leaves it unset.
 exposes typed lookups: `allMetas()`, `metaBySlug()` and `lazyComponent()`.
 Raw sources load in `src/library/sources.server.ts`, used only by route
 loaders at build time, and `src/library/catalog.ts` owns the folder
-convention, the library order and the grouping by taxonomy. Browse
-filtering by category, search and tags is `filterMetas()` in
-`app/lib/filters.ts`.
+convention, the library order and the grouping by taxonomy. What browse
+shows (the category in view, then search and tags within it) is
+`browseResults()` in `app/lib/filters.ts`.
 
 ### 4.4 Taxonomy
 

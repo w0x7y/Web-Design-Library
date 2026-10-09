@@ -50,7 +50,7 @@ test('codeForFormat returns the html snippet for html', () => {
 test('brief header and sections', () => {
   const b = buildBrief(meta, src, 'react')
   expect(b.startsWith(
-    '# Demo hero (Web Library)\nSource: https://web-design-library.vercel.app/c/demo\n\nBuild this UI component: ' + meta.description + '\n')).toBe(true)
+    '# Demo hero (Patternbook)\nSource: https://web-design-library.vercel.app/c/demo\n\nBuild this UI component: ' + meta.description + '\n')).toBe(true)
   for (const h of ['## Layout\n' + meta.brief.layout, '## Visual style\n' + meta.brief.style,
                    '## States\n' + meta.brief.states, '## Responsive\n' + meta.brief.responsive])
     expect(b).toContain(h)
@@ -89,20 +89,20 @@ test('agent markdown includes both formats', () => {
   const md = buildAgentMarkdown(meta, src)
   expect(md).toContain('## Reference code (React + Tailwind v4)')
   expect(md).toContain('## Reference code (HTML + CSS)')
-  expect(md.startsWith('# Demo hero (Web Library)\nSource: ' + SITE.url + '/c/demo\n')).toBe(true)
+  expect(md.startsWith('# Demo hero (Patternbook)\nSource: ' + SITE.url + '/c/demo\n')).toBe(true)
   expect(md.trimEnd().endsWith(
     'Adapt names, tokens and conventions to the existing project; keep the layout, hierarchy and spacing rhythm.')).toBe(true)
 })
 test('llms.txt groups by group and category in taxonomy order, skipping empty ones', () => {
   const txt = buildLlmsTxt([metaB_pricing, metaA_hero])
-  expect(txt.startsWith('# Web Library\n\n> Copy-paste UI layouts for developers building with AI agents.\n\n')).toBe(true)
+  expect(txt.startsWith('# Patternbook\n\n> Copy-paste UI layouts for developers building with AI agents.\n\n')).toBe(true)
   expect(txt.indexOf('### Hero')).toBeLessThan(txt.indexOf('### Pricing'))
   expect(txt).toContain('- [Demo hero](https://web-design-library.vercel.app/c/demo.md): ' + metaA_hero.description)
   expect(txt).not.toContain('## Elements')
 })
 test('llms.txt intro, group heading and entry layout', () => {
   expect(buildLlmsTxt([metaA_hero])).toBe(
-    '# Web Library\n\n' +
+    '# Patternbook\n\n' +
     '> Copy-paste UI layouts for developers building with AI agents.\n\n' +
     'Copy-paste UI components as React + Tailwind v4 or HTML + CSS. Each link returns a markdown brief with full source code.\n\n' +
     '## Sections\n\n' +

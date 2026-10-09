@@ -1,6 +1,6 @@
 import { buildBrief, codeForFormat } from '../../src/library/brief'
 import type { ComponentMeta, ComponentSources, Format } from '../../src/library/types'
-import { browserPorts, createComponentActions, type ActionPorts, type ComponentActions, type ToastOptions } from './component-actions'
+import { browserPorts, createComponentActions, type ActionPorts, type ComponentActions, type CopyResult, type ToastOptions } from './component-actions'
 
 const meta: ComponentMeta = {
   slug: 'demo-card',
@@ -80,17 +80,15 @@ afterEach(() => {
 describe('copying text', () => {
   test.each(['react', 'html'] as const)('Copy code (%s) copies the code, says so and records copy_code', async (format) => {
     const { actions, ports, toasts } = setup()
-    const onRefused = vi.fn()
-    await actions.copyCode(format, onRefused)
+    expect(await actions.copyCode(format)).toBe('copied')
     expect(ports.copyText.mock.calls).toEqual([[codeForFormat(meta, sources, format)]])
     expect(toasts).toEqual([{ type: 'success', title: { react: 'Copied React code', html: 'Copied HTML + CSS' }[format] }])
     expect(ports.track.mock.calls).toEqual([[{ name: 'copy_code', slug: 'demo-card', format }]])
-    expect(onRefused).not.toHaveBeenCalled()
   })
 
   test.each(['react', 'html'] as const)('Copy for AI (%s) copies the brief, says so and records copy_ai', async (format) => {
     const { actions, ports, toasts } = setup()
-    await actions.copyBrief(format, vi.fn())
+    await actions.copyBrief(format)
     expect(ports.copyText.mock.calls).toEqual([[buildBrief(meta, sources, format)]])
     expect(toasts).toEqual([{ type: 'success', title: 'Copied AI brief' }])
     expect(ports.track.mock.calls).toEqual([[{ name: 'copy_ai', slug: 'demo-card', format }]])
@@ -98,8 +96,8 @@ describe('copying text', () => {
 
   test('a file copy names the file, except Component.tsx, which is the whole React code', async () => {
     const { actions, ports, toasts } = setup()
-    await actions.copyFile('react', { name: 'Component.tsx', code: sources.tsx }, vi.fn())
-    await actions.copyFile('html', { name: 'styles.css', code: sources.css }, vi.fn())
+    await actions.copyFile('react', { name: 'Component.tsx', code: sources.tsx })
+    await actions.copyFile('html', { name: 'styles.css', code: sources.css })
     expect(ports.copyText.mock.calls).toEqual([[sources.tsx], [sources.css]])
     expect(toasts).toEqual([
       { type: 'success', title: 'Copied React code' },
@@ -111,24 +109,22 @@ describe('copying text', () => {
     ])
   })
 
-  test.each<[string, (actions: ComponentActions, onRefused: () => void) => Promise<void>]>([
-    ['Copy code', (actions, onRefused) => actions.copyCode('react', onRefused)],
-    ['Copy for AI', (actions, onRefused) => actions.copyBrief('html', onRefused)],
-    ['file copy', (actions, onRefused) => actions.copyFile('html', { name: 'index.html', code: sources.html }, onRefused)],
-  ])('a refused %s shows the manual-copy hint, lets the page select the code, and records nothing', async (_, run) => {
+  test.each<[string, (actions: ComponentActions) => Promise<CopyResult>]>([
+    ['Copy code', (actions) => actions.copyCode('react')],
+    ['Copy for AI', (actions) => actions.copyBrief('html')],
+    ['file copy', (actions) => actions.copyFile('html', { name: 'index.html', code: sources.html })],
+  ])('a refused %s shows the manual-copy hint, reports refused so the page can select the code, and records nothing', async (_, run) => {
     const { actions, ports, toasts } = setup()
     ports.copyText.mockResolvedValue(false)
-    const onRefused = vi.fn()
-    await run(actions, onRefused)
+    expect(await run(actions)).toBe('refused')
     expect(toasts).toEqual([{ type: 'error', title: "Couldn't copy", description: CODE_HINT }])
-    expect(onRefused).toHaveBeenCalledTimes(1)
     expect(ports.track).not.toHaveBeenCalled()
   })
 
   test('copying text works while a capture runs', async () => {
     const { actions, toasts } = setup()
     void actions.download('desktop', false)
-    await actions.copyCode('react', vi.fn())
+    await actions.copyCode('react')
     expect(toasts).toEqual([{ type: 'success', title: 'Copied React code' }])
   })
 })
@@ -141,8 +137,8 @@ describe('Download', () => {
     expect(captureOptions(0)).toEqual({ viewport: 'mobile', transparent: true, signal: expect.any(AbortSignal) })
     pngs[0].resolve(PNG)
     await done
-    expect(ports.save.mock.calls).toEqual([[PNG, 'web-library-demo-card-mobile.png']])
-    expect(toasts).toEqual([{ type: 'success', title: 'Downloaded web-library-demo-card-mobile.png' }])
+    expect(ports.save.mock.calls).toEqual([[PNG, 'patternbook-demo-card-mobile.png']])
+    expect(toasts).toEqual([{ type: 'success', title: 'Downloaded patternbook-demo-card-mobile.png' }])
     expect(ports.track.mock.calls).toEqual([[{ name: 'download_png', slug: 'demo-card', viewport: 'mobile' }]])
   })
 
@@ -160,8 +156,8 @@ describe('Download', () => {
     expect(captureOptions(1)).toMatchObject({ viewport: 'desktop', transparent: true })
     pngs[1].resolve(PNG)
     await settle()
-    expect(ports.save.mock.calls).toEqual([[PNG, 'web-library-demo-card-desktop.png']])
-    expect(toasts.slice(1)).toEqual([{ type: 'success', title: 'Downloaded web-library-demo-card-desktop.png' }])
+    expect(ports.save.mock.calls).toEqual([[PNG, 'patternbook-demo-card-desktop.png']])
+    expect(toasts.slice(1)).toEqual([{ type: 'success', title: 'Downloaded patternbook-demo-card-desktop.png' }])
   })
 
   test('a save that throws ends in an error toast with Retry, not an unhandled rejection', async () => {
@@ -172,7 +168,7 @@ describe('Download', () => {
     const done = actions.download('desktop', false)
     pngs[0].resolve(PNG)
     await expect(done).resolves.toBeUndefined()
-    expect(toasts).toEqual([{ type: 'error', title: "Couldn't download web-library-demo-card-desktop.png", action: RETRY }])
+    expect(toasts).toEqual([{ type: 'error', title: "Couldn't download patternbook-demo-card-desktop.png", action: RETRY }])
     expect(ports.track).not.toHaveBeenCalled()
     expect(actions.isBusy()).toBe(false)
   })
@@ -333,13 +329,11 @@ describe('dispose', () => {
     const { actions, ports, toasts } = setup()
     const copied = deferred<boolean>()
     ports.copyText.mockReturnValue(copied.promise)
-    const onRefused = vi.fn()
-    const done = actions.copyCode('react', onRefused)
+    const done = actions.copyCode('react')
     actions.dispose()
     copied.resolve(false)
-    await done
+    expect(await done).toBe('skipped')
     expect(toasts).toEqual([])
-    expect(onRefused).not.toHaveBeenCalled()
   })
 
   test('after dispose every action does nothing, Retry from an earlier toast included', async () => {
@@ -353,9 +347,9 @@ describe('dispose', () => {
     const format: Format = 'react'
     await actions.download('mobile', false)
     await actions.copyImage(false)
-    await actions.copyCode(format, vi.fn())
-    await actions.copyBrief(format, vi.fn())
-    await actions.copyFile(format, { name: 'Component.tsx', code: sources.tsx }, vi.fn())
+    await actions.copyCode(format)
+    await actions.copyBrief(format)
+    await actions.copyFile(format, { name: 'Component.tsx', code: sources.tsx })
     expect(ports.capture).toHaveBeenCalledTimes(1)
     expect(ports.copyImage).not.toHaveBeenCalled()
     expect(ports.copyText).not.toHaveBeenCalled()
@@ -370,9 +364,9 @@ describe('the browser save port', () => {
     vi.stubGlobal('document', { createElement: vi.fn(() => link) })
     vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:demo')
     const revoke = vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {})
-    browserPorts.save(PNG, 'web-library-demo-card-desktop.png')
+    browserPorts.save(PNG, 'patternbook-demo-card-desktop.png')
     expect(document.createElement).toHaveBeenCalledWith('a')
-    expect(link).toMatchObject({ href: 'blob:demo', download: 'web-library-demo-card-desktop.png' })
+    expect(link).toMatchObject({ href: 'blob:demo', download: 'patternbook-demo-card-desktop.png' })
     expect(link.click).toHaveBeenCalledTimes(1)
     // Revoking at once can cancel the download in some browsers.
     vi.advanceTimersByTime(9_999)

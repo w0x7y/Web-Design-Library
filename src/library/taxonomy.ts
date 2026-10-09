@@ -42,6 +42,13 @@ export const STYLE_TAGS = ['minimal', 'brutalist', 'glass', 'editorial', 'playfu
 
 export type StyleTag = (typeof STYLE_TAGS)[number]
 
+/** How the tag filter clusters the tags: looks, light or dark, and visual details. Every tag is in one group. */
+export const TAG_GROUPS: { label: string; tags: StyleTag[] }[] = [
+  { label: 'Style', tags: ['minimal', 'brutalist', 'glass', 'editorial', 'playful', 'corporate'] },
+  { label: 'Theme', tags: ['light', 'dark'] },
+  { label: 'Details', tags: ['gradient', 'has-image'] },
+]
+
 export function groupOf(category: CategoryId): (typeof GROUPS)[number] {
   const group = GROUPS.find((g) => (g.categories as readonly string[]).includes(category))
   if (!group) throw new Error(`Unknown category: ${category}`)

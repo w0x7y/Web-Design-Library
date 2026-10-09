@@ -55,6 +55,12 @@ export interface ActionPorts {
 }
 
 /**
+ * How a text copy ended: `refused` when the browser blocked the clipboard (the page should then select
+ * the code so it can be copied by hand), `skipped` when the actions were disposed first.
+ */
+export type CopyResult = 'copied' | 'refused' | 'skipped'
+
+/**
  * Each action ends in exactly one toast and records its analytics event only on success. The
  * returned promises never reject. At most one capture (Download or Copy image) runs at a time,
  * Retry included: a capture asked for while busy is dropped.
@@ -64,9 +70,9 @@ export interface ComponentActions {
   isBusy(): boolean
   /** Calls `listener` whenever isBusy() changes. Returns the unsubscribe function. */
   subscribe(listener: () => void): () => void
-  copyCode(format: Format, onRefused: () => void): Promise<void>
-  copyBrief(format: Format, onRefused: () => void): Promise<void>
-  copyFile(format: Format, file: { name: string; code: string }, onRefused: () => void): Promise<void>
+  copyCode(format: Format): Promise<CopyResult>
+  copyBrief(format: Format): Promise<CopyResult>
+  copyFile(format: Format, file: { name: string; code: string }): Promise<CopyResult>
   download(viewport: CaptureViewport, transparent: boolean): Promise<void>
   /** Call it synchronously inside the click: it starts the clipboard write before it returns, as Safari requires. */
   copyImage(transparent: boolean): Promise<void>
@@ -86,17 +92,17 @@ export function createComponentActions(meta: ComponentMeta, sources: ComponentSo
     for (const listener of listeners) listener()
   }
 
-  async function copy(text: string, message: string, event: AnalyticsEvent, onRefused: () => void) {
-    if (disposed) return
+  async function copy(text: string, message: string, event: AnalyticsEvent): Promise<CopyResult> {
+    if (disposed) return 'skipped'
     const copied = await ports.copyText(text)
-    if (disposed) return
-    if (copied) {
-      notify.success(message)
-      ports.track(event)
-    } else {
+    if (disposed) return 'skipped'
+    if (!copied) {
       notify.error(COPY_REFUSED, { description: CODE_REFUSED_HINT })
-      onRefused()
+      return 'refused'
     }
+    notify.success(message)
+    ports.track(event)
+    return 'copied'
   }
 
   /** Runs `work` as the only capture, or drops it if one is already running. */
@@ -158,13 +164,11 @@ export function createComponentActions(meta: ComponentMeta, sources: ComponentSo
         listeners.delete(listener)
       }
     },
-    copyCode: (format, onRefused) =>
-      copy(codeForFormat(meta, sources, format), COPIED_CODE[format], { name: 'copy_code', slug, format }, onRefused),
-    copyBrief: (format, onRefused) =>
-      copy(buildBrief(meta, sources, format), COPIED_BRIEF, { name: 'copy_ai', slug, format }, onRefused),
-    copyFile: (format, { name, code }, onRefused) =>
+    copyCode: (format) => copy(codeForFormat(meta, sources, format), COPIED_CODE[format], { name: 'copy_code', slug, format }),
+    copyBrief: (format) => copy(buildBrief(meta, sources, format), COPIED_BRIEF, { name: 'copy_ai', slug, format }),
+    copyFile: (format, { name, code }) =>
       // Component.tsx is the whole React code; a single HTML or CSS file is not "HTML + CSS", so it is named.
-      copy(code, format === 'react' ? COPIED_CODE.react : `Copied ${name}`, { name: 'copy_code', slug, format }, onRefused),
+      copy(code, format === 'react' ? COPIED_CODE.react : `Copied ${name}`, { name: 'copy_code', slug, format }),
     download,
     copyImage: copyImageAction,
     dispose() {
