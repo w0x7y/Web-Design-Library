@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A full-width section with a 1024px centered container, 24px horizontal padding and 64px vertical padding. Header and numbered three-person list stack on mobile and form 1:1.3 columns with a 64px gap from 768px. Roster rows use a 32px number column, flexible biography and contact link.',
+      'Full-width section with a centered 1024px container, 24px horizontal and 64px vertical padding. Header and three-person roster stack with a 40px gap. Eyebrow leads to title after 20px and introduction after 20px limited to 384px. Roster has a 1px top rule and rows with 24px vertical padding and 1px bottom rules. Each row is a grid of 32px number, flexible identity and fixed 36px email target with 12px gaps. Discipline follows name after 4px, location after 12px.',
     style:
-      'Warm #f7f4ec background, stone-900 text, stone-300 row rules and a darker top rule. System-serif 36px heading grows to 48px at 640px. People names are 24px serif; disciplines and location are restrained sans text.',
+      'Warm #f7f4ec background, stone-900 text, stone-300 row rules and stone-900 top rule. System-serif heading is 36px with 1.25 line height and -0.025em tracking; names 24px with 32px line height. Eyebrow is 12px uppercase monospace with 0.18em tracking. Numbers are 12px monospace with 4px top padding. Introduction is 14px with 28px line height, disciplines 14px with 20px line height, locations 12px with 16px line height. All secondary text uses stone-600 for contrast on warm paper. Email links have 4px corners and centered 14px decorative arrow icons.',
     states:
-      'Every named email link changes to stone-500 on hover and gets a 2px stone-900 focus outline with 2px offset. The roster is static and has no animation.',
+      'Each 36px square email target names its recipient with an aria-label. On hover it changes from stone-900 to stone-600. Keyboard focus draws a 2px stone-900 outline offset by 2px, including in forced colours. No animation.',
     responsive:
-      'At 320px the section is one column with wrapped name and location text. At 768px it splits into two columns and vertical padding grows to 96px. Number and contact columns remain narrow and fixed.',
+      'Below 640px heading is 36px; from 640px it becomes 48px, retaining 1.25 line height. Below 768px introduction and roster stack with 40px gap and 64px vertical padding. At 768px they form 1:1.3 columns with a 64px gap and 96px vertical padding. Horizontal padding stays 24px. Number and email columns remain fixed, while names, disciplines and locations wrap.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

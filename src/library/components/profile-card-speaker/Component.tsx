@@ -27,6 +27,7 @@ export default function ProfileCardSpeaker() {
         </div>
         <a
           href="#noor-session"
+          aria-label="View Noor Hassan’s session"
           className="mt-3 block border-2 border-black bg-white px-3 py-2 text-center text-xs font-bold uppercase tracking-wider hover:bg-black hover:text-yellow-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           View session

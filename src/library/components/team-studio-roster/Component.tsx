@@ -25,7 +25,7 @@ export default function TeamStudioRoster() {
           <li className="grid grid-cols-[2rem_1fr_auto] items-start gap-3 border-b border-stone-300 py-6">
             <span
               aria-hidden="true"
-              className="pt-1 font-mono text-xs text-stone-500"
+              className="pt-1 font-mono text-xs text-stone-600"
             >
               01
             </span>
@@ -34,12 +34,12 @@ export default function TeamStudioRoster() {
               <p className="mt-1 text-sm text-stone-600">
                 Strategy &amp; words
               </p>
-              <p className="mt-3 text-xs text-stone-500">Lisbon, Portugal</p>
+              <p className="mt-3 text-xs text-stone-600">Lisbon, Portugal</p>
             </div>
             <a
               href="mailto:marta@example.com"
               aria-label="Email Marta Silva"
-              className="rounded-sm p-1 text-xl hover:text-stone-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+              className="inline-flex size-9 items-center justify-center rounded-sm text-xl hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
             >
               <svg
                 aria-hidden="true"
@@ -47,7 +47,7 @@ export default function TeamStudioRoster() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>
@@ -56,7 +56,7 @@ export default function TeamStudioRoster() {
           <li className="grid grid-cols-[2rem_1fr_auto] items-start gap-3 border-b border-stone-300 py-6">
             <span
               aria-hidden="true"
-              className="pt-1 font-mono text-xs text-stone-500"
+              className="pt-1 font-mono text-xs text-stone-600"
             >
               02
             </span>
@@ -65,14 +65,14 @@ export default function TeamStudioRoster() {
               <p className="mt-1 text-sm text-stone-600">
                 Identity &amp; art direction
               </p>
-              <p className="mt-3 text-xs text-stone-500">
+              <p className="mt-3 text-xs text-stone-600">
                 London, United Kingdom
               </p>
             </div>
             <a
               href="mailto:sam@example.com"
               aria-label="Email Sam Okafor"
-              className="rounded-sm p-1 text-xl hover:text-stone-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+              className="inline-flex size-9 items-center justify-center rounded-sm text-xl hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
             >
               <svg
                 aria-hidden="true"
@@ -80,7 +80,7 @@ export default function TeamStudioRoster() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>
@@ -89,7 +89,7 @@ export default function TeamStudioRoster() {
           <li className="grid grid-cols-[2rem_1fr_auto] items-start gap-3 border-b border-stone-300 py-6">
             <span
               aria-hidden="true"
-              className="pt-1 font-mono text-xs text-stone-500"
+              className="pt-1 font-mono text-xs text-stone-600"
             >
               03
             </span>
@@ -98,12 +98,12 @@ export default function TeamStudioRoster() {
               <p className="mt-1 text-sm text-stone-600">
                 Digital design &amp; development
               </p>
-              <p className="mt-3 text-xs text-stone-500">Tokyo, Japan</p>
+              <p className="mt-3 text-xs text-stone-600">Tokyo, Japan</p>
             </div>
             <a
               href="mailto:hana@example.com"
               aria-label="Email Hana Mori"
-              className="rounded-sm p-1 text-xl hover:text-stone-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+              className="inline-flex size-9 items-center justify-center rounded-sm text-xl hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
             >
               <svg
                 aria-hidden="true"
@@ -111,7 +111,7 @@ export default function TeamStudioRoster() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>

@@ -31,7 +31,8 @@ export default function ProfileCardTerminal() {
       </dl>
       <a
         href="#eli-projects"
-        className="mt-3 flex items-center justify-between rounded-md border border-zinc-700 px-3 py-2 text-xs text-lime-300 hover:border-lime-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
+        aria-label="Explore Eli Park’s projects"
+        className="mt-3 flex items-center justify-between rounded-md border border-zinc-500 px-3 py-2 text-xs text-lime-300 hover:border-lime-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
       >
         Explore projects <span aria-hidden="true">→</span>
       </a>

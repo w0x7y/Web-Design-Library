@@ -22,10 +22,10 @@ export default function TeamResearchLab() {
         </header>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           <article className="rounded-2xl bg-teal-950 p-6 text-white sm:p-8">
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center justify-between gap-4">
               <span
                 aria-hidden="true"
-                className="flex size-16 items-center justify-center rounded-xl border border-teal-700 bg-teal-900 font-serif text-3xl"
+                className="flex size-16 shrink-0 items-center justify-center rounded-xl border border-teal-700 bg-teal-900 font-serif text-3xl"
               >
                 SC
               </span>
@@ -50,7 +50,7 @@ export default function TeamResearchLab() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>

@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A full-width dark team section with a 1024px container, 24px side padding and 64px vertical padding. The header has a large title and short introduction. A 48px top gap leads to four 24px-padded directory tiles in a 1px ruled grid, each with a 48px monogram and timezone.',
+      'Full-width section with a centered 1024px container, 24px side and 64px vertical padding. Header stacks title and introduction with a 24px gap; introduction is limited to 384px. Four-person list follows after 48px, using 1px grid gaps and an outer border. Tiles have 24px padding, a row of 48px initials and UTC offset, name after 20px, role and city after 4px, contact link after 20px. A dated timezone note follows after 20px.',
     style:
-      'Zinc-950 background and tiles, zinc-700 dividing rules, zinc-100 names and zinc-400 roles. Lime-300 monospace eyebrow and contact links. Circular zinc-800 initials badges keep the otherwise square layout approachable.',
+      'Zinc-950 background and tiles, zinc-700 dividing rules, zinc-100 names and zinc-400 supporting text. Default sans heading is 30px medium with 36px line height and -0.025em tracking, names 20px medium with 28px line height, roles 14px with 20px line height. Introduction is 14px with 28px line height. Eyebrow is 12px uppercase lime-300 monospace at 0.16em tracking. Zinc-800 circular badges use 18px initials; UTC offsets use 12px zinc-400 monospace. Contact links are 12px lime-300 with 16px line height, 4px corners and a 14px decorative arrow after an 8px gap. Footnote is 11px zinc-400 monospace.',
     states:
       'Named email links become white on hover and show 2px lime-300 focus outlines with 2px offset. Timezones are labeled as October 2026 rather than presented as a live clock. No animation is used.',
     responsive:
-      'The directory is one column at 320px and becomes two columns from 640px. Header text stays stacked until 768px, then sits side by side; vertical padding becomes 80px from 640px.',
+      'Below 640px the directory is one column, heading 30px, side padding 24px and vertical padding 64px. From 640px use two equal columns, 48px heading with line height 1, 32px side padding and 80px vertical padding. Header remains stacked until 768px, then becomes a row aligned to the bottom with a 24px gap. All copy wraps.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

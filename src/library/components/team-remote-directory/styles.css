@@ -12,224 +12,122 @@
 .team-remote-directory table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .team-remote-directory summary { display: list-item; }
 
-@layer properties;
+
+/* Component */
 .team-remote-directory {
-  --team-remote-directory-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --team-remote-directory-color-lime-300: oklch(89.7% 0.196 126.665);
-  --team-remote-directory-color-zinc-100: oklch(96.7% 0.001 286.375);
-  --team-remote-directory-color-zinc-400: oklch(70.5% 0.015 286.067);
-  --team-remote-directory-color-zinc-700: oklch(37% 0.013 285.805);
-  --team-remote-directory-color-zinc-800: oklch(27.4% 0.006 286.033);
-  --team-remote-directory-color-zinc-950: oklch(14.1% 0.005 285.823);
-  --team-remote-directory-color-white: #fff;
-  --team-remote-directory-spacing: 0.25rem;
-  --team-remote-directory-container-sm: 24rem;
-  --team-remote-directory-container-5xl: 64rem;
-  --team-remote-directory-text-xs: 0.75rem;
-  --team-remote-directory-text-xs--line-height: calc(1 / 0.75);
-  --team-remote-directory-text-sm: 0.875rem;
-  --team-remote-directory-text-sm--line-height: calc(1.25 / 0.875);
-  --team-remote-directory-text-lg: 1.125rem;
-  --team-remote-directory-text-lg--line-height: calc(1.75 / 1.125);
-  --team-remote-directory-text-xl: 1.25rem;
-  --team-remote-directory-text-xl--line-height: calc(1.75 / 1.25);
-  --team-remote-directory-text-3xl: 1.875rem;
-  --team-remote-directory-text-3xl--line-height: calc(2.25 / 1.875);
-  --team-remote-directory-text-5xl: 3rem;
-  --team-remote-directory-text-5xl--line-height: 1;
-  --team-remote-directory-font-weight-medium: 500;
-  --team-remote-directory-tracking-tight: -0.025em;
-  --team-remote-directory-radius-sm: 0.25rem;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  color: oklch(96.7% 0.001 286.375); /* zinc-100 */
 }
-.team-remote-directory.team-remote-directory__part-1, .team-remote-directory .team-remote-directory__part-1 {
-  background-color: var(--team-remote-directory-color-zinc-950);
-  color: var(--team-remote-directory-color-zinc-100);
-}
-.team-remote-directory.team-remote-directory__part-2, .team-remote-directory .team-remote-directory__part-2 {
+.team-remote-directory .team-remote-directory__inner {
+  max-width: 64rem;
   margin-inline: auto;
-  max-width: var(--team-remote-directory-container-5xl);
-  padding-inline: calc(var(--team-remote-directory-spacing) * 6);
-  padding-block: calc(var(--team-remote-directory-spacing) * 16);
+  padding: 4rem 1.5rem;
 }
-@media (width >= 40rem) {
-  .team-remote-directory.team-remote-directory__part-2, .team-remote-directory .team-remote-directory__part-2 {
-    padding-inline: calc(var(--team-remote-directory-spacing) * 8);
-  }
-}
-@media (width >= 40rem) {
-  .team-remote-directory.team-remote-directory__part-2, .team-remote-directory .team-remote-directory__part-2 {
-    padding-block: calc(var(--team-remote-directory-spacing) * 20);
-  }
-}
-.team-remote-directory.team-remote-directory__part-3, .team-remote-directory .team-remote-directory__part-3 {
+
+/* Directory introduction */
+.team-remote-directory .team-remote-directory__header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: calc(var(--team-remote-directory-spacing) * 6);
+  gap: 1.5rem;
 }
-@media (width >= 48rem) {
-  .team-remote-directory.team-remote-directory__part-3, .team-remote-directory .team-remote-directory__part-3 {
-    flex-direction: row;
-  }
-}
-@media (width >= 48rem) {
-  .team-remote-directory.team-remote-directory__part-3, .team-remote-directory .team-remote-directory__part-3 {
-    align-items: flex-end;
-  }
-}
-.team-remote-directory.team-remote-directory__part-4, .team-remote-directory .team-remote-directory__part-4 {
-  font-family: var(--team-remote-directory-font-mono);
-  font-size: var(--team-remote-directory-text-xs);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-xs--line-height));
-  --team-remote-directory-tw-tracking: 0.16em;
+.team-remote-directory .team-remote-directory__eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
   letter-spacing: 0.16em;
-  color: var(--team-remote-directory-color-lime-300);
   text-transform: uppercase;
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-.team-remote-directory.team-remote-directory__part-5, .team-remote-directory .team-remote-directory__part-5 {
-  margin-top: calc(var(--team-remote-directory-spacing) * 4);
-  font-size: var(--team-remote-directory-text-3xl);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-3xl--line-height));
-  --team-remote-directory-tw-font-weight: var(--team-remote-directory-font-weight-medium);
-  font-weight: var(--team-remote-directory-font-weight-medium);
-  --team-remote-directory-tw-tracking: var(--team-remote-directory-tracking-tight);
-  letter-spacing: var(--team-remote-directory-tracking-tight);
+.team-remote-directory .team-remote-directory__title {
+  margin-top: 1rem;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
-@media (width >= 40rem) {
-  .team-remote-directory.team-remote-directory__part-5, .team-remote-directory .team-remote-directory__part-5 {
-    font-size: var(--team-remote-directory-text-5xl);
-    line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-5xl--line-height));
-  }
+.team-remote-directory .team-remote-directory__intro {
+  max-width: 24rem;
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  color: oklch(70.5% 0.015 286.067); /* zinc-400 */
 }
-.team-remote-directory.team-remote-directory__part-6, .team-remote-directory .team-remote-directory__part-6 {
-  max-width: var(--team-remote-directory-container-sm);
-  font-size: var(--team-remote-directory-text-sm);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-sm--line-height));
-  --team-remote-directory-tw-leading: calc(var(--team-remote-directory-spacing) * 7);
-  line-height: calc(var(--team-remote-directory-spacing) * 7);
-  color: var(--team-remote-directory-color-zinc-400);
-}
-.team-remote-directory.team-remote-directory__part-7, .team-remote-directory .team-remote-directory__part-7 {
-  margin-top: calc(var(--team-remote-directory-spacing) * 12);
+
+/* Directory grid: the background makes the 1px shared rules */
+.team-remote-directory .team-remote-directory__directory {
   display: grid;
   gap: 1px;
-  border-style: var(--team-remote-directory-tw-border-style);
-  border-width: 1px;
-  border-color: var(--team-remote-directory-color-zinc-700);
-  background-color: var(--team-remote-directory-color-zinc-700);
+  margin-top: 3rem;
+  border: 1px solid oklch(37% 0.013 285.805); /* zinc-700 */
+  background-color: oklch(37% 0.013 285.805); /* zinc-700 */
 }
-@media (width >= 40rem) {
-  .team-remote-directory.team-remote-directory__part-7, .team-remote-directory .team-remote-directory__part-7 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.team-remote-directory .team-remote-directory__person {
+  padding: 1.5rem;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
 }
-.team-remote-directory.team-remote-directory__part-8, .team-remote-directory .team-remote-directory__part-8 {
-  background-color: var(--team-remote-directory-color-zinc-950);
-  padding: calc(var(--team-remote-directory-spacing) * 6);
-}
-.team-remote-directory.team-remote-directory__part-9, .team-remote-directory .team-remote-directory__part-9 {
+.team-remote-directory .team-remote-directory__person-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.team-remote-directory.team-remote-directory__part-10, .team-remote-directory .team-remote-directory__part-10 {
+.team-remote-directory .team-remote-directory__avatar {
   display: flex;
-  width: calc(var(--team-remote-directory-spacing) * 12);
-  height: calc(var(--team-remote-directory-spacing) * 12);
   align-items: center;
   justify-content: center;
-  border-radius: calc(infinity * 1px);
-  background-color: var(--team-remote-directory-color-zinc-800);
-  font-size: var(--team-remote-directory-text-lg);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-lg--line-height));
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: oklch(27.4% 0.006 286.033); /* zinc-800 */
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
 }
-.team-remote-directory.team-remote-directory__part-11, .team-remote-directory .team-remote-directory__part-11 {
-  font-family: var(--team-remote-directory-font-mono);
-  font-size: var(--team-remote-directory-text-xs);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-xs--line-height));
-  color: var(--team-remote-directory-color-zinc-400);
+.team-remote-directory .team-remote-directory__timezone {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(70.5% 0.015 286.067); /* zinc-400 */
 }
-.team-remote-directory.team-remote-directory__part-12, .team-remote-directory .team-remote-directory__part-12 {
-  margin-top: calc(var(--team-remote-directory-spacing) * 5);
-  font-size: var(--team-remote-directory-text-xl);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-xl--line-height));
-  --team-remote-directory-tw-font-weight: var(--team-remote-directory-font-weight-medium);
-  font-weight: var(--team-remote-directory-font-weight-medium);
+.team-remote-directory .team-remote-directory__name {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 500;
 }
-.team-remote-directory.team-remote-directory__part-13, .team-remote-directory .team-remote-directory__part-13 {
-  margin-top: var(--team-remote-directory-spacing);
-  font-size: var(--team-remote-directory-text-sm);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-sm--line-height));
-  color: var(--team-remote-directory-color-zinc-400);
+.team-remote-directory .team-remote-directory__role {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(70.5% 0.015 286.067); /* zinc-400 */
 }
-.team-remote-directory.team-remote-directory__part-14, .team-remote-directory .team-remote-directory__part-14 {
-  margin-top: calc(var(--team-remote-directory-spacing) * 5);
+.team-remote-directory .team-remote-directory__contact-link {
   display: inline-flex;
   align-items: center;
-  gap: calc(var(--team-remote-directory-spacing) * 2);
-  border-radius: var(--team-remote-directory-radius-sm);
-  font-size: var(--team-remote-directory-text-xs);
-  line-height: var(--team-remote-directory-tw-leading, var(--team-remote-directory-text-xs--line-height));
-  color: var(--team-remote-directory-color-lime-300);
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-@media (hover: hover) {
-  .team-remote-directory.team-remote-directory__part-14:hover, .team-remote-directory .team-remote-directory__part-14:hover {
-    color: var(--team-remote-directory-color-white);
-  }
-}
-.team-remote-directory.team-remote-directory__part-14:focus-visible, .team-remote-directory .team-remote-directory__part-14:focus-visible {
-  outline-style: var(--team-remote-directory-tw-outline-style);
-  outline-width: 2px;
-}
-.team-remote-directory.team-remote-directory__part-14:focus-visible, .team-remote-directory .team-remote-directory__part-14:focus-visible {
+.team-remote-directory .team-remote-directory__arrow { width: 0.875rem; height: 0.875rem; }
+.team-remote-directory .team-remote-directory__contact-link:focus-visible {
+  outline: 2px solid oklch(89.7% 0.196 126.665); /* lime-300 */
   outline-offset: 2px;
 }
-.team-remote-directory.team-remote-directory__part-14:focus-visible, .team-remote-directory .team-remote-directory__part-14:focus-visible {
-  outline-color: var(--team-remote-directory-color-lime-300);
-}
-.team-remote-directory.team-remote-directory__part-15, .team-remote-directory .team-remote-directory__part-15 {
-  display: inline-block;
-  width: calc(var(--team-remote-directory-spacing) * 3.5);
-  height: calc(var(--team-remote-directory-spacing) * 3.5);
-  vertical-align: -0.125em;
-}
-.team-remote-directory.team-remote-directory__part-16, .team-remote-directory .team-remote-directory__part-16 {
-  margin-top: calc(var(--team-remote-directory-spacing) * 5);
-  font-family: var(--team-remote-directory-font-mono);
+.team-remote-directory .team-remote-directory__timezone-note {
+  margin-top: 1.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 11px;
-  color: var(--team-remote-directory-color-zinc-400);
+  color: oklch(70.5% 0.015 286.067); /* zinc-400 */
 }
-@property --team-remote-directory-tw-tracking {
-  syntax: "*";
-  inherits: false;
+@media (hover: hover) {
+  .team-remote-directory .team-remote-directory__contact-link:hover { color: #fff; }
 }
-@property --team-remote-directory-tw-font-weight {
-  syntax: "*";
-  inherits: false;
+@media (width >= 40rem) {
+  .team-remote-directory .team-remote-directory__inner { padding: 5rem 2rem; }
+  .team-remote-directory .team-remote-directory__title { font-size: 3rem; line-height: 1; }
+  .team-remote-directory .team-remote-directory__directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@property --team-remote-directory-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --team-remote-directory-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --team-remote-directory-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .team-remote-directory *, .team-remote-directory ::before, .team-remote-directory ::after, .team-remote-directory ::backdrop {
-      --team-remote-directory-tw-tracking: initial;
-      --team-remote-directory-tw-font-weight: initial;
-      --team-remote-directory-tw-leading: initial;
-      --team-remote-directory-tw-border-style: solid;
-      --team-remote-directory-tw-outline-style: solid;
-    }
-  }
+@media (width >= 48rem) {
+  .team-remote-directory .team-remote-directory__header { flex-direction: row; align-items: flex-end; }
 }
