@@ -43,6 +43,11 @@ export function contentSecurityPolicy(html: string): string {
 }
 
 const escapeRegex = (path: string) => path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const DISCOVERY_CONTENT_TYPES: Partial<Record<string, string>> = {
+  'llms.txt': 'text/plain; charset=utf-8',
+  'robots.txt': 'text/plain; charset=utf-8',
+  'sitemap.xml': 'application/xml; charset=utf-8',
+}
 
 /** An index page is served at its directory URL and at its explicit filename, with the same policy. */
 function pagePattern(file: string): string {
@@ -70,9 +75,10 @@ export async function buildVercelConfig(clientDir: string): Promise<VercelOutput
       { handle: 'filesystem' },
       { ...fallback, src: '/(.*)' },
     ],
-    overrides: Object.fromEntries(files.filter((file) => file.endsWith('.md') || file === 'llms.txt').map((file) => [
-      file, { contentType: file.endsWith('.md') ? 'text/markdown; charset=utf-8' : 'text/plain; charset=utf-8' },
-    ])),
+    overrides: Object.fromEntries(files.flatMap((file) => {
+      const contentType = file.endsWith('.md') ? 'text/markdown; charset=utf-8' : DISCOVERY_CONTENT_TYPES[file]
+      return contentType ? [[file, { contentType }]] : []
+    })),
   }
 }
 

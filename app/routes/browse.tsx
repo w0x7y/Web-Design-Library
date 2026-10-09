@@ -7,11 +7,13 @@ import { NotFoundView } from '~/components/NotFoundView'
 import { CategoryScroller, Sidebar } from '~/components/Sidebar'
 import { TagFilter } from '~/components/TagFilter'
 import { browseResults, NO_FILTERS, parseFilters, type Filters } from '~/lib/filters'
+import { pageMeta } from '~/lib/page-meta'
 import { useFilters } from '~/lib/use-filters'
 import { useHydrated } from '~/lib/use-hydrated'
 import { SITE } from '~/site'
 import { allMetas } from '../../src/library/registry'
 import { CATEGORY_LABELS, isCategoryId } from '../../src/library/taxonomy'
+import { browsePath } from '../../src/library/urls'
 import type { Route } from './+types/browse'
 
 // Serves "/" (index) and "/browse/:category" (id browse-category).
@@ -33,10 +35,11 @@ const isUnknownCategory = (category: string | undefined) => category !== undefin
 export const meta: Route.MetaFunction = ({ loaderData, error, params }) => {
   if (error) return [{ title: `${isUnknownCategory(params.category) ? 'Category not found' : 'Something went wrong'} — ${SITE.name}` }]
   const category = loaderData?.category
-  return [
-    { title: category ? `${CATEGORY_LABELS[category]} components — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}` },
-    { name: 'description', content: SITE.tagline },
-  ]
+  return pageMeta({
+    title: category ? `${CATEGORY_LABELS[category]} components — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`,
+    description: category ? `Browse ${CATEGORY_LABELS[category]} components to copy as React + Tailwind, HTML + CSS, AI briefs, or PNG references.` : SITE.tagline,
+    path: browsePath(category ?? null),
+  })
 }
 
 const ALL = allMetas()

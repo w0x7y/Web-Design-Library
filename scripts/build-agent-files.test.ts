@@ -2,6 +2,7 @@ import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { buildAgentMarkdown, buildLlmsTxt } from '../src/library/brief'
+import { SITE } from '../src/site'
 import type { ComponentMeta, LibraryEntry } from '../src/library/types'
 import { writeAgentFiles } from './build-agent-files'
 
@@ -40,13 +41,22 @@ const entryB: LibraryEntry = {
   },
 }
 
-test('writes one .md per component and llms.txt', async () => {
+test('writes component briefs and crawler discovery files with canonical URLs', async () => {
   const out = await mkdtemp(join(tmpdir(), 'wl-'))
   const written = await writeAgentFiles(out, [entryA, entryB])
-  expect(written.sort()).toEqual(['c/a.md', 'c/b.md', 'llms.txt'])
+  expect(written.sort()).toEqual(['c/a.md', 'c/b.md', 'llms.txt', 'robots.txt', 'sitemap.xml'])
   expect(await readFile(join(out, 'c/a.md'), 'utf8')).toBe(buildAgentMarkdown(entryA.meta, entryA.sources))
   expect(await readFile(join(out, 'c/b.md'), 'utf8')).toBe(buildAgentMarkdown(entryB.meta, entryB.sources))
   expect(await readFile(join(out, 'llms.txt'), 'utf8')).toBe(buildLlmsTxt([entryA.meta, entryB.meta]))
+  const sitemap = await readFile(join(out, 'sitemap.xml'), 'utf8')
+  const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])
+  expect(locations).toContain(`${SITE.url}/`)
+  expect(locations).toContain(`${SITE.url}/browse/hero`)
+  expect(locations).toContain(`${SITE.url}/browse/pricing`)
+  expect(locations.filter((url) => url.includes('/c/'))).toEqual([`${SITE.url}/c/a`, `${SITE.url}/c/b`])
+  expect(locations.every((url) => !url.includes('/preview/') && !url.includes('?') && !url.endsWith('.md'))).toBe(true)
+  expect(new Set(locations).size).toBe(locations.length)
+  expect(await readFile(join(out, 'robots.txt'), 'utf8')).toBe(`User-agent: *\nAllow: /\n\nSitemap: ${SITE.url}/sitemap.xml\n`)
 })
 
 test('throws a clear error when outDir does not exist', async () => {
