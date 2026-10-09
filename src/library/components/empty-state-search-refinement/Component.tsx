@@ -34,7 +34,7 @@ export default function EmptyStateSearchRefinement() {
       </ul>
       <div className="mt-6 flex flex-wrap gap-3">
         <button
-          className="rounded-lg bg-blue-700 px-3 py-2.5 text-xs font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+          className="rounded-lg bg-blue-700 px-3 py-2.5 text-xs font-semibold text-white cursor-pointer hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
           type="button"
         >
           Clear filters

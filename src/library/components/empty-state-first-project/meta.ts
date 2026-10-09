@@ -13,11 +13,11 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 288px card with a 64px folder tile, 20px heading, explanation and a full-width project action. 24px padding.',
+      'A 288px card with a 1px border and 24px padding. A 64px folder tile contains a 48px SVG. The 20px semibold heading has a 28px line height and 20px top margin; the 14px explanation has a 24px line height and 12px top margin. A full-width 44px action follows after 24px.',
     style:
-      'White card, stone-950 type, stone-200 border and stone-100 illustration tile. 12px card radius and 8px button radius.',
+      'Default sans font, white card, stone-950 headings and button fill, stone-600 body copy, stone-200 border and stone-100 illustration tile. Card and tile radii are 12px; the button has an 8px radius, 14px semibold white text and 16px horizontal padding. No shadow.',
     states:
-      'Native controls retain their browser behavior. Every link, input and button shows a 2px current-color keyboard focus outline offset by 2px. There is no automatic motion.',
+      'The project button has a pointer cursor, a stone-800 fill on hover-capable devices and a 2px stone-950 keyboard focus outline offset by 2px. No animation.',
     responsive:
       'Fixed 288px root at every viewport, with 24px padding and wrapping copy. The complete component stays under 384px tall in the mobile and desktop capture frames.',
   },

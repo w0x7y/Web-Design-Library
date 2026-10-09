@@ -24,7 +24,7 @@ export default function EmptyStateFirstProject() {
         team.
       </p>
       <button
-        className="mt-6 w-full rounded-lg bg-stone-950 px-4 py-3 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+        className="mt-6 w-full rounded-lg bg-stone-950 px-4 py-3 text-sm font-semibold text-white cursor-pointer hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
         type="button"
       >
         Create a project

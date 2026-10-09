@@ -12,116 +12,66 @@
 .empty-state-first-project table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .empty-state-first-project summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .empty-state-first-project {
-  --empty-state-first-project-color-stone-100: oklch(97% 0.001 106.424);
-  --empty-state-first-project-color-stone-200: oklch(92.3% 0.003 48.717);
-  --empty-state-first-project-color-stone-600: oklch(44.4% 0.011 73.639);
-  --empty-state-first-project-color-stone-950: oklch(14.7% 0.004 49.25);
-  --empty-state-first-project-color-white: #fff;
-  --empty-state-first-project-spacing: 0.25rem;
-  --empty-state-first-project-text-sm: 0.875rem;
-  --empty-state-first-project-text-sm--line-height: calc(1.25 / 0.875);
-  --empty-state-first-project-text-xl: 1.25rem;
-  --empty-state-first-project-text-xl--line-height: calc(1.75 / 1.25);
-  --empty-state-first-project-font-weight-semibold: 600;
-  --empty-state-first-project-tracking-tight: -0.025em;
-  --empty-state-first-project-radius-lg: 0.5rem;
-  --empty-state-first-project-radius-xl: 0.75rem;
+  width: 18rem;
+  padding: 1.5rem;
+  border: 1px solid oklch(92.3% 0.003 48.717); /* stone-200 */
+  border-radius: 0.75rem;
+  background-color: #fff;
+  color: oklch(14.7% 0.004 49.25); /* stone-950 */
 }
-.empty-state-first-project.empty-state-first-project__part-1, .empty-state-first-project .empty-state-first-project__part-1 {
-  width: calc(var(--empty-state-first-project-spacing) * 72);
-  border-radius: var(--empty-state-first-project-radius-xl);
-  border-style: var(--empty-state-first-project-tw-border-style);
-  border-width: 1px;
-  border-color: var(--empty-state-first-project-color-stone-200);
-  background-color: var(--empty-state-first-project-color-white);
-  padding: calc(var(--empty-state-first-project-spacing) * 6);
-  color: var(--empty-state-first-project-color-stone-950);
-}
-.empty-state-first-project.empty-state-first-project__part-2, .empty-state-first-project .empty-state-first-project__part-2 {
+
+.empty-state-first-project .empty-state-first-project__illustration {
   display: flex;
-  width: calc(var(--empty-state-first-project-spacing) * 16);
-  height: calc(var(--empty-state-first-project-spacing) * 16);
   align-items: center;
   justify-content: center;
-  border-radius: var(--empty-state-first-project-radius-xl);
-  background-color: var(--empty-state-first-project-color-stone-100);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  background-color: oklch(97% 0.001 106.424); /* stone-100 */
 }
-.empty-state-first-project.empty-state-first-project__part-3, .empty-state-first-project .empty-state-first-project__part-3 {
-  width: calc(var(--empty-state-first-project-spacing) * 12);
-  height: calc(var(--empty-state-first-project-spacing) * 12);
+
+.empty-state-first-project .empty-state-first-project__icon {
+  width: 3rem;
+  height: 3rem;
 }
-.empty-state-first-project.empty-state-first-project__part-4, .empty-state-first-project .empty-state-first-project__part-4 {
-  margin-top: calc(var(--empty-state-first-project-spacing) * 5);
-  font-size: var(--empty-state-first-project-text-xl);
-  line-height: var(--empty-state-first-project-tw-leading, var(--empty-state-first-project-text-xl--line-height));
-  --empty-state-first-project-tw-font-weight: var(--empty-state-first-project-font-weight-semibold);
-  font-weight: var(--empty-state-first-project-font-weight-semibold);
-  --empty-state-first-project-tw-tracking: var(--empty-state-first-project-tracking-tight);
-  letter-spacing: var(--empty-state-first-project-tracking-tight);
+
+.empty-state-first-project .empty-state-first-project__heading {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
-.empty-state-first-project.empty-state-first-project__part-5, .empty-state-first-project .empty-state-first-project__part-5 {
-  margin-top: calc(var(--empty-state-first-project-spacing) * 3);
-  font-size: var(--empty-state-first-project-text-sm);
-  line-height: var(--empty-state-first-project-tw-leading, var(--empty-state-first-project-text-sm--line-height));
-  --empty-state-first-project-tw-leading: calc(var(--empty-state-first-project-spacing) * 6);
-  line-height: calc(var(--empty-state-first-project-spacing) * 6);
-  color: var(--empty-state-first-project-color-stone-600);
+
+.empty-state-first-project .empty-state-first-project__description {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
 }
-.empty-state-first-project.empty-state-first-project__part-6, .empty-state-first-project .empty-state-first-project__part-6 {
-  margin-top: calc(var(--empty-state-first-project-spacing) * 6);
+
+.empty-state-first-project .empty-state-first-project__action {
   width: 100%;
-  border-radius: var(--empty-state-first-project-radius-lg);
-  background-color: var(--empty-state-first-project-color-stone-950);
-  padding-inline: calc(var(--empty-state-first-project-spacing) * 4);
-  padding-block: calc(var(--empty-state-first-project-spacing) * 3);
-  font-size: var(--empty-state-first-project-text-sm);
-  line-height: var(--empty-state-first-project-tw-leading, var(--empty-state-first-project-text-sm--line-height));
-  --empty-state-first-project-tw-font-weight: var(--empty-state-first-project-font-weight-semibold);
-  font-weight: var(--empty-state-first-project-font-weight-semibold);
-  color: var(--empty-state-first-project-color-white);
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: oklch(14.7% 0.004 49.25); /* stone-950 */
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  cursor: pointer;
 }
-.empty-state-first-project.empty-state-first-project__part-6:focus-visible, .empty-state-first-project .empty-state-first-project__part-6:focus-visible {
-  outline-style: var(--empty-state-first-project-tw-outline-style);
-  outline-width: 2px;
-}
-.empty-state-first-project.empty-state-first-project__part-6:focus-visible, .empty-state-first-project .empty-state-first-project__part-6:focus-visible {
+
+.empty-state-first-project .empty-state-first-project__action:focus-visible {
+  outline: 2px solid oklch(14.7% 0.004 49.25); /* stone-950 */
   outline-offset: 2px;
 }
-.empty-state-first-project.empty-state-first-project__part-6:focus-visible, .empty-state-first-project .empty-state-first-project__part-6:focus-visible {
-  outline-color: var(--empty-state-first-project-color-stone-950);
-}
-@property --empty-state-first-project-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --empty-state-first-project-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --empty-state-first-project-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --empty-state-first-project-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --empty-state-first-project-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .empty-state-first-project *, .empty-state-first-project ::before, .empty-state-first-project ::after, .empty-state-first-project ::backdrop {
-      --empty-state-first-project-tw-border-style: solid;
-      --empty-state-first-project-tw-font-weight: initial;
-      --empty-state-first-project-tw-tracking: initial;
-      --empty-state-first-project-tw-leading: initial;
-      --empty-state-first-project-tw-outline-style: solid;
-    }
+
+@media (hover: hover) {
+  .empty-state-first-project .empty-state-first-project__action:hover {
+    background-color: oklch(26.8% 0.007 34.298); /* stone-800 */
   }
 }

@@ -14,8 +14,8 @@ export default function DashboardServiceOperations() {
         <div className="mt-7 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <article className="border border-neutral-700 p-6">
             <p className="text-xs text-neutral-400">REQUESTS / LAST 7 DAYS</p>
-            <p className="mt-4 text-3xl tabular-nums">2.4 million</p>
-            <div className="mt-6">
+            <p className="mt-4 text-3xl tabular-nums">2.45 million</p>
+            <figure className="mt-6" aria-label="Daily requests: Monday 240,000, Tuesday 330,000, Wednesday 410,000, Thursday 270,000, Friday 460,000, Saturday 390,000, Sunday 350,000. Total 2.45 million.">
               <div className="flex h-32 items-end gap-3" aria-hidden="true">
                 <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
                   <div className="w-full rounded-t-sm bg-lime-300 h-[48px]"></div>
@@ -46,13 +46,13 @@ export default function DashboardServiceOperations() {
                   <p className="text-[10px] opacity-60">S</p>
                 </div>
               </div>
-            </div>
+            </figure>
             <p className="mt-5 text-xs leading-6 text-neutral-400">
               Average response: 84ms · Errors: 0.02%
             </p>
           </article>
           <article className="border border-neutral-700 p-6">
-            <h2 className="text-base font-medium">By service</h2>
+            <h3 className="text-base font-medium">By service</h3>
             <ul className="mt-6 grid gap-5" role="list">
               <li className="border-b border-neutral-700 pb-4">
                 <div className="flex flex-wrap justify-between gap-3">

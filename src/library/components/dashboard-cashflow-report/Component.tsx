@@ -20,7 +20,7 @@ export default function DashboardCashflowReport() {
         </header>
         <div className="mt-7 grid gap-6 lg:grid-cols-[1fr_1.4fr]">
           <article className="border border-[#383229]/20 p-6">
-            <div className="grid gap-2 ">
+            <div className="grid gap-2">
               <p className="text-xs font-medium opacity-70">
                 Available balance
               </p>
@@ -31,15 +31,15 @@ export default function DashboardCashflowReport() {
                 Across your business accounts
               </p>
             </div>
-            <div className="mt-7 grid grid-cols-2 gap-5 border-t border-[#383229]/20 pt-5">
-              <div className="grid gap-2 ">
+            <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 border-t border-[#383229]/20 pt-5">
+              <div className="grid gap-2">
                 <p className="text-xs font-medium opacity-70">Money in</p>
                 <p className="text-3xl font-semibold tracking-tight tabular-nums">
                   $6,800
                 </p>
                 <p className="text-xs opacity-70">This month</p>
               </div>
-              <div className="grid gap-2 ">
+              <div className="grid gap-2">
                 <p className="text-xs font-medium opacity-70">Money out</p>
                 <p className="text-3xl font-semibold tracking-tight tabular-nums">
                   $2,140
@@ -50,10 +50,10 @@ export default function DashboardCashflowReport() {
           </article>
           <article className="border border-[#383229]/20 p-6">
             <div className="flex flex-wrap justify-between gap-3">
-              <h2 className="text-base font-semibold">Income this week</h2>
+              <h3 className="text-base font-semibold">Income this week</h3>
               <p className="text-xs opacity-70">$3,280 total</p>
             </div>
-            <div className="mt-6">
+            <figure className="mt-6" aria-label="Weekly income: Monday $420, Tuesday $650, Wednesday $300, Thursday $980, Friday $640, Saturday $170, Sunday $120. Total $3,280.">
               <div className="flex h-32 items-end gap-3" aria-hidden="true">
                 <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
                   <div className="w-full rounded-t-sm bg-[#686f4c] h-[42px]"></div>
@@ -68,15 +68,15 @@ export default function DashboardCashflowReport() {
                   <p className="text-[10px] opacity-60">W</p>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
-                  <div className="w-full rounded-t-sm bg-[#686f4c] h-[92px]"></div>
+                  <div className="w-full rounded-t-sm bg-[#686f4c] h-[98px]"></div>
                   <p className="text-[10px] opacity-60">T</p>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
-                  <div className="w-full rounded-t-sm bg-[#686f4c] h-[76px]"></div>
+                  <div className="w-full rounded-t-sm bg-[#686f4c] h-[64px]"></div>
                   <p className="text-[10px] opacity-60">F</p>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
-                  <div className="w-full rounded-t-sm bg-[#686f4c] h-[18px]"></div>
+                  <div className="w-full rounded-t-sm bg-[#686f4c] h-[17px]"></div>
                   <p className="text-[10px] opacity-60">S</p>
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col items-center gap-2">
@@ -84,14 +84,14 @@ export default function DashboardCashflowReport() {
                   <p className="text-[10px] opacity-60">S</p>
                 </div>
               </div>
-            </div>
+            </figure>
             <p className="mt-4 text-xs opacity-70">
               Highest income: Thursday · $980
             </p>
           </article>
         </div>
         <div className="mt-7">
-          <h2 className="text-lg font-semibold">Recent payments</h2>
+          <h3 className="text-lg font-semibold">Recent payments</h3>
           <ul className="mt-4 grid gap-4" role="list">
             <li className="border-b border-[#383229]/15 pb-4">
               <div className="flex flex-wrap items-center justify-between gap-4">
