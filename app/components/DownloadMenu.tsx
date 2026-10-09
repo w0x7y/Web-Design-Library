@@ -120,7 +120,7 @@ export function DownloadMenu({
           {SIZES.map(({ viewport, label }) => (
             <button key={viewport} type="button" role="menuitem" tabIndex={-1} onClick={() => choose(viewport)} className={ITEM}>
               {label}
-              <span className="ml-auto text-xs text-zinc-500 tabular-nums dark:text-zinc-400">{VIEWPORTS[viewport].width} px</span>
+              <span className="ml-auto text-xs text-zinc-600 tabular-nums dark:text-zinc-400">{VIEWPORTS[viewport].width} px</span>
             </button>
           ))}
           <div role="separator" className="my-1 h-px bg-zinc-200 dark:bg-zinc-800" />

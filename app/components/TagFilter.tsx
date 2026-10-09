@@ -22,7 +22,7 @@ export function TagFilter() {
     <div
       role="group"
       aria-label="Filter by style"
-      className="-mx-4 flex gap-1.5 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden"
+      className="-mx-4 -my-1 flex gap-1.5 overflow-x-auto px-4 py-1 [scrollbar-width:none] sm:mx-0 sm:my-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:py-0 [&::-webkit-scrollbar]:hidden"
     >
       {STYLE_TAGS.map((tag) => {
         const pressed = filters.tags.includes(tag)

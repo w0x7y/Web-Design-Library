@@ -21,11 +21,12 @@ function SiteDocument({ children }: { children: React.ReactNode }) {
   // The init script sets .dark before first paint, which hydration tolerates via
   // suppressHydrationWarning. Rendering the class from the theme as well keeps it
   // when React re-creates the document (e.g. recovering from a root-level error).
+  // From sm the header is sticky, so scroll-pt-16 keeps an element scrolled to by focus from landing under it.
   const { theme } = useTheme()
   return (
     <html
       lang="en"
-      className={`bg-white dark:bg-zinc-950 dark:scheme-dark${theme === 'dark' ? ' dark' : ''}`}
+      className={`bg-white sm:scroll-pt-16 dark:bg-zinc-950 dark:scheme-dark${theme === 'dark' ? ' dark' : ''}`}
       suppressHydrationWarning
     >
       <head>
