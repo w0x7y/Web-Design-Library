@@ -1,5 +1,6 @@
 import { readdirSync } from 'node:fs'
-import { previewPath } from '../../app/lib/preview-ready'
+import { COMPONENTS_DIR } from './catalog'
+import { previewPath } from './preview-url'
 
 export function prerenderPaths(input: { slugs: string[]; categories: string[] }): string[] {
   return [
@@ -9,7 +10,7 @@ export function prerenderPaths(input: { slugs: string[]; categories: string[] })
   ]
 }
 
-export function listComponentSlugs(dir = 'src/library/components'): string[] {
+export function listComponentSlugs(dir = COMPONENTS_DIR): string[] {
   try {
     return readdirSync(dir, { withFileTypes: true })
       .filter((entry) => entry.isDirectory())

@@ -51,3 +51,7 @@ export function groupOf(category: CategoryId): (typeof GROUPS)[number] {
 export function isCategoryId(value: string): value is CategoryId {
   return (CATEGORY_IDS as string[]).includes(value)
 }
+
+export function isStyleTag(value: string): value is StyleTag {
+  return (STYLE_TAGS as readonly string[]).includes(value)
+}

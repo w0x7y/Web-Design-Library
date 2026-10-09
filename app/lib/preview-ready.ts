@@ -10,17 +10,8 @@
  */
 export type PreviewState = 'loading' | 'ready' | 'failed'
 
-const CAPTURE_PARAM = 'capture'
-
-/** The preview page's URL. `capture` freezes motion so an image of the page is deterministic. */
-export function previewPath(slug: string, { capture = false }: { capture?: boolean } = {}): string {
-  return `/preview/${slug}${capture ? `?${CAPTURE_PARAM}=1` : ''}`
-}
-
-/** Whether the preview page was opened for image capture (see `previewPath`). */
-export function isCaptureRequest(searchParams: URLSearchParams): boolean {
-  return searchParams.get(CAPTURE_PARAM) === '1'
-}
+// Its URL lives in src/library, so the prerender list can build it without importing app code.
+export { isCaptureRequest, previewPath } from '../../src/library/preview-url'
 
 /**
  * Resolves once what `root`'s document renders can be screenshotted: laid out, with its web fonts

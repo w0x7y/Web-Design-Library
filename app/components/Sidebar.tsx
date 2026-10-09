@@ -2,26 +2,18 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router'
 import { filtersSearch } from '~/lib/filters'
 import { useFilters } from '~/lib/use-filters'
-import { allMetas, categoryCounts } from '../../src/library/registry'
-import { CATEGORY_LABELS, GROUPS, type CategoryId } from '../../src/library/taxonomy'
+import { groupMetas } from '../../src/library/catalog'
+import { allMetas } from '../../src/library/registry'
+import type { CategoryId } from '../../src/library/taxonomy'
 
-interface Entry {
-  id: CategoryId
-  label: string
-  count: number
-}
-
-const COUNTS = categoryCounts()
-const TOTAL = allMetas().length
+const ALL = allMetas()
+const TOTAL = ALL.length
 // Groups → categories that have at least one component; empty ones stay out of the nav.
-const NAV_GROUPS = GROUPS.map((group) => ({
+const NAV_GROUPS = groupMetas(ALL).map((group) => ({
   id: group.id,
   label: group.label,
-  entries: group.categories.flatMap((id): Entry[] => {
-    const count = COUNTS[id] ?? 0
-    return count > 0 ? [{ id, label: CATEGORY_LABELS[id], count }] : []
-  }),
-})).filter((group) => group.entries.length > 0)
+  entries: group.categories.map(({ id, label, metas }) => ({ id, label, count: metas.length })),
+}))
 
 const plural = (count: number) => (count === 1 ? 'component' : 'components')
 

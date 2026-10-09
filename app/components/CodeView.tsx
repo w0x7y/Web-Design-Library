@@ -1,14 +1,10 @@
+import { SOURCE_FILES } from '../../src/library/catalog'
 import type { ComponentSources, Format } from '../../src/library/types'
 
 export type HighlightedSources = Record<keyof ComponentSources, string>
 
-const FILES: Record<Format, { name: string; key: keyof ComponentSources }[]> = {
-  react: [{ name: 'Component.tsx', key: 'tsx' }],
-  html: [
-    { name: 'index.html', key: 'html' },
-    { name: 'styles.css', key: 'css' },
-  ],
-}
+/** The sources each format shows, in order; each is captioned with its file name. */
+const FILES: Record<Format, (keyof ComponentSources)[]> = { react: ['tsx'], html: ['html', 'css'] }
 
 const lineCount = (text: string) => text.replace(/\n$/, '').split('\n').length
 
@@ -29,7 +25,8 @@ export function CodeView({
 }) {
   return (
     <div className="space-y-4">
-      {FILES[format].map(({ name, key }) => {
+      {FILES[format].map((key) => {
+        const name = SOURCE_FILES[key]
         const lines = lineCount(sources[key])
         return (
           <figure

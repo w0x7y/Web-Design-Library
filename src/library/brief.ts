@@ -1,6 +1,6 @@
-import { SITE } from '../../app/site'
+import { SITE } from '../site'
 import { fontDisplayName, fontLinkTag } from './fonts'
-import { CATEGORY_LABELS, GROUPS } from './taxonomy'
+import { groupMetas } from './catalog'
 import type { ComponentMeta, ComponentSources, Format } from './types'
 
 const CLOSING_LINE =
@@ -61,19 +61,15 @@ export function buildAgentMarkdown(meta: ComponentMeta, sources: ComponentSource
   return briefFor(meta, sources, ['react', 'html'])
 }
 
+/** The /llms.txt index: every component under its group and category, in library order. */
 export function buildLlmsTxt(metas: ComponentMeta[]): string {
   const sections: string[] = [`# ${SITE.name}`, `> ${SITE.tagline}`, LLMS_INTRO]
-  for (const group of GROUPS) {
-    const categorySections: string[] = []
+  for (const group of groupMetas(metas)) {
+    sections.push(`## ${group.label}`)
     for (const category of group.categories) {
-      const entries = metas
-        .filter((meta) => meta.category === category)
-        .sort((a, b) => a.name.localeCompare(b.name))
-      if (entries.length === 0) continue
-      const lines = entries.map((meta) => `- [${meta.name}](${SITE.url}/c/${meta.slug}.md): ${meta.description}`)
-      categorySections.push(`### ${CATEGORY_LABELS[category]}\n\n${lines.join('\n')}`)
+      const lines = category.metas.map((meta) => `- [${meta.name}](${SITE.url}/c/${meta.slug}.md): ${meta.description}`)
+      sections.push(`### ${category.label}\n\n${lines.join('\n')}`)
     }
-    if (categorySections.length > 0) sections.push(`## ${group.label}`, ...categorySections)
   }
   return sections.join('\n\n') + '\n'
 }

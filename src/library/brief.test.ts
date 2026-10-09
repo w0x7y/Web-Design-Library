@@ -1,4 +1,4 @@
-import { SITE } from '../../app/site'
+import { SITE } from '../site'
 import { buildAgentMarkdown, buildBrief, buildHtmlSnippet, buildLlmsTxt, codeForFormat } from './brief'
 import type { ComponentMeta, ComponentSources } from './types'
 
@@ -109,14 +109,30 @@ test('llms.txt intro, group heading and entry layout', () => {
     '### Hero\n\n' +
     '- [Demo hero](https://web-design-library.vercel.app/c/demo.md): A centered hero with a headline and two buttons.\n')
 })
-test('llms.txt orders groups by taxonomy and entries by name within a category', () => {
-  const button: ComponentMeta = { ...meta, slug: 'btn', name: 'Solid button', category: 'buttons', description: 'A button.' }
-  const heroZ: ComponentMeta = { ...meta, slug: 'zed', name: 'Zed hero' }
-  const heroA: ComponentMeta = { ...meta, slug: 'alpha', name: 'Alpha hero' }
-  const txt = buildLlmsTxt([button, heroZ, metaB_pricing, heroA, metaA_hero])
-  expect(txt.indexOf('## Sections')).toBeLessThan(txt.indexOf('## Elements'))
-  expect(txt.indexOf('### Pricing')).toBeLessThan(txt.indexOf('### Buttons'))
-  expect(txt).not.toContain('## Cards & profiles')
-  expect(txt.indexOf('[Alpha hero]')).toBeLessThan(txt.indexOf('[Demo hero]'))
-  expect(txt.indexOf('[Demo hero]')).toBeLessThan(txt.indexOf('[Zed hero]'))
+// llms.txt lists components in library order, the order the site shows them in: taxonomy, then name by
+// UTF-16 code unit (capitals before lowercase, so not localeCompare's order), then slug.
+test('llms.txt lists entries in library order', () => {
+  const entry = (slug: string, name: string, category: ComponentMeta['category'] = 'hero'): ComponentMeta =>
+    ({ ...meta, slug, name, category, description: `${name}.` })
+  const txt = buildLlmsTxt([
+    entry('btn', 'Solid button', 'buttons'),
+    entry('lower', 'alpha hero'),
+    entry('zed-2', 'Zed hero'),
+    entry('plans', 'Plans grid', 'pricing'),
+    entry('zed', 'Zed hero'),
+    entry('demo', 'Demo hero'),
+  ])
+  const url = 'https://web-design-library.vercel.app/c'
+  expect(txt.slice(txt.indexOf('## '))).toBe(
+    '## Sections\n\n' +
+    '### Hero\n\n' +
+    `- [Demo hero](${url}/demo.md): Demo hero.\n` +
+    `- [Zed hero](${url}/zed.md): Zed hero.\n` +
+    `- [Zed hero](${url}/zed-2.md): Zed hero.\n` +
+    `- [alpha hero](${url}/lower.md): alpha hero.\n\n` +
+    '### Pricing\n\n' +
+    `- [Plans grid](${url}/plans.md): Plans grid.\n\n` +
+    '## Elements\n\n' +
+    '### Buttons\n\n' +
+    `- [Solid button](${url}/btn.md): Solid button.\n`)
 })

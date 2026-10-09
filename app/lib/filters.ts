@@ -1,4 +1,4 @@
-import { isCategoryId, STYLE_TAGS, type CategoryId, type StyleTag } from '../../src/library/taxonomy'
+import { isCategoryId, isStyleTag, type CategoryId, type StyleTag } from '../../src/library/taxonomy'
 import type { ComponentMeta } from '../../src/library/types'
 
 // Browse filters live in the URL (?q=…&tags=a,b) so every view can be shared.
@@ -9,10 +9,6 @@ export interface Filters {
 }
 
 export const NO_FILTERS: Filters = { q: '', tags: [] }
-
-function isStyleTag(value: string): value is StyleTag {
-  return (STYLE_TAGS as readonly string[]).includes(value)
-}
 
 /** Lenient: trims, lowercases and dedupes tags, and drops anything outside the vocabulary. */
 export function parseFilters(params: URLSearchParams): Filters {

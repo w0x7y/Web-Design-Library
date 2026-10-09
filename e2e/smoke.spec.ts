@@ -1,25 +1,20 @@
 import { readFile } from 'node:fs/promises'
 import { expect, test, type Page } from '@playwright/test'
 import { PNG } from 'pngjs'
+import { filterMetas } from '../app/lib/filters'
 import { previewPath } from '../app/lib/preview-ready'
+import { relatedMetas } from '../app/lib/related'
 import { frameSize } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
 
 const ITEMS = await loadLibrary()
-const LIBRARY = ITEMS.map((item) => item.entry.meta)
+const LIBRARY = ITEMS.map((item) => item.entry.meta) // in library order, the order the site shows
 const HERO = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry.sources
 
-// How many cards browse should show, worked out from the library on disk the way the UI filters:
-// exact category, every selected tag, and every search term in the name or description (case-insensitive).
+// How many cards browse should show: the library on disk through the app's own filter (unit-tested in filters.test.ts).
 function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: StyleTag[]; q?: string }): number {
-  const terms = q.toLowerCase().split(/\s+/).filter(Boolean)
-  return LIBRARY.filter(
-    (meta) =>
-      (category === undefined || meta.category === category) &&
-      tags.every((tag) => meta.tags.includes(tag)) &&
-      terms.every((term) => meta.name.toLowerCase().includes(term) || meta.description.toLowerCase().includes(term)),
-  ).length
+  return filterMetas(LIBRARY, { category, tags, q }).length
 }
 
 // A filter assertion only means something if the filter keeps some cards and drops others.
@@ -222,19 +217,18 @@ test('format choice persists across reloads', async ({ page }) => {
   await expect(page.locator('[data-code-file="Component.tsx"]')).toHaveCount(0)
 })
 
-test('related section lists up to three others from the same category', async ({ page }) => {
+// relatedMetas (unit-tested in related.test.ts) is the oracle: the library on disk is in the order the site uses.
+test('related section lists the first three others from the same category, in library order', async ({ page }) => {
   for (const meta of LIBRARY) {
-    const peers = LIBRARY.filter((other) => other.category === meta.category && other.slug !== meta.slug).map((other) => other.name)
+    const related = relatedMetas(meta, LIBRARY).map((other) => other.name)
     await page.goto(`/c/${meta.slug}`)
     await expect(page.getByRole('heading', { level: 1, name: meta.name })).toBeVisible()
     const section = page.getByRole('region', { name: /^More in / })
-    if (peers.length === 0) {
+    if (related.length === 0) {
       await expect(section).toHaveCount(0)
       continue
     }
-    const names = await section.getByRole('heading', { level: 3 }).allTextContents()
-    expect(names).toHaveLength(Math.min(3, peers.length))
-    for (const name of names) expect(peers).toContain(name)
+    await expect(section.getByRole('heading', { level: 3 })).toHaveText(related)
   }
 })
 

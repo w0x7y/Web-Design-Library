@@ -1,38 +1,26 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
-import { CATEGORY_IDS, type CategoryId } from './taxonomy'
+import { slugOfGlobPath, sortMetas } from './catalog'
 import type { ComponentMeta } from './types'
 
 // Client-safe registry: metadata (eager) and rendered modules (lazy).
 // Raw sources live in sources.server.ts so they never reach the client bundle.
+// The glob patterns follow catalog.ts; catalog.contract.test.ts checks they agree with the files on disk.
 
 const metaModules = import.meta.glob<{ default: ComponentMeta }>('./components/*/meta.ts', { eager: true })
 const componentLoaders = import.meta.glob<{ default: ComponentType }>('./components/*/Component.tsx')
 
-const METAS: ComponentMeta[] = Object.values(metaModules)
-  .map((module) => module.default)
-  .sort(
-    (a, b) =>
-      CATEGORY_IDS.indexOf(a.category) - CATEGORY_IDS.indexOf(b.category) ||
-      (a.name < b.name ? -1 : a.name > b.name ? 1 : 0),
-  )
+const METAS = sortMetas(Object.values(metaModules).map((module) => module.default))
 const META_BY_SLUG = new Map(METAS.map((meta) => [meta.slug, meta]))
-const LOADER_BY_SLUG = new Map(
-  Object.entries(componentLoaders).map(([path, load]) => [path.split('/')[2], load]),
-)
+const LOADER_BY_SLUG = new Map(Object.entries(componentLoaders).map(([path, load]) => [slugOfGlobPath(path), load]))
 const lazyCache = new Map<string, LazyExoticComponent<ComponentType>>()
 
+/** Every component's meta, in library order. */
 export function allMetas(): ComponentMeta[] {
   return [...METAS]
 }
 
 export function metaBySlug(slug: string): ComponentMeta | undefined {
   return META_BY_SLUG.get(slug)
-}
-
-export function categoryCounts(): Partial<Record<CategoryId, number>> {
-  const counts: Partial<Record<CategoryId, number>> = {}
-  for (const meta of METAS) counts[meta.category] = (counts[meta.category] ?? 0) + 1
-  return counts
 }
 
 export function lazyComponent(slug: string): LazyExoticComponent<ComponentType> {

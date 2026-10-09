@@ -1,24 +1,20 @@
 import postcss, { type AtRule, type Node, type Root, type Rule } from 'postcss'
 import { IMAGES } from './assets'
 import { fontDisplayName } from './fonts'
-import { CATEGORY_IDS, STYLE_TAGS } from './taxonomy'
+import { SOURCE_FILES } from './catalog'
+import { isCategoryId, isStyleTag } from './taxonomy'
 import type { ComponentMeta, ComponentSources, LibraryEntry } from './types'
 
 // Mechanical checks for the authoring rules in AGENTS.md (spec §4.5).
 
-const FILE_NAMES: Record<keyof ComponentSources, string> = {
-  tsx: 'Component.tsx',
-  html: 'index.html',
-  css: 'styles.css',
-}
 const BRIEF_FIELDS = ['layout', 'style', 'states', 'responsive'] as const
 const IMAGE_URLS = new Set<string>(Object.values(IMAGES))
 
 export function checkComponent(entry: LibraryEntry, folder: string, allSlugs: string[]): string[] {
   const { meta, sources } = entry
   const violations = checkMeta(meta, folder, allSlugs)
-  for (const key of Object.keys(FILE_NAMES) as (keyof ComponentSources)[]) {
-    if (!sources[key].trim()) violations.push(`${FILE_NAMES[key]} is missing or empty`)
+  for (const key of Object.keys(SOURCE_FILES) as (keyof ComponentSources)[]) {
+    if (!sources[key].trim()) violations.push(`${SOURCE_FILES[key]} is missing or empty`)
   }
   if (sources.tsx.trim()) violations.push(...checkTsx(sources.tsx, meta.fonts))
   if (sources.html.trim()) violations.push(...checkHtml(sources.html, meta.slug))
@@ -33,10 +29,10 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (allSlugs.filter((s) => s === meta.slug).length > 1) out.push(`duplicate slug "${meta.slug}"`)
   if (!meta.name.trim()) out.push('meta.name is empty')
   if (!meta.description.trim()) out.push('meta.description is empty')
-  if (!CATEGORY_IDS.includes(meta.category)) out.push(`unknown category "${meta.category}"`)
+  if (!isCategoryId(meta.category)) out.push(`unknown category "${meta.category}"`)
   if (meta.tags.length === 0) out.push('meta.tags must list at least one style tag')
   for (const tag of meta.tags) {
-    if (!(STYLE_TAGS as readonly string[]).includes(tag)) out.push(`unknown style tag "${tag}"`)
+    if (!isStyleTag(tag)) out.push(`unknown style tag "${tag}"`)
   }
   for (const field of BRIEF_FIELDS) {
     if (!meta.brief[field]?.trim()) out.push(`brief.${field} is empty`)
