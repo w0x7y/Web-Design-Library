@@ -1,6 +1,6 @@
 import { IMAGES } from './assets'
 import { resetCss } from './reset'
-import { checkComponent } from './rules'
+import { checkLibrary } from './rules'
 import type { CategoryId } from './taxonomy'
 import type { ComponentBrief, ComponentMeta, ComponentSources, LibraryEntry } from './types'
 
@@ -38,10 +38,19 @@ const withSources = (e: LibraryEntry, sources: Partial<ComponentSources>): Libra
   sources: { ...e.sources, ...sources },
 })
 
+/**
+ * The violations of `entry` in folder `folder`, checked as one item of a library whose slugs are
+ * `slugs`: every slug after the first is another component, in a folder of its own.
+ */
+function check(entry: LibraryEntry, folder: string, slugs: string[]): string[] {
+  const others = slugs.slice(1).map((slug, index) => ({ folder: `other-${index}`, entry: withMeta(entry, { slug }) }))
+  return checkLibrary([{ folder, entry }, ...others])[0].violations
+}
+
 type Case = [name: string, mutate: (e: LibraryEntry) => LibraryEntry, folder: string, pattern: RegExp, slugs?: string[]]
 
 test('valid entry has no violations', () => {
-  expect(checkComponent(validEntry(), 'demo', ['demo'])).toEqual([])
+  expect(check(validEntry(), 'demo', ['demo'])).toEqual([])
 })
 
 test.each<Case>([
@@ -71,7 +80,7 @@ test.each<Case>([
   ['html root lacks slug class', (e) => withSources(e, { html: '<section>x</section>' }), 'demo', /root/],
   ['html contains <link>/<style>/<script>', (e) => withSources(e, { html: e.sources.html + '<style></style>' }), 'demo', /<style>/],
 ])('%s is reported', (_n, mutate, folder, pattern, slugs = ['demo']) => {
-  expect(checkComponent(mutate(validEntry()), folder, slugs).join('\n')).toMatch(pattern)
+  expect(check(mutate(validEntry()), folder, slugs).join('\n')).toMatch(pattern)
 })
 
 // Each mutation must produce exactly one violation: the intended one.
@@ -125,14 +134,14 @@ test.each<Case>([
   ['unparseable css', (e) => withSources(e, { css: e.sources.css + '\n.demo {' }), 'demo', /does not parse/],
   ['selector scoped to a longer class (.demox)', (e) => withSources(e, { css: e.sources.css + '\n.demox { color: red; }' }), 'demo', /"\.demox" is not scoped under \.demo/],
 ])('%s is the only violation', (_n, mutate, folder, pattern, slugs = ['demo']) => {
-  const violations = checkComponent(mutate(validEntry()), folder, slugs)
+  const violations = check(mutate(validEntry()), folder, slugs)
   expect(violations).toHaveLength(1)
   expect(violations[0]).toMatch(pattern)
 })
 
 test('the reset may use CRLF line endings and trailing whitespace', () => {
   const e = validEntry()
-  expect(checkComponent(withSources(e, { css: e.sources.css.replace(/\n/g, ' \t\r\n') }), 'demo', ['demo'])).toEqual([])
+  expect(check(withSources(e, { css: e.sources.css.replace(/\n/g, ' \t\r\n') }), 'demo', ['demo'])).toEqual([])
 })
 
 test('allowed patterns raise no violations', () => {
@@ -152,5 +161,5 @@ test('allowed patterns raise no violations', () => {
       '\n@media (width >= 40rem) { .demo .demo__title { font-size: 2rem; } }' +
       '\n.demo:hover { color: red; }',
   })
-  expect(checkComponent(entry, 'demo', ['demo'])).toEqual([])
+  expect(check(entry, 'demo', ['demo'])).toEqual([])
 })

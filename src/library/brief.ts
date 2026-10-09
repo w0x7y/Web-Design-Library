@@ -2,6 +2,7 @@ import { SITE } from '../site'
 import { fontDisplayName, fontLinkTag } from './fonts'
 import { groupMetas } from './catalog'
 import type { ComponentMeta, ComponentSources, Format } from './types'
+import { absoluteUrl, componentMarkdownPath, componentPath } from './urls'
 
 const CLOSING_LINE =
   'Adapt names, tokens and conventions to the existing project; keep the layout, hierarchy and spacing rhythm.'
@@ -42,7 +43,7 @@ function referenceCode(meta: ComponentMeta, sources: ComponentSources, format: F
 function briefFor(meta: ComponentMeta, sources: ComponentSources, formats: Format[]): string {
   const fonts = meta.fonts.length > 0 ? meta.fonts.map(fontDisplayName).join(', ') : 'system sans-serif'
   return [
-    `# ${meta.name} (${SITE.name})\nSource: ${SITE.url}/c/${meta.slug}`,
+    `# ${meta.name} (${SITE.name})\nSource: ${absoluteUrl(componentPath(meta.slug))}`,
     `Build this UI component: ${meta.description}`,
     `## Layout\n${meta.brief.layout}`,
     `## Visual style\n${meta.brief.style}\nFonts: ${fonts}`,
@@ -67,7 +68,7 @@ export function buildLlmsTxt(metas: ComponentMeta[]): string {
   for (const group of groupMetas(metas)) {
     sections.push(`## ${group.label}`)
     for (const category of group.categories) {
-      const lines = category.metas.map((meta) => `- [${meta.name}](${SITE.url}/c/${meta.slug}.md): ${meta.description}`)
+      const lines = category.metas.map((meta) => `- [${meta.name}](${absoluteUrl(componentMarkdownPath(meta.slug))}): ${meta.description}`)
       sections.push(`### ${category.label}\n\n${lines.join('\n')}`)
     }
   }

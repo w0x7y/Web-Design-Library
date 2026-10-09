@@ -2,7 +2,9 @@ import { mkdir, stat, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { buildAgentMarkdown, buildLlmsTxt } from '../src/library/brief'
+import { isSlug } from '../src/library/catalog'
 import type { LibraryEntry } from '../src/library/types'
+import { componentMarkdownPath } from '../src/library/urls'
 import { loadLibrary } from './load-library'
 
 // Post-build step: writes /c/<slug>.md for every component and /llms.txt into
@@ -21,14 +23,20 @@ async function assertDirectory(dir: string): Promise<void> {
   }
 }
 
-/** Writes the agent files into `outDir` and returns their paths relative to it. */
+/**
+ * Writes the agent files into `outDir` and returns their paths relative to it. Each slug becomes a
+ * file name, so an invalid one (which could point outside `outDir`) fails the build before anything is written.
+ */
 export async function writeAgentFiles(outDir: string, entries: LibraryEntry[]): Promise<string[]> {
+  for (const { meta } of entries) {
+    if (!isSlug(meta.slug)) throw new Error(`"${meta.slug}" is not a valid slug (kebab-case); agent files not written.`)
+  }
   await assertDirectory(outDir)
   await mkdir(join(outDir, 'c'), { recursive: true })
 
   const files = [
     ...entries.map(({ meta, sources }) => ({
-      path: `c/${meta.slug}.md`,
+      path: componentMarkdownPath(meta.slug).slice(1), // relative to outDir
       content: buildAgentMarkdown(meta, sources),
     })),
     { path: 'llms.txt', content: buildLlmsTxt(entries.map(({ meta }) => meta)) },

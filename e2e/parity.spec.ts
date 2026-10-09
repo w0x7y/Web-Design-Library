@@ -1,7 +1,8 @@
 import { expect, test, type Page } from '@playwright/test'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
-import { previewPath, settleDocument } from '../app/lib/preview-ready'
+import { settleDocument, STAGE } from '../app/lib/stage'
+import { previewPath } from '../src/library/urls'
 import { CAPTURE_VIEWPORTS, frameSize } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
 import { buildParityPage } from './lib/parity-page'
@@ -40,9 +41,9 @@ for (const { entry } of items) {
     test(`${slug} @ ${viewport}: HTML/CSS matches React`, async ({ page }, testInfo) => {
       await page.setViewportSize(frameSize(meta.preview.kind, viewport))
       await page.goto(previewPath(slug))
-      await page.locator('[data-preview-backdrop][data-preview-state="ready"]').waitFor()
+      await page.locator(STAGE.ready).waitFor()
       expect(await brokenImages(page), 'images that did not load in the React version').toEqual([])
-      const react = await page.locator('[data-capture-root] > *').first().screenshot({ animations: 'disabled' })
+      const react = await page.locator(`${STAGE.root} > *`).first().screenshot({ animations: 'disabled' })
 
       // The bare page has no React to report readiness, so it runs the preview page's own settle step.
       await page.setContent(buildParityPage(entry))

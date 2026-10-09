@@ -1,9 +1,11 @@
 /*
  * The stage: the neutral page a library component renders on, whatever the site theme. It is white
  * with black text, Tailwind's default sans, default font smoothing and a light colour scheme.
- * PreviewSurface sets the attributes below (on the preview page and in browse thumbnails). The parity
- * harness (e2e/lib/parity-page.ts) inlines this file unchanged and sets the same attributes, so it
- * must stay plain CSS, with no Tailwind directives.
+ * app/lib/stage.ts owns the attributes below (PreviewSurface sets them on the preview page and in
+ * browse thumbnails; the parity harness, e2e/lib/parity-page.ts, writes them as markup and inlines
+ * this file unchanged, so it must stay plain CSS, with no Tailwind directives). stage.ts also sets
+ * --stage-padding, so the padding has one value for the stylesheet and the TypeScript that fits
+ * components around it.
  *
  * These rules are unlayered, so they beat Tailwind's utilities. That is safe only because they target
  * the stage's own two elements, the backdrop and the capture root, and never a component's markup.
@@ -11,7 +13,6 @@
  */
 
 [data-preview-backdrop] {
-  --stage-padding: 48px;
   /* As Tailwind's preflight sets it on the preview page; the parity page has no preflight. */
   box-sizing: border-box;
   background-color: #fff;

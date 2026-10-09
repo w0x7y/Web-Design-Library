@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Web Library is a static site of copy-paste UI components. This file is the authoring guide for components in `src/library/components/`. `npm test` enforces the mechanically checkable rules (`src/library/rules.ts`), and `npm run test:parity` checks that the HTML/CSS version renders like the React version.
+Patternbook is a static site of copy-paste UI components. This file is the authoring guide for components in `src/library/components/`. `npm test` enforces the mechanically checkable rules (`src/library/rules.ts`), and `npm run test:parity` checks that the HTML/CSS version renders like the React version.
 
 ## Add a component
 

@@ -1,17 +1,12 @@
 import { Component, Suspense, useCallback, useState, type CSSProperties, type ReactNode } from 'react'
+import type { ComponentMeta } from '../../src/library/types'
+import { THUMBNAIL_ELEMENT_MAX_WIDTH, THUMBNAIL_STAGE_WIDTH, thumbnailFit, thumbnailStageWidth } from '~/lib/viewports'
+import { LibraryComponent } from './LibraryComponent'
 import { PreviewSurface } from './PreviewSurface'
 
-// Sections render on a 1280px-wide stage, scaled down to the frame, so they show
-// their desktop layout. Breakpoints follow the real viewport, though, so on
-// narrower screens the stage shrinks to the viewport width: a stacked mobile
-// layout is shown at the width it was designed for, not stretched to 1280px.
-// A section shorter than the frame is centred vertically, and the frame takes the
-// section's own background (colour, gradient or image) so no white band shows.
-// Elements render at natural size (up to the stage's inner width), centred, and
-// shrink only when they would not fit with a 24px margin.
-const STAGE_WIDTH = 1280
-const ELEMENT_MAX_WIDTH = `calc(${STAGE_WIDTH}px - 2 * var(--stage-padding))` // --stage-padding: app/stage.css
-const ELEMENT_MARGIN = 24
+// Sections render on a desktop-width stage scaled down to the frame; elements at their natural size,
+// centred. thumbnailFit has the rules. A short section's frame takes the section's own background
+// (colour, gradient or image) so no white band shows, and a thin one sits above a sketch of a page.
 
 interface Size {
   width: number
@@ -33,18 +28,10 @@ function backgroundOf(el: Element | null): CSSProperties | null {
   return { backgroundColor: clear ? undefined : color, backgroundImage: image === 'none' ? undefined : image, backgroundSize: 'cover', backgroundPosition: 'center' }
 }
 
-/** A live, non-interactive render of `children` that mounts when it first nears the viewport. */
-export function LiveThumbnail({
-  kind,
-  fonts,
-  className = '',
-  children,
-}: {
-  kind: 'section' | 'element'
-  fonts: string[]
-  className?: string
-  children: ReactNode
-}) {
+/** A live, non-interactive render of the library component `meta`, mounted when it first nears the viewport. */
+export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; className?: string }) {
+  const { kind } = meta.preview
+  const { fonts } = meta
   const [mounted, setMounted] = useState(false)
   const [frame, setFrame] = useState<(Size & { stage: number }) | null>(null)
   const [content, setContent] = useState<Size | null>(null)
@@ -60,7 +47,7 @@ export function LiveThumbnail({
       { rootMargin: '200px' },
     )
     const resize = new ResizeObserver(([entry]) =>
-      setFrame({ ...boxSize(entry), stage: Math.min(STAGE_WIDTH, window.innerWidth) }),
+      setFrame({ ...boxSize(entry), stage: thumbnailStageWidth(window.innerWidth) }),
     )
     visibility.observe(el)
     resize.observe(el)
@@ -80,15 +67,7 @@ export function LiveThumbnail({
   }, [])
 
   const ready = frame !== null && frame.width > 0 && content !== null && content.width > 0 && content.height > 0
-  let scale = 1
-  if (ready && kind === 'section') scale = frame.width / frame.stage
-  if (ready && kind === 'element') {
-    scale = Math.min(1, (frame.width - 2 * ELEMENT_MARGIN) / content.width, (frame.height - 2 * ELEMENT_MARGIN) / content.height)
-  }
-
-  // A section that ends above the frame's bottom edge: centre it and fill around it.
-  const short = ready && kind === 'section' && content.height * scale < frame.height
-  const offset = short ? (frame.height - content.height * scale) / 2 : 0
+  const { scale, offset, short, thin } = ready ? thumbnailFit(kind, frame, content) : { scale: 1, offset: 0, short: false, thin: false }
 
   return (
     <div
@@ -96,7 +75,8 @@ export function LiveThumbnail({
       style={short && fill ? fill : undefined}
       inert
       aria-hidden="true"
-      className={`relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 ${className}`}
+      // Until the component has rendered, the frame is a quiet placeholder in the site's theme, not a white flash.
+      className={`relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 ${ready ? 'bg-white' : 'bg-zinc-100 dark:bg-zinc-900'} ${className}`}
     >
       {mounted && (
         <ThumbnailBoundary>
@@ -104,26 +84,27 @@ export function LiveThumbnail({
             <div
               className={`absolute inset-0 transition-opacity duration-300 ease-out motion-reduce:transition-none ${ready ? 'opacity-100' : 'opacity-0'}`}
             >
+              {ready && thin && <PageSketch top={content.height * scale} />}
               {kind === 'section' ? (
                 <div
                   style={{
-                    width: frame?.stage ?? STAGE_WIDTH,
+                    width: frame?.stage ?? THUMBNAIL_STAGE_WIDTH,
                     height: ready ? (short ? content.height : frame.height / scale) : undefined,
                     transform: `translateY(${offset}px) scale(${scale})`,
                     transformOrigin: '0 0',
                   }}
                 >
                   <PreviewSurface kind="section" fonts={fonts} mode="thumbnail">
-                    <div ref={observeContent}>{children}</div>
+                    <div ref={observeContent}><LibraryComponent slug={meta.slug} /></div>
                   </PreviewSurface>
                 </div>
               ) : (
                 <PreviewSurface kind="element" fonts={fonts} mode="thumbnail">
                   <div
                     ref={observeContent}
-                    style={{ width: 'max-content', maxWidth: ELEMENT_MAX_WIDTH, transform: `scale(${scale})` }}
+                    style={{ width: 'max-content', maxWidth: THUMBNAIL_ELEMENT_MAX_WIDTH, transform: `scale(${scale})` }}
                   >
-                    {children}
+                    <LibraryComponent slug={meta.slug} />
                   </div>
                 </PreviewSurface>
               )}
@@ -131,6 +112,26 @@ export function LiveThumbnail({
           </Suspense>
         </ThumbnailBoundary>
       )}
+    </div>
+  )
+}
+
+/** Grey blocks in the shape of a hero, below a thin section: they read on light and dark fills alike. */
+function PageSketch({ top }: { top: number }) {
+  const block = 'rounded-[3px] bg-zinc-500/15'
+  return (
+    <div className="absolute inset-x-0 bottom-0 flex items-center gap-[6%] px-[8%]" style={{ top }}>
+      <div className="flex flex-1 flex-col gap-2">
+        <div className={`${block} h-3 w-[90%]`} />
+        <div className={`${block} h-3 w-[65%]`} />
+        <div className={`${block} mt-1 h-1.5 w-full`} />
+        <div className={`${block} h-1.5 w-[80%]`} />
+        <div className="mt-2 flex gap-1.5">
+          <div className={`${block} h-4 w-12 rounded-full`} />
+          <div className={`${block} h-4 w-12 rounded-full`} />
+        </div>
+      </div>
+      <div className={`${block} aspect-[4/3] flex-1 rounded-md`} />
     </div>
   )
 }

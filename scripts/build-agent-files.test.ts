@@ -52,3 +52,12 @@ test('writes one .md per component and llms.txt', async () => {
 test('throws a clear error when outDir does not exist', async () => {
   await expect(writeAgentFiles('/nonexistent/build/client', [])).rejects.toThrow(/react-router build/)
 })
+
+// A slug becomes a file path; one that isn't a plain kebab-case name could write outside outDir.
+// The authoring rules reject it too, but those run in `npm test`, not in the build.
+test('refuses a slug that is not a kebab-case name, and writes nothing', async () => {
+  const out = await mkdtemp(join(tmpdir(), 'wl-'))
+  const escaping: LibraryEntry = { ...entryA, meta: { ...entryA.meta, slug: '../../escape' } }
+  await expect(writeAgentFiles(out, [entryB, escaping])).rejects.toThrow(/"\.\.\/\.\.\/escape" is not a valid slug/)
+  await expect(readFile(join(out, 'c/b.md'), 'utf8')).rejects.toThrow(/ENOENT/)
+})

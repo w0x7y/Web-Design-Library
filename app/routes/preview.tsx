@@ -1,11 +1,13 @@
 import { Suspense, useCallback, useEffect, useRef, useState, type RefObject } from 'react'
 import { data, useSearchParams } from 'react-router'
+import { LibraryComponent } from '~/components/LibraryComponent'
 import { PreviewSurface } from '~/components/PreviewSurface'
-import { isCaptureRequest, settleDocument, type PreviewState } from '~/lib/preview-ready'
+import { settleDocument, stageAttributes, type PreviewState } from '~/lib/stage'
 import { useHydrated } from '~/lib/use-hydrated'
 import type { DocumentHandle } from '~/root'
 import { SITE } from '~/site'
-import { lazyComponent, metaBySlug } from '../../src/library/registry'
+import { metaBySlug } from '../../src/library/registry'
+import { isCaptureRequest } from '../../src/library/urls'
 import type { Route } from './+types/preview'
 
 // The component renders in the stage document: none of the site's theme, fonts, toasts or analytics.
@@ -32,7 +34,6 @@ export default function Preview({ loaderData }: Route.ComponentProps) {
   const settled = useCallback(() => setState('ready'), [])
   const component = metaBySlug(loaderData.slug)
   if (!component) throw new Error(`Unknown component: ${loaderData.slug}`) // the loader 404s unknown slugs first
-  const Lazy = lazyComponent(component.slug)
   return (
     <PreviewSurface
       ref={root}
@@ -43,8 +44,7 @@ export default function Preview({ loaderData }: Route.ComponentProps) {
       state={state}
     >
       <Suspense>
-        {/* oxlint-disable-next-line react/static-components -- lazyComponent() memoizes per slug, so the type is stable across renders */}
-        <Lazy />
+        <LibraryComponent slug={component.slug} />
         <Settle root={root} onSettled={settled} />
       </Suspense>
     </PreviewSurface>
@@ -54,7 +54,7 @@ export default function Preview({ loaderData }: Route.ComponentProps) {
 // Whatever stops the page rendering lands here, so it reports failed instead of looking like it is
 // still loading: the component's code failing to load, or a slug that isn't in the library.
 export function ErrorBoundary() {
-  return <div data-preview-backdrop="" data-preview-state={'failed' satisfies PreviewState} />
+  return <div {...stageAttributes({ state: 'failed' })} />
 }
 
 /**

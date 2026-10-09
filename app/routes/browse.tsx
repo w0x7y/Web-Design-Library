@@ -1,11 +1,12 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { data, isRouteErrorResponse, type ShouldRevalidateFunctionArgs } from 'react-router'
 import { ComponentCard } from '~/components/ComponentCard'
 import { EmptyState } from '~/components/EmptyState'
+import { Hero } from '~/components/Hero'
 import { NotFoundView } from '~/components/NotFoundView'
 import { CategoryScroller, Sidebar } from '~/components/Sidebar'
 import { TagFilter } from '~/components/TagFilter'
-import { filterMetas, NO_FILTERS } from '~/lib/filters'
+import { browseResults, NO_FILTERS } from '~/lib/filters'
 import { useFilters } from '~/lib/use-filters'
 import { SITE } from '~/site'
 import { allMetas } from '../../src/library/registry'
@@ -43,50 +44,68 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
   const { category } = loaderData
   const { filters, setFilters } = useFilters()
   const headingRef = useRef<HTMLHeadingElement>(null)
-  const inView = category ? ALL.filter((meta) => meta.category === category) : ALL
-  const results = filterMetas(inView, filters)
-  const filtered = filters.q !== '' || filters.tags.length > 0
+  const { inView, results, filtered } = browseResults(ALL, category, filters)
+
+  // The hero opens the home page. A search hides it, so the results aren't pushed below the fold; style tags
+  // don't, because toggling a chip under the hero must not move the chips under the pointer.
+  const showHero = !category && filters.q === ''
+  // The hero holds the home page's h1; without it (a category, or a search) this heading is the h1.
+  const Heading = showHero ? 'h2' : 'h1'
+
+  // Clear filters removes the button that had focus, so focus moves to the heading. Clearing a search
+  // brings the hero back and turns this <h1> into an <h2> (a new element), so focus waits until the
+  // cleared filters have rendered.
+  const focusHeadingOnClear = useRef(false)
+  useEffect(() => {
+    if (!focusHeadingOnClear.current || filtered) return
+    focusHeadingOnClear.current = false
+    headingRef.current?.focus()
+  })
 
   return (
-    <div className="mx-auto flex w-full max-w-(--breakpoint-2xl) gap-10 px-4 sm:px-6 lg:px-8">
-      <Sidebar active={category} />
-      <main className="min-w-0 flex-1 pt-0 pb-24 lg:pt-10">
-        <CategoryScroller active={category} />
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h1 ref={headingRef} tabIndex={-1} className="text-2xl font-semibold tracking-tight text-zinc-950 focus-visible:outline-hidden dark:text-white">
-            {category ? CATEGORY_LABELS[category] : 'All components'}
-          </h1>
-          <p aria-live="polite" className="text-sm text-zinc-500 tabular-nums dark:text-zinc-400">
-            {filtered ? `${results.length} of ${inView.length}` : inView.length}
-            <span className="sr-only"> {inView.length === 1 ? 'component' : 'components'}</span>
-          </p>
+    // One <main> holds the hero (and its h1) and the grid, so jumping to the main landmark lands on the page's heading.
+    <main>
+      {showHero && <Hero count={ALL.length} />}
+      <div className="mx-auto flex w-full max-w-(--breakpoint-2xl) gap-10 px-4 sm:px-6 lg:px-8">
+        <Sidebar active={category} />
+        <div className="min-w-0 flex-1 pt-0 pb-24 lg:pt-10">
+          <CategoryScroller active={category} />
+          {/* The hero's "Browse components" lands here (the page's scroll padding clears the sticky header). */}
+          <div id="components" className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <Heading ref={headingRef} tabIndex={-1} className="text-2xl font-semibold tracking-tight text-zinc-950 focus-visible:outline-hidden dark:text-white">
+              {category ? CATEGORY_LABELS[category] : 'All components'}
+            </Heading>
+            <p aria-live="polite" className="text-sm text-zinc-500 tabular-nums dark:text-zinc-400">
+              {filtered ? `${results.length} of ${inView.length}` : inView.length}
+              <span className="sr-only"> {inView.length === 1 ? 'component' : 'components'}</span>
+            </p>
+          </div>
+          <div className="mt-5">
+            <TagFilter />
+          </div>
+          {!showHero && <h2 className="sr-only">Components</h2>}
+          <div className="mt-8">
+            {results.length > 0 ? (
+              <ul role="list" className="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
+                {results.map((meta) => (
+                  <li key={meta.slug}>
+                    <ComponentCard meta={meta} />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <EmptyState
+                filtered={filtered}
+                onClear={() => {
+                  focusHeadingOnClear.current = true
+                  setFilters(NO_FILTERS)
+                }}
+              />
+            )}
+          </div>
         </div>
-        {!category && <p className="mt-2 max-w-prose text-pretty text-zinc-600 dark:text-zinc-400">{SITE.tagline}</p>}
-        <div className="mt-6">
-          <TagFilter />
-        </div>
-        <h2 className="sr-only">Components</h2>
-        <div className="mt-8">
-          {results.length > 0 ? (
-            <ul role="list" className="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
-              {results.map((meta) => (
-                <li key={meta.slug}>
-                  <ComponentCard meta={meta} />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <EmptyState
-              filtered={filtered}
-              onClear={() => {
-                setFilters(NO_FILTERS)
-                headingRef.current?.focus() // the button is about to disappear; keep keyboard users in place
-              }}
-            />
-          )}
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }
 

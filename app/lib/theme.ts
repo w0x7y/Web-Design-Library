@@ -1,10 +1,11 @@
 import { useSyncExternalStore } from 'react'
+import { readStored, STORAGE_KEYS, writeStored } from './storage'
 
 // Site theme: `.dark` on <html>. A stored choice wins; otherwise the system preference.
 
 export type Theme = 'light' | 'dark'
 
-export const THEME_STORAGE_KEY = 'wl:theme'
+export const THEME_STORAGE_KEY = STORAGE_KEYS.theme
 
 const DARK_QUERY = '(prefers-color-scheme: dark)'
 
@@ -17,12 +18,8 @@ export const themeInitScript = `(function () {
 })()`
 
 function storedTheme(): Theme | null {
-  try {
-    const value = localStorage.getItem(THEME_STORAGE_KEY)
-    return value === 'light' || value === 'dark' ? value : null
-  } catch {
-    return null
-  }
+  const value = readStored(THEME_STORAGE_KEY)
+  return value === 'light' || value === 'dark' ? value : null
 }
 
 function applyTheme(theme: Theme) {
@@ -62,11 +59,7 @@ const getSnapshot = (): Theme => (document.documentElement.classList.contains('d
 const getServerSnapshot = (): Theme => 'light'
 
 function setTheme(theme: Theme) {
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, theme)
-  } catch {
-    // Storage blocked: the choice still applies to this page.
-  }
+  writeStored(THEME_STORAGE_KEY, theme)
   applyTheme(theme)
 }
 

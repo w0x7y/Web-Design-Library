@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test'
-import { previewPath } from '../app/lib/preview-ready'
+import { STAGE } from '../app/lib/stage'
 import { CAPTURE_VIEWPORTS, frameSize } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
+import { previewPath } from '../src/library/urls'
 
 // Layout budgets that parity can't see, because it only compares the two versions of a component with
 // each other:
@@ -17,7 +18,7 @@ for (const meta of METAS.filter((m) => m.preview.kind === 'section')) {
   test(`${meta.slug}: reflows without horizontal scrolling from 320px up`, async ({ page }) => {
     await page.setViewportSize({ width: REFLOW_WIDTHS[0], height: 844 })
     await page.goto(previewPath(meta.slug))
-    await page.locator('[data-preview-backdrop][data-preview-state="ready"]').waitFor()
+    await page.locator(STAGE.ready).waitFor()
     for (const width of REFLOW_WIDTHS) {
       await page.setViewportSize({ width, height: 844 })
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
@@ -31,12 +32,12 @@ for (const meta of METAS.filter((m) => m.preview.kind === 'element')) {
     test(`${meta.slug} @ ${viewport}: fits its frame inside the stage padding`, async ({ page }) => {
       await page.setViewportSize(frameSize('element', viewport))
       await page.goto(previewPath(meta.slug))
-      const backdrop = page.locator('[data-preview-backdrop][data-preview-state="ready"]')
+      const backdrop = page.locator(STAGE.ready)
       await backdrop.waitFor()
       // Measured against the frame rather than the backdrop, which grows (min-height) with a taller element.
-      const fit = await backdrop.evaluate((stage) => {
+      const fit = await backdrop.evaluate((stage, rootSelector) => {
         const { paddingTop, paddingRight, paddingBottom, paddingLeft } = getComputedStyle(stage)
-        const root = stage.querySelector('[data-capture-root]')!
+        const root = stage.querySelector(rootSelector)!
         const box = root.getBoundingClientRect()
         return {
           room: {
@@ -45,7 +46,7 @@ for (const meta of METAS.filter((m) => m.preview.kind === 'element')) {
           },
           size: { width: Math.max(box.width, root.scrollWidth), height: Math.max(box.height, root.scrollHeight) },
         }
-      })
+      }, STAGE.root)
       expect(fit.size.width, `width, with ${fit.room.width}px of room`).toBeLessThanOrEqual(fit.room.width)
       expect(fit.size.height, `height, with ${fit.room.height}px of room`).toBeLessThanOrEqual(fit.room.height)
     })

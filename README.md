@@ -1,8 +1,8 @@
-# Web Library
+# Patternbook
 
 Copy-paste UI layouts for developers building with AI agents.
 
-Web Library is a static site of copy-paste UI components (36 today) in four groups: Sections (hero, navbar, features, pricing, testimonials, call to action, FAQ, footer), Cards & profiles (profile, team, product, stat, testimonial and blog cards), Elements (buttons, inputs, badges, toggles, tabs, dropdowns) and App UI (login, sign-up, settings, data table, empty state, dashboard).
+Patternbook is a static site of copy-paste UI components (36 today) in four groups: Sections (hero, navbar, features, pricing, testimonials, call to action, FAQ, footer), Cards & profiles (profile, team, product, stat, testimonial and blog cards), Elements (buttons, inputs, badges, toggles, tabs, dropdowns) and App UI (login, sign-up, settings, data table, empty state, dashboard).
 
 Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. On a component's page (`/c/<slug>`) you can:
 
@@ -66,7 +66,8 @@ app/                  The site (React Router app)
   routes/             shell layout, browse, detail, not-found, and preview (the bare stage page)
   components/         site UI: header, sidebar, cards, action bar, download menu, ...
   lib/                browser logic: component-actions.ts (copy and export actions), capture.ts (PNG capture),
-                      clipboard, analytics, theme, filters, viewports
+                      stage.ts (the stage's DOM contract), viewports.ts (frame and thumbnail geometry),
+                      clipboard, analytics, theme, format-preference, storage, filters
   site.ts             re-exports SITE from src/site.ts
 src/site.ts           SITE: name, slug, tagline, URL and repo URL
 src/library/          The component library
@@ -77,7 +78,9 @@ src/library/          The component library
   taxonomy.ts         groups, categories and style tags
   brief.ts            the AI brief, the HTML snippet and llms.txt builders
   rules.ts, reset.ts  authoring-rule checks and the pinned CSS reset
-scripts/              build-agent-files.ts and load-library.ts (reads the library from disk for Node)
+  urls.ts             every path the site serves, and the prerender list
+scripts/              build-agent-files.ts and load-library.ts (reads the library from disk for Node:
+                      the build config's prerender list, build scripts and tests)
 e2e/                  Playwright specs
 docs/superpowers/     design spec and implementation plan
 ```
@@ -85,7 +88,7 @@ docs/superpowers/     design spec and implementation plan
 ### How a component page works
 
 - **The preview stage.** `/preview/<slug>` renders one component alone on a bare page. It has none of the site's theme, fonts, toasts or analytics, and it is `noindex`. The detail page shows it in an iframe, so site dark mode never restyles a component. Opening it with `?capture=1` freezes motion.
-- **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `web-library-<slug>-<desktop|mobile>.png`. Known limitation: `modern-screenshot` draws `backdrop-filter` blur differently from the browser, so a glass component's PNG (navbar-glass, for example) differs slightly from its preview behind the frosted areas.
+- **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `patternbook-<slug>-<desktop|mobile>.png`. Known limitation: `modern-screenshot` draws `backdrop-filter` blur differently from the browser, so a glass component's PNG (navbar-glass, for example) differs slightly from its preview behind the frosted areas.
 - **Preferences.** The site theme and the React/HTML choice are kept in `localStorage` (`wl:theme` and `wl:format`).
 
 ### Agent files
@@ -101,7 +104,7 @@ The build logs `Agent files: <n> written`: one per component plus `llms.txt` (37
 
 The site is static, so Vercel only serves `build/client`.
 
-1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a new project. `vercel.json` already sets everything: the build command (`npm run build`), the output directory (`build/client`), `framework: null` (no framework preset), the `Content-Type` headers for `/c/<slug>.md` and `/llms.txt`, and a rewrite that sends unknown paths to `/__spa-fallback.html`. Make sure the project uses Node 22.22 or newer.
+1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a new project. `vercel.json` already sets everything: the build command (`npm run build`), the output directory (`build/client`), `framework: null` (no framework preset), the `Content-Type` headers for `/c/<slug>.md` and `/llms.txt`, baseline security headers (`nosniff`, `Referrer-Policy`, and a CSP of `frame-ancestors 'self'`), and a rewrite that sends unknown paths to `/__spa-fallback.html`. Make sure the project uses Node 22.22 or newer.
 2. **Set the real URL.** After the first deploy, set `SITE.url` in `src/site.ts` to the production domain, with no trailing slash, and redeploy. (`app/site.ts` re-exports it, so this is the only place to edit.) `SITE.url` builds the canonical and Open Graph URLs on component pages, the `Source:` line in each brief, and every link in `llms.txt`, so they are wrong until it matches the real domain.
 3. **Turn on Web Analytics.** In the Vercel project, open the Analytics tab and enable Web Analytics. `@vercel/analytics` is already mounted in the site layout.
 
@@ -117,6 +120,17 @@ Page views are recorded on every plan, Hobby included. The four custom events ne
 | `copy_image` | `slug` |
 
 Events fire only after the action succeeds, and each carries at most two props, which is the Pro plan's limit. The stage page (`/preview/<slug>`) does not load analytics.
+
+## Open follow-ups
+
+Known gaps, lowest risk last. None is a confirmed vulnerability.
+
+- **The hero flashes on a search deep link.** Only `/` is pre-rendered, so arriving at `/?q=…` shows the home hero until hydration reads the query, then removes it, which shifts the layout. An inline pre-hydration script (like `themeInitScript` in `app/lib/theme.ts`) could hide the hero before first paint. Tag links from a component page (`/?tags=…`) keep the hero, so the filtered grid starts below the fold.
+- **The sidebar options page is temporary.** `docs/mockups/sidebar-options.html` compares five sidebar layouts. Option A (collapsible groups) is built; the page is kept for reference and can be deleted once that choice is final.
+- **CI actions are pinned to major tags.** `.github/workflows/ci.yml` uses `actions/checkout@v7`, `actions/setup-node@v7` and `actions/upload-artifact@v7`. Pin each to a commit SHA (with the version in a comment), add `persist-credentials: false` to checkout, and consider Dependabot for actions.
+- **No full Content Security Policy.** `vercel.json` sets only `frame-ancestors 'self'`. A full CSP needs hashes for the theme init script and React Router's inline scripts, and `style-src 'unsafe-inline'` for the inline `style` attributes the app sets. The headers can't be checked locally (`npm run serve:build` doesn't apply `vercel.json`); verify them on a deployment.
+- **Font family names aren't URL-encoded.** `src/library/fonts.ts` only turns spaces into `+` when building Google Fonts URLs and the `<link>` in copied HTML. `meta.fonts` is maintainer-written, so this is hardening: encode each family and validate `meta.fonts` in `rules.ts`.
+- **Google Fonts sees every visitor.** The site loads Geist from Google Fonts, which sends visitors' IP addresses to Google. Self-hosting the font would remove that.
 
 ## License
 

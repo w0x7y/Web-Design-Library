@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test'
-import { previewPath } from '../app/lib/preview-ready'
+import { STAGE } from '../app/lib/stage'
+import { previewPath } from '../src/library/urls'
 import { loadLibrary } from '../scripts/load-library'
 import type { LibraryEntry } from '../src/library/types'
 import { buildParityPage } from './lib/parity-page'
@@ -20,32 +21,32 @@ const ENTRIES = (await loadLibrary())
 const VERSIONS = {
   React: async (page: Page, { meta }: LibraryEntry) => {
     await page.goto(previewPath(meta.slug))
-    await page.locator('[data-preview-backdrop][data-preview-state="ready"]').waitFor()
+    await page.locator(STAGE.ready).waitFor()
   },
   HTML: (page: Page, entry: LibraryEntry) => page.setContent(buildParityPage(entry)),
 }
 
 /** Every element and pseudo-element in the component that currently draws an outline. */
 const outlined = (page: Page) =>
-  page.evaluate(() => {
+  page.evaluate((root) => {
     const found: string[] = []
-    document.querySelectorAll('[data-capture-root] *').forEach((element, index) => {
+    document.querySelectorAll(`${root} *`).forEach((element, index) => {
       for (const pseudo of [null, '::before', '::after']) {
         const style = getComputedStyle(element, pseudo)
         if (style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) > 0) found.push(`${index}${pseudo ?? ''}`)
       }
     })
     return found
-  })
+  }, STAGE.root)
 
 /** A short description of the focused control, or null once focus has left the component. */
 const focusedControl = (page: Page) =>
-  page.evaluate(() => {
+  page.evaluate((root) => {
     const element = document.activeElement
-    if (!element?.closest('[data-capture-root]')) return null
+    if (!element?.closest(root)) return null
     const name = element.getAttribute('aria-label') ?? element.textContent ?? ''
     return `<${element.tagName.toLowerCase()}> "${name.trim().slice(0, 40)}"`
-  })
+  }, STAGE.root)
 
 for (const entry of ENTRIES) {
   for (const [version, open] of Object.entries(VERSIONS)) {

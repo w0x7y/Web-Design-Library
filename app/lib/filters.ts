@@ -1,4 +1,4 @@
-import { isCategoryId, isStyleTag, type CategoryId, type StyleTag } from '../../src/library/taxonomy'
+import { isStyleTag, type CategoryId, type StyleTag } from '../../src/library/taxonomy'
 import type { ComponentMeta } from '../../src/library/types'
 
 // Browse filters live in the URL (?q=…&tags=a,b) so every view can be shared.
@@ -36,10 +36,10 @@ export function filtersSearch(f: Filters): string {
   return search ? `?${search}` : ''
 }
 
-export function filterMetas(metas: ComponentMeta[], f: Filters & { category?: CategoryId }): ComponentMeta[] {
+/** The components that carry every tag in `f` and match every term of its search, by name or description. */
+export function filterMetas(metas: ComponentMeta[], f: Filters): ComponentMeta[] {
   const terms = f.q.toLowerCase().split(/\s+/).filter(Boolean)
   return metas.filter((meta) => {
-    if (f.category && meta.category !== f.category) return false
     if (!f.tags.every((tag) => meta.tags.includes(tag))) return false
     const name = meta.name.toLowerCase()
     const description = meta.description.toLowerCase()
@@ -47,9 +47,16 @@ export function filterMetas(metas: ComponentMeta[], f: Filters & { category?: Ca
   })
 }
 
-/** The paths that render the browse page: `/` and `/browse/<known category>`. */
-export function isBrowsePath(pathname: string): boolean {
-  if (pathname === '/') return true
-  const match = /^\/browse\/([^/]+)\/?$/.exec(pathname)
-  return match !== null && isCategoryId(match[1])
+
+/**
+ * What the browse page shows: the components in view (all, or one category's), the ones of those
+ * that pass the filters, and whether any filter is set.
+ */
+export function browseResults(
+  metas: ComponentMeta[],
+  category: CategoryId | null,
+  f: Filters,
+): { inView: ComponentMeta[]; results: ComponentMeta[]; filtered: boolean } {
+  const inView = category ? metas.filter((meta) => meta.category === category) : metas
+  return { inView, results: filterMetas(inView, f), filtered: f.q !== '' || f.tags.length > 0 }
 }

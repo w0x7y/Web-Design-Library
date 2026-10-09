@@ -1,7 +1,7 @@
 import postcss, { type AtRule, type Node, type Root, type Rule } from 'postcss'
 import { IMAGES } from './assets'
 import { fontDisplayName } from './fonts'
-import { SOURCE_FILES } from './catalog'
+import { isSlug, SOURCE_FILES } from './catalog'
 import { resetCss } from './reset'
 import { isCategoryId, isStyleTag } from './taxonomy'
 import type { ComponentMeta, ComponentSources, LibraryEntry } from './types'
@@ -11,7 +11,16 @@ import type { ComponentMeta, ComponentSources, LibraryEntry } from './types'
 const BRIEF_FIELDS = ['layout', 'style', 'states', 'responsive'] as const
 const IMAGE_URLS = new Set<string>(Object.values(IMAGES))
 
-export function checkComponent(entry: LibraryEntry, folder: string, allSlugs: string[]): string[] {
+/**
+ * Every component folder's violations of the authoring rules, in the order given. A rule that
+ * spans the library (unique slugs) is checked here; each component sees the whole list.
+ */
+export function checkLibrary(items: { folder: string; entry: LibraryEntry }[]): { folder: string; violations: string[] }[] {
+  const slugs = items.map((item) => item.entry.meta.slug)
+  return items.map(({ folder, entry }) => ({ folder, violations: checkComponent(entry, folder, slugs) }))
+}
+
+function checkComponent(entry: LibraryEntry, folder: string, allSlugs: string[]): string[] {
   const { meta, sources } = entry
   const violations = checkMeta(meta, folder, allSlugs)
   for (const key of Object.keys(SOURCE_FILES) as (keyof ComponentSources)[]) {
@@ -26,7 +35,7 @@ export function checkComponent(entry: LibraryEntry, folder: string, allSlugs: st
 function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): string[] {
   const out: string[] = []
   if (meta.slug !== folder) out.push(`meta.slug "${meta.slug}" does not match its folder "${folder}"`)
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(meta.slug)) out.push(`meta.slug "${meta.slug}" must be kebab-case`)
+  if (!isSlug(meta.slug)) out.push(`meta.slug "${meta.slug}" must be kebab-case`)
   if (allSlugs.filter((s) => s === meta.slug).length > 1) out.push(`duplicate slug "${meta.slug}"`)
   if (!meta.name.trim()) out.push('meta.name is empty')
   if (!meta.description.trim()) out.push('meta.description is empty')
