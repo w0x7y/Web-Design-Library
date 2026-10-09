@@ -1,0 +1,58 @@
+<div class="navbar-glass">
+  <!-- Crisp shapes behind the bar, so its backdrop blur reads as frosted glass -->
+  <div aria-hidden="true" class="navbar-glass__backdrop">
+    <div class="navbar-glass__glow"></div>
+    <div class="navbar-glass__beam navbar-glass__beam--bloom"></div>
+    <div class="navbar-glass__beam navbar-glass__beam--lime"></div>
+    <div class="navbar-glass__beam navbar-glass__beam--cyan"></div>
+  </div>
+
+  <header class="navbar-glass__header">
+    <div class="navbar-glass__bar">
+      <a href="#" class="navbar-glass__brand">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="navbar-glass__logo">
+          <path d="M12 2 22 12 12 22 2 12Z" fill="currentColor" />
+          <path d="M12 7.5 16.5 12 12 16.5" stroke="#09090b" stroke-width="2" />
+        </svg>
+        <span class="navbar-glass__wordmark">Kestrel</span>
+      </a>
+
+      <nav aria-label="Main" class="navbar-glass__nav">
+        <ul role="list" class="navbar-glass__links">
+          <li><a href="#" class="navbar-glass__link">Platform</a></li>
+          <li><a href="#" class="navbar-glass__link">Pricing</a></li>
+          <li><a href="#" class="navbar-glass__link">Customers</a></li>
+          <li><a href="#" class="navbar-glass__link">Docs</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-glass__actions">
+        <a href="#" class="navbar-glass__signin">Sign in</a>
+        <a href="#" class="navbar-glass__cta">Start deploying</a>
+
+        <!-- Mobile menu: a native disclosure, so it opens and closes without JavaScript -->
+        <details class="navbar-glass__menu">
+          <summary class="navbar-glass__toggle">
+            <span class="navbar-glass__sr-only">Menu</span>
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="navbar-glass__icon navbar-glass__icon--open">
+              <path d="M2.5 5.5h11M2.5 10.5h11" />
+            </svg>
+            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="navbar-glass__icon navbar-glass__icon--close">
+              <path d="m4 4 8 8M12 4l-8 8" />
+            </svg>
+          </summary>
+
+          <nav aria-label="Main" class="navbar-glass__panel">
+            <ul role="list" class="navbar-glass__panel-links">
+              <li><a href="#" class="navbar-glass__panel-link">Platform</a></li>
+              <li><a href="#" class="navbar-glass__panel-link">Pricing</a></li>
+              <li><a href="#" class="navbar-glass__panel-link">Customers</a></li>
+              <li><a href="#" class="navbar-glass__panel-link">Docs</a></li>
+            </ul>
+            <a href="#" class="navbar-glass__panel-signin">Sign in</a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+</div>

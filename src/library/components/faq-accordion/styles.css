@@ -1,0 +1,212 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.faq-accordion, .faq-accordion *, .faq-accordion *::before, .faq-accordion *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.faq-accordion { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.faq-accordion :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.faq-accordion a { color: inherit; text-decoration: inherit; }
+.faq-accordion :is(b, strong) { font-weight: bolder; }
+.faq-accordion :is(ol, ul, menu) { list-style: none; }
+.faq-accordion :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.faq-accordion :is(img, video) { max-width: 100%; height: auto; }
+.faq-accordion :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.faq-accordion ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.faq-accordion table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.faq-accordion summary { display: list-item; }
+
+/* Component */
+.faq-accordion {
+  background-color: #fff;
+  font-family: "Radio Canada", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.faq-accordion .faq-accordion__inner {
+  display: grid;
+  gap: 3rem;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 5rem 1.5rem;
+}
+
+.faq-accordion .faq-accordion__title {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 600;
+  font-stretch: semi-condensed;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.faq-accordion .faq-accordion__lede {
+  max-width: 24rem;
+  margin-top: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.625;
+  color: oklch(44.2% 0.017 285.786); /* zinc-600 */
+  text-wrap: pretty;
+}
+
+.faq-accordion .faq-accordion__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-color: oklch(87.1% 0.006 286.286); /* zinc-300 */
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.faq-accordion .faq-accordion__contact:focus-visible {
+  outline: 2px solid oklch(14.1% 0.005 285.823); /* zinc-950 */
+  outline-offset: 4px;
+}
+
+.faq-accordion .faq-accordion__arrow {
+  width: 1rem;
+  height: 1rem;
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Questions: native <details>, divided by hairlines */
+.faq-accordion .faq-accordion__list {
+  border-top: 1px solid oklch(92% 0.004 286.32); /* zinc-200 */
+}
+
+.faq-accordion .faq-accordion__item {
+  border-bottom: 1px solid oklch(92% 0.004 286.32); /* zinc-200 */
+}
+
+.faq-accordion .faq-accordion__question {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.faq-accordion .faq-accordion__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-accordion .faq-accordion__question:focus-visible {
+  outline: 2px solid oklch(14.1% 0.005 285.823); /* zinc-950 */
+  outline-offset: 2px;
+}
+
+/* Plus sign in a ring; when the item opens the ring fills and the vertical bar turns flat, leaving a minus */
+.faq-accordion .faq-accordion__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  margin-top: -0.125rem;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1px oklch(87.1% 0.006 286.286); /* zinc-300 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.faq-accordion .faq-accordion__bar {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+}
+
+.faq-accordion .faq-accordion__bar--across {
+  top: 0.9375rem;
+  inset-inline: 0.625rem;
+  height: 0.125rem;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.faq-accordion .faq-accordion__bar--down {
+  left: 0.9375rem;
+  inset-block: 0.625rem;
+  width: 0.125rem;
+  transition-property: rotate, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.faq-accordion .faq-accordion__answer {
+  max-width: 60ch;
+  padding-bottom: 1.75rem;
+  line-height: 1.625;
+  color: oklch(44.2% 0.017 285.786); /* zinc-600 */
+  text-wrap: pretty;
+}
+
+.faq-accordion .faq-accordion__item[open] .faq-accordion__icon {
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  box-shadow: inset 0 0 0 1px oklch(14.1% 0.005 285.823); /* zinc-950 */
+}
+
+.faq-accordion .faq-accordion__item[open] .faq-accordion__bar {
+  background-color: #fff;
+}
+
+.faq-accordion .faq-accordion__item[open] .faq-accordion__bar--down {
+  rotate: 90deg;
+}
+
+@media (hover: hover) {
+  .faq-accordion .faq-accordion__contact:hover {
+    text-decoration-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  }
+  .faq-accordion .faq-accordion__contact:hover .faq-accordion__arrow {
+    translate: 0.125rem 0;
+  }
+  .faq-accordion .faq-accordion__question:hover .faq-accordion__icon {
+    box-shadow: inset 0 0 0 1px oklch(14.1% 0.005 285.823); /* zinc-950 */
+  }
+}
+
+@media (width >= 40rem) {
+  .faq-accordion .faq-accordion__inner {
+    padding-block: 6rem;
+  }
+  .faq-accordion .faq-accordion__title {
+    font-size: 3rem;
+  }
+  .faq-accordion .faq-accordion__question {
+    font-size: 1.25rem;
+  }
+  .faq-accordion .faq-accordion__answer {
+    padding-right: 3.5rem;
+  }
+}
+
+/* From 1024px: intro in columns 1–4, questions in columns 6–12 */
+@media (width >= 64rem) {
+  .faq-accordion .faq-accordion__inner {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 8rem 2rem;
+  }
+  .faq-accordion .faq-accordion__intro {
+    grid-column: span 4 / span 4;
+  }
+  .faq-accordion .faq-accordion__list {
+    grid-column: 6 / span 7;
+  }
+}

@@ -1,0 +1,220 @@
+<section class="settings-panel">
+  <div class="settings-panel__inner">
+    <h1 class="settings-panel__title">Settings</h1>
+    <p class="settings-panel__subtitle">Linden Street Physiotherapy, Bristol</p>
+
+    <div class="settings-panel__layout">
+      <nav aria-label="Settings sections">
+        <ul role="list" class="settings-panel__nav">
+          <li>
+            <a href="#" aria-current="page" class="settings-panel__nav-link">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M2.5 4.5h4M9.5 4.5h4M2.5 11.5h7M12.5 11.5h1" />
+                <circle cx="8" cy="4.5" r="1.5" />
+                <circle cx="11" cy="11.5" r="1.5" />
+              </svg>
+              General
+            </a>
+          </li>
+          <li>
+            <a href="#" class="settings-panel__nav-link">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <rect x="2.5" y="3.5" width="11" height="10" rx="1.5" />
+                <path d="M2.5 6.5h11M5.5 2v3M10.5 2v3" />
+              </svg>
+              Booking page
+            </a>
+          </li>
+          <li>
+            <a href="#" class="settings-panel__nav-link">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 11V7a4 4 0 0 1 8 0v4l1 1.5H3L4 11ZM6.5 14.5h3" />
+              </svg>
+              Reminders
+            </a>
+          </li>
+          <li>
+            <a href="#" class="settings-panel__nav-link">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="6" cy="5.5" r="2.5" />
+                <path d="M1.5 14a4.5 4.5 0 0 1 9 0M11 3.5a2.25 2.25 0 0 1 0 4.5M12.5 10a3.5 3.5 0 0 1 2 3.5" />
+              </svg>
+              Team
+            </a>
+          </li>
+          <li>
+            <a href="#" class="settings-panel__nav-link">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" />
+                <path d="M1.5 6.5h13M4 10h2.5" />
+              </svg>
+              Billing
+            </a>
+          </li>
+          <li>
+            <a href="#" class="settings-panel__nav-link">
+              <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 1.5v3M10 1.5v3M4.5 4.5h7v3a3.5 3.5 0 0 1-7 0v-3ZM8 11v3.5" />
+              </svg>
+              Integrations
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <form class="settings-panel__card">
+        <section aria-labelledby="settings-panel-profile-title" class="settings-panel__group">
+          <div>
+            <h2 id="settings-panel-profile-title" class="settings-panel__group-title">Clinic profile</h2>
+            <p class="settings-panel__group-text">Shown on your booking page and in every reminder.</p>
+          </div>
+
+          <div class="settings-panel__fields">
+            <div class="settings-panel__field settings-panel__field--wide">
+              <label for="settings-panel-name" class="settings-panel__label">Clinic name</label>
+              <input
+                id="settings-panel-name"
+                type="text"
+                name="clinic-name"
+                autocomplete="organization"
+                value="Linden Street Physiotherapy"
+                class="settings-panel__input"
+              />
+            </div>
+
+            <div class="settings-panel__field settings-panel__field--wide">
+              <label for="settings-panel-slug" class="settings-panel__label">Booking link</label>
+              <div class="settings-panel__affix">
+                <span id="settings-panel-slug-prefix" class="settings-panel__prefix">book.rota.health/</span>
+                <input
+                  id="settings-panel-slug"
+                  type="text"
+                  name="slug"
+                  autocomplete="off"
+                  spellcheck="false"
+                  value="linden-street"
+                  aria-describedby="settings-panel-slug-prefix settings-panel-slug-hint"
+                />
+              </div>
+              <p id="settings-panel-slug-hint" class="settings-panel__hint">Lowercase letters, numbers and hyphens.</p>
+            </div>
+
+            <div class="settings-panel__field">
+              <label for="settings-panel-timezone" class="settings-panel__label">Time zone</label>
+              <div class="settings-panel__select">
+                <select id="settings-panel-timezone" name="timezone" class="settings-panel__input">
+                  <option value="Europe/Dublin">Dublin (GMT+01:00)</option>
+                  <option value="Europe/London" selected>London (GMT+01:00)</option>
+                  <option value="Europe/Lisbon">Lisbon (GMT+01:00)</option>
+                  <option value="Europe/Paris">Paris (GMT+02:00)</option>
+                </select>
+                <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m4 6 4 4 4-4" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="settings-panel__field">
+              <label for="settings-panel-length" class="settings-panel__label">Default visit length</label>
+              <div class="settings-panel__select">
+                <select id="settings-panel-length" name="visit-length" class="settings-panel__input">
+                  <option value="30">30 minutes</option>
+                  <option value="45" selected>45 minutes</option>
+                  <option value="60">60 minutes</option>
+                </select>
+                <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m4 6 4 4 4-4" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="settings-panel__logo-row">
+              <span aria-hidden="true" class="settings-panel__logo">LS</span>
+              <div>
+                <div class="settings-panel__logo-actions">
+                  <label class="settings-panel__button settings-panel__button--small">
+                    <input
+                      type="file"
+                      name="logo"
+                      accept="image/png, image/svg+xml"
+                      aria-describedby="settings-panel-logo-hint"
+                      class="settings-panel__sr-only"
+                    />
+                    Change logo
+                  </label>
+                  <button type="button" class="settings-panel__text-button">Remove<span class="settings-panel__sr-only"> logo</span></button>
+                </div>
+                <p id="settings-panel-logo-hint" class="settings-panel__hint settings-panel__hint--tight">PNG or SVG, at least 256 × 256 px.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="settings-panel-reminders-title" class="settings-panel__group settings-panel__group--ruled">
+          <div>
+            <h2 id="settings-panel-reminders-title" class="settings-panel__group-title">Appointment reminders</h2>
+            <p class="settings-panel__group-text">Sent to patients from your clinic&rsquo;s name.</p>
+          </div>
+
+          <ul role="list" class="settings-panel__switches">
+            <li class="settings-panel__switch-row">
+              <div>
+                <label for="settings-panel-confirm" class="settings-panel__switch-label">Booking confirmation</label>
+                <p id="settings-panel-confirm-hint" class="settings-panel__group-text">Email as soon as a visit is booked.</p>
+              </div>
+              <span class="settings-panel__switch">
+                <input id="settings-panel-confirm" type="checkbox" role="switch" name="confirm" checked aria-describedby="settings-panel-confirm-hint" />
+                <span aria-hidden="true" class="settings-panel__track"></span>
+                <span aria-hidden="true" class="settings-panel__knob"></span>
+              </span>
+            </li>
+
+            <li class="settings-panel__switch-row">
+              <div>
+                <label for="settings-panel-day-before" class="settings-panel__switch-label">Reminder the day before</label>
+                <p id="settings-panel-day-before-hint" class="settings-panel__group-text">Text message 24 hours ahead.</p>
+              </div>
+              <span class="settings-panel__switch">
+                <input id="settings-panel-day-before" type="checkbox" role="switch" name="day-before" checked aria-describedby="settings-panel-day-before-hint" />
+                <span aria-hidden="true" class="settings-panel__track"></span>
+                <span aria-hidden="true" class="settings-panel__knob"></span>
+              </span>
+            </li>
+
+            <li class="settings-panel__switch-row">
+              <div>
+                <label for="settings-panel-same-day" class="settings-panel__switch-label">Reminder on the day</label>
+                <p id="settings-panel-same-day-hint" class="settings-panel__group-text">Text message 2 hours ahead.</p>
+              </div>
+              <span class="settings-panel__switch">
+                <input id="settings-panel-same-day" type="checkbox" role="switch" name="same-day" aria-describedby="settings-panel-same-day-hint" />
+                <span aria-hidden="true" class="settings-panel__track"></span>
+                <span aria-hidden="true" class="settings-panel__knob"></span>
+              </span>
+            </li>
+
+            <li class="settings-panel__switch-row">
+              <div>
+                <label for="settings-panel-feedback" class="settings-panel__switch-label">Feedback request</label>
+                <p id="settings-panel-feedback-hint" class="settings-panel__group-text">Email a two-question survey after the visit.</p>
+              </div>
+              <span class="settings-panel__switch">
+                <input id="settings-panel-feedback" type="checkbox" role="switch" name="feedback" aria-describedby="settings-panel-feedback-hint" />
+                <span aria-hidden="true" class="settings-panel__track"></span>
+                <span aria-hidden="true" class="settings-panel__knob"></span>
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <div class="settings-panel__footer">
+          <p class="settings-panel__saved">Last saved <time datetime="2026-10-03T16:20">3 Oct at 16:20</time> by Priya Raman</p>
+          <div class="settings-panel__actions">
+            <button type="reset" class="settings-panel__button">Discard</button>
+            <button type="submit" class="settings-panel__button settings-panel__button--primary">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

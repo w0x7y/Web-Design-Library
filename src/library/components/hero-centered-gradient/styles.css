@@ -1,0 +1,247 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.hero-centered-gradient, .hero-centered-gradient *, .hero-centered-gradient *::before, .hero-centered-gradient *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.hero-centered-gradient { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.hero-centered-gradient :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.hero-centered-gradient a { color: inherit; text-decoration: inherit; }
+.hero-centered-gradient :is(b, strong) { font-weight: bolder; }
+.hero-centered-gradient :is(ol, ul, menu) { list-style: none; }
+.hero-centered-gradient :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.hero-centered-gradient :is(img, video) { max-width: 100%; height: auto; }
+.hero-centered-gradient :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.hero-centered-gradient ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.hero-centered-gradient table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.hero-centered-gradient summary { display: list-item; }
+
+/* Component */
+.hero-centered-gradient {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  font-family: "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mesh gradient: soft colour fields that fade to transparent at 70% of their radius */
+.hero-centered-gradient .hero-centered-gradient__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+}
+
+.hero-centered-gradient .hero-centered-gradient__field {
+  position: absolute;
+}
+
+.hero-centered-gradient .hero-centered-gradient__field--teal {
+  top: -10rem;
+  left: -18rem;
+  width: 56rem;
+  height: 36rem;
+  background-image: radial-gradient(in oklab, oklch(70.4% 0.14 182.503 / 0.3) 0%, transparent 70%); /* teal-500 / 30% */
+}
+
+.hero-centered-gradient .hero-centered-gradient__field--blue {
+  top: -12rem;
+  right: -14rem;
+  width: 48rem;
+  height: 32rem;
+  background-image: radial-gradient(in oklab, oklch(54.6% 0.245 262.881 / 0.25) 0%, transparent 70%); /* blue-600 / 25% */
+}
+
+.hero-centered-gradient .hero-centered-gradient__field--rose {
+  right: -16rem;
+  bottom: -12rem;
+  width: 32rem;
+  height: 24rem;
+  background-image: radial-gradient(in oklab, oklch(58.6% 0.253 17.585 / 0.5) 0%, transparent 70%); /* rose-600 / 50% */
+}
+
+/* The horizon glow: amber-300 → orange-500 → transparent */
+.hero-centered-gradient .hero-centered-gradient__field--horizon {
+  bottom: -10rem;
+  left: 50%;
+  width: 44rem;
+  height: 22rem;
+  translate: -50% 0;
+  background-image: radial-gradient(in oklab, oklch(87.9% 0.169 91.605 / 0.8) 0%, oklch(70.5% 0.213 47.604 / 0.4) 50%, transparent 70%);
+}
+
+.hero-centered-gradient .hero-centered-gradient__stars {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 90rem;
+  height: 32.5rem;
+  translate: -50% 0;
+  color: #fff;
+}
+
+.hero-centered-gradient .hero-centered-gradient__ridges {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+}
+
+.hero-centered-gradient .hero-centered-gradient__ridge--far {
+  fill: oklch(20.8% 0.042 265.755); /* slate-900 */
+}
+
+.hero-centered-gradient .hero-centered-gradient__ridge--near {
+  fill: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+/* Content */
+.hero-centered-gradient .hero-centered-gradient__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: 6rem 1.5rem 12rem;
+  text-align: center;
+}
+
+.hero-centered-gradient .hero-centered-gradient__title {
+  font-family: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+  font-size: 3rem;
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero-centered-gradient .hero-centered-gradient__lede {
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  color: oklch(86.9% 0.022 252.894); /* slate-300 */
+  text-wrap: pretty;
+}
+
+.hero-centered-gradient .hero-centered-gradient__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 28rem;
+  margin-inline: auto;
+  margin-top: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 1.5rem;
+  background-color: rgb(255 255 255 / 0.05);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The field has no outline of its own; the whole pill lights up while it has keyboard focus */
+.hero-centered-gradient .hero-centered-gradient__form:has(input:focus-visible) {
+  border-color: rgb(255 255 255 / 0.6);
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.hero-centered-gradient .hero-centered-gradient__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hero-centered-gradient .hero-centered-gradient__input {
+  flex: 1;
+  min-width: 0;
+  height: 2.75rem;
+  padding-inline: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.hero-centered-gradient .hero-centered-gradient__input:focus-visible {
+  outline-style: none;
+}
+
+/* Windows high contrast: the input keeps a visible focus outline */
+@media (forced-colors: active) {
+  .hero-centered-gradient .hero-centered-gradient__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+.hero-centered-gradient .hero-centered-gradient__input::placeholder {
+  color: oklch(70.4% 0.04 256.788); /* slate-400 */
+}
+
+.hero-centered-gradient .hero-centered-gradient__button {
+  flex-shrink: 0;
+  height: 2.75rem;
+  padding-inline: 1.25rem;
+  border-radius: 9999px;
+  background-color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-centered-gradient .hero-centered-gradient__button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.hero-centered-gradient .hero-centered-gradient__note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(70.4% 0.04 256.788); /* slate-400 */
+}
+
+@media (hover: hover) {
+  .hero-centered-gradient .hero-centered-gradient__button:hover {
+    background-color: oklch(96.2% 0.059 95.617); /* amber-100 */
+  }
+}
+
+@media (width >= 40rem) {
+  .hero-centered-gradient .hero-centered-gradient__field--rose {
+    right: -24rem;
+    bottom: -18rem;
+    width: 48rem;
+    height: 36rem;
+  }
+  .hero-centered-gradient .hero-centered-gradient__field--horizon {
+    bottom: -14rem;
+    width: 76rem;
+    height: 30rem;
+  }
+  .hero-centered-gradient .hero-centered-gradient__ridges {
+    height: 10rem;
+  }
+  .hero-centered-gradient .hero-centered-gradient__inner {
+    padding-top: 8rem;
+    padding-bottom: 14rem;
+  }
+  .hero-centered-gradient .hero-centered-gradient__title {
+    font-size: 4.5rem;
+  }
+  .hero-centered-gradient .hero-centered-gradient__lede {
+    font-size: 1.25rem;
+    line-height: calc(1.75 / 1.25);
+  }
+  .hero-centered-gradient .hero-centered-gradient__form {
+    flex-direction: row;
+    padding: 0.375rem;
+    border-radius: 9999px;
+  }
+}

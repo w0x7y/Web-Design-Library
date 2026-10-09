@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Build output and test artifacts
+build
+.react-router
+test-results
+playwright-report
+
+# Local design-tool cache
+.impeccable/

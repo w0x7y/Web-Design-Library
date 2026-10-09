@@ -1,0 +1,135 @@
+<section class="signup-card-gradient">
+  <!-- Soft colour field, then crisp sound rings that the card's glass blurs where it covers them -->
+  <div aria-hidden="true" class="signup-card-gradient__orb signup-card-gradient__orb--sky"></div>
+  <div aria-hidden="true" class="signup-card-gradient__orb signup-card-gradient__orb--pink"></div>
+  <div aria-hidden="true" class="signup-card-gradient__orb signup-card-gradient__orb--amber"></div>
+  <svg aria-hidden="true" viewBox="0 0 1200 1200" fill="none" class="signup-card-gradient__rings">
+    <defs>
+      <linearGradient id="signup-card-gradient-spectrum" x1="300" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="oklch(75% 0.183 55.934)" />
+        <stop offset="0.35" stop-color="oklch(65.6% 0.241 354.308)" />
+        <stop offset="0.7" stop-color="oklch(60.6% 0.25 292.717)" />
+        <stop offset="1" stop-color="oklch(74.6% 0.16 232.661)" />
+      </linearGradient>
+    </defs>
+    <g stroke="url(#signup-card-gradient-spectrum)">
+      <circle cx="790" cy="340" r="90" stroke-width="28" />
+      <circle cx="790" cy="340" r="150" stroke-width="22" stroke-opacity="0.85" />
+      <circle cx="790" cy="340" r="220" stroke-width="17" stroke-opacity="0.7" />
+      <circle cx="790" cy="340" r="300" stroke-width="13" stroke-opacity="0.55" />
+      <circle cx="790" cy="340" r="390" stroke-width="9" stroke-opacity="0.4" />
+      <circle cx="790" cy="340" r="490" stroke-width="6" stroke-opacity="0.25" />
+    </g>
+  </svg>
+
+  <div class="signup-card-gradient__card">
+    <div class="signup-card-gradient__header">
+      <a href="#" class="signup-card-gradient__logo">
+        <span aria-hidden="true" class="signup-card-gradient__mark">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 10c1.5 0 1.5-4 3-4s1.5 8 3 8 1.5-8 3-8 1.5 8 3 8 1.5-4 3-4" />
+          </svg>
+        </span>
+        Overtone
+      </a>
+      <p class="signup-card-gradient__login">
+        Have an account?
+        <a href="#" class="signup-card-gradient__login-link">Log in</a>
+      </p>
+    </div>
+
+    <h1 class="signup-card-gradient__title">Write the next one together</h1>
+    <p class="signup-card-gradient__lede">Free for three collaborators. No card needed.</p>
+
+    <div class="signup-card-gradient__providers">
+      <button type="button" class="signup-card-gradient__provider">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="signup-card-gradient__apple">
+          <path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.27-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.24-.02 2.02-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66ZM14.1 5.84c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28Z" />
+        </svg>
+        <span><span class="signup-card-gradient__sr-only">Sign up with </span>Apple</span>
+      </button>
+      <button type="button" class="signup-card-gradient__provider">
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="signup-card-gradient__google">
+          <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.58-5.17 3.58-8.81Z" />
+          <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3c-1.07.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.28v3.1A12 12 0 0 0 12 24Z" />
+          <path fill="#FBBC05" d="M5.29 14.29A7.2 7.2 0 0 1 4.91 12c0-.79.14-1.57.38-2.29v-3.1H1.28A12 12 0 0 0 0 12c0 1.94.46 3.77 1.28 5.39l4.01-3.1Z" />
+          <path fill="#EA4335" d="M12 4.77c1.76 0 3.34.61 4.59 1.8l3.44-3.44A11.5 11.5 0 0 0 12 0 12 12 0 0 0 1.28 6.61l4.01 3.1C6.23 6.88 8.88 4.77 12 4.77Z" />
+        </svg>
+        <span><span class="signup-card-gradient__sr-only">Sign up with </span>Google</span>
+      </button>
+    </div>
+
+    <div class="signup-card-gradient__divider">
+      <span></span>
+      or
+      <span></span>
+    </div>
+
+    <form class="signup-card-gradient__form">
+      <div>
+        <label for="signup-card-gradient-name" class="signup-card-gradient__label">Name</label>
+        <input
+          id="signup-card-gradient-name"
+          type="text"
+          name="name"
+          autocomplete="name"
+          required
+          value="Noa Lindqvist"
+          class="signup-card-gradient__input"
+        />
+      </div>
+
+      <div>
+        <label for="signup-card-gradient-email" class="signup-card-gradient__label">Email</label>
+        <input
+          id="signup-card-gradient-email"
+          type="email"
+          name="email"
+          autocomplete="email"
+          required
+          value="noa@lindqvist.studio"
+          aria-invalid="true"
+          aria-describedby="signup-card-gradient-email-error"
+          class="signup-card-gradient__input"
+        />
+        <p id="signup-card-gradient-email-error" class="signup-card-gradient__error">
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              fill-rule="evenodd"
+              d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm0-10.5a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4.5Zm0 7a.875.875 0 1 0 0-1.75.875.875 0 0 0 0 1.75Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>
+            This email already has an account.
+            <a href="#" class="signup-card-gradient__error-link">Log in instead</a>
+          </span>
+        </p>
+      </div>
+
+      <div>
+        <label for="signup-card-gradient-password" class="signup-card-gradient__label">Password</label>
+        <input
+          id="signup-card-gradient-password"
+          type="password"
+          name="password"
+          autocomplete="new-password"
+          required
+          minlength="10"
+          aria-describedby="signup-card-gradient-password-hint"
+          class="signup-card-gradient__input"
+        />
+        <p id="signup-card-gradient-password-hint" class="signup-card-gradient__hint">At least 10 characters, with a number or a symbol.</p>
+      </div>
+
+      <button type="submit" class="signup-card-gradient__submit">Create account</button>
+
+      <p class="signup-card-gradient__terms">
+        By signing up you agree to our
+        <a href="#">Terms</a>
+        and
+        <a href="#">Privacy Policy</a>.
+      </p>
+    </form>
+  </div>
+</section>
