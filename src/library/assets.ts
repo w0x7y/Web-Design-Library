@@ -44,4 +44,7 @@ export const IMAGES = {
   laptopTyping: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1600&q=80',
   mountainsDawn: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80',
   hikerRidgeHaze: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80',
+
+  // Architecture
+  archWhiteArcadeStairs: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=1600&q=80',
 } as const
