@@ -289,6 +289,21 @@ test('a section shorter than the viewport shows no empty stage below it', async 
   expect(height).toBeCloseTo(footerHeight * (width / 1440), 0)
 })
 
+test('a short section thumbnail is centred on its own background', async ({ page }) => {
+  await page.goto('/browse/footer')
+  const card = page.getByTestId('component-card').filter({ hasText: 'Column footer' })
+  const frame = card.locator('[inert]')
+  const footer = frame.locator('[data-capture-root] > * > *').first()
+  await expect(footer).toBeVisible()
+  // The card's frame takes the footer's own background colour instead of showing a white band.
+  const footerColour = await footer.evaluate((el) => getComputedStyle(el).backgroundColor)
+  await expect(frame).toHaveCSS('background-color', footerColour)
+  // And the footer sits in the middle of the frame, not pinned to its top.
+  const outer = (await frame.boundingBox())!
+  const inner = (await footer.boundingBox())!
+  expect(Math.abs(inner.y - outer.y - (outer.y + outer.height - (inner.y + inner.height)))).toBeLessThan(2)
+})
+
 test('detail tabs follow the keyboard pattern', async ({ page }) => {
   await page.goto('/c/hero-split-image')
   const preview = page.getByRole('tab', { name: 'Preview' })

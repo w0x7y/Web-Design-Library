@@ -1,10 +1,12 @@
-import { Component, Suspense, useCallback, useState, type ReactNode } from 'react'
+import { Component, Suspense, useCallback, useState, type CSSProperties, type ReactNode } from 'react'
 import { PreviewSurface } from './PreviewSurface'
 
 // Sections render on a 1280px-wide stage, scaled down to the frame, so they show
 // their desktop layout. Breakpoints follow the real viewport, though, so on
 // narrower screens the stage shrinks to the viewport width: a stacked mobile
 // layout is shown at the width it was designed for, not stretched to 1280px.
+// A section shorter than the frame is centred vertically, and the frame takes the
+// section's own background (colour, gradient or image) so no white band shows.
 // Elements render at natural size (up to the stage's inner width), centred, and
 // shrink only when they would not fit with a 24px margin.
 const STAGE_WIDTH = 1280
@@ -18,6 +20,17 @@ interface Size {
 
 function boxSize(entry: ResizeObserverEntry): Size {
   return { width: entry.contentRect.width, height: entry.contentRect.height }
+}
+
+/** How the element paints its background (colour and any gradient or image), or null when it paints none. */
+function backgroundOf(el: Element | null): CSSProperties | null {
+  if (!el) return null
+  const style = getComputedStyle(el)
+  const image = style.backgroundImage
+  const color = style.backgroundColor
+  const clear = color === 'transparent' || /^rgba\(.*,\s*0\)$/.test(color) || /\/\s*0\s*\)$/.test(color)
+  if (image === 'none' && clear) return null
+  return { backgroundColor: clear ? undefined : color, backgroundImage: image === 'none' ? undefined : image, backgroundSize: 'cover', backgroundPosition: 'center' }
 }
 
 /** A live, non-interactive render of `children` that mounts when it first nears the viewport. */
@@ -35,6 +48,7 @@ export function LiveThumbnail({
   const [mounted, setMounted] = useState(false)
   const [frame, setFrame] = useState<(Size & { stage: number }) | null>(null)
   const [content, setContent] = useState<Size | null>(null)
+  const [fill, setFill] = useState<CSSProperties | null>(null)
 
   const observeFrame = useCallback((el: HTMLDivElement) => {
     const visibility = new IntersectionObserver(
@@ -57,7 +71,10 @@ export function LiveThumbnail({
   }, [])
 
   const observeContent = useCallback((el: HTMLDivElement) => {
-    const resize = new ResizeObserver(([entry]) => setContent(boxSize(entry)))
+    const resize = new ResizeObserver(([entry]) => {
+      setContent(boxSize(entry))
+      setFill(backgroundOf(el.firstElementChild))
+    })
     resize.observe(el)
     return () => resize.disconnect()
   }, [])
@@ -69,9 +86,14 @@ export function LiveThumbnail({
     scale = Math.min(1, (frame.width - 2 * ELEMENT_MARGIN) / content.width, (frame.height - 2 * ELEMENT_MARGIN) / content.height)
   }
 
+  // A section that ends above the frame's bottom edge: centre it and fill around it.
+  const short = ready && kind === 'section' && content.height * scale < frame.height
+  const offset = short ? (frame.height - content.height * scale) / 2 : 0
+
   return (
     <div
       ref={observeFrame}
+      style={short && fill ? fill : undefined}
       inert
       aria-hidden="true"
       className={`relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 ${className}`}
@@ -86,8 +108,8 @@ export function LiveThumbnail({
                 <div
                   style={{
                     width: frame?.stage ?? STAGE_WIDTH,
-                    height: ready ? frame.height / scale : undefined,
-                    transform: `scale(${scale})`,
+                    height: ready ? (short ? content.height : frame.height / scale) : undefined,
+                    transform: `translateY(${offset}px) scale(${scale})`,
                     transformOrigin: '0 0',
                   }}
                 >
