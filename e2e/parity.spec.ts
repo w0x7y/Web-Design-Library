@@ -1,6 +1,7 @@
-import { expect, test, type Locator, type Page } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
+import { previewPath, settleDocument } from '../app/lib/preview-ready'
 import { loadLibrary } from '../scripts/load-library'
 import { buildParityPage } from './lib/parity-page'
 
@@ -15,16 +16,6 @@ const VIEWPORTS = [
 const DEFAULT_MAX_DIFF_RATIO = 0.01
 
 const items = await loadLibrary()
-
-// The prerendered preview streams the lazy component into a hidden node that
-// React reveals after load, so wait for the target before fonts and images.
-async function settle(page: Page, target: Locator) {
-  await target.waitFor({ state: 'visible' })
-  await page.evaluate(async () => {
-    await document.fonts.ready
-    await Promise.all([...document.images].map((img) => img.decode().catch(() => {})))
-  })
-}
 
 function sizeOf(png: Buffer) {
   const { width, height } = PNG.sync.read(png)
@@ -47,14 +38,14 @@ for (const { entry } of items) {
   for (const vp of VIEWPORTS) {
     test(`${slug} @ ${vp.name}: HTML/CSS matches React`, async ({ page }, testInfo) => {
       await page.setViewportSize(vp)
-      await page.goto(`/preview/${slug}`)
-      const reactRoot = page.locator('[data-capture-root] > *').first()
-      await settle(page, reactRoot)
-      const react = await reactRoot.screenshot({ animations: 'disabled' })
+      await page.goto(previewPath(slug))
+      await page.locator('[data-preview-backdrop][data-preview-state="ready"]').waitFor()
+      const react = await page.locator('[data-capture-root] > *').first().screenshot({ animations: 'disabled' })
 
+      // The bare page has no React to report readiness, so it runs the preview page's own settle step.
       await page.setContent(buildParityPage(entry))
       const htmlRoot = page.locator(`.${slug}`).first()
-      await settle(page, htmlRoot)
+      await htmlRoot.evaluate(settleDocument)
       const html = await htmlRoot.screenshot({ animations: 'disabled' })
 
       const { ratio, width, height, diff } = compare(react, html)

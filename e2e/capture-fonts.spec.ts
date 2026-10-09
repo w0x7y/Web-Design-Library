@@ -4,6 +4,7 @@ import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
 import { loadLibrary } from '../scripts/load-library'
 import { fontDisplayName } from '../src/library/fonts'
+import { previewPath } from '../app/lib/preview-ready'
 import { ELEMENT_FRAME_HEIGHT, VIEWPORTS } from '../app/lib/viewports'
 
 // A downloaded PNG must show the component in the fonts its preview shows. The failure this guards
@@ -40,24 +41,6 @@ test('the library has components with web fonts to check', () => {
   expect(WITH_FONTS.length).toBeGreaterThanOrEqual(13)
 })
 
-// The capture waits for hydration and for the lazy component to be revealed; so does a reference.
-async function settle(page: Page) {
-  await page.locator('[data-preview-backdrop][data-capture]').waitFor()
-  await page.waitForFunction(() => {
-    const root = document.querySelector('[data-capture-root]')
-    return !!root?.querySelector(':scope > :not(template)') && root.getBoundingClientRect().height > 0
-  })
-  await page.evaluate(async () => {
-    await document.fonts.ready
-    await Promise.all(
-      [...document.images].map((image) => {
-        image.loading = 'eager'
-        return image.decode().catch(() => {})
-      }),
-    )
-  })
-}
-
 /** Natively screenshots what captureComponent captures for this component: the section, or an element with its backdrop. */
 async function screenshotPreview(page: Page, isElement: boolean) {
   const target = page.locator(isElement ? '[data-preview-backdrop]' : '[data-capture-root]')
@@ -88,8 +71,9 @@ for (const meta of WITH_FONTS) {
     const isElement = meta.preview.kind === 'element'
     if (isElement) await page.setViewportSize({ width: VIEWPORTS.desktop.width, height: ELEMENT_FRAME_HEIGHT })
 
-    await page.goto(`/preview/${meta.slug}?capture=1`)
-    await settle(page)
+    // The capture waits for the page to report ready with motion frozen; so does a reference.
+    await page.goto(previewPath(meta.slug, { capture: true }))
+    await page.locator('[data-preview-backdrop][data-preview-state="ready"][data-capture]').waitFor()
     // Without this the reference could be in fallback fonts too, and the comparison would prove nothing.
     const wanted = meta.fonts.map(fontDisplayName)
     const loaded = await page.evaluate(

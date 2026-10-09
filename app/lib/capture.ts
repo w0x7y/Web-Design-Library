@@ -1,6 +1,7 @@
 import { domToBlob } from 'modern-screenshot'
 import type { ComponentMeta } from '../../src/library/types'
 import { SITE } from '../site'
+import { previewPath, type PreviewState } from './preview-ready'
 import { ELEMENT_FRAME_HEIGHT, VIEWPORTS } from './viewports'
 
 export type CaptureViewport = 'desktop' | 'mobile'
@@ -52,7 +53,7 @@ function createFrame(meta: ComponentMeta, viewport: CaptureViewport) {
   frame.style.cssText = 'position:fixed;left:-100000px;top:0;border:0'
   frame.width = String(width)
   frame.height = String(height)
-  frame.src = `/preview/${meta.slug}?capture=1`
+  frame.src = previewPath(meta.slug, { capture: true })
   return frame
 }
 
@@ -60,27 +61,19 @@ async function render(frame: HTMLIFrameElement, meta: ComponentMeta, transparent
   const loaded = new Promise((resolve) => frame.addEventListener('load', resolve, { once: true }))
   document.body.append(frame)
   await loaded
-  // The document is read afresh on every poll, in case the frame swaps documents while it loads.
-  const find = (selector: string) => frame.contentDocument?.querySelector<HTMLElement>(selector)
+  // An error page (the request failed) belongs to another origin, so its document can't be read.
+  if (!frame.contentDocument) throw new Error('The preview page did not load')
 
-  // The motion freeze (data-capture) is applied after hydration, so this also waits for hydration.
-  const backdrop = await until(() => find('[data-preview-backdrop][data-capture]'), signal)
-  // Until React reveals the lazy component, the root holds only a Suspense <template> placeholder.
-  const root = await until(() => {
-    const el = find('[data-capture-root]')
-    return el?.querySelector(':scope > :not(template)') && el.getBoundingClientRect().height > 0 ? el : null
+  // The page reports ready once its component has rendered with its fonts and images, and freezes motion
+  // (data-capture) once hydrated; a capture needs both. The document is read afresh on every poll, in
+  // case the frame swaps documents while it loads.
+  const backdrop = await until(() => {
+    const el = frame.contentDocument?.querySelector<HTMLElement>('[data-preview-backdrop]')
+    const state = el?.dataset.previewState as PreviewState | undefined
+    if (state === 'failed') throw new Error('The preview page failed to render')
+    return state === 'ready' && el?.hasAttribute('data-capture') ? el : null
   }, signal)
-
-  // Laying the component out above is what makes the browser request its fonts, so they are awaited only now.
-  const doc = root.ownerDocument
-  await doc.fonts.ready
-  await Promise.all(
-    [...doc.images].map((image) => {
-      image.loading = 'eager' // images in an off-screen frame would otherwise never load lazily
-      return image.decode().catch(() => {}) // a failed image is captured as the browser shows it: broken
-    }),
-  )
-  signal.throwIfAborted()
+  const root = backdrop.querySelector<HTMLElement>('[data-capture-root]')!
 
   const target = meta.preview.kind === 'element' && !transparent ? backdrop : root
   return domToBlob(target, {

@@ -1,13 +1,8 @@
-import { CAPTURE_SCALE, CAPTURE_TIMEOUT_MS, frameSize, pngFileName, withTimeout } from './capture'
+import { frameSize, pngFileName, withTimeout } from './capture'
 
 test('pngFileName', () => {
   expect(pngFileName('hero-split-image', 'mobile')).toBe('web-library-hero-split-image-mobile.png')
   expect(pngFileName('buttons-minimal', 'desktop')).toBe('web-library-buttons-minimal-desktop.png')
-})
-
-test('capture constants match the spec', () => {
-  expect(CAPTURE_SCALE).toBe(2)
-  expect(CAPTURE_TIMEOUT_MS).toBe(10_000)
 })
 
 describe('frameSize', () => {

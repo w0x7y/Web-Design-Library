@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { previewPath } from '~/lib/preview-ready'
 import { ELEMENT_FRAME_HEIGHT, VIEWPORTS, type ViewportId } from '~/lib/viewports'
 
 /**
@@ -45,7 +46,7 @@ export function PreviewFrame({
           }
         >
           <iframe
-            src={`/preview/${slug}`}
+            src={previewPath(slug)}
             title={`${name} preview`}
             width={width}
             height={height}
@@ -72,7 +73,7 @@ export function PreviewFrame({
           )}
         </p>
         <a
-          href={`/preview/${slug}`}
+          href={previewPath(slug)}
           target="_blank"
           rel="noreferrer"
           className="-mx-1 inline-flex items-center gap-1 rounded-sm px-1 font-medium text-zinc-600 transition-colors duration-150 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-zinc-900 dark:text-zinc-400 dark:hover:text-white dark:focus-visible:outline-zinc-100"

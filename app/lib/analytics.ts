@@ -1,4 +1,4 @@
-import { track, type BeforeSend } from '@vercel/analytics'
+import { track } from '@vercel/analytics'
 import type { Format } from '../../src/library/types'
 import type { CaptureViewport } from './capture'
 
@@ -17,10 +17,3 @@ export function trackEvent({ name, ...props }: AnalyticsEvent): void {
     // Ad blockers and the like: nothing to do.
   }
 }
-
-/**
- * The preview pages load inside iframes (the detail page's preview, and every image capture), so
- * their page views would count as visits. Only the pages people actually navigate to are recorded.
- */
-export const beforeSend: BeforeSend = (event) =>
-  new URL(event.url, 'http://localhost').pathname.startsWith('/preview/') ? null : event

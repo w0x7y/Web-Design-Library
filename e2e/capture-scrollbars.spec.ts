@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { expect, test } from '@playwright/test'
 import { PNG } from 'pngjs'
+import { previewPath } from '../app/lib/preview-ready'
 
 // Headless Chromium hides scrollbars by default, which hides this bug: where scrollbars take layout width
 // (Windows, Linux, Firefox), a page taller than the capture frame lays out ~15px narrower than the target,
@@ -14,7 +15,8 @@ test.use({
 test('desktop and mobile PNGs of a section taller than the capture frame are still 2880 and 780 px wide', async ({ page }) => {
   // None of the library's sections is taller than its frame yet, so make the capture page overflow:
   // that is what gives the frame a vertical scrollbar. (The extra style sits in <head>, outside the component.)
-  await page.route(/\/preview\/hero-split-image\?capture=1/, async (route) => {
+  const capturePage = previewPath('hero-split-image', { capture: true })
+  await page.route((url) => url.pathname + url.search === capturePage, async (route) => {
     const response = await route.fetch()
     const html = (await response.text()).replace('</head>', '<style>html { min-height: 4000px }</style></head>')
     await route.fulfill({ response, body: html })

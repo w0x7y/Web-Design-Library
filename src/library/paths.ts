@@ -1,10 +1,11 @@
 import { readdirSync } from 'node:fs'
+import { previewPath } from '../../app/lib/preview-ready'
 
 export function prerenderPaths(input: { slugs: string[]; categories: string[] }): string[] {
   return [
     '/',
     ...input.categories.map((category) => `/browse/${category}`),
-    ...input.slugs.flatMap((slug) => [`/c/${slug}`, `/preview/${slug}`]),
+    ...input.slugs.flatMap((slug) => [`/c/${slug}`, previewPath(slug)]),
   ]
 }
 

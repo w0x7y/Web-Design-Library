@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { expect, test, type Page } from '@playwright/test'
 import { PNG } from 'pngjs'
+import { previewPath } from '../app/lib/preview-ready'
 import { loadLibrary } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
 
@@ -37,15 +38,39 @@ test('unknown path renders not-found page', async ({ page }) => {
 })
 
 test('preview ?capture=1 freezes motion after hydration', async ({ page }) => {
-  await page.goto('/preview/buttons-minimal?capture=1')
+  await page.goto(previewPath('buttons-minimal', { capture: true }))
+  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'ready')
   await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-capture', '')
   await expect(page.locator('[data-capture-root] .animate-spin').first()).toHaveCSS('animation-name', 'none')
 })
 
 test('preview without ?capture=1 keeps motion', async ({ page }) => {
-  await page.goto('/preview/buttons-minimal')
+  await page.goto(previewPath('buttons-minimal'))
   await expect(page.locator('[data-capture-root] .animate-spin').first()).toHaveCSS('animation-name', 'spin')
   await expect(page.locator('[data-preview-backdrop]')).not.toHaveAttribute('data-capture')
+})
+
+test('the preview page is a bare stage: no site theme, fonts, toaster or analytics', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('wl:theme', 'dark'))
+  const requests: string[] = []
+  page.on('request', (request) => requests.push(request.url()))
+  await page.goto(previewPath('buttons-minimal'))
+  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'ready') // hydrated, so the site's effects would have run
+  expect(await page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(false)
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
+  await expect(page.locator('section[aria-label^="Notifications"]')).toHaveCount(0) // Sonner's toaster region
+  expect(requests.filter((url) => url.includes('/_vercel/insights/') || url.includes('family=Geist'))).toEqual([])
+})
+
+test('a preview whose component fails to load reports failed', async ({ page }) => {
+  await page.route('**/Component-*.js', (route) => route.abort())
+  await page.goto(previewPath('buttons-minimal'))
+  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'failed')
+})
+
+test('a preview of an unknown component reports failed', async ({ page }) => {
+  await page.goto(previewPath('does-not-exist'))
+  await expect(page.locator('[data-preview-backdrop]')).toHaveAttribute('data-preview-state', 'failed')
 })
 
 test('agent files are served', async ({ request }) => {
@@ -354,30 +379,31 @@ test.describe('copy and export', () => {
     await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
   })
 
+  // The page that the hidden capture frame loads. Aborting it makes the capture fail as soon as the frame loads.
+  const isCapturePage = (url: URL) => url.pathname + url.search === previewPath('hero-split-image', { capture: true })
+
   test('a failed capture offers Retry, removes its frame, and Retry reruns the same capture', async ({ page }) => {
-    test.setTimeout(45_000)
     let failing = true
-    await page.route(/\/preview\/hero-split-image\?capture=1/, (route) => (failing ? route.abort() : route.continue()))
+    await page.route(isCapturePage, (route) => (failing ? route.abort() : route.continue()))
     await openDetail(page)
     await page.getByRole('button', { name: 'Download' }).click()
     await page.getByRole('menuitem', { name: 'Mobile PNG' }).click()
-    await expect(page.getByText("Couldn't create image")).toBeVisible({ timeout: 15_000 }) // after the 10 s timeout
+    await expect(page.getByText("Couldn't create image")).toBeVisible()
     await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
     await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
 
     failing = false
-    const [dl] = await Promise.all([page.waitForEvent('download', { timeout: 15_000 }), page.getByRole('button', { name: 'Retry' }).click()])
+    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Retry' }).click()])
     expect(dl.suggestedFilename()).toBe('web-library-hero-split-image-mobile.png')
   })
 
   test('a failed Copy image capture offers Retry too, and Retry copies the image', async ({ page }) => {
-    test.setTimeout(45_000)
     let failing = true
-    await page.route(/\/preview\/hero-split-image\?capture=1/, (route) => (failing ? route.abort() : route.continue()))
+    await page.route(isCapturePage, (route) => (failing ? route.abort() : route.continue()))
     await openDetail(page)
     await page.getByRole('button', { name: 'Copy image' }).click()
     // A capture failure is not a clipboard failure: it must offer Retry, not the manual-copy hint.
-    await expect(page.getByText("Couldn't create image")).toBeVisible({ timeout: 15_000 })
+    await expect(page.getByText("Couldn't create image")).toBeVisible()
     await expect(page.getByText("Couldn't copy")).toHaveCount(0)
     await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
 

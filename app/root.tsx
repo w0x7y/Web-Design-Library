@@ -1,22 +1,23 @@
 import { Analytics } from '@vercel/analytics/react'
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useMatches } from 'react-router'
 import { Toaster } from 'sonner'
 import type { Route } from './+types/root'
 import { NotFoundView } from './components/NotFoundView'
-import { beforeSend } from './lib/analytics'
 import { themeInitScript, useTheme } from './lib/theme'
 import './app.css'
 
-export const links: Route.LinksFunction = () => [
-  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
-  {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&display=swap',
-  },
-]
+/**
+ * A route's `handle` names the document it renders in: the site's (the default), or the stage's,
+ * the bare page a library component renders on (the preview route).
+ */
+export type DocumentHandle = { document: 'site' | 'stage' }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const stage = useMatches().some((match) => (match.handle as Partial<DocumentHandle> | undefined)?.document === 'stage')
+  return stage ? <StageDocument>{children}</StageDocument> : <SiteDocument>{children}</SiteDocument>
+}
+
+function SiteDocument({ children }: { children: React.ReactNode }) {
   // The init script sets .dark before first paint, which hydration tolerates via
   // suppressHydrationWarning. Rendering the class from the theme as well keeps it
   // when React re-creates the document (e.g. recovering from a root-level error).
@@ -32,12 +33,38 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&display=swap"
+        />
         <Links />
       </head>
       <body>
         {children}
         <Toaster position="bottom-right" theme={theme} />
-        <Analytics beforeSend={beforeSend} />
+        <Analytics />
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+
+// A plain light page, whatever the site theme: none of the site's theme, fonts, toasts or analytics
+// reach the component, the preview iframe, or an image capture.
+function StageDocument({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className="bg-white scheme-light">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
