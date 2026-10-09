@@ -162,13 +162,13 @@ Then add your rules below a `/* Component */` comment:
 
 [`badges-playful/styles.css`](src/library/components/badges-playful/styles.css) is a complete example.
 
-For components with literal Tailwind classes, you can generate a starting twin from the React version:
+To see the exact values Tailwind computes for your classes, generate a draft:
 
 ```bash
-npx tsx scripts/sync-component-twins.ts <slug>
+npx tsx scripts/draft-twin.ts <slug>
 ```
 
-The command overwrites only the named component's `index.html` and `styles.css`. It renders the markup, compiles the utilities to scoped plain CSS, and prefixes state markers and custom properties. Review the output and run the same parity, focus and layout checks below. After changing `Component.tsx`, run it again to keep the twin in sync.
+It writes `twin-drafts/<slug>/index.html` and `styles.css` (gitignored) and leaves your component folder alone. The draft renders like the React version but is not a twin to ship: its classes are numbered (`__part-3`) and its CSS goes through Tailwind's variables. Read values from it, then write the twin by hand to the standard of the examples above.
 
 ## 6. Check the rules
 

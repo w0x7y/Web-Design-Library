@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { createElement, type ComponentType } from 'react'
@@ -9,9 +9,10 @@ import { compile } from 'tailwindcss'
 import { resetCss } from '../src/library/reset'
 import { COMPONENTS_DIR, isSlug } from '../src/library/catalog'
 
-// Explicit slugs only: existing, hand-authored twins are never overwritten by a batch scan.
-// Usage: npx tsx scripts/sync-component-twins.ts <slug> [<slug> ...]
-// The output is standalone HTML and scoped CSS, with no Tailwind runtime or build step.
+// Writes a draft twin for each named component to twin-drafts/<slug>/ (gitignored); it never touches
+// the component folder. The draft is a reference for exact computed values, not a twin to ship: it has
+// numbered class names and Tailwind's variables. Write the real index.html and styles.css by hand.
+// Usage: npx tsx scripts/draft-twin.ts <slug> [<slug> ...]
 
 const slugs = process.argv.slice(2)
 if (slugs.length === 0 || slugs.some((slug) => !isSlug(slug))) {
@@ -210,7 +211,9 @@ for (const slug of slugs) {
   // Adding whitespace between inline nodes can change line wrapping. Preserve the
   // React-rendered text exactly, including adjacency between neighboring spans.
   const html = serialize(fragment)
-  await writeFile(resolve(dir, 'index.html'), `${html}\n`)
-  await writeFile(resolve(dir, 'styles.css'), `${resetCss(slug)}\n${output}\n`)
-  console.log(`Synced ${slug}`)
+  const draftDir = resolve('twin-drafts', slug)
+  await mkdir(draftDir, { recursive: true })
+  await writeFile(resolve(draftDir, 'index.html'), `${html}\n`)
+  await writeFile(resolve(draftDir, 'styles.css'), `${resetCss(slug)}\n${output}\n`)
+  console.log(`Wrote twin-drafts/${slug}/`)
 }
