@@ -17,7 +17,7 @@ export default {
     states:
       'The primary button turns orange-800 on hover and its arrow slides 4px right. The subscribe link underline darkens to solid stone-950 on hover. Contents titles underline on hover. Every link shows a 2px stone-950 outline on keyboard focus, offset 2px on the button and 4px on text links and contents entries.',
     responsive:
-      'Below 1024px everything stacks: headline, standfirst and buttons, then the photo (3:2 from 640px, 4:3 on phones), then the contents list. The headline is 96px in a 448px measure on desktop, so it breaks into three lines; 72px from 640px and 56px on phones, with balanced wrapping. The contents list is three columns from 640px and one column below. The folio hides its tagline below 640px.',
+      'Below 1024px everything stacks: headline, standfirst and buttons, then the photo (3:2 from 640px, 4:3 on phones), then the contents list. The headline is 96px in a 448px measure on desktop, so it breaks into three lines; 72px from 640px and 56px on phones, with balanced wrapping. The contents list is three columns from 640px and one column below. The folio hides its tagline below 640px. The standfirst is 22px on phones and 24px from 640px. The container\'s side and top padding grows from 20px to 32px at 640px, and its bottom padding from 56px to 80px at 1024px.',
   },
   addedAt: '2026-10-08',
 } satisfies ComponentMeta

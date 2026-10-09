@@ -127,8 +127,9 @@
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* The ring takes the text colour, so it stays visible on the black hover fill */
 .hero-brutalist-grid .hero-brutalist-grid__cta:focus-visible {
-  outline: 4px solid #000;
+  outline: 4px solid currentColor;
   outline-offset: -8px;
 }
 

@@ -42,7 +42,7 @@ export default function FooterColumns() {
           <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4 lg:col-span-8">
             <nav aria-labelledby="footer-columns-product">
               <h2 id="footer-columns-product" className="text-sm font-bold">Product</h2>
-              <ul className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
+              <ul role="list" className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Scheduling</a></li>
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Dispatch board</a></li>
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Technician app</a></li>
@@ -53,7 +53,7 @@ export default function FooterColumns() {
             </nav>
             <nav aria-labelledby="footer-columns-industries">
               <h2 id="footer-columns-industries" className="text-sm font-bold">Industries</h2>
-              <ul className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
+              <ul role="list" className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Heating and cooling</a></li>
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Plumbing</a></li>
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Electrical</a></li>
@@ -63,7 +63,7 @@ export default function FooterColumns() {
             </nav>
             <nav aria-labelledby="footer-columns-resources">
               <h2 id="footer-columns-resources" className="text-sm font-bold">Resources</h2>
-              <ul className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
+              <ul role="list" className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Help centre</a></li>
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">API reference</a></li>
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Customer stories</a></li>
@@ -73,7 +73,7 @@ export default function FooterColumns() {
             </nav>
             <nav aria-labelledby="footer-columns-company">
               <h2 id="footer-columns-company" className="text-sm font-bold">Company</h2>
-              <ul className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
+              <ul role="list" className="mt-4 space-y-3 text-[0.9375rem] text-slate-600">
                 <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">About</a></li>
                 <li className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Careers</a>
@@ -90,7 +90,7 @@ export default function FooterColumns() {
         <div className="flex flex-col gap-6 border-t border-slate-200 py-8 text-sm text-slate-600 lg:flex-row lg:items-center lg:gap-10">
           <p>© 2026 Fieldmark, Inc. Offices in Denver, Leeds and Melbourne.</p>
           <nav aria-label="Legal" className="lg:ml-auto">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <ul role="list" className="flex flex-wrap gap-x-6 gap-y-2">
               <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Privacy</a></li>
               <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Terms</a></li>
               <li><a href="#" className="rounded-sm underline-offset-4 transition-colors hover:text-slate-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Security</a></li>

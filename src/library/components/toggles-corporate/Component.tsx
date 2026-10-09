@@ -37,7 +37,7 @@ export default function TogglesCorporate() {
             />
             <span
               aria-hidden="true"
-              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500"
+              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500 [&>svg]:opacity-0 [&>svg]:transition-opacity peer-checked:[&>svg]:opacity-100"
             >
               <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-3">
                 <path d="m3 6.25 2 2 4-4.5" />
@@ -73,7 +73,7 @@ export default function TogglesCorporate() {
             />
             <span
               aria-hidden="true"
-              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500"
+              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500 [&>svg]:opacity-0 [&>svg]:transition-opacity peer-checked:[&>svg]:opacity-100"
             >
               <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-3">
                 <path d="m3 6.25 2 2 4-4.5" />
@@ -110,7 +110,7 @@ export default function TogglesCorporate() {
             />
             <span
               aria-hidden="true"
-              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500"
+              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500 [&>svg]:opacity-0 [&>svg]:transition-opacity peer-checked:[&>svg]:opacity-100"
             >
               <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-3">
                 <path d="m3 6.25 2 2 4-4.5" />
@@ -155,7 +155,7 @@ export default function TogglesCorporate() {
             />
             <span
               aria-hidden="true"
-              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500"
+              className="absolute top-1 left-1 flex size-4 items-center justify-center rounded-full bg-slate-500 text-slate-500 transition-[translate,background-color,color] peer-checked:translate-x-5 peer-checked:bg-white peer-checked:text-teal-700 peer-disabled:bg-slate-300 peer-disabled:text-slate-300 peer-disabled:peer-checked:bg-white peer-disabled:peer-checked:text-slate-500 [&>svg]:opacity-0 [&>svg]:transition-opacity peer-checked:[&>svg]:opacity-100"
             >
               <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-3">
                 <path d="m3 6.25 2 2 4-4.5" />

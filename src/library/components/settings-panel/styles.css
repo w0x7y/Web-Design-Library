@@ -329,6 +329,23 @@
   translate: 1rem 0;
 }
 
+/* Forced-colors mode repaints both fills as the page background, which would hide the switch, so the
+   track gets an outline border and the knob a system colour; on, the track fills with Highlight. */
+@media (forced-colors: active) {
+  .settings-panel .settings-panel__track {
+    border-width: 2px;
+  }
+  .settings-panel .settings-panel__knob {
+    background-color: CanvasText;
+  }
+  .settings-panel .settings-panel__switch input:checked ~ .settings-panel__track {
+    background-color: Highlight;
+  }
+  .settings-panel .settings-panel__switch input:checked ~ .settings-panel__knob {
+    background-color: HighlightText;
+  }
+}
+
 /* Footer: when it was last saved, then Discard (a reset button) and Save */
 .settings-panel .settings-panel__footer {
   display: flex;

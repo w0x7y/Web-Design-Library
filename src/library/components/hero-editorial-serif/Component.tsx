@@ -66,7 +66,7 @@ export default function HeroEditorialSerif() {
             <h2 className="border-t border-stone-950 pt-3 text-[0.6875rem] font-medium tracking-[0.12em] uppercase">
               In this issue
             </h2>
-            <ol className="mt-4 grid gap-5 sm:grid-cols-3 sm:gap-8">
+            <ol role="list" className="mt-4 grid gap-5 sm:grid-cols-3 sm:gap-8">
               <li>
                 <a href="#" className="group flex gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-950">
                   <span className="font-['Instrument_Serif',ui-serif,Georgia,serif] text-2xl leading-none text-orange-800 italic tabular-nums">

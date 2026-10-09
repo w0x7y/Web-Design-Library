@@ -35,7 +35,7 @@ export default function FooterBigWordmark() {
           <h2 id="footer-big-wordmark-club" className="text-sm font-bold tracking-[0.08em] text-neutral-400 uppercase">
             Club
           </h2>
-          <ul className="mt-4 space-y-1 text-3xl leading-tight font-bold uppercase">
+          <ul role="list" className="mt-4 space-y-1 text-3xl leading-tight font-bold uppercase">
             <li><a href="#" className="-mx-1 px-1 hover:bg-lime-300 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">This week</a></li>
             <li><a href="#" className="-mx-1 px-1 hover:bg-lime-300 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">Tickets</a></li>
             <li><a href="#" className="-mx-1 px-1 hover:bg-lime-300 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">Residents</a></li>
@@ -66,7 +66,7 @@ export default function FooterBigWordmark() {
       <div className="flex flex-col gap-4 border-y-2 border-neutral-100 px-4 py-5 text-sm font-bold tracking-[0.08em] uppercase sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <p>© 2026 Sublevel e.V.</p>
         <nav aria-label="Legal and social">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul role="list" className="flex flex-wrap gap-x-6 gap-y-2">
             <li><a href="#" className="-mx-1 px-1 hover:bg-lime-300 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">Imprint</a></li>
             <li><a href="#" className="-mx-1 px-1 hover:bg-lime-300 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">Privacy</a></li>
             <li><a href="#" className="-mx-1 px-1 hover:bg-lime-300 hover:text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300">House rules</a></li>

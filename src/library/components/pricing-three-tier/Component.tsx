@@ -43,7 +43,7 @@ export default function PricingThreeTier() {
             >
               Start monitoring
             </a>
-            <ul className="mt-8 space-y-3 border-t border-zinc-200 pt-8 text-sm text-zinc-700">
+            <ul role="list" className="mt-8 space-y-3 border-t border-zinc-200 pt-8 text-sm text-zinc-700">
               <li className="flex gap-3">
                 <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 size-4 shrink-0 text-emerald-600">
                   <path d="m3.5 8.5 3 3 6-7" />
@@ -101,7 +101,7 @@ export default function PricingThreeTier() {
             >
               Start a 14-day trial
             </a>
-            <ul className="mt-8 space-y-3 border-t border-white/15 pt-8 text-sm text-emerald-50">
+            <ul role="list" className="mt-8 space-y-3 border-t border-white/15 pt-8 text-sm text-emerald-50">
               <li className="font-medium text-white">Everything in Hobby, plus:</li>
               <li className="flex gap-3">
                 <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 size-4 shrink-0 text-emerald-300">
@@ -163,7 +163,7 @@ export default function PricingThreeTier() {
             >
               Start a 14-day trial
             </a>
-            <ul className="mt-8 space-y-3 border-t border-zinc-200 pt-8 text-sm text-zinc-700">
+            <ul role="list" className="mt-8 space-y-3 border-t border-zinc-200 pt-8 text-sm text-zinc-700">
               <li className="font-medium text-zinc-950">Everything in Team, plus:</li>
               <li className="flex gap-3">
                 <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 size-4 shrink-0 text-emerald-600">

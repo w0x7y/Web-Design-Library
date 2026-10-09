@@ -257,11 +257,11 @@ export default function SettingsPanel() {
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700"
+                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700 forced-colors:border-2 forced-colors:peer-checked:bg-[Highlight]"
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4"
+                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4 forced-colors:bg-[CanvasText] forced-colors:peer-checked:bg-[HighlightText]"
                     />
                   </span>
                 </li>
@@ -287,11 +287,11 @@ export default function SettingsPanel() {
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700"
+                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700 forced-colors:border-2 forced-colors:peer-checked:bg-[Highlight]"
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4"
+                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4 forced-colors:bg-[CanvasText] forced-colors:peer-checked:bg-[HighlightText]"
                     />
                   </span>
                 </li>
@@ -316,11 +316,11 @@ export default function SettingsPanel() {
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700"
+                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700 forced-colors:border-2 forced-colors:peer-checked:bg-[Highlight]"
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4"
+                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4 forced-colors:bg-[CanvasText] forced-colors:peer-checked:bg-[HighlightText]"
                     />
                   </span>
                 </li>
@@ -345,11 +345,11 @@ export default function SettingsPanel() {
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700"
+                      className="absolute inset-0 rounded-full bg-gray-500 transition-colors peer-checked:bg-sky-700 peer-hover:bg-gray-600 peer-checked:peer-hover:bg-sky-800 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-sky-700 forced-colors:border-2 forced-colors:peer-checked:bg-[Highlight]"
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4"
+                      className="absolute top-1 left-1 size-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4 forced-colors:bg-[CanvasText] forced-colors:peer-checked:bg-[HighlightText]"
                     />
                   </span>
                 </li>

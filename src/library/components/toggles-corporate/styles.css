@@ -140,15 +140,21 @@
   height: 1rem;
   border-radius: 9999px;
   background-color: oklch(55.4% 0.046 257.417); /* slate-500 */
-  color: oklch(55.4% 0.046 257.417); /* slate-500: hides the check while off */
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
   transition-property: translate, background-color, color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
+/* The check shows only while on. Opacity rather than a colour matching the knob, which forced-colors
+   mode would repaint into a visible check on an off switch. */
 .toggles-corporate .toggles-corporate__knob svg {
   width: 0.75rem;
   height: 0.75rem;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .toggles-corporate .toggles-corporate__state {
@@ -172,6 +178,10 @@
   translate: 1.25rem 0;
   background-color: #fff;
   color: oklch(51.1% 0.096 186.391); /* teal-700 */
+}
+
+.toggles-corporate .toggles-corporate__input:checked ~ .toggles-corporate__knob svg {
+  opacity: 1;
 }
 
 .toggles-corporate .toggles-corporate__input:checked ~ .toggles-corporate__state {

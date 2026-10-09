@@ -107,7 +107,7 @@ export default function FeaturesBento() {
             <p className="mt-2 text-[0.9375rem] leading-relaxed text-pretty text-neutral-400">
               Murmur finds the filler words in an episode. Review them, then remove the lot.
             </p>
-            <ul className="mt-auto flex flex-wrap gap-2 pt-8 text-sm">
+            <ul role="list" className="mt-auto flex flex-wrap gap-2 pt-8 text-sm">
               <li className="flex items-center gap-2 rounded-full bg-white/5 py-1 pr-1.5 pl-3 ring-1 ring-white/10 ring-inset">
                 <del className="text-neutral-300 decoration-rose-400 decoration-2">um</del>
                 <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs text-white tabular-nums">38</span>
@@ -138,7 +138,7 @@ export default function FeaturesBento() {
               Every voice is captured at 48 kHz on its own machine and uploads as you talk. A dropped call never costs a
               take.
             </p>
-            <ul className="mt-auto space-y-4 pt-8">
+            <ul role="list" className="mt-auto space-y-4 pt-8">
               <li className="flex items-center gap-3">
                 <span aria-hidden="true" className="flex size-9 shrink-0 items-center justify-center rounded-full bg-orange-300 text-xs font-semibold text-orange-950">NA</span>
                 <span className="min-w-0 flex-1">
@@ -161,6 +161,7 @@ export default function FeaturesBento() {
                     <span className="block h-full w-[72%] rounded-full bg-linear-to-r from-orange-300 to-rose-400" />
                   </span>
                   72%
+                  <span className="sr-only"> uploaded</span>
                 </span>
               </li>
             </ul>
@@ -174,7 +175,7 @@ export default function FeaturesBento() {
                 Murmur splits the episode where the topic turns and writes notes you can publish as they are, or edit.
               </p>
             </div>
-            <ol className="mt-6 divide-y divide-neutral-950/15 border-y border-neutral-950/15 text-sm lg:mt-0 lg:self-start">
+            <ol role="list" className="mt-6 divide-y divide-neutral-950/15 border-y border-neutral-950/15 text-sm lg:mt-0 lg:self-start">
               <li className="flex gap-4 py-2.5">
                 <span className="w-12 shrink-0 font-semibold tabular-nums">00:00</span>
                 Cold open

@@ -21,7 +21,7 @@ export default function NavbarGlass() {
           </a>
 
           <nav aria-label="Main" className="hidden md:block">
-            <ul className="flex items-center gap-1">
+            <ul role="list" className="flex items-center gap-1">
               <li>
                 <a href="#" className="flex h-9 items-center rounded-full px-3.5 text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-white">
                   Platform
@@ -69,7 +69,7 @@ export default function NavbarGlass() {
               </summary>
 
               <nav aria-label="Main" className="absolute inset-x-0 top-full z-10 mt-2 rounded-3xl border border-white/15 bg-zinc-950/60 p-2 shadow-[0_20px_40px_-16px_rgb(0_0_0/0.6)] backdrop-blur-xl">
-                <ul className="grid grid-cols-2 gap-1">
+                <ul role="list" className="grid grid-cols-2 gap-1">
                   <li>
                     <a href="#" className="flex h-11 items-center rounded-2xl px-4 text-[0.9375rem] text-white/80 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-white">
                       Platform

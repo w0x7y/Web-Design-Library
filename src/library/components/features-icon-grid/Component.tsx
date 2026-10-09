@@ -33,7 +33,7 @@ export default function FeaturesIconGrid() {
           </div>
         </div>
 
-        <ul className="mt-16 grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-y-16">
+        <ul role="list" className="mt-16 grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-y-16">
           <li className="border-t border-slate-200">
             {/* The icon tile and plan label sit on the rule, like entries on a ledger line */}
             <div className="-mt-[1.375rem] flex items-center justify-between gap-4">

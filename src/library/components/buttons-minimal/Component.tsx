@@ -37,7 +37,7 @@ export default function ButtonsMinimal() {
           disabled
           className="inline-flex h-8 items-center justify-center gap-1.5 rounded-md cursor-wait bg-zinc-800 px-3 text-[0.8125rem] font-medium text-white shadow-xs"
         >
-          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-3.5 animate-spin">
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-3.5 animate-spin motion-reduce:animate-none">
             <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
             <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
@@ -80,7 +80,7 @@ export default function ButtonsMinimal() {
           disabled
           className="inline-flex h-9 items-center justify-center gap-2 rounded-lg cursor-wait bg-zinc-800 px-4 text-sm font-medium text-white shadow-xs"
         >
-          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-4 animate-spin">
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-4 animate-spin motion-reduce:animate-none">
             <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
             <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
@@ -123,7 +123,7 @@ export default function ButtonsMinimal() {
           disabled
           className="inline-flex h-11 items-center justify-center gap-2 rounded-[0.625rem] cursor-wait bg-zinc-800 px-5 text-[0.9375rem] font-medium text-white shadow-xs"
         >
-          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-4.5 animate-spin">
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-4.5 animate-spin motion-reduce:animate-none">
             <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
             <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>

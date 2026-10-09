@@ -26,25 +26,25 @@ export default function DataTable() {
             <li>
               <a href="?status=all" aria-current="page" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 All
-                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">64</span>
+                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums max-sm:sr-only">64</span>
               </a>
             </li>
             <li>
               <a href="?status=open" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 Open
-                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">9</span>
+                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums max-sm:sr-only">9</span>
               </a>
             </li>
             <li>
               <a href="?status=delivered" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 Delivered
-                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">51</span>
+                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums max-sm:sr-only">51</span>
               </a>
             </li>
             <li>
               <a href="?status=cancelled" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 Cancelled
-                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">4</span>
+                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums max-sm:sr-only">4</span>
               </a>
             </li>
           </ul>
@@ -64,7 +64,7 @@ export default function DataTable() {
                 <th scope="col" className="px-4 py-3 font-medium">
                   <a href="?sort=order" className="group inline-flex items-center gap-1 rounded-sm transition-colors hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950">
                     Order
-                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-400 transition-colors group-hover:text-stone-600">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-500 transition-colors group-hover:text-stone-600">
                       <path d="M5.5 6 8 3.5 10.5 6M5.5 10 8 12.5 10.5 10" />
                     </svg>
                   </a>
@@ -72,7 +72,7 @@ export default function DataTable() {
                 <th scope="col" className="px-4 py-3 font-medium">
                   <a href="?sort=cafe" className="group inline-flex items-center gap-1 rounded-sm transition-colors hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950">
                     Café
-                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-400 transition-colors group-hover:text-stone-600">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-500 transition-colors group-hover:text-stone-600">
                       <path d="M5.5 6 8 3.5 10.5 6M5.5 10 8 12.5 10.5 10" />
                     </svg>
                   </a>
@@ -80,7 +80,7 @@ export default function DataTable() {
                 <th scope="col" className="hidden px-4 py-3 font-medium lg:table-cell">
                   <a href="?sort=coffees" className="group inline-flex items-center gap-1 rounded-sm transition-colors hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950">
                     Coffees
-                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-400 transition-colors group-hover:text-stone-600">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-500 transition-colors group-hover:text-stone-600">
                       <path d="M5.5 6 8 3.5 10.5 6M5.5 10 8 12.5 10.5 10" />
                     </svg>
                   </a>
@@ -96,7 +96,7 @@ export default function DataTable() {
                 <th scope="col" className="px-4 py-3 text-right font-medium">
                   <a href="?sort=bags" className="group inline-flex items-center gap-1 rounded-sm transition-colors hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950">
                     Bags
-                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-400 transition-colors group-hover:text-stone-600">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-500 transition-colors group-hover:text-stone-600">
                       <path d="M5.5 6 8 3.5 10.5 6M5.5 10 8 12.5 10.5 10" />
                     </svg>
                   </a>
@@ -104,7 +104,7 @@ export default function DataTable() {
                 <th scope="col" className="px-4 py-3 text-right font-medium">
                   <a href="?sort=total" className="group inline-flex items-center gap-1 rounded-sm transition-colors hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950">
                     Total
-                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-400 transition-colors group-hover:text-stone-600">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-500 transition-colors group-hover:text-stone-600">
                       <path d="M5.5 6 8 3.5 10.5 6M5.5 10 8 12.5 10.5 10" />
                     </svg>
                   </a>
@@ -112,7 +112,7 @@ export default function DataTable() {
                 <th scope="col" className="px-4 py-3 font-medium">
                   <a href="?sort=status" className="group inline-flex items-center gap-1 rounded-sm transition-colors hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950">
                     Status
-                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-400 transition-colors group-hover:text-stone-600">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-4 text-stone-500 transition-colors group-hover:text-stone-600">
                       <path d="M5.5 6 8 3.5 10.5 6M5.5 10 8 12.5 10.5 10" />
                     </svg>
                   </a>

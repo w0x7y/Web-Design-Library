@@ -12,7 +12,7 @@ export default function NavbarSimple() {
         </a>
 
         <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul role="list" className="flex items-center gap-1">
             <li>
               <a href="#" className="relative flex h-9 items-center rounded-md px-3 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950">
                 Product
@@ -69,7 +69,7 @@ export default function NavbarSimple() {
             </summary>
 
             <nav aria-label="Main" className="absolute inset-x-0 top-full z-10 border-b border-zinc-200 bg-white px-4 pt-2 pb-5 shadow-lg sm:px-6">
-              <ul className="divide-y divide-zinc-100">
+              <ul role="list" className="divide-y divide-zinc-100">
                 <li>
                   <a href="#" className="flex h-12 items-center text-base font-medium text-zinc-700 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950">
                     Product

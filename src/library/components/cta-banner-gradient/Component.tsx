@@ -40,7 +40,7 @@ export default function CtaBannerGradient() {
           <svg aria-hidden="true" viewBox="0 0 400 352" fill="none" className="absolute inset-0 hidden size-full text-violet-950/45 lg:block">
             <path d="M70 46C210 30 330 70 300 128S90 150 92 214s210 30 220 104" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="0.5 11" />
           </svg>
-          <ul aria-label="A trip planned in Tandem" className="flex flex-wrap gap-3 text-[0.9375rem] sm:text-base lg:block">
+          <ul role="list" aria-label="A trip planned in Tandem" className="flex flex-wrap gap-3 text-[0.9375rem] sm:text-base lg:block">
             <li className="flex w-fit -rotate-2 items-center gap-2.5 rounded-full bg-white py-1.5 pr-4 pl-1.5 shadow-[0_10px_20px_-8px_rgb(76_5_25/0.4)] lg:absolute lg:top-2 lg:left-4 lg:-rotate-6">
               <span className="flex size-8 items-center justify-center rounded-full bg-yellow-300">
                 <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-[1.125rem]">

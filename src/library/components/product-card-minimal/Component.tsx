@@ -12,7 +12,7 @@ export default function ProductCardMinimal() {
         />
         <label className="absolute top-3 right-3 flex size-9 cursor-pointer items-center justify-center rounded-full bg-white shadow-xs transition-colors hover:bg-neutral-100 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-neutral-950">
           <input type="checkbox" className="peer sr-only" />
-          <span className="sr-only">Save to wishlist</span>
+          <span className="sr-only">Save Lull Watch 2 to wishlist</span>
           <svg aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" className="size-4.5 fill-transparent transition-colors peer-checked:fill-current">
             <path d="M21 8.25c0-2.49-2.1-4.5-4.69-4.5-1.93 0-3.6 1.13-4.31 2.73-.72-1.6-2.38-2.73-4.31-2.73C5.1 3.75 3 5.76 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
           </svg>

@@ -40,7 +40,7 @@ export default function HeroBrutalistGrid() {
 
         <a
           href="#"
-          className="group flex min-h-44 flex-col justify-between gap-8 bg-orange-500 p-4 transition-colors hover:bg-black hover:text-orange-500 focus-visible:outline-4 focus-visible:-outline-offset-8 focus-visible:outline-black lg:col-span-4 lg:col-start-9 lg:row-start-3 lg:p-6"
+          className="group flex min-h-44 flex-col justify-between gap-8 bg-orange-500 p-4 transition-colors hover:bg-black hover:text-orange-500 focus-visible:outline-4 focus-visible:-outline-offset-8 focus-visible:outline-current lg:col-span-4 lg:col-start-9 lg:row-start-3 lg:p-6"
         >
           <span className="text-xs uppercase">Free for your first 10 hours</span>
           <span className="flex items-end justify-between gap-4 text-3xl leading-[0.95] font-extrabold tracking-[-0.03em] uppercase font-stretch-75% lg:text-4xl">

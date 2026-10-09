@@ -132,6 +132,12 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .buttons-minimal .buttons-minimal__spinner {
+    animation: none;
+  }
+}
+
 @media (hover: hover) {
   .buttons-minimal .buttons-minimal__button--primary:hover {
     background-color: oklch(27.4% 0.006 286.033); /* zinc-800 */

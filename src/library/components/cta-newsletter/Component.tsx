@@ -45,7 +45,7 @@ export default function CtaNewsletter() {
 
           <div className="lg:col-span-6 lg:col-start-7">
             <h3 className="text-lg italic">Recent letters</h3>
-            <ol className="mt-2 divide-y divide-stone-200">
+            <ol role="list" className="mt-2 divide-y divide-stone-200">
               <li>
                 <a href="#" className="group flex flex-col gap-1 rounded-sm py-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                   <span className="text-[1.375rem] leading-snug tracking-[-0.01em] underline decoration-transparent decoration-1 underline-offset-4 transition-colors group-hover:decoration-stone-900">

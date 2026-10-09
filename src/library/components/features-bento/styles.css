@@ -351,6 +351,19 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Visually hidden: says what the percentage counts */
+.features-bento .features-bento__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .features-bento .features-bento__status-icon {
   width: 0.875rem;
   height: 0.875rem;

@@ -11,7 +11,7 @@ export default function ProfileCardGlass() {
       <div className="rounded-2xl border border-white/20 bg-white/10 p-5 text-center shadow-[0_24px_48px_-16px_rgb(0_44_34/0.6)] backdrop-blur-xl sm:p-6">
         <img
           src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80"
-          alt="Clara Ibsen"
+          alt=""
           width={400}
           height={599}
           className="mx-auto size-16 rounded-full object-cover object-top ring-2 ring-white/60"
