@@ -20,8 +20,8 @@ export default function SettingsBillingSummary() {
             <p className="text-xs font-medium tracking-widest text-zinc-600">
               CURRENT PLAN
             </p>
-            <div className="mt-4 flex items-baseline justify-between gap-4">
-              <h2 className="text-2xl font-semibold">Team</h2>
+            <div className="mt-4 flex flex-wrap items-baseline justify-between gap-4">
+              <h3 className="text-2xl font-semibold">Team</h3>
               <p className="text-lg font-semibold tabular-nums">$49 / month</p>
             </div>
             <p className="mt-6 text-sm text-zinc-600">12 of 15 seats in use</p>
@@ -48,7 +48,7 @@ export default function SettingsBillingSummary() {
             <p className="mt-5 text-lg font-medium">Visa ···· 4242</p>
             <p className="mt-2 text-xs text-zinc-600">Expires 08/2028</p>
             <button
-              className="mt-6 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-xs font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+              className="mt-6 cursor-pointer rounded-lg border border-zinc-500 bg-white px-3 py-2 text-xs font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
               type="button"
             >
               Update payment method

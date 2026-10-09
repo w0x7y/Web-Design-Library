@@ -12,349 +12,230 @@
 .data-table-deployments-console table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .data-table-deployments-console summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .data-table-deployments-console {
-  --data-table-deployments-console-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --data-table-deployments-console-color-lime-300: oklch(89.7% 0.196 126.665);
-  --data-table-deployments-console-color-cyan-300: oklch(86.5% 0.127 207.078);
-  --data-table-deployments-console-color-neutral-100: oklch(97% 0 none);
-  --data-table-deployments-console-color-neutral-400: oklch(70.8% 0 none);
-  --data-table-deployments-console-color-neutral-700: oklch(37.1% 0 none);
-  --data-table-deployments-console-color-neutral-950: oklch(14.5% 0 none);
-  --data-table-deployments-console-spacing: 0.25rem;
-  --data-table-deployments-console-container-xl: 36rem;
-  --data-table-deployments-console-container-5xl: 64rem;
-  --data-table-deployments-console-text-xs: 0.75rem;
-  --data-table-deployments-console-text-xs--line-height: calc(1 / 0.75);
-  --data-table-deployments-console-text-sm: 0.875rem;
-  --data-table-deployments-console-text-sm--line-height: calc(1.25 / 0.875);
-  --data-table-deployments-console-text-3xl: 1.875rem;
-  --data-table-deployments-console-text-3xl--line-height: calc(2.25 / 1.875);
-  --data-table-deployments-console-font-weight-normal: 400;
-  --data-table-deployments-console-font-weight-medium: 500;
-  --data-table-deployments-console-font-weight-semibold: 600;
-  --data-table-deployments-console-tracking-tight: -0.025em;
-  --data-table-deployments-console-radius-lg: 0.5rem;
+  background: oklch(14.5% 0 none); /* neutral-950 */
+  padding: 2.5rem 1.5rem;
+  color: oklch(97% 0 none); /* neutral-100 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-.data-table-deployments-console.data-table-deployments-console__part-1, .data-table-deployments-console .data-table-deployments-console__part-1 {
-  background-color: var(--data-table-deployments-console-color-neutral-950);
-  padding-inline: calc(var(--data-table-deployments-console-spacing) * 6);
-  padding-block: calc(var(--data-table-deployments-console-spacing) * 10);
-  font-family: var(--data-table-deployments-console-font-mono);
-  color: var(--data-table-deployments-console-color-neutral-100);
-}
-@media (width >= 40rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-1, .data-table-deployments-console .data-table-deployments-console__part-1 {
-    padding-inline: calc(var(--data-table-deployments-console-spacing) * 12);
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-2, .data-table-deployments-console .data-table-deployments-console__part-2 {
+
+.data-table-deployments-console .data-table-deployments-console__inner {
   margin-inline: auto;
-  max-width: var(--data-table-deployments-console-container-5xl);
+  max-width: 64rem;
 }
-.data-table-deployments-console.data-table-deployments-console__part-3, .data-table-deployments-console .data-table-deployments-console__part-3 {
+
+/* Table header */
+
+.data-table-deployments-console .data-table-deployments-console__header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  gap: calc(var(--data-table-deployments-console-spacing) * 5);
+  gap: 1.25rem;
 }
-.data-table-deployments-console.data-table-deployments-console__part-4, .data-table-deployments-console .data-table-deployments-console__part-4 {
+
+.data-table-deployments-console .data-table-deployments-console__intro {
   display: grid;
-  gap: calc(var(--data-table-deployments-console-spacing) * 2);
+  gap: 0.5rem;
 }
-.data-table-deployments-console.data-table-deployments-console__part-5, .data-table-deployments-console .data-table-deployments-console__part-5 {
-  font-size: var(--data-table-deployments-console-text-3xl);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-3xl--line-height));
-  --data-table-deployments-console-tw-font-weight: var(--data-table-deployments-console-font-weight-semibold);
-  font-weight: var(--data-table-deployments-console-font-weight-semibold);
-  --data-table-deployments-console-tw-tracking: var(--data-table-deployments-console-tracking-tight);
-  letter-spacing: var(--data-table-deployments-console-tracking-tight);
+
+.data-table-deployments-console .data-table-deployments-console__heading {
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
-.data-table-deployments-console.data-table-deployments-console__part-6, .data-table-deployments-console .data-table-deployments-console__part-6 {
-  max-width: var(--data-table-deployments-console-container-xl);
-  font-size: var(--data-table-deployments-console-text-sm);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-sm--line-height));
-  --data-table-deployments-console-tw-leading: calc(var(--data-table-deployments-console-spacing) * 6);
-  line-height: calc(var(--data-table-deployments-console-spacing) * 6);
-  color: var(--data-table-deployments-console-color-neutral-400);
+
+.data-table-deployments-console .data-table-deployments-console__description {
+  max-width: 36rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: oklch(70.8% 0 none); /* neutral-400 */
 }
-.data-table-deployments-console.data-table-deployments-console__part-7, .data-table-deployments-console .data-table-deployments-console__part-7 {
+
+.data-table-deployments-console .data-table-deployments-console__header-link {
   align-self: flex-start;
-  font-size: var(--data-table-deployments-console-text-sm);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-sm--line-height));
-  --data-table-deployments-console-tw-font-weight: var(--data-table-deployments-console-font-weight-medium);
-  font-weight: var(--data-table-deployments-console-font-weight-medium);
-  text-decoration-line: underline;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  text-decoration: underline;
   text-underline-offset: 4px;
 }
-.data-table-deployments-console.data-table-deployments-console__part-7:focus-visible, .data-table-deployments-console .data-table-deployments-console__part-7:focus-visible {
-  outline-style: var(--data-table-deployments-console-tw-outline-style);
-  outline-width: 2px;
-}
-.data-table-deployments-console.data-table-deployments-console__part-7:focus-visible, .data-table-deployments-console .data-table-deployments-console__part-7:focus-visible {
+
+.data-table-deployments-console .data-table-deployments-console__header-link:focus-visible {
+  outline: 2px solid currentcolor;
   outline-offset: 2px;
 }
-.data-table-deployments-console.data-table-deployments-console__part-7:focus-visible, .data-table-deployments-console .data-table-deployments-console__part-7:focus-visible {
-  outline-color: currentcolor;
+
+.data-table-deployments-console .data-table-deployments-console__summary {
+  margin-block: 1.75rem;
 }
-.data-table-deployments-console.data-table-deployments-console__part-8, .data-table-deployments-console .data-table-deployments-console__part-8 {
-  margin-block: calc(var(--data-table-deployments-console-spacing) * 7);
-}
-.data-table-deployments-console.data-table-deployments-console__part-9, .data-table-deployments-console .data-table-deployments-console__part-9 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(var(--data-table-deployments-console-spacing) * 4);
-  border-bottom-style: var(--data-table-deployments-console-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: var(--data-table-deployments-console-color-neutral-700);
-  padding-bottom: calc(var(--data-table-deployments-console-spacing) * 4);
-  font-size: var(--data-table-deployments-console-text-xs);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-xs--line-height));
-}
-.data-table-deployments-console.data-table-deployments-console__part-10, .data-table-deployments-console .data-table-deployments-console__part-10 {
-  color: var(--data-table-deployments-console-color-lime-300);
-}
-.data-table-deployments-console.data-table-deployments-console__part-11, .data-table-deployments-console .data-table-deployments-console__part-11 {
-  color: var(--data-table-deployments-console-color-neutral-400);
-}
-.data-table-deployments-console.data-table-deployments-console__part-12, .data-table-deployments-console .data-table-deployments-console__part-12 {
+
+/* Records become labelled cards below 768px. Keep table headings accessible. */
+
+.data-table-deployments-console .data-table-deployments-console__table {
   display: block;
   width: 100%;
   text-align: left;
-  font-size: var(--data-table-deployments-console-text-sm);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-sm--line-height));
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-12, .data-table-deployments-console .data-table-deployments-console__part-12 {
-    display: table;
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-13, .data-table-deployments-console .data-table-deployments-console__part-13 {
+
+.data-table-deployments-console :is(.data-table-deployments-console__caption, .data-table-deployments-console__columns) {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip-path: inset(50%);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
 }
-.data-table-deployments-console.data-table-deployments-console__part-14, .data-table-deployments-console .data-table-deployments-console__part-14 {
-  display: none;
+
+.data-table-deployments-console .data-table-deployments-console__column {
+  border-bottom: 1px solid oklch(37.1% 0 none); /* neutral-700 */
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+  color: oklch(70.8% 0 none); /* neutral-400 */
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-14, .data-table-deployments-console .data-table-deployments-console__part-14 {
-    display: table-header-group;
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-15, .data-table-deployments-console .data-table-deployments-console__part-15 {
-  border-bottom-style: var(--data-table-deployments-console-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: var(--data-table-deployments-console-color-neutral-700);
-  padding-inline: calc(var(--data-table-deployments-console-spacing) * 4);
-  padding-block: calc(var(--data-table-deployments-console-spacing) * 3);
-  font-size: var(--data-table-deployments-console-text-xs);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-xs--line-height));
-  --data-table-deployments-console-tw-font-weight: var(--data-table-deployments-console-font-weight-medium);
-  font-weight: var(--data-table-deployments-console-font-weight-medium);
-  color: var(--data-table-deployments-console-color-neutral-400);
-}
-.data-table-deployments-console.data-table-deployments-console__part-16, .data-table-deployments-console .data-table-deployments-console__part-16 {
+
+.data-table-deployments-console .data-table-deployments-console__records {
   display: grid;
-  gap: calc(var(--data-table-deployments-console-spacing) * 3);
+  gap: 0.75rem;
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-16, .data-table-deployments-console .data-table-deployments-console__part-16 {
-    display: table-row-group;
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-17, .data-table-deployments-console .data-table-deployments-console__part-17 {
+
+.data-table-deployments-console .data-table-deployments-console__record {
   display: grid;
-  border-radius: var(--data-table-deployments-console-radius-lg);
-  border-style: var(--data-table-deployments-console-tw-border-style);
-  border-width: 1px;
-  border-color: var(--data-table-deployments-console-color-neutral-700);
-  padding: calc(var(--data-table-deployments-console-spacing) * 3);
+  border: 1px solid oklch(37.1% 0 none); /* neutral-700 */
+  border-radius: 0.5rem;
+  padding: 0.75rem;
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-17, .data-table-deployments-console .data-table-deployments-console__part-17 {
-    display: table-row;
-  }
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-17, .data-table-deployments-console .data-table-deployments-console__part-17 {
-    border-style: var(--data-table-deployments-console-tw-border-style);
-    border-width: 0px;
-  }
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-17, .data-table-deployments-console .data-table-deployments-console__part-17 {
-    padding: 0px;
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-18, .data-table-deployments-console .data-table-deployments-console__part-18 {
+
+.data-table-deployments-console :is(.data-table-deployments-console__row-heading, .data-table-deployments-console__cell) {
   display: flex;
-  min-width: 0px;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--data-table-deployments-console-spacing) * 4);
-  border-color: var(--data-table-deployments-console-color-neutral-700);
-  padding-inline: var(--data-table-deployments-console-spacing);
-  padding-block: calc(var(--data-table-deployments-console-spacing) * 2);
-  --data-table-deployments-console-tw-font-weight: var(--data-table-deployments-console-font-weight-medium);
-  font-weight: var(--data-table-deployments-console-font-weight-medium);
+  gap: 1rem;
+  padding: 0.5rem 0.25rem;
+  border-color: oklch(37.1% 0 none); /* neutral-700 */
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-18, .data-table-deployments-console .data-table-deployments-console__part-18 {
-    display: table-cell;
-  }
+
+.data-table-deployments-console .data-table-deployments-console__row-heading {
+  font-weight: 500;
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-18, .data-table-deployments-console .data-table-deployments-console__part-18 {
-    border-bottom-style: var(--data-table-deployments-console-tw-border-style);
-    border-bottom-width: 1px;
-  }
+
+.data-table-deployments-console .data-table-deployments-console__cell {
+  font-weight: 400;
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-18, .data-table-deployments-console .data-table-deployments-console__part-18 {
-    padding-inline: calc(var(--data-table-deployments-console-spacing) * 4);
-  }
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-18, .data-table-deployments-console .data-table-deployments-console__part-18 {
-    padding-block: calc(var(--data-table-deployments-console-spacing) * 4);
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-19, .data-table-deployments-console .data-table-deployments-console__part-19 {
+
+.data-table-deployments-console .data-table-deployments-console__mobile-label {
   flex-shrink: 0;
-  font-size: var(--data-table-deployments-console-text-xs);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-xs--line-height));
-  --data-table-deployments-console-tw-font-weight: var(--data-table-deployments-console-font-weight-normal);
-  font-weight: var(--data-table-deployments-console-font-weight-normal);
-  color: var(--data-table-deployments-console-color-neutral-400);
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 400;
+  color: oklch(70.8% 0 none); /* neutral-400 */
 }
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-19, .data-table-deployments-console .data-table-deployments-console__part-19 {
-    display: none;
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-20, .data-table-deployments-console .data-table-deployments-console__part-20 {
-  min-width: 0px;
+
+.data-table-deployments-console .data-table-deployments-console__value {
+  min-width: 0;
   overflow-wrap: break-word;
 }
-.data-table-deployments-console.data-table-deployments-console__part-21, .data-table-deployments-console .data-table-deployments-console__part-21 {
-  display: flex;
-  min-width: 0px;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(var(--data-table-deployments-console-spacing) * 4);
-  border-color: var(--data-table-deployments-console-color-neutral-700);
-  padding-inline: var(--data-table-deployments-console-spacing);
-  padding-block: calc(var(--data-table-deployments-console-spacing) * 2);
-  --data-table-deployments-console-tw-font-weight: var(--data-table-deployments-console-font-weight-normal);
-  font-weight: var(--data-table-deployments-console-font-weight-normal);
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-21, .data-table-deployments-console .data-table-deployments-console__part-21 {
-    display: table-cell;
-  }
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-21, .data-table-deployments-console .data-table-deployments-console__part-21 {
-    border-bottom-style: var(--data-table-deployments-console-tw-border-style);
-    border-bottom-width: 1px;
-  }
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-21, .data-table-deployments-console .data-table-deployments-console__part-21 {
-    padding-inline: calc(var(--data-table-deployments-console-spacing) * 4);
-  }
-}
-@media (width >= 48rem) {
-  .data-table-deployments-console.data-table-deployments-console__part-21, .data-table-deployments-console .data-table-deployments-console__part-21 {
-    padding-block: calc(var(--data-table-deployments-console-spacing) * 4);
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-22, .data-table-deployments-console .data-table-deployments-console__part-22 {
-  border-radius: 0.25rem;
-  border-style: var(--data-table-deployments-console-tw-border-style);
-  border-width: 1px;
-  border-color: color-mix(in srgb, oklch(89.7% 0.196 126.665) 40%, transparent);
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .data-table-deployments-console.data-table-deployments-console__part-22, .data-table-deployments-console .data-table-deployments-console__part-22 {
-    border-color: color-mix(in oklab, var(--data-table-deployments-console-color-lime-300) 40%, transparent);
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-22, .data-table-deployments-console .data-table-deployments-console__part-22 {
-  padding-inline: calc(var(--data-table-deployments-console-spacing) * 2);
-  padding-block: var(--data-table-deployments-console-spacing);
-  font-size: var(--data-table-deployments-console-text-xs);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-xs--line-height));
-  color: var(--data-table-deployments-console-color-lime-300);
-}
-.data-table-deployments-console.data-table-deployments-console__part-23, .data-table-deployments-console .data-table-deployments-console__part-23 {
-  border-radius: 0.25rem;
-  border-style: var(--data-table-deployments-console-tw-border-style);
-  border-width: 1px;
-  border-color: color-mix(in srgb, oklch(86.5% 0.127 207.078) 40%, transparent);
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .data-table-deployments-console.data-table-deployments-console__part-23, .data-table-deployments-console .data-table-deployments-console__part-23 {
-    border-color: color-mix(in oklab, var(--data-table-deployments-console-color-cyan-300) 40%, transparent);
-  }
-}
-.data-table-deployments-console.data-table-deployments-console__part-23, .data-table-deployments-console .data-table-deployments-console__part-23 {
-  padding-inline: calc(var(--data-table-deployments-console-spacing) * 2);
-  padding-block: var(--data-table-deployments-console-spacing);
-  font-size: var(--data-table-deployments-console-text-xs);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-xs--line-height));
-  color: var(--data-table-deployments-console-color-cyan-300);
-}
-.data-table-deployments-console.data-table-deployments-console__part-24, .data-table-deployments-console .data-table-deployments-console__part-24 {
-  margin-top: calc(var(--data-table-deployments-console-spacing) * 5);
+
+/* Record count */
+
+.data-table-deployments-console .data-table-deployments-console__footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--data-table-deployments-console-spacing) * 4);
-  font-size: var(--data-table-deployments-console-text-xs);
-  line-height: var(--data-table-deployments-console-tw-leading, var(--data-table-deployments-console-text-xs--line-height));
-  color: var(--data-table-deployments-console-color-neutral-400);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(70.8% 0 none); /* neutral-400 */
 }
-@property --data-table-deployments-console-tw-font-weight {
-  syntax: "*";
-  inherits: false;
+
+/* Environment context and release outcomes */
+
+.data-table-deployments-console .data-table-deployments-console__summary-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 1px solid oklch(37.1% 0 none); /* neutral-700 */
+  padding-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
 }
-@property --data-table-deployments-console-tw-tracking {
-  syntax: "*";
-  inherits: false;
+
+.data-table-deployments-console .data-table-deployments-console__region {
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-@property --data-table-deployments-console-tw-leading {
-  syntax: "*";
-  inherits: false;
+
+.data-table-deployments-console .data-table-deployments-console__uptime {
+  color: oklch(70.8% 0 none); /* neutral-400 */
 }
-@property --data-table-deployments-console-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
+
+.data-table-deployments-console .data-table-deployments-console__status {
+  border: 1px solid;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
 }
-@property --data-table-deployments-console-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
+
+.data-table-deployments-console .data-table-deployments-console__status--healthy {
+  border-color: oklch(89.7% 0.196 126.665 / 0.4);
+  /* lime-300 / 40% */
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .data-table-deployments-console *, .data-table-deployments-console ::before, .data-table-deployments-console ::after, .data-table-deployments-console ::backdrop {
-      --data-table-deployments-console-tw-font-weight: initial;
-      --data-table-deployments-console-tw-tracking: initial;
-      --data-table-deployments-console-tw-leading: initial;
-      --data-table-deployments-console-tw-outline-style: solid;
-      --data-table-deployments-console-tw-border-style: solid;
-    }
+
+.data-table-deployments-console .data-table-deployments-console__status--building {
+  border-color: oklch(86.5% 0.127 207.078 / 0.4);
+  /* cyan-300 / 40% */
+  color: oklch(86.5% 0.127 207.078); /* cyan-300 */
+}
+
+@media (width >= 40rem) {
+  .data-table-deployments-console {
+    padding-inline: 3rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .data-table-deployments-console .data-table-deployments-console__table {
+    display: table;
+  }
+  .data-table-deployments-console .data-table-deployments-console__columns {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    display: table-header-group;
+  }
+  .data-table-deployments-console .data-table-deployments-console__records {
+    display: table-row-group;
+  }
+  .data-table-deployments-console .data-table-deployments-console__record {
+    display: table-row;
+    border-width: 0;
+    padding: 0;
+  }
+  .data-table-deployments-console :is(.data-table-deployments-console__row-heading, .data-table-deployments-console__cell) {
+    display: table-cell;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding: 1rem;
+  }
+  .data-table-deployments-console .data-table-deployments-console__mobile-label {
+    display: none;
   }
 }

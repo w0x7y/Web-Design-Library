@@ -24,61 +24,66 @@ export default function DataTableDeploymentsConsole() {
             <p className="text-neutral-400">UPTIME / 99.98%</p>
           </div>
         </div>
-        <table className="block w-full text-left text-sm md:table">
+        <table role="table" className="block w-full text-left text-sm md:table">
           <caption className="sr-only">Deployment activity table</caption>
-          <thead className="hidden md:table-header-group">
-            <tr>
+          <thead role="rowgroup" className="sr-only md:not-sr-only md:table-header-group">
+            <tr role="row">
               <th
                 className="border-b border-neutral-700 px-4 py-3 text-xs font-medium text-neutral-400"
+                role="columnheader"
                 scope="col"
               >
                 Release
               </th>
               <th
                 className="border-b border-neutral-700 px-4 py-3 text-xs font-medium text-neutral-400"
+                role="columnheader"
                 scope="col"
               >
                 Environment
               </th>
               <th
                 className="border-b border-neutral-700 px-4 py-3 text-xs font-medium text-neutral-400"
+                role="columnheader"
                 scope="col"
               >
                 Commit
               </th>
               <th
                 className="border-b border-neutral-700 px-4 py-3 text-xs font-medium text-neutral-400"
+                role="columnheader"
                 scope="col"
               >
                 Result
               </th>
             </tr>
           </thead>
-          <tbody className="grid gap-3 md:table-row-group">
-            <tr className="grid rounded-lg border border-neutral-700 p-3 md:table-row md:border-0 md:p-0">
+          <tbody role="rowgroup" className="grid gap-3 md:table-row-group">
+            <tr role="row" className="grid rounded-lg border border-neutral-700 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Release
                 </span>
                 <span className="min-w-0 break-words">v2.14.0</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Environment
                 </span>
                 <span className="min-w-0 break-words">Production</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Commit
                 </span>
                 <span className="min-w-0 break-words">a37f12c</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Result
                 </span>
                 <span className="min-w-0 break-words">
@@ -88,30 +93,31 @@ export default function DataTableDeploymentsConsole() {
                 </span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-neutral-700 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-neutral-700 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Release
                 </span>
                 <span className="min-w-0 break-words">v2.15.0-rc</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Environment
                 </span>
                 <span className="min-w-0 break-words">Preview</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Commit
                 </span>
                 <span className="min-w-0 break-words">b18ad50</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Result
                 </span>
                 <span className="min-w-0 break-words">
@@ -121,30 +127,31 @@ export default function DataTableDeploymentsConsole() {
                 </span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-neutral-700 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-neutral-700 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Release
                 </span>
                 <span className="min-w-0 break-words">v2.13.2</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Environment
                 </span>
                 <span className="min-w-0 break-words">Production</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Commit
                 </span>
                 <span className="min-w-0 break-words">913ef0d</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-neutral-700 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-neutral-400 md:hidden">
                   Result
                 </span>
                 <span className="min-w-0 break-words">

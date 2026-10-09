@@ -1,1 +1,51 @@
-<section class="settings-account-profile settings-account-profile__part-1"><form class="settings-account-profile__part-2" action="#"><header class="settings-account-profile__part-3"><span class="settings-account-profile__part-4">AR</span><div class="settings-account-profile__part-5"><h2 class="settings-account-profile__part-6">Your profile</h2><p class="settings-account-profile__part-7">How you appear to the community.</p></div></header><div class="settings-account-profile__part-8"><label class="settings-account-profile__part-9" for="settings-account-profile-first">First name<input class="settings-account-profile__part-10" id="settings-account-profile-first" type="text" autocomplete="given-name" placeholder="Alex" required="" name="first"></label><label class="settings-account-profile__part-9" for="settings-account-profile-last">Last name<input class="settings-account-profile__part-10" id="settings-account-profile-last" type="text" autocomplete="family-name" placeholder="Rivera" required="" name="last"></label></div><div class="settings-account-profile__part-11"><label class="settings-account-profile__part-9" for="settings-account-profile-email">Email address<input class="settings-account-profile__part-10" id="settings-account-profile-email" type="email" autocomplete="email" placeholder="alex@example.com" required="" name="email"></label><label class="settings-account-profile__part-9" for="settings-account-profile-bio">A few words about you<textarea class="settings-account-profile__part-12" name="bio" id="settings-account-profile-bio" maxlength="240" placeholder="What are you working on?"></textarea></label></div><footer class="settings-account-profile__part-13"><a class="settings-account-profile__part-14" href="#">View public profile</a><button class="settings-account-profile__part-15" type="button">Save profile</button></footer></form></section>
+<section class="settings-account-profile">
+  <form class="settings-account-profile__form" action="#">
+    <header class="settings-account-profile__header">
+      <span class="settings-account-profile__avatar">AR</span>
+      <div class="settings-account-profile__identity">
+        <h2 class="settings-account-profile__heading">Your profile</h2>
+        <p class="settings-account-profile__description">How you appear to the community.</p>
+      </div>
+    </header>
+    <div class="settings-account-profile__names">
+      <label class="settings-account-profile__field" for="settings-account-profile-first">
+        First name (required)
+        <input class="settings-account-profile__input" id="settings-account-profile-first" type="text" autocomplete="given-name" placeholder="Alex" required="" name="first">
+      </label>
+      <label class="settings-account-profile__field" for="settings-account-profile-last">
+        Last name (required)
+        <input class="settings-account-profile__input" id="settings-account-profile-last" type="text" autocomplete="family-name" placeholder="Rivera" required="" name="last">
+      </label>
+    </div>
+    <div class="settings-account-profile__details">
+      <label class="settings-account-profile__field" for="settings-account-profile-email">
+        Email address (required)
+        <input
+          class="settings-account-profile__input"
+          id="settings-account-profile-email"
+          type="email"
+          autocomplete="email"
+          placeholder="alex@example.com"
+          required=""
+          name="email"
+        >
+      </label>
+      <label class="settings-account-profile__field" for="settings-account-profile-bio">
+        A few words about you
+        <textarea
+          class="settings-account-profile__bio"
+          name="bio"
+          id="settings-account-profile-bio"
+          maxlength="240"
+          aria-describedby="settings-account-profile-bio-hint"
+          placeholder="What are you working on?"
+        ></textarea>
+        <span id="settings-account-profile-bio-hint" class="settings-account-profile__hint">Up to 240 characters.</span>
+      </label>
+    </div>
+    <footer class="settings-account-profile__footer">
+      <a class="settings-account-profile__profile-link" href="#">View public profile</a>
+      <button class="settings-account-profile__save" type="button">Save profile</button>
+    </footer>
+  </form>
+</section>

@@ -18,9 +18,9 @@ export default function SettingsAccountProfile() {
             className="grid gap-2 text-sm font-medium"
             htmlFor="settings-account-profile-first"
           >
-            First name
+            First name (required)
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="settings-account-profile-first"
               name="first"
               type="text"
@@ -33,9 +33,9 @@ export default function SettingsAccountProfile() {
             className="grid gap-2 text-sm font-medium"
             htmlFor="settings-account-profile-last"
           >
-            Last name
+            Last name (required)
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="settings-account-profile-last"
               name="last"
               type="text"
@@ -50,9 +50,9 @@ export default function SettingsAccountProfile() {
             className="grid gap-2 text-sm font-medium"
             htmlFor="settings-account-profile-email"
           >
-            Email address
+            Email address (required)
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="settings-account-profile-email"
               name="email"
               type="email"
@@ -67,15 +67,17 @@ export default function SettingsAccountProfile() {
           >
             A few words about you
             <textarea
-              className="min-h-24 w-full resize-y rounded-lg border border-[#37312c]/25 bg-transparent px-3 py-3 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-h-24 w-full resize-y rounded-lg border border-[#37312c]/60 bg-transparent px-3 py-3 font-normal placeholder:text-current/75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               name="bio"
               id="settings-account-profile-bio"
               maxLength={240}
+              aria-describedby="settings-account-profile-bio-hint"
               placeholder="What are you working on?"
             ></textarea>
+            <span id="settings-account-profile-bio-hint" className="text-xs font-normal text-[#746a61]">Up to 240 characters.</span>
           </label>
         </div>
-        <footer className="mt-7 flex flex-wrap justify-between gap-4 border-t border-[#37312c]/20 pt-5">
+        <footer className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-[#37312c]/20 pt-5">
           <a
             className="text-sm font-medium underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
             href="#"
@@ -83,7 +85,7 @@ export default function SettingsAccountProfile() {
             View public profile
           </a>
           <button
-            className="rounded-full bg-[#37312c] px-5 py-3 text-sm font-medium text-[#f4f1eb] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+            className="cursor-pointer rounded-full bg-[#37312c] px-5 py-3 text-sm font-medium text-[#f4f1eb] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
             type="button"
           >
             Save profile
