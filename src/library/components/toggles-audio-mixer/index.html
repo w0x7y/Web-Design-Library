@@ -1,1 +1,54 @@
-<section aria-label="Audio recording preferences" class="toggles-audio-mixer toggles-audio-mixer__part-1"><p class="toggles-audio-mixer__part-2">Before you hit record</p><h2 class="toggles-audio-mixer__part-3">Sound your best</h2><div class="toggles-audio-mixer__part-4"><div class="toggles-audio-mixer__part-5"><div><label for="toggles-audio-mixer-noise" class="toggles-audio-mixer__part-6">Noise reduction</label><p id="toggles-audio-mixer-noise-hint" class="toggles-audio-mixer__part-7">Keep the room out.</p></div><input id="toggles-audio-mixer-noise" type="checkbox" aria-describedby="toggles-audio-mixer-noise-hint" class="toggles-audio-mixer__part-8" name="toggles-audio-mixer-noise" checked=""></div><div class="toggles-audio-mixer__part-5"><div><label for="toggles-audio-mixer-level" class="toggles-audio-mixer__part-6">Auto level</label><p id="toggles-audio-mixer-level-hint" class="toggles-audio-mixer__part-7">An even voice throughout.</p></div><input id="toggles-audio-mixer-level" type="checkbox" aria-describedby="toggles-audio-mixer-level-hint" class="toggles-audio-mixer__part-8" name="toggles-audio-mixer-level" checked=""></div><div class="toggles-audio-mixer__part-5"><div><label for="toggles-audio-mixer-monitor" class="toggles-audio-mixer__part-6">Live monitoring</label><p id="toggles-audio-mixer-monitor-hint" class="toggles-audio-mixer__part-7">Hear yourself as you speak.</p></div><input id="toggles-audio-mixer-monitor" type="checkbox" aria-describedby="toggles-audio-mixer-monitor-hint" class="toggles-audio-mixer__part-8" name="toggles-audio-mixer-monitor"></div></div><div class="toggles-audio-mixer__part-9"><span aria-hidden="true" class="toggles-audio-mixer__part-10"></span>Microphone connected · USB Audio</div></section>
+<section aria-label="Audio recording preferences" class="toggles-audio-mixer">
+  <p class="toggles-audio-mixer__eyebrow">Before you hit record</p>
+  <h2 class="toggles-audio-mixer__title">Sound your best</h2>
+  <div class="toggles-audio-mixer__settings">
+    <div class="toggles-audio-mixer__setting">
+      <div>
+        <label for="toggles-audio-mixer-noise" class="toggles-audio-mixer__label">Noise reduction</label>
+        <p id="toggles-audio-mixer-noise-hint" class="toggles-audio-mixer__hint">Keep the room out.</p>
+      </div>
+      <input
+        id="toggles-audio-mixer-noise"
+        name="toggles-audio-mixer-noise"
+        type="checkbox"
+        role="switch"
+        checked
+        aria-describedby="toggles-audio-mixer-noise-hint"
+        class="toggles-audio-mixer__switch"
+      />
+    </div>
+    <div class="toggles-audio-mixer__setting">
+      <div>
+        <label for="toggles-audio-mixer-level" class="toggles-audio-mixer__label">Auto level</label>
+        <p id="toggles-audio-mixer-level-hint" class="toggles-audio-mixer__hint">An even voice throughout.</p>
+      </div>
+      <input
+        id="toggles-audio-mixer-level"
+        name="toggles-audio-mixer-level"
+        type="checkbox"
+        role="switch"
+        checked
+        aria-describedby="toggles-audio-mixer-level-hint"
+        class="toggles-audio-mixer__switch"
+      />
+    </div>
+    <div class="toggles-audio-mixer__setting">
+      <div>
+        <label for="toggles-audio-mixer-monitor" class="toggles-audio-mixer__label">Live monitoring</label>
+        <p id="toggles-audio-mixer-monitor-hint" class="toggles-audio-mixer__hint">Hear yourself as you speak.</p>
+      </div>
+      <input
+        id="toggles-audio-mixer-monitor"
+        name="toggles-audio-mixer-monitor"
+        type="checkbox"
+        role="switch"
+        aria-describedby="toggles-audio-mixer-monitor-hint"
+        class="toggles-audio-mixer__switch"
+      />
+    </div>
+  </div>
+  <div class="toggles-audio-mixer__connection">
+    <span aria-hidden="true" class="toggles-audio-mixer__dot"></span>
+    Microphone connected · USB Audio
+  </div>
+</section>

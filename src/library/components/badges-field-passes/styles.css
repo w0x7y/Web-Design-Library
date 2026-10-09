@@ -12,169 +12,94 @@
 .badges-field-passes table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .badges-field-passes summary { display: list-item; }
 
-@layer properties;
+
+/* Component */
 .badges-field-passes {
-  --badges-field-passes-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --badges-field-passes-color-lime-300: oklch(89.7% 0.196 126.665);
-  --badges-field-passes-color-pink-200: oklch(89.9% 0.061 343.231);
-  --badges-field-passes-color-black: #000;
-  --badges-field-passes-color-white: #fff;
-  --badges-field-passes-spacing: 0.25rem;
-  --badges-field-passes-text-xs: 0.75rem;
-  --badges-field-passes-text-xs--line-height: calc(1 / 0.75);
-  --badges-field-passes-text-sm: 0.875rem;
-  --badges-field-passes-text-sm--line-height: calc(1.25 / 0.875);
-  --badges-field-passes-text-lg: 1.125rem;
-  --badges-field-passes-text-lg--line-height: calc(1.75 / 1.125);
-  --badges-field-passes-text-xl: 1.25rem;
-  --badges-field-passes-text-xl--line-height: calc(1.75 / 1.25);
-  --badges-field-passes-font-weight-black: 900;
-  --badges-field-passes-tracking-tight: -0.025em;
+  width: 18rem;
+  border: 2px solid #000;
+  padding: 1rem;
+  background-color: #fff;
+  color: #000;
 }
-.badges-field-passes.badges-field-passes__part-1, .badges-field-passes .badges-field-passes__part-1 {
-  width: calc(var(--badges-field-passes-spacing) * 72);
-  border-style: var(--badges-field-passes-tw-border-style);
-  border-width: 2px;
-  border-color: var(--badges-field-passes-color-black);
-  background-color: var(--badges-field-passes-color-white);
-  padding: calc(var(--badges-field-passes-spacing) * 4);
-  color: var(--badges-field-passes-color-black);
-}
-.badges-field-passes.badges-field-passes__part-2, .badges-field-passes .badges-field-passes__part-2 {
+
+/* Festival identity */
+.badges-field-passes .badges-field-passes__header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 }
-.badges-field-passes.badges-field-passes__part-3, .badges-field-passes .badges-field-passes__part-3 {
-  font-size: var(--badges-field-passes-text-xl);
-  line-height: var(--badges-field-passes-tw-leading, var(--badges-field-passes-text-xl--line-height));
-  --badges-field-passes-tw-leading: 1;
+.badges-field-passes .badges-field-passes__title {
+  font-size: 1.25rem;
   line-height: 1;
-  --badges-field-passes-tw-font-weight: var(--badges-field-passes-font-weight-black);
-  font-weight: var(--badges-field-passes-font-weight-black);
-  --badges-field-passes-tw-tracking: var(--badges-field-passes-tracking-tight);
-  letter-spacing: var(--badges-field-passes-tracking-tight);
+  font-weight: 900;
+  letter-spacing: -0.025em;
   text-transform: uppercase;
 }
-.badges-field-passes.badges-field-passes__part-4, .badges-field-passes .badges-field-passes__part-4 {
-  font-family: var(--badges-field-passes-font-mono);
-  font-size: 9px;
+.badges-field-passes .badges-field-passes__eyebrow,
+.badges-field-passes .badges-field-passes__access,
+.badges-field-passes .badges-field-passes__footer {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.625rem;
 }
-.badges-field-passes.badges-field-passes__part-5, .badges-field-passes .badges-field-passes__part-5 {
-  margin-top: calc(var(--badges-field-passes-spacing) * 5);
+
+/* Pass strips */
+.badges-field-passes .badges-field-passes__passes {
+  margin-top: 1.25rem;
 }
-.badges-field-passes :where(.badges-field-passes.badges-field-passes__part-5 > :not(:last-child)), .badges-field-passes :where(.badges-field-passes .badges-field-passes__part-5 > :not(:last-child)) {
-  --badges-field-passes-tw-space-y-reverse: 0;
-  margin-block-start: calc(calc(var(--badges-field-passes-spacing) * 3) * var(--badges-field-passes-tw-space-y-reverse));
-  margin-block-end: calc(calc(var(--badges-field-passes-spacing) * 3) * calc(1 - var(--badges-field-passes-tw-space-y-reverse)));
+.badges-field-passes .badges-field-passes__pass + .badges-field-passes__pass {
+  margin-top: 0.75rem;
 }
-.badges-field-passes.badges-field-passes__part-6, .badges-field-passes .badges-field-passes__part-6 {
+.badges-field-passes .badges-field-passes__pass {
   display: flex;
-  min-height: calc(var(--badges-field-passes-spacing) * 14);
-  border-style: var(--badges-field-passes-tw-border-style);
-  border-width: 2px;
-  border-color: var(--badges-field-passes-color-black);
-  background-color: var(--badges-field-passes-color-lime-300);
+  min-height: 3.5rem;
+  border: 2px solid #000;
 }
-.badges-field-passes.badges-field-passes__part-7, .badges-field-passes .badges-field-passes__part-7 {
+.badges-field-passes .badges-field-passes__pass--day {
+  background-color: oklch(89.7% 0.196 126.665); /* lime-300 */
+}
+.badges-field-passes .badges-field-passes__pass--workshop {
+  background-color: #fff;
+}
+.badges-field-passes .badges-field-passes__pass--all {
+  background-color: oklch(89.9% 0.061 343.231); /* pink-200 */
+}
+.badges-field-passes .badges-field-passes__serial {
   display: flex;
-  width: calc(var(--badges-field-passes-spacing) * 10);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-right-style: var(--badges-field-passes-tw-border-style);
-  border-right-width: 2px;
-  border-color: var(--badges-field-passes-color-black);
-  font-family: var(--badges-field-passes-font-mono);
-  font-size: var(--badges-field-passes-text-xs);
-  line-height: var(--badges-field-passes-tw-leading, var(--badges-field-passes-text-xs--line-height));
+  width: 2.5rem;
+  border-right: 2px solid #000;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
 }
-.badges-field-passes.badges-field-passes__part-8, .badges-field-passes .badges-field-passes__part-8 {
-  padding-inline: calc(var(--badges-field-passes-spacing) * 3);
-  padding-block: calc(var(--badges-field-passes-spacing) * 2);
+.badges-field-passes .badges-field-passes__details {
+  padding: 0.5rem 0.75rem;
 }
-.badges-field-passes.badges-field-passes__part-9, .badges-field-passes .badges-field-passes__part-9 {
-  font-size: var(--badges-field-passes-text-sm);
-  line-height: var(--badges-field-passes-tw-leading, var(--badges-field-passes-text-sm--line-height));
-  --badges-field-passes-tw-font-weight: var(--badges-field-passes-font-weight-black);
-  font-weight: var(--badges-field-passes-font-weight-black);
+.badges-field-passes .badges-field-passes__tier {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 900;
   text-transform: uppercase;
 }
-.badges-field-passes.badges-field-passes__part-10, .badges-field-passes .badges-field-passes__part-10 {
-  margin-left: auto;
+.badges-field-passes .badges-field-passes__symbol {
   display: flex;
   align-items: center;
-  padding-right: calc(var(--badges-field-passes-spacing) * 3);
-}
-.badges-field-passes.badges-field-passes__part-11, .badges-field-passes .badges-field-passes__part-11 {
-  width: calc(var(--badges-field-passes-spacing) * 4);
-  height: calc(var(--badges-field-passes-spacing) * 4);
-}
-.badges-field-passes.badges-field-passes__part-12, .badges-field-passes .badges-field-passes__part-12 {
-  display: flex;
-  min-height: calc(var(--badges-field-passes-spacing) * 14);
-  border-style: var(--badges-field-passes-tw-border-style);
-  border-width: 2px;
-  border-color: var(--badges-field-passes-color-black);
-  background-color: var(--badges-field-passes-color-white);
-}
-.badges-field-passes.badges-field-passes__part-13, .badges-field-passes .badges-field-passes__part-13 {
   margin-left: auto;
-  display: flex;
-  align-items: center;
-  padding-right: calc(var(--badges-field-passes-spacing) * 3);
-  font-size: var(--badges-field-passes-text-lg);
-  line-height: var(--badges-field-passes-tw-leading, var(--badges-field-passes-text-lg--line-height));
+  padding-right: 0.75rem;
 }
-.badges-field-passes.badges-field-passes__part-14, .badges-field-passes .badges-field-passes__part-14 {
-  display: flex;
-  min-height: calc(var(--badges-field-passes-spacing) * 14);
-  border-style: var(--badges-field-passes-tw-border-style);
-  border-width: 2px;
-  border-color: var(--badges-field-passes-color-black);
-  background-color: var(--badges-field-passes-color-pink-200);
+.badges-field-passes .badges-field-passes__symbol--text {
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
 }
-.badges-field-passes.badges-field-passes__part-15, .badges-field-passes .badges-field-passes__part-15 {
-  margin-top: calc(var(--badges-field-passes-spacing) * 4);
-  border-top-style: var(--badges-field-passes-tw-border-style);
-  border-top-width: 2px;
-  border-color: var(--badges-field-passes-color-black);
-  padding-top: calc(var(--badges-field-passes-spacing) * 3);
-  font-family: var(--badges-field-passes-font-mono);
-  font-size: 9px;
+.badges-field-passes .badges-field-passes__arrow {
+  width: 1rem;
+  height: 1rem;
+}
+.badges-field-passes .badges-field-passes__footer {
+  margin-top: 1rem;
+  border-top: 2px solid #000;
+  padding-top: 0.75rem;
   text-transform: uppercase;
-}
-@property --badges-field-passes-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --badges-field-passes-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --badges-field-passes-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --badges-field-passes-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --badges-field-passes-tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .badges-field-passes *, .badges-field-passes ::before, .badges-field-passes ::after, .badges-field-passes ::backdrop {
-      --badges-field-passes-tw-border-style: solid;
-      --badges-field-passes-tw-leading: initial;
-      --badges-field-passes-tw-font-weight: initial;
-      --badges-field-passes-tw-tracking: initial;
-      --badges-field-passes-tw-space-y-reverse: 0;
-    }
-  }
 }

@@ -12,11 +12,12 @@ export default function TogglesDeploymentGuardrails() {
             type="checkbox"
             name="toggles-deployment-guardrails-approval"
             defaultChecked
+            aria-labelledby="toggles-deployment-guardrails-approval-label"
             aria-describedby="toggles-deployment-guardrails-approval-hint"
             className="mt-0.5 size-4 shrink-0 accent-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span>
-            <span className="block text-xs font-semibold">
+            <span id="toggles-deployment-guardrails-approval-label" className="block text-xs font-semibold">
               Require approval
             </span>
             <span
@@ -32,11 +33,12 @@ export default function TogglesDeploymentGuardrails() {
             type="checkbox"
             name="toggles-deployment-guardrails-rollback"
             defaultChecked
+            aria-labelledby="toggles-deployment-guardrails-rollback-label"
             aria-describedby="toggles-deployment-guardrails-rollback-hint"
             className="mt-0.5 size-4 shrink-0 accent-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span>
-            <span className="block text-xs font-semibold">
+            <span id="toggles-deployment-guardrails-rollback-label" className="block text-xs font-semibold">
               Automatic rollback
             </span>
             <span
@@ -51,11 +53,12 @@ export default function TogglesDeploymentGuardrails() {
           <input
             type="checkbox"
             name="toggles-deployment-guardrails-window"
+            aria-labelledby="toggles-deployment-guardrails-window-label"
             aria-describedby="toggles-deployment-guardrails-window-hint"
             className="mt-0.5 size-4 shrink-0 accent-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span>
-            <span className="block text-xs font-semibold">
+            <span id="toggles-deployment-guardrails-window-label" className="block text-xs font-semibold">
               Business hours only
             </span>
             <span

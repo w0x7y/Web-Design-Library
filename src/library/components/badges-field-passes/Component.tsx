@@ -8,7 +8,7 @@ export default function BadgesFieldPasses() {
         <h2 className="text-xl leading-none font-black tracking-tight uppercase">
           Field / 26
         </h2>
-        <span className="font-mono text-[9px]">ACCESS PASSES</span>
+        <span className="font-mono text-[10px]">ACCESS PASSES</span>
       </div>
       <ul role="list" className="mt-5 space-y-3">
         <li className="flex min-h-14 border-2 border-black bg-lime-300">
@@ -17,7 +17,7 @@ export default function BadgesFieldPasses() {
           </span>
           <div className="px-3 py-2">
             <p className="text-sm font-black uppercase">Day pass</p>
-            <p className="font-mono text-[9px]">Main stage + courtyard</p>
+            <p className="font-mono text-[10px]">Main stage + courtyard</p>
           </div>
           <span aria-hidden="true" className="ml-auto flex items-center pr-3">
             <svg
@@ -37,7 +37,7 @@ export default function BadgesFieldPasses() {
           </span>
           <div className="px-3 py-2">
             <p className="text-sm font-black uppercase">Workshop</p>
-            <p className="font-mono text-[9px]">Studio A + materials</p>
+            <p className="font-mono text-[10px]">Studio A + materials</p>
           </div>
           <span
             aria-hidden="true"
@@ -52,7 +52,7 @@ export default function BadgesFieldPasses() {
           </span>
           <div className="px-3 py-2">
             <p className="text-sm font-black uppercase">All access</p>
-            <p className="font-mono text-[9px]">Every space. Every day.</p>
+            <p className="font-mono text-[10px]">Every space. Every day.</p>
           </div>
           <span
             aria-hidden="true"
@@ -62,7 +62,7 @@ export default function BadgesFieldPasses() {
           </span>
         </li>
       </ul>
-      <p className="mt-4 border-t-2 border-black pt-3 font-mono text-[9px] uppercase">
+      <p className="mt-4 border-t-2 border-black pt-3 font-mono text-[10px] uppercase">
         Wear it proudly / 24–26 October
       </p>
     </section>

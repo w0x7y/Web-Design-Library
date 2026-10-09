@@ -13,9 +13,9 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 288px-wide zinc-950 panel with 20px padding, a release header, and three rows separated by 16px. Each row pairs a monospace version and date with a small bordered status pill.',
+      'A 288px-wide zinc-950 panel with 20px padding, a release header, and three rows separated by 16px. Each row pairs a monospace 14px version and 10px relative timestamp with a small bordered status pill.',
     style:
-      'Use zinc-700 dividers, white version labels and zinc-400 supporting text. Statuses combine text and colored dots: emerald-300 production, sky-300 preview and amber-300 review.',
+      'Use a 1px zinc-700 outer border, 16px radius, 1px zinc-800 row dividers and 16px row top padding. Primary text is zinc-100 and supporting text is zinc-400. Default sans headings mix with system monospace identifiers. Status pills have 10px medium text, 4px vertical and 10px horizontal padding, 6px dots and 6px gaps. Statuses combine text and colored dots: emerald-300 production, sky-300 preview and amber-300 review. Each pill has a matching 900-level border and 950-level fill. A monospace last-sync time sits 20px below the list. No shadows.',
     states:
       'The badges are informational and have no hover or focus states. State names remain readable without their colored dots; no animations are used.',
     responsive:

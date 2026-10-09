@@ -30,10 +30,11 @@ export default function TogglesReadingMode() {
           <input
             id="toggles-reading-mode-spacing"
             type="checkbox"
+            role="switch"
             name="toggles-reading-mode-spacing"
             defaultChecked
             aria-describedby="toggles-reading-mode-spacing-hint"
-            className="relative h-5 w-9 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-stone-400 bg-stone-200 after:absolute after:top-0.5 after:left-0.5 after:size-3 after:rounded-full after:bg-stone-600 after:content-[''] checked:border-emerald-800 checked:bg-emerald-800 checked:after:translate-x-4 checked:after:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText]"
+            className="relative h-5 w-9 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-stone-500 bg-stone-200 after:absolute after:top-0.5 after:left-0.5 after:size-3 after:rounded-full after:bg-stone-600 after:content-[''] checked:border-emerald-800 checked:bg-emerald-800 checked:after:translate-x-4 checked:after:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText] forced-colors:checked:after:bg-[CanvasText]"
           />
         </div>
         <div className="flex items-center justify-between gap-3 border-t border-stone-300 py-3">
@@ -54,14 +55,15 @@ export default function TogglesReadingMode() {
           <input
             id="toggles-reading-mode-notes"
             type="checkbox"
+            role="switch"
             name="toggles-reading-mode-notes"
             aria-describedby="toggles-reading-mode-notes-hint"
-            className="relative h-5 w-9 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-stone-400 bg-stone-200 after:absolute after:top-0.5 after:left-0.5 after:size-3 after:rounded-full after:bg-stone-600 after:content-[''] checked:border-emerald-800 checked:bg-emerald-800 checked:after:translate-x-4 checked:after:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText]"
+            className="relative h-5 w-9 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-stone-500 bg-stone-200 after:absolute after:top-0.5 after:left-0.5 after:size-3 after:rounded-full after:bg-stone-600 after:content-[''] checked:border-emerald-800 checked:bg-emerald-800 checked:after:translate-x-4 checked:after:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText] forced-colors:checked:after:bg-[CanvasText]"
           />
         </div>
       </div>
       <p className="mt-2 text-[10px] text-stone-600">
-        Your reading setup, at your own pace.
+        Choose the layout that helps you focus.
       </p>
     </section>
   )

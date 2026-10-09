@@ -28,9 +28,10 @@ export default function TogglesAudioMixer() {
             id="toggles-audio-mixer-noise"
             name="toggles-audio-mixer-noise"
             type="checkbox"
+            role="switch"
             defaultChecked
             aria-describedby="toggles-audio-mixer-noise-hint"
-            className="relative h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-zinc-600 bg-zinc-800 after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-zinc-400 after:content-[''] checked:border-lime-300 checked:bg-lime-300 checked:after:translate-x-5 checked:after:bg-zinc-950 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300 motion-reduce:transition-none forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText]"
+            className="relative h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-zinc-500 bg-zinc-800 after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-zinc-400 after:content-[''] after:transition-transform after:duration-150 motion-reduce:after:transition-none checked:border-lime-300 checked:bg-lime-300 checked:after:translate-x-5 checked:after:bg-zinc-950 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300 motion-reduce:transition-none forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText] forced-colors:checked:after:bg-[CanvasText]"
           />
         </div>
         <div className="flex items-center justify-between gap-3 border-t border-zinc-800 pt-4">
@@ -52,9 +53,10 @@ export default function TogglesAudioMixer() {
             id="toggles-audio-mixer-level"
             name="toggles-audio-mixer-level"
             type="checkbox"
+            role="switch"
             defaultChecked
             aria-describedby="toggles-audio-mixer-level-hint"
-            className="relative h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-zinc-600 bg-zinc-800 after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-zinc-400 after:content-[''] checked:border-lime-300 checked:bg-lime-300 checked:after:translate-x-5 checked:after:bg-zinc-950 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300 motion-reduce:transition-none forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText]"
+            className="relative h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-zinc-500 bg-zinc-800 after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-zinc-400 after:content-[''] after:transition-transform after:duration-150 motion-reduce:after:transition-none checked:border-lime-300 checked:bg-lime-300 checked:after:translate-x-5 checked:after:bg-zinc-950 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300 motion-reduce:transition-none forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText] forced-colors:checked:after:bg-[CanvasText]"
           />
         </div>
         <div className="flex items-center justify-between gap-3 border-t border-zinc-800 pt-4">
@@ -76,8 +78,9 @@ export default function TogglesAudioMixer() {
             id="toggles-audio-mixer-monitor"
             name="toggles-audio-mixer-monitor"
             type="checkbox"
+            role="switch"
             aria-describedby="toggles-audio-mixer-monitor-hint"
-            className="relative h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-zinc-600 bg-zinc-800 after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-zinc-400 after:content-[''] checked:border-lime-300 checked:bg-lime-300 checked:after:translate-x-5 checked:after:bg-zinc-950 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300 motion-reduce:transition-none forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText]"
+            className="relative h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-zinc-500 bg-zinc-800 after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-zinc-400 after:content-[''] after:transition-transform after:duration-150 motion-reduce:after:transition-none checked:border-lime-300 checked:bg-lime-300 checked:after:translate-x-5 checked:after:bg-zinc-950 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300 motion-reduce:transition-none forced-colors:border-[ButtonText] forced-colors:after:bg-[CanvasText] forced-colors:checked:after:bg-[CanvasText]"
           />
         </div>
       </div>

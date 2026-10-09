@@ -1,14 +1,14 @@
 export default function BadgesIssueLabels() {
   return (
     <section
-      aria-label="Issue badge collection"
+      aria-label="Issue label examples"
       className="w-72 rounded-xl border border-slate-200 bg-white p-5 text-slate-900"
     >
       <p className="font-mono text-[10px] text-slate-500">WEB-248</p>
       <h2 className="mt-1 text-sm font-semibold">Improve checkout recovery</h2>
-      <p className="mt-5 text-[10px] font-medium tracking-widest text-slate-500 uppercase">
-        Priority
-      </p>
+      <h3 className="mt-5 text-[10px] font-medium tracking-widest text-slate-500 uppercase">
+        Priority options
+      </h3>
       <ul role="list" className="mt-2 flex flex-wrap gap-1.5">
         <li className="rounded-md bg-red-50 px-2 py-1 text-[11px] font-semibold text-red-800">
           ↑ Urgent
@@ -20,9 +20,9 @@ export default function BadgesIssueLabels() {
           Normal
         </li>
       </ul>
-      <p className="mt-4 text-[10px] font-medium tracking-widest text-slate-500 uppercase">
-        Type
-      </p>
+      <h3 className="mt-4 text-[10px] font-medium tracking-widest text-slate-500 uppercase">
+        Type labels
+      </h3>
       <ul role="list" className="mt-2 flex flex-wrap gap-1.5">
         <li className="rounded-full border border-violet-200 px-2.5 py-1 text-[11px] text-violet-800">
           Enhancement
@@ -31,9 +31,9 @@ export default function BadgesIssueLabels() {
           Accessibility
         </li>
       </ul>
-      <p className="mt-4 text-[10px] font-medium tracking-widest text-slate-500 uppercase">
-        Owners
-      </p>
+      <h3 className="mt-4 text-[10px] font-medium tracking-widest text-slate-500 uppercase">
+        Owner teams
+      </h3>
       <ul role="list" className="mt-2 flex flex-wrap gap-2">
         <li className="flex items-center gap-1.5 text-[11px]">
           <span
