@@ -1,13 +1,12 @@
 export default function BlogCardReleaseLog() {
   return (
     <article className="w-72 rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-100 sm:w-80">
-      <div className="border-b border-zinc-700 bg-zinc-900 p-4">
+      <div className="rounded-t-[0.4375rem] border-b border-zinc-700 bg-zinc-900 p-4">
         <p className="font-mono text-[9px] uppercase tracking-widest text-zinc-400">
           Waypoint / Release notes
         </p>
         <div className="mt-3 flex items-end justify-between">
           <p
-            aria-hidden="true"
             className="font-mono text-4xl font-semibold tracking-tight text-lime-300"
           >
             v2.8<span className="text-xl">.0</span>

@@ -13,9 +13,9 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 288px testimonial, 320px from 640px, with 20px padding and 24px corners. A voice-note label and 18-second duration sit above a 32px waveform. The 18px transcript quote is followed by a 40px monogram and two-line author credit.',
+      'A 288px figure, 320px from 640px, with 20px padding. A space-between header with a 12px gap pairs a voice-note pill with an 18-second duration. A full-width 32px waveform starts 16px below it, followed after 16px by the transcript. The author row starts 20px below the quote, with a 40px monogram and 12px gap before the name and role; the role has a 4px top margin.',
     style:
-      'Orange-100 surface, orange-950 quote and orange-800 metadata. Orange-700 waveform and orange-300 initials badge. Default sans uses a relaxed 28px quote line height and compact 11–12px attribution.',
+      'Orange-100 surface with 24px corners and orange-950 text. Default sans: 18px quote with 28px line height, 12px semibold name with 16px line height, and 11px orange-800 role. The pill has a 1px orange-950 border at 30% opacity, fully rounded corners, 10px horizontal and 4px vertical padding, and 10px semibold text. Duration is 10px orange-800 monospace. The orange-700 waveform has rounded 3px strokes; the orange-300 initials circle uses 14px bold type with 20px line height.',
     states:
       'The waveform is decorative and the complete quote is readable text. There is no play button, media behavior, hover effect or animation.',
     responsive:
