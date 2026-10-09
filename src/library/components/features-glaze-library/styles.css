@@ -1,0 +1,180 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.features-glaze-library, .features-glaze-library *, .features-glaze-library *::before, .features-glaze-library *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.features-glaze-library { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.features-glaze-library :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.features-glaze-library a { color: inherit; text-decoration: inherit; }
+.features-glaze-library :is(b, strong) { font-weight: bolder; }
+.features-glaze-library :is(ol, ul, menu) { list-style: none; }
+.features-glaze-library :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.features-glaze-library :is(img, video) { max-width: 100%; height: auto; }
+.features-glaze-library :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.features-glaze-library ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.features-glaze-library table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.features-glaze-library summary { display: list-item; }
+
+/* Component */
+.features-glaze-library {
+  background-color:oklch(98% 0.016 73.684) /* orange-50 */;
+  color:oklch(26.6% 0.079 36.259) /* orange-950 */;
+  font-family:"Newsreader",ui-sans-serif,system-ui,sans-serif;
+}
+
+.features-glaze-library .features-glaze-library__inner {
+  max-width:80rem;
+  margin-inline:auto;
+  padding:4rem 1.5rem;
+}
+
+.features-glaze-library .features-glaze-library__brand {
+  font-size:0.875rem;
+  line-height:calc(1.25 / 0.875);
+  font-weight:600;
+  color:oklch(47% 0.157 37.304) /* orange-800 */;
+}
+
+.features-glaze-library .features-glaze-library__heading {
+  margin-top:1rem;
+  font-size:2.75rem;
+  line-height:1.1;
+  letter-spacing:-0.025em;
+}
+
+.features-glaze-library .features-glaze-library__intro {
+  margin-top:1.25rem;
+  max-width:36rem;
+  line-height:1.625;
+  color:oklch(40.8% 0.123 38.172) /* orange-900 */;
+}
+
+.features-glaze-library .features-glaze-library__subheading {
+  font-size:1.5rem;
+  line-height:calc(2 / 1.5);
+  font-weight:600;
+  letter-spacing:-0.025em;
+}
+
+.features-glaze-library .features-glaze-library__body {
+  margin-top:0.75rem;
+  max-width:36rem;
+  font-size:1.125rem;
+  line-height:1.625;
+  color:oklch(40.8% 0.123 38.172) /* orange-900 */;
+}
+
+.features-glaze-library .features-glaze-library__link {
+  display:inline-flex;
+  width:fit-content;
+  align-items:center;
+  gap:0.75rem;
+  padding-block:0.5rem;
+  font-size:0.875rem;
+  line-height:calc(1.25 / 0.875);
+  font-weight:600;
+  text-underline-offset:4px;
+}
+
+.features-glaze-library .features-glaze-library__header {
+  max-width:48rem;
+}
+
+/* House glazes */
+.features-glaze-library .features-glaze-library__swatches {
+  margin-top:3rem;
+  display:grid;
+  gap:0.75rem;
+}
+
+.features-glaze-library .features-glaze-library__swatch {
+  display:flex;
+  min-height:16rem;
+  flex-direction:column;
+  justify-content:space-between;
+  border-top-left-radius:6rem;
+  border-top-right-radius:6rem;
+  padding:3rem 1.75rem 1.75rem;
+}
+
+.features-glaze-library .features-glaze-library__swatch--chalk {
+  background-color:oklch(92.3% 0.003 48.717) /* stone-200 */;
+  color:oklch(21.6% 0.006 56.043) /* stone-900 */;
+}
+
+.features-glaze-library .features-glaze-library__swatch--moss {
+  background-color:oklch(40.5% 0.101 131.063) /* lime-900 */;
+  color:oklch(98.6% 0.031 120.757) /* lime-50 */;
+}
+
+.features-glaze-library .features-glaze-library__swatch--ochre {
+  background-color:oklch(87.9% 0.169 91.605) /* amber-300 */;
+  color:oklch(27.9% 0.077 45.635) /* amber-950 */;
+}
+
+.features-glaze-library .features-glaze-library__swatch--iron {
+  background-color:oklch(25.8% 0.092 26.042) /* red-950 */;
+  color:oklch(97.1% 0.013 17.38) /* red-50 */;
+}
+
+.features-glaze-library .features-glaze-library__code {
+  font-size:0.875rem;
+  line-height:calc(1.25 / 0.875);
+}
+
+.features-glaze-library .features-glaze-library__glaze {
+  font-size:1.875rem;
+  line-height:calc(2.25 / 1.875);
+}
+
+/* Material notes */
+.features-glaze-library .features-glaze-library__notes {
+  margin-top:2.5rem;
+  display:grid;
+  gap:2rem;
+  border-top:1px solid oklch(90.1% 0.076 70.697) /* orange-200 */;
+  padding-top:2rem;
+}
+
+.features-glaze-library .features-glaze-library__material {
+  font-size:1.5rem;
+  line-height:1.375;
+}
+
+.features-glaze-library .features-glaze-library__actions {
+  margin-top:1.25rem;
+}
+
+.features-glaze-library .features-glaze-library__link:focus-visible {
+  outline:2px solid oklch(26.6% 0.079 36.259) /* orange-950 */;
+  outline-offset:4px;
+}
+
+@media (hover: hover) {
+  .features-glaze-library .features-glaze-library__link:hover {
+    text-decoration-line:underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .features-glaze-library .features-glaze-library__heading {
+    font-size:4rem;
+  }
+
+  .features-glaze-library .features-glaze-library__swatches {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (width >= 48rem) {
+  .features-glaze-library .features-glaze-library__notes {
+    grid-template-columns:1.5fr 1fr;
+  }
+}
+
+@media (width >= 64rem) {
+  .features-glaze-library .features-glaze-library__inner {
+    padding:6rem 2rem;
+  }
+
+  .features-glaze-library .features-glaze-library__swatches {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+}

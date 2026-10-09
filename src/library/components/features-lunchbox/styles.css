@@ -1,0 +1,181 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.features-lunchbox, .features-lunchbox *, .features-lunchbox *::before, .features-lunchbox *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.features-lunchbox { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.features-lunchbox :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.features-lunchbox a { color: inherit; text-decoration: inherit; }
+.features-lunchbox :is(b, strong) { font-weight: bolder; }
+.features-lunchbox :is(ol, ul, menu) { list-style: none; }
+.features-lunchbox :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.features-lunchbox :is(img, video) { max-width: 100%; height: auto; }
+.features-lunchbox :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.features-lunchbox ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.features-lunchbox table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.features-lunchbox summary { display: list-item; }
+
+/* Component */
+.features-lunchbox {
+  background-color:oklch(96.9% 0.015 12.422) /* rose-50 */;
+  color:oklch(27.1% 0.105 12.094) /* rose-950 */;
+  font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+}
+
+.features-lunchbox .features-lunchbox__inner {
+  max-width:80rem;
+  margin-inline:auto;
+  padding:4rem 1.5rem;
+}
+
+.features-lunchbox .features-lunchbox__brand {
+  font-size:0.875rem;
+  line-height:calc(1.25 / 0.875);
+  font-weight:600;
+  color:oklch(45.5% 0.188 13.697) /* rose-800 */;
+}
+
+.features-lunchbox .features-lunchbox__heading {
+  margin-top:1rem;
+  max-width:36rem;
+  font-size:2.75rem;
+  line-height:1.05;
+  font-weight:700;
+  letter-spacing:-0.025em;
+}
+
+.features-lunchbox .features-lunchbox__intro {
+  margin-top:1.25rem;
+  max-width:36rem;
+  line-height:1.625;
+  color:oklch(41% 0.159 10.272) /* rose-900 */;
+}
+
+.features-lunchbox .features-lunchbox__subheading {
+  font-size:1.5rem;
+  line-height:calc(2 / 1.5);
+  font-weight:600;
+  letter-spacing:-0.025em;
+}
+
+.features-lunchbox .features-lunchbox__body {
+  margin-top:0.75rem;
+  font-size:0.875rem;
+  line-height:1.625;
+  color:oklch(41% 0.159 10.272) /* rose-900 */;
+}
+
+.features-lunchbox .features-lunchbox__link {
+  display:inline-flex;
+  width:fit-content;
+  align-items:center;
+  gap:0.75rem;
+  padding-block:0.5rem;
+  font-size:0.875rem;
+  line-height:calc(1.25 / 0.875);
+  font-weight:600;
+  text-underline-offset:4px;
+}
+
+.features-lunchbox .features-lunchbox__layout {
+  display:grid;
+  gap:3rem;
+}
+
+/* Lunchbox compartments */
+.features-lunchbox .features-lunchbox__box {
+  display:grid;
+  gap:0.75rem;
+  border-radius:2rem;
+  border:2px solid oklch(27.1% 0.105 12.094) /* rose-950 */;
+  background-color:#fff;
+  padding:0.75rem;
+}
+
+.features-lunchbox .features-lunchbox__compartment {
+  display:flex;
+  min-height:13rem;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:2rem;
+  border-radius:1.25rem;
+  padding:1.5rem;
+}
+
+.features-lunchbox .features-lunchbox__compartment--main {
+  background-color:oklch(95.4% 0.038 75.164) /* orange-100 */;
+}
+
+.features-lunchbox .features-lunchbox__compartment--greens {
+  background-color:oklch(96.7% 0.067 122.328) /* lime-100 */;
+}
+
+.features-lunchbox .features-lunchbox__compartment--fruit {
+  background-color:oklch(89.2% 0.058 10.001) /* rose-200 */;
+}
+
+.features-lunchbox .features-lunchbox__portion {
+  font-size:3rem;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-0.025em;
+}
+
+.features-lunchbox .features-lunchbox__portion-note {
+  margin-top:0.5rem;
+  font-size:0.875rem;
+  line-height:calc(1.25 / 0.875);
+}
+
+.features-lunchbox .features-lunchbox__feature {
+  font-size:1.5rem;
+  line-height:calc(2 / 1.5);
+  font-weight:700;
+}
+
+/* Allergy information */
+.features-lunchbox .features-lunchbox__note {
+  margin-top:2.5rem;
+  max-width:24rem;
+  border-left:4px solid oklch(81% 0.117 11.638) /* rose-300 */;
+  padding-left:1.25rem;
+  font-size:0.875rem;
+  line-height:1.625;
+}
+
+.features-lunchbox .features-lunchbox__actions {
+  margin-top:1.5rem;
+}
+
+.features-lunchbox .features-lunchbox__link:focus-visible {
+  outline:2px solid oklch(27.1% 0.105 12.094) /* rose-950 */;
+  outline-offset:4px;
+}
+
+@media (hover: hover) {
+  .features-lunchbox .features-lunchbox__link:hover {
+    text-decoration-line:underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .features-lunchbox .features-lunchbox__heading {
+    font-size:3.75rem;
+  }
+
+  .features-lunchbox .features-lunchbox__box {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .features-lunchbox .features-lunchbox__compartment--main {
+    grid-row:span 2 / span 2;
+  }
+}
+
+@media (width >= 64rem) {
+  .features-lunchbox .features-lunchbox__inner {
+    padding:6rem 2rem;
+  }
+
+  .features-lunchbox .features-lunchbox__layout {
+    grid-template-columns:1fr 1.3fr;
+    align-items:center;
+  }
+}
