@@ -2,6 +2,8 @@
 
 Patternbook is a static site of copy-paste UI components. This file is the authoring guide for components in `src/library/components/`. `npm test` enforces the mechanically checkable rules (`src/library/rules.ts`), and `npm run test:parity` checks that the HTML/CSS version renders like the React version.
 
+For the end-to-end contribution workflow (setup, planning, verification, troubleshooting and the pull request), see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
 ## Add a component
 
 1. Create `src/library/components/<slug>/`. The slug is kebab-case, unique, and becomes the URL (`/c/<slug>`).

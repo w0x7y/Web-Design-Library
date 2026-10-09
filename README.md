@@ -59,7 +59,7 @@ Every browser spec runs against the build with its CSP enforced. The unit tests 
 
 ## Adding a component
 
-Create a folder in `src/library/components/<slug>/` with `meta.ts`, `Component.tsx`, `index.html` and `styles.css`. Nothing else needs registering: the folder is picked up by the catalog, the pre-render list and the agent files. [`AGENTS.md`](AGENTS.md) is the full guide. It has the checklist, the `meta.ts` fields, the authoring rules, the `styles.css` reset template and the details that make the HTML + CSS twin pass parity.
+Create a folder in `src/library/components/<slug>/` with `meta.ts`, `Component.tsx`, `index.html` and `styles.css`. Nothing else needs registering: the folder is picked up by the catalog, the pre-render list and the agent files. [`CONTRIBUTING.md`](CONTRIBUTING.md) walks through the whole process, from planning to pull request. [`AGENTS.md`](AGENTS.md) is the rulebook. It has the checklist, the `meta.ts` fields, the authoring rules, the `styles.css` reset template and the details that make the HTML + CSS twin pass parity.
 
 When the folder is ready, `npm test` must report no violations, and `npm run test:parity`, `e2e/focus.spec.ts` and `e2e/layout.spec.ts` must pass.
 
