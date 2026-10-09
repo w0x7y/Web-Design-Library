@@ -68,7 +68,32 @@ async function render(frame: HTMLIFrameElement, meta: ComponentMeta, transparent
     backgroundColor: transparent ? null : '#ffffff',
     timeout: CAPTURE_TIMEOUT_MS,
     type: 'image/png',
+    onCreateForeignObjectSvg: keepPlaceholderStyles(target),
   })
+}
+
+/**
+ * modern-screenshot copies ::before and ::after into its image but not ::placeholder, and it inlines the
+ * field's own -webkit-text-fill-color, which the placeholder inherits: an empty field would show its
+ * placeholder in the field's text colour. This marks every field under `target` that has a placeholder
+ * (the frame is thrown away after the capture) and returns a hook that gives the image a stylesheet
+ * restoring each placeholder's computed colours and opacity.
+ */
+function keepPlaceholderStyles(target: HTMLElement): (svg: SVGSVGElement) => void {
+  const view = target.ownerDocument.defaultView!
+  const fields = target.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input[placeholder], textarea[placeholder]')
+  const rules = [...fields].map((field, index) => {
+    field.setAttribute('data-capture-placeholder', String(index))
+    const style = view.getComputedStyle(field, '::placeholder')
+    const fill = style.getPropertyValue('-webkit-text-fill-color')
+    return `[data-capture-placeholder="${index}"]::placeholder { color: ${style.color}; -webkit-text-fill-color: ${fill}; opacity: ${style.opacity}; }`
+  })
+  return (svg) => {
+    if (rules.length === 0) return
+    const style = svg.ownerDocument.createElement('style')
+    style.textContent = rules.join('\n')
+    svg.prepend(style)
+  }
 }
 
 /** Rejects with the signal's reason once it aborts. */

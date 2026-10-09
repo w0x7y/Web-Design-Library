@@ -49,7 +49,7 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run te
 - **Vitest** (`npm test`, files under `src/`, `app/` and `scripts/`): the authoring rules checked over every component folder (`src/library/library.test.ts`, `rules.ts`), the catalog and the contract that its two loaders (Vite globs for the app, `fs` for Node) agree, the reset template, the brief and `llms.txt` builders, prerender paths, and the app logic in `app/lib/` (component actions, capture, clipboard, filters, theme, analytics, viewports).
 - **Smoke** (`e2e/smoke.spec.ts`): the pre-rendered site in Chromium. Browse and filters, theme, detail page, the preview stage, copy and export actions, analytics events, and the served agent files.
 - **Parity** (`e2e/parity.spec.ts`): for each component at desktop and mobile size, the HTML + CSS version must render like the React version, within 1% of pixels by default.
-- **Capture** (`e2e/capture-fonts.spec.ts`, `e2e/capture-scrollbars.spec.ts`): a downloaded PNG shows the component's web fonts, and a section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide.
+- **Capture** (`e2e/capture-fonts.spec.ts`, `e2e/capture-placeholders.spec.ts`, `e2e/capture-scrollbars.spec.ts`): a downloaded PNG shows the component's web fonts and its placeholder colours, and a section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide.
 
 ## Adding a component
 

@@ -6,6 +6,7 @@ import { loadLibrary } from '../scripts/load-library'
 import { fontDisplayName } from '../src/library/fonts'
 import { previewPath } from '../app/lib/preview-ready'
 import { frameSize } from '../app/lib/viewports'
+import { crop } from './lib/png'
 
 // A downloaded PNG must show the component in the fonts its preview shows. The failure this guards
 // against is a PNG in fallback fonts (sometimes with overlapping text) next to a correct preview.
@@ -42,13 +43,6 @@ test('the library has components with web fonts to check', () => {
 async function screenshotPreview(page: Page, isElement: boolean) {
   const target = page.locator(isElement ? '[data-preview-backdrop]' : '[data-capture-root]')
   return PNG.sync.read(await target.screenshot({ animations: 'disabled' }))
-}
-
-/** The top-left `width` × `height` pixels, so that renders a pixel or two apart in height can still be diffed. */
-function crop(png: PNG, width: number, height: number): Buffer {
-  const out = Buffer.alloc(width * height * 4)
-  for (let y = 0; y < height; y++) png.data.copy(out, y * width * 4, y * png.width * 4, y * png.width * 4 + width * 4)
-  return out
 }
 
 /** Which pixels differ between two same-sized RGBA buffers (pixelmatch paints those, and only those, pure red). */
@@ -95,11 +89,12 @@ for (const meta of WITH_FONTS) {
     expect(reference.height - captured.height).toBeGreaterThanOrEqual(0)
     expect(reference.height - captured.height).toBeLessThanOrEqual(2)
 
-    const width = Math.min(reference.width, noText.width, captured.width)
-    const height = Math.min(reference.height, noText.height, captured.height)
-    const ref = crop(reference, width, height)
-    const textPixels = differingPixels(ref, crop(noText, width, height), width, height)
-    const wrongPixels = differingPixels(ref, crop(captured, width, height), width, height)
+    // The top-left box all three share, so that renders a pixel or two apart in height can still be diffed.
+    const box = { width: Math.min(reference.width, noText.width, captured.width), height: Math.min(reference.height, noText.height, captured.height) }
+    const { width, height } = box
+    const ref = crop(reference, box)
+    const textPixels = differingPixels(ref, crop(noText, box), width, height)
+    const wrongPixels = differingPixels(ref, crop(captured, box), width, height)
 
     const textCount = count(textPixels.mask)
     const wrongTextCount = textPixels.mask.reduce((sum, value, i) => sum + (value && wrongPixels.mask[i] ? 1 : 0), 0)
