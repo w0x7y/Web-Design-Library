@@ -6,7 +6,7 @@ import { loadLibrary } from '../scripts/load-library'
 import { fontDisplayName } from '../src/library/fonts'
 import { previewPath } from '../app/lib/preview-ready'
 import { frameSize } from '../app/lib/viewports'
-import { crop } from './lib/png'
+import { crop, grayscale } from './lib/png'
 
 // A downloaded PNG must show the component in the fonts its preview shows. The failure this guards
 // against is a PNG in fallback fonts (sometimes with overlapping text) next to a correct preview.
@@ -22,14 +22,25 @@ import { crop } from './lib/png'
 // well under 1% in a sparse component, no more than what the glass blur in navbar-glass costs with
 // correct fonts (modern-screenshot renders backdrop-filter differently from Chromium).
 //
-// Measured over the 13 components: at most 0.034 with the fonts embedded (anti-aliasing differences
-// between Chromium and the SVG foreignObject), at least 0.24 without (hero-brutalist-grid, whose
-// monospace fallback has glyphs close to Martian Mono; the rest are 0.33 to 0.74). The threshold
-// sits between them, 3x above the first and 2.4x below the second.
-const MAX_WRONG_TEXT_PIXEL_SHARE = 0.1
+// The renders are compared in grayscale, and the PNG gets a text pixel wrong only when it misses by twice
+// the difference that makes a text pixel. Where fontconfig turns on subpixel rendering, as on the GitHub
+// Actions runner, Chromium draws the reference's text with LCD anti-aliasing (coloured fringes and a wider,
+// fainter rim on every glyph), while modern-screenshot's SVG foreignObject is always drawn in grayscale.
+// Compared in colour at one threshold, that alone got up to 0.29 of the text pixels wrong (settings-panel)
+// with the fonts embedded; this way it gets under 0.001. A glyph in another font or place misses by the
+// full text contrast. To render like the runner here, point FONTCONFIG_FILE at a config that includes
+// /etc/fonts/fonts.conf and sets rgba to rgb.
+//
+// Measured over the 34 components, both here and rendering like the runner: at most 0.031 with the fonts
+// embedded (features-alternating, where the PNG sets a row of small text a pixel higher), at least 0.237
+// without (hero-brutalist-grid, whose monospace fallback has glyphs close to Martian Mono; the rest are
+// 0.29 to 0.75). The threshold sits between them, 2.7x above the first and 2.8x below the second.
+const MAX_WRONG_TEXT_PIXEL_SHARE = 0.085
 // A frame with next to no text can't tell the cases apart.
 const MIN_TEXT_PIXEL_SHARE_OF_FRAME = 0.0005
-const PIXELMATCH_OPTIONS = { threshold: 0.1 }
+// pixelmatch thresholds (difference in lightness, 0 to 1) for "the page paints a glyph here" and "the PNG misses it".
+const TEXT_PIXEL_THRESHOLD = 0.1
+const WRONG_PIXEL_THRESHOLD = 0.2
 
 const WITH_FONTS = (await loadLibrary()).map((item) => item.entry.meta).filter((meta) => meta.fonts.length > 0)
 
@@ -45,10 +56,10 @@ async function screenshotPreview(page: Page, isElement: boolean) {
   return PNG.sync.read(await target.screenshot({ animations: 'disabled' }))
 }
 
-/** Which pixels differ between two same-sized RGBA buffers (pixelmatch paints those, and only those, pure red). */
-function differingPixels(a: Buffer, b: Buffer, width: number, height: number): { mask: Uint8Array; image: PNG } {
+/** Which pixels differ by more than `threshold` between two same-sized RGBA buffers (pixelmatch paints those, and only those, pure red). */
+function differingPixels(a: Buffer, b: Buffer, width: number, height: number, threshold: number): { mask: Uint8Array; image: PNG } {
   const image = new PNG({ width, height })
-  pixelmatch(a, b, image.data, width, height, PIXELMATCH_OPTIONS)
+  pixelmatch(a, b, image.data, width, height, { threshold })
   const mask = new Uint8Array(width * height)
   for (let i = 0; i < mask.length; i++) mask[i] = image.data[i * 4] === 255 && image.data[i * 4 + 1] === 0 && image.data[i * 4 + 2] === 0 ? 1 : 0
   return { mask, image }
@@ -92,9 +103,9 @@ for (const meta of WITH_FONTS) {
     // The top-left box all three share, so that renders a pixel or two apart in height can still be diffed.
     const box = { width: Math.min(reference.width, noText.width, captured.width), height: Math.min(reference.height, noText.height, captured.height) }
     const { width, height } = box
-    const ref = crop(reference, box)
-    const textPixels = differingPixels(ref, crop(noText, box), width, height)
-    const wrongPixels = differingPixels(ref, crop(captured, box), width, height)
+    const ref = grayscale(crop(reference, box))
+    const textPixels = differingPixels(ref, grayscale(crop(noText, box)), width, height, TEXT_PIXEL_THRESHOLD)
+    const wrongPixels = differingPixels(ref, grayscale(crop(captured, box)), width, height, WRONG_PIXEL_THRESHOLD)
 
     const textCount = count(textPixels.mask)
     const wrongTextCount = textPixels.mask.reduce((sum, value, i) => sum + (value && wrongPixels.mask[i] ? 1 : 0), 0)
