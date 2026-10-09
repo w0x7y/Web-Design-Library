@@ -53,6 +53,20 @@ test('valid entry has no violations', () => {
   expect(check(validEntry(), 'demo', ['demo'])).toEqual([])
 })
 
+test.each(['', ' Inter', 'Inter ', 'Inter&display=block', 'Inter" onload="alert(1)', 'Inter:wght', 'Inter:wght@', 'Inter:wght@heavy', 'Inter:wght@900..100', 'Inter:ital,wght@0', 'Inter:wght,wght@400,500', 'Inter:wght@400..500;450..600', 'Inter:wght@400..500;500..600', 'Inter:wght@400;400', 'Inter:wght@400..400'])('rejects malformed font metadata: %j', (family) => {
+  const entry = withSources(withMeta(validEntry(), { fonts: [family] }), {
+    tsx: `// Fonts: ${family.split(':')[0]}\n${validEntry().sources.tsx}`,
+  })
+  expect(check(entry, 'demo', ['demo']).join('\n')).toMatch(/meta\.fonts/)
+})
+
+test.each(['Bagel Fat One', 'IBM Plex Sans:wght@400..700', 'Martian Mono:wdth,wght@75..112.5,100..800', 'Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800'])('accepts Google Fonts families and axis tuples: %s', (family) => {
+  const entry = withSources(withMeta(validEntry(), { fonts: [family] }), {
+    tsx: `// Fonts: ${family.split(':')[0]}\n${validEntry().sources.tsx}`,
+  })
+  expect(check(entry, 'demo', ['demo'])).toEqual([])
+})
+
 test.each<Case>([
   ['slug differs from folder', (e) => e, 'other', /folder/],
   ['duplicate slug', (e) => e, 'demo', /duplicate/, ['demo', 'demo']],

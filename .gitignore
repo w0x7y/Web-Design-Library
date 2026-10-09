@@ -28,6 +28,7 @@ build
 .react-router
 test-results
 playwright-report
+.vercel
 
 # Local design-tool cache
 .impeccable/

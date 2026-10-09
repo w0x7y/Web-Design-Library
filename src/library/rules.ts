@@ -1,6 +1,6 @@
 import postcss, { type AtRule, type Node, type Root, type Rule } from 'postcss'
 import { IMAGES } from './assets'
-import { fontDisplayName } from './fonts'
+import { fontDisplayName, isFontFamily } from './fonts'
 import { isSlug, SOURCE_FILES } from './catalog'
 import { resetCss } from './reset'
 import { isCategoryId, isStyleTag } from './taxonomy'
@@ -43,6 +43,9 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (meta.tags.length === 0) out.push('meta.tags must list at least one style tag')
   for (const tag of meta.tags) {
     if (!isStyleTag(tag)) out.push(`unknown style tag "${tag}"`)
+  }
+  for (const family of meta.fonts) {
+    if (!isFontFamily(family)) out.push(`meta.fonts contains an invalid Google Fonts family: ${JSON.stringify(family)}`)
   }
   for (const field of BRIEF_FIELDS) {
     if (!meta.brief[field]?.trim()) out.push(`brief.${field} is empty`)

@@ -38,7 +38,7 @@ const metaB_pricing: ComponentMeta = {
 
 test('html snippet = font link, style block, markup', () => {
   expect(buildHtmlSnippet(withFonts(['Inter:wght@400']), src)).toBe(
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap">\n<style>\n${src.css.trim()}\n</style>\n${src.html.trim()}\n`)
+    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400&amp;display=swap">\n<style>\n${src.css.trim()}\n</style>\n${src.html.trim()}\n`)
   expect(buildHtmlSnippet(meta, src).startsWith('<style>\n')).toBe(true)
 })
 test('codeForFormat returns raw tsx for react', () => {
@@ -70,7 +70,7 @@ test('brief html format has html and css blocks', () => {
 })
 test('brief html block carries the font link, css block does not', () => {
   const b = buildBrief(withFonts(['Inter:wght@400']), src, 'html')
-  expect(b).toContain('```html\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap">\n' + src.html.trim() + '\n```')
+  expect(b).toContain('```html\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400&amp;display=swap">\n' + src.html.trim() + '\n```')
   expect(b).toContain('```css\n' + src.css.trim() + '\n```')
 })
 test('fonts line lists display names', () => {

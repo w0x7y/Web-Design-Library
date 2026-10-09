@@ -3,6 +3,8 @@
 Date: 2026-10-08
 Status: Approved
 
+Implementation note (2026-10-09): v1 is built with all 36 components under the name Patternbook. MIT licensing, local Geist fonts, and generated Vercel security headers have since been added. See README.md for current development and deployment instructions.
+
 ## 1. Purpose
 
 Web Library is a free, public library of UI component layouts (sections,
@@ -55,7 +57,7 @@ or pre-rendered screenshots.
 | Hosting | Vercel (static output) |
 | Analytics | `@vercel/analytics`; page views on Hobby, custom events on Pro |
 | Name | "Web Library" is a working title, kept in one constant |
-| License | Undecided; must be chosen before launch |
+| License | MIT, chosen on 2026-10-09 |
 | Repo | Public GitHub repo |
 
 ## 3. Architecture
@@ -383,8 +385,8 @@ examples. The FAQ uses `<details>`/`<summary>` (native, no JS); dropdown
 - `AGENTS.md`: component authoring rules (4.5), folder layout, and the
   "add a component" checklist, so human, agent, and future community
   authors follow one process.
-- No `LICENSE` file until a license is chosen; README states this. A
-  license must be chosen before public launch.
+- `LICENSE` contains the MIT license for the code and authored components.
+  Bundled Geist fonts retain their upstream SIL Open Font License 1.1.
 - Vercel: the owner connects the GitHub repo to a Vercel project.
   `vercel.json` sets the build command, the output directory
   (`build/client`) and `framework: null` (no framework preset), so the

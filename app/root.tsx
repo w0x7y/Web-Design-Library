@@ -4,6 +4,7 @@ import { Toaster } from 'sonner'
 import type { Route } from './+types/root'
 import { NotFoundView } from './components/NotFoundView'
 import { themeInitScript, useTheme } from './lib/theme'
+import { browseInitScript } from './lib/browse-init'
 import './app.css'
 
 /**
@@ -31,16 +32,12 @@ function SiteDocument({ children }: { children: React.ReactNode }) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: browseInitScript }} />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&display=swap"
-        />
+        <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <Links />
       </head>
       <body>

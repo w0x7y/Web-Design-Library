@@ -1014,7 +1014,7 @@ Cover:
   1. Import `w0x7y/Web-Design-Library`. `vercel.json` sets the build command, output `build/client`, and `framework: null`.
   2. After the first deploy, set `SITE.url` in `app/site.ts` to the real domain and redeploy.
   3. Enable Web Analytics in the project's Analytics tab. Custom events require Pro.
-- License: "No license yet. All rights reserved until one is chosen; pick one before public launch."
+- License: MIT for the code and authored components; bundled Geist fonts retain their upstream SIL Open Font License 1.1.
 
 - [ ] **Step 2: Full verification**
 
