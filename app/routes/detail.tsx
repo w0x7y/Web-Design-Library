@@ -12,6 +12,7 @@ import { useComponentActions } from '~/lib/component-actions'
 import { filtersSearch } from '~/lib/filters'
 import { useFormat } from '~/lib/format-preference'
 import { highlight } from '~/lib/highlight.server'
+import { pageMeta } from '~/lib/page-meta'
 import { relatedMetas } from '~/lib/related'
 import { useHydrated } from '~/lib/use-hydrated'
 import { useMediaQuery } from '~/lib/use-media-query'
@@ -20,7 +21,7 @@ import { SITE } from '~/site'
 import { allMetas, metaBySlug } from '../../src/library/registry'
 import { sourcesFor } from '../../src/library/sources.server'
 import { CATEGORY_LABELS, groupOf } from '../../src/library/taxonomy'
-import { absoluteUrl, browsePath, componentPath } from '../../src/library/urls'
+import { browsePath, componentPath } from '../../src/library/urls'
 import type { Route } from './+types/detail'
 
 // "/c/:slug". The loader runs at build time only (every slug is pre-rendered),
@@ -45,17 +46,7 @@ export const meta: Route.MetaFunction = ({ loaderData, error, params }) => {
     return [{ title: `${isUnknownSlug(params.slug) ? 'Component not found' : 'Something went wrong'} — ${SITE.name}` }]
   }
   const { name, slug, description } = loaderData.meta
-  const title = `${name} — ${SITE.name}`
-  const url = absoluteUrl(componentPath(slug))
-  return [
-    { title },
-    { name: 'description', content: description },
-    { tagName: 'link', rel: 'canonical', href: url },
-    { property: 'og:title', content: title },
-    { property: 'og:description', content: description },
-    { property: 'og:url', content: url },
-    { property: 'og:type', content: 'website' },
-  ]
+  return pageMeta({ title: `${name} — ${SITE.name}`, description, path: componentPath(slug) })
 }
 
 const ALL = allMetas()

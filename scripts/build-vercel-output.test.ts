@@ -51,9 +51,13 @@ test('each page gets its own policy on the public URL, trailing slash, and expli
 })
 
 test('static assets and agent files resolve before the protected SPA fallback', async () => {
+  await writeFile(join(client, 'sitemap.xml'), '<urlset/>')
+  await writeFile(join(client, 'robots.txt'), 'User-agent: *\nAllow: /')
   const config = await buildVercelConfig(client)
   expect(config.overrides['c/demo.md']).toEqual({ contentType: 'text/markdown; charset=utf-8' })
   expect(config.overrides['llms.txt']).toEqual({ contentType: 'text/plain; charset=utf-8' })
+  expect(config.overrides['robots.txt']).toEqual({ contentType: 'text/plain; charset=utf-8' })
+  expect(config.overrides['sitemap.xml']).toEqual({ contentType: 'application/xml; charset=utf-8' })
   expect(config.routes.at(-2)).toEqual({ handle: 'filesystem' })
   const fallback = pageRoute(config, '/unknown/path')
   expect(fallback.dest).toBe('/__spa-fallback.html')

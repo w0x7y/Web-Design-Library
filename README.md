@@ -103,8 +103,14 @@ docs/superpowers/     design spec and implementation plan
 
 - `c/<slug>.md` for each component: the same brief that Copy for AI produces, but with the reference code in both React + Tailwind and HTML + CSS (Copy for AI includes only the format you picked);
 - `llms.txt`: an index of every component by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
+- `sitemap.xml`: canonical URLs for the home, category and component pages, generated from the taxonomy and catalog. Standalone previews, filter queries and agent files are excluded.
+- `robots.txt`: allows crawling and points to the production sitemap. Preview pages remain crawlable so search engines can read their `noindex` directive.
 
-The build logs `Agent files: <n> written`: one per component plus `llms.txt` (37 today). The generated Vercel config serves them with the right `Content-Type`.
+The build logs `Agent and discovery files: <n> written`: one brief per component plus the three discovery files (39 today). The generated Vercel config serves them with the right `Content-Type`.
+
+### Link previews
+
+Home, category and component pages include canonical URLs and complete Open Graph and Twitter metadata in their pre-rendered HTML. All use the branded 1200 × 630 PNG at [`public/social-preview.png`](public/social-preview.png), with page-specific titles and descriptions. The editable vector source is [`docs/assets/social-preview.svg`](docs/assets/social-preview.svg); it uses the bundled Geist and Geist Mono fonts. The PNG is committed, so deployments need no image renderer.
 
 ## Deploying to Vercel
 
