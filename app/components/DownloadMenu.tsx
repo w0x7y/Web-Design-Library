@@ -4,7 +4,7 @@ import { CAPTURE_VIEWPORTS, VIEWPORTS, type CaptureViewport } from '~/lib/viewpo
 const SIZES = CAPTURE_VIEWPORTS.map((viewport) => ({ viewport, label: `${VIEWPORTS[viewport].label} PNG` }))
 
 const ITEM =
-  'flex h-9 w-full items-center gap-2 rounded-lg px-2.5 text-left text-sm text-zinc-800 outline-none hover:bg-zinc-100 focus-visible:bg-zinc-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:focus-visible:bg-zinc-800 dark:focus-visible:outline-zinc-100'
+  'flex h-9 w-full items-center gap-2 rounded-lg px-2.5 text-left text-sm text-zinc-800 hover:bg-zinc-100 focus-visible:bg-zinc-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus dark:text-zinc-100 dark:hover:bg-zinc-800 dark:focus-visible:bg-zinc-800'
 
 /**
  * The Download menu button: a disclosure menu (aria menu pattern) with a PNG per size and a
@@ -55,13 +55,16 @@ export function DownloadMenu({
     setOpen(true)
   }
 
+  // Both key handlers let chords through: they belong to the browser and the OS (Alt+← is Back, ⌘+↓ scrolls to the end).
   function onTriggerKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+    if (event.altKey || event.ctrlKey || event.metaKey) return
     if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return
     event.preventDefault()
     openMenu(event.key === 'ArrowDown' ? 'first' : 'last')
   }
 
   function onMenuKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.altKey || event.ctrlKey || event.metaKey) return
     const list = items()
     const current = list.indexOf(document.activeElement as HTMLElement)
     const last = list.length - 1
@@ -112,7 +115,7 @@ export function DownloadMenu({
           aria-label="Download PNG"
           tabIndex={-1}
           onKeyDown={onMenuKeyDown}
-          className="absolute top-full right-0 z-20 mt-1.5 w-56 sm:right-auto sm:left-0 rounded-xl border border-zinc-200 bg-white p-1 shadow-[0_8px_24px_-8px_rgb(0_0_0/0.18)] outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-[0_8px_24px_-8px_rgb(0_0_0/0.6)]"
+          className="absolute top-full right-0 z-20 mt-1.5 w-56 sm:right-auto sm:left-0 rounded-xl border border-zinc-200 bg-white p-1 shadow-[0_8px_24px_-8px_rgb(0_0_0/0.18)] focus-visible:outline-hidden dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-[0_8px_24px_-8px_rgb(0_0_0/0.6)]"
         >
           {SIZES.map(({ viewport, label }) => (
             <button key={viewport} type="button" role="menuitem" tabIndex={-1} onClick={() => choose(viewport)} className={ITEM}>

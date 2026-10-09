@@ -104,7 +104,7 @@ Every `styles.css` begins with this block, with `SLUG` replaced by the slug:
 .SLUG summary { display: list-item; }
 ```
 
-The `font-family` line is Tailwind 4.3's default `--font-sans`. If a Tailwind upgrade changes that default, update this template and every `styles.css`. Parity only catches the drift on machines whose system fonts resolve differently.
+The template is `resetCss()` in `src/library/reset.ts`, and `rules.ts` checks every line of it, ignoring line endings and trailing whitespace. The `font-family` line is Tailwind's default `--font-sans`. If a Tailwind upgrade changes that default, `npm test` fails: update `reset.ts`, this block and every `styles.css` together.
 
 ## Writing the HTML/CSS twin
 

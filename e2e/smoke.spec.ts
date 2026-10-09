@@ -145,6 +145,89 @@ test('theme toggle persists', async ({ page }) => {
   expect(await isDark()).toBe(!before)
 })
 
+// The site theme's class on <html>, as a whole token (the element also carries dark: utilities).
+const DARK_CLASS = /(?:^|\s)dark(?:\s|$)/
+
+test('without a stored choice the theme follows the system, through one shared listener', async ({ page }) => {
+  // Counts the live 'change' listeners on the dark-scheme query, across every MediaQueryList.
+  await page.addInitScript(() => {
+    const listeners = { live: 0 }
+    Object.assign(window, { __darkSchemeListeners: listeners })
+    const proto = MediaQueryList.prototype
+    const { addEventListener: add, removeEventListener: remove } = proto
+    const counts = (list: MediaQueryList, type: string) => type === 'change' && list.media === '(prefers-color-scheme: dark)'
+    proto.addEventListener = function (this: MediaQueryList, ...args: Parameters<typeof add>) {
+      if (counts(this, args[0])) listeners.live++
+      return add.apply(this, args)
+    }
+    proto.removeEventListener = function (this: MediaQueryList, ...args: Parameters<typeof remove>) {
+      if (counts(this, args[0])) listeners.live--
+      return remove.apply(this, args)
+    }
+  })
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/')
+  await expect(page.getByRole('button', { name: 'Switch to dark theme' })).toBeEnabled()
+  const html = page.locator('html')
+  await expect(html).not.toHaveClass(DARK_CLASS)
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await expect(html).toHaveClass(DARK_CLASS)
+  const live = await page.evaluate(() => (window as unknown as { __darkSchemeListeners: { live: number } }).__darkSchemeListeners.live)
+  expect(live).toBe(1)
+})
+
+// The --color-focus token (app.css): zinc-900 in the light theme, zinc-100 in the dark one.
+const FOCUS_LIGHT = 'oklch(0.21 0.006 285.885)'
+const FOCUS_DARK = 'oklch(0.967 0.001 286.375)'
+
+test('focus rings take the focus colour of the current theme', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('wl:theme', 'light'))
+  await page.goto('/')
+  const toggle = page.getByRole('button', { name: /^Switch to/ })
+  await expect(toggle).toBeEnabled()
+  await toggle.focus()
+  await expect(toggle).toHaveCSS('outline-style', 'solid')
+  await expect(toggle).toHaveCSS('outline-color', FOCUS_LIGHT)
+  await page.keyboard.press('Enter') // switches the theme; focus stays on the toggle
+  await expect(page.locator('html')).toHaveClass(DARK_CLASS)
+  await expect(toggle).toBeFocused()
+  await expect(toggle).toHaveCSS('outline-color', FOCUS_DARK)
+})
+
+test('focused controls keep a visible outline in forced-colors mode', async ({ page }) => {
+  await page.emulateMedia({ forcedColors: 'active' })
+  await page.goto('/c/hero-split-image')
+  await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
+  const search = page.getByRole('searchbox', { name: 'Search components' })
+  await search.focus()
+  await expect(search).toHaveCSS('outline-style', 'solid')
+  await page.getByRole('button', { name: 'Download' }).focus()
+  await page.keyboard.press('ArrowDown')
+  await expect(page.getByRole('menuitem', { name: 'Desktop PNG' })).toHaveCSS('outline-style', 'solid')
+})
+
+test.describe('before hydration', () => {
+  test.use({ javaScriptEnabled: false })
+
+  // The pre-rendered page has no handlers yet, so its controls wait rather than drop a click or keystroke.
+  test('the browse controls are disabled until the page hydrates', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByRole('searchbox', { name: 'Search components' })).toHaveAttribute('readonly', '')
+    await expect(page.getByRole('button', { name: /^Switch to/ })).toBeDisabled()
+    for (const tag of ['minimal', 'brutalist', 'has-image']) await expect(page.getByRole('button', { name: tag })).toBeDisabled()
+  })
+})
+
+test('tag chips toggle their filter once the page hydrates', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'minimal' }).click()
+  await expect(page).toHaveURL(/\?tags=minimal$/)
+  await expect(page.getByRole('button', { name: 'minimal', pressed: true })).toBeVisible()
+  await expect(page.getByTestId('component-card')).toHaveCount(expectedCount({ tags: ['minimal'] }))
+  await page.getByRole('button', { name: 'Clear style filters' }).click()
+  await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
+})
+
 test('detail page is pre-rendered with title and Open Graph tags', async ({ request }) => {
   const html = await (await request.get('/c/hero-split-image')).text()
   expect(html).toContain('Split hero with image')
@@ -205,6 +288,12 @@ test('detail tabs follow the keyboard pattern', async ({ page }) => {
   await expect(preview).toHaveAttribute('aria-selected', 'true')
   await expect(page.getByRole('tabpanel', { name: 'Preview' })).toBeVisible()
   await expect(page.getByRole('radiogroup', { name: 'Code format' })).toHaveCount(1)
+  // Chords belong to the browser and the OS (Alt+← is Back), so the tabs let them through.
+  for (const chord of ['Alt+ArrowLeft', 'Control+ArrowRight', 'Meta+End']) {
+    await page.keyboard.press(chord)
+    await expect(preview).toBeFocused()
+    await expect(preview).toHaveAttribute('aria-selected', 'true')
+  }
 })
 
 test('format choice persists across reloads', async ({ page }) => {
@@ -468,10 +557,17 @@ test.describe('copy and export', () => {
     await expect(trigger).toHaveAttribute('aria-haspopup', 'menu')
     await expect(trigger).toHaveAttribute('aria-expanded', 'false')
     await trigger.focus()
+    await page.keyboard.press('Alt+ArrowDown') // chords belong to the browser and the OS
+    await expect(page.getByRole('menu')).toHaveCount(0)
     await page.keyboard.press('ArrowDown')
     await expect(page.getByRole('menu')).toBeVisible()
     await expect(trigger).toHaveAttribute('aria-expanded', 'true')
     await expect(desktop).toBeFocused()
+    await expect(desktop).toHaveCSS('outline-style', 'solid') // the keyboard focus ring
+    for (const chord of ['Alt+ArrowDown', 'Control+End', 'Meta+ArrowUp']) {
+      await page.keyboard.press(chord)
+      await expect(desktop).toBeFocused()
+    }
     await page.keyboard.press('ArrowDown')
     await expect(mobile).toBeFocused()
     await page.keyboard.press('ArrowDown')

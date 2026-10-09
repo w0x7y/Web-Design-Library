@@ -20,7 +20,7 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
       <h3 className="mt-3 text-sm/5 font-medium text-zinc-900 dark:text-zinc-100">
         <Link
           to={`/c/${meta.slug}`}
-          className="underline decoration-transparent underline-offset-4 transition-colors duration-150 group-hover:decoration-zinc-300 after:absolute after:-inset-2 after:rounded-xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-zinc-900 dark:group-hover:decoration-zinc-600 dark:focus-visible:after:outline-zinc-100"
+          className="underline decoration-transparent underline-offset-4 transition-colors duration-150 group-hover:decoration-zinc-300 after:absolute after:-inset-2 after:rounded-xl focus-visible:outline-hidden focus-visible:after:outline-2 focus-visible:after:outline-focus dark:group-hover:decoration-zinc-600"
         >
           {meta.name}
         </Link>

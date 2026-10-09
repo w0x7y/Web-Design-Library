@@ -2,6 +2,7 @@ import postcss, { type AtRule, type Node, type Root, type Rule } from 'postcss'
 import { IMAGES } from './assets'
 import { fontDisplayName } from './fonts'
 import { SOURCE_FILES } from './catalog'
+import { resetCss } from './reset'
 import { isCategoryId, isStyleTag } from './taxonomy'
 import type { ComponentMeta, ComponentSources, LibraryEntry } from './types'
 
@@ -118,10 +119,9 @@ function checkCss(css: string, slug: string): string[] {
     return [`styles.css does not parse: ${(error as Error).message}`]
   }
   const out: string[] = []
-  const reset = [`.${slug}`, `.${slug} *`, `.${slug} *::before`, `.${slug} *::after`].join(', ')
-  const first = root.nodes.find((node) => node.type !== 'comment')
-  if (first?.type !== 'rule' || normalizeSelectors(first) !== reset) {
-    out.push(`styles.css must begin with the scoped reset rule "${reset}" (template in AGENTS.md)`)
+  const mismatch = resetMismatch(css, slug)
+  if (mismatch) {
+    out.push(`styles.css must begin with the scoped reset (template in AGENTS.md); line ${mismatch.line} should read: ${mismatch.expected}`)
   }
   root.walkAtRules('import', () => {
     out.push('styles.css must not use @import; declare fonts in meta.fonts')
@@ -136,8 +136,12 @@ function checkCss(css: string, slug: string): string[] {
   return out
 }
 
-function normalizeSelectors(rule: Rule): string {
-  return rule.selectors.map((s) => s.replace(/\s+/g, ' ').trim()).join(', ')
+/** The first line where `css` departs from the reset, ignoring line endings and trailing whitespace; null if it begins with it. */
+function resetMismatch(css: string, slug: string): { line: number; expected: string } | null {
+  const lines = css.split('\n').map((line) => line.trimEnd())
+  const expected = resetCss(slug).trimEnd().split('\n')
+  const index = expected.findIndex((line, i) => lines[i] !== line)
+  return index === -1 ? null : { line: index + 1, expected: expected[index] }
 }
 
 function insideKeyframes(rule: Rule): boolean {

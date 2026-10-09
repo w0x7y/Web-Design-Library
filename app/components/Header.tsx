@@ -4,7 +4,7 @@ import { SearchField } from './SearchField'
 import { ThemeToggle } from './ThemeToggle'
 
 const ICON_BUTTON =
-  'inline-flex size-9 items-center justify-center rounded-lg text-zinc-500 transition-colors duration-150 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 disabled:pointer-events-none dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100 dark:focus-visible:outline-zinc-100'
+  'inline-flex size-9 items-center justify-center rounded-lg text-zinc-500 transition-colors duration-150 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100'
 
 export function Header() {
   return (
@@ -14,7 +14,7 @@ export function Header() {
         <div className="flex shrink-0 lg:w-60">
           <Link
             to="/"
-            className="-mx-1 flex items-center gap-2.5 rounded-md px-1 py-1 text-[15px] font-semibold tracking-tight text-zinc-950 focus-visible:outline-2 focus-visible:outline-zinc-900 dark:text-white dark:focus-visible:outline-zinc-100"
+            className="-mx-1 flex items-center gap-2.5 rounded-md px-1 py-1 text-[15px] font-semibold tracking-tight text-zinc-950 focus-visible:outline-2 focus-visible:outline-focus dark:text-white"
           >
             <svg aria-hidden="true" viewBox="0 0 20 20" className="size-5">
               <rect x="2" y="2" width="7" height="7" rx="1.75" fill="currentColor" />

@@ -4,6 +4,12 @@
 @theme {
   --font-shell: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-shell-mono: "Geist Mono", ui-monospace, monospace;
+  /* Shell focus rings (outline-focus). Not `@theme inline`: utilities must read the variable, so .dark can override it. */
+  --color-focus: var(--color-zinc-900);
+}
+
+.dark {
+  --color-focus: var(--color-zinc-100);
 }
 
 /* Not-found views carry their own search field; hide the header's copy so the page has one */

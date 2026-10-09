@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 
 const ACTION =
-  'mt-6 inline-flex h-9 items-center rounded-lg bg-zinc-900 px-4 text-sm font-medium text-white transition-colors duration-150 hover:bg-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white dark:focus-visible:outline-zinc-100'
+  'mt-6 inline-flex h-9 items-center rounded-lg bg-zinc-900 px-4 text-sm font-medium text-white transition-colors duration-150 hover:bg-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white'
 
 /** Shown instead of the grid. `filtered`: a search or tag ruled everything out, so offer `onClear`. */
 export function EmptyState({ filtered, onClear }: { filtered: boolean; onClear(): void }) {

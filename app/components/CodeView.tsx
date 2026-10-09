@@ -45,7 +45,7 @@ export function CodeView({
                   aria-label={`Copy ${name}`}
                   title={`Copy ${name}`}
                   onClick={() => onCopyFile({ name, code: sources[key] })}
-                  className="ml-auto inline-flex size-7 items-center justify-center rounded-md text-zinc-500 transition-colors duration-150 hover:bg-zinc-200/60 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 dark:focus-visible:outline-zinc-100"
+                  className="ml-auto inline-flex size-7 items-center justify-center rounded-md text-zinc-500 transition-colors duration-150 hover:bg-zinc-200/60 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-focus dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
                 >
                   <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" className="size-4">
                     <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" />
@@ -57,7 +57,7 @@ export function CodeView({
             {/* Shiki's <pre> is focusable (tabindex=0) so keyboard users can scroll long files.
                 Preflight gives <code> its own mono stack, so the inner <code> needs the shell font too. */}
             <div
-              className="[&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:px-4 [&_pre]:py-3.5 [&_pre]:font-shell-mono [&_pre_code]:font-shell-mono [&_pre]:text-[13px]/[1.7] [&_pre]:[scrollbar-color:var(--color-zinc-300)_transparent] [&_pre]:[scrollbar-width:thin] [&_pre]:[tab-size:2] [&_pre]:focus-visible:outline-2 [&_pre]:focus-visible:-outline-offset-2 [&_pre]:focus-visible:outline-zinc-900 dark:[&_pre]:[scrollbar-color:var(--color-zinc-700)_transparent] dark:[&_pre]:focus-visible:outline-zinc-100"
+              className="[&_pre]:max-h-[36rem] [&_pre]:overflow-auto [&_pre]:px-4 [&_pre]:py-3.5 [&_pre]:font-shell-mono [&_pre_code]:font-shell-mono [&_pre]:text-[13px]/[1.7] [&_pre]:[scrollbar-color:var(--color-zinc-300)_transparent] [&_pre]:[scrollbar-width:thin] [&_pre]:[tab-size:2] [&_pre]:focus-visible:outline-2 [&_pre]:focus-visible:-outline-offset-2 [&_pre]:focus-visible:outline-focus dark:[&_pre]:[scrollbar-color:var(--color-zinc-700)_transparent]"
               dangerouslySetInnerHTML={{ __html: highlighted[key] }}
             />
           </figure>

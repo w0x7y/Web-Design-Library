@@ -1,22 +1,8 @@
 import { IMAGES } from './assets'
+import { resetCss } from './reset'
 import { checkComponent } from './rules'
 import type { CategoryId } from './taxonomy'
 import type { ComponentBrief, ComponentMeta, ComponentSources, LibraryEntry } from './types'
-
-const resetCss = (slug: string) => `/* Scoped reset: mirrors Tailwind preflight for this component only */
-.${slug}, .${slug} *, .${slug} *::before, .${slug} *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
-.${slug} { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
-.${slug} :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
-.${slug} a { color: inherit; text-decoration: inherit; }
-.${slug} :is(b, strong) { font-weight: bolder; }
-.${slug} :is(ol, ul, menu) { list-style: none; }
-.${slug} :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
-.${slug} :is(img, video) { max-width: 100%; height: auto; }
-.${slug} :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
-.${slug} ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
-.${slug} table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
-.${slug} summary { display: list-item; }
-`
 
 function validEntry(slug = 'demo'): LibraryEntry {
   return {
@@ -124,12 +110,29 @@ test.each<Case>([
   ],
   ['@import in css', (e) => withSources(e, { css: e.sources.css + '\n@import url("fonts.css");' }), 'demo', /must not use @import/],
   ['reset not the first rule', (e) => withSources(e, { css: '.demo { color: red; }\n' + e.sources.css }), 'demo', /must begin with the scoped reset/],
+  [
+    'reset declaration changed',
+    (e) => withSources(e, { css: e.sources.css.replace('line-height: 1.5;', 'line-height: 1.6;') }),
+    'demo',
+    /must begin with the scoped reset .*line 3 should read: \.demo \{ font-family: /,
+  ],
+  [
+    'reset line left out',
+    (e) => withSources(e, { css: e.sources.css.replace('.demo summary { display: list-item; }\n', '') }),
+    'demo',
+    /must begin with the scoped reset .*line 13 should read: \.demo summary \{ display: list-item; \}/,
+  ],
   ['unparseable css', (e) => withSources(e, { css: e.sources.css + '\n.demo {' }), 'demo', /does not parse/],
   ['selector scoped to a longer class (.demox)', (e) => withSources(e, { css: e.sources.css + '\n.demox { color: red; }' }), 'demo', /"\.demox" is not scoped under \.demo/],
 ])('%s is the only violation', (_n, mutate, folder, pattern, slugs = ['demo']) => {
   const violations = checkComponent(mutate(validEntry()), folder, slugs)
   expect(violations).toHaveLength(1)
   expect(violations[0]).toMatch(pattern)
+})
+
+test('the reset may use CRLF line endings and trailing whitespace', () => {
+  const e = validEntry()
+  expect(checkComponent(withSources(e, { css: e.sources.css.replace(/\n/g, ' \t\r\n') }), 'demo', ['demo'])).toEqual([])
 })
 
 test('allowed patterns raise no violations', () => {

@@ -1,12 +1,15 @@
 import { useFilters } from '~/lib/use-filters'
+import { useHydrated } from '~/lib/use-hydrated'
 import { STYLE_TAGS, type StyleTag } from '../../src/library/taxonomy'
 
 const CHIP =
-  'inline-flex h-7 shrink-0 items-center rounded-full border px-3 text-[13px] whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100'
+  'inline-flex h-7 shrink-0 items-center rounded-full border px-3 text-[13px] whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus'
 
 /** One toggle per style tag; the selection lives in ?tags. A component must carry every selected tag. */
 export function TagFilter() {
   const { filters, setFilters } = useFilters()
+  // A click before hydration would be lost, so the chips open up once React is live.
+  const hydrated = useHydrated()
 
   function toggle(tag: StyleTag) {
     const selected = new Set(filters.tags)
@@ -28,6 +31,7 @@ export function TagFilter() {
             key={tag}
             type="button"
             aria-pressed={pressed}
+            disabled={!hydrated}
             onClick={() => toggle(tag)}
             className={`${CHIP} ${
               pressed

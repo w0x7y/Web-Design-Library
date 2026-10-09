@@ -8,7 +8,7 @@ import { FormatSwitch } from './FormatSwitch'
 // Unavailable buttons are aria-disabled rather than disabled, so a focused button keeps focus while a
 // capture runs; the actions themselves ignore a capture asked for while one is running.
 const BUTTON =
-  'inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border px-3 text-[13px] font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 aria-disabled:cursor-default aria-disabled:opacity-60 dark:focus-visible:outline-zinc-100'
+  'inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border px-3 text-[13px] font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus aria-disabled:cursor-default aria-disabled:opacity-60'
 const PRIMARY =
   'border-zinc-900 bg-zinc-900 text-white not-aria-disabled:hover:bg-zinc-700 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:not-aria-disabled:hover:bg-zinc-300'
 const SECONDARY =

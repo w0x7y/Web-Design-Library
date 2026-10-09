@@ -53,7 +53,7 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
       <main className="min-w-0 flex-1 pt-0 pb-24 lg:pt-10">
         <CategoryScroller active={category} />
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h1 ref={headingRef} tabIndex={-1} className="text-2xl font-semibold tracking-tight text-zinc-950 outline-none dark:text-white">
+          <h1 ref={headingRef} tabIndex={-1} className="text-2xl font-semibold tracking-tight text-zinc-950 focus-visible:outline-hidden dark:text-white">
             {category ? CATEGORY_LABELS[category] : 'All components'}
           </h1>
           <p aria-live="polite" className="text-sm text-zinc-500 tabular-nums dark:text-zinc-400">

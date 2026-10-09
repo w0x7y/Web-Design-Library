@@ -23,7 +23,7 @@ function useLinkSearch() {
 }
 
 const FOCUS_RING =
-  'focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100'
+  'focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus'
 
 function SidebarLink({ to, label, count, current }: { to: string; label: string; count: number; current: boolean }) {
   return (

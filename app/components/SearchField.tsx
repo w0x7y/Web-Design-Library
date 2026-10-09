@@ -61,7 +61,7 @@ export function SearchField() {
           setDraft(value)
           if (onBrowse) setFilters({ ...filters, q: value })
         }}
-        className="h-9 w-full rounded-lg border border-zinc-200 bg-white pr-3 pl-9 text-base text-zinc-900 transition-[border-color,box-shadow] duration-150 outline-none placeholder:text-zinc-500 hover:border-zinc-300 focus:border-zinc-500 focus:ring-4 focus:ring-zinc-900/[0.06] sm:text-sm dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-100 dark:hover:border-zinc-700 dark:focus:border-zinc-400 dark:focus:ring-white/[0.06]"
+        className="h-9 w-full rounded-lg border border-zinc-200 bg-white pr-3 pl-9 text-base text-zinc-900 transition-[border-color,box-shadow] duration-150 focus:outline-hidden placeholder:text-zinc-500 hover:border-zinc-300 focus:border-zinc-500 focus:ring-4 focus:ring-zinc-900/[0.06] sm:text-sm dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-100 dark:hover:border-zinc-700 dark:focus:border-zinc-400 dark:focus:ring-white/[0.06]"
       />
     </form>
   )

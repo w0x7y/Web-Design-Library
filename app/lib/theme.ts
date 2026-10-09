@@ -35,17 +35,23 @@ function applyTheme(theme: Theme) {
   setTimeout(() => pause.remove(), 0)
 }
 
+// One system-preference listener however many components use the theme: the first subscriber adds it
+// and the last removes it. The query is created on first use, because the module also loads in Node.
+let systemQuery: MediaQueryList | undefined
+let systemSubscribers = 0
+
+function followSystem(event: MediaQueryListEvent) {
+  if (!storedTheme()) applyTheme(event.matches ? 'dark' : 'light')
+}
+
 function subscribe(onChange: () => void) {
   const observer = new MutationObserver(onChange)
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
-  const media = matchMedia(DARK_QUERY)
-  const followSystem = () => {
-    if (!storedTheme()) applyTheme(media.matches ? 'dark' : 'light')
-  }
-  media.addEventListener('change', followSystem)
+  systemQuery ??= matchMedia(DARK_QUERY)
+  if (systemSubscribers++ === 0) systemQuery.addEventListener('change', followSystem)
   return () => {
     observer.disconnect()
-    media.removeEventListener('change', followSystem)
+    if (--systemSubscribers === 0) systemQuery?.removeEventListener('change', followSystem)
   }
 }
 

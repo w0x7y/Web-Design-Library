@@ -75,7 +75,7 @@ export function PreviewFrame({
           href={previewPath(slug)}
           target="_blank"
           rel="noreferrer"
-          className="-mx-1 inline-flex items-center gap-1 rounded-sm px-1 font-medium text-zinc-600 transition-colors duration-150 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-zinc-900 dark:text-zinc-400 dark:hover:text-white dark:focus-visible:outline-zinc-100"
+          className="-mx-1 inline-flex items-center gap-1 rounded-sm px-1 font-medium text-zinc-600 transition-colors duration-150 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-focus dark:text-zinc-400 dark:hover:text-white"
         >
           Open in new tab
           <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-3">

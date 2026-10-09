@@ -66,7 +66,7 @@ const TABS = [
 type TabId = (typeof TABS)[number]['id']
 
 const FOCUS_RING =
-  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100'
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus'
 
 export default function Detail({ loaderData }: Route.ComponentProps) {
   // The format is a site-wide preference, so it lives above the key and survives moving between components.
@@ -198,6 +198,7 @@ function DetailTabs({ id, active, onSelect }: { id: string; active: TabId; onSel
   const listRef = useRef<HTMLDivElement>(null)
 
   function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.altKey || event.ctrlKey || event.metaKey) return // chords belong to the browser and the OS (Alt+← is Back)
     const index = TABS.findIndex((tab) => tab.id === active)
     const next = {
       ArrowRight: (index + 1) % TABS.length,
@@ -233,13 +234,13 @@ function DetailTabs({ id, active, onSelect }: { id: string; active: TabId; onSel
             // Clicks before hydration would be lost; the tabs open up once React is live.
             disabled={!hydrated}
             onClick={() => onSelect(tab.id)}
-            className={`group -mb-px border-b-2 text-sm font-medium transition-colors duration-150 outline-none ${
+            className={`group -mb-px border-b-2 text-sm font-medium transition-colors duration-150 focus-visible:outline-hidden ${
               selected
                 ? 'border-zinc-900 text-zinc-950 dark:border-zinc-100 dark:text-white'
                 : 'border-transparent text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white'
             }`}
           >
-            <span className="-mx-1.5 rounded-md px-1.5 py-1 group-focus-visible:outline-2 group-focus-visible:outline-zinc-900 dark:group-focus-visible:outline-zinc-100">
+            <span className="-mx-1.5 rounded-md px-1.5 py-1 group-focus-visible:outline-2 group-focus-visible:outline-focus">
               {tab.label}
             </span>
           </button>

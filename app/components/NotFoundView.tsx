@@ -12,7 +12,7 @@ export function NotFoundView({ title = 'Page not found' }: { title?: string }) {
       </div>
       <Link
         to="/"
-        className="mt-6 inline-flex rounded-sm text-sm font-medium text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition-colors duration-150 hover:text-zinc-950 hover:decoration-zinc-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:text-zinc-400 dark:decoration-zinc-700 dark:hover:text-white dark:hover:decoration-zinc-400 dark:focus-visible:outline-zinc-100"
+        className="mt-6 inline-flex rounded-sm text-sm font-medium text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition-colors duration-150 hover:text-zinc-950 hover:decoration-zinc-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus dark:text-zinc-400 dark:decoration-zinc-700 dark:hover:text-white dark:hover:decoration-zinc-400"
       >
         Back to all components
       </Link>
