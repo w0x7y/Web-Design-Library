@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { previewPath } from '~/lib/preview-ready'
 import { frameSize, type ViewportId } from '~/lib/viewports'
 
@@ -6,6 +6,11 @@ import { frameSize, type ViewportId } from '~/lib/viewports'
  * The component's own page (/preview/<slug>) in an iframe at the viewport's real
  * width, so its breakpoints behave as on a device, then scaled down to fit:
  * s = min(1, containerWidth / viewport width), origin top-left.
+ *
+ * A section shorter than the viewport would leave the rest of the frame showing the white stage, so
+ * the visible box is clipped to the section's own height (never taller than the viewport, where the
+ * iframe scrolls as before). Only the box is clipped: the iframe keeps the viewport's height, so the
+ * component's 100vh and media queries see a real device screen and clipping can't feed back into layout.
  */
 export function PreviewFrame({
   slug,
@@ -32,6 +37,36 @@ export function PreviewFrame({
 
   const scale = containerWidth === null ? null : Math.min(1, containerWidth / width)
 
+  // Height of the rendered section inside the iframe, measured from its capture root.
+  const [contentHeight, setContentHeight] = useState<number | null>(null)
+  const [frame, setFrame] = useState<HTMLIFrameElement | null>(null)
+
+  useEffect(() => {
+    if (!frame || kind !== 'section') return
+    let observer: ResizeObserver | null = null
+    const watch = () => {
+      observer?.disconnect()
+      const doc = frame.contentDocument
+      const root = doc?.querySelector<HTMLElement>('[data-capture-root]')
+      const View = doc?.defaultView
+      if (!root || !View) return
+      observer = new View.ResizeObserver(() => {
+        const measured = Math.ceil(root.getBoundingClientRect().height)
+        setContentHeight(measured > 0 ? measured : null)
+      })
+      observer.observe(root)
+    }
+    // The pre-rendered page may already be loaded by the time this runs.
+    if (frame.contentDocument?.readyState === 'complete') watch()
+    frame.addEventListener('load', watch)
+    return () => {
+      frame.removeEventListener('load', watch)
+      observer?.disconnect()
+    }
+  }, [frame, kind])
+
+  const visibleHeight = kind === 'section' && contentHeight !== null ? Math.min(height, contentHeight) : height
+
   return (
     <div className="overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 bg-[radial-gradient(var(--color-zinc-300)_0.75px,transparent_0.75px)] bg-size-[14px_14px] bg-center p-3 sm:p-6 dark:border-zinc-800 dark:bg-zinc-900/40 dark:bg-[radial-gradient(var(--color-zinc-800)_0.75px,transparent_0.75px)]">
       <div ref={measure}>
@@ -41,10 +76,11 @@ export function PreviewFrame({
           style={
             scale === null
               ? { width: `min(100%, ${width}px)`, aspectRatio: `${width} / ${height}` }
-              : { width: width * scale, height: height * scale }
+              : { width: width * scale, height: visibleHeight * scale }
           }
         >
           <iframe
+            ref={setFrame}
             src={previewPath(slug)}
             title={`${name} preview`}
             width={width}
