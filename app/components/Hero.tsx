@@ -47,6 +47,7 @@ function Showcase() {
 export function Hero({ count }: { count: number }) {
   return (
     <section
+      data-home-hero=""
       aria-labelledby="hero-title"
       className="relative overflow-hidden border-b border-zinc-200 bg-linear-to-b from-zinc-50 to-white dark:border-zinc-800 dark:from-zinc-900/60 dark:to-zinc-950"
     >

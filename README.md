@@ -14,7 +14,7 @@ Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. O
 
 AI agents can also fetch components without a browser: `/llms.txt` lists every component, and `/c/<slug>.md` returns the brief for one.
 
-It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, component and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files, and it is deployed to Vercel.
+It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, component and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files. The build also packages them for Vercel with a Content Security Policy for each page.
 
 ## Getting started
 
@@ -32,8 +32,8 @@ The end-to-end tests drive Chromium. Install it once with `npx playwright instal
 | Command | What it does |
 |---|---|
 | `npm run dev` | Starts the dev server. It serves the pages, but not the agent files (`/c/<slug>.md`, `/llms.txt`), which only `npm run build` produces. |
-| `npm run build` | Runs `react-router build`, then `scripts/build-agent-files.ts`. The site lands in `build/client`. |
-| `npm run serve:build` | Serves `build/client` on port 4317, with unknown paths falling back to `__spa-fallback.html`. Run `npm run build` first. |
+| `npm run build` | Pre-renders the site into `build/client`, writes agent files, and generates `.vercel/output` with static files and deployment headers. |
+| `npm run serve:build` | Serves `build/client` on port 4317 with the generated security headers and SPA fallback. Run `npm run build` first. |
 | `npm run lint` | Runs oxlint. |
 | `npm run typecheck` | Runs `react-router typegen`, then `tsc`. |
 | `npm test` | Runs the Vitest unit and contract tests (see below). |
@@ -52,6 +52,10 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run te
 - **Capture** (`e2e/capture-fonts.spec.ts`, `e2e/capture-placeholders.spec.ts`, `e2e/capture-scrollbars.spec.ts`): a downloaded PNG shows the component's web fonts and its placeholder colours, and a section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide.
 - **Focus** (`e2e/focus.spec.ts`): in forced-colors mode, tabbing to each control of both versions of every component makes a focus outline appear.
 - **Layout** (`e2e/layout.spec.ts`): every section reflows from 320px up without horizontal scrolling, and every element fits its frame inside the stage padding.
+- **Browse entry** (`e2e/browse-entry.spec.ts`): filtered home links show the grid before React hydrates, at desktop and mobile widths.
+- **Security** (`e2e/security.spec.ts`): every pre-rendered page's CSP matches its HTML, injected scripts are blocked, copy and image export still work, and the shell's local fonts load without Google Fonts.
+
+Every browser spec runs against the build with its CSP enforced. The unit tests also cover generated deployment routes, headers, and removal of stale output on rebuilds.
 
 ## Adding a component
 
@@ -79,8 +83,8 @@ src/library/          The component library
   brief.ts            the AI brief, the HTML snippet and llms.txt builders
   rules.ts, reset.ts  authoring-rule checks and the pinned CSS reset
   urls.ts             every path the site serves, and the prerender list
-scripts/              build-agent-files.ts and load-library.ts (reads the library from disk for Node:
-                      the build config's prerender list, build scripts and tests)
+scripts/              load-library.ts (reads the library from disk), build-agent-files.ts,
+                      build-vercel-output.ts (static deployment and per-page CSP), serve-build.ts
 e2e/                  Playwright specs
 docs/superpowers/     design spec and implementation plan
 ```
@@ -90,6 +94,8 @@ docs/superpowers/     design spec and implementation plan
 - **The preview stage.** `/preview/<slug>` renders one component alone on a bare page. It has none of the site's theme, fonts, toasts or analytics, and it is `noindex`. The detail page shows it in an iframe, so site dark mode never restyles a component. Opening it with `?capture=1` freezes motion.
 - **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `patternbook-<slug>-<desktop|mobile>.png`. Known limitation: `modern-screenshot` draws `backdrop-filter` blur differently from the browser, so a glass component's PNG (navbar-glass, for example) differs slightly from its preview behind the frosted areas.
 - **Preferences.** The site theme and the React/HTML choice are kept in `localStorage` (`wl:theme` and `wl:format`).
+- **Filtered home links.** A head script hides the home intro before first paint when a search or known style tag is present. React takes over after hydration; clearing all filters brings the intro back. Applying tags on the ordinary home page keeps the intro in place so the chips do not jump.
+- **Site fonts.** Geist and Geist Mono are served from `public/fonts`, with their upstream license and source commit recorded there. Component fonts remain declared in `meta.fonts` and loaded from Google Fonts.
 
 ### Agent files
 
@@ -98,15 +104,17 @@ docs/superpowers/     design spec and implementation plan
 - `c/<slug>.md` for each component: the same brief that Copy for AI produces, but with the reference code in both React + Tailwind and HTML + CSS (Copy for AI includes only the format you picked);
 - `llms.txt`: an index of every component by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
 
-The build logs `Agent files: <n> written`: one per component plus `llms.txt` (37 today). The files are static, and `vercel.json` serves them with the right `Content-Type`.
+The build logs `Agent files: <n> written`: one per component plus `llms.txt` (37 today). The generated Vercel config serves them with the right `Content-Type`.
 
 ## Deploying to Vercel
 
-The site is static, so Vercel only serves `build/client`.
+The site uses Vercel's [Build Output API](https://vercel.com/docs/build-output-api). After pre-rendering, `scripts/build-vercel-output.ts` copies `build/client` into `.vercel/output/static` and writes `.vercel/output/config.json`. This contains routes, agent-file content types, baseline security headers and a CSP with the exact inline script hashes for each page. Static assets resolve before the SPA fallback, which has its own policy.
 
-1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a new project. `vercel.json` already sets everything: the build command (`npm run build`), the output directory (`build/client`), `framework: null` (no framework preset), the `Content-Type` headers for `/c/<slug>.md` and `/llms.txt`, baseline security headers (`nosniff`, `Referrer-Policy`, and a CSP of `frame-ancestors 'self'`), and a rewrite that sends unknown paths to `/__spa-fallback.html`. Make sure the project uses Node 22.22 or newer.
+1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a project. `vercel.json` sets `npm run build` and `framework: null`. Leave the Output Directory override unset so Vercel consumes `.vercel/output`. Make sure the project uses Node 22.22 or newer.
 2. **Set the real URL.** After the first deploy, set `SITE.url` in `src/site.ts` to the production domain, with no trailing slash, and redeploy. (`app/site.ts` re-exports it, so this is the only place to edit.) `SITE.url` builds the canonical and Open Graph URLs on component pages, the `Source:` line in each brief, and every link in `llms.txt`, so they are wrong until it matches the real domain.
 3. **Turn on Web Analytics.** In the Vercel project, open the Analytics tab and enable Web Analytics. `@vercel/analytics` is already mounted in the site layout.
+
+The CSP allows the site's scripts and the inline scripts whose hashes the build recorded. It restricts frames, forms and fonts to their required sources, rejects inline event handlers, and disables objects and base tags. Inline styles remain allowed for Tailwind layout attributes, Shiki and image capture. `npm run serve:build` applies the same generated headers, so local browser tests exercise the policy before deployment. After deploying, check the actual Vercel headers and Web Analytics delivery as well.
 
 ### Analytics plans
 
@@ -121,17 +129,10 @@ Page views are recorded on every plan, Hobby included. The four custom events ne
 
 Events fire only after the action succeeds, and each carries at most two props, which is the Pro plan's limit. The stage page (`/preview/<slug>`) does not load analytics.
 
-## Open follow-ups
+## Deployment follow-ups
 
-Known gaps, lowest risk last. None is a confirmed vulnerability.
-
-- **The hero flashes on a search deep link.** Only `/` is pre-rendered, so arriving at `/?q=…` shows the home hero until hydration reads the query, then removes it, which shifts the layout. An inline pre-hydration script (like `themeInitScript` in `app/lib/theme.ts`) could hide the hero before first paint. Tag links from a component page (`/?tags=…`) keep the hero, so the filtered grid starts below the fold.
-- **The sidebar options page is temporary.** `docs/mockups/sidebar-options.html` compares five sidebar layouts. Option A (collapsible groups) is built; the page is kept for reference and can be deleted once that choice is final.
-- **CI actions are pinned to major tags.** `.github/workflows/ci.yml` uses `actions/checkout@v7`, `actions/setup-node@v7` and `actions/upload-artifact@v7`. Pin each to a commit SHA (with the version in a comment), add `persist-credentials: false` to checkout, and consider Dependabot for actions.
-- **No full Content Security Policy.** `vercel.json` sets only `frame-ancestors 'self'`. A full CSP needs hashes for the theme init script and React Router's inline scripts, and `style-src 'unsafe-inline'` for the inline `style` attributes the app sets. The headers can't be checked locally (`npm run serve:build` doesn't apply `vercel.json`); verify them on a deployment.
-- **Font family names aren't URL-encoded.** `src/library/fonts.ts` only turns spaces into `+` when building Google Fonts URLs and the `<link>` in copied HTML. `meta.fonts` is maintainer-written, so this is hardening: encode each family and validate `meta.fonts` in `rules.ts`.
-- **Google Fonts sees every visitor.** The site loads Geist from Google Fonts, which sends visitors' IP addresses to Google. Self-hosting the font would remove that.
+On 2026-10-09, the configured public URL (`https://web-design-library.vercel.app`) still served an older "Web Design Library" page. Deploy the current build, then verify the production canonical URLs, component pages, agent files, response headers and enabled Web Analytics. The repository changes are covered by local checks; publishing and project settings are separate steps.
 
 ## License
 
-No license yet. All rights reserved until one is chosen; pick one before public launch.
+The code and authored components are [MIT licensed](LICENSE). Bundled Geist fonts retain their [SIL Open Font License 1.1](public/fonts/OFL.txt).

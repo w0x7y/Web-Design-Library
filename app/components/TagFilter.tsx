@@ -1,11 +1,10 @@
-import { useFilters } from '~/lib/use-filters'
+import type { Filters } from '~/lib/filters'
 import { useHydrated } from '~/lib/use-hydrated'
 import { STYLE_TAGS, TAG_GROUPS, type StyleTag } from '../../src/library/taxonomy'
 import { chip } from './ui'
 
 /** One toggle per style tag, clustered by TAG_GROUPS; the selection lives in ?tags. A component must carry every selected tag. */
-export function TagFilter() {
-  const { filters, setFilters } = useFilters()
+export function TagFilter({ filters, onChange }: { filters: Filters; onChange(next: Filters): void }) {
   // A click before hydration would be lost, so the chips open up once React is live.
   const hydrated = useHydrated()
 
@@ -13,7 +12,7 @@ export function TagFilter() {
     const selected = new Set(filters.tags)
     if (selected.has(tag)) selected.delete(tag)
     else selected.add(tag)
-    setFilters({ ...filters, tags: STYLE_TAGS.filter((t) => selected.has(t)) })
+    onChange({ ...filters, tags: STYLE_TAGS.filter((t) => selected.has(t)) })
   }
 
   return (
@@ -46,7 +45,7 @@ export function TagFilter() {
       {filters.tags.length > 0 && (
         <button
           type="button"
-          onClick={() => setFilters({ ...filters, tags: [] })}
+          onClick={() => onChange({ ...filters, tags: [] })}
           aria-label="Clear style filters"
           className={chip('bare')}
         >

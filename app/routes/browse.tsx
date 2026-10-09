@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { data, isRouteErrorResponse, type ShouldRevalidateFunctionArgs } from 'react-router'
 import { ComponentCard } from '~/components/ComponentCard'
 import { EmptyState } from '~/components/EmptyState'
@@ -6,8 +6,9 @@ import { Hero } from '~/components/Hero'
 import { NotFoundView } from '~/components/NotFoundView'
 import { CategoryScroller, Sidebar } from '~/components/Sidebar'
 import { TagFilter } from '~/components/TagFilter'
-import { browseResults, NO_FILTERS } from '~/lib/filters'
+import { browseResults, NO_FILTERS, parseFilters, type Filters } from '~/lib/filters'
 import { useFilters } from '~/lib/use-filters'
+import { useHydrated } from '~/lib/use-hydrated'
 import { SITE } from '~/site'
 import { allMetas } from '../../src/library/registry'
 import { CATEGORY_LABELS, isCategoryId } from '../../src/library/taxonomy'
@@ -43,14 +44,29 @@ const ALL = allMetas()
 export default function Browse({ loaderData }: Route.ComponentProps) {
   const { category } = loaderData
   const { filters, setFilters } = useFilters()
+  const hydrated = useHydrated()
+  // Tag links skip the intro. Applying tags while already browsing keeps the chips stationary.
+  // During hydration filters are empty on both sides, so this browser-only initial choice cannot change the markup.
+  const [keepIntroWithTags, setKeepIntroWithTags] = useState(() =>
+    typeof window === 'undefined' || parseFilters(new URLSearchParams(window.location.search)).tags.length === 0,
+  )
   const headingRef = useRef<HTMLHeadingElement>(null)
   const { inView, results, filtered } = browseResults(ALL, category, filters)
 
-  // The hero opens the home page. A search hides it, so the results aren't pushed below the fold; style tags
-  // don't, because toggling a chip under the hero must not move the chips under the pointer.
-  const showHero = !category && filters.q === ''
+  // Filtered links lead with their results. The head script hides the static intro until React knows the filters.
+  const showHero = !category && filters.q === '' && (filters.tags.length === 0 || keepIntroWithTags)
   // The hero holds the home page's h1; without it (a category, or a search) this heading is the h1.
   const Heading = showHero ? 'h2' : 'h1'
+
+  useEffect(() => {
+    if (!hydrated) return
+    document.documentElement.removeAttribute('data-browse-filtered')
+  }, [hydrated])
+
+  function applyFilters(next: Filters) {
+    if (!filtered || (next.q === '' && next.tags.length === 0)) setKeepIntroWithTags(true)
+    setFilters(next)
+  }
 
   // Clear filters removes the button that had focus, so focus moves to the heading. Clearing a search
   // brings the hero back and turns this <h1> into an <h2> (a new element), so focus waits until the
@@ -81,7 +97,7 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
             </p>
           </div>
           <div className="mt-5">
-            <TagFilter />
+            <TagFilter filters={filters} onChange={applyFilters} />
           </div>
           {!showHero && <h2 className="sr-only">Components</h2>}
           <div className="mt-8">
@@ -98,7 +114,7 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
                 filtered={filtered}
                 onClear={() => {
                   focusHeadingOnClear.current = true
-                  setFilters(NO_FILTERS)
+                  applyFilters(NO_FILTERS)
                 }}
               />
             )}

@@ -57,6 +57,8 @@ export default {
 | `addedAt` | `YYYY-MM-DD`. |
 | `author` | Reserved for community submissions. Leave it unset. |
 
+Font metadata must contain a family name, optionally followed by CSS2 axis names and value tuples. Every tuple must have one value or strictly ascending range per axis; tuples must not overlap or touch. `npm test` rejects malformed names, duplicate axes and invalid values. Keep metadata unencoded; the copy builder and preview encode the URL parameters.
+
 ## Authoring rules
 
 These are spec §4.5, verbatim:

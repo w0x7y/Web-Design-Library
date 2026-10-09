@@ -1,6 +1,27 @@
 @import "tailwindcss";
 @import "./stage.css";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/geist-mono-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html[data-browse-filtered] [data-home-hero] {
+  display: none;
+}
+
 @theme {
   --font-shell: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-shell-mono: "Geist Mono", ui-monospace, monospace;
