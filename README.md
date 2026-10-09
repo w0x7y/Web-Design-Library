@@ -133,7 +133,9 @@ Events fire only after the action succeeds, and each carries at most two props, 
 
 The Vercel project is `w0x7y/patternbook-w0x7y`, with production domain [patternbook-w0x7y.vercel.app](https://patternbook-w0x7y.vercel.app). `SITE.url` uses this domain. The project uses Node 22, `npm ci`, `npm run build`, and no Output Directory override. Web Analytics is enabled on Hobby.
 
-To deploy the generated Build Output API files through the CLI:
+The project is connected to `w0x7y/Web-Design-Library` through the Vercel GitHub app. Pushes and merges to `main` deploy to production automatically; other branches receive preview deployments.
+
+For a manual deployment of the generated Build Output API files through the CLI:
 
 ```bash
 npx vercel login
