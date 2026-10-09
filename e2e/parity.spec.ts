@@ -2,16 +2,12 @@ import { expect, test } from '@playwright/test'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
 import { previewPath, settleDocument } from '../app/lib/preview-ready'
+import { CAPTURE_VIEWPORTS, frameSize } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
 import { buildParityPage } from './lib/parity-page'
 
-// For every component and viewport, the hand-written HTML/CSS must render
-// like the React + Tailwind version (spec §7).
-
-const VIEWPORTS = [
-  { name: 'desktop', width: 1440, height: 900 },
-  { name: 'mobile', width: 390, height: 844 },
-] as const
+// For every component and capture viewport, the hand-written HTML/CSS must render
+// like the React + Tailwind version (spec §7), in the frame the PNG is captured in.
 
 const DEFAULT_MAX_DIFF_RATIO = 0.01
 
@@ -35,9 +31,9 @@ function compare(reactPng: Buffer, htmlPng: Buffer) {
 for (const { entry } of items) {
   const { meta } = entry
   const { slug } = meta
-  for (const vp of VIEWPORTS) {
-    test(`${slug} @ ${vp.name}: HTML/CSS matches React`, async ({ page }, testInfo) => {
-      await page.setViewportSize(vp)
+  for (const viewport of CAPTURE_VIEWPORTS) {
+    test(`${slug} @ ${viewport}: HTML/CSS matches React`, async ({ page }, testInfo) => {
+      await page.setViewportSize(frameSize(meta.preview.kind, viewport))
       await page.goto(previewPath(slug))
       await page.locator('[data-preview-backdrop][data-preview-state="ready"]').waitFor()
       const react = await page.locator('[data-capture-root] > *').first().screenshot({ animations: 'disabled' })

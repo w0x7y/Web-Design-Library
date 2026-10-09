@@ -5,7 +5,7 @@ import { PNG } from 'pngjs'
 import { loadLibrary } from '../scripts/load-library'
 import { fontDisplayName } from '../src/library/fonts'
 import { previewPath } from '../app/lib/preview-ready'
-import { ELEMENT_FRAME_HEIGHT, VIEWPORTS } from '../app/lib/viewports'
+import { frameSize } from '../app/lib/viewports'
 
 // A downloaded PNG must show the component in the fonts its preview shows. The failure this guards
 // against is a PNG in fallback fonts (sometimes with overlapping text) next to a correct preview.
@@ -32,10 +32,7 @@ const PIXELMATCH_OPTIONS = { threshold: 0.1 }
 
 const WITH_FONTS = (await loadLibrary()).map((item) => item.entry.meta).filter((meta) => meta.fonts.length > 0)
 
-test.use({
-  viewport: { width: VIEWPORTS.desktop.width, height: VIEWPORTS.desktop.height },
-  deviceScaleFactor: 2,
-})
+test.use({ deviceScaleFactor: 2 })
 
 test('the library has components with web fonts to check', () => {
   expect(WITH_FONTS.length).toBeGreaterThanOrEqual(13)
@@ -67,9 +64,10 @@ const count = (mask: Uint8Array) => mask.reduce((sum, value) => sum + value, 0)
 
 for (const meta of WITH_FONTS) {
   test(`${meta.slug}: the Desktop PNG shows the component's web fonts`, async ({ page }, testInfo) => {
-    // The capture frame of an element is shorter than the screen, and the element is captured with its backdrop.
+    // The reference renders in the Desktop PNG's capture frame (an element's is shorter than the screen),
+    // and an element is captured with its backdrop.
     const isElement = meta.preview.kind === 'element'
-    if (isElement) await page.setViewportSize({ width: VIEWPORTS.desktop.width, height: ELEMENT_FRAME_HEIGHT })
+    await page.setViewportSize(frameSize(meta.preview.kind, 'desktop'))
 
     // The capture waits for the page to report ready with motion frozen; so does a reference.
     await page.goto(previewPath(meta.slug, { capture: true }))

@@ -1,16 +1,9 @@
 @import "tailwindcss";
+@import "./stage.css";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --font-shell: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-shell-mono: "Geist Mono", ui-monospace, monospace;
-}
-
-/* Image capture (/preview/<slug>?capture=1): freeze motion so frames are deterministic */
-[data-capture] *,
-[data-capture] *::before,
-[data-capture] *::after {
-  transition: none !important;
-  animation: none !important;
 }
 
 /* Not-found views carry their own search field; hide the header's copy so the page has one */

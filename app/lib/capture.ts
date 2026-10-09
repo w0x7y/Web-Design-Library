@@ -2,9 +2,7 @@ import { domToBlob } from 'modern-screenshot'
 import type { ComponentMeta } from '../../src/library/types'
 import { SITE } from '../site'
 import { previewPath, type PreviewState } from './preview-ready'
-import { ELEMENT_FRAME_HEIGHT, VIEWPORTS } from './viewports'
-
-export type CaptureViewport = 'desktop' | 'mobile'
+import { frameSize, type CaptureViewport } from './viewports'
 
 export const CAPTURE_SCALE = 2
 export const CAPTURE_TIMEOUT_MS = 10_000
@@ -13,12 +11,6 @@ const POLL_MS = 50
 
 export function pngFileName(slug: string, viewport: CaptureViewport): string {
   return `${SITE.slug}-${slug}-${viewport}.png`
-}
-
-/** The size of the hidden iframe, which is also the viewport the component lays out in. */
-export function frameSize(kind: ComponentMeta['preview']['kind'], viewport: CaptureViewport) {
-  const { width, height } = VIEWPORTS[viewport]
-  return { width, height: kind === 'element' ? ELEMENT_FRAME_HEIGHT : height }
 }
 
 /** Rejects with "Capture timed out" if `work` has not settled after `ms`. */

@@ -1,11 +1,7 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
-import type { CaptureViewport } from '~/lib/capture'
-import { VIEWPORTS } from '~/lib/viewports'
+import { CAPTURE_VIEWPORTS, VIEWPORTS, type CaptureViewport } from '~/lib/viewports'
 
-const SIZES: { viewport: CaptureViewport; label: string }[] = [
-  { viewport: 'desktop', label: 'Desktop PNG' },
-  { viewport: 'mobile', label: 'Mobile PNG' },
-]
+const SIZES = CAPTURE_VIEWPORTS.map((viewport) => ({ viewport, label: `${VIEWPORTS[viewport].label} PNG` }))
 
 const ITEM =
   'flex h-9 w-full items-center gap-2 rounded-lg px-2.5 text-left text-sm text-zinc-800 outline-none hover:bg-zinc-100 focus-visible:bg-zinc-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800 dark:focus-visible:bg-zinc-800 dark:focus-visible:outline-zinc-100'

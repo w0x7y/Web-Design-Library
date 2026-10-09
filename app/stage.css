@@ -1,0 +1,54 @@
+/*
+ * The stage: the neutral page a library component renders on, whatever the site theme. It is white
+ * with black text, Tailwind's default sans, default font smoothing and a light colour scheme.
+ * PreviewSurface sets the attributes below (on the preview page and in browse thumbnails). The parity
+ * harness (e2e/lib/parity-page.ts) inlines this file unchanged and sets the same attributes, so it
+ * must stay plain CSS, with no Tailwind directives.
+ *
+ * These rules are unlayered, so they beat Tailwind's utilities. That is safe only because they target
+ * the stage's own two elements, the backdrop and the capture root, and never a component's markup.
+ * The motion freeze at the end is the one exception, and it has to be.
+ */
+
+[data-preview-backdrop] {
+  --stage-padding: 48px;
+  background-color: #fff;
+  color: #000;
+  color-scheme: light;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  /* Undefined on the parity page, where the backdrop keeps the inherited font; the twin's reset sets the component's own. */
+  font-family: var(--font-sans);
+}
+
+[data-preview-backdrop][data-mode="page"] {
+  min-height: 100vh;
+}
+
+[data-preview-backdrop][data-mode="thumbnail"] {
+  height: 100%;
+}
+
+/* Sections fill the width; elements sit centred at their own size, inside the padding. */
+[data-preview-backdrop][data-kind="element"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--stage-padding);
+}
+
+[data-preview-backdrop] > [data-capture-root] {
+  width: 100%;
+}
+
+[data-preview-backdrop][data-kind="element"] > [data-capture-root] {
+  width: fit-content;
+}
+
+/* Image capture (/preview/<slug>?capture=1): freeze motion so frames are deterministic */
+[data-capture] *,
+[data-capture] *::before,
+[data-capture] *::after {
+  transition: none !important;
+  animation: none !important;
+}

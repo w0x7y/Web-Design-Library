@@ -1,20 +1,8 @@
-import { frameSize, pngFileName, withTimeout } from './capture'
+import { pngFileName, withTimeout } from './capture'
 
 test('pngFileName', () => {
   expect(pngFileName('hero-split-image', 'mobile')).toBe('web-library-hero-split-image-mobile.png')
   expect(pngFileName('buttons-minimal', 'desktop')).toBe('web-library-buttons-minimal-desktop.png')
-})
-
-describe('frameSize', () => {
-  test('sections use the viewport height', () => {
-    expect(frameSize('section', 'desktop')).toEqual({ width: 1440, height: 900 })
-    expect(frameSize('section', 'mobile')).toEqual({ width: 390, height: 844 })
-  })
-
-  test('elements use the fixed element frame height', () => {
-    expect(frameSize('element', 'desktop')).toEqual({ width: 1440, height: 480 })
-    expect(frameSize('element', 'mobile')).toEqual({ width: 390, height: 480 })
-  })
 })
 
 describe('withTimeout', () => {

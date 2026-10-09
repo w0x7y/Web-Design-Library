@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { previewPath } from '~/lib/preview-ready'
-import { ELEMENT_FRAME_HEIGHT, VIEWPORTS, type ViewportId } from '~/lib/viewports'
+import { frameSize, type ViewportId } from '~/lib/viewports'
 
 /**
  * The component's own page (/preview/<slug>) in an iframe at the viewport's real
@@ -18,8 +18,7 @@ export function PreviewFrame({
   kind: 'section' | 'element'
   viewport: ViewportId
 }) {
-  const { width } = VIEWPORTS[viewport]
-  const height = kind === 'element' ? ELEMENT_FRAME_HEIGHT : VIEWPORTS[viewport].height
+  const { width, height } = frameSize(kind, viewport)
   const [containerWidth, setContainerWidth] = useState<number | null>(null)
 
   const measure = useCallback((el: HTMLDivElement) => {

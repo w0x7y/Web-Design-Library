@@ -9,7 +9,7 @@ Web Library is a static site of copy-paste UI components. This file is the autho
 3. Write `Component.tsx`.
 4. Write `index.html` and `styles.css`. `styles.css` begins with the reset template below.
 5. Run `npm test`. Done when the library test reports no violations for your folder.
-6. Run `npm run test:parity`. Done when both the `desktop` (1440×900) and `mobile` (390×844) tests pass. Fix the CSS, not the tolerance.
+6. Run `npm run test:parity`. Done when both the `desktop` (1440px wide) and `mobile` (390px wide) tests pass. Each one renders in the frame the PNG is captured in. Fix the CSS, not the tolerance.
 7. Check `/c/<slug>` in `npm run dev` at desktop and mobile widths, in both the light and dark site themes. Until the detail page exists, check `/preview/<slug>`.
 
 ## Folder layout
@@ -117,5 +117,5 @@ The twin passes parity when it reproduces Tailwind's computed values exactly. Th
 - **Specificity.** Reset rules such as `.slug :is(img, video)` are (0,1,1) and beat a single class. Write component rules as `.slug .slug__part` (0,2,0).
 - **Naming.** Prefix element classes with the slug (`.slug__part`, `.slug__part--modifier`), so that host-page classes like `.btn` cannot collide. `@keyframes` names are global too, so prefix them as well.
 - **Fonts.** In TSX, use an arbitrary family class with a fallback stack, e.g. `font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]`. Never change the theme. Use the same stack in the CSS.
-- **Element sizing.** The preview's capture root is `w-fit`, so give element roots fixed widths with `sm:` steps (e.g. `w-72 sm:w-[22rem]`) rather than percentages.
+- **Element sizing.** An element's capture root is `fit-content` wide (`app/stage.css`), so give element roots fixed widths with `sm:` steps (e.g. `w-72 sm:w-[22rem]`) rather than percentages.
 - **Debugging.** Run `npx playwright test e2e/parity.spec.ts --reporter=html`, then `npx playwright show-report`, to see the `diff` image attached to a failing test.

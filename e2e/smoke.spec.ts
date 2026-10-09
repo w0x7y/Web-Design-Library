@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { expect, test, type Page } from '@playwright/test'
 import { PNG } from 'pngjs'
 import { previewPath } from '../app/lib/preview-ready'
+import { frameSize } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
 
@@ -60,6 +61,22 @@ test('the preview page is a bare stage: no site theme, fonts, toaster or analyti
   await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
   await expect(page.locator('section[aria-label^="Notifications"]')).toHaveCount(0) // Sonner's toaster region
   expect(requests.filter((url) => url.includes('/_vercel/insights/') || url.includes('family=Geist'))).toEqual([])
+})
+
+// Parity shares the stage stylesheet with the preview page, so it can't see a stage that is wrong on both sides.
+test('the stage fills the frame and centres an element at its own width inside 48px of padding', async ({ page }) => {
+  const frame = frameSize('element', 'desktop')
+  await page.setViewportSize(frame)
+  await page.goto(previewPath('buttons-minimal'))
+  const backdrop = page.locator('[data-preview-backdrop][data-preview-state="ready"]')
+  await expect(backdrop).toHaveCSS('padding', '48px')
+  const stage = (await backdrop.boundingBox())!
+  const root = (await page.locator('[data-capture-root]').boundingBox())!
+  expect(stage).toEqual({ x: 0, y: 0, ...frame })
+  // Not stretched to the stage, so a transparent PNG is only as wide as the element.
+  expect(root.width).toBeLessThan(stage.width - 2 * 48)
+  expect(root.x).toBeCloseTo(stage.width - root.x - root.width, 0)
+  expect(root.y).toBeCloseTo(stage.height - root.y - root.height, 0)
 })
 
 test('a preview whose component fails to load reports failed', async ({ page }) => {
@@ -307,6 +324,8 @@ test.describe('copy and export', () => {
     expect(await readClipboard(page)).toBe(HERO.css)
   })
 
+  // PNG sizes are the spec's numbers written out (frame size × capture scale 2), not derived from frameSize:
+  // they check what the frame geometry and the capture produce together.
   test('download desktop and mobile PNGs at 2x', async ({ page }) => {
     await openDetail(page)
     for (const [label, width, name] of [['Desktop PNG', 2880, 'desktop'], ['Mobile PNG', 780, 'mobile']] as const) {

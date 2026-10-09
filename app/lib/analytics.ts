@@ -1,6 +1,6 @@
 import { track } from '@vercel/analytics'
 import type { Format } from '../../src/library/types'
-import type { CaptureViewport } from './capture'
+import type { CaptureViewport } from './viewports'
 
 // Custom events only record on Vercel Pro/Enterprise (at most 2 props each); on Hobby they are inert.
 export type AnalyticsEvent =

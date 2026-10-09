@@ -8,7 +8,7 @@ import { PreviewSurface } from './PreviewSurface'
 // Elements render at natural size (up to the stage's inner width), centred, and
 // shrink only when they would not fit with a 24px margin.
 const STAGE_WIDTH = 1280
-const ELEMENT_MAX_WIDTH = STAGE_WIDTH - 2 * 48
+const ELEMENT_MAX_WIDTH = `calc(${STAGE_WIDTH}px - 2 * var(--stage-padding))` // --stage-padding: app/stage.css
 const ELEMENT_MARGIN = 24
 
 interface Size {
