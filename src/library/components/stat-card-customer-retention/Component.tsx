@@ -14,29 +14,25 @@ export default function StatCardCustomerRetention() {
         </span>
       </div>
       <dl className="mt-6 space-y-4 text-xs">
-        <div>
-          <div className="flex justify-between gap-3">
-            <dt>Teams</dt>
-            <dd className="font-semibold">96%</dd>
-          </div>
-          <div
+        <div className="grid grid-cols-2 gap-x-3">
+          <dt>Teams</dt>
+          <dd className="text-right font-semibold">96%</dd>
+          <dd
             aria-hidden="true"
-            className="mt-2 h-1.5 rounded-full bg-indigo-200"
+            className="col-span-2 mt-2 h-1.5 rounded-full bg-indigo-200"
           >
             <div className="h-1.5 w-[96%] rounded-full bg-indigo-700" />
-          </div>
+          </dd>
         </div>
-        <div>
-          <div className="flex justify-between gap-3">
-            <dt>Individuals</dt>
-            <dd className="font-semibold">87%</dd>
-          </div>
-          <div
+        <div className="grid grid-cols-2 gap-x-3">
+          <dt>Individuals</dt>
+          <dd className="text-right font-semibold">87%</dd>
+          <dd
             aria-hidden="true"
-            className="mt-2 h-1.5 rounded-full bg-indigo-200"
+            className="col-span-2 mt-2 h-1.5 rounded-full bg-indigo-200"
           >
             <div className="h-1.5 w-[87%] rounded-full bg-indigo-400" />
-          </div>
+          </dd>
         </div>
       </dl>
       <p className="mt-5 border-t border-indigo-200 pt-3 text-[11px] leading-5 text-indigo-800">

@@ -42,6 +42,7 @@ export default function ProductCardCeramic() {
         <div className="mt-4 flex items-center justify-between gap-4 border-t border-stone-300 pt-3">
           <p className="font-serif text-xl">$48</p>
           <a
+            aria-label="View object: The Sunday vase"
             href="#sunday-vase"
             className="rounded-sm text-xs underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
           >

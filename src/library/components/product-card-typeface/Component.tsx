@@ -30,6 +30,7 @@ export default function ProductCardTypeface() {
           </div>
         </dl>
         <a
+          aria-label="Explore the family: Margin Serif"
           href="#margin-serif"
           className="mt-4 flex items-center justify-between rounded-sm text-xs underline underline-offset-4 hover:text-stone-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
         >

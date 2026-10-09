@@ -12,165 +12,96 @@
 .stat-card-energy-meter table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .stat-card-energy-meter summary { display: list-item; }
 
-@layer properties;
+
+/* Component */
 .stat-card-energy-meter {
-  --stat-card-energy-meter-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --stat-card-energy-meter-color-lime-300: oklch(89.7% 0.196 126.665);
-  --stat-card-energy-meter-color-zinc-100: oklch(96.7% 0.001 286.375);
-  --stat-card-energy-meter-color-zinc-300: oklch(87.1% 0.006 286.286);
-  --stat-card-energy-meter-color-zinc-700: oklch(37% 0.013 285.805);
-  --stat-card-energy-meter-color-zinc-950: oklch(14.1% 0.005 285.823);
-  --stat-card-energy-meter-spacing: 0.25rem;
-  --stat-card-energy-meter-text-sm: 0.875rem;
-  --stat-card-energy-meter-text-sm--line-height: calc(1.25 / 0.875);
-  --stat-card-energy-meter-text-base: 1rem;
-  --stat-card-energy-meter-text-base--line-height: calc(1.5 / 1);
-  --stat-card-energy-meter-text-5xl: 3rem;
-  --stat-card-energy-meter-text-5xl--line-height: 1;
-  --stat-card-energy-meter-font-weight-medium: 500;
-  --stat-card-energy-meter-font-weight-black: 900;
-  --stat-card-energy-meter-tracking-tight: -0.025em;
-  --stat-card-energy-meter-tracking-wider: 0.05em;
-  --stat-card-energy-meter-tracking-widest: 0.1em;
+  width: 18rem;
+  border: 2px solid oklch(89.7% 0.196 126.665); /* lime-300 */
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-1, .stat-card-energy-meter .stat-card-energy-meter__part-1 {
-  width: calc(var(--stat-card-energy-meter-spacing) * 72);
-  border-style: var(--stat-card-energy-meter-tw-border-style);
-  border-width: 2px;
-  border-color: var(--stat-card-energy-meter-color-lime-300);
-  background-color: var(--stat-card-energy-meter-color-zinc-950);
-  color: var(--stat-card-energy-meter-color-lime-300);
-}
-@media (width >= 40rem) {
-  .stat-card-energy-meter.stat-card-energy-meter__part-1, .stat-card-energy-meter .stat-card-energy-meter__part-1 {
-    width: calc(var(--stat-card-energy-meter-spacing) * 80);
-  }
-}
-.stat-card-energy-meter.stat-card-energy-meter__part-2, .stat-card-energy-meter .stat-card-energy-meter__part-2 {
+
+/* Report header */
+.stat-card-energy-meter .stat-card-energy-meter__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom-style: var(--stat-card-energy-meter-tw-border-style);
-  border-bottom-width: 2px;
-  border-color: var(--stat-card-energy-meter-color-lime-300);
-  padding-inline: calc(var(--stat-card-energy-meter-spacing) * 4);
-  padding-block: calc(var(--stat-card-energy-meter-spacing) * 3);
-  font-family: var(--stat-card-energy-meter-font-mono);
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid oklch(89.7% 0.196 126.665); /* lime-300 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 10px;
-  --stat-card-energy-meter-tw-tracking: var(--stat-card-energy-meter-tracking-wider);
-  letter-spacing: var(--stat-card-energy-meter-tracking-wider);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-3, .stat-card-energy-meter .stat-card-energy-meter__part-3 {
-  padding: calc(var(--stat-card-energy-meter-spacing) * 5);
+
+/* Consumption and budget */
+.stat-card-energy-meter .stat-card-energy-meter__body {
+  padding: 1.25rem;
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-4, .stat-card-energy-meter .stat-card-energy-meter__part-4 {
-  font-family: var(--stat-card-energy-meter-font-mono);
+
+.stat-card-energy-meter .stat-card-energy-meter__label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 10px;
-  --stat-card-energy-meter-tw-tracking: var(--stat-card-energy-meter-tracking-widest);
-  letter-spacing: var(--stat-card-energy-meter-tracking-widest);
-  color: var(--stat-card-energy-meter-color-zinc-300);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: oklch(87.1% 0.006 286.286); /* zinc-300 */
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-5, .stat-card-energy-meter .stat-card-energy-meter__part-5 {
-  margin-top: calc(var(--stat-card-energy-meter-spacing) * 3);
+
+.stat-card-energy-meter .stat-card-energy-meter__consumption {
   display: flex;
   align-items: baseline;
-  gap: calc(var(--stat-card-energy-meter-spacing) * 2);
-  font-size: var(--stat-card-energy-meter-text-5xl);
-  line-height: var(--stat-card-energy-meter-tw-leading, var(--stat-card-energy-meter-text-5xl--line-height));
-  --stat-card-energy-meter-tw-font-weight: var(--stat-card-energy-meter-font-weight-black);
-  font-weight: var(--stat-card-energy-meter-font-weight-black);
-  --stat-card-energy-meter-tw-tracking: var(--stat-card-energy-meter-tracking-tight);
-  letter-spacing: var(--stat-card-energy-meter-tracking-tight);
-  --stat-card-energy-meter-tw-numeric-spacing: tabular-nums;
-  font-variant-numeric: var(--stat-card-energy-meter-tw-ordinal,) var(--stat-card-energy-meter-tw-slashed-zero,) var(--stat-card-energy-meter-tw-numeric-figure,) var(--stat-card-energy-meter-tw-numeric-spacing,) var(--stat-card-energy-meter-tw-numeric-fraction,);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-6, .stat-card-energy-meter .stat-card-energy-meter__part-6 {
-  font-size: var(--stat-card-energy-meter-text-base);
-  line-height: var(--stat-card-energy-meter-tw-leading, var(--stat-card-energy-meter-text-base--line-height));
-  --stat-card-energy-meter-tw-font-weight: var(--stat-card-energy-meter-font-weight-medium);
-  font-weight: var(--stat-card-energy-meter-font-weight-medium);
+
+.stat-card-energy-meter .stat-card-energy-meter__unit {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-7, .stat-card-energy-meter .stat-card-energy-meter__part-7 {
-  margin-top: calc(var(--stat-card-energy-meter-spacing) * 6);
-  height: calc(var(--stat-card-energy-meter-spacing) * 4);
-  border-style: var(--stat-card-energy-meter-tw-border-style);
-  border-width: 1px;
-  border-color: var(--stat-card-energy-meter-color-lime-300);
-  padding: calc(var(--stat-card-energy-meter-spacing) * 0.5);
+
+.stat-card-energy-meter .stat-card-energy-meter__track {
+  height: 1rem;
+  margin-top: 1.5rem;
+  padding: 0.125rem;
+  border: 1px solid oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-8, .stat-card-energy-meter .stat-card-energy-meter__part-8 {
-  height: 100%;
+
+.stat-card-energy-meter .stat-card-energy-meter__fill {
   width: 74%;
-  background-color: var(--stat-card-energy-meter-color-lime-300);
+  height: 100%;
+  background-color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-9, .stat-card-energy-meter .stat-card-energy-meter__part-9 {
-  margin-top: calc(var(--stat-card-energy-meter-spacing) * 2);
+
+.stat-card-energy-meter .stat-card-energy-meter__budget {
   display: flex;
   justify-content: space-between;
-  gap: calc(var(--stat-card-energy-meter-spacing) * 3);
-  font-family: var(--stat-card-energy-meter-font-mono);
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 10px;
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-10, .stat-card-energy-meter .stat-card-energy-meter__part-10 {
-  margin-top: calc(var(--stat-card-energy-meter-spacing) * 5);
-  border-top-style: var(--stat-card-energy-meter-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--stat-card-energy-meter-color-zinc-700);
-  padding-top: calc(var(--stat-card-energy-meter-spacing) * 4);
-  font-size: var(--stat-card-energy-meter-text-sm);
-  line-height: var(--stat-card-energy-meter-tw-leading, var(--stat-card-energy-meter-text-sm--line-height));
-  color: var(--stat-card-energy-meter-color-zinc-100);
+
+.stat-card-energy-meter .stat-card-energy-meter__remaining {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid oklch(37% 0.013 285.805); /* zinc-700 */
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(96.7% 0.001 286.375); /* zinc-100 */
 }
-.stat-card-energy-meter.stat-card-energy-meter__part-11, .stat-card-energy-meter .stat-card-energy-meter__part-11 {
-  color: var(--stat-card-energy-meter-color-lime-300);
+
+.stat-card-energy-meter .stat-card-energy-meter__allowance {
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
 }
-@property --stat-card-energy-meter-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --stat-card-energy-meter-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --stat-card-energy-meter-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --stat-card-energy-meter-tw-ordinal {
-  syntax: "*";
-  inherits: false;
-}
-@property --stat-card-energy-meter-tw-slashed-zero {
-  syntax: "*";
-  inherits: false;
-}
-@property --stat-card-energy-meter-tw-numeric-figure {
-  syntax: "*";
-  inherits: false;
-}
-@property --stat-card-energy-meter-tw-numeric-spacing {
-  syntax: "*";
-  inherits: false;
-}
-@property --stat-card-energy-meter-tw-numeric-fraction {
-  syntax: "*";
-  inherits: false;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .stat-card-energy-meter *, .stat-card-energy-meter ::before, .stat-card-energy-meter ::after, .stat-card-energy-meter ::backdrop {
-      --stat-card-energy-meter-tw-border-style: solid;
-      --stat-card-energy-meter-tw-tracking: initial;
-      --stat-card-energy-meter-tw-font-weight: initial;
-      --stat-card-energy-meter-tw-ordinal: initial;
-      --stat-card-energy-meter-tw-slashed-zero: initial;
-      --stat-card-energy-meter-tw-numeric-figure: initial;
-      --stat-card-energy-meter-tw-numeric-spacing: initial;
-      --stat-card-energy-meter-tw-numeric-fraction: initial;
-    }
+
+@media (width >= 40rem) {
+  .stat-card-energy-meter {
+    width: 20rem;
   }
 }

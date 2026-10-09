@@ -12,144 +12,108 @@
 .product-card-ceramic table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .product-card-ceramic summary { display: list-item; }
 
-@layer properties;
+
+/* Component */
 .product-card-ceramic {
-  --product-card-ceramic-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --product-card-ceramic-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --product-card-ceramic-color-stone-200: oklch(92.3% 0.003 48.717);
-  --product-card-ceramic-color-stone-300: oklch(86.9% 0.005 56.366);
-  --product-card-ceramic-color-stone-600: oklch(44.4% 0.011 73.639);
-  --product-card-ceramic-color-stone-900: oklch(21.6% 0.006 56.043);
-  --product-card-ceramic-spacing: 0.25rem;
-  --product-card-ceramic-text-xs: 0.75rem;
-  --product-card-ceramic-text-xs--line-height: calc(1 / 0.75);
-  --product-card-ceramic-text-xl: 1.25rem;
-  --product-card-ceramic-text-xl--line-height: calc(1.75 / 1.25);
-  --product-card-ceramic-tracking-widest: 0.1em;
-  --product-card-ceramic-radius-sm: 0.25rem;
-}
-.product-card-ceramic.product-card-ceramic__part-1, .product-card-ceramic .product-card-ceramic__part-1 {
-  width: calc(var(--product-card-ceramic-spacing) * 72);
-  border-style: var(--product-card-ceramic-tw-border-style);
-  border-width: 1px;
-  border-color: var(--product-card-ceramic-color-stone-300);
+  width: 18rem;
+  border: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
   background-color: #f7f4ec;
-  color: var(--product-card-ceramic-color-stone-900);
+  color: oklch(21.6% 0.006 56.043); /* stone-900 */
 }
-@media (width >= 40rem) {
-  .product-card-ceramic.product-card-ceramic__part-1, .product-card-ceramic .product-card-ceramic__part-1 {
-    width: calc(var(--product-card-ceramic-spacing) * 80);
-  }
-}
-.product-card-ceramic.product-card-ceramic__part-2, .product-card-ceramic .product-card-ceramic__part-2 {
+
+/* Artwork */
+.product-card-ceramic .product-card-ceramic__artwork {
   position: relative;
   display: flex;
-  height: calc(var(--product-card-ceramic-spacing) * 36);
   align-items: center;
   justify-content: center;
-  background-color: var(--product-card-ceramic-color-stone-200);
+  height: 9rem;
+  background-color: oklch(92.3% 0.003 48.717); /* stone-200 */
 }
-.product-card-ceramic.product-card-ceramic__part-3, .product-card-ceramic .product-card-ceramic__part-3 {
+
+.product-card-ceramic .product-card-ceramic__batch {
   position: absolute;
-  top: calc(var(--product-card-ceramic-spacing) * 3);
-  left: calc(var(--product-card-ceramic-spacing) * 3);
-  font-family: var(--product-card-ceramic-font-mono);
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 9px;
-  --product-card-ceramic-tw-tracking: var(--product-card-ceramic-tracking-widest);
-  letter-spacing: var(--product-card-ceramic-tracking-widest);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.product-card-ceramic.product-card-ceramic__part-4, .product-card-ceramic .product-card-ceramic__part-4 {
-  height: calc(var(--product-card-ceramic-spacing) * 32);
-  width: calc(var(--product-card-ceramic-spacing) * 40);
+
+.product-card-ceramic .product-card-ceramic__vase {
+  width: 10rem;
+  height: 8rem;
 }
-.product-card-ceramic.product-card-ceramic__part-5, .product-card-ceramic .product-card-ceramic__part-5 {
-  padding: calc(var(--product-card-ceramic-spacing) * 4);
+
+/* Product details */
+.product-card-ceramic .product-card-ceramic__body {
+  padding: 1rem;
 }
-.product-card-ceramic.product-card-ceramic__part-6, .product-card-ceramic .product-card-ceramic__part-6 {
+
+.product-card-ceramic .product-card-ceramic__collection {
   font-size: 10px;
-  --product-card-ceramic-tw-tracking: 0.15em;
   letter-spacing: 0.15em;
-  color: var(--product-card-ceramic-color-stone-600);
   text-transform: uppercase;
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
 }
-.product-card-ceramic.product-card-ceramic__part-7, .product-card-ceramic .product-card-ceramic__part-7 {
-  margin-top: calc(var(--product-card-ceramic-spacing) * 2);
-  font-family: var(--product-card-ceramic-font-serif);
-  font-size: var(--product-card-ceramic-text-xl);
-  line-height: var(--product-card-ceramic-tw-leading, var(--product-card-ceramic-text-xl--line-height));
+
+.product-card-ceramic .product-card-ceramic__title,
+.product-card-ceramic .product-card-ceramic__price {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
 }
-.product-card-ceramic.product-card-ceramic__part-8, .product-card-ceramic .product-card-ceramic__part-8 {
-  margin-top: var(--product-card-ceramic-spacing);
-  font-size: var(--product-card-ceramic-text-xs);
-  line-height: var(--product-card-ceramic-tw-leading, var(--product-card-ceramic-text-xs--line-height));
-  color: var(--product-card-ceramic-color-stone-600);
+
+.product-card-ceramic .product-card-ceramic__title {
+  margin-top: 0.5rem;
 }
-.product-card-ceramic.product-card-ceramic__part-9, .product-card-ceramic .product-card-ceramic__part-9 {
-  margin-top: calc(var(--product-card-ceramic-spacing) * 4);
+
+.product-card-ceramic .product-card-ceramic__material {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+}
+
+.product-card-ceramic .product-card-ceramic__purchase {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--product-card-ceramic-spacing) * 4);
-  border-top-style: var(--product-card-ceramic-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--product-card-ceramic-color-stone-300);
-  padding-top: calc(var(--product-card-ceramic-spacing) * 3);
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
 }
-.product-card-ceramic.product-card-ceramic__part-10, .product-card-ceramic .product-card-ceramic__part-10 {
-  font-family: var(--product-card-ceramic-font-serif);
-  font-size: var(--product-card-ceramic-text-xl);
-  line-height: var(--product-card-ceramic-tw-leading, var(--product-card-ceramic-text-xl--line-height));
-}
-.product-card-ceramic.product-card-ceramic__part-11, .product-card-ceramic .product-card-ceramic__part-11 {
-  border-radius: var(--product-card-ceramic-radius-sm);
-  font-size: var(--product-card-ceramic-text-xs);
-  line-height: var(--product-card-ceramic-tw-leading, var(--product-card-ceramic-text-xs--line-height));
+
+.product-card-ceramic .product-card-ceramic__link {
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
-@media (hover: hover) {
-  .product-card-ceramic.product-card-ceramic__part-11:hover, .product-card-ceramic .product-card-ceramic__part-11:hover {
-    color: var(--product-card-ceramic-color-stone-600);
-  }
-}
-.product-card-ceramic.product-card-ceramic__part-11:focus-visible, .product-card-ceramic .product-card-ceramic__part-11:focus-visible {
-  outline-style: var(--product-card-ceramic-tw-outline-style);
-  outline-width: 2px;
-}
-.product-card-ceramic.product-card-ceramic__part-11:focus-visible, .product-card-ceramic .product-card-ceramic__part-11:focus-visible {
-  outline-offset: 2px;
-}
-.product-card-ceramic.product-card-ceramic__part-11:focus-visible, .product-card-ceramic .product-card-ceramic__part-11:focus-visible {
-  outline-color: var(--product-card-ceramic-color-stone-900);
-}
-.product-card-ceramic.product-card-ceramic__part-12, .product-card-ceramic .product-card-ceramic__part-12 {
+
+.product-card-ceramic .product-card-ceramic__arrow {
   display: inline-block;
-  width: calc(var(--product-card-ceramic-spacing) * 3.5);
-  height: calc(var(--product-card-ceramic-spacing) * 3.5);
+  width: 0.875rem;
+  height: 0.875rem;
   vertical-align: -0.125em;
 }
-@property --product-card-ceramic-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
+
+.product-card-ceramic .product-card-ceramic__link:focus-visible {
+  outline: 2px solid oklch(21.6% 0.006 56.043); /* stone-900 */
+  outline-offset: 2px;
 }
-@property --product-card-ceramic-tw-tracking {
-  syntax: "*";
-  inherits: false;
+
+@media (hover: hover) {
+  .product-card-ceramic .product-card-ceramic__link:hover {
+    color: oklch(44.4% 0.011 73.639); /* stone-600 */
+  }
 }
-@property --product-card-ceramic-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .product-card-ceramic *, .product-card-ceramic ::before, .product-card-ceramic ::after, .product-card-ceramic ::backdrop {
-      --product-card-ceramic-tw-border-style: solid;
-      --product-card-ceramic-tw-tracking: initial;
-      --product-card-ceramic-tw-outline-style: solid;
-    }
+
+@media (width >= 40rem) {
+  .product-card-ceramic {
+    width: 20rem;
   }
 }

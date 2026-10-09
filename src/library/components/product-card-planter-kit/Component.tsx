@@ -33,7 +33,7 @@ export default function ProductCardPlanterKit() {
       <div className="p-4">
         <div className="flex items-center justify-between gap-2">
           <h2 className="text-base font-bold">The little herb club</h2>
-          <span className="rounded-full bg-green-900 px-2 py-1 text-[10px] font-medium text-white">
+          <span className="shrink-0 rounded-full bg-green-900 px-2 py-1 text-[10px] font-medium text-white">
             3 herbs
           </span>
         </div>
@@ -44,6 +44,7 @@ export default function ProductCardPlanterKit() {
           Seeds, pots &amp; a growing guide
         </p>
         <a
+          aria-label="Start growing $24: The little herb club"
           href="#little-herb-club"
           className="mt-3 flex h-9 items-center justify-between rounded-full bg-green-900 px-4 text-sm font-semibold text-white hover:bg-green-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-900"
         >

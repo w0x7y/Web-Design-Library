@@ -41,6 +41,7 @@ export default function ProductCardSoundKit() {
         </div>
       </dl>
       <a
+        aria-label="Get the pack $29: After-hours textures"
         href="#after-hours-license"
         className="mt-3 flex h-9 items-center justify-between rounded-lg bg-violet-300 px-3 text-sm font-semibold text-zinc-950 hover:bg-violet-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300"
       >

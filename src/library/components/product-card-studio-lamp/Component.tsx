@@ -7,7 +7,7 @@ export default function ProductCardStudioLamp() {
         </span>
         <svg
           role="img"
-          aria-label="Illustration of a red adjustable desk lamp"
+          aria-label="Illustration of a burnt-orange adjustable desk lamp"
           viewBox="0 0 200 150"
           className="h-36 w-48"
         >
