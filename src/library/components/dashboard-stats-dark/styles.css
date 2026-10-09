@@ -209,8 +209,10 @@
 }
 
 /* Panels */
+/* minmax(0, 1fr): the column never grows to the width of the hour labels */
 .dashboard-stats-dark .dashboard-stats-dark__panels {
   display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -360,9 +362,12 @@
   color: oklch(70.4% 0.04 256.788); /* slate-400 */
 }
 
+/* Each label is centred on its bar and may overhang it; min-width 0 keeps the row as narrow as the bars */
 .dashboard-stats-dark .dashboard-stats-dark__hours span {
+  display: flex;
   flex: 1;
-  text-align: center;
+  justify-content: center;
+  min-width: 0;
   white-space: nowrap;
 }
 

@@ -26,25 +26,25 @@ export default function DataTable() {
             <li>
               <a href="?status=all" aria-current="page" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 All
-                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums">64</span>
+                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">64</span>
               </a>
             </li>
             <li>
               <a href="?status=open" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 Open
-                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums">9</span>
+                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">9</span>
               </a>
             </li>
             <li>
               <a href="?status=delivered" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 Delivered
-                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums">51</span>
+                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">51</span>
               </a>
             </li>
             <li>
               <a href="?status=cancelled" className="-mb-px flex items-center gap-2 border-b-2 border-transparent pb-3 text-sm font-medium text-stone-600 transition-colors hover:border-stone-300 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 aria-[current=page]:border-stone-950 aria-[current=page]:text-stone-950">
                 Cancelled
-                <span className="rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums">4</span>
+                <span className="hidden rounded-full bg-stone-100 px-1.5 text-xs text-stone-600 tabular-nums sm:inline">4</span>
               </a>
             </li>
           </ul>

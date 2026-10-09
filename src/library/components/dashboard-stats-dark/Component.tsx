@@ -133,7 +133,7 @@ export default function DashboardStatsDark() {
           </div>
         </dl>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
           <section aria-labelledby="dashboard-stats-dark-hourly" className="flex flex-col rounded-2xl bg-slate-900 p-5 ring-1 ring-slate-800 sm:p-6 lg:col-span-2">
             <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
               <div>
@@ -300,22 +300,22 @@ export default function DashboardStatsDark() {
               </ol>
             </div>
             <div aria-hidden="true" className="mt-2 ml-8 flex gap-1 text-[0.6875rem] text-slate-400 sm:gap-1.5">
-              <span className="flex-1 text-center whitespace-nowrap">05:00</span>
+              <span className="flex min-w-0 flex-1 justify-center whitespace-nowrap">05:00</span>
               <span className="flex-1" />
               <span className="flex-1" />
-              <span className="flex-1 text-center whitespace-nowrap">08:00</span>
+              <span className="flex min-w-0 flex-1 justify-center whitespace-nowrap">08:00</span>
               <span className="flex-1" />
               <span className="flex-1" />
-              <span className="flex-1 text-center whitespace-nowrap">11:00</span>
+              <span className="flex min-w-0 flex-1 justify-center whitespace-nowrap">11:00</span>
               <span className="flex-1" />
               <span className="flex-1" />
-              <span className="flex-1 text-center font-bold whitespace-nowrap text-white">14:00</span>
+              <span className="flex min-w-0 flex-1 justify-center font-bold whitespace-nowrap text-white">14:00</span>
               <span className="flex-1" />
               <span className="flex-1" />
-              <span className="flex-1 text-center whitespace-nowrap">17:00</span>
+              <span className="flex min-w-0 flex-1 justify-center whitespace-nowrap">17:00</span>
               <span className="flex-1" />
               <span className="flex-1" />
-              <span className="flex-1 text-center whitespace-nowrap">20:00</span>
+              <span className="flex min-w-0 flex-1 justify-center whitespace-nowrap">20:00</span>
               <span className="flex-1" />
               <span className="flex-1" />
             </div>
