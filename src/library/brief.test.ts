@@ -50,7 +50,7 @@ test('codeForFormat returns the html snippet for html', () => {
 test('brief header and sections', () => {
   const b = buildBrief(meta, src, 'react')
   expect(b.startsWith(
-    '# Demo hero (Patternbook)\nSource: https://web-design-library.vercel.app/c/demo\n\nBuild this UI component: ' + meta.description + '\n')).toBe(true)
+    '# Demo hero (Patternbook)\nSource: ' + SITE.url + '/c/demo\n\nBuild this UI component: ' + meta.description + '\n')).toBe(true)
   for (const h of ['## Layout\n' + meta.brief.layout, '## Visual style\n' + meta.brief.style,
                    '## States\n' + meta.brief.states, '## Responsive\n' + meta.brief.responsive])
     expect(b).toContain(h)
@@ -97,7 +97,7 @@ test('llms.txt groups by group and category in taxonomy order, skipping empty on
   const txt = buildLlmsTxt([metaB_pricing, metaA_hero])
   expect(txt.startsWith('# Patternbook\n\n> Copy-paste UI layouts for developers building with AI agents.\n\n')).toBe(true)
   expect(txt.indexOf('### Hero')).toBeLessThan(txt.indexOf('### Pricing'))
-  expect(txt).toContain('- [Demo hero](https://web-design-library.vercel.app/c/demo.md): ' + metaA_hero.description)
+  expect(txt).toContain(`- [Demo hero](${SITE.url}/c/demo.md): ` + metaA_hero.description)
   expect(txt).not.toContain('## Elements')
 })
 test('llms.txt intro, group heading and entry layout', () => {
@@ -107,7 +107,7 @@ test('llms.txt intro, group heading and entry layout', () => {
     'Copy-paste UI components as React + Tailwind v4 or HTML + CSS. Each link returns a markdown brief with full source code.\n\n' +
     '## Sections\n\n' +
     '### Hero\n\n' +
-    '- [Demo hero](https://web-design-library.vercel.app/c/demo.md): A centered hero with a headline and two buttons.\n')
+    `- [Demo hero](${SITE.url}/c/demo.md): A centered hero with a headline and two buttons.\n`)
 })
 // llms.txt lists components in library order, the order the site shows them in: taxonomy, then name by
 // UTF-16 code unit (capitals before lowercase, so not localeCompare's order), then slug.
@@ -122,7 +122,7 @@ test('llms.txt lists entries in library order', () => {
     entry('zed', 'Zed hero'),
     entry('demo', 'Demo hero'),
   ])
-  const url = 'https://web-design-library.vercel.app/c'
+  const url = `${SITE.url}/c`
   expect(txt.slice(txt.indexOf('## '))).toBe(
     '## Sections\n\n' +
     '### Hero\n\n' +

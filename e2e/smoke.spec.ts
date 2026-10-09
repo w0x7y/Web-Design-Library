@@ -7,6 +7,7 @@ import { frameSize, previewBox } from '../app/lib/viewports'
 import { loadLibrary } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
 import { previewPath } from '../src/library/urls'
+import { SITE } from '../src/site'
 import { downloadPng, openDetail } from './lib/pages'
 
 const ITEMS = await loadLibrary()
@@ -276,7 +277,7 @@ test('detail page is pre-rendered with title and Open Graph tags', async ({ requ
   const html = await (await request.get('/c/hero-split-image')).text()
   expect(html).toContain('Split hero with image')
   expect(html).toMatch(/property="og:title"/)
-  expect(html).toContain('rel="canonical" href="https://web-design-library.vercel.app/c/hero-split-image"')
+  expect(html).toContain(`rel="canonical" href="${SITE.url}/c/hero-split-image"`)
 })
 
 test('preview viewport toggle resizes the frame', async ({ page }) => {
