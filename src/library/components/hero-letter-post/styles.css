@@ -1,0 +1,205 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.hero-letter-post, .hero-letter-post *, .hero-letter-post *::before, .hero-letter-post *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.hero-letter-post { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.hero-letter-post :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.hero-letter-post a { color: inherit; text-decoration: inherit; }
+.hero-letter-post :is(b, strong) { font-weight: bolder; }
+.hero-letter-post :is(ol, ul, menu) { list-style: none; }
+.hero-letter-post :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.hero-letter-post :is(img, video) { max-width: 100%; height: auto; }
+.hero-letter-post :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.hero-letter-post ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.hero-letter-post table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.hero-letter-post summary { display: list-item; }
+
+/* Component */
+
+.hero-letter-post {
+  background-color: oklch(95% 0.052 163.051); /* emerald-100 */
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
+}
+
+.hero-letter-post .hero-letter-post__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding: 4rem 1.5rem;
+}
+
+/* Brand and location */
+.hero-letter-post .hero-letter-post__masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hero-letter-post .hero-letter-post__brand {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.hero-letter-post .hero-letter-post__byline {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.hero-letter-post .hero-letter-post__envelope {
+  margin-top: 2.5rem;
+  border: 2px solid oklch(26.2% 0.051 172.552); /* emerald-950 */
+}
+
+/* Envelope contents */
+.hero-letter-post .hero-letter-post__paper {
+  display: grid;
+  align-items: center;
+  gap: 3rem;
+  background-color: oklch(97.9% 0.021 166.113); /* emerald-50 */
+  padding: 1.5rem;
+}
+
+.hero-letter-post .hero-letter-post__heading {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.hero-letter-post .hero-letter-post__lede {
+  margin-top: 1.5rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+/* Email signup */
+.hero-letter-post .hero-letter-post__signup {
+  margin-top: 2rem;
+  display: flex;
+  max-width: 36rem;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-letter-post .hero-letter-post__field-wrap {
+  min-width: 0;
+  flex: 1;
+}
+
+.hero-letter-post .hero-letter-post__label {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+}
+
+.hero-letter-post .hero-letter-post__field {
+  height: 3rem;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid oklch(50.8% 0.118 165.612); /* emerald-700 */
+  background-color: white;
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.hero-letter-post .hero-letter-post__cta {
+  min-height: 3rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  background-color: oklch(44.4% 0.177 26.899); /* red-800 */
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: white;
+}
+
+.hero-letter-post .hero-letter-post__hint {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.625;
+}
+
+.hero-letter-post .hero-letter-post__postage {
+  border: 1px dashed oklch(44.4% 0.177 26.899); /* red-800 */
+  padding: 1.25rem;
+  color: oklch(44.4% 0.177 26.899); /* red-800 */
+}
+
+.hero-letter-post .hero-letter-post__postage-heading {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-letter-post .hero-letter-post__stamp {
+  margin-top: 1rem;
+  height: 9rem;
+  width: 100%;
+}
+
+.hero-letter-post .hero-letter-post__postage-title {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.hero-letter-post .hero-letter-post__postage-copy {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.625;
+}
+
+.hero-letter-post .hero-letter-post__fold {
+  height: 7rem;
+  width: 100%;
+  background-color: oklch(95% 0.052 163.051); /* emerald-100 */
+}
+
+.hero-letter-post .hero-letter-post__field:focus-visible {
+  outline: 2px solid oklch(26.2% 0.051 172.552); /* emerald-950 */
+  outline-offset: 4px;
+}
+
+.hero-letter-post .hero-letter-post__cta:focus-visible {
+  outline: 2px solid oklch(26.2% 0.051 172.552); /* emerald-950 */
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .hero-letter-post .hero-letter-post__cta:hover {
+    background-color: oklch(39.6% 0.141 25.723); /* red-900 */
+  }
+}
+
+@media (width >= 40rem) {
+  .hero-letter-post .hero-letter-post__paper {
+    padding: 2.5rem;
+  }
+  .hero-letter-post .hero-letter-post__heading {
+    font-size: 3.75rem;
+  }
+  .hero-letter-post .hero-letter-post__signup {
+    flex-direction: row;
+    align-items: end;
+  }
+}
+
+@media (width >= 64rem) {
+  .hero-letter-post .hero-letter-post__paper {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.hero-letter-post .hero-letter-post__field::placeholder {
+  color: oklch(43.2% 0.095 166.913); /* emerald-800 */
+}
