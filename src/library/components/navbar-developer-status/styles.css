@@ -155,6 +155,7 @@
   line-height: var(--navbar-developer-status-tw-leading, var(--navbar-developer-status-text-sm--line-height));
   --navbar-developer-status-tw-leading: normal;
   line-height: normal;
+  filter: opacity(1);
 }
 .navbar-developer-status.navbar-developer-status__part-11:focus-visible, .navbar-developer-status .navbar-developer-status__part-11:focus-visible {
   outline-style: var(--navbar-developer-status-tw-outline-style);

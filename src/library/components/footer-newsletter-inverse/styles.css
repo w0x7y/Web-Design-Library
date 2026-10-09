@@ -129,6 +129,9 @@
   padding-inline: calc(var(--footer-newsletter-inverse-spacing) * 4);
   font-size: var(--footer-newsletter-inverse-text-base);
   line-height: var(--footer-newsletter-inverse-tw-leading, var(--footer-newsletter-inverse-text-base--line-height));
+  --footer-newsletter-inverse-tw-leading: normal;
+  line-height: normal;
+  filter: opacity(1);
 }
 .footer-newsletter-inverse.footer-newsletter-inverse__part-8:focus-visible, .footer-newsletter-inverse .footer-newsletter-inverse__part-8:focus-visible {
   outline-style: var(--footer-newsletter-inverse-tw-outline-style);

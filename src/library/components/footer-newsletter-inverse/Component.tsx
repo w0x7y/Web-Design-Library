@@ -29,7 +29,7 @@ export default function FooterNewsletterInverse() {
                 required
                 placeholder="you@example.com"
                 aria-describedby="footer-newsletter-inverse-hint"
-                className="h-12 min-w-0 flex-1 rounded-lg border border-emerald-700 px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="h-12 min-w-0 flex-1 rounded-lg border border-emerald-700 px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white leading-[normal] [filter:opacity(1)]"
               />
               <button
                 type="submit"

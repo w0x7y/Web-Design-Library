@@ -151,6 +151,9 @@
   padding-inline: calc(var(--cta-project-enquiry-spacing) * 4);
   font-size: var(--cta-project-enquiry-text-base);
   line-height: var(--cta-project-enquiry-tw-leading, var(--cta-project-enquiry-text-base--line-height));
+  --cta-project-enquiry-tw-leading: normal;
+  line-height: normal;
+  filter: opacity(1);
 }
 .cta-project-enquiry.cta-project-enquiry__part-11:focus-visible, .cta-project-enquiry .cta-project-enquiry__part-11:focus-visible {
   outline-style: var(--cta-project-enquiry-tw-outline-style);
@@ -174,6 +177,7 @@
   padding: calc(var(--cta-project-enquiry-spacing) * 4);
   font-size: var(--cta-project-enquiry-text-base);
   line-height: var(--cta-project-enquiry-tw-leading, var(--cta-project-enquiry-text-base--line-height));
+  filter: opacity(1);
 }
 .cta-project-enquiry.cta-project-enquiry__part-12:focus-visible, .cta-project-enquiry .cta-project-enquiry__part-12:focus-visible {
   outline-style: var(--cta-project-enquiry-tw-outline-style);

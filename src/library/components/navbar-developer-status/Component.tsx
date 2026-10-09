@@ -31,7 +31,7 @@ export default function NavbarDeveloperStatus() {
                 type="search"
                 name="q"
                 placeholder="Search documentation"
-                className="h-10 min-w-0 flex-1 rounded-md border border-zinc-700 bg-zinc-900 px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-60 leading-[normal]"
+                className="h-10 min-w-0 flex-1 rounded-md border border-zinc-700 bg-zinc-900 px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-60 leading-[normal] [filter:opacity(1)]"
               />
               <button
                 type="submit"

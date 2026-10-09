@@ -96,6 +96,7 @@
   line-height: var(--inputs-garden-signup-tw-leading, var(--inputs-garden-signup-text-sm--line-height));
   --inputs-garden-signup-tw-leading: normal;
   line-height: normal;
+  filter: opacity(1);
 }
 .inputs-garden-signup.inputs-garden-signup__part-8::placeholder, .inputs-garden-signup .inputs-garden-signup__part-8::placeholder {
   color: var(--inputs-garden-signup-color-emerald-800);

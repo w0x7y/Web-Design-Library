@@ -121,6 +121,7 @@
   line-height: normal;
   --login-studio-portal-tw-font-weight: var(--login-studio-portal-font-weight-normal);
   font-weight: var(--login-studio-portal-font-weight-normal);
+  filter: opacity(1);
 }
 .login-studio-portal.login-studio-portal__part-8::placeholder, .login-studio-portal .login-studio-portal__part-8::placeholder {
   color: currentcolor;

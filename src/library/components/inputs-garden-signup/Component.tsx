@@ -38,7 +38,7 @@ export default function InputsGardenSignup() {
         type="text"
         autoComplete="given-name"
         placeholder="Your first name"
-        className="mt-2 h-11 w-full rounded-full border border-emerald-200 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+        className="mt-2 h-11 w-full rounded-full border border-emerald-200 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal] [filter:opacity(1)]"
       />
       <label
         htmlFor="inputs-garden-signup-email"
@@ -52,7 +52,7 @@ export default function InputsGardenSignup() {
         type="email"
         autoComplete="email"
         placeholder="you@example.com"
-        className="mt-2 h-11 w-full rounded-full border border-emerald-200 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+        className="mt-2 h-11 w-full rounded-full border border-emerald-200 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal] [filter:opacity(1)]"
       />
       <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-xs leading-5">
         <input

@@ -6,15 +6,16 @@ import { settleDocument, stageAttributes, type PreviewState } from '~/lib/stage'
 import { useHydrated } from '~/lib/use-hydrated'
 import type { DocumentHandle } from '~/root'
 import { SITE } from '~/site'
-import { metaBySlug } from '../../src/library/registry'
+import { metaBySlug, preloadComponent } from '../../src/library/registry'
 import { isCaptureRequest } from '../../src/library/urls'
 import type { Route } from './+types/preview'
 
 // The component renders in the stage document: none of the site's theme, fonts, toasts or analytics.
 export const handle: DocumentHandle = { document: 'stage' }
 
-export function loader({ params }: Route.LoaderArgs) {
+export async function loader({ params }: Route.LoaderArgs) {
   if (!metaBySlug(params.slug)) throw data(null, { status: 404 })
+  await preloadComponent(params.slug)
   return { slug: params.slug }
 }
 

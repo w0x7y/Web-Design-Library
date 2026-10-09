@@ -44,7 +44,7 @@ export default function CtaProjectEnquiry() {
               autoComplete="email"
               placeholder="you@company.com"
               required
-              className="h-12 w-full rounded-xl border border-stone-300 bg-white px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+              className="h-12 w-full rounded-xl border border-stone-300 bg-white px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 leading-[normal] [filter:opacity(1)]"
             />
           </div>
           <div>
@@ -60,7 +60,7 @@ export default function CtaProjectEnquiry() {
               rows={4}
               placeholder="What are you hoping to make?"
               aria-describedby="cta-project-enquiry-hint"
-              className="min-h-32 w-full resize-y rounded-xl border border-stone-300 bg-white p-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+              className="min-h-32 w-full resize-y rounded-xl border border-stone-300 bg-white p-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 [filter:opacity(1)]"
             />
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
