@@ -275,6 +275,20 @@ test('preview frame scales its viewport down to fit the page', async ({ page }) 
   expect((await frame.boundingBox())!.height).toBeCloseTo(844, 0)
 })
 
+test('a section shorter than the viewport shows no empty stage below it', async ({ page }) => {
+  await page.goto('/c/footer-columns')
+  const frame = page.locator('iframe[title="Column footer preview"]')
+  await expect(frame).toHaveCSS('opacity', '1')
+  const box = frame.locator('xpath=..')
+  const footer = frame.contentFrame().locator('[data-capture-root]')
+  await expect(frame.contentFrame().locator('[data-preview-state="ready"]')).toBeAttached()
+  const footerHeight = await footer.evaluate((el) => el.getBoundingClientRect().height)
+  expect(footerHeight).toBeLessThan(900) // the case this guards: a short section in a 900px frame
+  const { width, height } = (await box.boundingBox())!
+  // The visible box is the footer's own height at the preview's scale, not the 900px frame's.
+  expect(height).toBeCloseTo(footerHeight * (width / 1440), 0)
+})
+
 test('detail tabs follow the keyboard pattern', async ({ page }) => {
   await page.goto('/c/hero-split-image')
   const preview = page.getByRole('tab', { name: 'Preview' })
