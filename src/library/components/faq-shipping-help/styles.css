@@ -12,228 +12,139 @@
 .faq-shipping-help table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .faq-shipping-help summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .faq-shipping-help {
-  --faq-shipping-help-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --faq-shipping-help-color-blue-200: oklch(88.2% 0.059 254.128);
-  --faq-shipping-help-color-blue-700: oklch(48.8% 0.243 264.376);
-  --faq-shipping-help-color-slate-50: oklch(98.4% 0.003 247.858);
-  --faq-shipping-help-color-slate-200: oklch(92.9% 0.013 255.508);
-  --faq-shipping-help-color-slate-600: oklch(44.6% 0.043 257.281);
-  --faq-shipping-help-color-slate-950: oklch(12.9% 0.042 264.695);
-  --faq-shipping-help-color-zinc-950: oklch(14.1% 0.005 285.823);
-  --faq-shipping-help-color-white: #fff;
-  --faq-shipping-help-spacing: 0.25rem;
-  --faq-shipping-help-container-6xl: 72rem;
-  --faq-shipping-help-text-xs: 0.75rem;
-  --faq-shipping-help-text-xs--line-height: calc(1 / 0.75);
-  --faq-shipping-help-text-sm: 0.875rem;
-  --faq-shipping-help-text-sm--line-height: calc(1.25 / 0.875);
-  --faq-shipping-help-text-4xl: 2.25rem;
-  --faq-shipping-help-text-4xl--line-height: calc(2.5 / 2.25);
-  --faq-shipping-help-font-weight-medium: 500;
-  --faq-shipping-help-font-weight-semibold: 600;
-  --faq-shipping-help-tracking-tight: -0.025em;
-  --faq-shipping-help-tracking-widest: 0.1em;
-  --faq-shipping-help-leading-tight: 1.25;
-  --faq-shipping-help-leading-relaxed: 1.625;
-  --faq-shipping-help-radius-xl: 0.75rem;
+  background-color: oklch(98.4% 0.003 247.858); /* slate-50 */
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
 }
-.faq-shipping-help.faq-shipping-help__part-1, .faq-shipping-help .faq-shipping-help__part-1 {
-  background-color: var(--faq-shipping-help-color-slate-50);
-  color: var(--faq-shipping-help-color-slate-950);
-}
-.faq-shipping-help.faq-shipping-help__part-2, .faq-shipping-help .faq-shipping-help__part-2 {
-  margin-inline: auto;
+
+.faq-shipping-help .faq-shipping-help__inner {
   display: grid;
-  max-width: var(--faq-shipping-help-container-6xl);
-  gap: calc(var(--faq-shipping-help-spacing) * 10);
-  padding-inline: calc(var(--faq-shipping-help-spacing) * 6);
-  padding-block: calc(var(--faq-shipping-help-spacing) * 20);
+  gap: 2.5rem;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 5rem 1.5rem;
 }
-@media (width >= 64rem) {
-  .faq-shipping-help.faq-shipping-help__part-2, .faq-shipping-help .faq-shipping-help__part-2 {
-    grid-template-columns: 1fr 2fr;
-  }
-}
-@media (width >= 64rem) {
-  .faq-shipping-help.faq-shipping-help__part-2, .faq-shipping-help .faq-shipping-help__part-2 {
-    gap: calc(var(--faq-shipping-help-spacing) * 16);
-  }
-}
-.faq-shipping-help.faq-shipping-help__part-3, .faq-shipping-help .faq-shipping-help__part-3 {
-  font-size: var(--faq-shipping-help-text-xs);
-  line-height: var(--faq-shipping-help-tw-leading, var(--faq-shipping-help-text-xs--line-height));
-  --faq-shipping-help-tw-font-weight: var(--faq-shipping-help-font-weight-semibold);
-  font-weight: var(--faq-shipping-help-font-weight-semibold);
-  --faq-shipping-help-tw-tracking: var(--faq-shipping-help-tracking-widest);
-  letter-spacing: var(--faq-shipping-help-tracking-widest);
-  color: var(--faq-shipping-help-color-blue-700);
+
+/* Introduction and support card */
+.faq-shipping-help .faq-shipping-help__eyebrow {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: oklch(48.8% 0.243 264.376); /* blue-700 */
 }
-.faq-shipping-help.faq-shipping-help__part-4, .faq-shipping-help .faq-shipping-help__part-4 {
-  margin-top: calc(var(--faq-shipping-help-spacing) * 5);
-  font-size: var(--faq-shipping-help-text-4xl);
-  line-height: var(--faq-shipping-help-tw-leading, var(--faq-shipping-help-text-4xl--line-height));
-  --faq-shipping-help-tw-leading: var(--faq-shipping-help-leading-tight);
-  line-height: var(--faq-shipping-help-leading-tight);
-  --faq-shipping-help-tw-font-weight: var(--faq-shipping-help-font-weight-semibold);
-  font-weight: var(--faq-shipping-help-font-weight-semibold);
-  --faq-shipping-help-tw-tracking: var(--faq-shipping-help-tracking-tight);
-  letter-spacing: var(--faq-shipping-help-tracking-tight);
+
+.faq-shipping-help .faq-shipping-help__title {
+  margin-top: 1.25rem;
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
-.faq-shipping-help.faq-shipping-help__part-5, .faq-shipping-help .faq-shipping-help__part-5 {
-  margin-top: calc(var(--faq-shipping-help-spacing) * 5);
-  font-size: var(--faq-shipping-help-text-sm);
-  line-height: var(--faq-shipping-help-tw-leading, var(--faq-shipping-help-text-sm--line-height));
-  --faq-shipping-help-tw-leading: var(--faq-shipping-help-leading-relaxed);
-  line-height: var(--faq-shipping-help-leading-relaxed);
-  color: var(--faq-shipping-help-color-slate-600);
+
+.faq-shipping-help .faq-shipping-help__intro {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
 }
-.faq-shipping-help.faq-shipping-help__part-6, .faq-shipping-help .faq-shipping-help__part-6 {
-  margin-top: calc(var(--faq-shipping-help-spacing) * 7);
-  border-radius: var(--faq-shipping-help-radius-xl);
-  border-style: var(--faq-shipping-help-tw-border-style);
-  border-width: 1px;
-  border-color: var(--faq-shipping-help-color-slate-200);
-  background-color: var(--faq-shipping-help-color-white);
-  padding: calc(var(--faq-shipping-help-spacing) * 5);
+
+.faq-shipping-help .faq-shipping-help__support {
+  margin-top: 1.75rem;
+  border: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  background-color: #fff;
 }
-.faq-shipping-help.faq-shipping-help__part-7, .faq-shipping-help .faq-shipping-help__part-7 {
-  --faq-shipping-help-tw-font-weight: var(--faq-shipping-help-font-weight-semibold);
-  font-weight: var(--faq-shipping-help-font-weight-semibold);
+
+.faq-shipping-help .faq-shipping-help__support-title {
+  font-weight: 600;
 }
-.faq-shipping-help.faq-shipping-help__part-8, .faq-shipping-help .faq-shipping-help__part-8 {
-  margin-top: calc(var(--faq-shipping-help-spacing) * 2);
-  font-size: var(--faq-shipping-help-text-sm);
-  line-height: var(--faq-shipping-help-tw-leading, var(--faq-shipping-help-text-sm--line-height));
-  color: var(--faq-shipping-help-color-slate-600);
+
+.faq-shipping-help .faq-shipping-help__hours {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
 }
-.faq-shipping-help.faq-shipping-help__part-9, .faq-shipping-help .faq-shipping-help__part-9 {
-  margin-top: calc(var(--faq-shipping-help-spacing) * 4);
+
+.faq-shipping-help .faq-shipping-help__link {
   display: inline-flex;
   align-items: center;
-  gap: calc(var(--faq-shipping-help-spacing) * 2);
-  font-size: var(--faq-shipping-help-text-sm);
-  line-height: var(--faq-shipping-help-tw-leading, var(--faq-shipping-help-text-sm--line-height));
-  --faq-shipping-help-tw-font-weight: var(--faq-shipping-help-font-weight-semibold);
-  font-weight: var(--faq-shipping-help-font-weight-semibold);
-  color: var(--faq-shipping-help-color-blue-700);
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: oklch(48.8% 0.243 264.376); /* blue-700 */
 }
+
+.faq-shipping-help .faq-shipping-help__arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Exclusive shipping disclosures */
+.faq-shipping-help .faq-shipping-help__item {
+  border: 1px solid oklch(88.2% 0.059 254.128); /* blue-200 */
+  border-radius: 0.75rem;
+  background-color: #fff;
+}
+
+.faq-shipping-help .faq-shipping-help__item + .faq-shipping-help__item {
+  margin-top: 0.75rem;
+}
+
+.faq-shipping-help .faq-shipping-help__question {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.faq-shipping-help .faq-shipping-help__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-shipping-help .faq-shipping-help__toggle {
+  flex-shrink: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.faq-shipping-help .faq-shipping-help__item[open] .faq-shipping-help__toggle {
+  rotate: 45deg;
+}
+
+.faq-shipping-help .faq-shipping-help__answer {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.faq-shipping-help :is(.faq-shipping-help__question, .faq-shipping-help__link):focus-visible {
+  outline: 2px solid oklch(14.1% 0.005 285.823); /* zinc-950 */
+  outline-offset: 2px;
+}
+
 @media (hover: hover) {
-  .faq-shipping-help.faq-shipping-help__part-9:hover, .faq-shipping-help .faq-shipping-help__part-9:hover {
+  .faq-shipping-help .faq-shipping-help__question:hover {
+    color: oklch(48.8% 0.243 264.376); /* blue-700 */
+  }
+  .faq-shipping-help .faq-shipping-help__link:hover {
     text-decoration-line: underline;
   }
 }
-.faq-shipping-help.faq-shipping-help__part-9:focus-visible, .faq-shipping-help .faq-shipping-help__part-9:focus-visible {
-  outline-style: var(--faq-shipping-help-tw-outline-style);
-  outline-width: 2px;
-}
-.faq-shipping-help.faq-shipping-help__part-9:focus-visible, .faq-shipping-help .faq-shipping-help__part-9:focus-visible {
-  outline-offset: 2px;
-}
-.faq-shipping-help.faq-shipping-help__part-9:focus-visible, .faq-shipping-help .faq-shipping-help__part-9:focus-visible {
-  outline-color: var(--faq-shipping-help-color-zinc-950);
-}
-.faq-shipping-help.faq-shipping-help__part-10, .faq-shipping-help .faq-shipping-help__part-10 {
-  width: calc(var(--faq-shipping-help-spacing) * 4);
-  height: calc(var(--faq-shipping-help-spacing) * 4);
-}
-.faq-shipping-help :where(:is(.faq-shipping-help.faq-shipping-help__part-11, .faq-shipping-help .faq-shipping-help__part-11) > :not(:last-child)) {
-  --faq-shipping-help-tw-space-y-reverse: 0;
-  margin-block-start: calc(calc(var(--faq-shipping-help-spacing) * 3) * var(--faq-shipping-help-tw-space-y-reverse));
-  margin-block-end: calc(calc(var(--faq-shipping-help-spacing) * 3) * calc(1 - var(--faq-shipping-help-tw-space-y-reverse)));
-}
-.faq-shipping-help.faq-shipping-help__part-12, .faq-shipping-help .faq-shipping-help__part-12 {
-  border-radius: var(--faq-shipping-help-radius-xl);
-  border-style: var(--faq-shipping-help-tw-border-style);
-  border-width: 1px;
-  border-color: var(--faq-shipping-help-color-blue-200);
-  background-color: var(--faq-shipping-help-color-white);
-}
-.faq-shipping-help.faq-shipping-help__part-13, .faq-shipping-help .faq-shipping-help__part-13 {
-  display: flex;
-  cursor: pointer;
-  list-style-type: none;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: calc(var(--faq-shipping-help-spacing) * 5);
-  padding-inline: calc(var(--faq-shipping-help-spacing) * 5);
-  padding-block: calc(var(--faq-shipping-help-spacing) * 5);
-  --faq-shipping-help-tw-font-weight: var(--faq-shipping-help-font-weight-medium);
-  font-weight: var(--faq-shipping-help-font-weight-medium);
-}
-@media (hover: hover) {
-  .faq-shipping-help.faq-shipping-help__part-13:hover, .faq-shipping-help .faq-shipping-help__part-13:hover {
-    color: var(--faq-shipping-help-color-blue-700);
-  }
-}
-.faq-shipping-help.faq-shipping-help__part-13:focus-visible, .faq-shipping-help .faq-shipping-help__part-13:focus-visible {
-  outline-style: var(--faq-shipping-help-tw-outline-style);
-  outline-width: 2px;
-}
-.faq-shipping-help.faq-shipping-help__part-13:focus-visible, .faq-shipping-help .faq-shipping-help__part-13:focus-visible {
-  outline-offset: 2px;
-}
-.faq-shipping-help.faq-shipping-help__part-13:focus-visible, .faq-shipping-help .faq-shipping-help__part-13:focus-visible {
-  outline-color: var(--faq-shipping-help-color-zinc-950);
-}
-.faq-shipping-help.faq-shipping-help__part-13::-webkit-details-marker, .faq-shipping-help .faq-shipping-help__part-13::-webkit-details-marker {
-  display: none;
-}
-.faq-shipping-help.faq-shipping-help__part-14, .faq-shipping-help .faq-shipping-help__part-14 {
-  flex-shrink: 0;
-  font-family: var(--faq-shipping-help-font-mono);
-}
-.faq-shipping-help.faq-shipping-help__part-14:is(:where(.faq-shipping-help__group):is([open], :popover-open, :open) *), .faq-shipping-help .faq-shipping-help__part-14:is(:where(.faq-shipping-help__group):is([open], :popover-open, :open) *) {
-  rotate: 45deg;
-}
-.faq-shipping-help.faq-shipping-help__part-15, .faq-shipping-help .faq-shipping-help__part-15 {
-  padding-inline: calc(var(--faq-shipping-help-spacing) * 5);
-  padding-bottom: calc(var(--faq-shipping-help-spacing) * 5);
-  font-size: var(--faq-shipping-help-text-sm);
-  line-height: var(--faq-shipping-help-tw-leading, var(--faq-shipping-help-text-sm--line-height));
-  --faq-shipping-help-tw-leading: var(--faq-shipping-help-leading-relaxed);
-  line-height: var(--faq-shipping-help-leading-relaxed);
-  color: var(--faq-shipping-help-color-slate-600);
-}
-@property --faq-shipping-help-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --faq-shipping-help-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --faq-shipping-help-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --faq-shipping-help-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --faq-shipping-help-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --faq-shipping-help-tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .faq-shipping-help *, .faq-shipping-help ::before, .faq-shipping-help ::after, .faq-shipping-help ::backdrop {
-      --faq-shipping-help-tw-font-weight: initial;
-      --faq-shipping-help-tw-tracking: initial;
-      --faq-shipping-help-tw-leading: initial;
-      --faq-shipping-help-tw-border-style: solid;
-      --faq-shipping-help-tw-outline-style: solid;
-      --faq-shipping-help-tw-space-y-reverse: 0;
-    }
+
+@media (width >= 64rem) {
+  .faq-shipping-help .faq-shipping-help__inner {
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
   }
 }
