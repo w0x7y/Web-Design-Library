@@ -1,7 +1,7 @@
 import { SOURCE_FILES } from '../../src/library/catalog'
 import type { ComponentSources, Format } from '../../src/library/types'
 
-export type HighlightedSources = Record<keyof ComponentSources, string>
+type HighlightedSources = Record<keyof ComponentSources, string>
 
 /** The sources each format shows, in order; each is captioned with its file name. */
 const FILES: Record<Format, (keyof ComponentSources)[]> = { react: ['tsx'], html: ['html', 'css'] }

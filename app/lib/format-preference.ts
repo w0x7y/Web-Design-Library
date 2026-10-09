@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { Format } from '../../src/library/types'
 
-export const FORMAT_STORAGE_KEY = 'wl:format'
+const FORMAT_STORAGE_KEY = 'wl:format'
 
 /**
  * The code format (React or HTML) the visitor last picked, remembered across pages and visits.
