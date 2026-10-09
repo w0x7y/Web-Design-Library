@@ -6,7 +6,7 @@ export default {
   category: 'stat-card',
   tags: ['dark', 'minimal'],
   description:
-    'Three dark KPI cards for a week of a bike-share network: rides, revenue and bikes available. Each card has a large tabular figure, a coloured change against the prior week and an inline SVG sparkline with a soft area fill, and each card is one link to its report. The cards stack with the sparkline on the right on phones and sit side by side from 768px. Use them at the top of a dashboard or report.',
+    'Three dark KPI cards, joined by hairlines in one panel, for a week of a bike-share network: rides, revenue and bikes available. Each card has a large tabular figure, a coloured change against the prior week and an inline SVG sparkline with a soft area fill, and each card is one link to its report. The cards stack with the sparkline on the right on phones and sit side by side from 768px. Use them at the top of a dashboard or report.',
   preview: { kind: 'element' },
   fonts: ['Chivo:wght@400..700'],
   brief: {

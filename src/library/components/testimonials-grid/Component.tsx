@@ -24,7 +24,6 @@ export default function TestimonialsGrid() {
             </a>
           </div>
 
-
           {/* The one dark tile: the quote to read first */}
           <figure className="mb-5 break-inside-avoid rounded-2xl bg-zinc-950 p-6 text-white sm:p-8">
             <blockquote className="text-lg leading-relaxed text-pretty text-zinc-300 sm:text-xl">

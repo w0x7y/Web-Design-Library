@@ -75,14 +75,14 @@ export default function PricingBrutalist() {
                 <dt className="text-xs font-bold tracking-[0.04em] uppercase md:sr-only">Custom domains</dt>
                 <dd className="flex items-center text-right font-semibold tabular-nums md:text-left">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" className="size-5 opacity-40"><path d="m6 6 12 12M18 6 6 18" /></svg>
-                    <span className="sr-only">Not included</span>
+                  <span className="sr-only">Not included</span>
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-4 border-t-[3px] border-black px-5 py-3 lg:px-6">
                 <dt className="text-xs font-bold tracking-[0.04em] uppercase md:sr-only">Password protection</dt>
                 <dd className="flex items-center text-right font-semibold tabular-nums md:text-left">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square" className="size-5 opacity-40"><path d="m6 6 12 12M18 6 6 18" /></svg>
-                    <span className="sr-only">Not included</span>
+                  <span className="sr-only">Not included</span>
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-4 border-t-[3px] border-black px-5 py-3 lg:px-6">
@@ -144,14 +144,14 @@ export default function PricingBrutalist() {
                 <dt className="text-xs font-bold tracking-[0.04em] uppercase md:sr-only">Custom domains</dt>
                 <dd className="flex items-center text-right font-semibold tabular-nums md:text-left">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="square" className="size-6"><path d="m4 12.5 5 5L20 6.5" /></svg>
-                    <span className="sr-only">Included</span>
+                  <span className="sr-only">Included</span>
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-4 border-t-[3px] border-black px-5 py-3 lg:px-6">
                 <dt className="text-xs font-bold tracking-[0.04em] uppercase md:sr-only">Password protection</dt>
                 <dd className="flex items-center text-right font-semibold tabular-nums md:text-left">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="square" className="size-6"><path d="m4 12.5 5 5L20 6.5" /></svg>
-                    <span className="sr-only">Included</span>
+                  <span className="sr-only">Included</span>
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-4 border-t-[3px] border-black px-5 py-3 lg:px-6">
@@ -210,14 +210,14 @@ export default function PricingBrutalist() {
                 <dt className="text-xs font-bold tracking-[0.04em] uppercase md:sr-only">Custom domains</dt>
                 <dd className="flex items-center text-right font-semibold tabular-nums md:text-left">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="square" className="size-6"><path d="m4 12.5 5 5L20 6.5" /></svg>
-                    <span className="sr-only">Included</span>
+                  <span className="sr-only">Included</span>
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-4 border-t-[3px] border-black px-5 py-3 lg:px-6">
                 <dt className="text-xs font-bold tracking-[0.04em] uppercase md:sr-only">Password protection</dt>
                 <dd className="flex items-center text-right font-semibold tabular-nums md:text-left">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="square" className="size-6"><path d="m4 12.5 5 5L20 6.5" /></svg>
-                    <span className="sr-only">Included</span>
+                  <span className="sr-only">Included</span>
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-4 border-t-[3px] border-black px-5 py-3 lg:px-6">
