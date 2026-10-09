@@ -23,6 +23,7 @@ export default function NavbarJournalMasthead() {
               <li>
                 <a
                   href="#"
+                  aria-current="page"
                   className="font-semibold hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
                 >
                   Latest

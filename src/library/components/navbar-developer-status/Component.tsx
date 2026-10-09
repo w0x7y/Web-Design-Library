@@ -31,7 +31,7 @@ export default function NavbarDeveloperStatus() {
                 type="search"
                 name="q"
                 placeholder="Search documentation"
-                className="h-10 min-w-0 flex-1 rounded-md border border-zinc-700 bg-zinc-900 px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-60 leading-[normal] [filter:opacity(1)]"
+                className="h-10 min-w-0 flex-1 rounded-md border border-zinc-500 bg-zinc-900 px-3 text-sm placeholder:text-zinc-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-60 leading-[normal]"
               />
               <button
                 type="submit"
@@ -57,6 +57,7 @@ export default function NavbarDeveloperStatus() {
             <li>
               <a
                 href="#"
+                aria-current="page"
                 className="font-semibold text-emerald-300 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Overview

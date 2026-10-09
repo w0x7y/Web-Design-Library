@@ -6,20 +6,20 @@ export default {
   category: 'navbar',
   tags: ['playful', 'light'],
   description:
-    'An event header with an announcement strip, oversized badge and ticket action. Use it for creative festivals and community gatherings.',
+    'A festival header with an early-bird announcement, two-line wordmark, ticket action, dates and venue. Use it for creative festivals and community gatherings.',
   preview: {
     kind: 'section',
   },
   fonts: [],
   brief: {
     layout:
-      'A lime-200 announcement bar introduces the event. A 1152px main area pairs a two-line bold festival wordmark with navigation links and an orange-700 ticket button; a bottom metadata line lists dates and venue.',
+      'Full-width announcement has 24px horizontal and 12px vertical padding. Centered 1152px content has 24px horizontal padding. Main row has 24px vertical padding and gap, pairing a two-line wordmark with three links and a 44px-tall ticket pill with 20px horizontal padding, 16px gap and arrow. Bottom date and venue row has a top hairline, 16px vertical padding and 8px gap.',
     style:
-      'Lime-50 background, emerald-950 ink, orange-700 button and emerald-950 hairline. Wordmark is 30px bold sans, ticket uses a small round arrow inset. Navigation has 14px semibold type.',
+      'Default sans on lime-50 with emerald-950 ink; announcement is lime-200 with 12px semibold text. Wordmark is 30px black-weight sans with 0.9 line-height and -0.025em tracking. Navigation is 14px semibold. Ticket pill has orange-700 fill, white ink and a 16px arrow. Date and venue are 12px monospace above an emerald-950 border. No shadows.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Brand turns orange-700 on hover, ordinary navigation links underline and ticket pill fills orange-800. All links show a 2px zinc-950 keyboard outline offset 2px, including forced colours. No transitions.',
     responsive:
-      'Main area stacks below 768px. All links wrap in a flexible row. Event metadata stacks below 640px and becomes a justified row above that width.',
+      'Main row stacks below 768px and becomes a centered justified row at 768px. Navigation wraps at every width. Date and venue stack below 640px and become a justified row at 640px, retaining wrapping text.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

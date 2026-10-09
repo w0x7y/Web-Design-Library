@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 1152px masthead uses a top date and edition row, a centered publication title with a short subtitle, then a thinly bordered topic navigation and subscription link.',
+      'Centered 1152px masthead with 24px horizontal padding. Top date and publication-history row wraps with 12px gaps and 16px vertical padding. Centered title has 32px vertical padding and a tagline 8px below it. Topic and subscription row has top and bottom hairlines, 16px vertical padding and 20px gap. Topic list wraps with 24px horizontal and 12px vertical gaps.',
     style:
-      'White background, stone-950 ink, 48px serif title, 12px monospace edition labels and orange-800 subscription text. Double row borders give a printed newspaper feel.',
+      'White surface and stone-950 ink in default sans. System-serif title is 36px with 40px line-height and -0.025em tracking. Edition metadata is 12px stone-600 monospace. Tagline is 12px uppercase stone-600 sans with 0.2em tracking. Topics are 14px, Latest semibold; subscription is semibold orange-800 with a 16px arrow. Stone-200 edition hairline and stone-950 navigation borders. No shadows.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Title turns orange-800 on hover; topics and subscription underline. All links have a 2px zinc-950 keyboard outline offset 2px, including forced colours. Latest is marked aria-current page. No transitions.',
     responsive:
-      'Publication title is 36px on phones and 48px at 640px. Topic links wrap; the topic and subscription area stacks below 768px. All rows have 24px horizontal padding.',
+      'Title is 36px below 640px and 48px with line-height 1 from 640px. Navigation and subscription stack below 768px and become a centered justified row from 768px. Edition and topic links wrap. Horizontal padding stays 24px at every width.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

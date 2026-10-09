@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 1152px main row places a 24px wordmark on the left and four controls on the right. Native details reveals a bordered services list in normal document flow below its summary. Main padding is 24px.',
+      'Centered 1152px flex container with 24px padding and gap. A 24px wordmark sits beside wrapping Studio navigation with 20px gaps and 14px text. Selected work and About us have 12px top padding. Services summary has 12px vertical padding and a 14px SVG plus 12px from its label. Details reveals a services panel up to 256px wide in normal flow, with 16px padding, a description and three links 12px apart. Project pill is 44px tall with 20px horizontal padding.',
     style:
-      'White canvas, zinc-950 text, zinc-200 borders and an indigo-700 pill enquiry action. The services disclosure uses a plus symbol, 14px links and 12px uppercase supporting text.',
+      'Default sans, white background, zinc-950 ink and zinc-200 header border. Wordmark is semibold with -0.025em tracking. Indigo-700 project pill has white medium text and 16px arrow. Summary has 6px corners; services panel has 8px corners, zinc-200 border and zinc-50 fill. Panel description is 12px uppercase zinc-600 with 0.05em tracking.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Native details opens by mouse or keyboard; decorative SVG plus rotates 45deg while open. Brand and summary turn indigo-700 on hover; ordinary and service links underline; project pill fills indigo-800. Every control shows a 2px zinc-950 keyboard outline offset 2px, including forced colours. No transitions.',
     responsive:
-      'Header stacks on phones and becomes a single row at 768px. Navigation controls wrap. Expanded services remain in normal flow to keep the section within its capture bounds.',
+      'Header stacks below 768px and becomes a top-aligned justified row at 768px. Navigation wraps at every width. Expanded services stay in normal document flow, increasing header height instead of overlapping content. Panel width is capped at 256px and fits narrow viewports.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

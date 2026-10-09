@@ -13,13 +13,13 @@ export default {
   fonts: [],
   brief: {
     layout:
-      'A 1152px container centers a label, 60px headline and description above a white bordered search form. Form has a keyword input, location select and search button; four category links and a hiring statistic sit below.',
+      'A centered 1152px container with 24px horizontal and 80px vertical padding. A 768px-wide heading and 576px-wide description sit above a search form with 40px top margin, 20px padding and 16px gaps. The form has labelled keyword and location fields plus a submit button. Four wrapping popular-search pills follow at 20px, with a role count 40px below.',
     style:
-      'Slate-50 background, slate-950 heading, slate-600 body and blue-700 action. White form has a 16px radius, slate-200 border and subtle shadow. Inputs are 48px tall with 8px radii.',
+      'Slate-50 surface and slate-950 text in default sans. Heading is 40px semibold with 1.25 line-height, balanced wrapping and -0.025em tracking. Body is 18px slate-600. White form has a 16px radius, slate-200 border and small shadow. Fields are 48px tall with 8px corners and slate-500 borders; keyword placeholder is slate-600. Blue-700 submit has white 14px semibold text.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Fields and submit show a 2px blue-700 keyboard outline offset 2px. Category links show a zinc-950 outline. Submit turns blue-800 on hover; category pills fill white. No transitions. Native location select and GET form work without JavaScript.',
     responsive:
-      'Form is stacked on phones, two columns at 640px and three columns at 1024px. Heading is 40px on phones and 60px at 640px. Category links wrap.',
+      'Below 640px the form stacks and the 40px heading has no explicit line break. At 640px the heading is 60px with a line break, fields use two columns and submit spans both. At 1024px the form uses 1fr 1fr auto columns and submit occupies one column. Categories wrap at all widths.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta
