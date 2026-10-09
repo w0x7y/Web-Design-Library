@@ -1,0 +1,167 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-member-ranks, .badges-member-ranks *, .badges-member-ranks *::before, .badges-member-ranks *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-member-ranks { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-member-ranks :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-member-ranks a { color: inherit; text-decoration: inherit; }
+.badges-member-ranks :is(b, strong) { font-weight: bolder; }
+.badges-member-ranks :is(ol, ul, menu) { list-style: none; }
+.badges-member-ranks :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-member-ranks :is(img, video) { max-width: 100%; height: auto; }
+.badges-member-ranks :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-member-ranks ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-member-ranks table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-member-ranks summary { display: list-item; }
+
+@layer properties;
+.badges-member-ranks {
+  --badges-member-ranks-color-amber-100: oklch(96.2% 0.059 95.617);
+  --badges-member-ranks-color-amber-400: oklch(82.8% 0.189 84.429);
+  --badges-member-ranks-color-amber-900: oklch(41.4% 0.112 45.904);
+  --badges-member-ranks-color-emerald-100: oklch(95% 0.052 163.051);
+  --badges-member-ranks-color-emerald-400: oklch(76.5% 0.177 163.223);
+  --badges-member-ranks-color-emerald-900: oklch(37.8% 0.077 168.94);
+  --badges-member-ranks-color-violet-50: oklch(96.9% 0.016 293.756);
+  --badges-member-ranks-color-violet-100: oklch(94.3% 0.029 294.588);
+  --badges-member-ranks-color-violet-400: oklch(70.2% 0.183 293.541);
+  --badges-member-ranks-color-violet-700: oklch(49.1% 0.27 292.581);
+  --badges-member-ranks-color-violet-900: oklch(38% 0.189 293.745);
+  --badges-member-ranks-color-violet-950: oklch(28.3% 0.141 291.089);
+  --badges-member-ranks-color-white: #fff;
+  --badges-member-ranks-spacing: 0.25rem;
+  --badges-member-ranks-text-sm: 0.875rem;
+  --badges-member-ranks-text-sm--line-height: calc(1.25 / 0.875);
+  --badges-member-ranks-text-xl: 1.25rem;
+  --badges-member-ranks-text-xl--line-height: calc(1.75 / 1.25);
+  --badges-member-ranks-font-weight-semibold: 600;
+  --badges-member-ranks-font-weight-bold: 700;
+  --badges-member-ranks-tracking-widest: 0.1em;
+  --badges-member-ranks-radius-xl: 0.75rem;
+  --badges-member-ranks-radius-3xl: 1.5rem;
+}
+.badges-member-ranks.badges-member-ranks__part-1, .badges-member-ranks .badges-member-ranks__part-1 {
+  width: calc(var(--badges-member-ranks-spacing) * 72);
+  border-radius: var(--badges-member-ranks-radius-3xl);
+  background-color: var(--badges-member-ranks-color-violet-50);
+  padding: calc(var(--badges-member-ranks-spacing) * 5);
+  color: var(--badges-member-ranks-color-violet-950);
+}
+.badges-member-ranks.badges-member-ranks__part-2, .badges-member-ranks .badges-member-ranks__part-2 {
+  font-size: 10px;
+  --badges-member-ranks-tw-font-weight: var(--badges-member-ranks-font-weight-semibold);
+  font-weight: var(--badges-member-ranks-font-weight-semibold);
+  --badges-member-ranks-tw-tracking: var(--badges-member-ranks-tracking-widest);
+  letter-spacing: var(--badges-member-ranks-tracking-widest);
+  text-transform: uppercase;
+}
+.badges-member-ranks.badges-member-ranks__part-3, .badges-member-ranks .badges-member-ranks__part-3 {
+  margin-top: var(--badges-member-ranks-spacing);
+  font-size: var(--badges-member-ranks-text-xl);
+  line-height: var(--badges-member-ranks-tw-leading, var(--badges-member-ranks-text-xl--line-height));
+  --badges-member-ranks-tw-font-weight: var(--badges-member-ranks-font-weight-bold);
+  font-weight: var(--badges-member-ranks-font-weight-bold);
+}
+.badges-member-ranks.badges-member-ranks__part-4, .badges-member-ranks .badges-member-ranks__part-4 {
+  margin-top: calc(var(--badges-member-ranks-spacing) * 5);
+}
+.badges-member-ranks :where(.badges-member-ranks.badges-member-ranks__part-4 > :not(:last-child)), .badges-member-ranks :where(.badges-member-ranks .badges-member-ranks__part-4 > :not(:last-child)) {
+  --badges-member-ranks-tw-space-y-reverse: 0;
+  margin-block-start: calc(calc(var(--badges-member-ranks-spacing) * 2.5) * var(--badges-member-ranks-tw-space-y-reverse));
+  margin-block-end: calc(calc(var(--badges-member-ranks-spacing) * 2.5) * calc(1 - var(--badges-member-ranks-tw-space-y-reverse)));
+}
+.badges-member-ranks.badges-member-ranks__part-5, .badges-member-ranks .badges-member-ranks__part-5 {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--badges-member-ranks-spacing) * 3);
+  border-radius: var(--badges-member-ranks-radius-xl);
+  background-color: var(--badges-member-ranks-color-white);
+  padding: calc(var(--badges-member-ranks-spacing) * 3);
+}
+.badges-member-ranks.badges-member-ranks__part-6, .badges-member-ranks .badges-member-ranks__part-6 {
+  display: flex;
+  width: calc(var(--badges-member-ranks-spacing) * 10);
+  height: calc(var(--badges-member-ranks-spacing) * 10);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--badges-member-ranks-tw-border-style);
+  border-width: 2px;
+  border-color: var(--badges-member-ranks-color-amber-400);
+  background-color: var(--badges-member-ranks-color-amber-100);
+  font-size: var(--badges-member-ranks-text-xl);
+  line-height: var(--badges-member-ranks-tw-leading, var(--badges-member-ranks-text-xl--line-height));
+  color: var(--badges-member-ranks-color-amber-900);
+}
+.badges-member-ranks.badges-member-ranks__part-7, .badges-member-ranks .badges-member-ranks__part-7 {
+  font-size: var(--badges-member-ranks-text-sm);
+  line-height: var(--badges-member-ranks-tw-leading, var(--badges-member-ranks-text-sm--line-height));
+  --badges-member-ranks-tw-font-weight: var(--badges-member-ranks-font-weight-semibold);
+  font-weight: var(--badges-member-ranks-font-weight-semibold);
+}
+.badges-member-ranks.badges-member-ranks__part-8, .badges-member-ranks .badges-member-ranks__part-8 {
+  margin-top: calc(var(--badges-member-ranks-spacing) * 0.5);
+  font-size: 11px;
+  color: var(--badges-member-ranks-color-violet-700);
+}
+.badges-member-ranks.badges-member-ranks__part-9, .badges-member-ranks .badges-member-ranks__part-9 {
+  display: flex;
+  width: calc(var(--badges-member-ranks-spacing) * 10);
+  height: calc(var(--badges-member-ranks-spacing) * 10);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--badges-member-ranks-tw-border-style);
+  border-width: 2px;
+  border-color: var(--badges-member-ranks-color-emerald-400);
+  background-color: var(--badges-member-ranks-color-emerald-100);
+  color: var(--badges-member-ranks-color-emerald-900);
+}
+.badges-member-ranks.badges-member-ranks__part-10, .badges-member-ranks .badges-member-ranks__part-10 {
+  width: calc(var(--badges-member-ranks-spacing) * 6);
+  height: calc(var(--badges-member-ranks-spacing) * 6);
+}
+.badges-member-ranks.badges-member-ranks__part-11, .badges-member-ranks .badges-member-ranks__part-11 {
+  display: flex;
+  width: calc(var(--badges-member-ranks-spacing) * 10);
+  height: calc(var(--badges-member-ranks-spacing) * 10);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(infinity * 1px);
+  border-style: var(--badges-member-ranks-tw-border-style);
+  border-width: 2px;
+  border-color: var(--badges-member-ranks-color-violet-400);
+  background-color: var(--badges-member-ranks-color-violet-100);
+  font-size: var(--badges-member-ranks-text-xl);
+  line-height: var(--badges-member-ranks-tw-leading, var(--badges-member-ranks-text-xl--line-height));
+  color: var(--badges-member-ranks-color-violet-900);
+}
+@property --badges-member-ranks-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-member-ranks-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --badges-member-ranks-tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --badges-member-ranks-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .badges-member-ranks *, .badges-member-ranks ::before, .badges-member-ranks ::after, .badges-member-ranks ::backdrop {
+      --badges-member-ranks-tw-font-weight: initial;
+      --badges-member-ranks-tw-tracking: initial;
+      --badges-member-ranks-tw-space-y-reverse: 0;
+      --badges-member-ranks-tw-border-style: solid;
+    }
+  }
+}

@@ -1,0 +1,221 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dropdowns-report-export, .dropdowns-report-export *, .dropdowns-report-export *::before, .dropdowns-report-export *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dropdowns-report-export { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dropdowns-report-export :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dropdowns-report-export a { color: inherit; text-decoration: inherit; }
+.dropdowns-report-export :is(b, strong) { font-weight: bolder; }
+.dropdowns-report-export :is(ol, ul, menu) { list-style: none; }
+.dropdowns-report-export :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dropdowns-report-export :is(img, video) { max-width: 100%; height: auto; }
+.dropdowns-report-export :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dropdowns-report-export ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dropdowns-report-export table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dropdowns-report-export summary { display: list-item; }
+
+@layer properties;
+.dropdowns-report-export {
+  --dropdowns-report-export-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --dropdowns-report-export-color-lime-100: oklch(96.7% 0.067 122.328);
+  --dropdowns-report-export-color-lime-300: oklch(89.7% 0.196 126.665);
+  --dropdowns-report-export-color-slate-900: oklch(20.8% 0.042 265.755);
+  --dropdowns-report-export-color-stone-600: oklch(44.4% 0.011 73.639);
+  --dropdowns-report-export-color-black: #000;
+  --dropdowns-report-export-color-white: #fff;
+  --dropdowns-report-export-spacing: 0.25rem;
+  --dropdowns-report-export-text-xs: 0.75rem;
+  --dropdowns-report-export-text-xs--line-height: calc(1 / 0.75);
+  --dropdowns-report-export-text-sm: 0.875rem;
+  --dropdowns-report-export-text-sm--line-height: calc(1.25 / 0.875);
+  --dropdowns-report-export-text-lg: 1.125rem;
+  --dropdowns-report-export-text-lg--line-height: calc(1.75 / 1.125);
+  --dropdowns-report-export-font-weight-bold: 700;
+  --dropdowns-report-export-font-weight-black: 900;
+}
+.dropdowns-report-export.dropdowns-report-export__part-1, .dropdowns-report-export .dropdowns-report-export__part-1 {
+  width: calc(var(--dropdowns-report-export-spacing) * 72);
+  border-style: var(--dropdowns-report-export-tw-border-style);
+  border-width: 2px;
+  border-color: var(--dropdowns-report-export-color-black);
+  background-color: var(--dropdowns-report-export-color-white);
+  padding: calc(var(--dropdowns-report-export-spacing) * 4);
+  color: var(--dropdowns-report-export-color-black);
+}
+.dropdowns-report-export.dropdowns-report-export__part-2, .dropdowns-report-export .dropdowns-report-export__part-2 {
+  display: flex;
+  height: calc(var(--dropdowns-report-export-spacing) * 11);
+  cursor: pointer;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--dropdowns-report-export-spacing) * 3);
+  border-style: var(--dropdowns-report-export-tw-border-style);
+  border-width: 2px;
+  border-color: var(--dropdowns-report-export-color-black);
+  background-color: var(--dropdowns-report-export-color-lime-300);
+  padding-inline: calc(var(--dropdowns-report-export-spacing) * 3);
+}
+.dropdowns-report-export.dropdowns-report-export__part-2:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-2:focus-visible {
+  outline-style: var(--dropdowns-report-export-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-2:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-2:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-2:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-2:focus-visible {
+  outline-color: var(--dropdowns-report-export-color-slate-900);
+}
+.dropdowns-report-export.dropdowns-report-export__part-2::-webkit-details-marker, .dropdowns-report-export .dropdowns-report-export__part-2::-webkit-details-marker {
+  display: none;
+}
+.dropdowns-report-export.dropdowns-report-export__part-3, .dropdowns-report-export .dropdowns-report-export__part-3 {
+  font-size: var(--dropdowns-report-export-text-sm);
+  line-height: var(--dropdowns-report-export-tw-leading, var(--dropdowns-report-export-text-sm--line-height));
+  --dropdowns-report-export-tw-font-weight: var(--dropdowns-report-export-font-weight-black);
+  font-weight: var(--dropdowns-report-export-font-weight-black);
+  text-transform: uppercase;
+}
+.dropdowns-report-export.dropdowns-report-export__part-4, .dropdowns-report-export .dropdowns-report-export__part-4 {
+  font-family: var(--dropdowns-report-export-font-mono);
+  font-size: var(--dropdowns-report-export-text-lg);
+  line-height: var(--dropdowns-report-export-tw-leading, var(--dropdowns-report-export-text-lg--line-height));
+}
+.dropdowns-report-export.dropdowns-report-export__part-4:is(:where(.dropdowns-report-export__group):is([open], :popover-open, :open) *), .dropdowns-report-export .dropdowns-report-export__part-4:is(:where(.dropdowns-report-export__group):is([open], :popover-open, :open) *) {
+  rotate: 180deg;
+}
+.dropdowns-report-export.dropdowns-report-export__part-5, .dropdowns-report-export .dropdowns-report-export__part-5 {
+  margin-top: calc(var(--dropdowns-report-export-spacing) * 4);
+  font-family: var(--dropdowns-report-export-font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.dropdowns-report-export.dropdowns-report-export__part-6, .dropdowns-report-export .dropdowns-report-export__part-6 {
+  margin-top: calc(var(--dropdowns-report-export-spacing) * 3);
+  border-top-style: var(--dropdowns-report-export-tw-border-style);
+  border-top-width: 2px;
+  border-color: var(--dropdowns-report-export-color-black);
+}
+.dropdowns-report-export.dropdowns-report-export__part-7, .dropdowns-report-export .dropdowns-report-export__part-7 {
+  display: flex;
+  height: calc(var(--dropdowns-report-export-spacing) * 11);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-style: var(--dropdowns-report-export-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--dropdowns-report-export-color-black);
+  padding-inline: calc(var(--dropdowns-report-export-spacing) * 2);
+  font-size: var(--dropdowns-report-export-text-xs);
+  line-height: var(--dropdowns-report-export-tw-leading, var(--dropdowns-report-export-text-xs--line-height));
+}
+@media (hover: hover) {
+  .dropdowns-report-export.dropdowns-report-export__part-7:hover, .dropdowns-report-export .dropdowns-report-export__part-7:hover {
+    background-color: var(--dropdowns-report-export-color-lime-100);
+  }
+}
+.dropdowns-report-export.dropdowns-report-export__part-7:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-7:focus-visible {
+  outline-style: var(--dropdowns-report-export-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-7:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-7:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-7:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-7:focus-visible {
+  outline-color: var(--dropdowns-report-export-color-slate-900);
+}
+.dropdowns-report-export.dropdowns-report-export__part-8, .dropdowns-report-export .dropdowns-report-export__part-8 {
+  font-family: var(--dropdowns-report-export-font-mono);
+  --dropdowns-report-export-tw-font-weight: var(--dropdowns-report-export-font-weight-bold);
+  font-weight: var(--dropdowns-report-export-font-weight-bold);
+}
+.dropdowns-report-export.dropdowns-report-export__part-9, .dropdowns-report-export .dropdowns-report-export__part-9 {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--dropdowns-report-export-spacing) * 2);
+}
+.dropdowns-report-export.dropdowns-report-export__part-10, .dropdowns-report-export .dropdowns-report-export__part-10 {
+  width: calc(var(--dropdowns-report-export-spacing) * 3);
+  height: calc(var(--dropdowns-report-export-spacing) * 3);
+  flex-shrink: 0;
+}
+.dropdowns-report-export.dropdowns-report-export__part-11, .dropdowns-report-export .dropdowns-report-export__part-11 {
+  display: flex;
+  height: calc(var(--dropdowns-report-export-spacing) * 11);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-style: var(--dropdowns-report-export-tw-border-style);
+  border-bottom-width: 2px;
+  border-color: var(--dropdowns-report-export-color-black);
+  padding-inline: calc(var(--dropdowns-report-export-spacing) * 2);
+  font-size: var(--dropdowns-report-export-text-xs);
+  line-height: var(--dropdowns-report-export-tw-leading, var(--dropdowns-report-export-text-xs--line-height));
+}
+@media (hover: hover) {
+  .dropdowns-report-export.dropdowns-report-export__part-11:hover, .dropdowns-report-export .dropdowns-report-export__part-11:hover {
+    background-color: var(--dropdowns-report-export-color-lime-100);
+  }
+}
+.dropdowns-report-export.dropdowns-report-export__part-11:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-11:focus-visible {
+  outline-style: var(--dropdowns-report-export-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-11:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-11:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-11:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-11:focus-visible {
+  outline-color: var(--dropdowns-report-export-color-slate-900);
+}
+.dropdowns-report-export.dropdowns-report-export__part-12, .dropdowns-report-export .dropdowns-report-export__part-12 {
+  margin-top: calc(var(--dropdowns-report-export-spacing) * 4);
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: calc(var(--dropdowns-report-export-spacing) * 2.5);
+  font-size: 10px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-13, .dropdowns-report-export .dropdowns-report-export__part-13 {
+  width: calc(var(--dropdowns-report-export-spacing) * 4);
+  height: calc(var(--dropdowns-report-export-spacing) * 4);
+  flex-shrink: 0;
+  accent-color: var(--dropdowns-report-export-color-black);
+}
+.dropdowns-report-export.dropdowns-report-export__part-13:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-13:focus-visible {
+  outline-style: var(--dropdowns-report-export-tw-outline-style);
+  outline-width: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-13:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-13:focus-visible {
+  outline-offset: 2px;
+}
+.dropdowns-report-export.dropdowns-report-export__part-13:focus-visible, .dropdowns-report-export .dropdowns-report-export__part-13:focus-visible {
+  outline-color: var(--dropdowns-report-export-color-slate-900);
+}
+.dropdowns-report-export.dropdowns-report-export__part-14, .dropdowns-report-export .dropdowns-report-export__part-14 {
+  margin-top: calc(var(--dropdowns-report-export-spacing) * 3);
+  font-family: var(--dropdowns-report-export-font-mono);
+  font-size: 9px;
+  color: var(--dropdowns-report-export-color-stone-600);
+}
+@property --dropdowns-report-export-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --dropdowns-report-export-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --dropdowns-report-export-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .dropdowns-report-export *, .dropdowns-report-export ::before, .dropdowns-report-export ::after, .dropdowns-report-export ::backdrop {
+      --dropdowns-report-export-tw-border-style: solid;
+      --dropdowns-report-export-tw-outline-style: solid;
+      --dropdowns-report-export-tw-font-weight: initial;
+    }
+  }
+}

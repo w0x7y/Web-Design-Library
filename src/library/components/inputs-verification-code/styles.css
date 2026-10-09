@@ -1,0 +1,213 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-verification-code, .inputs-verification-code *, .inputs-verification-code *::before, .inputs-verification-code *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-verification-code { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-verification-code :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-verification-code a { color: inherit; text-decoration: inherit; }
+.inputs-verification-code :is(b, strong) { font-weight: bolder; }
+.inputs-verification-code :is(ol, ul, menu) { list-style: none; }
+.inputs-verification-code :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-verification-code :is(img, video) { max-width: 100%; height: auto; }
+.inputs-verification-code :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-verification-code ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-verification-code table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-verification-code summary { display: list-item; }
+
+@layer properties;
+.inputs-verification-code {
+  --inputs-verification-code-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --inputs-verification-code-color-indigo-50: oklch(96.2% 0.018 272.314);
+  --inputs-verification-code-color-indigo-300: oklch(78.5% 0.115 274.713);
+  --inputs-verification-code-color-indigo-800: oklch(39.8% 0.195 277.366);
+  --inputs-verification-code-color-slate-200: oklch(92.9% 0.013 255.508);
+  --inputs-verification-code-color-slate-300: oklch(86.9% 0.022 252.894);
+  --inputs-verification-code-color-slate-500: oklch(55.4% 0.046 257.417);
+  --inputs-verification-code-color-slate-600: oklch(44.6% 0.043 257.281);
+  --inputs-verification-code-color-slate-900: oklch(20.8% 0.042 265.755);
+  --inputs-verification-code-color-white: #fff;
+  --inputs-verification-code-spacing: 0.25rem;
+  --inputs-verification-code-text-xs: 0.75rem;
+  --inputs-verification-code-text-xs--line-height: calc(1 / 0.75);
+  --inputs-verification-code-text-sm: 0.875rem;
+  --inputs-verification-code-text-sm--line-height: calc(1.25 / 0.875);
+  --inputs-verification-code-text-lg: 1.125rem;
+  --inputs-verification-code-text-lg--line-height: calc(1.75 / 1.125);
+  --inputs-verification-code-text-2xl: 1.5rem;
+  --inputs-verification-code-text-2xl--line-height: calc(2 / 1.5);
+  --inputs-verification-code-font-weight-medium: 500;
+  --inputs-verification-code-font-weight-semibold: 600;
+  --inputs-verification-code-radius-lg: 0.5rem;
+  --inputs-verification-code-radius-2xl: 1rem;
+}
+.inputs-verification-code.inputs-verification-code__part-1, .inputs-verification-code .inputs-verification-code__part-1 {
+  width: calc(var(--inputs-verification-code-spacing) * 72);
+  border-radius: var(--inputs-verification-code-radius-2xl);
+  border-style: var(--inputs-verification-code-tw-border-style);
+  border-width: 1px;
+  border-color: var(--inputs-verification-code-color-slate-200);
+  background-color: var(--inputs-verification-code-color-white);
+  padding: calc(var(--inputs-verification-code-spacing) * 5);
+  color: var(--inputs-verification-code-color-slate-900);
+}
+.inputs-verification-code.inputs-verification-code__part-2, .inputs-verification-code .inputs-verification-code__part-2 {
+  display: flex;
+  width: calc(var(--inputs-verification-code-spacing) * 9);
+  height: calc(var(--inputs-verification-code-spacing) * 9);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--inputs-verification-code-radius-lg);
+  background-color: var(--inputs-verification-code-color-indigo-50);
+  color: var(--inputs-verification-code-color-indigo-800);
+}
+.inputs-verification-code.inputs-verification-code__part-3, .inputs-verification-code .inputs-verification-code__part-3 {
+  width: calc(var(--inputs-verification-code-spacing) * 5);
+  height: calc(var(--inputs-verification-code-spacing) * 5);
+}
+.inputs-verification-code.inputs-verification-code__part-4, .inputs-verification-code .inputs-verification-code__part-4 {
+  margin-top: calc(var(--inputs-verification-code-spacing) * 3);
+  font-size: var(--inputs-verification-code-text-lg);
+  line-height: var(--inputs-verification-code-tw-leading, var(--inputs-verification-code-text-lg--line-height));
+  --inputs-verification-code-tw-font-weight: var(--inputs-verification-code-font-weight-semibold);
+  font-weight: var(--inputs-verification-code-font-weight-semibold);
+}
+.inputs-verification-code.inputs-verification-code__part-5, .inputs-verification-code .inputs-verification-code__part-5 {
+  margin-top: var(--inputs-verification-code-spacing);
+  font-size: var(--inputs-verification-code-text-xs);
+  line-height: var(--inputs-verification-code-tw-leading, var(--inputs-verification-code-text-xs--line-height));
+  --inputs-verification-code-tw-leading: calc(var(--inputs-verification-code-spacing) * 5);
+  line-height: calc(var(--inputs-verification-code-spacing) * 5);
+  color: var(--inputs-verification-code-color-slate-600);
+}
+.inputs-verification-code.inputs-verification-code__part-6, .inputs-verification-code .inputs-verification-code__part-6 {
+  margin-top: calc(var(--inputs-verification-code-spacing) * 4);
+}
+.inputs-verification-code.inputs-verification-code__part-7, .inputs-verification-code .inputs-verification-code__part-7 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+.inputs-verification-code.inputs-verification-code__part-8, .inputs-verification-code .inputs-verification-code__part-8 {
+  display: flex;
+  gap: calc(var(--inputs-verification-code-spacing) * 3);
+}
+.inputs-verification-code.inputs-verification-code__part-9, .inputs-verification-code .inputs-verification-code__part-9 {
+  width: calc(var(--inputs-verification-code-spacing) * 12);
+  height: calc(var(--inputs-verification-code-spacing) * 12);
+  border-radius: var(--inputs-verification-code-radius-lg);
+  border-style: var(--inputs-verification-code-tw-border-style);
+  border-width: 1px;
+  border-color: var(--inputs-verification-code-color-indigo-300);
+  background-color: var(--inputs-verification-code-color-indigo-50);
+  text-align: center;
+  font-family: var(--inputs-verification-code-font-mono);
+  font-size: var(--inputs-verification-code-text-2xl);
+  line-height: var(--inputs-verification-code-tw-leading, var(--inputs-verification-code-text-2xl--line-height));
+  --inputs-verification-code-tw-leading: normal;
+  line-height: normal;
+}
+.inputs-verification-code.inputs-verification-code__part-9:focus-visible, .inputs-verification-code .inputs-verification-code__part-9:focus-visible {
+  outline-style: var(--inputs-verification-code-tw-outline-style);
+  outline-width: 2px;
+}
+.inputs-verification-code.inputs-verification-code__part-9:focus-visible, .inputs-verification-code .inputs-verification-code__part-9:focus-visible {
+  outline-offset: 2px;
+}
+.inputs-verification-code.inputs-verification-code__part-9:focus-visible, .inputs-verification-code .inputs-verification-code__part-9:focus-visible {
+  outline-color: var(--inputs-verification-code-color-slate-900);
+}
+.inputs-verification-code.inputs-verification-code__part-10, .inputs-verification-code .inputs-verification-code__part-10 {
+  width: calc(var(--inputs-verification-code-spacing) * 12);
+  height: calc(var(--inputs-verification-code-spacing) * 12);
+  border-radius: var(--inputs-verification-code-radius-lg);
+  border-style: var(--inputs-verification-code-tw-border-style);
+  border-width: 1px;
+  border-color: var(--inputs-verification-code-color-slate-300);
+  background-color: var(--inputs-verification-code-color-white);
+  text-align: center;
+  font-family: var(--inputs-verification-code-font-mono);
+  font-size: var(--inputs-verification-code-text-2xl);
+  line-height: var(--inputs-verification-code-tw-leading, var(--inputs-verification-code-text-2xl--line-height));
+  --inputs-verification-code-tw-leading: normal;
+  line-height: normal;
+}
+.inputs-verification-code.inputs-verification-code__part-10:focus-visible, .inputs-verification-code .inputs-verification-code__part-10:focus-visible {
+  outline-style: var(--inputs-verification-code-tw-outline-style);
+  outline-width: 2px;
+}
+.inputs-verification-code.inputs-verification-code__part-10:focus-visible, .inputs-verification-code .inputs-verification-code__part-10:focus-visible {
+  outline-offset: 2px;
+}
+.inputs-verification-code.inputs-verification-code__part-10:focus-visible, .inputs-verification-code .inputs-verification-code__part-10:focus-visible {
+  outline-color: var(--inputs-verification-code-color-slate-900);
+}
+.inputs-verification-code.inputs-verification-code__part-11, .inputs-verification-code .inputs-verification-code__part-11 {
+  margin-top: calc(var(--inputs-verification-code-spacing) * 5);
+  display: block;
+  font-size: var(--inputs-verification-code-text-xs);
+  line-height: var(--inputs-verification-code-tw-leading, var(--inputs-verification-code-text-xs--line-height));
+  --inputs-verification-code-tw-font-weight: var(--inputs-verification-code-font-weight-medium);
+  font-weight: var(--inputs-verification-code-font-weight-medium);
+}
+.inputs-verification-code.inputs-verification-code__part-12, .inputs-verification-code .inputs-verification-code__part-12 {
+  margin-top: calc(var(--inputs-verification-code-spacing) * 2);
+  height: calc(var(--inputs-verification-code-spacing) * 10);
+  width: 100%;
+  border-radius: var(--inputs-verification-code-radius-lg);
+  border-style: var(--inputs-verification-code-tw-border-style);
+  border-width: 1px;
+  border-color: var(--inputs-verification-code-color-slate-300);
+  padding-inline: calc(var(--inputs-verification-code-spacing) * 3);
+  font-size: var(--inputs-verification-code-text-sm);
+  line-height: var(--inputs-verification-code-tw-leading, var(--inputs-verification-code-text-sm--line-height));
+  --inputs-verification-code-tw-leading: normal;
+  line-height: normal;
+}
+.inputs-verification-code.inputs-verification-code__part-12:focus-visible, .inputs-verification-code .inputs-verification-code__part-12:focus-visible {
+  outline-style: var(--inputs-verification-code-tw-outline-style);
+  outline-width: 2px;
+}
+.inputs-verification-code.inputs-verification-code__part-12:focus-visible, .inputs-verification-code .inputs-verification-code__part-12:focus-visible {
+  outline-offset: 2px;
+}
+.inputs-verification-code.inputs-verification-code__part-12:focus-visible, .inputs-verification-code .inputs-verification-code__part-12:focus-visible {
+  outline-color: var(--inputs-verification-code-color-slate-900);
+}
+.inputs-verification-code.inputs-verification-code__part-13, .inputs-verification-code .inputs-verification-code__part-13 {
+  margin-top: calc(var(--inputs-verification-code-spacing) * 2);
+  font-size: 10px;
+  color: var(--inputs-verification-code-color-slate-500);
+}
+@property --inputs-verification-code-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --inputs-verification-code-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --inputs-verification-code-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --inputs-verification-code-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .inputs-verification-code *, .inputs-verification-code ::before, .inputs-verification-code ::after, .inputs-verification-code ::backdrop {
+      --inputs-verification-code-tw-border-style: solid;
+      --inputs-verification-code-tw-font-weight: initial;
+      --inputs-verification-code-tw-leading: initial;
+      --inputs-verification-code-tw-outline-style: solid;
+    }
+  }
+}

@@ -1,0 +1,209 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonials-dark-mosaic, .testimonials-dark-mosaic *, .testimonials-dark-mosaic *::before, .testimonials-dark-mosaic *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonials-dark-mosaic { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonials-dark-mosaic :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonials-dark-mosaic a { color: inherit; text-decoration: inherit; }
+.testimonials-dark-mosaic :is(b, strong) { font-weight: bolder; }
+.testimonials-dark-mosaic :is(ol, ul, menu) { list-style: none; }
+.testimonials-dark-mosaic :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonials-dark-mosaic :is(img, video) { max-width: 100%; height: auto; }
+.testimonials-dark-mosaic :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonials-dark-mosaic ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonials-dark-mosaic table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonials-dark-mosaic summary { display: list-item; }
+
+@layer properties;
+.testimonials-dark-mosaic {
+  --testimonials-dark-mosaic-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --testimonials-dark-mosaic-color-lime-300: oklch(89.7% 0.196 126.665);
+  --testimonials-dark-mosaic-color-zinc-400: oklch(70.5% 0.015 286.067);
+  --testimonials-dark-mosaic-color-zinc-700: oklch(37% 0.013 285.805);
+  --testimonials-dark-mosaic-color-zinc-900: oklch(21% 0.006 285.885);
+  --testimonials-dark-mosaic-color-zinc-950: oklch(14.1% 0.005 285.823);
+  --testimonials-dark-mosaic-color-white: #fff;
+  --testimonials-dark-mosaic-spacing: 0.25rem;
+  --testimonials-dark-mosaic-container-6xl: 72rem;
+  --testimonials-dark-mosaic-text-xs: 0.75rem;
+  --testimonials-dark-mosaic-text-xs--line-height: calc(1 / 0.75);
+  --testimonials-dark-mosaic-text-sm: 0.875rem;
+  --testimonials-dark-mosaic-text-sm--line-height: calc(1.25 / 0.875);
+  --testimonials-dark-mosaic-text-xl: 1.25rem;
+  --testimonials-dark-mosaic-text-xl--line-height: calc(1.75 / 1.25);
+  --testimonials-dark-mosaic-text-2xl: 1.5rem;
+  --testimonials-dark-mosaic-text-2xl--line-height: calc(2 / 1.5);
+  --testimonials-dark-mosaic-text-3xl: 1.875rem;
+  --testimonials-dark-mosaic-text-3xl--line-height: calc(2.25 / 1.875);
+  --testimonials-dark-mosaic-text-4xl: 2.25rem;
+  --testimonials-dark-mosaic-text-4xl--line-height: calc(2.5 / 2.25);
+  --testimonials-dark-mosaic-text-5xl: 3rem;
+  --testimonials-dark-mosaic-text-5xl--line-height: 1;
+  --testimonials-dark-mosaic-font-weight-medium: 500;
+  --testimonials-dark-mosaic-font-weight-semibold: 600;
+  --testimonials-dark-mosaic-tracking-tight: -0.025em;
+  --testimonials-dark-mosaic-tracking-widest: 0.1em;
+  --testimonials-dark-mosaic-leading-tight: 1.25;
+  --testimonials-dark-mosaic-leading-relaxed: 1.625;
+  --testimonials-dark-mosaic-radius-2xl: 1rem;
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-1, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-1 {
+  background-color: var(--testimonials-dark-mosaic-color-zinc-950);
+  color: var(--testimonials-dark-mosaic-color-white);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-2, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-2 {
+  margin-inline: auto;
+  max-width: var(--testimonials-dark-mosaic-container-6xl);
+  padding-inline: calc(var(--testimonials-dark-mosaic-spacing) * 6);
+  padding-block: calc(var(--testimonials-dark-mosaic-spacing) * 20);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-3, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-3 {
+  font-family: var(--testimonials-dark-mosaic-font-mono);
+  font-size: var(--testimonials-dark-mosaic-text-xs);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-xs--line-height));
+  --testimonials-dark-mosaic-tw-tracking: var(--testimonials-dark-mosaic-tracking-widest);
+  letter-spacing: var(--testimonials-dark-mosaic-tracking-widest);
+  color: var(--testimonials-dark-mosaic-color-lime-300);
+  text-transform: uppercase;
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-4, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-4 {
+  margin-top: calc(var(--testimonials-dark-mosaic-spacing) * 4);
+  font-size: var(--testimonials-dark-mosaic-text-4xl);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-4xl--line-height));
+  --testimonials-dark-mosaic-tw-leading: var(--testimonials-dark-mosaic-leading-tight);
+  line-height: var(--testimonials-dark-mosaic-leading-tight);
+  --testimonials-dark-mosaic-tw-font-weight: var(--testimonials-dark-mosaic-font-weight-semibold);
+  font-weight: var(--testimonials-dark-mosaic-font-weight-semibold);
+  --testimonials-dark-mosaic-tw-tracking: var(--testimonials-dark-mosaic-tracking-tight);
+  letter-spacing: var(--testimonials-dark-mosaic-tracking-tight);
+}
+@media (width >= 40rem) {
+  .testimonials-dark-mosaic.testimonials-dark-mosaic__part-4, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-4 {
+    font-size: var(--testimonials-dark-mosaic-text-5xl);
+    line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-5xl--line-height));
+  }
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-5, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-5 {
+  margin-top: calc(var(--testimonials-dark-mosaic-spacing) * 10);
+  display: grid;
+  gap: calc(var(--testimonials-dark-mosaic-spacing) * 5);
+}
+@media (width >= 48rem) {
+  .testimonials-dark-mosaic.testimonials-dark-mosaic__part-5, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-5 {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-6, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: var(--testimonials-dark-mosaic-radius-2xl);
+  border-style: var(--testimonials-dark-mosaic-tw-border-style);
+  border-width: 1px;
+  border-top-style: var(--testimonials-dark-mosaic-tw-border-style);
+  border-top-width: 4px;
+  border-color: var(--testimonials-dark-mosaic-color-zinc-700);
+  border-top-color: var(--testimonials-dark-mosaic-color-lime-300);
+  background-color: var(--testimonials-dark-mosaic-color-zinc-900);
+  padding: calc(var(--testimonials-dark-mosaic-spacing) * 6);
+}
+@media (width >= 40rem) {
+  .testimonials-dark-mosaic.testimonials-dark-mosaic__part-6, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-6 {
+    padding: calc(var(--testimonials-dark-mosaic-spacing) * 8);
+  }
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-7, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-7 {
+  font-size: var(--testimonials-dark-mosaic-text-2xl);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-2xl--line-height));
+  --testimonials-dark-mosaic-tw-leading: var(--testimonials-dark-mosaic-leading-relaxed);
+  line-height: var(--testimonials-dark-mosaic-leading-relaxed);
+  --testimonials-dark-mosaic-tw-font-weight: var(--testimonials-dark-mosaic-font-weight-medium);
+  font-weight: var(--testimonials-dark-mosaic-font-weight-medium);
+  --testimonials-dark-mosaic-tw-tracking: var(--testimonials-dark-mosaic-tracking-tight);
+  letter-spacing: var(--testimonials-dark-mosaic-tracking-tight);
+}
+@media (width >= 40rem) {
+  .testimonials-dark-mosaic.testimonials-dark-mosaic__part-7, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-7 {
+    font-size: var(--testimonials-dark-mosaic-text-3xl);
+    line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-3xl--line-height));
+  }
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-8, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-8 {
+  margin-top: calc(var(--testimonials-dark-mosaic-spacing) * 10);
+  border-top-style: var(--testimonials-dark-mosaic-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--testimonials-dark-mosaic-color-zinc-700);
+  padding-top: calc(var(--testimonials-dark-mosaic-spacing) * 5);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-9, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-9 {
+  font-size: var(--testimonials-dark-mosaic-text-sm);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-sm--line-height));
+  --testimonials-dark-mosaic-tw-font-weight: var(--testimonials-dark-mosaic-font-weight-semibold);
+  font-weight: var(--testimonials-dark-mosaic-font-weight-semibold);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-10, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-10 {
+  margin-top: var(--testimonials-dark-mosaic-spacing);
+  font-size: var(--testimonials-dark-mosaic-text-xs);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-xs--line-height));
+  color: var(--testimonials-dark-mosaic-color-zinc-400);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-11, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-11 {
+  display: grid;
+  gap: calc(var(--testimonials-dark-mosaic-spacing) * 5);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-12, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-12 {
+  border-radius: var(--testimonials-dark-mosaic-radius-2xl);
+  border-style: var(--testimonials-dark-mosaic-tw-border-style);
+  border-width: 1px;
+  border-color: var(--testimonials-dark-mosaic-color-zinc-700);
+  background-color: var(--testimonials-dark-mosaic-color-zinc-900);
+  padding: calc(var(--testimonials-dark-mosaic-spacing) * 6);
+}
+@media (width >= 40rem) {
+  .testimonials-dark-mosaic.testimonials-dark-mosaic__part-12, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-12 {
+    padding: calc(var(--testimonials-dark-mosaic-spacing) * 8);
+  }
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-13, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-13 {
+  font-size: var(--testimonials-dark-mosaic-text-xl);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-xl--line-height));
+  --testimonials-dark-mosaic-tw-leading: var(--testimonials-dark-mosaic-leading-relaxed);
+  line-height: var(--testimonials-dark-mosaic-leading-relaxed);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-14, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-14 {
+  margin-top: calc(var(--testimonials-dark-mosaic-spacing) * 6);
+  font-size: var(--testimonials-dark-mosaic-text-xs);
+  line-height: var(--testimonials-dark-mosaic-tw-leading, var(--testimonials-dark-mosaic-text-xs--line-height));
+  color: var(--testimonials-dark-mosaic-color-zinc-400);
+}
+.testimonials-dark-mosaic.testimonials-dark-mosaic__part-15, .testimonials-dark-mosaic .testimonials-dark-mosaic__part-15 {
+  --testimonials-dark-mosaic-tw-font-weight: var(--testimonials-dark-mosaic-font-weight-semibold);
+  font-weight: var(--testimonials-dark-mosaic-font-weight-semibold);
+  color: var(--testimonials-dark-mosaic-color-white);
+}
+@property --testimonials-dark-mosaic-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --testimonials-dark-mosaic-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --testimonials-dark-mosaic-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --testimonials-dark-mosaic-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .testimonials-dark-mosaic *, .testimonials-dark-mosaic ::before, .testimonials-dark-mosaic ::after, .testimonials-dark-mosaic ::backdrop {
+      --testimonials-dark-mosaic-tw-tracking: initial;
+      --testimonials-dark-mosaic-tw-leading: initial;
+      --testimonials-dark-mosaic-tw-font-weight: initial;
+      --testimonials-dark-mosaic-tw-border-style: solid;
+    }
+  }
+}

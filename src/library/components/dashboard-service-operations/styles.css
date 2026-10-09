@@ -1,0 +1,321 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dashboard-service-operations, .dashboard-service-operations *, .dashboard-service-operations *::before, .dashboard-service-operations *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dashboard-service-operations { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dashboard-service-operations :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dashboard-service-operations a { color: inherit; text-decoration: inherit; }
+.dashboard-service-operations :is(b, strong) { font-weight: bolder; }
+.dashboard-service-operations :is(ol, ul, menu) { list-style: none; }
+.dashboard-service-operations :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dashboard-service-operations :is(img, video) { max-width: 100%; height: auto; }
+.dashboard-service-operations :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dashboard-service-operations ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dashboard-service-operations table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dashboard-service-operations summary { display: list-item; }
+
+@layer properties;
+.dashboard-service-operations {
+  --dashboard-service-operations-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --dashboard-service-operations-color-lime-300: oklch(89.7% 0.196 126.665);
+  --dashboard-service-operations-color-neutral-100: oklch(97% 0 none);
+  --dashboard-service-operations-color-neutral-400: oklch(70.8% 0 none);
+  --dashboard-service-operations-color-neutral-700: oklch(37.1% 0 none);
+  --dashboard-service-operations-color-neutral-950: oklch(14.5% 0 none);
+  --dashboard-service-operations-spacing: 0.25rem;
+  --dashboard-service-operations-container-6xl: 72rem;
+  --dashboard-service-operations-text-xs: 0.75rem;
+  --dashboard-service-operations-text-xs--line-height: calc(1 / 0.75);
+  --dashboard-service-operations-text-base: 1rem;
+  --dashboard-service-operations-text-base--line-height: calc(1.5 / 1);
+  --dashboard-service-operations-text-3xl: 1.875rem;
+  --dashboard-service-operations-text-3xl--line-height: calc(2.25 / 1.875);
+  --dashboard-service-operations-font-weight-medium: 500;
+  --dashboard-service-operations-radius-sm: 0.25rem;
+}
+.dashboard-service-operations.dashboard-service-operations__part-1, .dashboard-service-operations .dashboard-service-operations__part-1 {
+  background-color: var(--dashboard-service-operations-color-neutral-950);
+  padding-inline: calc(var(--dashboard-service-operations-spacing) * 6);
+  padding-block: calc(var(--dashboard-service-operations-spacing) * 10);
+  font-family: var(--dashboard-service-operations-font-mono);
+  color: var(--dashboard-service-operations-color-neutral-100);
+}
+@media (width >= 40rem) {
+  .dashboard-service-operations.dashboard-service-operations__part-1, .dashboard-service-operations .dashboard-service-operations__part-1 {
+    padding-inline: calc(var(--dashboard-service-operations-spacing) * 12);
+  }
+}
+.dashboard-service-operations.dashboard-service-operations__part-2, .dashboard-service-operations .dashboard-service-operations__part-2 {
+  margin-inline: auto;
+  max-width: var(--dashboard-service-operations-container-6xl);
+}
+.dashboard-service-operations.dashboard-service-operations__part-3, .dashboard-service-operations .dashboard-service-operations__part-3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--dashboard-service-operations-spacing) * 4);
+  border-bottom-style: var(--dashboard-service-operations-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--dashboard-service-operations-color-neutral-700);
+  padding-bottom: calc(var(--dashboard-service-operations-spacing) * 6);
+}
+.dashboard-service-operations.dashboard-service-operations__part-4, .dashboard-service-operations .dashboard-service-operations__part-4 {
+  display: grid;
+  gap: calc(var(--dashboard-service-operations-spacing) * 2);
+}
+.dashboard-service-operations.dashboard-service-operations__part-5, .dashboard-service-operations .dashboard-service-operations__part-5 {
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  color: var(--dashboard-service-operations-color-neutral-400);
+}
+.dashboard-service-operations.dashboard-service-operations__part-6, .dashboard-service-operations .dashboard-service-operations__part-6 {
+  font-size: var(--dashboard-service-operations-text-3xl);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-3xl--line-height));
+  --dashboard-service-operations-tw-font-weight: var(--dashboard-service-operations-font-weight-medium);
+  font-weight: var(--dashboard-service-operations-font-weight-medium);
+}
+.dashboard-service-operations.dashboard-service-operations__part-7, .dashboard-service-operations .dashboard-service-operations__part-7 {
+  border-radius: 0.25rem;
+  border-style: var(--dashboard-service-operations-tw-border-style);
+  border-width: 1px;
+  border-color: color-mix(in srgb, oklch(89.7% 0.196 126.665) 40%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .dashboard-service-operations.dashboard-service-operations__part-7, .dashboard-service-operations .dashboard-service-operations__part-7 {
+    border-color: color-mix(in oklab, var(--dashboard-service-operations-color-lime-300) 40%, transparent);
+  }
+}
+.dashboard-service-operations.dashboard-service-operations__part-7, .dashboard-service-operations .dashboard-service-operations__part-7 {
+  padding-inline: calc(var(--dashboard-service-operations-spacing) * 3);
+  padding-block: calc(var(--dashboard-service-operations-spacing) * 2);
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-8, .dashboard-service-operations .dashboard-service-operations__part-8 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 7);
+  display: grid;
+  gap: calc(var(--dashboard-service-operations-spacing) * 6);
+}
+@media (width >= 64rem) {
+  .dashboard-service-operations.dashboard-service-operations__part-8, .dashboard-service-operations .dashboard-service-operations__part-8 {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+.dashboard-service-operations.dashboard-service-operations__part-9, .dashboard-service-operations .dashboard-service-operations__part-9 {
+  border-style: var(--dashboard-service-operations-tw-border-style);
+  border-width: 1px;
+  border-color: var(--dashboard-service-operations-color-neutral-700);
+  padding: calc(var(--dashboard-service-operations-spacing) * 6);
+}
+.dashboard-service-operations.dashboard-service-operations__part-10, .dashboard-service-operations .dashboard-service-operations__part-10 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 4);
+  font-size: var(--dashboard-service-operations-text-3xl);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-3xl--line-height));
+  --dashboard-service-operations-tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--dashboard-service-operations-tw-ordinal,) var(--dashboard-service-operations-tw-slashed-zero,) var(--dashboard-service-operations-tw-numeric-figure,) var(--dashboard-service-operations-tw-numeric-spacing,) var(--dashboard-service-operations-tw-numeric-fraction,);
+}
+.dashboard-service-operations.dashboard-service-operations__part-11, .dashboard-service-operations .dashboard-service-operations__part-11 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 6);
+}
+.dashboard-service-operations.dashboard-service-operations__part-12, .dashboard-service-operations .dashboard-service-operations__part-12 {
+  display: flex;
+  height: calc(var(--dashboard-service-operations-spacing) * 32);
+  align-items: flex-end;
+  gap: calc(var(--dashboard-service-operations-spacing) * 3);
+}
+.dashboard-service-operations.dashboard-service-operations__part-13, .dashboard-service-operations .dashboard-service-operations__part-13 {
+  display: flex;
+  min-width: 0px;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--dashboard-service-operations-spacing) * 2);
+}
+.dashboard-service-operations.dashboard-service-operations__part-14, .dashboard-service-operations .dashboard-service-operations__part-14 {
+  height: 48px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-15, .dashboard-service-operations .dashboard-service-operations__part-15 {
+  font-size: 10px;
+  opacity: 60%;
+}
+.dashboard-service-operations.dashboard-service-operations__part-16, .dashboard-service-operations .dashboard-service-operations__part-16 {
+  height: 66px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-17, .dashboard-service-operations .dashboard-service-operations__part-17 {
+  height: 82px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-18, .dashboard-service-operations .dashboard-service-operations__part-18 {
+  height: 54px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-19, .dashboard-service-operations .dashboard-service-operations__part-19 {
+  height: 92px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-20, .dashboard-service-operations .dashboard-service-operations__part-20 {
+  height: 78px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-21, .dashboard-service-operations .dashboard-service-operations__part-21 {
+  height: 70px;
+  width: 100%;
+  border-top-left-radius: var(--dashboard-service-operations-radius-sm);
+  border-top-right-radius: var(--dashboard-service-operations-radius-sm);
+  background-color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-22, .dashboard-service-operations .dashboard-service-operations__part-22 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 5);
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  --dashboard-service-operations-tw-leading: calc(var(--dashboard-service-operations-spacing) * 6);
+  line-height: calc(var(--dashboard-service-operations-spacing) * 6);
+  color: var(--dashboard-service-operations-color-neutral-400);
+}
+.dashboard-service-operations.dashboard-service-operations__part-23, .dashboard-service-operations .dashboard-service-operations__part-23 {
+  font-size: var(--dashboard-service-operations-text-base);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-base--line-height));
+  --dashboard-service-operations-tw-font-weight: var(--dashboard-service-operations-font-weight-medium);
+  font-weight: var(--dashboard-service-operations-font-weight-medium);
+}
+.dashboard-service-operations.dashboard-service-operations__part-24, .dashboard-service-operations .dashboard-service-operations__part-24 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 6);
+  display: grid;
+  gap: calc(var(--dashboard-service-operations-spacing) * 5);
+}
+.dashboard-service-operations.dashboard-service-operations__part-25, .dashboard-service-operations .dashboard-service-operations__part-25 {
+  border-bottom-style: var(--dashboard-service-operations-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--dashboard-service-operations-color-neutral-700);
+  padding-bottom: calc(var(--dashboard-service-operations-spacing) * 4);
+}
+.dashboard-service-operations.dashboard-service-operations__part-26, .dashboard-service-operations .dashboard-service-operations__part-26 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc(var(--dashboard-service-operations-spacing) * 3);
+}
+.dashboard-service-operations.dashboard-service-operations__part-27, .dashboard-service-operations .dashboard-service-operations__part-27 {
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+}
+.dashboard-service-operations.dashboard-service-operations__part-28, .dashboard-service-operations .dashboard-service-operations__part-28 {
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  color: var(--dashboard-service-operations-color-lime-300);
+}
+.dashboard-service-operations.dashboard-service-operations__part-29, .dashboard-service-operations .dashboard-service-operations__part-29 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 5);
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  color: var(--dashboard-service-operations-color-neutral-400);
+}
+.dashboard-service-operations.dashboard-service-operations__part-30, .dashboard-service-operations .dashboard-service-operations__part-30 {
+  margin-top: calc(var(--dashboard-service-operations-spacing) * 6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc(var(--dashboard-service-operations-spacing) * 4);
+  border-top-style: var(--dashboard-service-operations-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--dashboard-service-operations-color-neutral-700);
+  padding-top: calc(var(--dashboard-service-operations-spacing) * 6);
+}
+.dashboard-service-operations.dashboard-service-operations__part-31, .dashboard-service-operations .dashboard-service-operations__part-31 {
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  --dashboard-service-operations-tw-leading: calc(var(--dashboard-service-operations-spacing) * 6);
+  line-height: calc(var(--dashboard-service-operations-spacing) * 6);
+  color: var(--dashboard-service-operations-color-neutral-400);
+}
+.dashboard-service-operations.dashboard-service-operations__part-32, .dashboard-service-operations .dashboard-service-operations__part-32 {
+  font-size: var(--dashboard-service-operations-text-xs);
+  line-height: var(--dashboard-service-operations-tw-leading, var(--dashboard-service-operations-text-xs--line-height));
+  color: var(--dashboard-service-operations-color-lime-300);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+.dashboard-service-operations.dashboard-service-operations__part-32:focus-visible, .dashboard-service-operations .dashboard-service-operations__part-32:focus-visible {
+  outline-style: var(--dashboard-service-operations-tw-outline-style);
+  outline-width: 2px;
+}
+.dashboard-service-operations.dashboard-service-operations__part-32:focus-visible, .dashboard-service-operations .dashboard-service-operations__part-32:focus-visible {
+  outline-offset: 2px;
+}
+.dashboard-service-operations.dashboard-service-operations__part-32:focus-visible, .dashboard-service-operations .dashboard-service-operations__part-32:focus-visible {
+  outline-color: currentcolor;
+}
+@property --dashboard-service-operations-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --dashboard-service-operations-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --dashboard-service-operations-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .dashboard-service-operations *, .dashboard-service-operations ::before, .dashboard-service-operations ::after, .dashboard-service-operations ::backdrop {
+      --dashboard-service-operations-tw-border-style: solid;
+      --dashboard-service-operations-tw-font-weight: initial;
+      --dashboard-service-operations-tw-ordinal: initial;
+      --dashboard-service-operations-tw-slashed-zero: initial;
+      --dashboard-service-operations-tw-numeric-figure: initial;
+      --dashboard-service-operations-tw-numeric-spacing: initial;
+      --dashboard-service-operations-tw-numeric-fraction: initial;
+      --dashboard-service-operations-tw-leading: initial;
+      --dashboard-service-operations-tw-outline-style: solid;
+    }
+  }
+}

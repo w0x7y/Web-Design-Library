@@ -1,0 +1,260 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.settings-workspace-access, .settings-workspace-access *, .settings-workspace-access *::before, .settings-workspace-access *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.settings-workspace-access { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.settings-workspace-access :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.settings-workspace-access a { color: inherit; text-decoration: inherit; }
+.settings-workspace-access :is(b, strong) { font-weight: bolder; }
+.settings-workspace-access :is(ol, ul, menu) { list-style: none; }
+.settings-workspace-access :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.settings-workspace-access :is(img, video) { max-width: 100%; height: auto; }
+.settings-workspace-access :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.settings-workspace-access ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.settings-workspace-access table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.settings-workspace-access summary { display: list-item; }
+
+@layer properties;
+.settings-workspace-access {
+  --settings-workspace-access-color-cyan-200: oklch(91.7% 0.08 205.041);
+  --settings-workspace-access-color-cyan-300: oklch(86.5% 0.127 207.078);
+  --settings-workspace-access-color-slate-100: oklch(96.8% 0.007 247.896);
+  --settings-workspace-access-color-slate-400: oklch(70.4% 0.04 256.788);
+  --settings-workspace-access-color-slate-600: oklch(44.6% 0.043 257.281);
+  --settings-workspace-access-color-slate-700: oklch(37.2% 0.044 257.287);
+  --settings-workspace-access-color-slate-900: oklch(20.8% 0.042 265.755);
+  --settings-workspace-access-color-slate-950: oklch(12.9% 0.042 264.695);
+  --settings-workspace-access-spacing: 0.25rem;
+  --settings-workspace-access-container-3xl: 48rem;
+  --settings-workspace-access-text-xs: 0.75rem;
+  --settings-workspace-access-text-xs--line-height: calc(1 / 0.75);
+  --settings-workspace-access-text-sm: 0.875rem;
+  --settings-workspace-access-text-sm--line-height: calc(1.25 / 0.875);
+  --settings-workspace-access-text-lg: 1.125rem;
+  --settings-workspace-access-text-lg--line-height: calc(1.75 / 1.125);
+  --settings-workspace-access-text-3xl: 1.875rem;
+  --settings-workspace-access-text-3xl--line-height: calc(2.25 / 1.875);
+  --settings-workspace-access-font-weight-medium: 500;
+  --settings-workspace-access-font-weight-semibold: 600;
+  --settings-workspace-access-tracking-tight: -0.025em;
+  --settings-workspace-access-tracking-widest: 0.1em;
+  --settings-workspace-access-radius-lg: 0.5rem;
+}
+.settings-workspace-access.settings-workspace-access__part-1, .settings-workspace-access .settings-workspace-access__part-1 {
+  background-color: var(--settings-workspace-access-color-slate-950);
+  padding-inline: calc(var(--settings-workspace-access-spacing) * 6);
+  padding-block: calc(var(--settings-workspace-access-spacing) * 10);
+  color: var(--settings-workspace-access-color-slate-100);
+}
+@media (width >= 40rem) {
+  .settings-workspace-access.settings-workspace-access__part-1, .settings-workspace-access .settings-workspace-access__part-1 {
+    padding-inline: calc(var(--settings-workspace-access-spacing) * 12);
+  }
+}
+.settings-workspace-access.settings-workspace-access__part-2, .settings-workspace-access .settings-workspace-access__part-2 {
+  margin-inline: auto;
+  max-width: var(--settings-workspace-access-container-3xl);
+}
+.settings-workspace-access.settings-workspace-access__part-3, .settings-workspace-access .settings-workspace-access__part-3 {
+  border-bottom-style: var(--settings-workspace-access-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--settings-workspace-access-color-slate-700);
+  padding-bottom: calc(var(--settings-workspace-access-spacing) * 6);
+}
+.settings-workspace-access.settings-workspace-access__part-4, .settings-workspace-access .settings-workspace-access__part-4 {
+  font-size: var(--settings-workspace-access-text-xs);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-xs--line-height));
+  --settings-workspace-access-tw-font-weight: var(--settings-workspace-access-font-weight-medium);
+  font-weight: var(--settings-workspace-access-font-weight-medium);
+  --settings-workspace-access-tw-tracking: var(--settings-workspace-access-tracking-widest);
+  letter-spacing: var(--settings-workspace-access-tracking-widest);
+  color: var(--settings-workspace-access-color-cyan-300);
+}
+.settings-workspace-access.settings-workspace-access__part-5, .settings-workspace-access .settings-workspace-access__part-5 {
+  margin-top: calc(var(--settings-workspace-access-spacing) * 3);
+  font-size: var(--settings-workspace-access-text-3xl);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-3xl--line-height));
+  --settings-workspace-access-tw-font-weight: var(--settings-workspace-access-font-weight-semibold);
+  font-weight: var(--settings-workspace-access-font-weight-semibold);
+  --settings-workspace-access-tw-tracking: var(--settings-workspace-access-tracking-tight);
+  letter-spacing: var(--settings-workspace-access-tracking-tight);
+}
+.settings-workspace-access.settings-workspace-access__part-6, .settings-workspace-access .settings-workspace-access__part-6 {
+  margin-top: calc(var(--settings-workspace-access-spacing) * 2);
+  font-size: var(--settings-workspace-access-text-sm);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-sm--line-height));
+  color: var(--settings-workspace-access-color-slate-400);
+}
+.settings-workspace-access.settings-workspace-access__part-7, .settings-workspace-access .settings-workspace-access__part-7 {
+  margin-top: calc(var(--settings-workspace-access-spacing) * 7);
+  display: grid;
+  gap: calc(var(--settings-workspace-access-spacing) * 7);
+}
+@media (width >= 48rem) {
+  .settings-workspace-access.settings-workspace-access__part-7, .settings-workspace-access .settings-workspace-access__part-7 {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+.settings-workspace-access.settings-workspace-access__part-8, .settings-workspace-access .settings-workspace-access__part-8 {
+  display: grid;
+  align-content: flex-start;
+  gap: calc(var(--settings-workspace-access-spacing) * 2);
+}
+.settings-workspace-access.settings-workspace-access__part-9, .settings-workspace-access .settings-workspace-access__part-9 {
+  font-size: var(--settings-workspace-access-text-lg);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-lg--line-height));
+  --settings-workspace-access-tw-font-weight: var(--settings-workspace-access-font-weight-semibold);
+  font-weight: var(--settings-workspace-access-font-weight-semibold);
+}
+.settings-workspace-access.settings-workspace-access__part-10, .settings-workspace-access .settings-workspace-access__part-10 {
+  font-size: var(--settings-workspace-access-text-sm);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-sm--line-height));
+  --settings-workspace-access-tw-leading: calc(var(--settings-workspace-access-spacing) * 6);
+  line-height: calc(var(--settings-workspace-access-spacing) * 6);
+  color: var(--settings-workspace-access-color-slate-400);
+}
+.settings-workspace-access.settings-workspace-access__part-11, .settings-workspace-access .settings-workspace-access__part-11 {
+  display: grid;
+  gap: calc(var(--settings-workspace-access-spacing) * 5);
+}
+.settings-workspace-access.settings-workspace-access__part-12, .settings-workspace-access .settings-workspace-access__part-12 {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--settings-workspace-access-spacing) * 3);
+  font-size: var(--settings-workspace-access-text-sm);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-sm--line-height));
+}
+.settings-workspace-access.settings-workspace-access__part-13, .settings-workspace-access .settings-workspace-access__part-13 {
+  margin-top: var(--settings-workspace-access-spacing);
+  width: calc(var(--settings-workspace-access-spacing) * 4);
+  height: calc(var(--settings-workspace-access-spacing) * 4);
+  flex-shrink: 0;
+  accent-color: currentcolor;
+}
+.settings-workspace-access.settings-workspace-access__part-13:focus-visible, .settings-workspace-access .settings-workspace-access__part-13:focus-visible {
+  outline-style: var(--settings-workspace-access-tw-outline-style);
+  outline-width: 2px;
+}
+.settings-workspace-access.settings-workspace-access__part-13:focus-visible, .settings-workspace-access .settings-workspace-access__part-13:focus-visible {
+  outline-offset: 2px;
+}
+.settings-workspace-access.settings-workspace-access__part-13:focus-visible, .settings-workspace-access .settings-workspace-access__part-13:focus-visible {
+  outline-color: currentcolor;
+}
+.settings-workspace-access.settings-workspace-access__part-14, .settings-workspace-access .settings-workspace-access__part-14 {
+  display: grid;
+  gap: var(--settings-workspace-access-spacing);
+}
+.settings-workspace-access.settings-workspace-access__part-15, .settings-workspace-access .settings-workspace-access__part-15 {
+  --settings-workspace-access-tw-font-weight: var(--settings-workspace-access-font-weight-medium);
+  font-weight: var(--settings-workspace-access-font-weight-medium);
+}
+.settings-workspace-access.settings-workspace-access__part-16, .settings-workspace-access .settings-workspace-access__part-16 {
+  font-size: var(--settings-workspace-access-text-xs);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-xs--line-height));
+  --settings-workspace-access-tw-leading: calc(var(--settings-workspace-access-spacing) * 5);
+  line-height: calc(var(--settings-workspace-access-spacing) * 5);
+  opacity: 70%;
+}
+.settings-workspace-access.settings-workspace-access__part-17, .settings-workspace-access .settings-workspace-access__part-17 {
+  margin-top: calc(var(--settings-workspace-access-spacing) * 7);
+  display: grid;
+  gap: calc(var(--settings-workspace-access-spacing) * 7);
+  border-top-style: var(--settings-workspace-access-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--settings-workspace-access-color-slate-700);
+  padding-top: calc(var(--settings-workspace-access-spacing) * 7);
+}
+@media (width >= 48rem) {
+  .settings-workspace-access.settings-workspace-access__part-17, .settings-workspace-access .settings-workspace-access__part-17 {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+.settings-workspace-access.settings-workspace-access__part-18, .settings-workspace-access .settings-workspace-access__part-18 {
+  display: grid;
+  gap: calc(var(--settings-workspace-access-spacing) * 2);
+  font-size: var(--settings-workspace-access-text-sm);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-sm--line-height));
+}
+.settings-workspace-access.settings-workspace-access__part-19, .settings-workspace-access .settings-workspace-access__part-19 {
+  width: 100%;
+  min-width: 0px;
+  border-radius: var(--settings-workspace-access-radius-lg);
+  border-style: var(--settings-workspace-access-tw-border-style);
+  border-width: 1px;
+  border-color: var(--settings-workspace-access-color-slate-600);
+  background-color: var(--settings-workspace-access-color-slate-900);
+  padding-inline: calc(var(--settings-workspace-access-spacing) * 3);
+  padding-block: calc(var(--settings-workspace-access-spacing) * 3);
+}
+.settings-workspace-access.settings-workspace-access__part-19:focus-visible, .settings-workspace-access .settings-workspace-access__part-19:focus-visible {
+  outline-style: var(--settings-workspace-access-tw-outline-style);
+  outline-width: 2px;
+}
+.settings-workspace-access.settings-workspace-access__part-19:focus-visible, .settings-workspace-access .settings-workspace-access__part-19:focus-visible {
+  outline-offset: 2px;
+}
+.settings-workspace-access.settings-workspace-access__part-19:focus-visible, .settings-workspace-access .settings-workspace-access__part-19:focus-visible {
+  outline-color: currentcolor;
+}
+.settings-workspace-access.settings-workspace-access__part-20, .settings-workspace-access .settings-workspace-access__part-20 {
+  margin-top: calc(var(--settings-workspace-access-spacing) * 8);
+  display: flex;
+  justify-content: flex-end;
+  border-top-style: var(--settings-workspace-access-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--settings-workspace-access-color-slate-700);
+  padding-top: calc(var(--settings-workspace-access-spacing) * 6);
+}
+.settings-workspace-access.settings-workspace-access__part-21, .settings-workspace-access .settings-workspace-access__part-21 {
+  border-radius: var(--settings-workspace-access-radius-lg);
+  background-color: var(--settings-workspace-access-color-cyan-200);
+  padding-inline: calc(var(--settings-workspace-access-spacing) * 5);
+  padding-block: calc(var(--settings-workspace-access-spacing) * 3);
+  font-size: var(--settings-workspace-access-text-sm);
+  line-height: var(--settings-workspace-access-tw-leading, var(--settings-workspace-access-text-sm--line-height));
+  --settings-workspace-access-tw-font-weight: var(--settings-workspace-access-font-weight-semibold);
+  font-weight: var(--settings-workspace-access-font-weight-semibold);
+  color: var(--settings-workspace-access-color-slate-950);
+}
+.settings-workspace-access.settings-workspace-access__part-21:focus-visible, .settings-workspace-access .settings-workspace-access__part-21:focus-visible {
+  outline-style: var(--settings-workspace-access-tw-outline-style);
+  outline-width: 2px;
+}
+.settings-workspace-access.settings-workspace-access__part-21:focus-visible, .settings-workspace-access .settings-workspace-access__part-21:focus-visible {
+  outline-offset: 2px;
+}
+.settings-workspace-access.settings-workspace-access__part-21:focus-visible, .settings-workspace-access .settings-workspace-access__part-21:focus-visible {
+  outline-color: var(--settings-workspace-access-color-cyan-300);
+}
+@property --settings-workspace-access-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --settings-workspace-access-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-workspace-access-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-workspace-access-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --settings-workspace-access-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .settings-workspace-access *, .settings-workspace-access ::before, .settings-workspace-access ::after, .settings-workspace-access ::backdrop {
+      --settings-workspace-access-tw-border-style: solid;
+      --settings-workspace-access-tw-font-weight: initial;
+      --settings-workspace-access-tw-tracking: initial;
+      --settings-workspace-access-tw-leading: initial;
+      --settings-workspace-access-tw-outline-style: solid;
+    }
+  }
+}

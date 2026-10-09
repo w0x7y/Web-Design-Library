@@ -1,0 +1,260 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.signup-course-registration, .signup-course-registration *, .signup-course-registration *::before, .signup-course-registration *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.signup-course-registration { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.signup-course-registration :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.signup-course-registration a { color: inherit; text-decoration: inherit; }
+.signup-course-registration :is(b, strong) { font-weight: bolder; }
+.signup-course-registration :is(ol, ul, menu) { list-style: none; }
+.signup-course-registration :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.signup-course-registration :is(img, video) { max-width: 100%; height: auto; }
+.signup-course-registration :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.signup-course-registration ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.signup-course-registration table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.signup-course-registration summary { display: list-item; }
+
+@layer properties;
+.signup-course-registration {
+  --signup-course-registration-color-orange-50: oklch(98% 0.016 73.684);
+  --signup-course-registration-color-orange-100: oklch(95.4% 0.038 75.164);
+  --signup-course-registration-color-orange-200: oklch(90.1% 0.076 70.697);
+  --signup-course-registration-color-orange-800: oklch(47% 0.157 37.304);
+  --signup-course-registration-color-orange-900: oklch(40.8% 0.123 38.172);
+  --signup-course-registration-color-orange-950: oklch(26.6% 0.079 36.259);
+  --signup-course-registration-color-stone-950: oklch(14.7% 0.004 49.25);
+  --signup-course-registration-color-white: #fff;
+  --signup-course-registration-spacing: 0.25rem;
+  --signup-course-registration-container-3xl: 48rem;
+  --signup-course-registration-text-xs: 0.75rem;
+  --signup-course-registration-text-xs--line-height: calc(1 / 0.75);
+  --signup-course-registration-text-sm: 0.875rem;
+  --signup-course-registration-text-sm--line-height: calc(1.25 / 0.875);
+  --signup-course-registration-text-2xl: 1.5rem;
+  --signup-course-registration-text-2xl--line-height: calc(2 / 1.5);
+  --signup-course-registration-text-4xl: 2.25rem;
+  --signup-course-registration-text-4xl--line-height: calc(2.5 / 2.25);
+  --signup-course-registration-font-weight-normal: 400;
+  --signup-course-registration-font-weight-medium: 500;
+  --signup-course-registration-font-weight-bold: 700;
+  --signup-course-registration-tracking-tight: -0.025em;
+  --signup-course-registration-leading-tight: 1.25;
+  --signup-course-registration-radius-lg: 0.5rem;
+  --signup-course-registration-radius-xl: 0.75rem;
+  --signup-course-registration-radius-2xl: 1rem;
+}
+.signup-course-registration.signup-course-registration__part-1, .signup-course-registration .signup-course-registration__part-1 {
+  background-color: var(--signup-course-registration-color-orange-50);
+  padding-inline: calc(var(--signup-course-registration-spacing) * 6);
+  padding-block: calc(var(--signup-course-registration-spacing) * 12);
+  color: var(--signup-course-registration-color-orange-950);
+}
+@media (width >= 40rem) {
+  .signup-course-registration.signup-course-registration__part-1, .signup-course-registration .signup-course-registration__part-1 {
+    padding-inline: calc(var(--signup-course-registration-spacing) * 12);
+  }
+}
+.signup-course-registration.signup-course-registration__part-2, .signup-course-registration .signup-course-registration__part-2 {
+  margin-inline: auto;
+  max-width: var(--signup-course-registration-container-3xl);
+}
+.signup-course-registration.signup-course-registration__part-3, .signup-course-registration .signup-course-registration__part-3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--signup-course-registration-spacing) * 4);
+  border-bottom-style: var(--signup-course-registration-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--signup-course-registration-color-orange-200);
+  padding-bottom: calc(var(--signup-course-registration-spacing) * 6);
+}
+.signup-course-registration.signup-course-registration__part-4, .signup-course-registration .signup-course-registration__part-4 {
+  font-size: var(--signup-course-registration-text-2xl);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-2xl--line-height));
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-bold);
+  font-weight: var(--signup-course-registration-font-weight-bold);
+  --signup-course-registration-tw-tracking: var(--signup-course-registration-tracking-tight);
+  letter-spacing: var(--signup-course-registration-tracking-tight);
+}
+.signup-course-registration.signup-course-registration__part-5, .signup-course-registration .signup-course-registration__part-5 {
+  display: inline-flex;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--signup-course-registration-color-orange-100);
+  padding-inline: calc(var(--signup-course-registration-spacing) * 3);
+  padding-block: var(--signup-course-registration-spacing);
+  font-size: var(--signup-course-registration-text-xs);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-xs--line-height));
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-medium);
+  font-weight: var(--signup-course-registration-font-weight-medium);
+}
+.signup-course-registration.signup-course-registration__part-6, .signup-course-registration .signup-course-registration__part-6 {
+  margin-top: calc(var(--signup-course-registration-spacing) * 8);
+  display: grid;
+  gap: calc(var(--signup-course-registration-spacing) * 8);
+}
+@media (width >= 48rem) {
+  .signup-course-registration.signup-course-registration__part-6, .signup-course-registration .signup-course-registration__part-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.signup-course-registration.signup-course-registration__part-7, .signup-course-registration .signup-course-registration__part-7 {
+  display: grid;
+  align-content: flex-start;
+  gap: calc(var(--signup-course-registration-spacing) * 5);
+}
+.signup-course-registration.signup-course-registration__part-8, .signup-course-registration .signup-course-registration__part-8 {
+  font-size: var(--signup-course-registration-text-4xl);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-4xl--line-height));
+  --signup-course-registration-tw-leading: var(--signup-course-registration-leading-tight);
+  line-height: var(--signup-course-registration-leading-tight);
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-bold);
+  font-weight: var(--signup-course-registration-font-weight-bold);
+}
+.signup-course-registration.signup-course-registration__part-9, .signup-course-registration .signup-course-registration__part-9 {
+  font-size: var(--signup-course-registration-text-sm);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-sm--line-height));
+  --signup-course-registration-tw-leading: calc(var(--signup-course-registration-spacing) * 7);
+  line-height: calc(var(--signup-course-registration-spacing) * 7);
+  color: var(--signup-course-registration-color-orange-900);
+}
+.signup-course-registration.signup-course-registration__part-10, .signup-course-registration .signup-course-registration__part-10 {
+  display: grid;
+  gap: calc(var(--signup-course-registration-spacing) * 3);
+  border-top-style: var(--signup-course-registration-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--signup-course-registration-color-orange-200);
+  padding-top: calc(var(--signup-course-registration-spacing) * 5);
+  font-size: var(--signup-course-registration-text-xs);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-xs--line-height));
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-medium);
+  font-weight: var(--signup-course-registration-font-weight-medium);
+}
+.signup-course-registration.signup-course-registration__part-11, .signup-course-registration .signup-course-registration__part-11 {
+  display: grid;
+  gap: calc(var(--signup-course-registration-spacing) * 5);
+  border-radius: var(--signup-course-registration-radius-2xl);
+  border-style: var(--signup-course-registration-tw-border-style);
+  border-width: 2px;
+  border-color: var(--signup-course-registration-color-orange-200);
+  background-color: var(--signup-course-registration-color-white);
+  padding: calc(var(--signup-course-registration-spacing) * 6);
+}
+.signup-course-registration.signup-course-registration__part-12, .signup-course-registration .signup-course-registration__part-12 {
+  display: grid;
+  gap: calc(var(--signup-course-registration-spacing) * 2);
+  font-size: var(--signup-course-registration-text-sm);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-sm--line-height));
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-medium);
+  font-weight: var(--signup-course-registration-font-weight-medium);
+}
+.signup-course-registration.signup-course-registration__part-13, .signup-course-registration .signup-course-registration__part-13 {
+  width: 100%;
+  min-width: 0px;
+  border-radius: var(--signup-course-registration-radius-lg);
+  border-style: var(--signup-course-registration-tw-border-style);
+  border-width: 1px;
+  border-color: currentcolor;
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .signup-course-registration.signup-course-registration__part-13, .signup-course-registration .signup-course-registration__part-13 {
+    border-color: color-mix(in oklab, currentcolor 25%, transparent);
+  }
+}
+.signup-course-registration.signup-course-registration__part-13, .signup-course-registration .signup-course-registration__part-13 {
+  background-color: transparent;
+  padding-inline: calc(var(--signup-course-registration-spacing) * 3);
+  padding-block: calc(var(--signup-course-registration-spacing) * 2.5);
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-normal);
+  font-weight: var(--signup-course-registration-font-weight-normal);
+}
+.signup-course-registration.signup-course-registration__part-13::placeholder, .signup-course-registration .signup-course-registration__part-13::placeholder {
+  color: currentcolor;
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .signup-course-registration.signup-course-registration__part-13::placeholder, .signup-course-registration .signup-course-registration__part-13::placeholder {
+    color: color-mix(in oklab, currentcolor 60%, transparent);
+  }
+}
+.signup-course-registration.signup-course-registration__part-13:focus-visible, .signup-course-registration .signup-course-registration__part-13:focus-visible {
+  outline-style: var(--signup-course-registration-tw-outline-style);
+  outline-width: 2px;
+}
+.signup-course-registration.signup-course-registration__part-13:focus-visible, .signup-course-registration .signup-course-registration__part-13:focus-visible {
+  outline-offset: 2px;
+}
+.signup-course-registration.signup-course-registration__part-13:focus-visible, .signup-course-registration .signup-course-registration__part-13:focus-visible {
+  outline-color: currentcolor;
+}
+.signup-course-registration.signup-course-registration__part-14, .signup-course-registration .signup-course-registration__part-14 {
+  width: 100%;
+  border-radius: var(--signup-course-registration-radius-lg);
+  border-style: var(--signup-course-registration-tw-border-style);
+  border-width: 1px;
+  border-color: var(--signup-course-registration-color-orange-200);
+  background-color: var(--signup-course-registration-color-white);
+  padding-inline: calc(var(--signup-course-registration-spacing) * 3);
+  padding-block: calc(var(--signup-course-registration-spacing) * 2.5);
+}
+.signup-course-registration.signup-course-registration__part-14:focus-visible, .signup-course-registration .signup-course-registration__part-14:focus-visible {
+  outline-style: var(--signup-course-registration-tw-outline-style);
+  outline-width: 2px;
+}
+.signup-course-registration.signup-course-registration__part-14:focus-visible, .signup-course-registration .signup-course-registration__part-14:focus-visible {
+  outline-offset: 2px;
+}
+.signup-course-registration.signup-course-registration__part-14:focus-visible, .signup-course-registration .signup-course-registration__part-14:focus-visible {
+  outline-color: currentcolor;
+}
+.signup-course-registration.signup-course-registration__part-15, .signup-course-registration .signup-course-registration__part-15 {
+  border-radius: var(--signup-course-registration-radius-xl);
+  background-color: var(--signup-course-registration-color-orange-800);
+  padding-inline: calc(var(--signup-course-registration-spacing) * 4);
+  padding-block: calc(var(--signup-course-registration-spacing) * 3);
+  font-size: var(--signup-course-registration-text-sm);
+  line-height: var(--signup-course-registration-tw-leading, var(--signup-course-registration-text-sm--line-height));
+  --signup-course-registration-tw-font-weight: var(--signup-course-registration-font-weight-bold);
+  font-weight: var(--signup-course-registration-font-weight-bold);
+  color: var(--signup-course-registration-color-white);
+}
+.signup-course-registration.signup-course-registration__part-15:focus-visible, .signup-course-registration .signup-course-registration__part-15:focus-visible {
+  outline-style: var(--signup-course-registration-tw-outline-style);
+  outline-width: 2px;
+}
+.signup-course-registration.signup-course-registration__part-15:focus-visible, .signup-course-registration .signup-course-registration__part-15:focus-visible {
+  outline-offset: 2px;
+}
+.signup-course-registration.signup-course-registration__part-15:focus-visible, .signup-course-registration .signup-course-registration__part-15:focus-visible {
+  outline-color: var(--signup-course-registration-color-stone-950);
+}
+@property --signup-course-registration-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --signup-course-registration-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --signup-course-registration-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --signup-course-registration-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --signup-course-registration-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .signup-course-registration *, .signup-course-registration ::before, .signup-course-registration ::after, .signup-course-registration ::backdrop {
+      --signup-course-registration-tw-border-style: solid;
+      --signup-course-registration-tw-font-weight: initial;
+      --signup-course-registration-tw-tracking: initial;
+      --signup-course-registration-tw-leading: initial;
+      --signup-course-registration-tw-outline-style: solid;
+    }
+  }
+}

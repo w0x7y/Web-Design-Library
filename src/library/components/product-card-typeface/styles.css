@@ -1,0 +1,184 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-typeface, .product-card-typeface *, .product-card-typeface *::before, .product-card-typeface *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-typeface { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-typeface :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-typeface a { color: inherit; text-decoration: inherit; }
+.product-card-typeface :is(b, strong) { font-weight: bolder; }
+.product-card-typeface :is(ol, ul, menu) { list-style: none; }
+.product-card-typeface :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-typeface :is(img, video) { max-width: 100%; height: auto; }
+.product-card-typeface :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-typeface ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-typeface table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-typeface summary { display: list-item; }
+
+@layer properties;
+.product-card-typeface {
+  --product-card-typeface-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --product-card-typeface-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --product-card-typeface-color-stone-200: oklch(92.3% 0.003 48.717);
+  --product-card-typeface-color-stone-600: oklch(44.4% 0.011 73.639);
+  --product-card-typeface-color-stone-900: oklch(21.6% 0.006 56.043);
+  --product-card-typeface-color-stone-950: oklch(14.7% 0.004 49.25);
+  --product-card-typeface-color-white: #fff;
+  --product-card-typeface-spacing: 0.25rem;
+  --product-card-typeface-text-xs: 0.75rem;
+  --product-card-typeface-text-xs--line-height: calc(1 / 0.75);
+  --product-card-typeface-text-2xl: 1.5rem;
+  --product-card-typeface-text-2xl--line-height: calc(2 / 1.5);
+  --product-card-typeface-text-5xl: 3rem;
+  --product-card-typeface-text-5xl--line-height: 1;
+  --product-card-typeface-font-weight-medium: 500;
+  --product-card-typeface-tracking-widest: 0.1em;
+  --product-card-typeface-radius-sm: 0.25rem;
+}
+.product-card-typeface.product-card-typeface__part-1, .product-card-typeface .product-card-typeface__part-1 {
+  width: calc(var(--product-card-typeface-spacing) * 72);
+  border-style: var(--product-card-typeface-tw-border-style);
+  border-width: 1px;
+  border-color: var(--product-card-typeface-color-stone-900);
+  background-color: var(--product-card-typeface-color-white);
+  color: var(--product-card-typeface-color-stone-950);
+}
+@media (width >= 40rem) {
+  .product-card-typeface.product-card-typeface__part-1, .product-card-typeface .product-card-typeface__part-1 {
+    width: calc(var(--product-card-typeface-spacing) * 80);
+  }
+}
+.product-card-typeface.product-card-typeface__part-2, .product-card-typeface .product-card-typeface__part-2 {
+  border-bottom-style: var(--product-card-typeface-tw-border-style);
+  border-bottom-width: 1px;
+  border-color: var(--product-card-typeface-color-stone-900);
+  background-color: #ece9df;
+  padding-inline: calc(var(--product-card-typeface-spacing) * 5);
+  padding-block: calc(var(--product-card-typeface-spacing) * 3);
+}
+.product-card-typeface.product-card-typeface__part-3, .product-card-typeface .product-card-typeface__part-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--product-card-typeface-font-mono);
+  font-size: 9px;
+  --product-card-typeface-tw-tracking: var(--product-card-typeface-tracking-widest);
+  letter-spacing: var(--product-card-typeface-tracking-widest);
+  text-transform: uppercase;
+}
+.product-card-typeface.product-card-typeface__part-4, .product-card-typeface .product-card-typeface__part-4 {
+  margin-top: var(--product-card-typeface-spacing);
+  font-family: var(--product-card-typeface-font-serif);
+  font-size: 7rem;
+  --product-card-typeface-tw-leading: 1;
+  line-height: 1;
+  --product-card-typeface-tw-tracking: -0.08em;
+  letter-spacing: -0.08em;
+}
+.product-card-typeface.product-card-typeface__part-5, .product-card-typeface .product-card-typeface__part-5 {
+  font-size: var(--product-card-typeface-text-5xl);
+  line-height: var(--product-card-typeface-tw-leading, var(--product-card-typeface-text-5xl--line-height));
+  font-style: italic;
+}
+.product-card-typeface.product-card-typeface__part-6, .product-card-typeface .product-card-typeface__part-6 {
+  margin-top: calc(var(--product-card-typeface-spacing) * 2);
+  font-family: var(--product-card-typeface-font-serif);
+  font-size: var(--product-card-typeface-text-xs);
+  line-height: var(--product-card-typeface-tw-leading, var(--product-card-typeface-text-xs--line-height));
+}
+.product-card-typeface.product-card-typeface__part-7, .product-card-typeface .product-card-typeface__part-7 {
+  padding: calc(var(--product-card-typeface-spacing) * 4);
+}
+.product-card-typeface.product-card-typeface__part-8, .product-card-typeface .product-card-typeface__part-8 {
+  font-family: var(--product-card-typeface-font-serif);
+  font-size: var(--product-card-typeface-text-2xl);
+  line-height: var(--product-card-typeface-tw-leading, var(--product-card-typeface-text-2xl--line-height));
+}
+.product-card-typeface.product-card-typeface__part-9, .product-card-typeface .product-card-typeface__part-9 {
+  margin-top: var(--product-card-typeface-spacing);
+  font-size: var(--product-card-typeface-text-xs);
+  line-height: var(--product-card-typeface-tw-leading, var(--product-card-typeface-text-xs--line-height));
+  color: var(--product-card-typeface-color-stone-600);
+}
+.product-card-typeface.product-card-typeface__part-10, .product-card-typeface .product-card-typeface__part-10 {
+  margin-top: calc(var(--product-card-typeface-spacing) * 4);
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--product-card-typeface-spacing) * 4);
+  border-top-style: var(--product-card-typeface-tw-border-style);
+  border-top-width: 1px;
+  border-color: var(--product-card-typeface-color-stone-200);
+  padding-top: calc(var(--product-card-typeface-spacing) * 3);
+  font-size: 11px;
+}
+.product-card-typeface.product-card-typeface__part-11, .product-card-typeface .product-card-typeface__part-11 {
+  color: var(--product-card-typeface-color-stone-600);
+}
+.product-card-typeface.product-card-typeface__part-12, .product-card-typeface .product-card-typeface__part-12 {
+  margin-top: var(--product-card-typeface-spacing);
+  --product-card-typeface-tw-font-weight: var(--product-card-typeface-font-weight-medium);
+  font-weight: var(--product-card-typeface-font-weight-medium);
+}
+.product-card-typeface.product-card-typeface__part-13, .product-card-typeface .product-card-typeface__part-13 {
+  margin-top: calc(var(--product-card-typeface-spacing) * 4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--product-card-typeface-radius-sm);
+  font-size: var(--product-card-typeface-text-xs);
+  line-height: var(--product-card-typeface-tw-leading, var(--product-card-typeface-text-xs--line-height));
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+@media (hover: hover) {
+  .product-card-typeface.product-card-typeface__part-13:hover, .product-card-typeface .product-card-typeface__part-13:hover {
+    color: var(--product-card-typeface-color-stone-600);
+  }
+}
+.product-card-typeface.product-card-typeface__part-13:focus-visible, .product-card-typeface .product-card-typeface__part-13:focus-visible {
+  outline-style: var(--product-card-typeface-tw-outline-style);
+  outline-width: 2px;
+}
+.product-card-typeface.product-card-typeface__part-13:focus-visible, .product-card-typeface .product-card-typeface__part-13:focus-visible {
+  outline-offset: 2px;
+}
+.product-card-typeface.product-card-typeface__part-13:focus-visible, .product-card-typeface .product-card-typeface__part-13:focus-visible {
+  outline-color: var(--product-card-typeface-color-stone-950);
+}
+.product-card-typeface.product-card-typeface__part-14, .product-card-typeface .product-card-typeface__part-14 {
+  display: inline-block;
+  width: calc(var(--product-card-typeface-spacing) * 3.5);
+  height: calc(var(--product-card-typeface-spacing) * 3.5);
+  vertical-align: -0.125em;
+}
+@property --product-card-typeface-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --product-card-typeface-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --product-card-typeface-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --product-card-typeface-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --product-card-typeface-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .product-card-typeface *, .product-card-typeface ::before, .product-card-typeface ::after, .product-card-typeface ::backdrop {
+      --product-card-typeface-tw-border-style: solid;
+      --product-card-typeface-tw-tracking: initial;
+      --product-card-typeface-tw-leading: initial;
+      --product-card-typeface-tw-font-weight: initial;
+      --product-card-typeface-tw-outline-style: solid;
+    }
+  }
+}

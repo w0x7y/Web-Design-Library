@@ -1,0 +1,182 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-planter-kit, .product-card-planter-kit *, .product-card-planter-kit *::before, .product-card-planter-kit *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-planter-kit { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-planter-kit :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-planter-kit a { color: inherit; text-decoration: inherit; }
+.product-card-planter-kit :is(b, strong) { font-weight: bolder; }
+.product-card-planter-kit :is(ol, ul, menu) { list-style: none; }
+.product-card-planter-kit :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-planter-kit :is(img, video) { max-width: 100%; height: auto; }
+.product-card-planter-kit :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-planter-kit ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-planter-kit table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-planter-kit summary { display: list-item; }
+
+@layer properties;
+.product-card-planter-kit {
+  --product-card-planter-kit-color-yellow-50: oklch(98.7% 0.026 102.212);
+  --product-card-planter-kit-color-lime-200: oklch(93.8% 0.127 124.321);
+  --product-card-planter-kit-color-green-800: oklch(44.8% 0.119 151.328);
+  --product-card-planter-kit-color-green-900: oklch(39.3% 0.095 152.535);
+  --product-card-planter-kit-color-green-950: oklch(26.6% 0.065 152.934);
+  --product-card-planter-kit-color-white: #fff;
+  --product-card-planter-kit-spacing: 0.25rem;
+  --product-card-planter-kit-text-xs: 0.75rem;
+  --product-card-planter-kit-text-xs--line-height: calc(1 / 0.75);
+  --product-card-planter-kit-text-sm: 0.875rem;
+  --product-card-planter-kit-text-sm--line-height: calc(1.25 / 0.875);
+  --product-card-planter-kit-text-base: 1rem;
+  --product-card-planter-kit-text-base--line-height: calc(1.5 / 1);
+  --product-card-planter-kit-font-weight-medium: 500;
+  --product-card-planter-kit-font-weight-semibold: 600;
+  --product-card-planter-kit-font-weight-bold: 700;
+  --product-card-planter-kit-tracking-widest: 0.1em;
+}
+.product-card-planter-kit.product-card-planter-kit__part-1, .product-card-planter-kit .product-card-planter-kit__part-1 {
+  width: calc(var(--product-card-planter-kit-spacing) * 72);
+  border-radius: 1.5rem;
+  border-style: var(--product-card-planter-kit-tw-border-style);
+  border-width: 1px;
+  border-color: var(--product-card-planter-kit-color-green-900);
+  background-color: var(--product-card-planter-kit-color-yellow-50);
+  color: var(--product-card-planter-kit-color-green-950);
+}
+@media (width >= 40rem) {
+  .product-card-planter-kit.product-card-planter-kit__part-1, .product-card-planter-kit .product-card-planter-kit__part-1 {
+    width: calc(var(--product-card-planter-kit-spacing) * 80);
+  }
+}
+.product-card-planter-kit.product-card-planter-kit__part-2, .product-card-planter-kit .product-card-planter-kit__part-2 {
+  position: relative;
+  display: flex;
+  height: calc(var(--product-card-planter-kit-spacing) * 32);
+  align-items: flex-end;
+  justify-content: center;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  background-color: var(--product-card-planter-kit-color-lime-200);
+  padding-inline: calc(var(--product-card-planter-kit-spacing) * 5);
+  padding-bottom: calc(var(--product-card-planter-kit-spacing) * 3);
+}
+.product-card-planter-kit.product-card-planter-kit__part-3, .product-card-planter-kit .product-card-planter-kit__part-3 {
+  position: absolute;
+  top: calc(var(--product-card-planter-kit-spacing) * 3);
+  left: calc(var(--product-card-planter-kit-spacing) * 4);
+  font-size: 10px;
+  --product-card-planter-kit-tw-font-weight: var(--product-card-planter-kit-font-weight-bold);
+  font-weight: var(--product-card-planter-kit-font-weight-bold);
+  --product-card-planter-kit-tw-tracking: var(--product-card-planter-kit-tracking-widest);
+  letter-spacing: var(--product-card-planter-kit-tracking-widest);
+  text-transform: uppercase;
+}
+.product-card-planter-kit.product-card-planter-kit__part-4, .product-card-planter-kit .product-card-planter-kit__part-4 {
+  height: calc(var(--product-card-planter-kit-spacing) * 24);
+  width: calc(var(--product-card-planter-kit-spacing) * 60);
+}
+.product-card-planter-kit.product-card-planter-kit__part-5, .product-card-planter-kit .product-card-planter-kit__part-5 {
+  padding: calc(var(--product-card-planter-kit-spacing) * 4);
+}
+.product-card-planter-kit.product-card-planter-kit__part-6, .product-card-planter-kit .product-card-planter-kit__part-6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(var(--product-card-planter-kit-spacing) * 2);
+}
+.product-card-planter-kit.product-card-planter-kit__part-7, .product-card-planter-kit .product-card-planter-kit__part-7 {
+  font-size: var(--product-card-planter-kit-text-base);
+  line-height: var(--product-card-planter-kit-tw-leading, var(--product-card-planter-kit-text-base--line-height));
+  --product-card-planter-kit-tw-font-weight: var(--product-card-planter-kit-font-weight-bold);
+  font-weight: var(--product-card-planter-kit-font-weight-bold);
+}
+.product-card-planter-kit.product-card-planter-kit__part-8, .product-card-planter-kit .product-card-planter-kit__part-8 {
+  border-radius: calc(infinity * 1px);
+  background-color: var(--product-card-planter-kit-color-green-900);
+  padding-inline: calc(var(--product-card-planter-kit-spacing) * 2);
+  padding-block: var(--product-card-planter-kit-spacing);
+  font-size: 10px;
+  --product-card-planter-kit-tw-font-weight: var(--product-card-planter-kit-font-weight-medium);
+  font-weight: var(--product-card-planter-kit-font-weight-medium);
+  color: var(--product-card-planter-kit-color-white);
+}
+.product-card-planter-kit.product-card-planter-kit__part-9, .product-card-planter-kit .product-card-planter-kit__part-9 {
+  margin-top: calc(var(--product-card-planter-kit-spacing) * 2);
+  font-size: var(--product-card-planter-kit-text-xs);
+  line-height: var(--product-card-planter-kit-tw-leading, var(--product-card-planter-kit-text-xs--line-height));
+  --product-card-planter-kit-tw-leading: calc(var(--product-card-planter-kit-spacing) * 5);
+  line-height: calc(var(--product-card-planter-kit-spacing) * 5);
+  color: var(--product-card-planter-kit-color-green-900);
+}
+.product-card-planter-kit.product-card-planter-kit__part-10, .product-card-planter-kit .product-card-planter-kit__part-10 {
+  margin-top: var(--product-card-planter-kit-spacing);
+  font-size: 10px;
+  color: var(--product-card-planter-kit-color-green-900);
+}
+.product-card-planter-kit.product-card-planter-kit__part-11, .product-card-planter-kit .product-card-planter-kit__part-11 {
+  margin-top: calc(var(--product-card-planter-kit-spacing) * 3);
+  display: flex;
+  height: calc(var(--product-card-planter-kit-spacing) * 9);
+  align-items: center;
+  justify-content: space-between;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--product-card-planter-kit-color-green-900);
+  padding-inline: calc(var(--product-card-planter-kit-spacing) * 4);
+  font-size: var(--product-card-planter-kit-text-sm);
+  line-height: var(--product-card-planter-kit-tw-leading, var(--product-card-planter-kit-text-sm--line-height));
+  --product-card-planter-kit-tw-font-weight: var(--product-card-planter-kit-font-weight-semibold);
+  font-weight: var(--product-card-planter-kit-font-weight-semibold);
+  color: var(--product-card-planter-kit-color-white);
+}
+@media (hover: hover) {
+  .product-card-planter-kit.product-card-planter-kit__part-11:hover, .product-card-planter-kit .product-card-planter-kit__part-11:hover {
+    background-color: var(--product-card-planter-kit-color-green-800);
+  }
+}
+.product-card-planter-kit.product-card-planter-kit__part-11:focus-visible, .product-card-planter-kit .product-card-planter-kit__part-11:focus-visible {
+  outline-style: var(--product-card-planter-kit-tw-outline-style);
+  outline-width: 2px;
+}
+.product-card-planter-kit.product-card-planter-kit__part-11:focus-visible, .product-card-planter-kit .product-card-planter-kit__part-11:focus-visible {
+  outline-offset: 2px;
+}
+.product-card-planter-kit.product-card-planter-kit__part-11:focus-visible, .product-card-planter-kit .product-card-planter-kit__part-11:focus-visible {
+  outline-color: var(--product-card-planter-kit-color-green-900);
+}
+.product-card-planter-kit.product-card-planter-kit__part-12, .product-card-planter-kit .product-card-planter-kit__part-12 {
+  display: inline-block;
+  width: calc(var(--product-card-planter-kit-spacing) * 3.5);
+  height: calc(var(--product-card-planter-kit-spacing) * 3.5);
+  vertical-align: -0.125em;
+}
+@property --product-card-planter-kit-tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --product-card-planter-kit-tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --product-card-planter-kit-tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --product-card-planter-kit-tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --product-card-planter-kit-tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    .product-card-planter-kit *, .product-card-planter-kit ::before, .product-card-planter-kit ::after, .product-card-planter-kit ::backdrop {
+      --product-card-planter-kit-tw-border-style: solid;
+      --product-card-planter-kit-tw-font-weight: initial;
+      --product-card-planter-kit-tw-tracking: initial;
+      --product-card-planter-kit-tw-leading: initial;
+      --product-card-planter-kit-tw-outline-style: solid;
+    }
+  }
+}
