@@ -1,0 +1,162 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.hero-overlay-media, .hero-overlay-media *, .hero-overlay-media *::before, .hero-overlay-media *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.hero-overlay-media { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.hero-overlay-media :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.hero-overlay-media a { color: inherit; text-decoration: inherit; }
+.hero-overlay-media :is(b, strong) { font-weight: bolder; }
+.hero-overlay-media :is(ol, ul, menu) { list-style: none; }
+.hero-overlay-media :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.hero-overlay-media :is(img, video) { max-width: 100%; height: auto; }
+.hero-overlay-media :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.hero-overlay-media ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.hero-overlay-media table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.hero-overlay-media summary { display: list-item; }
+
+/* Section */
+
+.hero-overlay-media {
+  position: relative;
+  isolation: isolate;
+  background-color: oklch(14.5% 0 none); /* neutral-950 */
+  color: #fff; /* white */
+}
+
+/* Media */
+
+.hero-overlay-media .hero-overlay-media__media {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.hero-overlay-media .hero-overlay-media__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.hero-overlay-media .hero-overlay-media__scrim {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-color: oklch(14.5% 0 none / 0.7); /* neutral-950 / 70% */
+}
+
+/* Section */
+
+.hero-overlay-media .hero-overlay-media__container {
+  position: relative;
+  margin-inline: auto;
+  display: flex;
+  min-height: 560px;
+  max-width: 48rem;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+  text-align: center;
+}
+
+/* Copy */
+
+.hero-overlay-media .hero-overlay-media__eyebrow {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+.hero-overlay-media .hero-overlay-media__title {
+  margin-top: 1rem;
+  font-size: 2.25rem;
+  line-height: calc(2.5 / 2.25);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.hero-overlay-media .hero-overlay-media__lede {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  text-wrap: pretty;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+/* Actions */
+
+.hero-overlay-media .hero-overlay-media__actions {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-overlay-media .hero-overlay-media__action {
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* rounded-md */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hero-overlay-media .hero-overlay-media__action--primary {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.hero-overlay-media .hero-overlay-media__action--secondary {
+  border: 1px solid #fff; /* white */
+  background-color: transparent;
+  color: #fff; /* white */
+}
+
+@media (hover: hover) {
+  .hero-overlay-media .hero-overlay-media__action--primary:hover {
+    background-color: oklch(92.2% 0 none); /* neutral-200 */
+  }
+
+  .hero-overlay-media .hero-overlay-media__action--secondary:hover {
+    background-color: rgb(255 255 255 / 0.1); /* white / 10% */
+  }
+}
+
+.hero-overlay-media .hero-overlay-media__action:focus-visible {
+  outline: 2px solid #fff; /* white */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .hero-overlay-media .hero-overlay-media__container {
+    min-height: 640px;
+    padding-block: 6rem;
+  }
+
+  .hero-overlay-media .hero-overlay-media__title {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .hero-overlay-media .hero-overlay-media__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (width >= 64rem) {
+  .hero-overlay-media .hero-overlay-media__title {
+    font-size: 3.75rem;
+  }
+}
