@@ -88,4 +88,7 @@ export const IMAGES = {
   // Added for new-tabs
   vineyardMorningRowsSmall: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=800&q=80',
   cinemaRedSeats: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
+  // Added for new-empty-state
+  travelJournalHarbor: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1600&q=80',
+  desertRoadJournal: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80',
 } as const
