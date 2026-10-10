@@ -1,0 +1,113 @@
+<section class="settings-school-week">
+  <form class="settings-school-week__inner">
+    <p class="settings-school-week__eyebrow">Bellpatch / Oakmere Primary</p>
+    <h2 class="settings-school-week__title">Give the week its rhythm.</h2>
+    <p class="settings-school-week__copy">Set teaching days and lesson defaults for the autumn timetable.</p>
+    <div class="settings-school-week__layout">
+      <fieldset>
+        <legend class="settings-school-week__subheading">Our teaching week</legend>
+        <p class="settings-school-week__copy">Select the days that belong in every new timetable.</p>
+        <div class="settings-school-week__week">
+          <label class="settings-school-week__day" for="settings-school-week-mon">
+            Mon
+            <input
+              class="settings-school-week__check"
+              type="checkbox"
+              id="settings-school-week-mon"
+              name="teaching-days"
+              value="mon"
+              checked
+            >
+            <span>1</span>
+          </label>
+          <label class="settings-school-week__day" for="settings-school-week-tue">
+            Tue
+            <input
+              class="settings-school-week__check"
+              type="checkbox"
+              id="settings-school-week-tue"
+              name="teaching-days"
+              value="tue"
+              checked
+            >
+            <span>2</span>
+          </label>
+          <label class="settings-school-week__day" for="settings-school-week-wed">
+            Wed
+            <input
+              class="settings-school-week__check"
+              type="checkbox"
+              id="settings-school-week-wed"
+              name="teaching-days"
+              value="wed"
+              checked
+            >
+            <span>3</span>
+          </label>
+          <label class="settings-school-week__day" for="settings-school-week-thu">
+            Thu
+            <input
+              class="settings-school-week__check"
+              type="checkbox"
+              id="settings-school-week-thu"
+              name="teaching-days"
+              value="thu"
+              checked
+            >
+            <span>4</span>
+          </label>
+          <label class="settings-school-week__day" for="settings-school-week-fri">
+            Fri
+            <input
+              class="settings-school-week__check"
+              type="checkbox"
+              id="settings-school-week-fri"
+              name="teaching-days"
+              value="fri"
+              checked
+            >
+            <span>5</span>
+          </label>
+        </div>
+        <p class="settings-school-week__week-note">Wednesday finishes at 14:30. Clubs keep their own timetable.</p>
+      </fieldset>
+      <div class="settings-school-week__rules">
+        <h3 class="settings-school-week__subheading">A little room between lessons</h3>
+        <label class="settings-school-week__label" for="settings-school-week-period">
+          Standard lesson
+          <select class="settings-school-week__field" id="settings-school-week-period" name="period">
+            <option value="45">45 minutes</option>
+            <option value="40">40 minutes</option>
+            <option value="50">50 minutes</option>
+          </select>
+        </label>
+        <label class="settings-school-week__label" for="settings-school-week-passing">
+          Passing time
+          <select class="settings-school-week__field" id="settings-school-week-passing" name="passing">
+            <option value="5">5 minutes</option>
+            <option value="10">10 minutes</option>
+            <option value="0">No gap</option>
+          </select>
+        </label>
+        <label class="settings-school-week__option" for="settings-school-week-break">
+          <input
+            class="settings-school-week__check"
+            id="settings-school-week-break"
+            name="break"
+            type="checkbox"
+            aria-describedby="settings-school-week-break-hint"
+            checked
+          >
+          <span>
+            <span>Keep lunch time clear</span>
+            <span class="settings-school-week__caption" id="settings-school-week-break-hint">Protect 12:00–13:00 in new timetables.</span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <footer class="settings-school-week__footer">
+      <p class="settings-school-week__caption">New timetables only. Existing lessons stay as planned.</p>
+      <button class="settings-school-week__button" type="button">Save school week</button>
+    </footer>
+  </form>
+</section>

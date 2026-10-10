@@ -82,4 +82,7 @@ export const IMAGES = {
   // Added for new-login
   greyHorseWoodland: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1600&q=80',
   snowMountainPlateau: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1600&q=80',
+  // Added for new-settings
+  thermostatLivingRoom: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',
+  cameraHomeInterior: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80',
 } as const

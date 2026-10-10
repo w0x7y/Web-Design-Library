@@ -1,0 +1,56 @@
+<section class="settings-reader-comfort">
+  <form class="settings-reader-comfort__inner">
+    <p class="settings-reader-comfort__eyebrow">Folio Pocket / reading comfort</p>
+    <h2 class="settings-reader-comfort__title">Settle into the page.</h2>
+    <div class="settings-reader-comfort__layout">
+      <article class="settings-reader-comfort__sample" aria-labelledby="settings-reader-comfort-sample-title">
+        <p class="settings-reader-comfort__eyebrow">Reading specimen · 18px</p>
+        <h3 class="settings-reader-comfort__chapter" id="settings-reader-comfort-sample-title">The windows across the courtyard</h3>
+        <p class="settings-reader-comfort__passage">At first light, the windows across the courtyard began to open. A cup settled on a sill. Someone shook a tablecloth into the cool air. For a moment, every small sound seemed to belong to the same room.</p>
+        <p class="settings-reader-comfort__page-number">42</p>
+      </article>
+      <section class="settings-reader-comfort__preferences" aria-labelledby="settings-reader-comfort-defaults">
+        <h3 class="settings-reader-comfort__subheading" id="settings-reader-comfort-defaults">Your reading defaults</h3>
+        <div class="settings-reader-comfort__fields">
+          <label class="settings-reader-comfort__label" for="settings-reader-comfort-size">
+            Text size
+            <select class="settings-reader-comfort__field" id="settings-reader-comfort-size" name="size">
+              <option value="18">18 pixels</option>
+              <option value="20">20 pixels</option>
+              <option value="22">22 pixels</option>
+            </select>
+          </label>
+          <label class="settings-reader-comfort__label" for="settings-reader-comfort-alignment">
+            Paragraph alignment
+            <select class="settings-reader-comfort__field" id="settings-reader-comfort-alignment" name="alignment">
+              <option value="left">Left aligned</option>
+              <option value="justified">Justified</option>
+            </select>
+          </label>
+          <label class="settings-reader-comfort__option" for="settings-reader-comfort-pages">
+            <input
+              class="settings-reader-comfort__check"
+              id="settings-reader-comfort-pages"
+              name="pages"
+              type="checkbox"
+              aria-describedby="settings-reader-comfort-pages-hint"
+              checked
+            >
+            <span>
+              <span>Show page numbers</span>
+              <span class="settings-reader-comfort__caption" id="settings-reader-comfort-pages-hint">Keep your place visible below the text.</span>
+            </span>
+          </label>
+          <details>
+            <summary class="settings-reader-comfort__summary">Where do these settings apply?</summary>
+            <p class="settings-reader-comfort__copy">Newly opened books use these defaults. Books with fixed page layouts keep their publisher’s typography.</p>
+          </details>
+        </div>
+      </section>
+    </div>
+    <footer class="settings-reader-comfort__footer">
+      <p class="settings-reader-comfort__caption">Synced to your Folio Pocket devices.</p>
+      <button class="settings-reader-comfort__button" type="button">Save reading defaults</button>
+    </footer>
+  </form>
+</section>

@@ -1,0 +1,82 @@
+<section class="settings-vault-lock">
+  <div class="settings-vault-lock__inner settings-vault-lock__layout">
+    <div class="settings-vault-lock__intro">
+      <svg
+        class="settings-vault-lock__lock"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <rect x="9" y="21" width="30" height="23" rx="5"></rect>
+        <path d="M15 21v-8a9 9 0 0 1 18 0v8M24 30v6"></path>
+      </svg>
+      <p class="settings-vault-lock__eyebrow">Latchkey / device security</p>
+      <h2 class="settings-vault-lock__title">Close the vault behind you.</h2>
+      <p class="settings-vault-lock__copy">Set when your password vault locks on this device and what stays on the clipboard.</p>
+      <aside class="settings-vault-lock__device" aria-label="Device receiving these settings">
+        <h3 class="settings-vault-lock__subheading">This MacBook</h3>
+        <p class="settings-vault-lock__copy">Desktop app · last unlocked today at 09:42</p>
+        <p class="settings-vault-lock__caption">Your other devices keep their own lock rules.</p>
+      </aside>
+    </div>
+    <form class="settings-vault-lock__vault">
+      <h3 class="settings-vault-lock__subheading">Lock and clipboard</h3>
+      <div class="settings-vault-lock__fields">
+        <label class="settings-vault-lock__label" for="settings-vault-lock-lock-after">
+          Lock after inactivity
+          <select class="settings-vault-lock__field" id="settings-vault-lock-lock-after" name="lock-after">
+            <option value="5">5 minutes</option>
+            <option value="1">1 minute</option>
+            <option value="15">15 minutes</option>
+          </select>
+        </label>
+        <label class="settings-vault-lock__label" for="settings-vault-lock-clear-after">
+          Clear copied passwords after
+          <select class="settings-vault-lock__field" id="settings-vault-lock-clear-after" name="clear-after">
+            <option value="30">30 seconds</option>
+            <option value="15">15 seconds</option>
+            <option value="60">60 seconds</option>
+          </select>
+        </label>
+        <label class="settings-vault-lock__option" for="settings-vault-lock-sleep">
+          <input
+            class="settings-vault-lock__check"
+            id="settings-vault-lock-sleep"
+            name="sleep"
+            type="checkbox"
+            aria-describedby="settings-vault-lock-sleep-hint"
+            checked
+          >
+          <span>
+            <span>Lock when this device sleeps</span>
+            <span class="settings-vault-lock__caption" id="settings-vault-lock-sleep-hint">Require another unlock when you return.</span>
+          </span>
+        </label>
+        <label class="settings-vault-lock__option" for="settings-vault-lock-biometric">
+          <input
+            class="settings-vault-lock__check"
+            id="settings-vault-lock-biometric"
+            name="biometric"
+            type="checkbox"
+            aria-describedby="settings-vault-lock-biometric-hint"
+            checked
+          >
+          <span>
+            <span>Allow biometric unlock</span>
+            <span class="settings-vault-lock__caption" id="settings-vault-lock-biometric-hint">Use this device’s registered fingerprint.</span>
+          </span>
+        </label>
+        <details>
+          <summary class="settings-vault-lock__summary">When will I need my master password?</summary>
+          <p class="settings-vault-lock__copy">After signing out or restarting the app, use your master password before biometric unlock becomes available again.</p>
+        </details>
+      </div>
+      <footer class="settings-vault-lock__footer">
+        <button class="settings-vault-lock__link" type="reset">Reset lock rules</button>
+        <button class="settings-vault-lock__button" type="button">Save device rules</button>
+      </footer>
+    </form>
+  </div>
+</section>

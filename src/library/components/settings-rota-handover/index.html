@@ -1,0 +1,72 @@
+<section class="settings-rota-handover">
+  <div class="settings-rota-handover__inner">
+    <header>
+      <p class="settings-rota-handover__eyebrow">Wardline / rota configuration</p>
+      <h2 class="settings-rota-handover__title">A smoother shift change.</h2>
+      <p class="settings-rota-handover__copy">Handover defaults for the Cedar Hospital acute medical unit.</p>
+    </header>
+    <div class="settings-rota-handover__layout">
+      <aside class="settings-rota-handover__coverage" aria-label="Current rota coverage">
+        <p class="settings-rota-handover__coverage-label">Acute medicine · Ward 4</p>
+        <p class="settings-rota-handover__coverage-count">24 / 24</p>
+        <p class="settings-rota-handover__coverage-note">Shifts covered this week</p>
+        <p class="settings-rota-handover__coverage-note">Next handover<br>Monday, 07:00 · Team B</p>
+      </aside>
+      <form class="settings-rota-handover__form">
+        <h3 class="settings-rota-handover__subheading">Handover window</h3>
+        <div class="settings-rota-handover__fields">
+          <label class="settings-rota-handover__label" for="settings-rota-handover-overlap">
+            Shift overlap
+            <select class="settings-rota-handover__field" id="settings-rota-handover-overlap" name="overlap">
+              <option value="30">30 minutes</option>
+              <option value="45">45 minutes</option>
+              <option value="60">60 minutes</option>
+            </select>
+          </label>
+          <label class="settings-rota-handover__label" for="settings-rota-handover-release">
+            Publish rota ahead
+            <select class="settings-rota-handover__field" id="settings-rota-handover-release" name="release">
+              <option value="14">14 days</option>
+              <option value="21">21 days</option>
+              <option value="28">28 days</option>
+            </select>
+          </label>
+        </div>
+        <div class="settings-rota-handover__rules">
+          <label class="settings-rota-handover__option" for="settings-rota-handover-cover">
+            <input
+              class="settings-rota-handover__check"
+              id="settings-rota-handover-cover"
+              name="cover"
+              type="checkbox"
+              aria-describedby="settings-rota-handover-cover-hint"
+              checked
+            >
+            <span>
+              <span>Check cover before a swap</span>
+              <span class="settings-rota-handover__caption" id="settings-rota-handover-cover-hint">A swap needs the same clinical role.</span>
+            </span>
+          </label>
+          <label class="settings-rota-handover__option" for="settings-rota-handover-notes">
+            <input
+              class="settings-rota-handover__check"
+              id="settings-rota-handover-notes"
+              name="notes"
+              type="checkbox"
+              aria-describedby="settings-rota-handover-notes-hint"
+              checked
+            >
+            <span>
+              <span>Include handover checklist</span>
+              <span class="settings-rota-handover__caption" id="settings-rota-handover-notes-hint">Show the checklist at the start of a shift.</span>
+            </span>
+          </label>
+        </div>
+        <footer class="settings-rota-handover__footer">
+          <p class="settings-rota-handover__caption">For this unit only.</p>
+          <button class="settings-rota-handover__button" type="button">Save handover rules</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+</section>

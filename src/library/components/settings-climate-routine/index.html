@@ -1,0 +1,64 @@
+<section class="settings-climate-routine">
+  <div class="settings-climate-routine__inner">
+    <p class="settings-climate-routine__eyebrow">Morrowheat / home comfort</p>
+    <h2 class="settings-climate-routine__title">Warm when you need it.</h2>
+    <p class="settings-climate-routine__copy">Your weekday routine for the living room thermostat.</p>
+    <div class="settings-climate-routine__layout">
+      <figure class="settings-climate-routine__room">
+        <img
+          class="settings-climate-routine__photo"
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80"
+          alt="Sunlit living room with white armchairs, a brown sofa and a round coffee table"
+          width="1200"
+          height="900"
+        >
+        <figcaption class="settings-climate-routine__room-label">Living room · downstairs</figcaption>
+      </figure>
+      <form class="settings-climate-routine__routine">
+        <div class="settings-climate-routine__temperature">
+          <p class="settings-climate-routine__dial" aria-label="Current room temperature 21 degrees Celsius">21°</p>
+          <div>
+            <h3 class="settings-climate-routine__subheading">Comfort mode</h3>
+            <p class="settings-climate-routine__caption">Following your weekday schedule</p>
+          </div>
+        </div>
+        <div class="settings-climate-routine__stack">
+          <label class="settings-climate-routine__label" for="settings-climate-routine-target">
+            Comfort temperature
+            <select class="settings-climate-routine__field" id="settings-climate-routine-target" name="target">
+              <option value="21">21 °C</option>
+              <option value="20">20 °C</option>
+              <option value="22">22 °C</option>
+            </select>
+          </label>
+          <label class="settings-climate-routine__label" for="settings-climate-routine-start">
+            Warm-up starts
+            <select class="settings-climate-routine__field" id="settings-climate-routine-start" name="start">
+              <option value="0630">06:30</option>
+              <option value="0700">07:00</option>
+              <option value="0730">07:30</option>
+            </select>
+          </label>
+          <label class="settings-climate-routine__option" for="settings-climate-routine-away">
+            <input
+              class="settings-climate-routine__check"
+              id="settings-climate-routine-away"
+              name="away"
+              type="checkbox"
+              aria-describedby="settings-climate-routine-away-hint"
+              checked
+            >
+            <span>
+              <span>Lower the heat while away</span>
+              <span class="settings-climate-routine__caption" id="settings-climate-routine-away-hint">Use 17 °C when the house is empty.</span>
+            </span>
+          </label>
+        </div>
+        <footer class="settings-climate-routine__footer">
+          <p class="settings-climate-routine__caption">Monday to Friday</p>
+          <button class="settings-climate-routine__button" type="button">Save routine</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+</section>
