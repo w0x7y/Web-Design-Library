@@ -3,9 +3,9 @@ import { componentSchema, KINDS, type Catalog, type Component } from './catalog.
 
 /** Optional search terms and conjunctive metadata filters. */
 export const searchInputSchema = z.object({
-  query: z.string().max(500).optional().describe('Free text; all words of a category id or label rank that category first, preferring the most specific match, then results rank by how many distinct words match and by field weights. Common English stopwords are ignored; singular/plural words and prefixes match.'),
+  query: z.string().max(500).optional().describe('Layout terms such as "two column hero with image". Complete category phrases rank first, then distinct word coverage and field weights. Singular/plural words and prefixes match; common English stopwords are ignored.'),
   category: z.string().max(60).optional().describe('Category id from list_categories, such as pricing or buttons.'),
-  tags: z.array(z.string().max(40)).max(20).optional().describe('Style tag ids from list_categories; a component must have every tag.'),
+  tags: z.array(z.string().max(40)).max(20).optional().describe('Layout tag IDs from list_categories, such as split, grid or compact; a pattern must have every tag.'),
   kind: z.enum(KINDS).optional().describe('Full-width section or small standalone element.'),
   limit: z.number().int().min(1).max(50).default(10).describe('Maximum results, 1–50; defaults to 10.'),
 })
