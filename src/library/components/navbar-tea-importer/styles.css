@@ -1,0 +1,133 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.navbar-tea-importer, .navbar-tea-importer *, .navbar-tea-importer *::before, .navbar-tea-importer *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.navbar-tea-importer { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.navbar-tea-importer :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.navbar-tea-importer a { color: inherit; text-decoration: inherit; }
+.navbar-tea-importer :is(b, strong) { font-weight: bolder; }
+.navbar-tea-importer :is(ol, ul, menu) { list-style: none; }
+.navbar-tea-importer :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.navbar-tea-importer :is(img, video) { max-width: 100%; height: auto; }
+.navbar-tea-importer :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.navbar-tea-importer ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.navbar-tea-importer table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.navbar-tea-importer summary { display: list-item; }
+
+
+/* Component */
+.navbar-tea-importer {
+  border-bottom: 1px solid oklch(92.5% 0.084 155.995); /* green-200 */
+  background-color: oklch(98.2% 0.018 155.826); /* green-50 */
+  color: oklch(26.6% 0.065 152.934); /* green-950 */
+}
+
+.navbar-tea-importer .navbar-tea-importer__inner {
+  margin-inline: auto;
+  display: grid;
+  max-width: 80rem;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.navbar-tea-importer .navbar-tea-importer__brand {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.navbar-tea-importer .navbar-tea-importer__cup {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.navbar-tea-importer .navbar-tea-importer__collection {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.navbar-tea-importer .navbar-tea-importer__navigation {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.navbar-tea-importer .navbar-tea-importer__link {
+  text-underline-offset: 4px;
+}
+
+.navbar-tea-importer .navbar-tea-importer__catalog {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid oklch(52.7% 0.154 150.069); /* green-700 */
+  background-color: #fff; /* white */
+  padding: 0.75rem;
+}
+
+.navbar-tea-importer .navbar-tea-importer__catalog-title {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.navbar-tea-importer .navbar-tea-importer__provenance {
+  margin-top: 0.25rem;
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.8% 0.119 151.328); /* green-800 */
+}
+
+.navbar-tea-importer .navbar-tea-importer__download {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  text-underline-offset: 4px;
+}
+
+.navbar-tea-importer .navbar-tea-importer__format {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.8% 0.119 151.328); /* green-800 */
+}
+
+/* Keyboard focus remains visible in forced-colors mode. */
+.navbar-tea-importer :is(a, button, input, select, summary):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Pointer states */
+@media (hover: hover) {
+  .navbar-tea-importer .navbar-tea-importer__brand:hover {
+    text-decoration-line: underline;
+  }
+  .navbar-tea-importer .navbar-tea-importer__link:hover {
+    text-decoration-line: underline;
+  }
+  .navbar-tea-importer .navbar-tea-importer__download:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 48rem) {
+  .navbar-tea-importer .navbar-tea-importer__inner {
+    grid-template-columns: 15rem 1fr;
+  }
+  .navbar-tea-importer .navbar-tea-importer__identity {
+    border-right: 1px solid oklch(92.5% 0.084 155.995); /* green-200 */
+    padding-right: 1.5rem;
+  }
+}
+
