@@ -19,7 +19,7 @@ const BUTTON_VARIANTS = {
 
 /** A button, or a link that looks like one. */
 export function button({ variant = 'primary', size = 'md' }: { variant?: keyof typeof BUTTON_VARIANTS; size?: keyof typeof BUTTON_SIZES } = {}): string {
-  return `inline-flex shrink-0 items-center justify-center rounded-lg border font-medium whitespace-nowrap transition-colors duration-150 aria-disabled:cursor-default aria-disabled:opacity-60 ${FOCUS_RING} ${BUTTON_SIZES[size]} ${BUTTON_VARIANTS[variant]}`
+  return `inline-flex shrink-0 items-center justify-center rounded-lg border font-medium whitespace-nowrap shell-press aria-disabled:cursor-default aria-disabled:opacity-60 ${FOCUS_RING} ${BUTTON_SIZES[size]} ${BUTTON_VARIANTS[variant]}`
 }
 
 const CHIP_TONES = {
@@ -31,7 +31,7 @@ const CHIP_TONES = {
 
 /** A small rounded tag: a style-tag toggle (`on` when pressed), a link to a tag, or a `bare` control beside them. */
 export function chip(tone: keyof typeof CHIP_TONES = 'off'): string {
-  return `inline-flex h-7 shrink-0 items-center rounded-full border px-3 text-[13px] whitespace-nowrap transition-colors duration-150 ${FOCUS_RING} ${CHIP_TONES[tone]}`
+  return `inline-flex h-7 shrink-0 items-center rounded-full border px-3 text-[13px] whitespace-nowrap shell-press ${FOCUS_RING} ${CHIP_TONES[tone]}`
 }
 
 /** An underlined text link that leads somewhere else on the site ("View all", "Back to all components"). */
