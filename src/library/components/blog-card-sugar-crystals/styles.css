@@ -1,0 +1,111 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.blog-card-sugar-crystals, .blog-card-sugar-crystals *, .blog-card-sugar-crystals *::before, .blog-card-sugar-crystals *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.blog-card-sugar-crystals { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.blog-card-sugar-crystals :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.blog-card-sugar-crystals a { color: inherit; text-decoration: inherit; }
+.blog-card-sugar-crystals :is(b, strong) { font-weight: bolder; }
+.blog-card-sugar-crystals :is(ol, ul, menu) { list-style: none; }
+.blog-card-sugar-crystals :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.blog-card-sugar-crystals :is(img, video) { max-width: 100%; height: auto; }
+.blog-card-sugar-crystals :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.blog-card-sugar-crystals ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.blog-card-sugar-crystals table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.blog-card-sugar-crystals summary { display: list-item; }
+
+/* Component */
+
+.blog-card-sugar-crystals {
+  width: 18rem;
+  border: 2px solid oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background-color: oklch(97.1% 0.014 343.198) /* pink-50 */;
+  font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+}
+
+/* Candy-lab masthead and crystal artwork */
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__brand {
+  font-size: 0.875rem;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__category {
+  font-size: 9px;
+  line-height: 1rem;
+  text-align: right;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__art {
+  margin-top: 1rem;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__crystals {
+  width: 100%;
+  height: 5rem;
+}
+
+/* Story and crooked experiment tab */
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__heading {
+  margin-top: 1rem;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__link {
+  text-underline-offset: 4px;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__summary {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: oklch(40.1% 0.17 325.612) /* fuchsia-900 */;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 9px;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__tab {
+  rotate: -2deg;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: oklch(90.1% 0.058 230.902) /* sky-200 */;
+  font-weight: 600;
+}
+
+.blog-card-sugar-crystals .blog-card-sugar-crystals__link:focus-visible {
+  outline: 2px solid oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .blog-card-sugar-crystals .blog-card-sugar-crystals__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .blog-card-sugar-crystals {
+    width: 20rem;
+  }
+}

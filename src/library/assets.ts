@@ -62,4 +62,7 @@ export const IMAGES = {
   // Added for new-stat-card
   aquariumCoral: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800&q=80',
   chestnutMushrooms: 'https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&q=80',
+  // Added for new-blog-card
+  californiaPoppies: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600&q=80',
+  honeyJarDipper: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1600&q=80',
 } as const
