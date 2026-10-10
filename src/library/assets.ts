@@ -50,4 +50,7 @@ export const IMAGES = {
   // Added for new-product-card
   productRentalCamera: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
   petTravelCompanion: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800&q=80',
+  // Added for new-profile-card
+  portraitWomanGarden: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80',
+  portraitManSuit: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
 } as const
