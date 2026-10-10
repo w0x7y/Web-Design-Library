@@ -1,0 +1,164 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-four-column-grid, .product-card-four-column-grid *, .product-card-four-column-grid *::before, .product-card-four-column-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-four-column-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-four-column-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-four-column-grid a { color: inherit; text-decoration: inherit; }
+.product-card-four-column-grid :is(b, strong) { font-weight: bolder; }
+.product-card-four-column-grid :is(ol, ul, menu) { list-style: none; }
+.product-card-four-column-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-four-column-grid :is(img, video) { max-width: 100%; height: auto; }
+.product-card-four-column-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-four-column-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-four-column-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-four-column-grid summary { display: list-item; }
+
+/* Section */
+.product-card-four-column-grid {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Header */
+.product-card-four-column-grid .product-card-four-column-grid__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__heading {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__catalogue-link {
+  flex-shrink: 0;
+  align-self: flex-start;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Product grid */
+.product-card-four-column-grid .product-card-four-column-grid__list {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+  row-gap: 2rem;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__item {
+  position: relative;
+  min-width: 0;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__media {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Product details */
+.product-card-four-column-grid .product-card-four-column-grid__product-name {
+  margin-top: 0.75rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__product-link {
+  text-underline-offset: 4px;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__variant {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__price {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+@media (hover: hover) {
+  .product-card-four-column-grid .product-card-four-column-grid__item:hover .product-card-four-column-grid__media {
+    background-color: oklch(92.2% 0 none); /* neutral-200 */
+  }
+
+  .product-card-four-column-grid .product-card-four-column-grid__item:hover .product-card-four-column-grid__product-link {
+    text-decoration-line: underline;
+  }
+
+  .product-card-four-column-grid .product-card-four-column-grid__catalogue-link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__product-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.product-card-four-column-grid .product-card-four-column-grid__catalogue-link:focus-visible,
+.product-card-four-column-grid .product-card-four-column-grid__product-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .product-card-four-column-grid .product-card-four-column-grid__container {
+    padding-block: 6rem;
+  }
+
+  .product-card-four-column-grid .product-card-four-column-grid__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .product-card-four-column-grid .product-card-four-column-grid__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+
+  .product-card-four-column-grid .product-card-four-column-grid__catalogue-link {
+    align-self: auto;
+  }
+}
+
+@media (width >= 64rem) {
+  .product-card-four-column-grid .product-card-four-column-grid__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+}

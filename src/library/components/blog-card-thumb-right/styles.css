@@ -1,0 +1,121 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.blog-card-thumb-right, .blog-card-thumb-right *, .blog-card-thumb-right *::before, .blog-card-thumb-right *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.blog-card-thumb-right { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.blog-card-thumb-right :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.blog-card-thumb-right a { color: inherit; text-decoration: inherit; }
+.blog-card-thumb-right :is(b, strong) { font-weight: bolder; }
+.blog-card-thumb-right :is(ol, ul, menu) { list-style: none; }
+.blog-card-thumb-right :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.blog-card-thumb-right :is(img, video) { max-width: 100%; height: auto; }
+.blog-card-thumb-right :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.blog-card-thumb-right ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.blog-card-thumb-right table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.blog-card-thumb-right summary { display: list-item; }
+
+/* Card */
+.blog-card-thumb-right {
+  position: relative;
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border-style: solid;
+  border-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Headline and thumbnail */
+.blog-card-thumb-right .blog-card-thumb-right__top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__headline-column {
+  min-width: 0;
+  flex: 1;
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__category {
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__headline {
+  margin-top: 0.25rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__article-link {
+  text-underline-offset: 4px;
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__media {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Excerpt and metadata */
+.blog-card-thumb-right .blog-card-thumb-right__excerpt {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__footer {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .blog-card-thumb-right:hover .blog-card-thumb-right__article-link {
+    text-decoration-line: underline;
+  }
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__article-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.blog-card-thumb-right .blog-card-thumb-right__article-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .blog-card-thumb-right {
+    width: 22rem;
+  }
+
+  .blog-card-thumb-right .blog-card-thumb-right__media {
+    width: 6rem;
+    height: 6rem;
+  }
+}
