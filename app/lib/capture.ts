@@ -4,12 +4,18 @@ import { previewPath } from '../../src/library/urls'
 import { captureTargetSelector, readStage } from './stage'
 import { CAPTURE_SCALE, frameSize, type CaptureViewport } from './viewports'
 
+export interface CaptureOptions {
+  viewport: CaptureViewport
+  transparent: boolean
+  signal: AbortSignal
+}
+
 const CAPTURE_TIMEOUT_MS = 10_000
 
 const POLL_MS = 50
 
 /** Rejects with "Capture timed out" if `work` has not settled after `ms`. */
-export function withTimeout<T>(work: Promise<T>, ms: number): Promise<T> {
+function withTimeout<T>(work: Promise<T>, ms: number): Promise<T> {
   let timer: ReturnType<typeof setTimeout> | undefined
   const timeout = new Promise<never>((_, reject) => {
     timer = setTimeout(() => reject(new Error('Capture timed out')), ms)
@@ -109,7 +115,7 @@ function aborted(signal: AbortSignal): Promise<never> {
  */
 export async function captureComponent(
   meta: ComponentMeta,
-  { viewport, transparent, signal }: { viewport: CaptureViewport; transparent: boolean; signal: AbortSignal },
+  { viewport, transparent, signal }: CaptureOptions,
 ): Promise<Blob> {
   signal.throwIfAborted()
   const abort = new AbortController()

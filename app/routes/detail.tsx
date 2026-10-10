@@ -1,14 +1,14 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react'
-import { flushSync } from 'react-dom'
 import { data, isRouteErrorResponse, Link } from 'react-router'
 import { ActionBar } from '~/components/ActionBar'
-import { CodeView, type CodeViewHandle } from '~/components/CodeView'
+import { CodeView } from '~/components/CodeView'
 import { ComponentCard } from '~/components/ComponentCard'
+import { ManualCopy } from '~/components/ManualCopy'
 import { NotFoundView } from '~/components/NotFoundView'
 import { PreviewFrame } from '~/components/PreviewFrame'
 import { chip, TEXT_LINK } from '~/components/ui'
 import { ViewportToggle } from '~/components/ViewportToggle'
-import { useComponentActions } from '~/lib/component-actions'
+import { useComponentActions, type CopyRefusal } from '~/lib/component-actions'
 import { filtersSearch } from '~/lib/filters'
 import { useFormat } from '~/lib/format-preference'
 import { highlight } from '~/lib/highlight.server'
@@ -77,18 +77,11 @@ function ComponentDetail({ meta: component, sources, highlighted }: Route.Compon
   const smallScreen = useMediaQuery(SMALL_SCREEN)
   const viewport = chosenViewport ?? (smallScreen ? 'mobile' : 'desktop')
   const id = useId()
-  const codeView = useRef<CodeViewHandle>(null)
+  const [copyRefusal, setCopyRefusal] = useState<CopyRefusal | null>(null)
   // Unmounting (opening another component remounts this) aborts a running capture and silences its toasts.
   const { actions, busy } = useComponentActions(component, sources)
   const related = relatedMetas(component, ALL)
   const categoryLabel = CATEGORY_LABELS[component.category]
-
-  // After a refused clipboard write: show the Code tab and select a file (the first, or the one just
-  // copied), so Ctrl/⌘+C still works.
-  function revealCode(fileName?: string) {
-    flushSync(() => setTab('code')) // the panel is hidden until the tab switches, and a hidden node can't be selected
-    codeView.current?.select(fileName)
-  }
 
   return (
     <main className="mx-auto w-full max-w-(--breakpoint-2xl) px-4 pt-8 pb-24 sm:px-6 lg:px-8 lg:pt-10">
@@ -130,9 +123,11 @@ function ComponentDetail({ meta: component, sources, highlighted }: Route.Compon
           </ul>
         </div>
         <div className="mt-6 xl:mt-0 xl:shrink-0">
-          <ActionBar actions={actions} busy={busy} onCopyRefused={() => revealCode()} />
+          <ActionBar actions={actions} busy={busy} onCopyRefused={setCopyRefusal} />
         </div>
       </div>
+
+      {copyRefusal && <ManualCopy payload={copyRefusal} onDismiss={() => setCopyRefusal(null)} />}
 
       <div className="mt-8 flex flex-wrap items-center">
         {/* On sm+ the tabs and the viewport toggle share one hairline; below sm the toggle wraps under it. */}
@@ -149,12 +144,11 @@ function ComponentDetail({ meta: component, sources, highlighted }: Route.Compon
       </div>
       <div role="tabpanel" id={`${id}-code`} aria-labelledby={`${id}-code-tab`} hidden={tab !== 'code'} className="mt-4">
         <CodeView
-          ref={codeView}
           highlighted={highlighted}
           sources={sources}
           onCopyFile={(file) =>
             void actions.copyFile(format, file).then((result) => {
-              if (result === 'refused') revealCode(file.name)
+              if (result.status === 'refused') setCopyRefusal(result)
             })
           }
         />

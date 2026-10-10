@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test'
+import { buildBrief, codeForFormat } from '../src/library/brief'
 import { browseResults } from '../app/lib/filters'
 import { STAGE } from '../app/lib/stage'
 import { STORAGE_KEYS } from '../app/lib/storage'
@@ -12,7 +13,8 @@ import { downloadPng, openDetail } from './lib/pages'
 
 const ITEMS = await loadLibrary()
 const LIBRARY = ITEMS.map((item) => item.entry.meta) // in library order, the order the site shows
-const HERO = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry.sources
+const HERO_ENTRY = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry
+const HERO = HERO_ENTRY.sources
 
 // How many cards browse should show: the library on disk through browse's own results (unit-tested in filters.test.ts).
 function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: StyleTag[]; q?: string }): number {
@@ -565,16 +567,48 @@ test.describe('copy and export', () => {
     await expect(download).toBeFocused()
   })
 
-  test('clipboard failure falls back to selected code', async ({ page }) => {
+  for (const format of ['react', 'html'] as const) {
+    for (const action of ['Copy code', 'Copy for AI'] as const) {
+      test(`refused ${action} (${format}) selects the exact payload for manual copy`, async ({ page }) => {
+        await page.addInitScript(() => {
+          navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
+        })
+        await openHero(page)
+        if (format === 'html') await page.getByRole('radio', { name: 'HTML' }).click()
+        await page.getByRole('button', { name: action, exact: true }).click()
+        await expect(page.getByText("Couldn't copy")).toBeVisible()
+        const label = action === 'Copy for AI' ? 'AI brief' : format === 'react' ? 'React code' : 'HTML + CSS'
+        const field = page.getByRole('textbox', { name: `Copy manually: ${label}`, exact: true })
+        const text = action === 'Copy for AI'
+          ? buildBrief(HERO_ENTRY.meta, HERO, format)
+          : codeForFormat(HERO_ENTRY.meta, HERO, format)
+        await expect(field).toHaveValue(text)
+        await expect(field).toHaveAttribute('readonly', '')
+        await expect(field).toBeFocused()
+        expect(await field.evaluate((node: HTMLTextAreaElement) => node.value.slice(node.selectionStart, node.selectionEnd))).toBe(text)
+        await expect(page.getByText('Your browser blocked clipboard access. Press Ctrl/⌘+C to copy the selected text.')).toBeVisible()
+        await page.keyboard.press('Tab')
+        await expect(page.getByRole('button', { name: 'Dismiss manual copy' })).toBeFocused()
+        await page.keyboard.press('Enter')
+        await expect(field).toHaveCount(0)
+        await expect(page.getByRole('button', { name: action, exact: true })).toBeFocused()
+      })
+    }
+  }
+
+  test('changing format during a pending refusal keeps the attempted HTML snippet', async ({ page }) => {
     await page.addInitScript(() => {
-      navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
+      navigator.clipboard.writeText = () => new Promise((_, reject) => {
+        document.addEventListener('refuse-copy', () => reject(new Error('denied')), { once: true })
+      })
     })
     await openHero(page)
+    await page.getByRole('radio', { name: 'HTML' }).click()
     await page.getByRole('button', { name: 'Copy code' }).click()
-    await expect(page.getByText("Couldn't copy")).toBeVisible()
-    await expect(page.getByText('Your browser blocked clipboard access.')).toBeVisible()
-    await expect(page.getByRole('tab', { name: 'Code' })).toHaveAttribute('aria-selected', 'true')
-    expect(await page.evaluate(() => getSelection()?.toString())).toContain('export default function')
+    await page.getByRole('radio', { name: 'React' }).click()
+    await page.evaluate(() => document.dispatchEvent(new Event('refuse-copy')))
+    await expect(page.getByRole('textbox', { name: 'Copy manually: HTML + CSS', exact: true }))
+      .toHaveValue(codeForFormat(HERO_ENTRY.meta, HERO, 'html'))
   })
 
   test('capture survives failed images and cleans up', async ({ page }) => {
@@ -629,7 +663,7 @@ test.describe('copy and export', () => {
     expect(errors).toEqual([]) // no unhandled rejection from the abort
   })
 
-  test('a refused copy of one file selects that file', async ({ page }) => {
+  test('a refused copy of one file uses the same manual-copy field', async ({ page }) => {
     await page.addInitScript(() => {
       navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
     })
@@ -638,7 +672,15 @@ test.describe('copy and export', () => {
     await page.getByRole('tab', { name: 'Code' }).click()
     await page.getByRole('button', { name: 'Copy styles.css' }).click()
     await expect(page.getByText("Couldn't copy")).toBeVisible()
-    expect(await page.evaluate(() => getSelection()?.toString())).toContain('/* Scoped reset')
+    const field = page.getByRole('textbox', { name: 'Copy manually: styles.css', exact: true })
+    await expect(page.getByRole('textbox')).toHaveCount(1)
+    await expect(field).toHaveValue(HERO.css)
+    await expect(field).toBeFocused()
+    expect(await field.evaluate((node: HTMLTextAreaElement) => node.value.slice(node.selectionStart, node.selectionEnd))).toBe(HERO.css)
+    await page.getByRole('radio', { name: 'React' }).click()
+    await page.getByRole('button', { name: 'Copy Component.tsx' }).click()
+    await expect(page.getByRole('textbox')).toHaveCount(1)
+    await expect(page.getByRole('textbox', { name: 'Copy manually: Component.tsx', exact: true })).toHaveValue(HERO.tsx)
   })
 
   test('the download menu follows the menu keyboard pattern', async ({ page }) => {

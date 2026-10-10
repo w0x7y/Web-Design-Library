@@ -9,7 +9,7 @@ const meta: ComponentMeta = {
   tags: [],
   description: 'A card for the tests.',
   preview: { kind: 'section' },
-  fonts: [],
+  fonts: ['Hanken Grotesk:wght@400..700'],
   brief: { layout: 'Layout.', style: 'Style.', states: 'States.', responsive: 'Responsive.' },
   addedAt: '2026-10-08',
 }
@@ -20,7 +20,6 @@ const sources: ComponentSources = {
 }
 const PNG = new Blob(['png'], { type: 'image/png' })
 
-const CODE_HINT = 'Your browser blocked clipboard access. The code is selected below — press Ctrl/⌘+C.'
 const IMAGE_HINT = 'Your browser blocked clipboard access. Use Download to save the PNG instead.'
 const RETRY = { label: 'Retry', onClick: expect.any(Function) }
 
@@ -80,7 +79,7 @@ afterEach(() => {
 describe('copying text', () => {
   test.each(['react', 'html'] as const)('Copy code (%s) copies the code, says so and records copy_code', async (format) => {
     const { actions, ports, toasts } = setup()
-    expect(await actions.copyCode(format)).toBe('copied')
+    expect(await actions.copyCode(format)).toEqual({ status: 'copied' })
     expect(ports.copyText.mock.calls).toEqual([[codeForFormat(meta, sources, format)]])
     expect(toasts).toEqual([{ type: 'success', title: { react: 'Copied React code', html: 'Copied HTML + CSS' }[format] }])
     expect(ports.track.mock.calls).toEqual([[{ name: 'copy_code', slug: 'demo-card', format }]])
@@ -109,16 +108,40 @@ describe('copying text', () => {
     ])
   })
 
-  test.each<[string, (actions: ComponentActions) => Promise<CopyResult>]>([
-    ['Copy code', (actions) => actions.copyCode('react')],
-    ['Copy for AI', (actions) => actions.copyBrief('html')],
-    ['file copy', (actions) => actions.copyFile('html', { name: 'index.html', code: sources.html })],
-  ])('a refused %s shows the manual-copy hint, reports refused so the page can select the code, and records nothing', async (_, run) => {
+  test.each<[string, (actions: ComponentActions) => Promise<CopyResult>, string, string]>([
+    ['React code', (actions) => actions.copyCode('react'), sources.tsx, 'React code'],
+    ['HTML code', (actions) => actions.copyCode('html'), codeForFormat(meta, sources, 'html'), 'HTML + CSS'],
+    ['React AI brief', (actions) => actions.copyBrief('react'), buildBrief(meta, sources, 'react'), 'AI brief'],
+    ['HTML AI brief', (actions) => actions.copyBrief('html'), buildBrief(meta, sources, 'html'), 'AI brief'],
+    ['React file', (actions) => actions.copyFile('react', { name: 'Component.tsx', code: sources.tsx }), sources.tsx, 'Component.tsx'],
+    ['HTML file', (actions) => actions.copyFile('html', { name: 'index.html', code: sources.html }), sources.html, 'index.html'],
+    ['CSS file', (actions) => actions.copyFile('html', { name: 'styles.css', code: sources.css }), sources.css, 'styles.css'],
+  ])('a refused %s returns the exact attempted text and label, and records nothing', async (_, run, text, label) => {
     const { actions, ports, toasts } = setup()
     ports.copyText.mockResolvedValue(false)
-    expect(await run(actions)).toBe('refused')
-    expect(toasts).toEqual([{ type: 'error', title: "Couldn't copy", description: CODE_HINT }])
+    expect(await run(actions)).toEqual({ status: 'refused', text, label })
+    expect(ports.copyText.mock.calls).toEqual([[text]])
+    expect(toasts).toEqual([{ type: 'error', title: "Couldn't copy" }])
     expect(ports.track).not.toHaveBeenCalled()
+  })
+
+  test('refused HTML code includes the font link, CSS and markup from the copy builder', async () => {
+    const { actions, ports } = setup()
+    ports.copyText.mockResolvedValue(false)
+    const text = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk%3Awght%40400..700&amp;display=swap">\n<style>\n.demo { color: red; }\n</style>\n<div class="demo"></div>\n'
+    expect(await actions.copyCode('html')).toEqual({ status: 'refused', text, label: 'HTML + CSS' })
+  })
+
+  test('changing format during a pending refusal keeps the originally attempted payload', async () => {
+    const { actions, ports } = setup()
+    const write = deferred<boolean>()
+    ports.copyText.mockReturnValueOnce(write.promise)
+    let format: Format = 'html'
+    const done = actions.copyCode(format)
+    format = 'react'
+    await actions.copyCode(format)
+    write.resolve(false)
+    expect(await done).toEqual({ status: 'refused', text: codeForFormat(meta, sources, 'html'), label: 'HTML + CSS' })
   })
 
   test('copying text works while a capture runs', async () => {
@@ -332,7 +355,7 @@ describe('dispose', () => {
     const done = actions.copyCode('react')
     actions.dispose()
     copied.resolve(false)
-    expect(await done).toBe('skipped')
+    expect(await done).toEqual({ status: 'skipped' })
     expect(toasts).toEqual([])
   })
 

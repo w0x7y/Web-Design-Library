@@ -4,7 +4,7 @@ import { buildBrief, codeForFormat } from '../../src/library/brief'
 import type { ComponentMeta, ComponentSources, Format } from '../../src/library/types'
 import { SITE } from '../site'
 import { trackEvent, type AnalyticsEvent } from './analytics'
-import { captureComponent } from './capture'
+import { captureComponent, type CaptureOptions } from './capture'
 import { copyImage, copyText } from './clipboard'
 import type { CaptureViewport } from './viewports'
 
@@ -16,7 +16,6 @@ const COPIED_CODE: Record<Format, string> = { react: 'Copied React code', html: 
 const COPIED_BRIEF = 'Copied AI brief'
 const COPIED_IMAGE = 'Copied image'
 const COPY_REFUSED = "Couldn't copy"
-const CODE_REFUSED_HINT = 'Your browser blocked clipboard access. The code is selected below — press Ctrl/⌘+C.'
 const IMAGE_REFUSED_HINT = 'Your browser blocked clipboard access. Use Download to save the PNG instead.'
 const CAPTURE_FAILED = "Couldn't create image"
 const downloaded = (fileName: string) => `Downloaded ${fileName}`
@@ -27,12 +26,6 @@ const pngFileName = (slug: string, viewport: CaptureViewport) => `${SITE.slug}-$
 export interface ToastOptions {
   description?: string
   action?: { label: string; onClick(): void }
-}
-
-export interface CaptureOptions {
-  viewport: CaptureViewport
-  transparent: boolean
-  signal: AbortSignal
 }
 
 /** What the actions need from the outside world. The browser adapter is `browserPorts`; tests pass fakes. */
@@ -54,11 +47,13 @@ export interface ActionPorts {
   track(event: AnalyticsEvent): void
 }
 
-/**
- * How a text copy ended: `refused` when the browser blocked the clipboard (the page should then select
- * the code so it can be copied by hand), `skipped` when the actions were disposed first.
- */
-export type CopyResult = 'copied' | 'refused' | 'skipped'
+/** A refused write carries the attempted text, so manual copying never depends on the current format. */
+export type CopyResult = { status: 'copied' } | { status: 'skipped' } | CopyRefusal
+export interface CopyRefusal {
+  status: 'refused'
+  text: string
+  label: string
+}
 
 /**
  * Each action ends in exactly one toast and records its analytics event only on success. The
@@ -92,17 +87,17 @@ export function createComponentActions(meta: ComponentMeta, sources: ComponentSo
     for (const listener of listeners) listener()
   }
 
-  async function copy(text: string, message: string, event: AnalyticsEvent): Promise<CopyResult> {
-    if (disposed) return 'skipped'
+  async function copy(text: string, label: string, message: string, event: AnalyticsEvent): Promise<CopyResult> {
+    if (disposed) return { status: 'skipped' }
     const copied = await ports.copyText(text)
-    if (disposed) return 'skipped'
+    if (disposed) return { status: 'skipped' }
     if (!copied) {
-      notify.error(COPY_REFUSED, { description: CODE_REFUSED_HINT })
-      return 'refused'
+      notify.error(COPY_REFUSED)
+      return { status: 'refused', text, label }
     }
     notify.success(message)
     ports.track(event)
-    return 'copied'
+    return { status: 'copied' }
   }
 
   /** Runs `work` as the only capture, or drops it if one is already running. */
@@ -164,11 +159,11 @@ export function createComponentActions(meta: ComponentMeta, sources: ComponentSo
         listeners.delete(listener)
       }
     },
-    copyCode: (format) => copy(codeForFormat(meta, sources, format), COPIED_CODE[format], { name: 'copy_code', slug, format }),
-    copyBrief: (format) => copy(buildBrief(meta, sources, format), COPIED_BRIEF, { name: 'copy_ai', slug, format }),
+    copyCode: (format) => copy(codeForFormat(meta, sources, format), format === 'react' ? 'React code' : 'HTML + CSS', COPIED_CODE[format], { name: 'copy_code', slug, format }),
+    copyBrief: (format) => copy(buildBrief(meta, sources, format), 'AI brief', COPIED_BRIEF, { name: 'copy_ai', slug, format }),
     copyFile: (format, { name, code }) =>
       // Component.tsx is the whole React code; a single HTML or CSS file is not "HTML + CSS", so it is named.
-      copy(code, format === 'react' ? COPIED_CODE.react : `Copied ${name}`, { name: 'copy_code', slug, format }),
+      copy(code, name, format === 'react' ? COPIED_CODE.react : `Copied ${name}`, { name: 'copy_code', slug, format }),
     download,
     copyImage: copyImageAction,
     dispose() {
