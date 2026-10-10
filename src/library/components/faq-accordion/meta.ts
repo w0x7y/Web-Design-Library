@@ -7,22 +7,22 @@ export default {
   tags: ['centered', 'list', 'spacious'],
   description: 'A centred heading and introduction above five expandable question rows. Use it to answer common questions while keeping the section easy to scan.',
   preview: { kind: 'section' },
-  wireframe: `┌────────────────────────────────────────────────────────┐
-│             Heading for common questions               │
-│                Short introduction                      │
-│                                                        │
-├────────────────────────────────────────────────────────┤
-│ [Question about the main benefit]                    ∧  │
-│ Explain the main benefit in two or three sentences.     │
-├────────────────────────────────────────────────────────┤
-│ [Question about getting started]                    ∨  │
-├────────────────────────────────────────────────────────┤
-│ [Question about what is included]                   ∨  │
-├────────────────────────────────────────────────────────┤
-│ [Question about changing a choice]                  ∨  │
-├────────────────────────────────────────────────────────┤
-│ [Question about finding more help]                  ∨  │
-└────────────────────────────────────────────────────────┘`,
+  wireframe: `┌──────────────────────────────────────────────────────────┐
+│             Heading for common questions                 │
+│                Short introduction                        │
+│                                                          │
+├──────────────────────────────────────────────────────────┤
+│ Question about the main benefit                      ^   │
+│ Explain the main benefit in two or three sentences.      │
+├──────────────────────────────────────────────────────────┤
+│ Question about getting started                       v   │
+├──────────────────────────────────────────────────────────┤
+│ Question about what is included                      v   │
+├──────────────────────────────────────────────────────────┤
+│ Question about changing a choice                     v   │
+├──────────────────────────────────────────────────────────┤
+│ Question about finding more help                     v   │
+└──────────────────────────────────────────────────────────┘`,
   brief: {
     layout: 'One section with a centred 768px (max-w-3xl) container, 24px side padding and 64px vertical padding, increasing to 96px at 640px. A centred heading and introduction precede five full-width details rows by 48px. Each row has 20px vertical summary padding, a 20px chevron and a 1px neutral-200 divider. Answers have 20px bottom padding.',
     hierarchy: 'Read the 30px semibold heading, 18px introduction, then the five 16px semibold questions. The first answer is visible at entry; the others reveal 16px neutral-600 supporting text. Slots: heading up to 8 words, introduction up to 20, questions up to 10, answers up to 45.',

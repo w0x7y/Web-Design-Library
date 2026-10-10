@@ -25,6 +25,9 @@ export function outsideKit(token: string): boolean {
   const match = utility.match(/^(bg|text|border(?:-[xytrblse])?|outline|ring-offset|ring|divide|fill|stroke|decoration|placeholder|caret|accent|shadow|from|via|to)-(.+)$/)
   if (!match) return false
   const [, prefix, value] = match
+  // Forced-colors mode repaints in system colours, so `forced-colors:` may name one (`border-[ButtonText]`).
+  const systemColour = value.match(/^\[(?:color:)?([a-z]+)\]$/i)?.[1].toLowerCase()
+  if (systemColour && SYSTEM_COLOURS.has(systemColour) && /(?:^|:)forced-colors:/.test(token)) return false
   if (/^(?:white|black|transparent|current|inherit|neutral-(?:50|100|200|300|400|500|600|700|800|900|950))(?:\/(?:\d+(?:\.\d+)?|\[[\d.%]+\]))?$/.test(value)) return false
   if (/^(?:fill|stroke)$/.test(prefix) && value === 'none') return false
   const numeric = /^(?:\d+(?:\.\d+)?|\[(?:length:)?[\d.]+(?:px|rem|em)?\])$/

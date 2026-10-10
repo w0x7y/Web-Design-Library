@@ -209,8 +209,9 @@ export default {
 `meta.wireframe` is a template literal. Draw the desktop layout with
 `┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼`, name regions with their slot copy, write actions as
 `[Label]`, and draw media as a box with `Image` (or `Video`) inside.
-At most 64 characters per line and 24 lines; no tabs; no trailing spaces; no
-blank first or last line. Example (`hero-split-image`):
+Draw one outer frame so every line has the same width: at most 64 characters
+and 24 lines. Printable ASCII and box-drawing characters only (`^`/`v` for
+chevrons). No tabs; no trailing spaces; no blank first or last line. Example (`hero-split-image`):
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -289,7 +290,8 @@ url}]`, and fetches `/c/<slug>.<format>.md`. All of that must keep working:
 - **TSX classes** (after stripping variants and `!`): colour utilities
   (`bg|text|border(-[xytrblse])?|outline|ring|ring-offset|divide|fill|stroke|decoration|placeholder|caret|accent|shadow|from|via|to`)
   may only name `white|black|transparent|current|inherit|neutral-<n>`, with an
-  optional `/<opacity>`; no arbitrary colour values; no `bg-linear-*`,
+  optional `/<opacity>`; no arbitrary colour values except CSS system colours
+  under the `forced-colors:` variant (`forced-colors:border-[ButtonText]`); no `bg-linear-*`,
   `bg-radial-*`, `bg-conic-*`, `bg-gradient-*`, `bg-[url(`, `backdrop-*`,
   `mix-blend-*`, `font-[`, `font-serif`.
 - **TSX and HTML markup:** no `img`, `video`, `iframe`, `picture`, `source`

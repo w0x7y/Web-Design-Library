@@ -211,9 +211,17 @@ test.each([
   expect(violations(withMeta(validEntry(), { wireframe })).join('\n')).toMatch(pattern)
 })
 
-test('wireframe accepts its exact limits and blank interior lines', () => {
-  const wireframe = ['─'.repeat(64), '', ...Array(22).fill('│')].join('\n')
+test('wireframe accepts its exact limits', () => {
+  const wireframe = ['┌' + '─'.repeat(62) + '┐', ...Array(22).fill('│' + ' '.repeat(62) + '│'), '└' + '─'.repeat(62) + '┘'].join('\n')
   expect(violations(withMeta(validEntry(), { wireframe }))).toEqual([])
+})
+
+test.each([
+  ['┌──┐\n│ x │\n└──┘', /same width/],
+  ['┌───┐\n│ ∧ │\n└───┘', /printable ASCII and box-drawing/],
+  ['┌───┐\n│ ◌ │\n└───┘', /printable ASCII and box-drawing/],
+])('rejects a ragged or non-ASCII wireframe %j', (wireframe, pattern) => {
+  expect(violations(withMeta(validEntry(), { wireframe })).join('\n')).toMatch(pattern)
 })
 
 test.each([
@@ -287,6 +295,12 @@ test.each([
   'font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;',
 ])('accepts achromatic CSS: %s', (declaration) => {
   expect(violations(cssValue(declaration))).toEqual([])
+})
+
+test('allows system colour classes only under the forced-colors variant', () => {
+  expect(violations(tsxClasses('forced-colors:border-[ButtonText] peer-checked:forced-colors:bg-[Highlight] forced-colors:after:bg-[color:CanvasText]'))).toEqual([])
+  expect(violations(tsxClasses('border-[ButtonText]')).join('\n')).toMatch(/wireframe kit/)
+  expect(violations(tsxClasses('forced-colors:bg-[Tomato]')).join('\n')).toMatch(/wireframe kit/)
 })
 
 test('allows system colours only within forced-colors media', () => {

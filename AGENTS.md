@@ -62,7 +62,7 @@ export default {
 | `description` | Shown on the detail page, in `llms.txt` and `catalog.json`, and in MCP results: what the layout is and when to use it. |
 | `preview.kind` | `section` renders full width at the viewport width. `element` renders centred on white with 48px padding inside a 480px-tall frame, so it must stay within about 384px tall and fit 294px wide on mobile. |
 | `preview.parity` | Optional `{ maxDiffRatio, reason }`. Use it only for sub-pixel text rendering differences you cannot remove, and write the reason. Default tolerance is 1% of pixels. |
-| `wireframe` | Desktop layout in a template literal using `┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼`. Name regions with slot copy, actions as `[Label]`, media as a box labelled `Image` or `Video`. At most 64 characters per line and 24 lines; no tabs, trailing spaces or blank first/last line. |
+| `wireframe` | Desktop layout in a template literal using `┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼`. Name regions with slot copy, actions as `[Label]`, media as a box labelled `Image` or `Video`. Draw one outer frame, so every line has the same width: at most 64 characters and 24 lines. Use printable ASCII and box-drawing characters only (`^`/`v` for chevrons, `...` for a menu). No tabs, trailing spaces or blank first/last line. |
 | `brief.layout` | Regions, grid, column widths, alignment and spacing, in px and Tailwind names. |
 | `brief.hierarchy` | Reading order, emphasis, and each content slot with its length limit. |
 | `brief.states` | Hover, focus, open, selected and disabled states. |
@@ -124,7 +124,7 @@ These are the [layout patterns spec §4](docs/superpowers/specs/2026-10-10-layou
 
 `rules.ts` also checks that `styles.css` starts with the reset, that every selector outside `@keyframes` starts with `.<slug>`, that keyframe names start with the slug, that the root element of `index.html` has the class `<slug>`, and that `index.html` has no `<link>`, `<style>` or `<script>`.
 
-The kit checker rejects colour utilities outside the allowed neutral palette, arbitrary colours, gradients, backdrop effects, blend modes, filters, arbitrary font families, serif fonts and decorative animation. Both formats reject media elements (`img`, `video`, `iframe`, `picture`, `source`), `src`/`srcset`, inline style and painted SVG attributes. CSS colours must be achromatic: equal RGB channels, hex with equal red/green/blue, zero-chroma `oklch`, or the kit keywords. System colours are allowed inside forced-colors media only. CSS has no gradients, `url()`, `@import` or `@font-face`. The only font families are the reset line, `inherit` and Tailwind's `--font-mono` stack.
+The kit checker rejects colour utilities outside the allowed neutral palette, arbitrary colours, gradients, backdrop effects, blend modes, filters, arbitrary font families, serif fonts and decorative animation. Both formats reject media elements (`img`, `video`, `iframe`, `picture`, `source`), `src`/`srcset`, inline style and painted SVG attributes. CSS colours must be achromatic: equal RGB channels, hex with equal red/green/blue, zero-chroma `oklch`, or the kit keywords. System colours are allowed inside forced-colors media only, and in TSX only as arbitrary values under the `forced-colors:` variant (`forced-colors:border-[ButtonText]`). CSS has no gradients, `url()`, `@import` or `@font-face`. The only font families are the reset line, `inherit` and Tailwind's `--font-mono` stack.
 
 ## styles.css reset template
 

@@ -7,11 +7,11 @@ export default {
   tags: ['grid', 'icons', 'compact'],
   description: 'An action hierarchy with primary, secondary and tertiary buttons, plus destructive, icon-only, disabled and loading variants. Use it to compare action emphasis and control states.',
   preview: { kind: 'element' },
-  wireframe: `┌──────────────────────────────────────────────────────┐
+  wireframe: `┌────────────────────────────────────────────────────────┐
 │ [Primary action] [Secondary action] [Tertiary action]  │
-│ [Delete item]    [More actions ⋯]   [Unavailable]      │
-│ [◌ Loading action]                                   │
-└──────────────────────────────────────────────────────┘`,
+│ [Trash icon  Delete item]  [...]  [Unavailable action] │
+│ [Spinner  Loading action]                              │
+└────────────────────────────────────────────────────────┘`,
   brief: {
     layout: 'A 288px-wide (w-72) grid with 12px gaps, stepping to 576px and three equal columns at 640px. Buttons are 44px high with 20px horizontal padding and 6px radii. The icon-only control is a centred 44px square. The destructive and loading controls have a 20px icon with an 8px gap. The mobile stack is 380px tall and fits the element frame.',
     hierarchy: 'Filled neutral-900 with white text marks the primary action; a neutral-300 outline marks the secondary; underlined text marks the tertiary. The destructive action uses a trash icon and explicit Delete wording. Disabled and loading examples follow the active actions. Use 2–3 words per action label; the icon-only button has a More actions accessible label.',

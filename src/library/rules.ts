@@ -57,6 +57,8 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (wireframe.includes('\t')) out.push('meta.wireframe must not contain tabs')
   if (lines.some((line) => / +$/.test(line))) out.push('meta.wireframe must not have trailing spaces')
   if (!lines[0].trim() || !lines.at(-1)!.trim()) out.push('meta.wireframe must not have a blank first or last line')
+  if (new Set(lines.map((line) => [...line].length)).size > 1) out.push('meta.wireframe lines must all have the same width: draw one outer frame')
+  if (/[^\n\x20-\x7e\u2500-\u259f]/u.test(wireframe)) out.push('meta.wireframe may only use printable ASCII and box-drawing characters')
   for (const field of BRIEF_FIELDS) {
     if (!meta.brief[field]?.trim()) out.push(`brief.${field} is empty`)
   }
