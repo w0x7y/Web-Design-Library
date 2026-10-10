@@ -2,28 +2,7 @@
 
 `patternbook-mcp` is a stdio MCP server for finding Patternbook UI components and fetching their code. It reads the site's static catalog and Markdown briefs over HTTP, so new components appear without a package release. It needs Node 20 or newer.
 
-The package isn't on npm yet. Use the from-source setup below today. The production site also needs a deploy that includes `catalog.json` and the per-format briefs. Until then, point the server at a local build with `PATTERNBOOK_URL`.
-
-## Build from source
-
-From this repository:
-
-```bash
-cd mcp
-npm install
-npm run build
-```
-
-The entry point is `mcp/dist/index.js`. Use its absolute path in your MCP client. The package has its own dependencies and lockfile; it is not an npm workspace.
-
-To serve the agent files locally, run these commands from the repository root in another terminal:
-
-```bash
-npm run build
-npm run serve:build
-```
-
-The root site requires Node 22.22 or newer. Keep the static server running while using the local MCP configuration.
+The package is published on npm. The setup below uses the live Patternbook site.
 
 ## Tools
 
@@ -51,25 +30,9 @@ Catalog version 1 validates only the metadata the tools read and strips unknown 
 
 ## Claude Code
 
-The working from-source form:
-
-```bash
-claude mcp add patternbook -e PATTERNBOOK_URL=http://localhost:4317 -- node /abs/path/mcp/dist/index.js
-```
-
-After the site deploy, omit the environment override to use production:
-
-```bash
-claude mcp add patternbook -- node /abs/path/mcp/dist/index.js
-```
-
-After this package is published, the npm form will be:
-
 ```bash
 claude mcp add patternbook -- npx -y patternbook-mcp
 ```
-
-That npm command does not work today.
 
 ## Codex
 
@@ -77,12 +40,9 @@ Add this to `~/.codex/config.toml`, using the [stdio MCP configuration](https://
 
 ```toml
 [mcp_servers.patternbook]
-command = "node"
-args = ["/abs/path/mcp/dist/index.js"]
-env = { PATTERNBOOK_URL = "http://localhost:4317" }
+command = "npx"
+args = ["-y", "patternbook-mcp"]
 ```
-
-After the site deploy, remove `env` to use production. After npm publication, you can replace `command` with `"npx"` and `args` with `["-y", "patternbook-mcp"]`.
 
 ## Cursor and other MCP clients
 
@@ -92,15 +52,39 @@ Put this in Cursor's `.cursor/mcp.json`, or the equivalent `mcp.json` for a clie
 {
   "mcpServers": {
     "patternbook": {
-      "command": "node",
-      "args": ["/abs/path/mcp/dist/index.js"],
-      "env": { "PATTERNBOOK_URL": "http://localhost:4317" }
+      "command": "npx",
+      "args": ["-y", "patternbook-mcp"]
     }
   }
 }
 ```
 
-Remove `env` after the production deploy. Restart or reload the MCP client after changing its configuration.
+Restart or reload the MCP client after changing its configuration.
+
+## Develop against a local build
+
+From the repository root, build and serve the site's agent files:
+
+```bash
+npm run build
+npm run serve:build
+```
+
+The root site requires Node 22.22 or newer. Keep the static server running and set `PATTERNBOOK_URL=http://localhost:4317` in your MCP client's environment. For Claude Code:
+
+```bash
+claude mcp add patternbook -e PATTERNBOOK_URL=http://localhost:4317 -- npx -y patternbook-mcp
+```
+
+To work on the server itself, build it from source:
+
+```bash
+cd mcp
+npm install
+npm run build
+```
+
+Replace `npx -y patternbook-mcp` in your client with `node /abs/path/mcp/dist/index.js`. The package has its own dependencies and lockfile; it is not an npm workspace.
 
 ## Development
 

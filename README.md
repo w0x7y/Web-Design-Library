@@ -97,6 +97,7 @@ docs/superpowers/     design spec and implementation plan
 - **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `patternbook-<slug>-<desktop|mobile>.png`. Known limitation: `modern-screenshot` draws `backdrop-filter` blur differently from the browser, so a glass component's PNG (navbar-glass, for example) differs slightly from its preview behind the frosted areas.
 - **Preferences.** The site theme and the React/HTML choice are kept in `localStorage` (`wl:theme` and `wl:format`).
 - **Filtered home links.** A head script hides the home intro before first paint when a search or known style tag is present. React takes over after hydration; clearing all filters brings the intro back. Applying tags on the ordinary home page keeps the intro in place so the chips do not jump.
+- **Home hero.** Browse components, open `llms.txt`, or copy the Claude Code MCP setup command. A setup link covers Codex, Cursor and other clients. Refused clipboard writes show the same manual-copy field as component actions.
 - **Site fonts.** Geist and Geist Mono are served from `public/fonts`, with their upstream license and source commit recorded there. Component fonts remain declared in `meta.fonts` and loaded from Google Fonts.
 
 ### Agent files
@@ -114,7 +115,13 @@ The build logs `Agent and discovery files: <n> written`: three briefs per compon
 
 ### MCP server
 
-The standalone [`patternbook-mcp` package](mcp/README.md) lets coding agents search components, list categories and fetch a React or HTML brief over MCP. It reads the agent files over HTTP and picks up new components without a package release. It isn't on npm yet; the package README has working from-source setup for Claude Code, Codex and Cursor, including a local build option until the agent files are deployed.
+The standalone `patternbook-mcp` package is published on npm. It lets coding agents search components, list categories and fetch a React or HTML brief over MCP. It reads the live site's agent files over HTTP and picks up new components without a package release. Connect Claude Code with:
+
+```bash
+claude mcp add patternbook -- npx -y patternbook-mcp
+```
+
+See [`mcp/README.md`](mcp/README.md) for Codex, Cursor and local development setup.
 
 ### Link previews
 
@@ -132,7 +139,7 @@ The CSP allows the site's scripts and the inline scripts whose hashes the build 
 
 ### Analytics plans
 
-Page views are recorded on every plan, Hobby included. The four custom events need the **Pro** plan (or Enterprise). On Hobby the tracking calls do nothing, and upgrading needs no code change.
+Page views are recorded on every plan, Hobby included. The custom events need the **Pro** plan (or Enterprise). On Hobby the tracking calls do nothing, and upgrading needs no code change.
 
 | Event | Props |
 |---|---|
@@ -140,6 +147,7 @@ Page views are recorded on every plan, Hobby included. The four custom events ne
 | `copy_ai` | `slug`, `format` |
 | `download_png` | `slug`, `viewport` |
 | `copy_image` | `slug` |
+| `copy_mcp_setup` | None |
 
 Events fire only after the action succeeds, and each carries at most two props, which is the Pro plan's limit. The stage page (`/preview/<slug>`) does not load analytics.
 

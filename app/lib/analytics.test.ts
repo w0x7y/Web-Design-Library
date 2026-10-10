@@ -17,10 +17,12 @@ describe('trackEvent', () => {
     trackEvent({ name: 'copy_ai', slug: 'a', format: 'react' })
     trackEvent({ name: 'download_png', slug: 'a', viewport: 'mobile' })
     trackEvent({ name: 'copy_image', slug: 'a' })
+    trackEvent({ name: 'copy_mcp_setup' })
     expect(vi.mocked(track).mock.calls).toEqual([
       ['copy_ai', { slug: 'a', format: 'react' }],
       ['download_png', { slug: 'a', viewport: 'mobile' }],
       ['copy_image', { slug: 'a' }],
+      ['copy_mcp_setup', {}],
     ])
   })
 

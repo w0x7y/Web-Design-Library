@@ -1,21 +1,22 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { toast } from 'sonner'
 import { buildBrief, codeForFormat } from '../../src/library/brief'
 import type { ComponentMeta, ComponentSources, Format } from '../../src/library/types'
 import { SITE } from '../site'
-import { trackEvent, type AnalyticsEvent } from './analytics'
+import type { AnalyticsEvent } from './analytics'
 import { captureComponent, type CaptureOptions } from './capture'
-import { copyImage, copyText } from './clipboard'
+import { copyImage } from './clipboard'
+import { browserTextCopyPorts, COPY_REFUSED, copyTextAction, type CopyResult, type TextCopyPorts } from './copy-action'
 import type { CaptureViewport } from './viewports'
 
+export type { CopyRefusal, CopyResult, ToastOptions } from './copy-action'
+
 // The detail page's actions: copy code, copy for AI, copy one file, download a PNG and copy the image.
-// Every toast, analytics event and capture rule lives here; the views only call these actions.
+// Text copying uses copy-action; image toasts, analytics and capture rules live here.
 
 // Toast text. The smoke tests assert it, so keep it in step with them.
 const COPIED_CODE: Record<Format, string> = { react: 'Copied React code', html: 'Copied HTML + CSS' }
 const COPIED_BRIEF = 'Copied AI brief'
 const COPIED_IMAGE = 'Copied image'
-const COPY_REFUSED = "Couldn't copy"
 const IMAGE_REFUSED_HINT = 'Your browser blocked clipboard access. Use Download to save the PNG instead.'
 const CAPTURE_FAILED = "Couldn't create image"
 const downloaded = (fileName: string) => `Downloaded ${fileName}`
@@ -23,36 +24,14 @@ const saveFailed = (fileName: string) => `Couldn't download ${fileName}`
 
 const pngFileName = (slug: string, viewport: CaptureViewport) => `${SITE.slug}-${slug}-${viewport}.png`
 
-export interface ToastOptions {
-  description?: string
-  action?: { label: string; onClick(): void }
-}
-
 /** What the actions need from the outside world. The browser adapter is `browserPorts`; tests pass fakes. */
-export interface ActionPorts {
-  /** Resolves false when the browser refuses the write. */
-  copyText(text: string): Promise<boolean>
+export interface ActionPorts extends TextCopyPorts {
   /** Writes the PNG while it is still being made. Resolves false when refused or when `png` rejects. */
   copyImage(png: Promise<Blob>): Promise<boolean>
   /** Rejects on failure, and once `signal` aborts. */
   capture(meta: ComponentMeta, options: CaptureOptions): Promise<Blob>
   /** Hands the PNG to the browser as a download. May throw. */
   save(png: Blob, fileName: string): void
-  /** Shaped like Sonner's `toast`. */
-  notify: {
-    success(title: string, options?: ToastOptions): unknown
-    error(title: string, options?: ToastOptions): unknown
-  }
-  /** Records an analytics event. Must not throw. */
-  track(event: AnalyticsEvent): void
-}
-
-/** A refused write carries the attempted text, so manual copying never depends on the current format. */
-export type CopyResult = { status: 'copied' } | { status: 'skipped' } | CopyRefusal
-export interface CopyRefusal {
-  status: 'refused'
-  text: string
-  label: string
 }
 
 /**
@@ -87,18 +66,8 @@ export function createComponentActions(meta: ComponentMeta, sources: ComponentSo
     for (const listener of listeners) listener()
   }
 
-  async function copy(text: string, label: string, message: string, event: AnalyticsEvent): Promise<CopyResult> {
-    if (disposed) return { status: 'skipped' }
-    const copied = await ports.copyText(text)
-    if (disposed) return { status: 'skipped' }
-    if (!copied) {
-      notify.error(COPY_REFUSED)
-      return { status: 'refused', text, label }
-    }
-    notify.success(message)
-    ports.track(event)
-    return { status: 'copied' }
-  }
+  const copy = (text: string, label: string, message: string, event: AnalyticsEvent) =>
+    copyTextAction({ text, label, message, event, isDisposed: () => disposed }, ports)
 
   /** Runs `work` as the only capture, or drops it if one is already running. */
   function exclusive(work: (signal: AbortSignal) => Promise<void>): Promise<void> {
@@ -185,12 +154,10 @@ function saveBlob(blob: Blob, fileName: string) {
 
 /** The real adapters: the clipboard, the hidden-iframe capture, an <a download>, Sonner and Vercel Analytics. */
 export const browserPorts: ActionPorts = {
-  copyText,
+  ...browserTextCopyPorts,
   copyImage,
   capture: captureComponent,
   save: saveBlob,
-  notify: toast,
-  track: trackEvent,
 }
 
 /**

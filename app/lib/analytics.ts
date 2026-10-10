@@ -8,6 +8,7 @@ export type AnalyticsEvent =
   | { name: 'copy_ai'; slug: string; format: Format }
   | { name: 'download_png'; slug: string; viewport: CaptureViewport }
   | { name: 'copy_image'; slug: string }
+  | { name: 'copy_mcp_setup' }
 
 /** Fire after the action succeeded. A blocked or failing tracker never affects the action itself. */
 export function trackEvent({ name, ...props }: AnalyticsEvent): void {

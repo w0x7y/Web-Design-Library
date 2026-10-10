@@ -1,4 +1,31 @@
 import { expect, test } from '@playwright/test'
+import { STORAGE_KEYS } from '../app/lib/storage'
+
+for (const theme of ['light', 'dark']) {
+  test(`the home hero fits from 320px up in the ${theme} theme`, async ({ page }) => {
+    await page.addInitScript(([key, value]) => localStorage.setItem(key, value), [STORAGE_KEYS.theme, theme])
+    await page.setViewportSize({ width: 320, height: 900 })
+    await page.goto('/')
+    const hero = page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })
+    const copy = hero.getByRole('button', { name: 'Copy MCP setup command' })
+    await expect(copy).toBeEnabled()
+    for (const width of [320, 390, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      await expect(hero.locator('code')).toBeVisible()
+      await expect(copy).toBeVisible()
+      const fit = await hero.evaluate((node) => ({
+        heroOverflow: node.scrollWidth - node.clientWidth,
+        pageOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      }))
+      expect(fit, `horizontal scrolling at ${width}px`).toEqual({ heroOverflow: 0, pageOverflow: 0 })
+      if (width === 320) {
+        const code = hero.locator('code')
+        await code.evaluate((node) => { node.scrollLeft = node.scrollWidth })
+        expect(await code.evaluate((node) => node.scrollLeft)).toBeGreaterThan(0)
+      }
+    }
+  })
+}
 
 for (const width of [390, 1440]) {
   for (const query of ['?q=glass', '?tags=minimal', '?tags=unknown&tags=LIGHT,minimal']) {
