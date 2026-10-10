@@ -1,4 +1,5 @@
 import postcss, { type AtRule, type Node, type Root, type Rule } from 'postcss'
+import ts from 'typescript'
 import { IMAGES } from './assets'
 import { fontDisplayName, isFontFamily } from './fonts'
 import { isSlug, SOURCE_FILES } from './catalog'
@@ -61,15 +62,8 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
 
 function checkTsx(tsx: string, fonts: string[]): string[] {
   const out: string[] = []
-  if (/\bdark:/.test(tsx)) out.push('Component.tsx uses a dark: variant; components must not follow the site theme')
-  if (/\buse[A-Z]\w*\(|\bon[A-Z]\w*=/.test(tsx)) {
-    out.push('Component.tsx uses hooks or event handlers; interactivity must be CSS-only (no interactive JS)')
-  }
-  for (const specifier of importSpecifiers(tsx)) {
-    if (specifier !== 'react') out.push(`Component.tsx imports "${specifier}"; only "react" may be imported`)
-  }
-  const defaults = tsx.match(/\bexport\s+default\b/g)?.length ?? 0
-  if (defaults !== 1) out.push(`Component.tsx must have exactly one default export (found ${defaults})`)
+  const source = ts.createSourceFile('Component.tsx', tsx, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+  out.push(...checkTsxSyntax(source))
   if (fonts.length > 0) {
     const names = fonts.map(fontDisplayName)
     const firstLine = tsx.split('\n', 1)[0]
@@ -81,17 +75,130 @@ function checkTsx(tsx: string, fonts: string[]): string[] {
       }
     }
   }
-  out.push(...checkImages(tsx, 'Component.tsx'))
   return out
 }
 
-function importSpecifiers(tsx: string): string[] {
-  const patterns = [
-    /^\s*(?:import|export)\b[^'"]*?\bfrom\s*['"]([^'"]+)['"]/gm, // import x from 'y' / export … from 'y'
-    /^\s*import\s*['"]([^'"]+)['"]/gm, // import 'y'
-    /\bimport\s*\(\s*['"]([^'"]+)['"]/g, // import('y')
-  ]
-  return patterns.flatMap((re) => [...tsx.matchAll(re)].map((m) => m[1]))
+function checkTsxSyntax(source: ts.SourceFile): string[] {
+  const out = new Set<string>()
+  const declarations = new Map<string, ts.Node>()
+  const defaults: (ts.Node | undefined)[] = []
+  for (const statement of source.statements) {
+    if (ts.isFunctionDeclaration(statement) && statement.name) declarations.set(statement.name.text, statement)
+    if (ts.isVariableStatement(statement)) {
+      for (const declaration of statement.declarationList.declarations) {
+        if (ts.isIdentifier(declaration.name) && declaration.initializer) {
+          declarations.set(declaration.name.text, declaration.initializer)
+        }
+      }
+    }
+    if (ts.isExportAssignment(statement) && !statement.isExportEquals) defaults.push(statement.expression)
+    if (ts.canHaveModifiers(statement) && ts.getModifiers(statement)?.some((modifier) => modifier.kind === ts.SyntaxKind.DefaultKeyword)) {
+      defaults.push(statement)
+    }
+    if (ts.isExportDeclaration(statement) && statement.exportClause && ts.isNamedExports(statement.exportClause)) {
+      for (const specifier of statement.exportClause.elements) {
+        if (specifier.name.text === 'default') defaults.push(statement.moduleSpecifier ? undefined : specifier.propertyName ?? specifier.name)
+      }
+    }
+  }
+  if (defaults.length !== 1) {
+    out.add(`Component.tsx must have exactly one default export (found ${defaults.length})`)
+  } else {
+    const component = resolveComponent(defaults[0], declarations)
+    if (!component || component.parameters.length > 0) {
+      out.add('Component.tsx must default-export a component function with no parameters; remove props')
+    }
+  }
+
+  const visit = (node: ts.Node) => {
+    const module = importedModule(node)
+    if (module) {
+      const specifier = ts.isStringLiteralLike(module) ? module.text : undefined
+      if (specifier !== 'react') {
+        out.add(`Component.tsx imports ${specifier === undefined ? '(not a literal)' : `"${specifier}"`}; only "react" may be imported`)
+      }
+    }
+    if (ts.isCallExpression(node) && /^use[A-Z]/.test(callName(node.expression))) {
+      out.add('Component.tsx uses hooks or event handlers; interactivity must be CSS-only (no interactive JS)')
+    }
+    if (ts.isJsxAttribute(node)) {
+      const name = node.name.getText(source)
+      if (/^on[A-Z]/.test(name)) {
+        out.add('Component.tsx uses hooks or event handlers; interactivity must be CSS-only (no interactive JS)')
+      }
+      if (name === 'style') out.add('Component.tsx uses a style attribute; use Tailwind classes only')
+      if (name === 'className' && node.initializer && hasDarkVariant(node.initializer)) {
+        out.add('Component.tsx uses a dark: variant; components must not follow the site theme')
+      }
+    }
+    if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+      const tag = node.tagName.getText(source)
+      if (tag === 'style' || tag === 'script') {
+        out.add(`Component.tsx must not contain <${tag}>; use Tailwind classes and CSS-only interactivity`)
+      }
+      if (tag === 'img') {
+        for (const violation of checkJsxImage(node.attributes)) out.add(violation)
+      }
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(source)
+  return [...out]
+}
+
+function unwrapExpression(node: ts.Node): ts.Node {
+  while (ts.isParenthesizedExpression(node) || ts.isAsExpression(node) || ts.isTypeAssertionExpression(node) || ts.isSatisfiesExpression(node) || ts.isNonNullExpression(node)) {
+    node = node.expression
+  }
+  return node
+}
+
+function resolveComponent(node: ts.Node | undefined, declarations: Map<string, ts.Node>): ts.FunctionDeclaration | ts.FunctionExpression | ts.ArrowFunction | undefined {
+  const seen = new Set<string>()
+  while (node) {
+    node = unwrapExpression(node)
+    if (ts.isFunctionDeclaration(node) || ts.isFunctionExpression(node) || ts.isArrowFunction(node)) return node
+    if (!ts.isIdentifier(node) || seen.has(node.text)) return undefined
+    seen.add(node.text)
+    node = declarations.get(node.text)
+  }
+  return undefined
+}
+
+function importedModule(node: ts.Node): ts.Node | undefined {
+  if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) return node.moduleSpecifier
+  if (ts.isImportEqualsDeclaration(node) && ts.isExternalModuleReference(node.moduleReference)) return node.moduleReference.expression
+  if (ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword) return node.arguments[0]
+  if (ts.isImportTypeNode(node) && ts.isLiteralTypeNode(node.argument)) return node.argument.literal
+  return undefined
+}
+
+function callName(expression: ts.Expression): string {
+  const node = unwrapExpression(expression)
+  if (ts.isIdentifier(node)) return node.text
+  if (ts.isPropertyAccessExpression(node)) return node.name.text
+  if (ts.isElementAccessExpression(node) && ts.isStringLiteralLike(node.argumentExpression)) return node.argumentExpression.text
+  return ''
+}
+
+function hasDarkVariant(node: ts.Node): boolean {
+  if ((ts.isStringLiteralLike(node) || ts.isTemplateLiteralToken(node)) && /\bdark:/.test(node.text)) return true
+  return ts.forEachChild(node, hasDarkVariant) ?? false
+}
+
+function checkJsxImage(attributes: ts.JsxAttributes): string[] {
+  const out: string[] = []
+  const attrs = attributes.properties.filter(ts.isJsxAttribute)
+  const missing = ['alt', 'width', 'height'].filter((name) => !attrs.some((attr) => ts.isIdentifier(attr.name) && attr.name.text === name))
+  if (missing.length > 0) out.push(`Component.tsx: <img> is missing ${missing.join(', ')}`)
+  const initializer = attrs.find((attr) => ts.isIdentifier(attr.name) && attr.name.text === 'src')?.initializer
+  const value = initializer && ts.isJsxExpression(initializer) ? initializer.expression : initializer
+  const literal = value && unwrapExpression(value)
+  const src = literal && ts.isStringLiteralLike(literal) ? literal.text : undefined
+  if (src === undefined || !IMAGE_URLS.has(src)) {
+    out.push(`Component.tsx: <img> src ${src === undefined ? '(not a literal)' : `"${src}"`} is not a URL from IMAGES in src/library/assets.ts`)
+  }
+  return out
 }
 
 function checkImages(source: string, file: string): string[] {
@@ -137,6 +244,11 @@ function checkCss(css: string, slug: string): string[] {
   }
   root.walkAtRules('import', () => {
     out.push('styles.css must not use @import; declare fonts in meta.fonts')
+  })
+  root.walkAtRules((rule) => {
+    if (!/keyframes$/i.test(rule.name)) return
+    const name = rule.params.trim().replace(/^(['"])(.*)\1$/, '$2')
+    if (!name.startsWith(slug)) out.push(`styles.css @${rule.name} name "${name}" must start with "${slug}"`)
   })
   const scoped = new RegExp(`^\\.${slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\w-])`)
   root.walkRules((rule) => {

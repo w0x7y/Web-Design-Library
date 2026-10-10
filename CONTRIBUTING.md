@@ -79,7 +79,7 @@ The rules, from [`AGENTS.md`](AGENTS.md#authoring-rules):
 - **Exactly one default export, and no props.** Import nothing except `react`, and only if you need it.
 - **If `meta.fonts` is not empty, line 1 must start with `// Fonts: `** and name every family. Use the font through an arbitrary class with a fallback stack, such as `font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]`.
 - **Use Tailwind v4 utility classes only.** No `dark:` variants: the site's dark mode must never restyle a component. No global CSS, no `<style>` tags.
-- **Interactivity is CSS-only.** Use `hover:`, `focus-visible:`, `group-*`, `peer-*`, `has-*`, `<details>`/`<summary>` and transitions. No hooks (`useState`, `useEffect`, …) and no event handlers (`onClick`, `onChange`, …). The rule checker rejects any `useX(` or `onX=`.
+- **Interactivity is CSS-only.** Use `hover:`, `focus-visible:`, `group-*`, `peer-*`, `has-*`, `<details>`/`<summary>` and transitions. No hooks (`useState`, `useEffect`, …) and no event handlers (`onClick`, `onChange`, …). The rule checker rejects hook calls and JSX event-handler attributes, regardless of spacing.
 - **Icons are inline `<svg>`.** No icon packages. Give decorative icons `aria-hidden="true"`.
 - **Every `<img>` has a literal `src` from `IMAGES`**, plus `alt`, `width` and `height`. Use the image's real intrinsic size.
 - **Make it accessible:**
@@ -261,7 +261,7 @@ Prefer an image already in `IMAGES`. If none fits:
 | `meta.slug "…" does not match its folder` | Rename the folder or the slug so they match. |
 | `styles.css must begin with the scoped reset … line N should read: …` | Regenerate the reset with the `npx tsx` command in step 5, then paste your rules back under it. |
 | `styles.css selector "…" is not scoped under .<slug>` | Prefix the selector with `.<slug> `. |
-| `Component.tsx uses hooks or event handlers` | Replace the state with CSS: `<details>`, `peer-checked:`, `has-[:checked]:`, `group-hover:`. A bare `onX=` anywhere in the file, even in a comment, also triggers this. |
+| `Component.tsx uses hooks or event handlers` | Replace the state with CSS: `<details>`, `peer-checked:`, `has-[:checked]:`, `group-hover:`. Hook calls and JSX event-handler attributes are checked structurally; comments are ignored. |
 | `Component.tsx must start with a "// Fonts: " comment` | Make line 1 `// Fonts: Family Name (https://fonts.google.com/specimen/Family+Name)`, naming every family in `meta.fonts`. |
 | `meta.fonts contains an invalid Google Fonts family` | Use the css2 `family` form, e.g. `Inter:wght@400..700` or `Instrument Serif:ital@0;1`, unencoded. |
 | `<img> src … is not a URL from IMAGES` | Use a literal URL from `src/library/assets.ts`, or add one (see above). |
