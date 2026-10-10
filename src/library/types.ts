@@ -1,4 +1,4 @@
-import type { CategoryId, StyleTag } from './taxonomy'
+import type { CategoryId, LayoutTag } from './taxonomy'
 
 /** Supported source formats, in display and agent-file order. */
 export const FORMATS = ['react', 'html'] as const
@@ -6,20 +6,20 @@ export type Format = (typeof FORMATS)[number]
 
 export interface ComponentBrief {
   layout: string
-  style: string
+  hierarchy: string
   states: string
   responsive: string
+  usage: string
 }
 
 export interface ComponentMeta {
   slug: string
   name: string
   category: CategoryId
-  tags: StyleTag[]
+  tags: LayoutTag[]
   description: string
   preview: { kind: 'section' | 'element'; parity?: { maxDiffRatio: number; reason: string } }
-  /** Google Fonts css2 family params, e.g. 'Instrument Serif:ital@0;1' */
-  fonts: string[]
+  wireframe: string
   brief: ComponentBrief
   addedAt: string
   author?: string
