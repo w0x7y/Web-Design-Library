@@ -47,8 +47,8 @@ export function SearchField() {
       <input
         type="search"
         name="q"
-        aria-label="Search components"
-        placeholder="Search components"
+        aria-label="Search patterns"
+        placeholder="Search patterns"
         autoComplete="off"
         spellCheck={false}
         enterKeyHint="search"

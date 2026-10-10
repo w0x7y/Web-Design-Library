@@ -15,7 +15,7 @@ export function NotFoundView({ title = 'Page not found' }: { title?: string }) {
         to="/"
         className={`mt-6 inline-flex ${TEXT_LINK}`}
       >
-        Back to all components
+        Back to all patterns
       </Link>
     </main>
   )

@@ -29,10 +29,10 @@ const CHIP_TONES = {
   bare: 'gap-1 border-transparent text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white',
 } as const
 
-/** A small rounded tag: a style-tag toggle (`on` when pressed), a link to a tag, or a `bare` control beside them. */
+/** A small rounded tag: a layout-tag toggle (`on` when pressed), a link to a tag, or a `bare` control beside them. */
 export function chip(tone: keyof typeof CHIP_TONES = 'off'): string {
   return `inline-flex h-7 shrink-0 items-center rounded-full border px-3 text-[13px] whitespace-nowrap shell-press ${FOCUS_RING} ${CHIP_TONES[tone]}`
 }
 
-/** An underlined text link that leads somewhere else on the site ("View all", "Back to all components"). */
+/** An underlined text link that leads somewhere else on the site ("View all", "Back to all patterns"). */
 export const TEXT_LINK = `rounded-sm text-sm font-medium text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition-colors duration-150 hover:text-zinc-950 hover:decoration-zinc-500 dark:text-zinc-400 dark:decoration-zinc-700 dark:hover:text-white dark:hover:decoration-zinc-400 ${FOCUS_RING}`

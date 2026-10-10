@@ -36,23 +36,25 @@ test('home page renders with site title', async ({ page }) => {
 
 test('the home page leads with the hero, whose heading is the page h1', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Copy-paste UI for you and your agent.')
-  await expect(page.getByRole('heading', { level: 2, name: 'All components' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Layout patterns for your next page.')
+  await expect(page.getByText(`${LIBRARY.length} patterns, free to copy`)).toBeVisible()
+  await expect(page.getByText('Neutral wireframes with copy-paste code and an AI brief. Restyle each pattern in your own design system.')).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'All patterns' })).toBeVisible()
   // A search hides the hero, so the results lead the page and their heading becomes the h1.
-  await page.getByRole('searchbox', { name: 'Search components' }).fill('accordion')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('All components')
-  await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toHaveCount(0)
+  await page.getByRole('searchbox', { name: 'Search patterns' }).fill('accordion')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('All patterns')
+  await expect(page.getByRole('region', { name: 'Layout patterns for your next page.' })).toHaveCount(0)
 })
 
 test('the home hero shows npm setup and keeps its agent links before hydration', async ({ page }) => {
   await page.route('**/assets/*.js', (route) => route.abort())
   await page.goto('/')
-  const hero = page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })
+  const hero = page.getByRole('region', { name: 'Layout patterns for your next page.' })
   await expect(hero.locator('code')).toHaveText(MCP_SETUP_COMMAND)
   // Geist Mono's ligatures would swallow the space before "--"; the shell mono font turns them off.
   await expect(hero.locator('code')).toHaveCSS('font-feature-settings', '"calt" 0, "liga" 0')
   await expect(hero.getByRole('button', { name: 'Copy MCP setup command' })).toHaveAttribute('aria-disabled', 'true')
-  await expect(hero.getByRole('link', { name: 'Browse components' })).toHaveAttribute('href', '#components')
+  await expect(hero.getByRole('link', { name: 'Browse patterns' })).toHaveAttribute('href', '#components')
   await expect(hero.getByRole('link', { name: 'llms.txt for agents' })).toHaveAttribute('href', '/llms.txt')
   await expect(hero.getByRole('link', { name: 'Setup for Codex, Cursor and other clients' }))
     .toHaveAttribute('href', `${SITE.repoUrl}/tree/main/mcp#readme`)
@@ -187,7 +189,7 @@ test('search and tag filters sync with the URL', async ({ page }) => {
   expectNarrowing(accordion)
   expectNarrowing(centered)
   await page.goto('/')
-  await page.getByRole('searchbox', { name: 'Search components' }).fill('accordion')
+  await page.getByRole('searchbox', { name: 'Search patterns' }).fill('accordion')
   await expect(page).toHaveURL(/q=accordion/)
   await expect(page.getByTestId('component-card')).toHaveCount(accordion)
   await page.goto('/?tags=centered')
@@ -197,7 +199,7 @@ test('search and tag filters sync with the URL', async ({ page }) => {
 
 test('zero results show empty state with working reset', async ({ page }) => {
   await page.goto('/?q=zzzz&tags=split,unknown')
-  await expect(page.getByText('No components match')).toBeVisible()
+  await expect(page.getByText('No patterns match')).toBeVisible()
   await page.getByRole('button', { name: 'Clear filters' }).click()
   await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
 })
@@ -211,7 +213,7 @@ for (const path of ['/?q=zzzz', '/browse/hero?q=zzzz']) {
     await clear.focus()
     await page.keyboard.press('Enter')
     await expect(page.getByTestId('component-card').first()).toBeVisible()
-    await expect(page.getByRole('heading', { name: path.startsWith('/browse') ? 'Hero' : 'All components', exact: true })).toBeFocused()
+    await expect(page.getByRole('heading', { name: path.startsWith('/browse') ? 'Hero' : 'All patterns', exact: true })).toBeFocused()
   })
 }
 
@@ -288,7 +290,7 @@ test('focused controls keep a visible outline in forced-colors mode', async ({ p
   await page.emulateMedia({ forcedColors: 'active' })
   await page.goto('/c/hero-split-image')
   await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
-  const search = page.getByRole('searchbox', { name: 'Search components' })
+  const search = page.getByRole('searchbox', { name: 'Search patterns' })
   await search.focus()
   await expect(search).toHaveCSS('outline-style', 'solid')
   await page.getByRole('button', { name: 'Download' }).focus()
@@ -302,7 +304,7 @@ test.describe('before hydration', () => {
   // The pre-rendered page has no handlers yet, so its controls wait rather than drop a click or keystroke.
   test('the browse controls are disabled until the page hydrates', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('searchbox', { name: 'Search components' })).toHaveAttribute('readonly', '')
+    await expect(page.getByRole('searchbox', { name: 'Search patterns' })).toHaveAttribute('readonly', '')
     await expect(page.getByRole('button', { name: /^Switch to/ })).toBeDisabled()
     for (const tag of ['centered', 'split', 'media']) await expect(page.getByRole('button', { name: tag })).toBeDisabled()
   })
@@ -314,7 +316,7 @@ test('tag chips toggle their filter once the page hydrates', async ({ page }) =>
   await expect(page).toHaveURL(/\?tags=centered$/)
   await expect(page.getByRole('button', { name: 'centered', pressed: true })).toBeVisible()
   await expect(page.getByTestId('component-card')).toHaveCount(expectedCount({ tags: ['centered'] }))
-  await page.getByRole('button', { name: 'Clear style filters' }).click()
+  await page.getByRole('button', { name: 'Clear layout filters' }).click()
   await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
 })
 
@@ -351,8 +353,8 @@ test('code tab shows files for the selected format', async ({ page }) => {
 
 test('unknown component and category show not-found views', async ({ page }) => {
   await page.goto('/c/does-not-exist')
-  await expect(page.getByRole('heading', { name: 'Component not found' })).toBeVisible()
-  await expect(page.getByRole('searchbox', { name: 'Search components' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Pattern not found' })).toBeVisible()
+  await expect(page.getByRole('searchbox', { name: 'Search patterns' })).toBeVisible()
   await page.goto('/browse/nope')
   await expect(page.getByRole('heading', { name: 'Category not found' })).toBeVisible()
 })

@@ -6,7 +6,7 @@ import { SITE } from '../site'
 export function pageMeta({ title, description, path }: { title: string; description: string; path: string }): MetaDescriptor[] {
   const url = absoluteUrl(path)
   const image = absoluteUrl('/social-preview.png')
-  const imageAlt = 'Patternbook — copy-paste UI layouts for developers building with AI agents.'
+  const imageAlt = 'Patternbook — neutral layout patterns with code and an AI brief to restyle in your own design system.'
   return [
     { title },
     { name: 'description', content: description },
