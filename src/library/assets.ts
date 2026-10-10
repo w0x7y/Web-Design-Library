@@ -47,4 +47,75 @@ export const IMAGES = {
 
   // Architecture
   archWhiteArcadeStairs: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=1600&q=80',
+  // Added for new-product-card
+  productRentalCamera: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+  petTravelCompanion: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800&q=80',
+  // Added for new-profile-card
+  portraitWomanGarden: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80',
+  portraitManSuit: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
+  // Added for new-testimonial-card
+  portraitManGlasses: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+  portraitManSunlit: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&q=80',
+  // Added for new-team
+  portraitWomanPink: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80',
+  // Added for new-stat-card
+  aquariumCoral: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800&q=80',
+  chestnutMushrooms: 'https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&q=80',
+  // Added for new-blog-card
+  californiaPoppies: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600&q=80',
+  honeyJarDipper: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1600&q=80',
+  // Added for new-buttons
+  forestSurveySapling: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
+  // Added for new-inputs
+  groomingGoldenRetriever: 'https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=80',
+  // Added for new-badges
+  butterflyNectar: 'https://images.unsplash.com/photo-1475809913362-28a064062ccd?w=800&q=80',
+  // Added for new-toggles
+  horseWoodland: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80',
+  // Added for new-signup
+  vineyardMorningRows: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=1600&q=80',
+  cookingSchoolKitchen: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&q=80',
+  // Added for new-dropdowns
+  balloonLaunchSky: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80',
+  flowerWholesaleBouquet: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&q=80',
+  // Added for new-login
+  greyHorseWoodland: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1600&q=80',
+  snowMountainPlateau: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1600&q=80',
+  // Added for new-settings
+  thermostatLivingRoom: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',
+  cameraHomeInterior: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80',
+  // Added for new-tabs
+  vineyardMorningRowsSmall: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=800&q=80',
+  cinemaRedSeats: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
+  // Added for new-empty-state
+  travelJournalHarbor: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1600&q=80',
+  desertRoadJournal: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80',
+  // Added for new-data-table
+  hotelCourtyardPool: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80',
+  rollingCropFields: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80',
+  // Added for retheme-a
+  acousticGuitarPlaying: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80',
+  // Added for retheme-b
+  jazzTrumpetStage: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80',
+  sailingCoastalYachts: 'https://images.unsplash.com/photo-1589730349861-f17e3939c207?w=1600&q=80',
+  bookshopWoodenShelves: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1600&q=80',
+  // Added for retheme-c
+  operaRedCurtainStage: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1600&q=80',
+  architectureDraftingTable: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80',
+  // Added for retheme-d
+  riverDefenceStream: 'https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=1600&q=80',
+  droneSurveyOperator: 'https://images.unsplash.com/photo-1506947411487-a56738267384?w=1600&q=80',
+  // Added for new-dashboard
+  windTurbineField: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80',
+  studioMatTraining: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80',
+  // Added for retheme-e
+  cobblerLeatherShoes: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=800&q=80',
+  weddingEveningBouquet: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+  // Added for retheme-g
+  spiceMerchantTable: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
+  // Added for retheme-f
+  harbourWoodenBoats: 'https://images.unsplash.com/photo-1660745469414-543a641d22bf?w=1600&q=80',
+  // Added for retheme-h
+  rooftopTomatoVine: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=800&q=80',
+  recordingStudioDesk: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
 } as const

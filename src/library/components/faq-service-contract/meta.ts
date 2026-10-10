@@ -7,19 +7,17 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A project FAQ with an introductory scope note and four open answer rows. Use it for agencies and professional services where contract details matter.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:
-      'A 1152px two-column layout has a 36px title and small project promise on the left, and four question-answer rows on the right. Each row has a 20px heading, answer paragraph and thin top separator.',
+      'A centered 1152px grid uses 24px side and 80px vertical padding and a 40px gap. The introduction has an uppercase label, h2 after 20px, and scope note after 28px with 20px padding. Four always-visible articles have 24px vertical padding and top dividers; the last also has a bottom divider. Each answer sits 12px below its question.',
     style:
-      'White background, zinc-950 text, zinc-600 body and zinc-200 borders. Left note is a zinc-50 block with 12px radius and 20px padding. Typography is default sans without shadows.',
+      'White canvas, zinc-950 ink, zinc-600 body copy and 1px zinc-200 separators. The 12px semibold uppercase eyebrow is zinc-500 with 0.1em tracking. The h2 is 36px semibold with 1.25 line height and -0.025em tracking. The zinc-50 scope note has a 12px radius, 14px semibold promise and 14px body text. Question headings are 20px medium with 28px line height. Body paragraphs have 1.625 line height. No shadows.',
     states:
-      'All answers are visible and this section has no controls or interactive states. The top borders and question headings provide a predictable reading order.',
+      'All answers are visible. This section has no controls, hover states or animations. Semantic h2 and h3 headings establish the reading order.',
     responsive:
-      'Columns begin at 1024px. Rows stay stacked. Heading, notes and answers all wrap naturally; container uses 24px side and 80px vertical padding.',
+      'The introduction and answers stack below 1024px with a 40px gap. From 1024px the grid uses 1fr and 2fr columns with an 80px gap. Questions remain stacked, and all text wraps naturally with constant 24px side and 80px vertical padding.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

@@ -1,0 +1,44 @@
+<section class="inputs-tiny-house-spec" aria-label="Nestframe tiny-house specification">
+  <p class="inputs-tiny-house-spec__brand">Nestframe / Tiny homes</p>
+  <h2 class="inputs-tiny-house-spec__heading">Plan your small space</h2>
+  <div class="inputs-tiny-house-spec__pair">
+    <div>
+      <label class="inputs-tiny-house-spec__label" for="inputs-tiny-house-spec-shell">Shell</label>
+      <select class="inputs-tiny-house-spec__field" id="inputs-tiny-house-spec-shell" name="shell">
+        <option value="cedar">Cedar</option>
+        <option value="spruce">Spruce</option>
+        <option value="pine">Pine</option>
+      </select>
+    </div>
+    <span class="inputs-tiny-house-spec__arrow" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M2 8h12m-4-4 4 4-4 4" />
+      </svg>
+    </span>
+    <div>
+      <label class="inputs-tiny-house-spec__label" for="inputs-tiny-house-spec-layout">Layout</label>
+      <select class="inputs-tiny-house-spec__field" id="inputs-tiny-house-spec-layout" name="layout">
+        <option value="loft">Loft</option>
+        <option value="open">Open plan</option>
+        <option value="bunks">Bunks</option>
+      </select>
+    </div>
+  </div>
+  <div class="inputs-tiny-house-spec__area">
+    <label class="inputs-tiny-house-spec__label" for="inputs-tiny-house-spec-area">Floor area (m²)</label>
+    <input
+      class="inputs-tiny-house-spec__field"
+      id="inputs-tiny-house-spec-area"
+      name="floor-area"
+      type="number"
+      min="1"
+      step="1"
+      value="24"
+      aria-describedby="inputs-tiny-house-spec-hint"
+    >
+    <p
+      class="inputs-tiny-house-spec__hint"
+      id="inputs-tiny-house-spec-hint"
+    >Internal floor area, excluding the deck.</p>
+  </div>
+</section>

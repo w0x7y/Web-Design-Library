@@ -6,13 +6,13 @@ export default function SettingsNotificationInbox() {
         action="#"
       >
         <header className="border-b border-slate-200 pb-5">
-          <p className="text-xs font-semibold tracking-widest text-slate-500">
+          <p className="text-xs font-semibold tracking-widest text-slate-600">
             ACCOUNT / NOTIFICATIONS
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight">
             Keep the useful updates.
           </h2>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="mt-2 text-sm text-slate-600">
             Choose what reaches you and where.
           </p>
         </header>
@@ -191,11 +191,11 @@ export default function SettingsNotificationInbox() {
           </fieldset>
         </div>
         <footer className="mt-8 flex flex-wrap justify-between gap-4 border-t border-slate-200 pt-5">
-          <p className="self-center text-xs text-slate-500">
+          <p className="self-center text-xs text-slate-600">
             Critical account alerts always reach you.
           </p>
           <button
-            className="rounded-lg bg-blue-700 px-4 py-3 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+            className="cursor-pointer rounded-lg bg-blue-700 px-4 py-3 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
             type="button"
           >
             Save notifications

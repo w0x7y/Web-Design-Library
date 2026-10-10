@@ -3,6 +3,7 @@ export default function TestimonialCardVerifiedPurchase() {
     <figure className="w-72 rounded-xl border border-neutral-200 bg-white p-5 text-neutral-950 sm:w-80">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p
+          role="img"
           aria-label="Rated 5 out of 5"
           className="text-lg tracking-wider text-amber-700"
         >

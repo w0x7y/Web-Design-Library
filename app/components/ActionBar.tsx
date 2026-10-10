@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { ComponentActions, CopyResult } from '~/lib/component-actions'
+import type { ComponentActions, CopyRefusal, CopyResult } from '~/lib/component-actions'
 import { useFormat } from '~/lib/format-preference'
 import { useHydrated } from '~/lib/use-hydrated'
 import { DownloadMenu } from './DownloadMenu'
@@ -18,7 +18,7 @@ const SECONDARY_FIT = 'w-full max-sm:px-2 max-sm:[&>svg:first-child:not(.animate
 /**
  * Format switch, Copy code, Copy for AI, Download menu and Copy image, in the picked format. The two
  * image actions show as unavailable while a capture runs (`busy`); `onCopyRefused` lets the page
- * reveal the code for a manual copy.
+ * show the refused payload for a manual copy.
  */
 export function ActionBar({
   actions,
@@ -27,12 +27,12 @@ export function ActionBar({
 }: {
   actions: ComponentActions
   busy: boolean
-  onCopyRefused(): void
+  onCopyRefused(result: CopyRefusal): void
 }) {
   const format = useFormat()
   const copy = (run: () => Promise<CopyResult>) =>
     void run().then((result) => {
-      if (result === 'refused') onCopyRefused()
+      if (result.status === 'refused') onCopyRefused(result)
     })
   // Before hydration the buttons have no handlers yet, so they show as unavailable too.
   const hydrated = useHydrated()

@@ -27,6 +27,7 @@ export default function NavbarStorefrontUtility() {
             </a>
             <a
               href="#"
+              aria-label="Shopping bag, 2 items"
               className="rounded-full border border-stone-300 px-4 py-2 hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
             >
               Bag <span className="ml-2 text-xs">(2)</span>

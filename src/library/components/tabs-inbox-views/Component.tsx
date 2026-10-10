@@ -20,7 +20,7 @@ export default function TabsInboxViews() {
               name="tabs-inbox-views-filter"
               value="all"
               defaultChecked
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             All
           </label>
@@ -30,7 +30,7 @@ export default function TabsInboxViews() {
               type="radio"
               name="tabs-inbox-views-filter"
               value="unread"
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Unread
           </label>
@@ -40,7 +40,7 @@ export default function TabsInboxViews() {
               type="radio"
               name="tabs-inbox-views-filter"
               value="mine"
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Assigned
           </label>
@@ -64,7 +64,7 @@ export default function TabsInboxViews() {
               Lena Chen · 12 min ago
             </p>
           </div>
-          <span className="size-1.5 rounded-full bg-violet-700">
+          <span className="size-1.5 shrink-0 rounded-full bg-violet-700 forced-colors:bg-[CanvasText]">
             <span className="sr-only">Unread</span>
           </span>
         </li>

@@ -12,329 +12,237 @@
 .dashboard-cashflow-report table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .dashboard-cashflow-report summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .dashboard-cashflow-report {
-  --dashboard-cashflow-report-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --dashboard-cashflow-report-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --dashboard-cashflow-report-spacing: 0.25rem;
-  --dashboard-cashflow-report-container-6xl: 72rem;
-  --dashboard-cashflow-report-text-xs: 0.75rem;
-  --dashboard-cashflow-report-text-xs--line-height: calc(1 / 0.75);
-  --dashboard-cashflow-report-text-sm: 0.875rem;
-  --dashboard-cashflow-report-text-sm--line-height: calc(1.25 / 0.875);
-  --dashboard-cashflow-report-text-base: 1rem;
-  --dashboard-cashflow-report-text-base--line-height: calc(1.5 / 1);
-  --dashboard-cashflow-report-text-lg: 1.125rem;
-  --dashboard-cashflow-report-text-lg--line-height: calc(1.75 / 1.125);
-  --dashboard-cashflow-report-text-3xl: 1.875rem;
-  --dashboard-cashflow-report-text-3xl--line-height: calc(2.25 / 1.875);
-  --dashboard-cashflow-report-text-4xl: 2.25rem;
-  --dashboard-cashflow-report-text-4xl--line-height: calc(2.5 / 2.25);
-  --dashboard-cashflow-report-font-weight-normal: 400;
-  --dashboard-cashflow-report-font-weight-medium: 500;
-  --dashboard-cashflow-report-font-weight-semibold: 600;
-  --dashboard-cashflow-report-tracking-tight: -0.025em;
-  --dashboard-cashflow-report-tracking-widest: 0.1em;
-  --dashboard-cashflow-report-radius-sm: 0.25rem;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-1, .dashboard-cashflow-report .dashboard-cashflow-report__part-1 {
+  padding: 2.5rem 1.5rem;
   background-color: #f7f3eb;
-  padding-inline: calc(var(--dashboard-cashflow-report-spacing) * 6);
-  padding-block: calc(var(--dashboard-cashflow-report-spacing) * 10);
   color: #383229;
 }
-@media (width >= 40rem) {
-  .dashboard-cashflow-report.dashboard-cashflow-report__part-1, .dashboard-cashflow-report .dashboard-cashflow-report__part-1 {
-    padding-inline: calc(var(--dashboard-cashflow-report-spacing) * 12);
-  }
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-2, .dashboard-cashflow-report .dashboard-cashflow-report__part-2 {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__inner {
+  max-width: 72rem;
   margin-inline: auto;
-  max-width: var(--dashboard-cashflow-report-container-6xl);
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-3, .dashboard-cashflow-report .dashboard-cashflow-report__part-3 {
+
+/* Greeting and account statement */
+.dashboard-cashflow-report .dashboard-cashflow-report__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 5);
-  border-bottom-style: var(--dashboard-cashflow-report-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: color-mix(in oklab, #383229 20%, transparent);
-  padding-bottom: calc(var(--dashboard-cashflow-report-spacing) * 6);
+  gap: 1.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(56 50 41 / 0.2);
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-4, .dashboard-cashflow-report .dashboard-cashflow-report__part-4 {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__greeting {
   display: grid;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 2);
+  gap: 0.5rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-5, .dashboard-cashflow-report .dashboard-cashflow-report__part-5 {
-  font-family: var(--dashboard-cashflow-report-font-mono);
-  font-size: 10px;
-  --dashboard-cashflow-report-tw-tracking: var(--dashboard-cashflow-report-tracking-widest);
-  letter-spacing: var(--dashboard-cashflow-report-tracking-widest);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__date {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-6, .dashboard-cashflow-report .dashboard-cashflow-report__part-6 {
-  font-family: var(--dashboard-cashflow-report-font-serif);
-  font-size: var(--dashboard-cashflow-report-text-4xl);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-4xl--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-normal);
-  font-weight: var(--dashboard-cashflow-report-font-weight-normal);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__heading {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 2.25rem;
+  line-height: calc(2.5 / 2.25);
+  font-weight: 400;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-7, .dashboard-cashflow-report .dashboard-cashflow-report__part-7 {
-  font-size: var(--dashboard-cashflow-report-text-sm);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-sm--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-medium);
-  font-weight: var(--dashboard-cashflow-report-font-weight-medium);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__statement {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-7:focus-visible, .dashboard-cashflow-report .dashboard-cashflow-report__part-7:focus-visible {
-  outline-style: var(--dashboard-cashflow-report-tw-outline-style);
-  outline-width: 2px;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-7:focus-visible, .dashboard-cashflow-report .dashboard-cashflow-report__part-7:focus-visible {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__statement:focus-visible {
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-7:focus-visible, .dashboard-cashflow-report .dashboard-cashflow-report__part-7:focus-visible {
-  outline-color: currentcolor;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-8, .dashboard-cashflow-report .dashboard-cashflow-report__part-8 {
-  margin-top: calc(var(--dashboard-cashflow-report-spacing) * 7);
+
+/* Balance and income panels */
+.dashboard-cashflow-report .dashboard-cashflow-report__panels {
   display: grid;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 6);
+  gap: 1.5rem;
+  margin-top: 1.75rem;
 }
-@media (width >= 64rem) {
-  .dashboard-cashflow-report.dashboard-cashflow-report__part-8, .dashboard-cashflow-report .dashboard-cashflow-report__part-8 {
-    grid-template-columns: 1fr 1.4fr;
-  }
+
+.dashboard-cashflow-report .dashboard-cashflow-report__panel {
+  padding: 1.5rem;
+  border: 1px solid rgb(56 50 41 / 0.2);
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-9, .dashboard-cashflow-report .dashboard-cashflow-report__part-9 {
-  border-style: var(--dashboard-cashflow-report-tw-border-style);
-  border-width: 1px;
-  border-color: color-mix(in oklab, #383229 20%, transparent);
-  padding: calc(var(--dashboard-cashflow-report-spacing) * 6);
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-10, .dashboard-cashflow-report .dashboard-cashflow-report__part-10 {
-  font-size: var(--dashboard-cashflow-report-text-xs);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-xs--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-medium);
-  font-weight: var(--dashboard-cashflow-report-font-weight-medium);
-  opacity: 70%;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-11, .dashboard-cashflow-report .dashboard-cashflow-report__part-11 {
-  font-size: var(--dashboard-cashflow-report-text-3xl);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-3xl--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-semibold);
-  font-weight: var(--dashboard-cashflow-report-font-weight-semibold);
-  --dashboard-cashflow-report-tw-tracking: var(--dashboard-cashflow-report-tracking-tight);
-  letter-spacing: var(--dashboard-cashflow-report-tracking-tight);
-  --dashboard-cashflow-report-tw-numeric-spacing: tabular-nums;
-  font-variant-numeric: var(--dashboard-cashflow-report-tw-ordinal,) var(--dashboard-cashflow-report-tw-slashed-zero,) var(--dashboard-cashflow-report-tw-numeric-figure,) var(--dashboard-cashflow-report-tw-numeric-spacing,) var(--dashboard-cashflow-report-tw-numeric-fraction,);
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-12, .dashboard-cashflow-report .dashboard-cashflow-report__part-12 {
-  font-size: var(--dashboard-cashflow-report-text-xs);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-xs--line-height));
-  opacity: 70%;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-13, .dashboard-cashflow-report .dashboard-cashflow-report__part-13 {
-  margin-top: calc(var(--dashboard-cashflow-report-spacing) * 7);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__metric {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 5);
-  border-top-style: var(--dashboard-cashflow-report-tw-border-style);
-  border-top-width: 1px;
-  border-color: color-mix(in oklab, #383229 20%, transparent);
-  padding-top: calc(var(--dashboard-cashflow-report-spacing) * 5);
+  gap: 0.5rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-14, .dashboard-cashflow-report .dashboard-cashflow-report__part-14 {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__metric-label {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.dashboard-cashflow-report .dashboard-cashflow-report__metric-value {
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard-cashflow-report .dashboard-cashflow-report__metric-hint {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  opacity: 0.7;
+}
+
+.dashboard-cashflow-report .dashboard-cashflow-report__monthly-totals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(56 50 41 / 0.2);
+}
+
+.dashboard-cashflow-report .dashboard-cashflow-report__income-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 3);
+  gap: 0.75rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-15, .dashboard-cashflow-report .dashboard-cashflow-report__part-15 {
-  font-size: var(--dashboard-cashflow-report-text-base);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-base--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-semibold);
-  font-weight: var(--dashboard-cashflow-report-font-weight-semibold);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__income-title {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-16, .dashboard-cashflow-report .dashboard-cashflow-report__part-16 {
-  margin-top: calc(var(--dashboard-cashflow-report-spacing) * 6);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__income-total {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  opacity: 0.7;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-17, .dashboard-cashflow-report .dashboard-cashflow-report__part-17 {
+
+/* Daily income, one pixel of bar height per ten dollars */
+.dashboard-cashflow-report .dashboard-cashflow-report__income {
+  margin-top: 1.5rem;
+}
+
+.dashboard-cashflow-report .dashboard-cashflow-report__chart {
   display: flex;
-  height: calc(var(--dashboard-cashflow-report-spacing) * 32);
   align-items: flex-end;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 3);
+  gap: 0.75rem;
+  height: 8rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-18, .dashboard-cashflow-report .dashboard-cashflow-report__part-18 {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__day {
   display: flex;
-  min-width: 0px;
   flex: 1;
   flex-direction: column;
   align-items: center;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 2);
+  gap: 0.5rem;
+  min-width: 0;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-19, .dashboard-cashflow-report .dashboard-cashflow-report__part-19 {
-  height: 42px;
+
+.dashboard-cashflow-report .dashboard-cashflow-report__bar {
   width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
   background-color: #686f4c;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-20, .dashboard-cashflow-report .dashboard-cashflow-report__part-20 {
-  font-size: 10px;
-  opacity: 60%;
+
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--monday { height: 2.625rem; }
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--tuesday { height: 4.0625rem; }
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--wednesday { height: 1.875rem; }
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--thursday { height: 6.125rem; }
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--friday { height: 4rem; }
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--saturday { height: 1.0625rem; }
+.dashboard-cashflow-report .dashboard-cashflow-report__bar--sunday { height: 0.75rem; }
+
+.dashboard-cashflow-report .dashboard-cashflow-report__day-label {
+  font-size: 0.625rem;
+  opacity: 0.6;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-21, .dashboard-cashflow-report .dashboard-cashflow-report__part-21 {
-  height: 65px;
-  width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
-  background-color: #686f4c;
+
+.dashboard-cashflow-report .dashboard-cashflow-report__income-note {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  opacity: 0.7;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-22, .dashboard-cashflow-report .dashboard-cashflow-report__part-22 {
-  height: 30px;
-  width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
-  background-color: #686f4c;
+
+/* Payments */
+.dashboard-cashflow-report .dashboard-cashflow-report__payments {
+  margin-top: 1.75rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-23, .dashboard-cashflow-report .dashboard-cashflow-report__part-23 {
-  height: 92px;
-  width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
-  background-color: #686f4c;
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payments-title {
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-24, .dashboard-cashflow-report .dashboard-cashflow-report__part-24 {
-  height: 76px;
-  width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
-  background-color: #686f4c;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-25, .dashboard-cashflow-report .dashboard-cashflow-report__part-25 {
-  height: 18px;
-  width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
-  background-color: #686f4c;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-26, .dashboard-cashflow-report .dashboard-cashflow-report__part-26 {
-  height: 12px;
-  width: 100%;
-  border-top-left-radius: var(--dashboard-cashflow-report-radius-sm);
-  border-top-right-radius: var(--dashboard-cashflow-report-radius-sm);
-  background-color: #686f4c;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-27, .dashboard-cashflow-report .dashboard-cashflow-report__part-27 {
-  margin-top: calc(var(--dashboard-cashflow-report-spacing) * 4);
-  font-size: var(--dashboard-cashflow-report-text-xs);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-xs--line-height));
-  opacity: 70%;
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-28, .dashboard-cashflow-report .dashboard-cashflow-report__part-28 {
-  margin-top: calc(var(--dashboard-cashflow-report-spacing) * 7);
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-29, .dashboard-cashflow-report .dashboard-cashflow-report__part-29 {
-  font-size: var(--dashboard-cashflow-report-text-lg);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-lg--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-semibold);
-  font-weight: var(--dashboard-cashflow-report-font-weight-semibold);
-}
-.dashboard-cashflow-report.dashboard-cashflow-report__part-30, .dashboard-cashflow-report .dashboard-cashflow-report__part-30 {
-  margin-top: calc(var(--dashboard-cashflow-report-spacing) * 4);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payment-list {
   display: grid;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 4);
+  gap: 1rem;
+  margin-top: 1rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-31, .dashboard-cashflow-report .dashboard-cashflow-report__part-31 {
-  border-bottom-style: var(--dashboard-cashflow-report-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: color-mix(in oklab, #383229 15%, transparent);
-  padding-bottom: calc(var(--dashboard-cashflow-report-spacing) * 4);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payment {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(56 50 41 / 0.15);
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-32, .dashboard-cashflow-report .dashboard-cashflow-report__part-32 {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payment-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--dashboard-cashflow-report-spacing) * 4);
+  gap: 1rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-33, .dashboard-cashflow-report .dashboard-cashflow-report__part-33 {
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payment-detail {
   display: grid;
-  gap: var(--dashboard-cashflow-report-spacing);
+  gap: 0.25rem;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-34, .dashboard-cashflow-report .dashboard-cashflow-report__part-34 {
-  font-size: var(--dashboard-cashflow-report-text-sm);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-sm--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-medium);
-  font-weight: var(--dashboard-cashflow-report-font-weight-medium);
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payee,
+.dashboard-cashflow-report .dashboard-cashflow-report__payment-amount {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-35, .dashboard-cashflow-report .dashboard-cashflow-report__part-35 {
-  font-size: var(--dashboard-cashflow-report-text-xs);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-xs--line-height));
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payment-amount {
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard-cashflow-report .dashboard-cashflow-report__payment-description {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
   color: #756854;
 }
-.dashboard-cashflow-report.dashboard-cashflow-report__part-36, .dashboard-cashflow-report .dashboard-cashflow-report__part-36 {
-  font-size: var(--dashboard-cashflow-report-text-sm);
-  line-height: var(--dashboard-cashflow-report-tw-leading, var(--dashboard-cashflow-report-text-sm--line-height));
-  --dashboard-cashflow-report-tw-font-weight: var(--dashboard-cashflow-report-font-weight-medium);
-  font-weight: var(--dashboard-cashflow-report-font-weight-medium);
-  --dashboard-cashflow-report-tw-numeric-spacing: tabular-nums;
-  font-variant-numeric: var(--dashboard-cashflow-report-tw-ordinal,) var(--dashboard-cashflow-report-tw-slashed-zero,) var(--dashboard-cashflow-report-tw-numeric-figure,) var(--dashboard-cashflow-report-tw-numeric-spacing,) var(--dashboard-cashflow-report-tw-numeric-fraction,);
+
+@media (width >= 40rem) {
+  .dashboard-cashflow-report {
+    padding-inline: 3rem;
+  }
+  .dashboard-cashflow-report .dashboard-cashflow-report__monthly-totals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-@property --dashboard-cashflow-report-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --dashboard-cashflow-report-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --dashboard-cashflow-report-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --dashboard-cashflow-report-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --dashboard-cashflow-report-tw-ordinal {
-  syntax: "*";
-  inherits: false;
-}
-@property --dashboard-cashflow-report-tw-slashed-zero {
-  syntax: "*";
-  inherits: false;
-}
-@property --dashboard-cashflow-report-tw-numeric-figure {
-  syntax: "*";
-  inherits: false;
-}
-@property --dashboard-cashflow-report-tw-numeric-spacing {
-  syntax: "*";
-  inherits: false;
-}
-@property --dashboard-cashflow-report-tw-numeric-fraction {
-  syntax: "*";
-  inherits: false;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .dashboard-cashflow-report *, .dashboard-cashflow-report ::before, .dashboard-cashflow-report ::after, .dashboard-cashflow-report ::backdrop {
-      --dashboard-cashflow-report-tw-border-style: solid;
-      --dashboard-cashflow-report-tw-tracking: initial;
-      --dashboard-cashflow-report-tw-font-weight: initial;
-      --dashboard-cashflow-report-tw-outline-style: solid;
-      --dashboard-cashflow-report-tw-ordinal: initial;
-      --dashboard-cashflow-report-tw-slashed-zero: initial;
-      --dashboard-cashflow-report-tw-numeric-figure: initial;
-      --dashboard-cashflow-report-tw-numeric-spacing: initial;
-      --dashboard-cashflow-report-tw-numeric-fraction: initial;
-    }
+
+@media (width >= 64rem) {
+  .dashboard-cashflow-report .dashboard-cashflow-report__panels {
+    grid-template-columns: 1fr 1.4fr;
   }
 }

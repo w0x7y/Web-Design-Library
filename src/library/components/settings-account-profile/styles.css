@@ -12,238 +12,167 @@
 .settings-account-profile table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .settings-account-profile summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .settings-account-profile {
-  --settings-account-profile-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --settings-account-profile-color-stone-950: oklch(14.7% 0.004 49.25);
-  --settings-account-profile-spacing: 0.25rem;
-  --settings-account-profile-container-2xl: 42rem;
-  --settings-account-profile-text-sm: 0.875rem;
-  --settings-account-profile-text-sm--line-height: calc(1.25 / 0.875);
-  --settings-account-profile-text-2xl: 1.5rem;
-  --settings-account-profile-text-2xl--line-height: calc(2 / 1.5);
-  --settings-account-profile-text-3xl: 1.875rem;
-  --settings-account-profile-text-3xl--line-height: calc(2.25 / 1.875);
-  --settings-account-profile-font-weight-normal: 400;
-  --settings-account-profile-font-weight-medium: 500;
-  --settings-account-profile-radius-lg: 0.5rem;
-}
-.settings-account-profile.settings-account-profile__part-1, .settings-account-profile .settings-account-profile__part-1 {
-  background-color: #f4f1eb;
-  padding-inline: calc(var(--settings-account-profile-spacing) * 6);
-  padding-block: calc(var(--settings-account-profile-spacing) * 10);
+  background: #f4f1eb;
+  padding: 2.5rem 1.5rem;
   color: #37312c;
 }
-@media (width >= 40rem) {
-  .settings-account-profile.settings-account-profile__part-1, .settings-account-profile .settings-account-profile__part-1 {
-    padding-inline: calc(var(--settings-account-profile-spacing) * 12);
-  }
-}
-.settings-account-profile.settings-account-profile__part-2, .settings-account-profile .settings-account-profile__part-2 {
+
+.settings-account-profile .settings-account-profile__form {
   margin-inline: auto;
-  max-width: var(--settings-account-profile-container-2xl);
+  max-width: 42rem;
 }
-.settings-account-profile.settings-account-profile__part-3, .settings-account-profile .settings-account-profile__part-3 {
+
+/* Identity */
+
+.settings-account-profile .settings-account-profile__header {
   display: flex;
   align-items: center;
-  gap: calc(var(--settings-account-profile-spacing) * 5);
-  border-bottom-style: var(--settings-account-profile-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: color-mix(in oklab, #37312c 20%, transparent);
-  padding-bottom: calc(var(--settings-account-profile-spacing) * 6);
+  gap: 1.25rem;
+  border-bottom: 1px solid rgb(55 49 44 / 0.2);
+  padding-bottom: 1.5rem;
 }
-.settings-account-profile.settings-account-profile__part-4, .settings-account-profile .settings-account-profile__part-4 {
+
+.settings-account-profile .settings-account-profile__avatar {
   display: flex;
-  width: calc(var(--settings-account-profile-spacing) * 16);
-  height: calc(var(--settings-account-profile-spacing) * 16);
+  width: 4rem;
+  height: 4rem;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: calc(infinity * 1px);
-  background-color: #37312c;
-  font-family: var(--settings-account-profile-font-serif);
-  font-size: var(--settings-account-profile-text-2xl);
-  line-height: var(--settings-account-profile-tw-leading, var(--settings-account-profile-text-2xl--line-height));
+  border-radius: 9999px;
+  background: #37312c;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
   color: #f4f1eb;
 }
-.settings-account-profile.settings-account-profile__part-5, .settings-account-profile .settings-account-profile__part-5 {
+
+.settings-account-profile .settings-account-profile__identity {
   display: grid;
-  gap: calc(var(--settings-account-profile-spacing) * 2);
+  gap: 0.5rem;
 }
-.settings-account-profile.settings-account-profile__part-6, .settings-account-profile .settings-account-profile__part-6 {
-  font-family: var(--settings-account-profile-font-serif);
-  font-size: var(--settings-account-profile-text-3xl);
-  line-height: var(--settings-account-profile-tw-leading, var(--settings-account-profile-text-3xl--line-height));
-  --settings-account-profile-tw-font-weight: var(--settings-account-profile-font-weight-normal);
-  font-weight: var(--settings-account-profile-font-weight-normal);
+
+.settings-account-profile .settings-account-profile__heading {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 400;
 }
-.settings-account-profile.settings-account-profile__part-7, .settings-account-profile .settings-account-profile__part-7 {
-  font-size: var(--settings-account-profile-text-sm);
-  line-height: var(--settings-account-profile-tw-leading, var(--settings-account-profile-text-sm--line-height));
+
+.settings-account-profile .settings-account-profile__description {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
   color: #746a61;
 }
-.settings-account-profile.settings-account-profile__part-8, .settings-account-profile .settings-account-profile__part-8 {
-  margin-top: calc(var(--settings-account-profile-spacing) * 7);
+
+/* Profile fields */
+
+.settings-account-profile .settings-account-profile__names {
   display: grid;
-  gap: calc(var(--settings-account-profile-spacing) * 5);
+  gap: 1.25rem;
+  margin-top: 1.75rem;
 }
-@media (width >= 40rem) {
-  .settings-account-profile.settings-account-profile__part-8, .settings-account-profile .settings-account-profile__part-8 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-.settings-account-profile.settings-account-profile__part-9, .settings-account-profile .settings-account-profile__part-9 {
+
+.settings-account-profile .settings-account-profile__field {
   display: grid;
-  gap: calc(var(--settings-account-profile-spacing) * 2);
-  font-size: var(--settings-account-profile-text-sm);
-  line-height: var(--settings-account-profile-tw-leading, var(--settings-account-profile-text-sm--line-height));
-  --settings-account-profile-tw-font-weight: var(--settings-account-profile-font-weight-medium);
-  font-weight: var(--settings-account-profile-font-weight-medium);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
 }
-.settings-account-profile.settings-account-profile__part-10, .settings-account-profile .settings-account-profile__part-10 {
+
+.settings-account-profile .settings-account-profile__input {
+  min-width: 0;
   width: 100%;
-  min-width: 0px;
-  border-radius: var(--settings-account-profile-radius-lg);
-  border-style: var(--settings-account-profile-tw-border-style);
-  border-width: 1px;
-  border-color: currentcolor;
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .settings-account-profile.settings-account-profile__part-10, .settings-account-profile .settings-account-profile__part-10 {
-    border-color: color-mix(in oklab, currentcolor 25%, transparent);
-  }
-}
-.settings-account-profile.settings-account-profile__part-10, .settings-account-profile .settings-account-profile__part-10 {
-  background-color: transparent;
-  padding-inline: calc(var(--settings-account-profile-spacing) * 3);
-  padding-block: calc(var(--settings-account-profile-spacing) * 2.5);
-  --settings-account-profile-tw-leading: normal;
+  border: 1px solid rgb(55 49 44 / 0.6);
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0.625rem 0.75rem;
   line-height: normal;
-  --settings-account-profile-tw-font-weight: var(--settings-account-profile-font-weight-normal);
-  font-weight: var(--settings-account-profile-font-weight-normal);
+  font-weight: 400;
 }
-.settings-account-profile.settings-account-profile__part-10::placeholder, .settings-account-profile .settings-account-profile__part-10::placeholder {
-  color: currentcolor;
+
+.settings-account-profile .settings-account-profile__input::placeholder {
+  color: color-mix(in oklab, currentcolor 75%, transparent);
 }
-@supports (color: color-mix(in lab, red, red)) {
-  .settings-account-profile.settings-account-profile__part-10::placeholder, .settings-account-profile .settings-account-profile__part-10::placeholder {
-    color: color-mix(in oklab, currentcolor 60%, transparent);
-  }
-}
-.settings-account-profile.settings-account-profile__part-10:focus-visible, .settings-account-profile .settings-account-profile__part-10:focus-visible {
-  outline-style: var(--settings-account-profile-tw-outline-style);
-  outline-width: 2px;
-}
-.settings-account-profile.settings-account-profile__part-10:focus-visible, .settings-account-profile .settings-account-profile__part-10:focus-visible {
-  outline-offset: 2px;
-}
-.settings-account-profile.settings-account-profile__part-10:focus-visible, .settings-account-profile .settings-account-profile__part-10:focus-visible {
-  outline-color: currentcolor;
-}
-.settings-account-profile.settings-account-profile__part-11, .settings-account-profile .settings-account-profile__part-11 {
-  margin-top: calc(var(--settings-account-profile-spacing) * 5);
+
+.settings-account-profile .settings-account-profile__details {
   display: grid;
-  gap: calc(var(--settings-account-profile-spacing) * 5);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
-.settings-account-profile.settings-account-profile__part-12, .settings-account-profile .settings-account-profile__part-12 {
-  min-height: calc(var(--settings-account-profile-spacing) * 24);
+
+.settings-account-profile .settings-account-profile__bio {
+  min-height: 6rem;
   width: 100%;
   resize: vertical;
-  border-radius: var(--settings-account-profile-radius-lg);
-  border-style: var(--settings-account-profile-tw-border-style);
-  border-width: 1px;
-  border-color: color-mix(in oklab, #37312c 25%, transparent);
-  background-color: transparent;
-  padding-inline: calc(var(--settings-account-profile-spacing) * 3);
-  padding-block: calc(var(--settings-account-profile-spacing) * 3);
-  --settings-account-profile-tw-font-weight: var(--settings-account-profile-font-weight-normal);
-  font-weight: var(--settings-account-profile-font-weight-normal);
+  border: 1px solid rgb(55 49 44 / 0.6);
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0.75rem;
+  font-weight: 400;
 }
-.settings-account-profile.settings-account-profile__part-12:focus-visible, .settings-account-profile .settings-account-profile__part-12:focus-visible {
-  outline-style: var(--settings-account-profile-tw-outline-style);
-  outline-width: 2px;
+
+.settings-account-profile .settings-account-profile__bio::placeholder {
+  color: color-mix(in oklab, currentcolor 75%, transparent);
 }
-.settings-account-profile.settings-account-profile__part-12:focus-visible, .settings-account-profile .settings-account-profile__part-12:focus-visible {
-  outline-offset: 2px;
+
+.settings-account-profile .settings-account-profile__hint {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 400;
+  color: #746a61;
 }
-.settings-account-profile.settings-account-profile__part-12:focus-visible, .settings-account-profile .settings-account-profile__part-12:focus-visible {
-  outline-color: currentcolor;
-}
-.settings-account-profile.settings-account-profile__part-13, .settings-account-profile .settings-account-profile__part-13 {
-  margin-top: calc(var(--settings-account-profile-spacing) * 7);
+
+/* Actions */
+
+.settings-account-profile .settings-account-profile__footer {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: calc(var(--settings-account-profile-spacing) * 4);
-  border-top-style: var(--settings-account-profile-tw-border-style);
-  border-top-width: 1px;
-  border-color: color-mix(in oklab, #37312c 20%, transparent);
-  padding-top: calc(var(--settings-account-profile-spacing) * 5);
+  gap: 1rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid rgb(55 49 44 / 0.2);
+  padding-top: 1.25rem;
 }
-.settings-account-profile.settings-account-profile__part-14, .settings-account-profile .settings-account-profile__part-14 {
-  font-size: var(--settings-account-profile-text-sm);
-  line-height: var(--settings-account-profile-tw-leading, var(--settings-account-profile-text-sm--line-height));
-  --settings-account-profile-tw-font-weight: var(--settings-account-profile-font-weight-medium);
-  font-weight: var(--settings-account-profile-font-weight-medium);
-  text-decoration-line: underline;
+
+.settings-account-profile .settings-account-profile__profile-link {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  text-decoration: underline;
   text-underline-offset: 4px;
 }
-.settings-account-profile.settings-account-profile__part-14:focus-visible, .settings-account-profile .settings-account-profile__part-14:focus-visible {
-  outline-style: var(--settings-account-profile-tw-outline-style);
-  outline-width: 2px;
-}
-.settings-account-profile.settings-account-profile__part-14:focus-visible, .settings-account-profile .settings-account-profile__part-14:focus-visible {
-  outline-offset: 2px;
-}
-.settings-account-profile.settings-account-profile__part-14:focus-visible, .settings-account-profile .settings-account-profile__part-14:focus-visible {
-  outline-color: currentcolor;
-}
-.settings-account-profile.settings-account-profile__part-15, .settings-account-profile .settings-account-profile__part-15 {
-  border-radius: calc(infinity * 1px);
-  background-color: #37312c;
-  padding-inline: calc(var(--settings-account-profile-spacing) * 5);
-  padding-block: calc(var(--settings-account-profile-spacing) * 3);
-  font-size: var(--settings-account-profile-text-sm);
-  line-height: var(--settings-account-profile-tw-leading, var(--settings-account-profile-text-sm--line-height));
-  --settings-account-profile-tw-font-weight: var(--settings-account-profile-font-weight-medium);
-  font-weight: var(--settings-account-profile-font-weight-medium);
+
+.settings-account-profile .settings-account-profile__save {
+  border-radius: 9999px;
+  background: #37312c;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
   color: #f4f1eb;
+  cursor: pointer;
 }
-.settings-account-profile.settings-account-profile__part-15:focus-visible, .settings-account-profile .settings-account-profile__part-15:focus-visible {
-  outline-style: var(--settings-account-profile-tw-outline-style);
-  outline-width: 2px;
-}
-.settings-account-profile.settings-account-profile__part-15:focus-visible, .settings-account-profile .settings-account-profile__part-15:focus-visible {
+
+.settings-account-profile :is(.settings-account-profile__input, .settings-account-profile__bio, .settings-account-profile__profile-link):focus-visible {
+  outline: 2px solid currentcolor;
   outline-offset: 2px;
 }
-.settings-account-profile.settings-account-profile__part-15:focus-visible, .settings-account-profile .settings-account-profile__part-15:focus-visible {
-  outline-color: var(--settings-account-profile-color-stone-950);
+
+.settings-account-profile .settings-account-profile__save:focus-visible {
+  outline: 2px solid oklch(14.7% 0.004 49.25); /* stone-950 */
+  outline-offset: 2px;
 }
-@property --settings-account-profile-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --settings-account-profile-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --settings-account-profile-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --settings-account-profile-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .settings-account-profile *, .settings-account-profile ::before, .settings-account-profile ::after, .settings-account-profile ::backdrop {
-      --settings-account-profile-tw-border-style: solid;
-      --settings-account-profile-tw-font-weight: initial;
-      --settings-account-profile-tw-leading: initial;
-      --settings-account-profile-tw-outline-style: solid;
-    }
+
+@media (width >= 40rem) {
+  .settings-account-profile {
+    padding-inline: 3rem;
+  }
+  .settings-account-profile .settings-account-profile__names {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

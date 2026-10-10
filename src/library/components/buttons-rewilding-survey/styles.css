@@ -1,0 +1,175 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-rewilding-survey, .buttons-rewilding-survey *, .buttons-rewilding-survey *::before, .buttons-rewilding-survey *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-rewilding-survey { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-rewilding-survey :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-rewilding-survey a { color: inherit; text-decoration: inherit; }
+.buttons-rewilding-survey :is(b, strong) { font-weight: bolder; }
+.buttons-rewilding-survey :is(ol, ul, menu) { list-style: none; }
+.buttons-rewilding-survey :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-rewilding-survey :is(img, video) { max-width: 100%; height: auto; }
+.buttons-rewilding-survey :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-rewilding-survey ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-rewilding-survey table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-rewilding-survey summary { display: list-item; }
+
+
+/* Component */
+.buttons-rewilding-survey {
+  border-radius: 0.75rem;
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding: 1.25rem;
+  color: oklch(97% 0 none); /* neutral-100 */
+  width: 18rem;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  text-transform: uppercase;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__heading {
+  margin-top: 0.75rem;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__status {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-block: 1px solid oklch(55.6% 0 none); /* neutral-500 */
+  padding-block: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__mapped {
+  font-weight: 500;
+  color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__survey {
+  margin-top: 1rem;
+  display: flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.375rem;
+  background-color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: oklch(14.5% 0 none); /* neutral-950 */
+  cursor: pointer;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__documents {
+  margin-top: 0.75rem;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__summary {
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.375rem;
+  padding-inline: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  cursor: pointer;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__count {
+  border-radius: 0.25rem;
+  border: 1px solid oklch(55.6% 0 none); /* neutral-500 */
+  padding: 0.125rem 0.5rem;
+  color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid oklch(55.6% 0 none); /* neutral-500 */
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__baseline {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__grazing {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* Keyboard focus */
+.buttons-rewilding-survey .buttons-rewilding-survey__survey:focus-visible {
+  outline: 2px solid oklch(90.5% 0.093 164.15); /* emerald-200 */
+  outline-offset: 2px;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__summary:focus-visible {
+  outline: 2px solid oklch(90.5% 0.093 164.15); /* emerald-200 */
+  outline-offset: 2px;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__baseline:focus-visible {
+  outline: 2px solid oklch(90.5% 0.093 164.15); /* emerald-200 */
+  outline-offset: 2px;
+}
+
+.buttons-rewilding-survey .buttons-rewilding-survey__grazing:focus-visible {
+  outline: 2px solid oklch(90.5% 0.093 164.15); /* emerald-200 */
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .buttons-rewilding-survey .buttons-rewilding-survey__survey:hover {
+    background-color: oklch(95% 0.052 163.051); /* emerald-100 */
+  }
+
+  .buttons-rewilding-survey .buttons-rewilding-survey__summary:hover {
+    background-color: oklch(26.9% 0 none); /* neutral-800 */
+  }
+
+  .buttons-rewilding-survey .buttons-rewilding-survey__baseline:hover {
+    color: #fff;
+  }
+
+  .buttons-rewilding-survey .buttons-rewilding-survey__grazing:hover {
+    color: #fff;
+  }
+}
+
+@media (width >= 40rem) {
+  .buttons-rewilding-survey {
+    width: 24rem;
+  }
+}

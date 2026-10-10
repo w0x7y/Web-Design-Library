@@ -12,234 +12,109 @@
 .signup-team-invitation table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .signup-team-invitation summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .signup-team-invitation {
-  --signup-team-invitation-color-blue-700: oklch(48.8% 0.243 264.376);
-  --signup-team-invitation-color-slate-50: oklch(98.4% 0.003 247.858);
-  --signup-team-invitation-color-slate-200: oklch(92.9% 0.013 255.508);
-  --signup-team-invitation-color-slate-500: oklch(55.4% 0.046 257.417);
-  --signup-team-invitation-color-slate-950: oklch(12.9% 0.042 264.695);
-  --signup-team-invitation-color-stone-950: oklch(14.7% 0.004 49.25);
-  --signup-team-invitation-color-white: #fff;
-  --signup-team-invitation-spacing: 0.25rem;
-  --signup-team-invitation-container-xl: 36rem;
-  --signup-team-invitation-text-xs: 0.75rem;
-  --signup-team-invitation-text-xs--line-height: calc(1 / 0.75);
-  --signup-team-invitation-text-sm: 0.875rem;
-  --signup-team-invitation-text-sm--line-height: calc(1.25 / 0.875);
-  --signup-team-invitation-text-2xl: 1.5rem;
-  --signup-team-invitation-text-2xl--line-height: calc(2 / 1.5);
-  --signup-team-invitation-font-weight-normal: 400;
-  --signup-team-invitation-font-weight-medium: 500;
-  --signup-team-invitation-font-weight-semibold: 600;
-  --signup-team-invitation-font-weight-bold: 700;
-  --signup-team-invitation-tracking-tight: -0.025em;
-  --signup-team-invitation-radius-lg: 0.5rem;
-  --signup-team-invitation-radius-xl: 0.75rem;
-  --signup-team-invitation-radius-2xl: 1rem;
+  padding: 3rem 1.5rem;
+  background-color: oklch(98.4% 0.003 247.858); /* slate-50 */
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
 }
-.signup-team-invitation.signup-team-invitation__part-1, .signup-team-invitation .signup-team-invitation__part-1 {
-  background-color: var(--signup-team-invitation-color-slate-50);
-  padding-inline: calc(var(--signup-team-invitation-spacing) * 6);
-  padding-block: calc(var(--signup-team-invitation-spacing) * 12);
-  color: var(--signup-team-invitation-color-slate-950);
-}
-@media (width >= 40rem) {
-  .signup-team-invitation.signup-team-invitation__part-1, .signup-team-invitation .signup-team-invitation__part-1 {
-    padding-inline: calc(var(--signup-team-invitation-spacing) * 12);
-  }
-}
-.signup-team-invitation.signup-team-invitation__part-2, .signup-team-invitation .signup-team-invitation__part-2 {
+/* Invitation context */
+.signup-team-invitation .signup-team-invitation__panel {
+  max-width: 36rem;
   margin-inline: auto;
-  max-width: var(--signup-team-invitation-container-xl);
-  border-radius: var(--signup-team-invitation-radius-2xl);
-  border-style: var(--signup-team-invitation-tw-border-style);
-  border-width: 1px;
-  border-color: var(--signup-team-invitation-color-slate-200);
-  background-color: var(--signup-team-invitation-color-white);
-  padding: calc(var(--signup-team-invitation-spacing) * 6);
+  padding: 1.5rem;
+  border: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  border-radius: 1rem;
+  background-color: #fff;
 }
-@media (width >= 40rem) {
-  .signup-team-invitation.signup-team-invitation__part-2, .signup-team-invitation .signup-team-invitation__part-2 {
-    padding: calc(var(--signup-team-invitation-spacing) * 8);
-  }
-}
-.signup-team-invitation.signup-team-invitation__part-3, .signup-team-invitation .signup-team-invitation__part-3 {
+.signup-team-invitation .signup-team-invitation__header {
   display: flex;
   align-items: center;
-  gap: calc(var(--signup-team-invitation-spacing) * 4);
-  border-bottom-style: var(--signup-team-invitation-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: var(--signup-team-invitation-color-slate-200);
-  padding-bottom: calc(var(--signup-team-invitation-spacing) * 5);
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
 }
-.signup-team-invitation.signup-team-invitation__part-4, .signup-team-invitation .signup-team-invitation__part-4 {
+.signup-team-invitation .signup-team-invitation__mark {
   display: flex;
-  width: calc(var(--signup-team-invitation-spacing) * 12);
-  height: calc(var(--signup-team-invitation-spacing) * 12);
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: var(--signup-team-invitation-radius-xl);
-  background-color: var(--signup-team-invitation-color-blue-700);
-  --signup-team-invitation-tw-font-weight: var(--signup-team-invitation-font-weight-bold);
-  font-weight: var(--signup-team-invitation-font-weight-bold);
-  color: var(--signup-team-invitation-color-white);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background-color: oklch(48.8% 0.243 264.376); /* blue-700 */
+  color: #fff;
+  font-weight: 700;
 }
-.signup-team-invitation.signup-team-invitation__part-5, .signup-team-invitation .signup-team-invitation__part-5 {
+.signup-team-invitation .signup-team-invitation__context { display: grid; gap: 0.25rem; }
+.signup-team-invitation .signup-team-invitation__heading {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.signup-team-invitation .signup-team-invitation__inviter {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(55.4% 0.046 257.417); /* slate-500 */
+}
+/* New account and required terms */
+.signup-team-invitation .signup-team-invitation__form { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+.signup-team-invitation .signup-team-invitation__field {
   display: grid;
-  gap: var(--signup-team-invitation-spacing);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
 }
-.signup-team-invitation.signup-team-invitation__part-6, .signup-team-invitation .signup-team-invitation__part-6 {
-  font-size: var(--signup-team-invitation-text-2xl);
-  line-height: var(--signup-team-invitation-tw-leading, var(--signup-team-invitation-text-2xl--line-height));
-  --signup-team-invitation-tw-font-weight: var(--signup-team-invitation-font-weight-semibold);
-  font-weight: var(--signup-team-invitation-font-weight-semibold);
-  --signup-team-invitation-tw-tracking: var(--signup-team-invitation-tracking-tight);
-  letter-spacing: var(--signup-team-invitation-tracking-tight);
-}
-.signup-team-invitation.signup-team-invitation__part-7, .signup-team-invitation .signup-team-invitation__part-7 {
-  font-size: var(--signup-team-invitation-text-xs);
-  line-height: var(--signup-team-invitation-tw-leading, var(--signup-team-invitation-text-xs--line-height));
-  color: var(--signup-team-invitation-color-slate-500);
-}
-.signup-team-invitation.signup-team-invitation__part-8, .signup-team-invitation .signup-team-invitation__part-8 {
-  margin-top: calc(var(--signup-team-invitation-spacing) * 6);
-  display: grid;
-  gap: calc(var(--signup-team-invitation-spacing) * 5);
-}
-.signup-team-invitation.signup-team-invitation__part-9, .signup-team-invitation .signup-team-invitation__part-9 {
-  display: grid;
-  gap: calc(var(--signup-team-invitation-spacing) * 2);
-  font-size: var(--signup-team-invitation-text-sm);
-  line-height: var(--signup-team-invitation-tw-leading, var(--signup-team-invitation-text-sm--line-height));
-  --signup-team-invitation-tw-font-weight: var(--signup-team-invitation-font-weight-medium);
-  font-weight: var(--signup-team-invitation-font-weight-medium);
-}
-.signup-team-invitation.signup-team-invitation__part-10, .signup-team-invitation .signup-team-invitation__part-10 {
+.signup-team-invitation .signup-team-invitation__input {
   width: 100%;
-  min-width: 0px;
-  border-radius: var(--signup-team-invitation-radius-lg);
-  border-style: var(--signup-team-invitation-tw-border-style);
-  border-width: 1px;
-  border-color: currentcolor;
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .signup-team-invitation.signup-team-invitation__part-10, .signup-team-invitation .signup-team-invitation__part-10 {
-    border-color: color-mix(in oklab, currentcolor 25%, transparent);
-  }
-}
-.signup-team-invitation.signup-team-invitation__part-10, .signup-team-invitation .signup-team-invitation__part-10 {
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid color-mix(in oklab, currentColor 60%, transparent);
+  border-radius: 0.5rem;
   background-color: transparent;
-  padding-inline: calc(var(--signup-team-invitation-spacing) * 3);
-  padding-block: calc(var(--signup-team-invitation-spacing) * 2.5);
-  --signup-team-invitation-tw-font-weight: var(--signup-team-invitation-font-weight-normal);
-  font-weight: var(--signup-team-invitation-font-weight-normal);
+  font-weight: 400;
 }
-.signup-team-invitation.signup-team-invitation__part-10::placeholder, .signup-team-invitation .signup-team-invitation__part-10::placeholder {
-  color: currentcolor;
+.signup-team-invitation .signup-team-invitation__input::placeholder { color: color-mix(in oklab, currentColor 60%, transparent); }
+.signup-team-invitation .signup-team-invitation__password-hint {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 400;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
 }
-@supports (color: color-mix(in lab, red, red)) {
-  .signup-team-invitation.signup-team-invitation__part-10::placeholder, .signup-team-invitation .signup-team-invitation__part-10::placeholder {
-    color: color-mix(in oklab, currentcolor 60%, transparent);
-  }
-}
-.signup-team-invitation.signup-team-invitation__part-10:focus-visible, .signup-team-invitation .signup-team-invitation__part-10:focus-visible {
-  outline-style: var(--signup-team-invitation-tw-outline-style);
-  outline-width: 2px;
-}
-.signup-team-invitation.signup-team-invitation__part-10:focus-visible, .signup-team-invitation .signup-team-invitation__part-10:focus-visible {
-  outline-offset: 2px;
-}
-.signup-team-invitation.signup-team-invitation__part-10:focus-visible, .signup-team-invitation .signup-team-invitation__part-10:focus-visible {
-  outline-color: currentcolor;
-}
-.signup-team-invitation.signup-team-invitation__part-11, .signup-team-invitation .signup-team-invitation__part-11 {
+.signup-team-invitation .signup-team-invitation__terms {
   display: flex;
-  align-items: flex-start;
-  gap: calc(var(--signup-team-invitation-spacing) * 3);
-  font-size: var(--signup-team-invitation-text-sm);
-  line-height: var(--signup-team-invitation-tw-leading, var(--signup-team-invitation-text-sm--line-height));
+  align-items: start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
 }
-.signup-team-invitation.signup-team-invitation__part-12, .signup-team-invitation .signup-team-invitation__part-12 {
-  margin-top: var(--signup-team-invitation-spacing);
-  width: calc(var(--signup-team-invitation-spacing) * 4);
-  height: calc(var(--signup-team-invitation-spacing) * 4);
+.signup-team-invitation .signup-team-invitation__checkbox {
   flex-shrink: 0;
-  accent-color: currentcolor;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.25rem;
+  accent-color: currentColor;
 }
-.signup-team-invitation.signup-team-invitation__part-12:focus-visible, .signup-team-invitation .signup-team-invitation__part-12:focus-visible {
-  outline-style: var(--signup-team-invitation-tw-outline-style);
-  outline-width: 2px;
+.signup-team-invitation .signup-team-invitation__terms-copy { display: grid; gap: 0.25rem; }
+.signup-team-invitation .signup-team-invitation__terms-label { font-weight: 500; }
+.signup-team-invitation .signup-team-invitation__terms-hint { font-size: 0.75rem; line-height: 1.25rem; opacity: 0.7; }
+.signup-team-invitation .signup-team-invitation__submit {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: oklch(48.8% 0.243 264.376); /* blue-700 */
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
 }
-.signup-team-invitation.signup-team-invitation__part-12:focus-visible, .signup-team-invitation .signup-team-invitation__part-12:focus-visible {
+.signup-team-invitation :is(.signup-team-invitation__input, .signup-team-invitation__checkbox):focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.signup-team-invitation .signup-team-invitation__submit:focus-visible {
+  outline: 2px solid oklch(14.7% 0.004 49.25); /* stone-950 */
   outline-offset: 2px;
 }
-.signup-team-invitation.signup-team-invitation__part-12:focus-visible, .signup-team-invitation .signup-team-invitation__part-12:focus-visible {
-  outline-color: currentcolor;
-}
-.signup-team-invitation.signup-team-invitation__part-13, .signup-team-invitation .signup-team-invitation__part-13 {
-  --signup-team-invitation-tw-font-weight: var(--signup-team-invitation-font-weight-medium);
-  font-weight: var(--signup-team-invitation-font-weight-medium);
-}
-.signup-team-invitation.signup-team-invitation__part-14, .signup-team-invitation .signup-team-invitation__part-14 {
-  font-size: var(--signup-team-invitation-text-xs);
-  line-height: var(--signup-team-invitation-tw-leading, var(--signup-team-invitation-text-xs--line-height));
-  --signup-team-invitation-tw-leading: calc(var(--signup-team-invitation-spacing) * 5);
-  line-height: calc(var(--signup-team-invitation-spacing) * 5);
-  opacity: 70%;
-}
-.signup-team-invitation.signup-team-invitation__part-15, .signup-team-invitation .signup-team-invitation__part-15 {
-  border-radius: var(--signup-team-invitation-radius-lg);
-  background-color: var(--signup-team-invitation-color-blue-700);
-  padding-inline: calc(var(--signup-team-invitation-spacing) * 4);
-  padding-block: calc(var(--signup-team-invitation-spacing) * 3);
-  font-size: var(--signup-team-invitation-text-sm);
-  line-height: var(--signup-team-invitation-tw-leading, var(--signup-team-invitation-text-sm--line-height));
-  --signup-team-invitation-tw-font-weight: var(--signup-team-invitation-font-weight-semibold);
-  font-weight: var(--signup-team-invitation-font-weight-semibold);
-  color: var(--signup-team-invitation-color-white);
-}
-.signup-team-invitation.signup-team-invitation__part-15:focus-visible, .signup-team-invitation .signup-team-invitation__part-15:focus-visible {
-  outline-style: var(--signup-team-invitation-tw-outline-style);
-  outline-width: 2px;
-}
-.signup-team-invitation.signup-team-invitation__part-15:focus-visible, .signup-team-invitation .signup-team-invitation__part-15:focus-visible {
-  outline-offset: 2px;
-}
-.signup-team-invitation.signup-team-invitation__part-15:focus-visible, .signup-team-invitation .signup-team-invitation__part-15:focus-visible {
-  outline-color: var(--signup-team-invitation-color-stone-950);
-}
-@property --signup-team-invitation-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --signup-team-invitation-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --signup-team-invitation-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --signup-team-invitation-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --signup-team-invitation-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .signup-team-invitation *, .signup-team-invitation ::before, .signup-team-invitation ::after, .signup-team-invitation ::backdrop {
-      --signup-team-invitation-tw-border-style: solid;
-      --signup-team-invitation-tw-font-weight: initial;
-      --signup-team-invitation-tw-tracking: initial;
-      --signup-team-invitation-tw-outline-style: solid;
-      --signup-team-invitation-tw-leading: initial;
-    }
-  }
+@media (width >= 40rem) {
+  .signup-team-invitation { padding-inline: 3rem; }
+  .signup-team-invitation .signup-team-invitation__panel { padding: 2rem; }
 }

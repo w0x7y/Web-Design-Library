@@ -25,7 +25,9 @@ export async function downloadPng(
   { transparent = false }: { transparent?: boolean } = {},
 ): Promise<{ png: PNG; filename: string }> {
   await page.getByRole('button', { name: 'Download' }).click()
-  if (transparent) await page.getByRole('menuitemcheckbox', { name: 'Transparent background' }).click()
+  const checkbox = page.getByRole('menuitemcheckbox', { name: 'Transparent background' })
+  if (await checkbox.getAttribute('aria-checked') !== String(transparent)) await checkbox.click()
+  await expect(checkbox).toHaveAttribute('aria-checked', String(transparent))
   const [download] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('menuitem', { name: `${VIEWPORTS[viewport].label} PNG` }).click(),

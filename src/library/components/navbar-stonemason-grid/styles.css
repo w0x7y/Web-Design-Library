@@ -1,0 +1,108 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.navbar-stonemason-grid, .navbar-stonemason-grid *, .navbar-stonemason-grid *::before, .navbar-stonemason-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.navbar-stonemason-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.navbar-stonemason-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.navbar-stonemason-grid a { color: inherit; text-decoration: inherit; }
+.navbar-stonemason-grid :is(b, strong) { font-weight: bolder; }
+.navbar-stonemason-grid :is(ol, ul, menu) { list-style: none; }
+.navbar-stonemason-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.navbar-stonemason-grid :is(img, video) { max-width: 100%; height: auto; }
+.navbar-stonemason-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.navbar-stonemason-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.navbar-stonemason-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.navbar-stonemason-grid summary { display: list-item; }
+
+
+/* Component */
+.navbar-stonemason-grid {
+  background-color: oklch(14.5% 0 none); /* neutral-950 */
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(90.5% 0.182 98.111); /* yellow-300 */
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding: 1.25rem;
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__brand {
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__hours {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__navigation {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__cell {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid oklch(90.5% 0.182 98.111); /* yellow-300 */
+  padding: 1rem;
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__enquiry {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid oklch(90.5% 0.182 98.111); /* yellow-300 */
+  background-color: oklch(90.5% 0.182 98.111); /* yellow-300 */
+  padding: 1rem;
+  color: oklch(14.5% 0 none); /* neutral-950 */
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__number {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.navbar-stonemason-grid .navbar-stonemason-grid__label {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+/* Keyboard focus remains visible in forced-colors mode. */
+.navbar-stonemason-grid :is(a, button, input, select, summary):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Pointer states */
+@media (hover: hover) {
+  .navbar-stonemason-grid .navbar-stonemason-grid__brand:hover {
+    text-decoration-line: underline;
+  }
+  .navbar-stonemason-grid .navbar-stonemason-grid__cell:hover {
+    background-color: oklch(90.5% 0.182 98.111); /* yellow-300 */
+    color: oklch(14.5% 0 none); /* neutral-950 */
+  }
+  .navbar-stonemason-grid .navbar-stonemason-grid__enquiry:hover {
+    background-color: oklch(94.5% 0.129 101.54); /* yellow-200 */
+  }
+}
+
+@media (width >= 48rem) {
+  .navbar-stonemason-grid .navbar-stonemason-grid__navigation {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+

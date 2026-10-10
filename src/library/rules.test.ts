@@ -164,7 +164,7 @@ test('allowed patterns raise no violations', () => {
     tsx: [
       '// Fonts: Inter, Lora',
       "import { type ReactNode } from 'react'",
-      `export default function Demo() { return <section className="p-8 hover:bg-zinc-50"><img src="${IMAGES.officeBright}" alt="" width={1600} height={1067} /></section> }`,
+      `export default function Demo() { return <section className="p-8 hover:bg-zinc-50" data-state="open" aria-label="Demo"><img src="${IMAGES.officeBright}" alt="" width={1600} height={1067} /><svg aria-hidden="true"><path strokeWidth="2" /></svg></section> }`,
       'export type Slot = ReactNode',
       '',
     ].join('\n'),
@@ -176,4 +176,78 @@ test('allowed patterns raise no violations', () => {
       '\n.demo:hover { color: red; }',
   })
   expect(check(entry, 'demo', ['demo'])).toEqual([])
+})
+
+test.each<[string, string, RegExp]>([
+  ['spaced event handler', 'export default () => <button onClick = {f} />', /interactiv/],
+  ['multiline event handler', 'export default () => <input onChange\n= {f} />', /interactiv/],
+  ['boolean event handler', 'export default () => <button onClick />', /interactiv/],
+  ['spaced hook call', 'export default function Demo() { useState (0); return null }', /interactiv/],
+  ['member hook call', 'export default function Demo() { React.useEffect (() => {}); return null }', /interactiv/],
+  ['computed member hook call', "export default function Demo() { React['useState'] (0); return null }", /interactiv/],
+  ['custom hook call', 'export default function Demo() { useDemo (); return null }', /interactiv/],
+  ['function props', 'export default function Demo(props) { return null }', /no parameters/],
+  ['destructured arrow props', 'export default ({ title }) => <p>{title}</p>', /no parameters/],
+  ['optional typed props', 'export default function Demo(props?: {}) { return null }', /no parameters/],
+  ['named function props', 'function Demo(props) { return null }\nexport default Demo', /no parameters/],
+  ['named arrow props', 'const Demo = (props = {}) => null\nexport default Demo', /no parameters/],
+  ['kebab-case svg attribute', 'export default () => <svg><path stroke-width="2" /></svg>', /strokeWidth/],
+  ['kebab-case gradient stop', 'export default () => <svg><stop stop-color="#fff" /></svg>', /stopColor/],
+  ['inline style', 'export default () => <p style={{ color: "red" }} />', /style.*Tailwind/],
+  ['spaced inline style', 'export default () => <p style\n= {{ color: "red" }} />', /style.*Tailwind/],
+  ['style element', 'export default () => <style>{"p { color: red; }"}</style>', /<style>/],
+  ['script element', 'export default () => <script />', /<script>/],
+  ['non-react re-export', "export { Thing } from 'other'\nexport default () => null", /imports "other"/],
+  ['multiline import', "import {\n Thing\n} from\n 'other'\nexport default () => null", /imports "other"/],
+  ['spaced dynamic import', "const load = () => import ( 'other' )\nexport default () => null", /imports "other"/],
+  ['computed dynamic import', 'const load = () => import(moduleName)\nexport default () => null', /imports.*literal/],
+  ['import equals', "import Thing = require('other')\nexport default () => null", /imports "other"/],
+  ['import type expression', "type Thing = import('other').Thing\nexport default () => null", /imports "other"/],
+  ['default re-export', "export { default } from 'react'", /no parameters/],
+  ['non-function default', 'export default {}', /no parameters/],
+  ['two named default exports', 'const Demo = () => null\nexport { Demo as default }\nexport default Demo', /found 2/],
+  ['expression class dark variant', 'export default () => <p className={"dark:bg-black"} />', /dark:/],
+  ['conditional class dark variant', 'export default () => <p className={ok ? "p-8" : "sm:dark:bg-black"} />', /dark:/],
+  ['template class dark variant', 'export default () => <p className={`p-8 ${size} dark:bg-black`} />', /dark:/],
+  ['image missing height', `export default () => <img src="${IMAGES.officeBright}" alt = "" width = {1600} />`, /missing height/],
+  ['image computed src', 'export default () => <img src={image} alt="" width={1} height={1} />', /src \(not a literal\)/],
+  ['image interpolated src', `export default () => <img src={\`${IMAGES.officeBright}\${suffix}\`} alt="" width={1} height={1} />`, /src \(not a literal\)/],
+])('structural TSX check reports %s', (_name, tsx, pattern) => {
+  const violations = check(withSources(validEntry(), { tsx }), 'demo', ['demo'])
+  expect(violations).toHaveLength(1)
+  expect(violations[0]).toMatch(pattern)
+})
+
+test.each<[string, string]>([
+  ['arrow default', 'export default () => <section />'],
+  ['function expression default', 'export default function () { return <section /> }'],
+  ['named function default', 'export default function Demo() { return <section /> }'],
+  ['separate named function default', 'function Demo() { return <section /> }\nexport default Demo'],
+  ['separate named arrow default', 'const Demo = () => <section />\nexport default Demo'],
+  ['named default export clause', 'const Demo = () => <section />\nexport { Demo as default }'],
+  ['parenthesized arrow default', 'export default (() => <section />)'],
+  ['comments mention forbidden syntax', '// onClick= useState( export default dark:bg-black\nexport default () => <section />'],
+  ['text mentions forbidden syntax', 'export default () => <p>onClick= useState( dark:bg-black</p>'],
+  ['string mentions default export', 'export default () => <p>{"export default"}</p>'],
+  ['React imports', "import React from 'react'\nimport 'react'\nconst load = () => import('react')\nexport type { ReactNode } from 'react'\nexport default () => <section />"],
+  ['hook reference without a call', 'const hook = React.useState\nexport default () => <section />'],
+  ['spaced image attributes', `export default () => <img src = "${IMAGES.officeBright}" alt = "Office" width = {1600} height = {1067} />`],
+  ['expression image literal', `export default () => <img src = {'${IMAGES.officeBright}'} alt="" width={1600} height={1067} />`],
+  ['template image literal', `export default () => <img src={\`${IMAGES.officeBright}\`} alt="" width={1600} height={1067} />`],
+  ['image attribute contains greater-than', `export default () => <img alt={ok ? "Office > lobby" : "Office"} src="${IMAGES.officeBright}" width={1600} height={1067} />`],
+  ['image in a comment', '/* <img src="x" /> */\nexport default () => <section />'],
+])('structural TSX check accepts %s', (_name, tsx) => {
+  expect(check(withSources(validEntry(), { tsx }), 'demo', ['demo'])).toEqual([])
+})
+
+test.each(['@keyframes spin', '@keyframes\nspin', '@-webkit-keyframes spin', '@keyframes "spin"'])('rejects unprefixed %s', (rule) => {
+  const entry = validEntry()
+  const violations = check(withSources(entry, { css: entry.sources.css + `\n${rule} { from { opacity: 0; } to { opacity: 1; } }` }), 'demo', ['demo'])
+  expect(violations).toHaveLength(1)
+  expect(violations[0]).toMatch(/keyframes.*start with.*demo/)
+})
+
+test.each(['@keyframes demo-spin', '@-webkit-keyframes demo-spin', '@keyframes "demo-spin"'])('accepts prefixed %s', (rule) => {
+  const entry = validEntry()
+  expect(check(withSources(entry, { css: entry.sources.css + `\n${rule} { from { opacity: 0; } to { opacity: 1; } }` }), 'demo', ['demo'])).toEqual([])
 })

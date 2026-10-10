@@ -24,121 +24,128 @@ export default function DataTableEditorialQueue() {
             <p>3 STORIES IN PROGRESS</p>
           </div>
         </div>
-        <table className="block w-full text-left text-sm md:table">
+        <table role="table" className="block w-full text-left text-sm md:table">
           <caption className="sr-only">Editorial submissions queue</caption>
-          <thead className="hidden md:table-header-group">
-            <tr>
+          <thead role="rowgroup" className="sr-only md:not-sr-only md:table-header-group">
+            <tr role="row">
               <th
                 className="border-b border-[#3b3329]/20 px-4 py-3 text-xs font-medium text-[#786c5c]"
+                role="columnheader"
                 scope="col"
               >
                 Story
               </th>
               <th
                 className="border-b border-[#3b3329]/20 px-4 py-3 text-xs font-medium text-[#786c5c]"
+                role="columnheader"
                 scope="col"
               >
                 Writer
               </th>
               <th
                 className="border-b border-[#3b3329]/20 px-4 py-3 text-xs font-medium text-[#786c5c]"
+                role="columnheader"
                 scope="col"
               >
                 Section
               </th>
               <th
                 className="border-b border-[#3b3329]/20 px-4 py-3 text-xs font-medium text-[#786c5c]"
+                role="columnheader"
                 scope="col"
               >
                 Stage
               </th>
             </tr>
           </thead>
-          <tbody className="grid gap-3 md:table-row-group">
-            <tr className="grid rounded-lg border border-[#3b3329]/20 p-3 md:table-row md:border-0 md:p-0">
+          <tbody role="rowgroup" className="grid gap-3 md:table-row-group">
+            <tr role="row" className="grid rounded-lg border border-[#3b3329]/20 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Story
                 </span>
                 <span className="min-w-0 break-words">The art of noticing</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Writer
                 </span>
                 <span className="min-w-0 break-words">Mara Chen</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Section
                 </span>
                 <span className="min-w-0 break-words">Essays</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Stage
                 </span>
                 <span className="min-w-0 break-words">In review</span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-[#3b3329]/20 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-[#3b3329]/20 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Story
                 </span>
                 <span className="min-w-0 break-words">A city after rain</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Writer
                 </span>
                 <span className="min-w-0 break-words">Jon Bell</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Section
                 </span>
                 <span className="min-w-0 break-words">Field notes</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Stage
                 </span>
                 <span className="min-w-0 break-words">First draft</span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-[#3b3329]/20 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-[#3b3329]/20 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Story
                 </span>
                 <span className="min-w-0 break-words">
                   Tools for slower work
                 </span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Writer
                 </span>
                 <span className="min-w-0 break-words">Leah Okafor</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Section
                 </span>
                 <span className="min-w-0 break-words">Practice</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-[#3b3329]/20 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-[#786c5c] md:hidden">
                   Stage
                 </span>
                 <span className="min-w-0 break-words">Copy edit</span>

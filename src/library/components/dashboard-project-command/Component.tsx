@@ -12,7 +12,7 @@ export default function DashboardProjectCommand() {
             </h2>
           </div>
           <button
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold cursor-pointer hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
             type="button"
           >
             View project brief
@@ -43,11 +43,11 @@ export default function DashboardProjectCommand() {
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
           <article className="rounded-xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-semibold">This week’s milestones</h2>
+            <h3 className="text-lg font-semibold">This week’s milestones</h3>
             <ul className="mt-5 grid gap-5" role="list">
               <li>
                 <div className="flex items-center gap-3">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold">
+                  <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold">
                     ✓
                   </span>
                   <div className="grid gap-1">
@@ -60,7 +60,7 @@ export default function DashboardProjectCommand() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold">
+                  <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold">
                     02
                   </span>
                   <div className="grid gap-1">
@@ -73,7 +73,7 @@ export default function DashboardProjectCommand() {
               </li>
               <li>
                 <div className="flex items-center gap-3">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold">
+                  <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold">
                     03
                   </span>
                   <div className="grid gap-1">
@@ -86,7 +86,7 @@ export default function DashboardProjectCommand() {
           </article>
           <aside className="rounded-xl bg-blue-700 p-6 text-white">
             <p className="text-xs tracking-widest text-blue-100">UP NEXT</p>
-            <h2 className="mt-5 text-2xl font-semibold">Design review</h2>
+            <h3 className="mt-5 text-2xl font-semibold">Design review</h3>
             <p className="mt-3 text-sm text-blue-100">Tuesday · 10:00–10:45</p>
             <p className="mt-5 text-sm leading-6 text-blue-100">
               Bring the final mobile flows and any open questions.

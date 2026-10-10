@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { STAGE } from '../app/lib/stage'
 import { CAPTURE_VIEWPORTS, frameSize } from '../app/lib/viewports'
-import { loadLibrary } from '../scripts/load-library'
+import { loadMetas } from '../scripts/load-library'
 import { previewPath } from '../src/library/urls'
 
 // Layout budgets that parity can't see, because it only compares the two versions of a component with
@@ -11,7 +11,7 @@ import { previewPath } from '../src/library/urls'
 // - an element fits its frame inside the stage padding at every capture size (AGENTS.md: about 384px tall,
 //   and 294px wide on mobile), so the PNG and the preview show all of it.
 
-const METAS = (await loadLibrary()).map((item) => item.entry.meta)
+const METAS = await loadMetas()
 const REFLOW_WIDTHS = [320, 640, 768, 1024, 1280]
 
 for (const meta of METAS.filter((m) => m.preview.kind === 'section')) {

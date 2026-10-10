@@ -1,0 +1,67 @@
+<section class="settings-fleet-capture">
+  <form class="settings-fleet-capture__inner">
+    <header class="settings-fleet-capture__masthead">
+      <p class="settings-fleet-capture__brand">KILOMET</p>
+      <p class="settings-fleet-capture__eyebrow">Fleet / data collection</p>
+    </header>
+    <div class="settings-fleet-capture__layout">
+      <div>
+        <h2 class="settings-fleet-capture__title">Capture what counts.</h2>
+        <p class="settings-fleet-capture__copy">Location and vehicle data defaults for the Northbridge service fleet.</p>
+        <p class="settings-fleet-capture__metric">86</p>
+        <p class="settings-fleet-capture__eyebrow">Connected vehicles</p>
+        <p class="settings-fleet-capture__copy">Settings apply after each vehicle’s next sync. Drivers can see the collection policy in their app.</p>
+      </div>
+      <div class="settings-fleet-capture__ledger">
+        <div class="settings-fleet-capture__ledger-row">
+          <div>
+            <p class="settings-fleet-capture__row-code">DATA / 01</p>
+            <h3 class="settings-fleet-capture__subheading">Location pings</h3>
+          </div>
+          <label class="settings-fleet-capture__label" for="settings-fleet-capture-interval">
+            While ignition is on
+            <select class="settings-fleet-capture__field" id="settings-fleet-capture-interval" name="interval">
+              <option value="30">Every 30 seconds</option>
+              <option value="60">Every 60 seconds</option>
+              <option value="120">Every 2 minutes</option>
+            </select>
+          </label>
+        </div>
+        <div class="settings-fleet-capture__ledger-row">
+          <div>
+            <p class="settings-fleet-capture__row-code">DATA / 02</p>
+            <h3 class="settings-fleet-capture__subheading">Trip history</h3>
+          </div>
+          <label class="settings-fleet-capture__label" for="settings-fleet-capture-retention">
+            Keep location records
+            <select class="settings-fleet-capture__field" id="settings-fleet-capture-retention" name="retention">
+              <option value="30">30 days</option>
+              <option value="60">60 days</option>
+              <option value="90">90 days</option>
+            </select>
+          </label>
+        </div>
+        <div class="settings-fleet-capture__ledger-foot">
+          <label class="settings-fleet-capture__option" for="settings-fleet-capture-private">
+            <input
+              class="settings-fleet-capture__check"
+              id="settings-fleet-capture-private"
+              name="private"
+              type="checkbox"
+              aria-describedby="settings-fleet-capture-private-hint"
+              checked
+            >
+            <span>
+              <span>Exclude private trips</span>
+              <span class="settings-fleet-capture__caption" id="settings-fleet-capture-private-hint">Stop location collection outside working trips.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <footer class="settings-fleet-capture__footer">
+      <p class="settings-fleet-capture__caption">Policy owner · Northbridge fleet office</p>
+      <button class="settings-fleet-capture__button" type="button">Save collection policy</button>
+    </footer>
+  </form>
+</section>

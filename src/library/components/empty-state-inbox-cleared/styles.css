@@ -12,121 +12,67 @@
 .empty-state-inbox-cleared table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .empty-state-inbox-cleared summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .empty-state-inbox-cleared {
-  --empty-state-inbox-cleared-font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --empty-state-inbox-cleared-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --empty-state-inbox-cleared-spacing: 0.25rem;
-  --empty-state-inbox-cleared-text-xs: 0.75rem;
-  --empty-state-inbox-cleared-text-xs--line-height: calc(1 / 0.75);
-  --empty-state-inbox-cleared-text-sm: 0.875rem;
-  --empty-state-inbox-cleared-text-sm--line-height: calc(1.25 / 0.875);
-  --empty-state-inbox-cleared-text-3xl: 1.875rem;
-  --empty-state-inbox-cleared-text-3xl--line-height: calc(2.25 / 1.875);
-  --empty-state-inbox-cleared-font-weight-normal: 400;
-  --empty-state-inbox-cleared-font-weight-medium: 500;
-  --empty-state-inbox-cleared-tracking-widest: 0.1em;
-}
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-1, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-1 {
-  width: calc(var(--empty-state-inbox-cleared-spacing) * 72);
-  border-block-style: var(--empty-state-inbox-cleared-tw-border-style);
-  border-block-width: 1px;
-  border-color: color-mix(in oklab, #756854 40%, transparent);
+  width: 18rem;
+  padding: 1.5rem;
+  border-block: 1px solid rgb(117 104 84 / 0.4);
   background-color: #f7f2e8;
-  padding: calc(var(--empty-state-inbox-cleared-spacing) * 6);
   color: #40382d;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-2, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-2 {
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: calc(var(--empty-state-inbox-cleared-spacing) * 4);
+  gap: 1rem;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-3, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-3 {
-  font-family: var(--empty-state-inbox-cleared-font-mono);
-  font-size: 10px;
-  --empty-state-inbox-cleared-tw-tracking: var(--empty-state-inbox-cleared-tracking-widest);
-  letter-spacing: var(--empty-state-inbox-cleared-tracking-widest);
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__eyebrow {
+  font-family: ui-monospace, empty-state-inbox-clearedFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-4, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-4 {
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__illustration {
   color: #756854;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-5, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-5 {
-  width: calc(var(--empty-state-inbox-cleared-spacing) * 12);
-  height: calc(var(--empty-state-inbox-cleared-spacing) * 12);
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__icon {
+  width: 3rem;
+  height: 3rem;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-6, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-6 {
-  margin-top: calc(var(--empty-state-inbox-cleared-spacing) * 7);
-  font-family: var(--empty-state-inbox-cleared-font-serif);
-  font-size: var(--empty-state-inbox-cleared-text-3xl);
-  line-height: var(--empty-state-inbox-cleared-tw-leading, var(--empty-state-inbox-cleared-text-3xl--line-height));
-  --empty-state-inbox-cleared-tw-font-weight: var(--empty-state-inbox-cleared-font-weight-normal);
-  font-weight: var(--empty-state-inbox-cleared-font-weight-normal);
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__heading {
+  margin-top: 1.75rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 400;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-7, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-7 {
-  margin-top: calc(var(--empty-state-inbox-cleared-spacing) * 3);
-  font-size: var(--empty-state-inbox-cleared-text-sm);
-  line-height: var(--empty-state-inbox-cleared-tw-leading, var(--empty-state-inbox-cleared-text-sm--line-height));
-  --empty-state-inbox-cleared-tw-leading: calc(var(--empty-state-inbox-cleared-spacing) * 6);
-  line-height: calc(var(--empty-state-inbox-cleared-spacing) * 6);
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__description {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
   color: #756854;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-8, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-8 {
-  margin-top: calc(var(--empty-state-inbox-cleared-spacing) * 6);
-  border-top-style: var(--empty-state-inbox-cleared-tw-border-style);
-  border-top-width: 1px;
-  border-color: color-mix(in oklab, #756854 25%, transparent);
-  padding-top: calc(var(--empty-state-inbox-cleared-spacing) * 4);
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(117 104 84 / 0.25);
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-9, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-9 {
-  font-size: var(--empty-state-inbox-cleared-text-xs);
-  line-height: var(--empty-state-inbox-cleared-tw-leading, var(--empty-state-inbox-cleared-text-xs--line-height));
-  --empty-state-inbox-cleared-tw-font-weight: var(--empty-state-inbox-cleared-font-weight-medium);
-  font-weight: var(--empty-state-inbox-cleared-font-weight-medium);
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__return {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-9:focus-visible, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-9:focus-visible {
-  outline-style: var(--empty-state-inbox-cleared-tw-outline-style);
-  outline-width: 2px;
-}
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-9:focus-visible, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-9:focus-visible {
+
+.empty-state-inbox-cleared .empty-state-inbox-cleared__return:focus-visible {
+  outline: 2px solid currentColor;
   outline-offset: 2px;
-}
-.empty-state-inbox-cleared.empty-state-inbox-cleared__part-9:focus-visible, .empty-state-inbox-cleared .empty-state-inbox-cleared__part-9:focus-visible {
-  outline-color: currentcolor;
-}
-@property --empty-state-inbox-cleared-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --empty-state-inbox-cleared-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --empty-state-inbox-cleared-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --empty-state-inbox-cleared-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --empty-state-inbox-cleared-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .empty-state-inbox-cleared *, .empty-state-inbox-cleared ::before, .empty-state-inbox-cleared ::after, .empty-state-inbox-cleared ::backdrop {
-      --empty-state-inbox-cleared-tw-border-style: solid;
-      --empty-state-inbox-cleared-tw-tracking: initial;
-      --empty-state-inbox-cleared-tw-font-weight: initial;
-      --empty-state-inbox-cleared-tw-leading: initial;
-      --empty-state-inbox-cleared-tw-outline-style: solid;
-    }
-  }
 }

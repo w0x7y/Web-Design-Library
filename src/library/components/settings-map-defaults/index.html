@@ -1,0 +1,88 @@
+<section class="settings-map-defaults">
+  <form class="settings-map-defaults__inner">
+    <p class="settings-map-defaults__eyebrow">Gridparcel / project defaults</p>
+    <h2 class="settings-map-defaults__title">Start every map on the right grid.</h2>
+    <p class="settings-map-defaults__copy">Coordinate and export defaults for your municipal asset mapping projects.</p>
+    <div class="settings-map-defaults__layout">
+      <figure class="settings-map-defaults__map">
+        <svg class="settings-map-defaults__map-art" viewBox="0 0 600 450" aria-hidden="true" fill="none">
+          <path fill="#d0dfc2" d="M0 0h230l-25 145L0 190ZM390 0h210v170l-150-40ZM0 330l250-70 60 190H0Z"></path>
+          <path
+            stroke="#8da381"
+            stroke-width="1"
+            d="M60 0v450M160 0v450M260 0v450M360 0v450M460 0v450M560 0v450M0 60h600M0 160h600M0 260h600M0 360h600"
+          ></path>
+          <path
+            stroke="#ffffff"
+            stroke-width="28"
+            d="m-20 260 180-55 150 35 310-90M325-20l-50 160 75 200-10 130"
+          ></path>
+          <path stroke="#a9bdc8" stroke-width="42" d="m470-20-45 110 30 150-75 230"></path>
+          <path fill="#d59660" stroke="#805533" stroke-width="3" d="m185 155 70-22 25 76-70 22Z"></path>
+          <circle cx="230" cy="180" r="7" fill="#223d2b"></circle>
+        </svg>
+        <figcaption class="settings-map-defaults__map-caption"><span>Example parcel layer</span><span>Metres / projected grid</span></figcaption>
+      </figure>
+      <div class="settings-map-defaults__fields">
+        <label class="settings-map-defaults__label" for="settings-map-defaults-crs">
+          Coordinate reference system
+          <select class="settings-map-defaults__field" id="settings-map-defaults-crs" name="crs">
+            <option value="27700">British National Grid · EPSG:27700</option>
+            <option value="4326">WGS 84 · EPSG:4326</option>
+          </select>
+        </label>
+        <label class="settings-map-defaults__label" for="settings-map-defaults-units">
+          Measurement units
+          <select class="settings-map-defaults__field" id="settings-map-defaults-units" name="units">
+            <option value="metres">Metres</option>
+            <option value="feet">Feet</option>
+          </select>
+        </label>
+        <fieldset class="settings-map-defaults__export">
+          <legend class="settings-map-defaults__subheading">Default export format</legend>
+          <div class="settings-map-defaults__choices">
+            <label class="settings-map-defaults__option" for="settings-map-defaults-geojson">
+              <input
+                class="settings-map-defaults__check"
+                type="radio"
+                name="settings-map-defaults-format"
+                id="settings-map-defaults-geojson"
+                value="geojson"
+                checked
+              >
+              <span>GeoJSON</span>
+            </label>
+            <label class="settings-map-defaults__option" for="settings-map-defaults-geopackage">
+              <input
+                class="settings-map-defaults__check"
+                type="radio"
+                name="settings-map-defaults-format"
+                id="settings-map-defaults-geopackage"
+                value="geopackage"
+              >
+              <span>GeoPackage</span>
+            </label>
+          </div>
+        </fieldset>
+        <label class="settings-map-defaults__option" for="settings-map-defaults-metadata">
+          <input
+            class="settings-map-defaults__check"
+            id="settings-map-defaults-metadata"
+            name="metadata"
+            type="checkbox"
+            aria-describedby="settings-map-defaults-metadata-hint"
+            checked
+          >
+          <span>
+            <span>Include coordinate metadata</span>
+            <span class="settings-map-defaults__caption" id="settings-map-defaults-metadata-hint">Keep the CRS reference in project exports.</span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <footer class="settings-map-defaults__footer">
+      <p class="settings-map-defaults__caption">Applies to new projects. Existing map layers keep their CRS.</p>
+      <button class="settings-map-defaults__button" type="button">Save map defaults</button>
+    </footer>
+  </form>
+</section>

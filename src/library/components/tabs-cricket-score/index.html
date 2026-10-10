@@ -1,0 +1,33 @@
+<section aria-label="Squareleg cricket match score" class="tabs-cricket-score">
+  <header class="tabs-cricket-score__heading">
+    <h2 class="tabs-cricket-score__brand">Squareleg</h2>
+    <span class="tabs-cricket-score__competition">Sunday XI</span>
+  </header>
+  <section id="tabs-cricket-score-home-panel" aria-labelledby="tabs-cricket-score-home-label" class="tabs-cricket-score__panel tabs-cricket-score__panel--home">
+    <p class="tabs-cricket-score__team">Northwick CC</p>
+    <div class="tabs-cricket-score__score-row">
+      <p class="tabs-cricket-score__score">186/4</p>
+      <p class="tabs-cricket-score__overs">32.0 overs</p>
+    </div>
+    <p class="tabs-cricket-score__note">S. Patel 62* · J. Noor 28*</p>
+  </section>
+  <section id="tabs-cricket-score-away-panel" aria-labelledby="tabs-cricket-score-away-label" class="tabs-cricket-score__panel tabs-cricket-score__panel--away">
+    <p class="tabs-cricket-score__team">Bramley CC</p>
+    <div class="tabs-cricket-score__score-row">
+      <p class="tabs-cricket-score__score">184/9</p>
+      <p class="tabs-cricket-score__overs">40.0 overs</p>
+    </div>
+    <p class="tabs-cricket-score__note">Target passed with 8 overs to spare.</p>
+  </section>
+  <fieldset class="tabs-cricket-score__selector">
+    <legend class="tabs-cricket-score__legend">Choose cricket innings</legend>
+    <label id="tabs-cricket-score-home-label" class="tabs-cricket-score__tab">
+      <input id="tabs-cricket-score-home" type="radio" name="tabs-cricket-score-view" value="home" checked aria-controls="tabs-cricket-score-home-panel" class="tabs-cricket-score__radio">
+      Northwick
+    </label>
+    <label id="tabs-cricket-score-away-label" class="tabs-cricket-score__tab">
+      <input id="tabs-cricket-score-away" type="radio" name="tabs-cricket-score-view" value="away" aria-controls="tabs-cricket-score-away-panel" class="tabs-cricket-score__radio">
+      Bramley
+    </label>
+  </fieldset>
+</section>

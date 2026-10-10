@@ -1,0 +1,90 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-rowing-split, .stat-card-rowing-split *, .stat-card-rowing-split *::before, .stat-card-rowing-split *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-rowing-split { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-rowing-split :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-rowing-split a { color: inherit; text-decoration: inherit; }
+.stat-card-rowing-split :is(b, strong) { font-weight: bolder; }
+.stat-card-rowing-split :is(ol, ul, menu) { list-style: none; }
+.stat-card-rowing-split :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-rowing-split :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-rowing-split :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-rowing-split ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-rowing-split table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-rowing-split summary { display: list-item; }
+
+/* Component */
+.stat-card-rowing-split {
+  width: 18rem;
+  border: 1px solid oklch(37.1% 0 none); /* neutral-700 */
+  background-color: oklch(14.5% 0 none); /* neutral-950 */
+  padding: 1.5rem;
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+  color: oklch(97% 0 none); /* neutral-100 */
+}
+
+.stat-card-rowing-split .stat-card-rowing-split__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+/* Stopwatch reading and written comparison */
+
+.stat-card-rowing-split .stat-card-rowing-split__heading {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+.stat-card-rowing-split .stat-card-rowing-split__value {
+  margin-top: 0.75rem;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-rowing-split .stat-card-rowing-split__change {
+  margin-top: 0.75rem;
+  font-size: 10px;
+  color: oklch(83.7% 0.128 66.29); /* orange-300 */
+}
+
+/* Four 500-metre checkpoints */
+
+.stat-card-rowing-split .stat-card-rowing-split__splits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-size: 10px;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+.stat-card-rowing-split .stat-card-rowing-split__split {
+  border: 1px solid oklch(37.1% 0 none); /* neutral-700 */
+  padding: 0.75rem;
+}
+
+.stat-card-rowing-split .stat-card-rowing-split__time {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(97% 0 none); /* neutral-100 */
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-rowing-split .stat-card-rowing-split__footer {
+  margin-top: 1.25rem;
+  font-size: 10px;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+@media (width >= 40rem) {
+  .stat-card-rowing-split {
+    width: 22rem;
+  }
+}

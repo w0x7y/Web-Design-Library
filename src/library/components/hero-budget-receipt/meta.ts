@@ -7,19 +7,17 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A friendly personal finance hero beside a monthly budget receipt. Use it to introduce a budgeting service with a concrete savings example.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:
-      'A 1152px split layout has a pill label, 60px heading, paragraph and two actions on the left, and a rotated receipt card on a rose-100 canvas on the right. Receipt contains income, three spending categories and a savings total.',
+      'A centered 1152px grid with 24px horizontal padding, 64px vertical padding and 48px gaps. The left column has a pill, heading, 448px-wide description, two wrapping 48px-tall actions and a note. The right column contains a receipt up to 384px wide, a four-row budget definition list with 16px spacing and a savings total.',
     style:
-      'Rose-50 background, rose-950 text, rose-700 buttons and white receipt. Receipt has a 2px rose-200 border, dashed separators and a small rose-100 savings badge. Body uses default sans and receipt labels use monospace.',
+      'Default sans, rose-50 background and rose-950 ink. Heading is 48px bold, line-height 1.25 and -0.025em tracking; description is 18px with 1.625 line-height and rose-800 ink. The primary pill is rose-700 with white text. Rose-100 receipt canvas has 32px corners; white receipt has a 2px rose-200 border and dashed separators, monospace amounts, a 36px savings total and a rose-100 badge.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Primary link turns rose-800 on hover; secondary link underlines. Both show a 2px zinc-950 keyboard focus outline offset 2px, including forced colours. No transitions.',
     responsive:
-      'Columns begin at 1024px. Phone heading is 48px and desktop is 60px. Receipt container keeps 24px padding; the receipt removes rotation below 640px. Action links wrap.',
+      'Below 640px the receipt is unrotated, canvas and receipt each have 24px padding and heading is 48px. At 640px the heading becomes 60px, canvas padding becomes 48px and receipt padding 32px with -3deg rotation. At 1024px the layout becomes two equal columns and vertical padding becomes 96px. Actions wrap at every width.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

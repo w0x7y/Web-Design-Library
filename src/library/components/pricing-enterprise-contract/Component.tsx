@@ -18,7 +18,7 @@ export default function PricingEnterpriseContract() {
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
-            <article className="rounded-xl border border-slate-200 bg-white p-6">
+            <article className="flex flex-col rounded-xl border border-slate-200 bg-white p-6">
               <h3 className="text-xl font-semibold">Team</h3>
               <p className="mt-2 text-sm text-slate-600">
                 For teams building a shared practice.
@@ -32,7 +32,7 @@ export default function PricingEnterpriseContract() {
               <p className="mt-2 text-xs text-slate-500">
                 Billed annually. Minimum 5 seats.
               </p>
-              <ul role="list" className="my-7 space-y-3 text-sm text-slate-600">
+              <ul role="list" className="my-7 flex-1 space-y-3 text-sm text-slate-600">
                 <li>Unlimited workspaces</li>
                 <li>Guest collaboration</li>
                 <li>90-day activity history</li>
@@ -45,7 +45,7 @@ export default function PricingEnterpriseContract() {
                 Start a team trial
               </a>
             </article>
-            <article className="rounded-xl border-2 border-blue-700 bg-white p-6">
+            <article className="flex flex-col rounded-xl border-2 border-blue-700 bg-white p-6">
               <div className="flex flex-wrap justify-between gap-2">
                 <h3 className="text-xl font-semibold">Enterprise</h3>
                 <span className="rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700">
@@ -61,7 +61,7 @@ export default function PricingEnterpriseContract() {
               <p className="mt-2 text-xs text-slate-500">
                 A plan scoped to your organization.
               </p>
-              <ul role="list" className="my-7 space-y-3 text-sm text-slate-600">
+              <ul role="list" className="my-7 flex-1 space-y-3 text-sm text-slate-600">
                 <li>Everything in Team</li>
                 <li>SAML SSO and SCIM provisioning</li>
                 <li>Custom retention policies</li>

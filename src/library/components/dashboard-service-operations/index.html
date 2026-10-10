@@ -1,1 +1,83 @@
-<section class="dashboard-service-operations dashboard-service-operations__part-1"><div class="dashboard-service-operations__part-2"><header class="dashboard-service-operations__part-3"><div class="dashboard-service-operations__part-4"><p class="dashboard-service-operations__part-5">FORGE / OPERATIONS</p><h2 class="dashboard-service-operations__part-6">Service health</h2></div><span class="dashboard-service-operations__part-7">All systems operational</span></header><div class="dashboard-service-operations__part-8"><article class="dashboard-service-operations__part-9"><p class="dashboard-service-operations__part-5">REQUESTS / LAST 7 DAYS</p><p class="dashboard-service-operations__part-10">2.4 million</p><div class="dashboard-service-operations__part-11"><div class="dashboard-service-operations__part-12" aria-hidden="true"><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-14"></div><p class="dashboard-service-operations__part-15">M</p></div><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-16"></div><p class="dashboard-service-operations__part-15">T</p></div><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-17"></div><p class="dashboard-service-operations__part-15">W</p></div><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-18"></div><p class="dashboard-service-operations__part-15">T</p></div><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-19"></div><p class="dashboard-service-operations__part-15">F</p></div><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-20"></div><p class="dashboard-service-operations__part-15">S</p></div><div class="dashboard-service-operations__part-13"><div class="dashboard-service-operations__part-21"></div><p class="dashboard-service-operations__part-15">S</p></div></div></div><p class="dashboard-service-operations__part-22">Average response: 84ms · Errors: 0.02%</p></article><article class="dashboard-service-operations__part-9"><h2 class="dashboard-service-operations__part-23">By service</h2><ul class="dashboard-service-operations__part-24" role="list"><li class="dashboard-service-operations__part-25"><div class="dashboard-service-operations__part-26"><p class="dashboard-service-operations__part-27">API gateway</p><p class="dashboard-service-operations__part-28">99.99% / healthy</p></div></li><li class="dashboard-service-operations__part-25"><div class="dashboard-service-operations__part-26"><p class="dashboard-service-operations__part-27">Build runners</p><p class="dashboard-service-operations__part-28">99.97% / healthy</p></div></li><li class="dashboard-service-operations__part-25"><div class="dashboard-service-operations__part-26"><p class="dashboard-service-operations__part-27">Object storage</p><p class="dashboard-service-operations__part-28">100.00% / healthy</p></div></li></ul><p class="dashboard-service-operations__part-29">30-day availability</p></article></div><footer class="dashboard-service-operations__part-30"><p class="dashboard-service-operations__part-31">Last incident: October 2 · Resolved in 12 minutes</p><a class="dashboard-service-operations__part-32" href="#">Read incident history</a></footer></div></section>
+<section class="dashboard-service-operations">
+  <div class="dashboard-service-operations__inner">
+    <header class="dashboard-service-operations__header">
+      <div class="dashboard-service-operations__greeting">
+        <p class="dashboard-service-operations__eyebrow">FORGE / OPERATIONS</p>
+        <h2 class="dashboard-service-operations__heading">Service health</h2>
+      </div>
+      <span class="dashboard-service-operations__status">All systems operational</span>
+    </header>
+
+    <div class="dashboard-service-operations__panels">
+      <!-- Request volume; the figure name supplies every daily value -->
+      <article class="dashboard-service-operations__panel">
+        <p class="dashboard-service-operations__requests-label">REQUESTS / LAST 7 DAYS</p>
+        <p class="dashboard-service-operations__requests-total">2.45 million</p>
+        <figure class="dashboard-service-operations__requests" aria-label="Daily requests: Monday 240,000, Tuesday 330,000, Wednesday 410,000, Thursday 270,000, Friday 460,000, Saturday 390,000, Sunday 350,000. Total 2.45 million.">
+          <div class="dashboard-service-operations__chart" aria-hidden="true">
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--monday"></div>
+              <p class="dashboard-service-operations__day-label">M</p>
+            </div>
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--tuesday"></div>
+              <p class="dashboard-service-operations__day-label">T</p>
+            </div>
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--wednesday"></div>
+              <p class="dashboard-service-operations__day-label">W</p>
+            </div>
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--thursday"></div>
+              <p class="dashboard-service-operations__day-label">T</p>
+            </div>
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--friday"></div>
+              <p class="dashboard-service-operations__day-label">F</p>
+            </div>
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--saturday"></div>
+              <p class="dashboard-service-operations__day-label">S</p>
+            </div>
+            <div class="dashboard-service-operations__day">
+              <div class="dashboard-service-operations__bar dashboard-service-operations__bar--sunday"></div>
+              <p class="dashboard-service-operations__day-label">S</p>
+            </div>
+          </div>
+        </figure>
+        <p class="dashboard-service-operations__performance">Average response: 84ms · Errors: 0.02%</p>
+      </article>
+
+      <!-- Availability remains explicit in text, including in forced colors -->
+      <article class="dashboard-service-operations__panel">
+        <h3 class="dashboard-service-operations__services-title">By service</h3>
+        <ul class="dashboard-service-operations__services" role="list">
+          <li class="dashboard-service-operations__service">
+            <div class="dashboard-service-operations__service-row">
+              <p class="dashboard-service-operations__service-name">API gateway</p>
+              <p class="dashboard-service-operations__service-health">99.99% / healthy</p>
+            </div>
+          </li>
+          <li class="dashboard-service-operations__service">
+            <div class="dashboard-service-operations__service-row">
+              <p class="dashboard-service-operations__service-name">Build runners</p>
+              <p class="dashboard-service-operations__service-health">99.97% / healthy</p>
+            </div>
+          </li>
+          <li class="dashboard-service-operations__service">
+            <div class="dashboard-service-operations__service-row">
+              <p class="dashboard-service-operations__service-name">Object storage</p>
+              <p class="dashboard-service-operations__service-health">100.00% / healthy</p>
+            </div>
+          </li>
+        </ul>
+        <p class="dashboard-service-operations__availability-period">30-day availability</p>
+      </article>
+    </div>
+
+    <footer class="dashboard-service-operations__footer">
+      <p class="dashboard-service-operations__last-incident">Last incident: October 2 · Resolved in 12 minutes</p>
+      <a class="dashboard-service-operations__history" href="#">Read incident history</a>
+    </footer>
+  </div>
+</section>

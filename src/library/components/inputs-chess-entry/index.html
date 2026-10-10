@@ -1,0 +1,32 @@
+<section class="inputs-chess-entry" aria-label="Rooklane tournament entry">
+  <header class="inputs-chess-entry__header">
+    <p class="inputs-chess-entry__brand">ROOKLANE / OPEN 2026</p>
+    <h2 class="inputs-chess-entry__heading">Take your seat.</h2>
+  </header>
+  <div class="inputs-chess-entry__body">
+    <label class="inputs-chess-entry__label" for="inputs-chess-entry-id">Federation ID</label>
+    <input
+      class="inputs-chess-entry__id"
+      id="inputs-chess-entry-id"
+      name="federation-id"
+      type="text"
+      inputmode="numeric"
+      value="4107258"
+    >
+    <div class="inputs-chess-entry__rating-row">
+      <label class="inputs-chess-entry__rating-label" for="inputs-chess-entry-rating">Rapid rating</label>
+      <input
+        class="inputs-chess-entry__rating"
+        id="inputs-chess-entry-rating"
+        name="rapid-rating"
+        type="number"
+        min="100"
+        max="3500"
+        step="1"
+        value="1640"
+        aria-describedby="inputs-chess-entry-hint"
+      >
+    </div>
+    <p class="inputs-chess-entry__hint" id="inputs-chess-entry-hint">Unrated? Leave the rating field blank.</p>
+  </div>
+</section>

@@ -3,7 +3,7 @@ export default function LoginReadingRoom() {
     <section className="bg-[#f3efe6] px-6 py-12 text-[#342d25] sm:px-12">
       <div className="mx-auto max-w-3xl border-y border-[#342d25]/30 py-8">
         <header className="flex flex-wrap justify-between gap-3 border-b border-[#342d25]/20 pb-6">
-          <h2 className="font-serif text-3xl font-normal">The Reading Room</h2>
+          <p className="font-serif text-3xl font-normal">The Reading Room</p>
           <p className="self-center text-[10px] tracking-[0.2em]">
             MEMBERS / EST. 2019
           </p>
@@ -24,7 +24,7 @@ export default function LoginReadingRoom() {
             >
               Member email
               <input
-                className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                className="min-w-0 w-full rounded-none border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 id="login-reading-room-email"
                 name="email"
                 type="email"
@@ -39,7 +39,7 @@ export default function LoginReadingRoom() {
             >
               Password
               <input
-                className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                className="min-w-0 w-full rounded-none border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 id="login-reading-room-password"
                 name="password"
                 type="password"

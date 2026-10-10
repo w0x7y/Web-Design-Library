@@ -12,187 +12,100 @@
 .testimonial-card-case-study table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .testimonial-card-case-study summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .testimonial-card-case-study {
-  --testimonial-card-case-study-color-cyan-300: oklch(86.5% 0.127 207.078);
-  --testimonial-card-case-study-color-slate-100: oklch(96.8% 0.007 247.896);
-  --testimonial-card-case-study-color-slate-300: oklch(86.9% 0.022 252.894);
-  --testimonial-card-case-study-color-slate-400: oklch(70.4% 0.04 256.788);
-  --testimonial-card-case-study-color-slate-700: oklch(37.2% 0.044 257.287);
-  --testimonial-card-case-study-color-slate-950: oklch(12.9% 0.042 264.695);
-  --testimonial-card-case-study-color-white: #fff;
-  --testimonial-card-case-study-spacing: 0.25rem;
-  --testimonial-card-case-study-text-xs: 0.75rem;
-  --testimonial-card-case-study-text-xs--line-height: calc(1 / 0.75);
-  --testimonial-card-case-study-text-base: 1rem;
-  --testimonial-card-case-study-text-base--line-height: calc(1.5 / 1);
-  --testimonial-card-case-study-text-2xl: 1.5rem;
-  --testimonial-card-case-study-text-2xl--line-height: calc(2 / 1.5);
-  --testimonial-card-case-study-text-5xl: 3rem;
-  --testimonial-card-case-study-text-5xl--line-height: 1;
-  --testimonial-card-case-study-font-weight-semibold: 600;
-  --testimonial-card-case-study-tracking-tight: -0.025em;
-  --testimonial-card-case-study-radius-sm: 0.25rem;
-  --testimonial-card-case-study-radius-2xl: 1rem;
+  width: 18rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  color: #fff;
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-1, .testimonial-card-case-study .testimonial-card-case-study__part-1 {
-  width: calc(var(--testimonial-card-case-study-spacing) * 72);
-  border-radius: var(--testimonial-card-case-study-radius-2xl);
-  background-color: var(--testimonial-card-case-study-color-slate-950);
-  padding: calc(var(--testimonial-card-case-study-spacing) * 5);
-  color: var(--testimonial-card-case-study-color-white);
-}
-@media (width >= 40rem) {
-  .testimonial-card-case-study.testimonial-card-case-study__part-1, .testimonial-card-case-study .testimonial-card-case-study__part-1 {
-    width: calc(var(--testimonial-card-case-study-spacing) * 80);
-  }
-}
-.testimonial-card-case-study.testimonial-card-case-study__part-2, .testimonial-card-case-study .testimonial-card-case-study__part-2 {
-  font-size: var(--testimonial-card-case-study-text-xs);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-xs--line-height));
-  --testimonial-card-case-study-tw-font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  --testimonial-card-case-study-tw-tracking: 0.16em;
+
+/* Company and measured outcome */
+.testimonial-card-case-study .testimonial-card-case-study__company {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
   letter-spacing: 0.16em;
-  color: var(--testimonial-card-case-study-color-cyan-300);
   text-transform: uppercase;
+  color: oklch(86.5% 0.127 207.078); /* cyan-300 */
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-3, .testimonial-card-case-study .testimonial-card-case-study__part-3 {
-  margin-top: calc(var(--testimonial-card-case-study-spacing) * 4);
-  border-bottom-style: var(--testimonial-card-case-study-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: var(--testimonial-card-case-study-color-slate-700);
-  padding-bottom: calc(var(--testimonial-card-case-study-spacing) * 4);
+
+.testimonial-card-case-study .testimonial-card-case-study__outcome {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid oklch(37.2% 0.044 257.287); /* slate-700 */
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-4, .testimonial-card-case-study .testimonial-card-case-study__part-4 {
-  font-size: var(--testimonial-card-case-study-text-5xl);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-5xl--line-height));
-  --testimonial-card-case-study-tw-font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  --testimonial-card-case-study-tw-tracking: var(--testimonial-card-case-study-tracking-tight);
-  letter-spacing: var(--testimonial-card-case-study-tracking-tight);
-  --testimonial-card-case-study-tw-numeric-spacing: tabular-nums;
-  font-variant-numeric: var(--testimonial-card-case-study-tw-ordinal,) var(--testimonial-card-case-study-tw-slashed-zero,) var(--testimonial-card-case-study-tw-numeric-figure,) var(--testimonial-card-case-study-tw-numeric-spacing,) var(--testimonial-card-case-study-tw-numeric-fraction,);
+
+.testimonial-card-case-study .testimonial-card-case-study__metric {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-5, .testimonial-card-case-study .testimonial-card-case-study__part-5 {
-  font-size: var(--testimonial-card-case-study-text-2xl);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-2xl--line-height));
+
+.testimonial-card-case-study .testimonial-card-case-study__unit {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-6, .testimonial-card-case-study .testimonial-card-case-study__part-6 {
-  margin-top: var(--testimonial-card-case-study-spacing);
-  font-size: var(--testimonial-card-case-study-text-xs);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-xs--line-height));
-  color: var(--testimonial-card-case-study-color-slate-300);
+
+.testimonial-card-case-study .testimonial-card-case-study__metric-label {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(86.9% 0.022 252.894); /* slate-300 */
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-7, .testimonial-card-case-study .testimonial-card-case-study__part-7 {
-  margin-top: calc(var(--testimonial-card-case-study-spacing) * 4);
-  font-size: var(--testimonial-card-case-study-text-base);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-base--line-height));
-  --testimonial-card-case-study-tw-leading: calc(var(--testimonial-card-case-study-spacing) * 6);
-  line-height: calc(var(--testimonial-card-case-study-spacing) * 6);
-  color: var(--testimonial-card-case-study-color-slate-100);
+
+/* Customer quote and attribution */
+.testimonial-card-case-study .testimonial-card-case-study__quote {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: oklch(96.8% 0.007 247.896); /* slate-100 */
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-8, .testimonial-card-case-study .testimonial-card-case-study__part-8 {
-  margin-top: calc(var(--testimonial-card-case-study-spacing) * 4);
-  font-size: var(--testimonial-card-case-study-text-xs);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-xs--line-height));
+
+.testimonial-card-case-study .testimonial-card-case-study__author {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-9, .testimonial-card-case-study .testimonial-card-case-study__part-9 {
-  --testimonial-card-case-study-tw-font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  font-weight: var(--testimonial-card-case-study-font-weight-semibold);
+
+.testimonial-card-case-study .testimonial-card-case-study__name { font-weight: 600; }
+
+.testimonial-card-case-study .testimonial-card-case-study__role {
+  margin-top: 0.25rem;
+  color: oklch(70.4% 0.04 256.788); /* slate-400 */
 }
-.testimonial-card-case-study.testimonial-card-case-study__part-10, .testimonial-card-case-study .testimonial-card-case-study__part-10 {
-  margin-top: var(--testimonial-card-case-study-spacing);
-  color: var(--testimonial-card-case-study-color-slate-400);
-}
-.testimonial-card-case-study.testimonial-card-case-study__part-11, .testimonial-card-case-study .testimonial-card-case-study__part-11 {
-  margin-top: calc(var(--testimonial-card-case-study-spacing) * 5);
+
+.testimonial-card-case-study .testimonial-card-case-study__link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: var(--testimonial-card-case-study-radius-sm);
-  font-size: var(--testimonial-card-case-study-text-xs);
-  line-height: var(--testimonial-card-case-study-tw-leading, var(--testimonial-card-case-study-text-xs--line-height));
-  --testimonial-card-case-study-tw-font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  font-weight: var(--testimonial-card-case-study-font-weight-semibold);
-  color: var(--testimonial-card-case-study-color-cyan-300);
+  margin-top: 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  color: oklch(86.5% 0.127 207.078); /* cyan-300 */
 }
-@media (hover: hover) {
-  .testimonial-card-case-study.testimonial-card-case-study__part-11:hover, .testimonial-card-case-study .testimonial-card-case-study__part-11:hover {
-    color: var(--testimonial-card-case-study-color-white);
-  }
-}
-.testimonial-card-case-study.testimonial-card-case-study__part-11:focus-visible, .testimonial-card-case-study .testimonial-card-case-study__part-11:focus-visible {
-  outline-style: var(--testimonial-card-case-study-tw-outline-style);
-  outline-width: 2px;
-}
-.testimonial-card-case-study.testimonial-card-case-study__part-11:focus-visible, .testimonial-card-case-study .testimonial-card-case-study__part-11:focus-visible {
-  outline-offset: 2px;
-}
-.testimonial-card-case-study.testimonial-card-case-study__part-11:focus-visible, .testimonial-card-case-study .testimonial-card-case-study__part-11:focus-visible {
-  outline-color: var(--testimonial-card-case-study-color-cyan-300);
-}
-.testimonial-card-case-study.testimonial-card-case-study__part-12, .testimonial-card-case-study .testimonial-card-case-study__part-12 {
+
+.testimonial-card-case-study .testimonial-card-case-study__arrow {
   display: inline-block;
-  width: calc(var(--testimonial-card-case-study-spacing) * 3.5);
-  height: calc(var(--testimonial-card-case-study-spacing) * 3.5);
+  width: 0.875rem;
+  height: 0.875rem;
   vertical-align: -0.125em;
 }
-@property --testimonial-card-case-study-tw-font-weight {
-  syntax: "*";
-  inherits: false;
+
+.testimonial-card-case-study .testimonial-card-case-study__link:focus-visible {
+  outline: 2px solid oklch(86.5% 0.127 207.078); /* cyan-300 */
+  outline-offset: 2px;
 }
-@property --testimonial-card-case-study-tw-tracking {
-  syntax: "*";
-  inherits: false;
+
+@media (hover: hover) {
+  .testimonial-card-case-study .testimonial-card-case-study__link:hover { color: #fff; }
 }
-@property --testimonial-card-case-study-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --testimonial-card-case-study-tw-ordinal {
-  syntax: "*";
-  inherits: false;
-}
-@property --testimonial-card-case-study-tw-slashed-zero {
-  syntax: "*";
-  inherits: false;
-}
-@property --testimonial-card-case-study-tw-numeric-figure {
-  syntax: "*";
-  inherits: false;
-}
-@property --testimonial-card-case-study-tw-numeric-spacing {
-  syntax: "*";
-  inherits: false;
-}
-@property --testimonial-card-case-study-tw-numeric-fraction {
-  syntax: "*";
-  inherits: false;
-}
-@property --testimonial-card-case-study-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --testimonial-card-case-study-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .testimonial-card-case-study *, .testimonial-card-case-study ::before, .testimonial-card-case-study ::after, .testimonial-card-case-study ::backdrop {
-      --testimonial-card-case-study-tw-font-weight: initial;
-      --testimonial-card-case-study-tw-tracking: initial;
-      --testimonial-card-case-study-tw-border-style: solid;
-      --testimonial-card-case-study-tw-ordinal: initial;
-      --testimonial-card-case-study-tw-slashed-zero: initial;
-      --testimonial-card-case-study-tw-numeric-figure: initial;
-      --testimonial-card-case-study-tw-numeric-spacing: initial;
-      --testimonial-card-case-study-tw-numeric-fraction: initial;
-      --testimonial-card-case-study-tw-leading: initial;
-      --testimonial-card-case-study-tw-outline-style: solid;
-    }
-  }
+
+@media (width >= 40rem) {
+  .testimonial-card-case-study { width: 20rem; }
 }

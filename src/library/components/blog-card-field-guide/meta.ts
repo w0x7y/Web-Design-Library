@@ -7,15 +7,13 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A calm outdoor reading card with a trail illustration, guide number and author note. Use it in local travel journals and nature publications.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:
-      'A 288px guide card, 320px from 640px, with a 112px landscape cover and 16px-padded body. The cover includes a small guide number. A category label sits above a 24px serif linked headline, compact standfirst and ruled author/reading-time row.',
+      'A 288px article, 320px from 640px, with a 112px landscape SVG and 1px cover divider. A guide number sits absolutely 12px from the cover top and 16px from its left. The body has 16px padding; a category label leads into the headline after 8px and summary after another 8px. A space-between author/reading-time row starts 16px below with a top rule, 12px top padding and 12px gap.',
     style:
-      'Pale #eef0e6 paper, green-100 artwork backdrop and green-900 border with square corners. Illustrated hills use muted greens and a pale winding path. System-serif title contrasts with small sans metadata and monospace guide numbering.',
+      'Pale #eef0e6 paper, 1px green-900 frame and square corners, without shadow. Green-100 cover with muted #adc4a1 and #6e8a60 hills, a 6px paper-colored winding path and a dark #31513a tree. Green-950 system-serif 24px title with 28px line height. Default sans: green-800 10px uppercase category with 0.16em tracking, green-900 12px summary with 20px line height and green-800 11px byline. Guide number is 9px monospace with 0.05em tracking. The footer rule is green-900 at 25% opacity; the headline link has 4px corners and a 4px underline offset.',
     states:
       'The linked headline gains an underline on hover and has a 2px green-950 focus outline offset by 2px. The cover illustration is decorative and static.',
     responsive:

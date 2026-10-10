@@ -5,7 +5,7 @@ export default function DataTableInvoiceLedger() {
         <header className="flex flex-wrap items-start justify-between gap-5">
           <div className="grid gap-2">
             <h2 className="text-3xl font-semibold tracking-tight">Invoices</h2>
-            <p className="max-w-xl text-sm leading-6 text-zinc-500">
+            <p className="max-w-xl text-sm leading-6 text-zinc-600">
               A clear record of what’s paid and what’s due.
             </p>
           </div>
@@ -17,7 +17,7 @@ export default function DataTableInvoiceLedger() {
           </a>
         </header>
         <div className="my-7">
-          <div className="grid gap-2 ">
+          <div className="grid min-w-0 gap-2">
             <p className="text-xs font-medium opacity-70">Outstanding</p>
             <p className="text-3xl font-semibold tracking-tight tabular-nums">
               $920.00
@@ -25,61 +25,66 @@ export default function DataTableInvoiceLedger() {
             <p className="text-xs opacity-70">1 invoice awaiting payment</p>
           </div>
         </div>
-        <table className="block w-full text-left text-sm md:table">
+        <table role="table" className="block w-full text-left text-sm md:table">
           <caption className="sr-only">Invoice ledger</caption>
-          <thead className="hidden md:table-header-group">
-            <tr>
+          <thead role="rowgroup" className="sr-only md:not-sr-only md:table-header-group">
+            <tr role="row">
               <th
-                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-500"
+                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-600"
+                role="columnheader"
                 scope="col"
               >
                 Invoice
               </th>
               <th
-                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-500"
+                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-600"
+                role="columnheader"
                 scope="col"
               >
                 Customer
               </th>
               <th
-                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-500"
+                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-600"
+                role="columnheader"
                 scope="col"
               >
                 Amount
               </th>
               <th
-                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-500"
+                className="border-b border-zinc-200 px-4 py-3 text-xs font-medium text-zinc-600"
+                role="columnheader"
                 scope="col"
               >
                 Status
               </th>
             </tr>
           </thead>
-          <tbody className="grid gap-3 md:table-row-group">
-            <tr className="grid rounded-lg border border-zinc-200 p-3 md:table-row md:border-0 md:p-0">
+          <tbody role="rowgroup" className="grid gap-3 md:table-row-group">
+            <tr role="row" className="grid rounded-lg border border-zinc-200 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Invoice
                 </span>
                 <span className="min-w-0 break-words">INV-1048</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Customer
                 </span>
                 <span className="min-w-0 break-words">Studio North</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Amount
                 </span>
-                <span className="min-w-0 break-words">$1,840.00</span>
+                <span className="min-w-0 break-words tabular-nums">$1,840.00</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Status
                 </span>
                 <span className="min-w-0 break-words">
@@ -89,30 +94,31 @@ export default function DataTableInvoiceLedger() {
                 </span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-zinc-200 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-zinc-200 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Invoice
                 </span>
                 <span className="min-w-0 break-words">INV-1049</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Customer
                 </span>
                 <span className="min-w-0 break-words">Common Ground</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Amount
                 </span>
-                <span className="min-w-0 break-words">$920.00</span>
+                <span className="min-w-0 break-words tabular-nums">$920.00</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Status
                 </span>
                 <span className="min-w-0 break-words">
@@ -122,30 +128,31 @@ export default function DataTableInvoiceLedger() {
                 </span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-zinc-200 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-zinc-200 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Invoice
                 </span>
                 <span className="min-w-0 break-words">INV-1050</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Customer
                 </span>
                 <span className="min-w-0 break-words">Field School</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Amount
                 </span>
-                <span className="min-w-0 break-words">$2,400.00</span>
+                <span className="min-w-0 break-words tabular-nums">$2,400.00</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-zinc-500 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-zinc-200 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-zinc-600 md:hidden">
                   Status
                 </span>
                 <span className="min-w-0 break-words">
@@ -157,7 +164,7 @@ export default function DataTableInvoiceLedger() {
             </tr>
           </tbody>
         </table>
-        <footer className="mt-5 flex flex-wrap items-center justify-between gap-4 text-xs text-zinc-500">
+        <footer className="mt-5 flex flex-wrap items-center justify-between gap-4 text-xs text-zinc-600">
           <p>Showing all 3 records</p>
           <p>Updated October 10, 2026</p>
         </footer>

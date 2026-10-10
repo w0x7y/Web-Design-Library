@@ -29,7 +29,7 @@ export default function HeroCareersSearch() {
               id="hero-careers-search-keyword"
               name="role"
               placeholder="Designer, engineer, writer..."
-              className="h-12 w-full rounded-lg border border-slate-200 px-4 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              className="h-12 w-full rounded-lg border border-slate-500 px-4 text-sm placeholder:text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
             />
           </div>
           <div>
@@ -42,7 +42,7 @@ export default function HeroCareersSearch() {
             <select
               id="hero-careers-search-location"
               name="location"
-              className="h-12 w-full rounded-lg border border-slate-200 bg-white px-4 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+              className="h-12 w-full rounded-lg border border-slate-500 bg-white px-4 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
             >
               <option>Remote, anywhere</option>
               <option>London</option>

@@ -1,0 +1,113 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-derby-roster, .inputs-derby-roster *, .inputs-derby-roster *::before, .inputs-derby-roster *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-derby-roster { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-derby-roster :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-derby-roster a { color: inherit; text-decoration: inherit; }
+.inputs-derby-roster :is(b, strong) { font-weight: bolder; }
+.inputs-derby-roster :is(ol, ul, menu) { list-style: none; }
+.inputs-derby-roster :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-derby-roster :is(img, video) { max-width: 100%; height: auto; }
+.inputs-derby-roster :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-derby-roster ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-derby-roster table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-derby-roster summary { display: list-item; }
+
+/* Component */
+.inputs-derby-roster {
+  width: 18rem;
+  border-radius: 1.5rem;
+  background-color: oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+  padding: 1.25rem;
+  font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(94.8% 0.028 342.258) /* pink-100 */;
+  color-scheme: dark;
+}
+
+.inputs-derby-roster .inputs-derby-roster__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.inputs-derby-roster .inputs-derby-roster__brand {
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.inputs-derby-roster .inputs-derby-roster__heading {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 700;
+}
+
+.inputs-derby-roster .inputs-derby-roster__jersey {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  rotate: 6deg;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: oklch(89.9% 0.061 343.231) /* pink-200 */;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 700;
+  color: oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+}
+
+.inputs-derby-roster .inputs-derby-roster__label {
+  margin-top: 1rem;
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+}
+
+.inputs-derby-roster .inputs-derby-roster__alias {
+  margin-top: 0.5rem;
+  display: block;
+  height: 2.75rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(82.3% 0.12 346.018) /* pink-300 */;
+  background-color: #fff;
+  padding-inline: 0.75rem;
+  font-size: 1rem;
+  line-height: normal;
+  font-weight: 600;
+  color: oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+}
+
+.inputs-derby-roster .inputs-derby-roster__grid {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.75rem;
+}
+
+.inputs-derby-roster .inputs-derby-roster__field {
+  margin-top: 0.5rem;
+  display: block;
+  height: 2.75rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(82.3% 0.12 346.018) /* pink-300 */;
+  padding-inline: 0.5rem;
+  font-size: 0.875rem;
+  line-height: normal;
+}
+
+.inputs-derby-roster .inputs-derby-roster__option {
+  background-color: oklch(29.3% 0.136 325.661) /* fuchsia-950 */;
+}
+
+.inputs-derby-roster :is(input, select, textarea):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+@media (width >= 40rem) {
+  .inputs-derby-roster { width: 22.0rem; }
+}

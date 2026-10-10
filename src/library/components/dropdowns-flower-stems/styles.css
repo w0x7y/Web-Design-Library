@@ -1,0 +1,167 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dropdowns-flower-stems, .dropdowns-flower-stems *, .dropdowns-flower-stems *::before, .dropdowns-flower-stems *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dropdowns-flower-stems { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dropdowns-flower-stems :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dropdowns-flower-stems a { color: inherit; text-decoration: inherit; }
+.dropdowns-flower-stems :is(b, strong) { font-weight: bolder; }
+.dropdowns-flower-stems :is(ol, ul, menu) { list-style: none; }
+.dropdowns-flower-stems :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dropdowns-flower-stems :is(img, video) { max-width: 100%; height: auto; }
+.dropdowns-flower-stems :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dropdowns-flower-stems ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dropdowns-flower-stems table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dropdowns-flower-stems summary { display: list-item; }
+
+/* Component */
+
+/* Panel */
+
+.dropdowns-flower-stems {
+  width: 18rem;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(81% 0.117 11.638) /* rose-300 */;
+  background-color: oklch(96.9% 0.015 12.422) /* rose-50 */;
+  padding: 1rem;
+  color: oklch(27.1% 0.105 12.094) /* rose-950 */;
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Identity and heading */
+
+.dropdowns-flower-stems .dropdowns-flower-stems__header {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__photo {
+  height: 6rem;
+  width: 5rem;
+  flex-shrink: 0;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  object-fit: cover;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__eyebrow {
+  margin-bottom: 0.25rem;
+  font-size: 10px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__brand {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__date {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(45.5% 0.188 13.697) /* rose-800 */;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__disclosure {
+  border-top: 1px solid oklch(81% 0.117 11.638) /* rose-300 */;
+  padding-top: 0.75rem;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 1rem;
+  line-height: calc(1.5 / 1);
+  font-weight: 500;
+}
+
+/* Dropdown content */
+
+.dropdowns-flower-stems .dropdowns-flower-stems__grades {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 0.5rem;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__grade {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-radius: 0.125rem;
+  border: 1px solid oklch(81% 0.117 11.638) /* rose-300 */;
+  background-color: #fff;
+  padding: 0.5rem;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__radio {
+  width: 0.875rem;
+  height: 0.875rem;
+  accent-color: oklch(41% 0.159 10.272) /* rose-900 */;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__length {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__unit {
+  font-size: 10px;
+}
+
+/* Supporting information */
+
+.dropdowns-flower-stems .dropdowns-flower-stems__note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: oklch(45.5% 0.188 13.697) /* rose-800 */;
+}
+
+/* Disclosure and keyboard focus */
+.dropdowns-flower-stems summary::-webkit-details-marker {
+  display: none;
+}
+.dropdowns-flower-stems .dropdowns-flower-stems__chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.dropdowns-flower-stems details[open] .dropdowns-flower-stems__chevron, .dropdowns-flower-stems[open] .dropdowns-flower-stems__chevron {
+  rotate: 180deg;
+}
+.dropdowns-flower-stems :is(summary, button, input, select, a):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.dropdowns-flower-stems .dropdowns-flower-stems__grade:has(:checked) {
+  border-color: oklch(41% 0.159 10.272) /* rose-900 */;
+  background-color: oklch(94.1% 0.03 12.58) /* rose-100 */;
+}
+
+@media (width >= 40rem) {
+  .dropdowns-flower-stems {
+    width: 20rem;
+  }
+}

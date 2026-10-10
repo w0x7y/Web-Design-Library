@@ -1,0 +1,38 @@
+<div class="dropdowns-court-reservations">
+  <div class="dropdowns-court-reservations__header">
+    <p class="dropdowns-court-reservations__brand">SHUTTLEGRID<span class="dropdowns-court-reservations__venue">East hall · Badminton</span></p>
+    <p class="dropdowns-court-reservations__date">OCT<span class="dropdowns-court-reservations__day">10</span></p>
+  </div>
+  <details open class="dropdowns-court-reservations__disclosure">
+    <summary class="dropdowns-court-reservations__summary">
+      <span>Choose court &amp; time</span>
+      <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="dropdowns-court-reservations__chevron">
+        <path d="m4 6 4 4 4-4" />
+      </svg>
+    </summary>
+    <fieldset class="dropdowns-court-reservations__courts">
+      <legend class="dropdowns-court-reservations__legend">Court number</legend>
+      <p class="dropdowns-court-reservations__label">Available courts</p>
+      <div class="dropdowns-court-reservations__court-row">
+        <label class="dropdowns-court-reservations__court">
+          <input type="radio" name="dropdowns-court-reservations-court" value="1" aria-label="Court 1" class="dropdowns-court-reservations__radio" /><span>01</span>
+        </label>
+        <label class="dropdowns-court-reservations__court">
+          <input type="radio" name="dropdowns-court-reservations-court" value="2" aria-label="Court 2" checked class="dropdowns-court-reservations__radio" /><span>02</span>
+        </label>
+        <label class="dropdowns-court-reservations__court">
+          <input type="radio" name="dropdowns-court-reservations-court" value="3" aria-label="Court 3" class="dropdowns-court-reservations__radio" /><span>03</span>
+        </label>
+      </div>
+    </fieldset>
+    <div class="dropdowns-court-reservations__time-row">
+      <label for="dropdowns-court-reservations-time" class="dropdowns-court-reservations__time-label">Time slot</label>
+      <select id="dropdowns-court-reservations-time" name="court-time" class="dropdowns-court-reservations__time">
+        <option value="18:00">18:00–19:00</option>
+        <option value="19:00">19:00–20:00</option>
+        <option value="20:00">20:00–21:00</option>
+      </select>
+    </div>
+    <p class="dropdowns-court-reservations__note">60-minute session · Rackets available at reception.</p>
+  </details>
+</div>

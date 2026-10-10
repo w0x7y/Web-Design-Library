@@ -6,9 +6,9 @@ export default function LoginDeveloperConsole() {
           <p className="text-xs tracking-widest text-lime-300">
             FORGE / CONSOLE
           </p>
-          <h1 className="text-4xl font-medium tracking-tight">
+          <h2 className="text-4xl font-medium tracking-tight">
             Ship from here.
-          </h1>
+          </h2>
           <p className="max-w-sm text-sm leading-7 text-neutral-400">
             Builds, logs and environments. One authenticated session.
           </p>
@@ -24,14 +24,14 @@ export default function LoginDeveloperConsole() {
           action="#"
           method="post"
         >
-          <p className="text-xs text-neutral-400">01 / AUTHENTICATE</p>
+          <p className="text-xs text-neutral-400">AUTHENTICATE</p>
           <label
             className="grid gap-2 text-sm font-medium"
             htmlFor="login-developer-console-email"
           >
             Work email
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-none border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="login-developer-console-email"
               name="email"
               type="email"
@@ -46,7 +46,7 @@ export default function LoginDeveloperConsole() {
           >
             Password
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-none border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="login-developer-console-password"
               name="password"
               type="password"
@@ -56,10 +56,13 @@ export default function LoginDeveloperConsole() {
             />
           </label>
           <button
-            className="border border-lime-300 bg-lime-300 px-4 py-3 text-left text-sm font-bold text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
+            className="flex items-center gap-2 border border-lime-300 bg-lime-300 px-4 py-3 text-left text-sm font-bold text-neutral-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-300"
             type="submit"
           >
-            Continue →
+            Continue
+            <svg aria-hidden="true" className="size-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
           </button>
           <a
             className="text-xs text-neutral-400 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"

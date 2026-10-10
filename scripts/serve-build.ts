@@ -18,4 +18,5 @@ const serve = sirv(clientDir, {
     if (override) response.setHeader('Content-Type', override.contentType)
   },
 })
-createServer(serve).listen(4317, '0.0.0.0', () => console.log('Serving build with security headers at http://localhost:4317'))
+const port = Number(process.env.PATTERNBOOK_PORT ?? 4317)
+createServer(serve).listen(port, '0.0.0.0', () => console.log(`Serving build with security headers at http://localhost:${port}`))

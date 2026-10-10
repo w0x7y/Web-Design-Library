@@ -1,0 +1,261 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.signup-campus-hackathon, .signup-campus-hackathon *, .signup-campus-hackathon *::before, .signup-campus-hackathon *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.signup-campus-hackathon { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.signup-campus-hackathon :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.signup-campus-hackathon a { color: inherit; text-decoration: inherit; }
+.signup-campus-hackathon :is(b, strong) { font-weight: bolder; }
+.signup-campus-hackathon :is(ol, ul, menu) { list-style: none; }
+.signup-campus-hackathon :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.signup-campus-hackathon :is(img, video) { max-width: 100%; height: auto; }
+.signup-campus-hackathon :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.signup-campus-hackathon ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.signup-campus-hackathon table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.signup-campus-hackathon summary { display: list-item; }
+
+/* Component */
+.signup-campus-hackathon {
+  background-color: oklch(14.5% 0 none); /* neutral-950 */
+  padding: 4rem 1.5rem;
+  color: oklch(93.8% 0.127 124.321); /* lime-200 */
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__eyebrow {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__lede {
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__poster-copy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__hours {
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__duration-caption {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__duration {
+  display: grid;
+  align-content: end;
+  gap: 0.5rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__poster {
+  display: grid;
+  gap: 2rem;
+  border-bottom: 2px solid oklch(93.8% 0.127 124.321); /* lime-200 */
+  padding-bottom: 2.5rem;
+}
+
+/* Form controls */
+.signup-campus-hackathon .signup-campus-hackathon__field {
+  min-width: 0;
+  height: 2.75rem;
+  width: 100%;
+  border: 1px solid color-mix(in oklab, currentColor 60%, transparent);
+  border-radius: 0;
+  background-color: transparent;
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 400;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__label {
+  display: grid;
+  min-width: 0;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__fields {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__radio {
+  margin-top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: currentColor;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choice-title {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choice-detail {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choice-text {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choice {
+  display: flex;
+  cursor: pointer;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in oklab, currentColor 40%, transparent);
+  padding: 1rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choice:has(:checked) {
+  border-color: currentColor;
+  background-color: color-mix(in oklab, currentColor 5%, transparent);
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__legend {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choice-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__choices {
+  min-width: 0;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__checkbox {
+  margin-top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: currentColor;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__cta {
+  display: flex;
+  min-height: 3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  border: 2px solid oklch(93.8% 0.127 124.321); /* lime-200 */
+  background-color: oklch(93.8% 0.127 124.321); /* lime-200 */
+  color: oklch(14.5% 0 none); /* neutral-950 */
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__hint {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__finish {
+  display: grid;
+  align-content: end;
+  gap: 1.25rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__application {
+  display: grid;
+  gap: 2rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__form {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__inner {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* Keyboard focus */
+.signup-campus-hackathon .signup-campus-hackathon__field:focus-visible {
+  outline: 2px solid oklch(93.8% 0.127 124.321); /* lime-200 */
+  outline-offset: 2px;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__cta:focus-visible {
+  outline: 2px solid oklch(93.8% 0.127 124.321); /* lime-200 */
+  outline-offset: 2px;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__checkbox:focus-visible {
+  outline: 2px solid oklch(93.8% 0.127 124.321); /* lime-200 */
+  outline-offset: 2px;
+}
+
+.signup-campus-hackathon .signup-campus-hackathon__radio:focus-visible {
+  outline: 2px solid oklch(93.8% 0.127 124.321); /* lime-200 */
+  outline-offset: 2px;
+}
+
+/* Pointer hover */
+@media (hover: hover) {
+  .signup-campus-hackathon .signup-campus-hackathon__cta:hover {
+    filter: brightness(1.12);
+  }
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .signup-campus-hackathon .signup-campus-hackathon__heading {
+    font-size: 3.75rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .signup-campus-hackathon .signup-campus-hackathon__poster {
+    grid-template-columns: 1fr auto;
+  }
+  .signup-campus-hackathon .signup-campus-hackathon__fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .signup-campus-hackathon .signup-campus-hackathon__application {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

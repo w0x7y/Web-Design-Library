@@ -9,6 +9,7 @@ export default function InputsVerificationCode() {
         className="flex size-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-800"
       >
         <svg
+          aria-hidden="true"
           viewBox="0 0 20 20"
           fill="none"
           stroke="currentColor"
@@ -36,9 +37,9 @@ export default function InputsVerificationCode() {
             inputMode="numeric"
             pattern="[0-9]"
             maxLength={1}
-            autoComplete="one-time-code"
+            autoComplete="off"
             defaultValue="4"
-            className="size-12 rounded-lg border border-indigo-300 bg-indigo-50 text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+            className="size-12 rounded-lg border border-indigo-500 bg-indigo-50 text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
           />
           <input
             type="text"
@@ -48,8 +49,9 @@ export default function InputsVerificationCode() {
             inputMode="numeric"
             pattern="[0-9]"
             maxLength={1}
+            autoComplete="off"
             defaultValue="8"
-            className="size-12 rounded-lg border border-indigo-300 bg-indigo-50 text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+            className="size-12 rounded-lg border border-indigo-500 bg-indigo-50 text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
           />
           <input
             type="text"
@@ -59,7 +61,8 @@ export default function InputsVerificationCode() {
             inputMode="numeric"
             pattern="[0-9]"
             maxLength={1}
-            className="size-12 rounded-lg border border-slate-300 bg-white text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+            autoComplete="off"
+            className="size-12 rounded-lg border border-slate-500 bg-white text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
           />
           <input
             type="text"
@@ -69,7 +72,8 @@ export default function InputsVerificationCode() {
             inputMode="numeric"
             pattern="[0-9]"
             maxLength={1}
-            className="size-12 rounded-lg border border-slate-300 bg-white text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+            autoComplete="off"
+            className="size-12 rounded-lg border border-slate-500 bg-white text-center font-mono text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
           />
         </div>
       </fieldset>
@@ -86,7 +90,7 @@ export default function InputsVerificationCode() {
         autoComplete="email"
         placeholder="backup@example.com"
         aria-describedby="inputs-verification-code-privacy"
-        className="mt-2 h-10 w-full rounded-lg border border-slate-300 px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
+        className="mt-2 h-10 w-full rounded-lg border border-slate-500 px-3 text-sm placeholder:text-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
       />
       <p
         id="inputs-verification-code-privacy"

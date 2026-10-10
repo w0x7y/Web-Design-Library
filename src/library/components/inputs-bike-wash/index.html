@@ -1,0 +1,32 @@
+<section class="inputs-bike-wash" aria-label="Spokewash mobile bike-wash booking">
+  <p class="inputs-bike-wash__brand">Spokewash / Mobile bike wash</p>
+  <h2 class="inputs-bike-wash__heading">Where is your bike?</h2>
+  <div class="inputs-bike-wash__row">
+    <span class="inputs-bike-wash__number" aria-hidden="true">01</span>
+    <div>
+      <label class="inputs-bike-wash__label" for="inputs-bike-wash-postcode">Wash location postcode</label>
+      <input
+        class="inputs-bike-wash__postcode"
+        id="inputs-bike-wash-postcode"
+        name="postcode"
+        type="text"
+        autocomplete="postal-code"
+        value="E8 3RL"
+      >
+    </div>
+  </div>
+  <div class="inputs-bike-wash__row">
+    <span class="inputs-bike-wash__number" aria-hidden="true">02</span>
+    <div>
+      <label class="inputs-bike-wash__label" for="inputs-bike-wash-access">Bike and access notes</label>
+      <textarea
+        class="inputs-bike-wash__note"
+        id="inputs-bike-wash-access"
+        name="access"
+        aria-describedby="inputs-bike-wash-hint"
+        maxlength="240"
+      >Blue commuter bike in the courtyard. Ring flat 4.</textarea>
+      <p class="inputs-bike-wash__hint" id="inputs-bike-wash-hint">Bike type and parking. Up to 240 characters.</p>
+    </div>
+  </div>
+</section>

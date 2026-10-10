@@ -1,7 +1,7 @@
 export default function PricingMembershipPass() {
   return (
     <section className="bg-amber-50 text-emerald-950">
-      <div className="mx-auto grid max-w-5xl gap-12 px-6 py-20 md:grid-cols-[1.2fr_1fr] md:items-center">
+      <div className="mx-auto grid max-w-5xl gap-12 px-6 py-20 lg:grid-cols-[1.2fr_1fr] lg:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
             The Common Reading Club
@@ -94,7 +94,7 @@ export default function PricingMembershipPass() {
           </ul>
         </div>
         <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
-          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
+          <span className="inline-flex max-w-full rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             One membership. Everything included.
           </span>
           <p className="mt-8 text-sm text-emerald-900">Annual membership</p>

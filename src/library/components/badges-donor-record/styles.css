@@ -1,0 +1,110 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-donor-record, .badges-donor-record *, .badges-donor-record *::before, .badges-donor-record *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-donor-record { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-donor-record :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-donor-record a { color: inherit; text-decoration: inherit; }
+.badges-donor-record :is(b, strong) { font-weight: bolder; }
+.badges-donor-record :is(ol, ul, menu) { list-style: none; }
+.badges-donor-record :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-donor-record :is(img, video) { max-width: 100%; height: auto; }
+.badges-donor-record :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-donor-record ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-donor-record table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-donor-record summary { display: list-item; }
+
+/* Component */
+.badges-donor-record {
+  width: 18rem;
+  border-radius: 1rem;
+  border: 1px solid oklch(88.5% 0.062 18.334); /* red-200 */
+  background-color: #fff;
+  padding: 1.25rem;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(25.8% 0.092 26.042); /* red-950 */
+}
+
+.badges-donor-record .badges-donor-record__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* Donation count */
+.badges-donor-record .badges-donor-record__count-panel {
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: oklch(97.1% 0.013 17.38); /* red-50 */
+  padding: 1rem;
+}
+
+.badges-donor-record .badges-donor-record__count {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.badges-donor-record .badges-donor-record__caption {
+  padding-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+/* Donor badges */
+.badges-donor-record .badges-donor-record__labels {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 0.5rem;
+}
+
+.badges-donor-record .badges-donor-record__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  background-color: oklch(44.4% 0.177 26.899); /* red-800 */
+  padding: 0.75rem;
+  color: #fff;
+}
+
+.badges-donor-record .badges-donor-record__status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(88.5% 0.062 18.334); /* red-200 */
+  background-color: oklch(97.1% 0.013 17.38); /* red-50 */
+  padding: 0.75rem;
+}
+
+.badges-donor-record .badges-donor-record__label {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.badges-donor-record .badges-donor-record__value {
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.badges-donor-record .badges-donor-record__date {
+  margin-top: 1rem;
+  border-top: 1px solid oklch(88.5% 0.062 18.334); /* red-200 */
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+/* Wider preview */
+@media (width >= 40rem) {
+  .badges-donor-record {
+    width: 22rem;
+  }
+}

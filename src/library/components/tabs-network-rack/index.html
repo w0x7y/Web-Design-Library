@@ -1,0 +1,44 @@
+<section aria-label="Portstead colocation rack inventory" class="tabs-network-rack">
+  <header class="tabs-network-rack__header">
+    <h2 class="tabs-network-rack__brand">PORTSTEAD</h2>
+    <span class="tabs-network-rack__rack">RACK B-14</span>
+  </header>
+  <fieldset class="tabs-network-rack__selector">
+    <legend class="tabs-network-rack__legend">Choose rack subsystem</legend>
+    <label id="tabs-network-rack-ports-label" class="tabs-network-rack__tab">
+      <input id="tabs-network-rack-ports" type="radio" name="tabs-network-rack-view" value="ports" checked aria-controls="tabs-network-rack-ports-panel" class="tabs-network-rack__radio">
+      Ports
+    </label>
+    <label id="tabs-network-rack-fabric-label" class="tabs-network-rack__tab">
+      <input id="tabs-network-rack-fabric" type="radio" name="tabs-network-rack-view" value="fabric" aria-controls="tabs-network-rack-fabric-panel" class="tabs-network-rack__radio">
+      Fabric
+    </label>
+    <label id="tabs-network-rack-power-label" class="tabs-network-rack__tab">
+      <input id="tabs-network-rack-power" type="radio" name="tabs-network-rack-view" value="power" aria-controls="tabs-network-rack-power-panel" class="tabs-network-rack__radio">
+      Power
+    </label>
+  </fieldset>
+  <section id="tabs-network-rack-ports-panel" aria-labelledby="tabs-network-rack-ports-label" class="tabs-network-rack__panel tabs-network-rack__panel--ports">
+    <h3 class="tabs-network-rack__panel-title">Patch panel / U24</h3>
+    <div class="tabs-network-rack__ports">
+      <span class="tabs-network-rack__port">01</span>
+      <span class="tabs-network-rack__port">02</span>
+      <span class="tabs-network-rack__port">03</span>
+      <span class="tabs-network-rack__port">04</span>
+      <span class="tabs-network-rack__port">05</span>
+      <span class="tabs-network-rack__port">06</span>
+      <span class="tabs-network-rack__port">07</span>
+      <span class="tabs-network-rack__port">08</span>
+    </div>
+    <p class="tabs-network-rack__port-note">8 / 8 assigned · 10 GbE</p>
+  </section>
+  <section id="tabs-network-rack-fabric-panel" aria-labelledby="tabs-network-rack-fabric-label" class="tabs-network-rack__panel tabs-network-rack__panel--fabric">
+    <h3 class="tabs-network-rack__panel-title">Dual uplink / U22</h3>
+    <p class="tabs-network-rack__panel-note">Leaf 03 → Spine 01: 100 GbE. Leaf 04 → Spine 02: 100 GbE. Both paths established.</p>
+  </section>
+  <section id="tabs-network-rack-power-panel" aria-labelledby="tabs-network-rack-power-label" class="tabs-network-rack__panel tabs-network-rack__panel--power">
+    <h3 class="tabs-network-rack__panel-title">A + B feeds / U02</h3>
+    <p class="tabs-network-rack__panel-note">Feed A: 1.8 kW. Feed B: 1.7 kW. Each circuit rated 6.0 kW; redundancy available.</p>
+  </section>
+  <p class="tabs-network-rack__footer">AUDIT / 10 OCT 2026 / 08:12 UTC</p>
+</section>

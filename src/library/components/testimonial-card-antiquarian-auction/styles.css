@@ -1,0 +1,90 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonial-card-antiquarian-auction, .testimonial-card-antiquarian-auction *, .testimonial-card-antiquarian-auction *::before, .testimonial-card-antiquarian-auction *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonial-card-antiquarian-auction { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonial-card-antiquarian-auction :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonial-card-antiquarian-auction a { color: inherit; text-decoration: inherit; }
+.testimonial-card-antiquarian-auction :is(b, strong) { font-weight: bolder; }
+.testimonial-card-antiquarian-auction :is(ol, ul, menu) { list-style: none; }
+.testimonial-card-antiquarian-auction :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonial-card-antiquarian-auction :is(img, video) { max-width: 100%; height: auto; }
+.testimonial-card-antiquarian-auction :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonial-card-antiquarian-auction ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonial-card-antiquarian-auction table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonial-card-antiquarian-auction summary { display: list-item; }
+
+/* Component */
+.testimonial-card-antiquarian-auction {
+  width: 18rem;
+  padding: 1.5rem;
+  background-color: oklch(26.9% 0 none) /* neutral-800 */;
+  color: oklch(97% 0 none) /* neutral-100 */;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__brand {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__label {
+  font-size: 10px;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__quote {
+  margin-top: 1.25rem;
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+/* The quoted seller's auction lot */
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__lot {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem;
+  background-color: oklch(20.5% 0 none) /* neutral-900 */;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__watch {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__lot-title {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__lot-detail {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 10px;
+  font-weight: 400;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+.testimonial-card-antiquarian-auction .testimonial-card-antiquarian-auction__credit {
+  margin-top: 1.25rem;
+  font-size: 11px;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+@media (width >= 40rem) {
+  .testimonial-card-antiquarian-auction {
+    width: 22rem;
+  }
+}

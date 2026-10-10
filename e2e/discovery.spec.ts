@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { PNG } from 'pngjs'
-import { loadLibrary } from '../scripts/load-library'
+import { loadMetas } from '../scripts/load-library'
 import { CATEGORY_IDS } from '../src/library/taxonomy'
 import { SITE } from '../src/site'
 
@@ -21,11 +21,11 @@ test('the sitemap contains every canonical page and each URL resolves to that pa
   }, sitemap)
   expect(parsed.error).toBeUndefined()
   expect(parsed.namespace).toBe('http://www.sitemaps.org/schemas/sitemap/0.9')
-  const entries = await loadLibrary()
+  const metas = await loadMetas()
   const expected = [
     `${SITE.url}/`,
     ...CATEGORY_IDS.map((category) => `${SITE.url}/browse/${category}`),
-    ...entries.map(({ entry }) => `${SITE.url}/c/${entry.meta.slug}`),
+    ...metas.map((meta) => `${SITE.url}/c/${meta.slug}`),
   ]
   expect(parsed.locations.toSorted()).toEqual(expected.toSorted())
   // Fetch each path from the test host; canonical URLs always describe production.

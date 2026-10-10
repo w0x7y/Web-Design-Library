@@ -10,6 +10,7 @@ export default function InputsGardenSignup() {
           className="flex size-10 items-center justify-center rounded-xl bg-lime-200"
         >
           <svg
+            aria-hidden="true"
             viewBox="0 0 20 20"
             fill="none"
             stroke="currentColor"
@@ -38,7 +39,7 @@ export default function InputsGardenSignup() {
         type="text"
         autoComplete="given-name"
         placeholder="Your first name"
-        className="mt-2 h-11 w-full rounded-full border border-emerald-200 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal] [filter:opacity(1)]"
+        className="mt-2 h-11 w-full rounded-full border border-emerald-700 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
       />
       <label
         htmlFor="inputs-garden-signup-email"
@@ -52,7 +53,7 @@ export default function InputsGardenSignup() {
         type="email"
         autoComplete="email"
         placeholder="you@example.com"
-        className="mt-2 h-11 w-full rounded-full border border-emerald-200 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal] [filter:opacity(1)]"
+        className="mt-2 h-11 w-full rounded-full border border-emerald-700 bg-white px-4 text-sm placeholder:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 leading-[normal]"
       />
       <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-xs leading-5">
         <input

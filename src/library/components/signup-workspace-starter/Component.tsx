@@ -38,7 +38,7 @@ export default function SignupWorkspaceStarter() {
           >
             Workspace name
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="signup-workspace-starter-workspace"
               name="workspace"
               type="text"
@@ -53,7 +53,7 @@ export default function SignupWorkspaceStarter() {
           >
             Work email
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="signup-workspace-starter-email"
               name="email"
               type="email"
@@ -68,19 +68,24 @@ export default function SignupWorkspaceStarter() {
           >
             Password
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current leading-[normal]"
               id="signup-workspace-starter-password"
+              aria-describedby="signup-workspace-starter-password-hint"
+              minLength={12}
               name="password"
               type="password"
               autoComplete="new-password"
               placeholder=""
               required
             />
+            <span
+              id="signup-workspace-starter-password-hint"
+              className="text-xs font-normal text-zinc-600"
+            >
+              Use at least 12 characters.
+            </span>
           </label>
-          <label
-            className="flex items-start gap-3 text-sm"
-            htmlFor="signup-workspace-starter-terms"
-          >
+          <div className="flex items-start gap-3 text-sm">
             <input
               className="mt-1 size-4 shrink-0 accent-current focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               type="checkbox"
@@ -90,21 +95,23 @@ export default function SignupWorkspaceStarter() {
               aria-describedby="signup-workspace-starter-terms-hint"
               required
             />
-            <span className="grid gap-1">
-              <span
+            <div className="grid gap-1">
+              <label
+                htmlFor="signup-workspace-starter-terms"
                 id="signup-workspace-starter-terms-label"
                 className="font-medium"
               >
                 I accept the terms of service
-              </span>
-              <span
-                className="text-xs leading-5 opacity-70"
+              </label>
+              <a
+                className="text-xs leading-5 text-zinc-600 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 id="signup-workspace-starter-terms-hint"
+                href="#"
               >
-                You can review them before continuing.
-              </span>
-            </span>
-          </label>
+                Read the terms of service
+              </a>
+            </div>
+          </div>
           <button
             className="rounded-lg bg-zinc-950 px-4 py-3 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
             type="submit"

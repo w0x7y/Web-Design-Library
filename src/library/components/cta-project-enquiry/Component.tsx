@@ -35,16 +35,17 @@ export default function CtaProjectEnquiry() {
               htmlFor="cta-project-enquiry-email"
               className="mb-2 block text-sm font-medium"
             >
-              Your email
+              Your email (required)
             </label>
             <input
               id="cta-project-enquiry-email"
               type="email"
               name="email"
               autoComplete="email"
+              aria-describedby="cta-project-enquiry-hint"
               placeholder="you@company.com"
               required
-              className="h-12 w-full rounded-xl border border-stone-300 bg-white px-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 leading-[normal] [filter:opacity(1)]"
+              className="h-12 w-full rounded-xl border border-stone-500 bg-white px-4 text-base placeholder:text-stone-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 leading-[normal] [filter:opacity(1)]"
             />
           </div>
           <div>
@@ -60,10 +61,10 @@ export default function CtaProjectEnquiry() {
               rows={4}
               placeholder="What are you hoping to make?"
               aria-describedby="cta-project-enquiry-hint"
-              className="min-h-32 w-full resize-y rounded-xl border border-stone-300 bg-white p-4 text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 [filter:opacity(1)]"
+              className="min-h-32 w-full resize-y rounded-xl border border-stone-500 bg-white p-4 text-base placeholder:text-stone-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950 [filter:opacity(1)]"
             />
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <p
               id="cta-project-enquiry-hint"
               className="max-w-56 text-xs leading-relaxed text-stone-600"
@@ -72,7 +73,7 @@ export default function CtaProjectEnquiry() {
             </p>
             <button
               type="submit"
-              className="inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-stone-950 px-6 text-sm font-medium text-white hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+              className="inline-flex min-h-12 w-fit shrink-0 items-center gap-3 rounded-full bg-stone-950 px-6 text-sm font-medium text-white hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
             >
               Send your note{' '}
               <svg

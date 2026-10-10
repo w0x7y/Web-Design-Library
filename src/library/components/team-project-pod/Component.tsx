@@ -87,7 +87,7 @@ export default function TeamProjectPod() {
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
-            className="inline-block size-3.5 align-[-0.125em]"
+            className="size-3.5"
           >
             <path d="M5 15 15 5M5 5h10v10" />
           </svg>

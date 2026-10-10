@@ -23,7 +23,7 @@ export default function TeamMakersCooperative() {
           </p>
         </header>
         <ul role="list" className="mt-10 grid gap-5 md:grid-cols-3">
-          <li className="rounded-[1.5rem] border border-stone-900 bg-rose-200 p-6">
+          <li className="flex flex-col items-start rounded-[1.5rem] border border-stone-900 bg-rose-200 p-6">
             <span
               aria-hidden="true"
               className="flex size-20 items-center justify-center rounded-full border border-stone-900 bg-rose-50 font-serif text-4xl italic"
@@ -34,7 +34,7 @@ export default function TeamMakersCooperative() {
             <p className="mt-1 text-xs font-semibold uppercase tracking-wider">
               Clay &amp; ceramics
             </p>
-            <p className="mt-4 text-sm leading-6">
+            <p className="mt-4 flex-1 text-sm leading-6">
               The mugs you reach for first. The glaze experiments we keep
               anyway.
             </p>
@@ -49,13 +49,13 @@ export default function TeamMakersCooperative() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>
             </a>
           </li>
-          <li className="rounded-[1.5rem] border border-stone-900 bg-sky-200 p-6">
+          <li className="flex flex-col items-start rounded-[1.5rem] border border-stone-900 bg-sky-200 p-6">
             <span
               aria-hidden="true"
               className="flex size-20 items-center justify-center rounded-full border border-stone-900 bg-sky-50 font-serif text-4xl italic"
@@ -66,7 +66,7 @@ export default function TeamMakersCooperative() {
             <p className="mt-1 text-xs font-semibold uppercase tracking-wider">
               Wood &amp; furniture
             </p>
-            <p className="mt-4 text-sm leading-6">
+            <p className="mt-4 flex-1 text-sm leading-6">
               Slow-built shelves, good joints and room for the grain to tell its
               story.
             </p>
@@ -81,13 +81,13 @@ export default function TeamMakersCooperative() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>
             </a>
           </li>
-          <li className="rounded-[1.5rem] border border-stone-900 bg-lime-200 p-6">
+          <li className="flex flex-col items-start rounded-[1.5rem] border border-stone-900 bg-lime-200 p-6">
             <span
               aria-hidden="true"
               className="flex size-20 items-center justify-center rounded-full border border-stone-900 bg-lime-50 font-serif text-4xl italic"
@@ -98,7 +98,7 @@ export default function TeamMakersCooperative() {
             <p className="mt-1 text-xs font-semibold uppercase tracking-wider">
               Textiles &amp; print
             </p>
-            <p className="mt-4 text-sm leading-6">
+            <p className="mt-4 flex-1 text-sm leading-6">
               Useful fabric, cheerful color and patterns that survive the
               washing machine.
             </p>
@@ -113,7 +113,7 @@ export default function TeamMakersCooperative() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="inline-block size-3.5 align-[-0.125em]"
+                className="size-3.5"
               >
                 <path d="M5 15 15 5M5 5h10v10" />
               </svg>

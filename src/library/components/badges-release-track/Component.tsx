@@ -55,8 +55,8 @@ export default function BadgesReleaseTrack() {
           </span>
         </li>
       </ul>
-      <p className="mt-5 font-mono text-[10px] text-zinc-500">
-        Every build. One clear status.
+      <p className="mt-5 font-mono text-[10px] text-zinc-400">
+        Last sync · 14:32 UTC
       </p>
     </section>
   )

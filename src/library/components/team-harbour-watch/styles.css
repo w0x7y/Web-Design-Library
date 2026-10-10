@@ -1,0 +1,175 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.team-harbour-watch, .team-harbour-watch *, .team-harbour-watch *::before, .team-harbour-watch *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.team-harbour-watch { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.team-harbour-watch :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.team-harbour-watch a { color: inherit; text-decoration: inherit; }
+.team-harbour-watch :is(b, strong) { font-weight: bolder; }
+.team-harbour-watch :is(ol, ul, menu) { list-style: none; }
+.team-harbour-watch :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.team-harbour-watch :is(img, video) { max-width: 100%; height: auto; }
+.team-harbour-watch :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.team-harbour-watch ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.team-harbour-watch table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.team-harbour-watch summary { display: list-item; }
+
+
+/* Component */
+.team-harbour-watch {
+  background-color: oklch(98.7% 0.022 95.277); /* amber-50 */
+  color: oklch(28.2% 0.091 267.935); /* blue-950 */
+  font-family: "Fraunces", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.team-harbour-watch .team-harbour-watch__inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Introduction and harbour photograph */
+.team-harbour-watch .team-harbour-watch__header {
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+}
+
+.team-harbour-watch .team-harbour-watch__eyebrow {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: oklch(42.4% 0.199 265.638); /* blue-800 */
+}
+
+.team-harbour-watch .team-harbour-watch__heading {
+  margin-top: 1rem;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  font-weight: 400;
+}
+
+.team-harbour-watch .team-harbour-watch__lede {
+  margin-top: 1.25rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: oklch(37.4% 0.01 67.558); /* stone-700 */
+}
+
+.team-harbour-watch .team-harbour-watch__harbour {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  object-fit: cover;
+}
+
+.team-harbour-watch .team-harbour-watch__caption {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+}
+
+/* Harbour watch biographies */
+.team-harbour-watch .team-harbour-watch__watches {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.team-harbour-watch .team-harbour-watch__watch {
+  border-top: 1px solid;
+  border-color: oklch(28.2% 0.091 267.935); /* blue-950 */
+  padding-top: 1.5rem;
+}
+
+.team-harbour-watch .team-harbour-watch__shift {
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: oklch(28.2% 0.091 267.935); /* blue-950 */
+}
+
+.team-harbour-watch .team-harbour-watch__name {
+  margin-top: 1.5rem;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  font-weight: 500;
+}
+
+.team-harbour-watch .team-harbour-watch__role {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: oklch(42.4% 0.199 265.638); /* blue-800 */
+}
+
+.team-harbour-watch .team-harbour-watch__bio {
+  margin-top: 1rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: oklch(37.4% 0.01 67.558); /* stone-700 */
+}
+
+.team-harbour-watch .team-harbour-watch__contact {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.team-harbour-watch .team-harbour-watch__arrow {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Keyboard focus */
+.team-harbour-watch .team-harbour-watch__contact:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .team-harbour-watch .team-harbour-watch__contact:hover {
+    color: oklch(42.4% 0.199 265.638); /* blue-800 */
+  }
+}
+
+@media (width >= 40rem) {
+  .team-harbour-watch .team-harbour-watch__inner {
+    padding-inline: 2rem;
+  }
+  .team-harbour-watch .team-harbour-watch__heading {
+    font-size: 3.5rem;
+  }
+  .team-harbour-watch .team-harbour-watch__shift {
+    font-size: 4rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .team-harbour-watch .team-harbour-watch__watches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .team-harbour-watch .team-harbour-watch__inner {
+    padding-block: 6rem;
+  }
+  .team-harbour-watch .team-harbour-watch__header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 4rem;
+  }
+}

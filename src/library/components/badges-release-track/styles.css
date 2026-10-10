@@ -12,178 +12,93 @@
 .badges-release-track table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .badges-release-track summary { display: list-item; }
 
-@layer properties;
+
+/* Component */
 .badges-release-track {
-  --badges-release-track-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  --badges-release-track-color-amber-300: oklch(87.9% 0.169 91.605);
-  --badges-release-track-color-amber-900: oklch(41.4% 0.112 45.904);
-  --badges-release-track-color-amber-950: oklch(27.9% 0.077 45.635);
-  --badges-release-track-color-emerald-300: oklch(84.5% 0.143 164.978);
-  --badges-release-track-color-emerald-900: oklch(37.8% 0.077 168.94);
-  --badges-release-track-color-emerald-950: oklch(26.2% 0.051 172.552);
-  --badges-release-track-color-sky-300: oklch(82.8% 0.111 230.318);
-  --badges-release-track-color-sky-900: oklch(39.1% 0.09 240.876);
-  --badges-release-track-color-sky-950: oklch(29.3% 0.066 243.157);
-  --badges-release-track-color-zinc-100: oklch(96.7% 0.001 286.375);
-  --badges-release-track-color-zinc-400: oklch(70.5% 0.015 286.067);
-  --badges-release-track-color-zinc-500: oklch(55.2% 0.016 285.938);
-  --badges-release-track-color-zinc-700: oklch(37% 0.013 285.805);
-  --badges-release-track-color-zinc-800: oklch(27.4% 0.006 286.033);
-  --badges-release-track-color-zinc-950: oklch(14.1% 0.005 285.823);
-  --badges-release-track-spacing: 0.25rem;
-  --badges-release-track-text-sm: 0.875rem;
-  --badges-release-track-text-sm--line-height: calc(1.25 / 0.875);
-  --badges-release-track-font-weight-medium: 500;
-  --badges-release-track-font-weight-semibold: 600;
-  --badges-release-track-radius-2xl: 1rem;
+  width: 18rem;
+  border: 1px solid oklch(37% 0.013 285.805); /* zinc-700 */
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: oklch(14.1% 0.005 285.823); /* zinc-950 */
+  color: oklch(96.7% 0.001 286.375); /* zinc-100 */
 }
-.badges-release-track.badges-release-track__part-1, .badges-release-track .badges-release-track__part-1 {
-  width: calc(var(--badges-release-track-spacing) * 72);
-  border-radius: var(--badges-release-track-radius-2xl);
-  border-style: var(--badges-release-track-tw-border-style);
-  border-width: 1px;
-  border-color: var(--badges-release-track-color-zinc-700);
-  background-color: var(--badges-release-track-color-zinc-950);
-  padding: calc(var(--badges-release-track-spacing) * 5);
-  color: var(--badges-release-track-color-zinc-100);
-}
-.badges-release-track.badges-release-track__part-2, .badges-release-track .badges-release-track__part-2 {
+
+/* Product and release identifiers */
+.badges-release-track .badges-release-track__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.badges-release-track.badges-release-track__part-3, .badges-release-track .badges-release-track__part-3 {
-  font-size: var(--badges-release-track-text-sm);
-  line-height: var(--badges-release-track-tw-leading, var(--badges-release-track-text-sm--line-height));
-  --badges-release-track-tw-font-weight: var(--badges-release-track-font-weight-semibold);
-  font-weight: var(--badges-release-track-font-weight-semibold);
+.badges-release-track .badges-release-track__title {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
 }
-.badges-release-track.badges-release-track__part-4, .badges-release-track .badges-release-track__part-4 {
-  font-family: var(--badges-release-track-font-mono);
-  font-size: 10px;
-  color: var(--badges-release-track-color-zinc-400);
+.badges-release-track .badges-release-track__product,
+.badges-release-track .badges-release-track__version,
+.badges-release-track .badges-release-track__sync {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-.badges-release-track.badges-release-track__part-5, .badges-release-track .badges-release-track__part-5 {
-  margin-top: calc(var(--badges-release-track-spacing) * 4);
+.badges-release-track .badges-release-track__product,
+.badges-release-track .badges-release-track__timestamp,
+.badges-release-track .badges-release-track__sync {
+  font-size: 0.625rem;
+  color: oklch(70.5% 0.015 286.067); /* zinc-400 */
 }
-.badges-release-track :where(.badges-release-track.badges-release-track__part-5 > :not(:last-child)), .badges-release-track :where(.badges-release-track .badges-release-track__part-5 > :not(:last-child)) {
-  --badges-release-track-tw-space-y-reverse: 0;
-  margin-block-start: calc(calc(var(--badges-release-track-spacing) * 4) * var(--badges-release-track-tw-space-y-reverse));
-  margin-block-end: calc(calc(var(--badges-release-track-spacing) * 4) * calc(1 - var(--badges-release-track-tw-space-y-reverse)));
+.badges-release-track .badges-release-track__version {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
 }
-.badges-release-track.badges-release-track__part-6, .badges-release-track .badges-release-track__part-6 {
+.badges-release-track .badges-release-track__timestamp {
+  margin-top: 0.25rem;
+}
+.badges-release-track .badges-release-track__sync {
+  margin-top: 1.25rem;
+}
+
+/* Release rows and status pills */
+.badges-release-track .badges-release-track__releases {
+  margin-top: 1rem;
+}
+.badges-release-track .badges-release-track__release + .badges-release-track__release {
+  margin-top: 1rem;
+}
+.badges-release-track .badges-release-track__release {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--badges-release-track-spacing) * 2);
-  border-top-style: var(--badges-release-track-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--badges-release-track-color-zinc-800);
-  padding-top: calc(var(--badges-release-track-spacing) * 4);
+  gap: 0.5rem;
+  border-top: 1px solid oklch(27.4% 0.006 286.033); /* zinc-800 */
+  padding-top: 1rem;
 }
-.badges-release-track.badges-release-track__part-7, .badges-release-track .badges-release-track__part-7 {
-  font-family: var(--badges-release-track-font-mono);
-  font-size: var(--badges-release-track-text-sm);
-  line-height: var(--badges-release-track-tw-leading, var(--badges-release-track-text-sm--line-height));
-}
-.badges-release-track.badges-release-track__part-8, .badges-release-track .badges-release-track__part-8 {
-  margin-top: var(--badges-release-track-spacing);
-  font-size: 10px;
-  color: var(--badges-release-track-color-zinc-400);
-}
-.badges-release-track.badges-release-track__part-9, .badges-release-track .badges-release-track__part-9 {
+.badges-release-track .badges-release-track__status {
   display: flex;
   align-items: center;
-  gap: calc(var(--badges-release-track-spacing) * 1.5);
-  border-radius: calc(infinity * 1px);
-  border-style: var(--badges-release-track-tw-border-style);
+  gap: 0.375rem;
   border-width: 1px;
-  border-color: var(--badges-release-track-color-emerald-900);
-  background-color: var(--badges-release-track-color-emerald-950);
-  padding-inline: calc(var(--badges-release-track-spacing) * 2.5);
-  padding-block: var(--badges-release-track-spacing);
-  font-size: 10px;
-  --badges-release-track-tw-font-weight: var(--badges-release-track-font-weight-medium);
-  font-weight: var(--badges-release-track-font-weight-medium);
-  color: var(--badges-release-track-color-emerald-300);
+  border-radius: 9999px;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.625rem;
+  font-weight: 500;
 }
-.badges-release-track.badges-release-track__part-10, .badges-release-track .badges-release-track__part-10 {
-  width: calc(var(--badges-release-track-spacing) * 1.5);
-  height: calc(var(--badges-release-track-spacing) * 1.5);
-  border-radius: calc(infinity * 1px);
-  background-color: var(--badges-release-track-color-emerald-300);
+.badges-release-track .badges-release-track__status--production {
+  border-color: oklch(37.8% 0.077 168.94); /* emerald-900 */
+  background-color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  color: oklch(84.5% 0.143 164.978); /* emerald-300 */
 }
-.badges-release-track.badges-release-track__part-11, .badges-release-track .badges-release-track__part-11 {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--badges-release-track-spacing) * 1.5);
-  border-radius: calc(infinity * 1px);
-  border-style: var(--badges-release-track-tw-border-style);
-  border-width: 1px;
-  border-color: var(--badges-release-track-color-sky-900);
-  background-color: var(--badges-release-track-color-sky-950);
-  padding-inline: calc(var(--badges-release-track-spacing) * 2.5);
-  padding-block: var(--badges-release-track-spacing);
-  font-size: 10px;
-  --badges-release-track-tw-font-weight: var(--badges-release-track-font-weight-medium);
-  font-weight: var(--badges-release-track-font-weight-medium);
-  color: var(--badges-release-track-color-sky-300);
+.badges-release-track .badges-release-track__status--preview {
+  border-color: oklch(39.1% 0.09 240.876); /* sky-900 */
+  background-color: oklch(29.3% 0.066 243.157); /* sky-950 */
+  color: oklch(82.8% 0.111 230.318); /* sky-300 */
 }
-.badges-release-track.badges-release-track__part-12, .badges-release-track .badges-release-track__part-12 {
-  width: calc(var(--badges-release-track-spacing) * 1.5);
-  height: calc(var(--badges-release-track-spacing) * 1.5);
-  border-radius: calc(infinity * 1px);
-  background-color: var(--badges-release-track-color-sky-300);
+.badges-release-track .badges-release-track__status--review {
+  border-color: oklch(41.4% 0.112 45.904); /* amber-900 */
+  background-color: oklch(27.9% 0.077 45.635); /* amber-950 */
+  color: oklch(87.9% 0.169 91.605); /* amber-300 */
 }
-.badges-release-track.badges-release-track__part-13, .badges-release-track .badges-release-track__part-13 {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--badges-release-track-spacing) * 1.5);
-  border-radius: calc(infinity * 1px);
-  border-style: var(--badges-release-track-tw-border-style);
-  border-width: 1px;
-  border-color: var(--badges-release-track-color-amber-900);
-  background-color: var(--badges-release-track-color-amber-950);
-  padding-inline: calc(var(--badges-release-track-spacing) * 2.5);
-  padding-block: var(--badges-release-track-spacing);
-  font-size: 10px;
-  --badges-release-track-tw-font-weight: var(--badges-release-track-font-weight-medium);
-  font-weight: var(--badges-release-track-font-weight-medium);
-  color: var(--badges-release-track-color-amber-300);
-}
-.badges-release-track.badges-release-track__part-14, .badges-release-track .badges-release-track__part-14 {
-  width: calc(var(--badges-release-track-spacing) * 1.5);
-  height: calc(var(--badges-release-track-spacing) * 1.5);
-  border-radius: calc(infinity * 1px);
-  background-color: var(--badges-release-track-color-amber-300);
-}
-.badges-release-track.badges-release-track__part-15, .badges-release-track .badges-release-track__part-15 {
-  margin-top: calc(var(--badges-release-track-spacing) * 5);
-  font-family: var(--badges-release-track-font-mono);
-  font-size: 10px;
-  color: var(--badges-release-track-color-zinc-500);
-}
-@property --badges-release-track-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --badges-release-track-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --badges-release-track-tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .badges-release-track *, .badges-release-track ::before, .badges-release-track ::after, .badges-release-track ::backdrop {
-      --badges-release-track-tw-border-style: solid;
-      --badges-release-track-tw-font-weight: initial;
-      --badges-release-track-tw-space-y-reverse: 0;
-    }
-  }
+.badges-release-track .badges-release-track__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: currentColor;
 }

@@ -1,0 +1,94 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-truffle-grades, .badges-truffle-grades *, .badges-truffle-grades *::before, .badges-truffle-grades *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-truffle-grades { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-truffle-grades :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-truffle-grades a { color: inherit; text-decoration: inherit; }
+.badges-truffle-grades :is(b, strong) { font-weight: bolder; }
+.badges-truffle-grades :is(ol, ul, menu) { list-style: none; }
+.badges-truffle-grades :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-truffle-grades :is(img, video) { max-width: 100%; height: auto; }
+.badges-truffle-grades :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-truffle-grades ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-truffle-grades table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-truffle-grades summary { display: list-item; }
+
+/* Component */
+.badges-truffle-grades {
+  width: 18rem;
+  background-color: oklch(97% 0.001 106.424); /* stone-100 */
+  padding: 1.5rem;
+  color: oklch(27.1% 0.105 12.094); /* rose-950 */
+}
+
+.badges-truffle-grades .badges-truffle-grades__lot {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.badges-truffle-grades .badges-truffle-grades__heading {
+  margin-top: 0.5rem;
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+}
+
+/* Provenance ribbon */
+.badges-truffle-grades .badges-truffle-grades__origin {
+  margin-top: 1.25rem;
+  border-top: 1px solid oklch(27.1% 0.105 12.094); /* rose-950 */
+  border-bottom: 1px solid oklch(27.1% 0.105 12.094); /* rose-950 */
+  padding-block: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+/* Commercial size grades */
+.badges-truffle-grades .badges-truffle-grades__grades {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.5rem;
+}
+
+.badges-truffle-grades .badges-truffle-grades__extra {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background-color: oklch(27.1% 0.105 12.094); /* rose-950 */
+  padding: 0.75rem;
+  color: oklch(97% 0.001 106.424); /* stone-100 */
+}
+
+.badges-truffle-grades .badges-truffle-grades__small {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 1px solid oklch(27.1% 0.105 12.094); /* rose-950 */
+  padding: 0.75rem;
+}
+
+.badges-truffle-grades .badges-truffle-grades__grade {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+}
+
+.badges-truffle-grades .badges-truffle-grades__label {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.badges-truffle-grades .badges-truffle-grades__inspection {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+/* Wider preview */
+@media (width >= 40rem) {
+  .badges-truffle-grades {
+    width: 22rem;
+  }
+}

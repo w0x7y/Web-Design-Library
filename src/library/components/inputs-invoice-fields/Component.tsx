@@ -16,16 +16,17 @@ export default function InputsInvoiceFields() {
       >
         Amount
       </label>
-      <div className="mt-1.5 flex rounded-lg border border-slate-300 bg-slate-50">
+      <div className="mt-1.5 flex rounded-lg border border-slate-500 bg-slate-50">
         <span
-          aria-hidden="true"
-          className="flex h-10 items-center rounded-l-lg border-r border-slate-300 bg-slate-100 px-3 text-sm text-slate-600"
+          id="inputs-invoice-fields-currency"
+          className="flex h-10 items-center rounded-l-lg border-r border-slate-500 bg-slate-100 px-3 text-sm text-slate-600"
         >
           USD
         </span>
         <input
           id="inputs-invoice-fields-amount"
           name="amount"
+          aria-describedby="inputs-invoice-fields-currency"
           type="number"
           step="0.01"
           min="0"
@@ -44,7 +45,7 @@ export default function InputsInvoiceFields() {
         name="reference"
         type="text"
         defaultValue="INV-2026-048"
-        className="mt-1.5 h-10 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 font-mono text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+        className="mt-1.5 h-10 w-full rounded-lg border border-slate-500 bg-slate-50 px-3 font-mono text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
       />
       <label
         htmlFor="inputs-invoice-fields-due"
@@ -58,7 +59,7 @@ export default function InputsInvoiceFields() {
         type="date"
         defaultValue="2026-10-30"
         aria-describedby="inputs-invoice-fields-hint"
-        className="mt-1.5 h-10 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-900"
+        className="mt-1.5 h-10 w-full rounded-lg border border-slate-500 bg-slate-50 px-3 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-900"
       />
       <p
         id="inputs-invoice-fields-hint"

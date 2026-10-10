@@ -1,0 +1,77 @@
+<section class="dashboard-vet-rounds" aria-labelledby="dashboard-vet-rounds-title">
+  <div class="dashboard-vet-rounds__inner">
+    <header class="dashboard-vet-rounds__header">
+      <div>
+        <p class="dashboard-vet-rounds__brand">PAWLEDGER / LARCH VETERINARY</p>
+        <h2 class="dashboard-vet-rounds__title" id="dashboard-vet-rounds-title">Saturday rounds.</h2>
+      </div>
+      <p class="dashboard-vet-rounds__stamp">10 October · Dr Mira Chen</p>
+    </header>
+    <div class="dashboard-vet-rounds__body">
+      <div>
+        <article class="dashboard-vet-rounds__featured">
+          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=80" alt="Golden retriever sitting outdoors, shown on Milo's patient record" width="800" height="1283" class="dashboard-vet-rounds__photo">
+          <div>
+            <p class="dashboard-vet-rounds__patient-tag">NEXT DISCHARGE / KENNEL 02</p>
+            <h3 class="dashboard-vet-rounds__patient-title">Milo is heading home.</h3>
+            <p class="dashboard-vet-rounds__copy">Golden retriever · 4 years<br>Post-procedure check complete. Collection arranged with his owner for 14:30.</p>
+            <p class="dashboard-vet-rounds__status">Cleared for discharge</p>
+          </div>
+        </article>
+        <section class="dashboard-vet-rounds__ward" aria-labelledby="dashboard-vet-rounds-ward">
+          <div class="dashboard-vet-rounds__ward-head">
+            <h3 class="dashboard-vet-rounds__heading" id="dashboard-vet-rounds-ward">Ward roster</h3>
+            <label class="dashboard-vet-rounds__filter-label"><input type="checkbox" class="dashboard-vet-rounds__filter"><span>Ready for discharge only</span></label>
+          </div>
+          <ul role="list" class="dashboard-vet-rounds__patients">
+            <li class="dashboard-vet-rounds__patient" data-discharge="true">
+              <div>
+                <p class="dashboard-vet-rounds__patient-name">Milo · Golden retriever</p>
+                <p class="dashboard-vet-rounds__patient-note">Kennel 02 · Owner notified</p>
+              </div>
+              <p class="dashboard-vet-rounds__patient-state">Discharge ready</p>
+            </li>
+            <li class="dashboard-vet-rounds__patient" data-discharge="false">
+              <div>
+                <p class="dashboard-vet-rounds__patient-name">Ada · Domestic shorthair</p>
+                <p class="dashboard-vet-rounds__patient-note">Cat ward 01 · Review at 14:00</p>
+              </div>
+              <p class="dashboard-vet-rounds__patient-state">Observation</p>
+            </li>
+            <li class="dashboard-vet-rounds__patient" data-discharge="false">
+              <div>
+                <p class="dashboard-vet-rounds__patient-name">Pip · Miniature dachshund</p>
+                <p class="dashboard-vet-rounds__patient-note">Kennel 04 · Admitted at 11:20</p>
+              </div>
+              <p class="dashboard-vet-rounds__patient-state">Recovering</p>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <aside class="dashboard-vet-rounds__rail">
+        <h3 class="dashboard-vet-rounds__heading">Afternoon appointments</h3>
+        <ol role="list" class="dashboard-vet-rounds__appointments">
+          <li class="dashboard-vet-rounds__appointment">
+            <p class="dashboard-vet-rounds__appt-time">13:30 · 20 MIN</p>
+            <h4 class="dashboard-vet-rounds__appt-name">Olive · Annual check</h4>
+            <p class="dashboard-vet-rounds__patient-note">Consult room 1 · Dr Chen</p>
+          </li>
+          <li class="dashboard-vet-rounds__appointment">
+            <p class="dashboard-vet-rounds__appt-time">14:00 · 30 MIN</p>
+            <h4 class="dashboard-vet-rounds__appt-name">Basil · First puppy visit</h4>
+            <p class="dashboard-vet-rounds__patient-note">Consult room 2 · Dr Santos</p>
+          </li>
+          <li class="dashboard-vet-rounds__appointment">
+            <p class="dashboard-vet-rounds__appt-time">14:45 · 20 MIN</p>
+            <h4 class="dashboard-vet-rounds__appt-name">Nori · Follow-up</h4>
+            <p class="dashboard-vet-rounds__patient-note">Consult room 1 · Dr Chen</p>
+          </li>
+        </ol>
+        <details class="dashboard-vet-rounds__disclosure">
+          <summary class="dashboard-vet-rounds__trigger">Milo's collection checklist</summary>
+          <p class="dashboard-vet-rounds__detail">Confirm the discharge sheet is signed, return his collar and lead, and give the owner the scheduled follow-up details.</p>
+        </details>
+      </aside>
+    </div>
+  </div>
+</section>

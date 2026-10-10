@@ -1,0 +1,126 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-waterjet-cutting, .toggles-waterjet-cutting *, .toggles-waterjet-cutting *::before, .toggles-waterjet-cutting *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-waterjet-cutting { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-waterjet-cutting :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-waterjet-cutting a { color: inherit; text-decoration: inherit; }
+.toggles-waterjet-cutting :is(b, strong) { font-weight: bolder; }
+.toggles-waterjet-cutting :is(ol, ul, menu) { list-style: none; }
+.toggles-waterjet-cutting :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-waterjet-cutting :is(img, video) { max-width: 100%; height: auto; }
+.toggles-waterjet-cutting :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-waterjet-cutting ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-waterjet-cutting table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-waterjet-cutting summary { display: list-item; }
+
+/* Component */
+
+.toggles-waterjet-cutting {
+  width: 18rem;
+  border: 2px solid #000;
+  background-color: oklch(75% 0.183 55.934); /* orange-400 */
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  color: #000;
+}
+
+/* Content */
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__option-number {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 700;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: oklch(64.6% 0.222 41.116); /* orange-600 */
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__label {
+  margin-top: 1rem;
+  display: block;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 700;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__option-hint {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__option {
+  border: 2px solid #000;
+  background-color: #fff;
+  padding: 0.75rem;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__eyebrow {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #000; /* black */
+  text-transform: uppercase;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__title {
+  margin-top: 0.5rem;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__material {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__header {
+  border-bottom: 2px solid #000;
+  padding: 1rem;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__note {
+  border-top: 2px solid #000;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+}
+
+/* Control states and keyboard focus */
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__checkbox:focus-visible {
+  outline: 2px solid oklch(55.3% 0.195 38.402); /* orange-700 */
+  outline-offset: 2px;
+}
+
+.toggles-waterjet-cutting .toggles-waterjet-cutting__option:has(:checked) {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Responsive width */
+@media (width >= 40rem) {
+  .toggles-waterjet-cutting { width: 24rem; }
+}

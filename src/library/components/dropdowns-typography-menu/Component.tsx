@@ -33,6 +33,8 @@ export default function DropdownsTypographyMenu() {
             type="radio"
             name="dropdowns-typography-menu-family"
             value="sans"
+            aria-labelledby="dropdowns-typography-menu-sans-name"
+            aria-describedby="dropdowns-typography-menu-sans-hint"
             defaultChecked
             className="size-3.5 shrink-0 accent-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
@@ -40,8 +42,16 @@ export default function DropdownsTypographyMenu() {
             Aa
           </span>
           <span>
-            <span className="block text-xs font-medium">Modern sans</span>
-            <span className="block text-[9px] text-slate-500">
+            <span
+              id="dropdowns-typography-menu-sans-name"
+              className="block text-xs font-medium"
+            >
+              Modern sans
+            </span>
+            <span
+              id="dropdowns-typography-menu-sans-hint"
+              className="block text-[9px] text-slate-600"
+            >
               Clean and familiar
             </span>
           </span>
@@ -51,14 +61,24 @@ export default function DropdownsTypographyMenu() {
             type="radio"
             name="dropdowns-typography-menu-family"
             value="serif"
+            aria-labelledby="dropdowns-typography-menu-serif-name"
+            aria-describedby="dropdowns-typography-menu-serif-hint"
             className="size-3.5 shrink-0 accent-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span aria-hidden="true" className="w-7 font-serif text-xl">
             Aa
           </span>
           <span>
-            <span className="block text-xs font-medium">Classic serif</span>
-            <span className="block text-[9px] text-slate-500">
+            <span
+              id="dropdowns-typography-menu-serif-name"
+              className="block text-xs font-medium"
+            >
+              Classic serif
+            </span>
+            <span
+              id="dropdowns-typography-menu-serif-hint"
+              className="block text-[9px] text-slate-600"
+            >
               A little more character
             </span>
           </span>
@@ -68,14 +88,24 @@ export default function DropdownsTypographyMenu() {
             type="radio"
             name="dropdowns-typography-menu-family"
             value="mono"
+            aria-labelledby="dropdowns-typography-menu-mono-name"
+            aria-describedby="dropdowns-typography-menu-mono-hint"
             className="size-3.5 shrink-0 accent-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
           />
           <span aria-hidden="true" className="w-7 font-mono text-xl">
             Aa
           </span>
           <span>
-            <span className="block text-xs font-medium">Monospace</span>
-            <span className="block text-[9px] text-slate-500">
+            <span
+              id="dropdowns-typography-menu-mono-name"
+              className="block text-xs font-medium"
+            >
+              Monospace
+            </span>
+            <span
+              id="dropdowns-typography-menu-mono-hint"
+              className="block text-[9px] text-slate-600"
+            >
               Precise, even spacing
             </span>
           </span>

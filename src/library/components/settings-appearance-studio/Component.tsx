@@ -8,13 +8,13 @@ export default function SettingsAppearanceStudio() {
         <h2 className="text-2xl font-semibold tracking-tight">
           Make it feel like yours
         </h2>
-        <p className="mt-2 text-sm text-stone-500">
+        <p className="mt-2 text-sm text-stone-600">
           Choose the look of your canvas.
         </p>
         <fieldset className="mt-7">
           <legend className="text-sm font-medium">Canvas theme</legend>
           <div className="mt-3 grid gap-3 sm:grid-cols-3">
-            <label className="grid cursor-pointer gap-3 rounded-lg border border-stone-200 p-3 has-[:checked]:border-stone-950">
+            <label className="grid cursor-pointer gap-3 rounded-lg border border-stone-500 p-3 has-[:checked]:border-stone-950">
               <div className="h-16 rounded-md bg-[#f4efe4]"></div>
               <span className="flex items-center justify-between gap-3 text-sm">
                 Paper
@@ -27,7 +27,7 @@ export default function SettingsAppearanceStudio() {
                 />
               </span>
             </label>
-            <label className="grid cursor-pointer gap-3 rounded-lg border border-stone-200 p-3 has-[:checked]:border-stone-950">
+            <label className="grid cursor-pointer gap-3 rounded-lg border border-stone-500 p-3 has-[:checked]:border-stone-950">
               <div className="h-16 rounded-md bg-neutral-950"></div>
               <span className="flex items-center justify-between gap-3 text-sm">
                 Midnight
@@ -39,7 +39,7 @@ export default function SettingsAppearanceStudio() {
                 />
               </span>
             </label>
-            <label className="grid cursor-pointer gap-3 rounded-lg border border-stone-200 p-3 has-[:checked]:border-stone-950">
+            <label className="grid cursor-pointer gap-3 rounded-lg border border-stone-500 p-3 has-[:checked]:border-stone-950">
               <div className="h-16 rounded-md bg-emerald-900"></div>
               <span className="flex items-center justify-between gap-3 text-sm">
                 Moss
@@ -83,11 +83,11 @@ export default function SettingsAppearanceStudio() {
           </label>
         </div>
         <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
-          <p className="text-xs text-stone-500">
+          <p className="text-xs text-stone-600">
             Changes apply to your account only.
           </p>
           <button
-            className="rounded-lg bg-stone-950 px-4 py-3 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+            className="cursor-pointer rounded-lg bg-stone-950 px-4 py-3 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
             type="button"
           >
             Save preferences

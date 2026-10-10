@@ -1,0 +1,155 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.faq-hearing-appointments, .faq-hearing-appointments *, .faq-hearing-appointments *::before, .faq-hearing-appointments *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.faq-hearing-appointments { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.faq-hearing-appointments :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.faq-hearing-appointments a { color: inherit; text-decoration: inherit; }
+.faq-hearing-appointments :is(b, strong) { font-weight: bolder; }
+.faq-hearing-appointments :is(ol, ul, menu) { list-style: none; }
+.faq-hearing-appointments :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.faq-hearing-appointments :is(img, video) { max-width: 100%; height: auto; }
+.faq-hearing-appointments :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.faq-hearing-appointments ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.faq-hearing-appointments table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.faq-hearing-appointments summary { display: list-item; }
+
+/* Component */
+.faq-hearing-appointments {
+  background-color: #fff; /* white */
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout and introduction */
+.faq-hearing-appointments .faq-hearing-appointments__inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 4rem 1.5rem;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__eyebrow {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__title {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__lede {
+  margin-top: 1.25rem;
+  max-width: 38rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Question layout */
+.faq-hearing-appointments .faq-hearing-appointments__questions {
+  margin-top: 2.5rem;
+  display: grid;
+  align-items: start;
+  column-gap: 4rem;
+  row-gap: 1rem;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__disclosure {
+  border-top: 1px solid oklch(90.5% 0.093 164.15); /* emerald-200 */
+}
+
+/* Native disclosures and keyboard focus */
+.faq-hearing-appointments .faq-hearing-appointments__summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__summary:focus-visible {
+  outline: 2px solid oklch(26.2% 0.051 172.552); /* emerald-950 */
+  outline-offset: 4px;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__indicator {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__disclosure[open] .faq-hearing-appointments__indicator {
+  rotate: 45deg;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__answer {
+  max-width: 65ch;
+  padding-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: oklch(43.2% 0.095 166.913); /* emerald-800 */
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__masthead {
+  display: grid;
+  gap: 2rem;
+  border-bottom: 1px solid oklch(37.8% 0.077 168.94); /* emerald-900 */
+  padding-bottom: 2.5rem;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__duration {
+  font-size: 3.5rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.faq-hearing-appointments .faq-hearing-appointments__duration-note {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: oklch(43.2% 0.095 166.913); /* emerald-800 */
+}
+
+@media (width >= 40rem) {
+  .faq-hearing-appointments .faq-hearing-appointments__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .faq-hearing-appointments .faq-hearing-appointments__questions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 64rem) {
+  .faq-hearing-appointments .faq-hearing-appointments__inner {
+    padding: 6rem 2.5rem;
+  }
+
+  .faq-hearing-appointments .faq-hearing-appointments__masthead {
+    grid-template-columns: 1.5fr 0.6fr;
+    align-items: end;
+  }
+}
+
+@media (hover: hover) {
+  .faq-hearing-appointments .faq-hearing-appointments__summary:hover {
+    text-decoration-line: underline;
+  }
+}

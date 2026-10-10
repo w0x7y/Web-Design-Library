@@ -7,19 +7,17 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A customer quote paired with measurable project outcomes and a case study action. Use it for B2B product landing pages.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:
-      'A 1152px split section has a blue-950 quote panel on the left and customer context with three metrics on the right. Panel has a quote, initials avatar and attribution. Metrics are stacked rows with thin separators.',
+      'A centered 1152px container with 24px side and 80px vertical padding. A quote panel precedes a story column with eyebrow, heading, paragraph, three metric rows and a case-study link. The grid gap is 40px. Quote attribution has a 44px initials circle and a name/role block separated by 12px. Metrics have 20px vertical padding and a 20px horizontal gap; values appear before their labels.',
     style:
-      'Slate-50 background, slate-950 type, blue-950 quote panel and sky-300 quotation mark. Quote uses 30px text, panel has 16px radius and 32px padding. Metric values are 36px semibold.',
+      'Slate-50 canvas and slate-950 system sans text. The blue-950 quote panel has a 16px radius, 24px padding and white text; its decorative 60px system-serif quotation mark is sky-300. Quote text is 24px medium, 1.625 line height and -0.025em tracking. The heading is 30px semibold with 1.25 line height, metric values are 36px semibold blue-700, descriptions are 14px slate-600 and separators are 1px slate-200. Attribution uses 14px semibold names, 12px blue-200 roles and a blue-800 initials circle.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'The case-study link underlines on hover on devices that support hover. Keyboard focus shows a 2px zinc-950 outline offset 2px. No transitions or animations.',
     responsive:
-      'Columns begin at 1024px. Quote size is 24px on phones and 30px at 640px. Metric rows wrap the label below the value on narrow phones.',
+      'Below 1024px the quote and story stack. At 640px the quote panel padding becomes 40px, quote text becomes 30px and heading becomes 36px. At 1024px the container becomes two equal columns with a 64px gap. Metric labels wrap below values when necessary.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

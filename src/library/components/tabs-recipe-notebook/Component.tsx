@@ -19,7 +19,7 @@ export default function TabsRecipeNotebook() {
               name="tabs-recipe-notebook-section"
               value="ingredients"
               defaultChecked
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Ingredients
           </label>
@@ -29,7 +29,7 @@ export default function TabsRecipeNotebook() {
               type="radio"
               name="tabs-recipe-notebook-section"
               value="method"
-              className="sr-only focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+              className="sr-only focus-visible:outline-hidden"
             />
             Method
           </label>

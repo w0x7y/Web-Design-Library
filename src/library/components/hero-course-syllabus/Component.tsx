@@ -36,7 +36,7 @@ export default function HeroCourseSyllabus() {
             </a>
           </div>
           <div className="mt-8 flex items-center gap-3">
-            <span className="flex size-10 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold">
               AM
             </span>
             <div>
@@ -50,14 +50,14 @@ export default function HeroCourseSyllabus() {
         <div className="rounded-2xl border border-blue-200 bg-white p-6 sm:p-8">
           <div className="flex justify-between gap-3 border-b border-blue-100 pb-5">
             <h2 className="text-xl font-semibold">What we will cover</h2>
-            <span className="text-xs text-blue-700">4 chapters</span>
+            <span className="shrink-0 text-xs text-blue-700">4 chapters</span>
           </div>
           <ol role="list" className="divide-y divide-blue-100">
             <li className="flex gap-4 py-5">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 font-mono text-xs">
                 01
               </span>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-semibold">Looking with intention</h3>
                 <p className="mt-1 text-sm text-blue-900">
                   Build a daily practice of noticing.
@@ -68,7 +68,7 @@ export default function HeroCourseSyllabus() {
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 font-mono text-xs">
                 02
               </span>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-semibold">Type that carries the idea</h3>
                 <p className="mt-1 text-sm text-blue-900">
                   Hierarchy, rhythm and readable details.
@@ -79,7 +79,7 @@ export default function HeroCourseSyllabus() {
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 font-mono text-xs">
                 03
               </span>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-semibold">Color with a reason</h3>
                 <p className="mt-1 text-sm text-blue-900">
                   A small palette that works together.
@@ -90,7 +90,7 @@ export default function HeroCourseSyllabus() {
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 font-mono text-xs">
                 04
               </span>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-semibold">Making it your own</h3>
                 <p className="mt-1 text-sm text-blue-900">
                   A final project, with personal feedback.

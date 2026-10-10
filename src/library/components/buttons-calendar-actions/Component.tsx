@@ -5,8 +5,9 @@ export default function ButtonsCalendarActions() {
       className="w-72 rounded-xl border border-slate-200 bg-white p-5 text-slate-900"
     >
       <div className="flex items-center gap-3">
-        <div
-          aria-hidden="true"
+        <time
+          dateTime="2026-10-16"
+          aria-label="October 16, 2026"
           className="flex size-12 shrink-0 flex-col items-center justify-center rounded-lg bg-blue-50"
         >
           <span className="text-[10px] font-semibold text-blue-700 uppercase">
@@ -15,7 +16,7 @@ export default function ButtonsCalendarActions() {
           <span className="text-xl leading-none font-bold text-blue-900">
             16
           </span>
-        </div>
+        </time>
         <div>
           <h2 className="text-sm font-semibold">Project check-in</h2>
           <p className="mt-1 text-xs text-slate-600">Friday, 10:00–10:30 AM</p>

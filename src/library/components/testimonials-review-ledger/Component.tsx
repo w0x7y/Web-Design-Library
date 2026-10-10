@@ -38,6 +38,7 @@ export default function TestimonialsReviewLedger() {
             </figcaption>
             <div>
               <p
+                role="img"
                 aria-label="5 out of 5 stars"
                 className="tracking-widest text-amber-700"
               >
@@ -66,6 +67,7 @@ export default function TestimonialsReviewLedger() {
             </figcaption>
             <div>
               <p
+                role="img"
                 aria-label="5 out of 5 stars"
                 className="tracking-widest text-amber-700"
               >
@@ -94,6 +96,7 @@ export default function TestimonialsReviewLedger() {
             </figcaption>
             <div>
               <p
+                role="img"
                 aria-label="5 out of 5 stars"
                 className="tracking-widest text-amber-700"
               >

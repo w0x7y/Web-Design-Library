@@ -1,0 +1,235 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-snowmaking-console, .login-snowmaking-console *, .login-snowmaking-console *::before, .login-snowmaking-console *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-snowmaking-console { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-snowmaking-console :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-snowmaking-console a { color: inherit; text-decoration: inherit; }
+.login-snowmaking-console :is(b, strong) { font-weight: bolder; }
+.login-snowmaking-console :is(ol, ul, menu) { list-style: none; }
+.login-snowmaking-console :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-snowmaking-console :is(img, video) { max-width: 100%; height: auto; }
+.login-snowmaking-console :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-snowmaking-console ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-snowmaking-console table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-snowmaking-console summary { display: list-item; }
+
+
+/* Component */
+.login-snowmaking-console {
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  padding: 2rem 1.5rem;
+  font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+  color: #fff; /* white */
+}
+
+.login-snowmaking-console .login-snowmaking-console__scene {
+  position: relative;
+  margin-inline: auto;
+  max-width: 72rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: oklch(27.9% 0.041 260.031); /* slate-800 */
+}
+
+.login-snowmaking-console .login-snowmaking-console__photo {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.login-snowmaking-console .login-snowmaking-console__scrim {
+  position: absolute;
+  inset: 0;
+  background-color: oklch(12.9% 0.042 264.695 / 0.7);
+}
+
+.login-snowmaking-console .login-snowmaking-console__content {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.4);
+  padding-bottom: 1.25rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__brand {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.login-snowmaking-console .login-snowmaking-console__scope {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  letter-spacing: 0.1em;
+}
+
+.login-snowmaking-console .login-snowmaking-console__body {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__intro {
+  display: grid;
+  align-content: space-between;
+  gap: 2.5rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__heading {
+  max-width: 28rem;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.login-snowmaking-console .login-snowmaking-console__conditions {
+  border-top: 1px solid rgb(255 255 255 / 0.4);
+  padding-top: 1.25rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__conditions-title {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  letter-spacing: 0.1em;
+}
+
+.login-snowmaking-console .login-snowmaking-console__conditions-note {
+  margin-top: 0.75rem;
+  max-width: 24rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__glass {
+  border-radius: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  background-color: oklch(12.9% 0.042 264.695 / 0.8);
+  padding: 1.5rem;
+  backdrop-filter: blur(16px);
+}
+
+.login-snowmaking-console .login-snowmaking-console__access-title {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 500;
+}
+
+.login-snowmaking-console .login-snowmaking-console__hint {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: oklch(95.1% 0.026 236.824); /* sky-100 */
+}
+
+.login-snowmaking-console .login-snowmaking-console__form {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Credentials and account recovery */
+.login-snowmaking-console .login-snowmaking-console__label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.login-snowmaking-console .login-snowmaking-console__input {
+  height: 3rem;
+  min-width: 0;
+  width: 100%;
+  border: 1px solid oklch(82.8% 0.111 230.318); /* sky-300 */
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 400;
+  border-radius: 0.5rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__submit {
+  display: flex;
+  min-height: 3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: oklch(95.1% 0.026 236.824); /* sky-100 */
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  border-radius: 0.5rem;
+}
+
+.login-snowmaking-console .login-snowmaking-console__help {
+  width: fit-content;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.login-snowmaking-console .login-snowmaking-console__footer {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(95.1% 0.026 236.824); /* sky-100 */
+}
+
+.login-snowmaking-console .login-snowmaking-console__input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-snowmaking-console .login-snowmaking-console__submit:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-snowmaking-console .login-snowmaking-console__help:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+@media (hover: hover) {
+  .login-snowmaking-console .login-snowmaking-console__submit:hover {
+    background-color: #fff; /* white */
+  }
+}
+
+.login-snowmaking-console .login-snowmaking-console__submit:focus-visible {
+  outline-color: oklch(82.8% 0.111 230.318); /* sky-300 */
+}
+
+@media (width >= 40rem) {
+  .login-snowmaking-console {
+    padding: 3rem 2.5rem;
+  }
+  .login-snowmaking-console .login-snowmaking-console__content {
+    padding: 2.5rem;
+  }
+  .login-snowmaking-console .login-snowmaking-console__heading {
+    font-size: 3rem;
+  }
+  .login-snowmaking-console .login-snowmaking-console__glass {
+    padding: 2rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .login-snowmaking-console .login-snowmaking-console__body {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3.5rem;
+  }
+}

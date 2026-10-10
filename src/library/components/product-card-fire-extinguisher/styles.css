@@ -1,0 +1,137 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-fire-extinguisher, .product-card-fire-extinguisher *, .product-card-fire-extinguisher *::before, .product-card-fire-extinguisher *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-fire-extinguisher { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-fire-extinguisher :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-fire-extinguisher a { color: inherit; text-decoration: inherit; }
+.product-card-fire-extinguisher :is(b, strong) { font-weight: bolder; }
+.product-card-fire-extinguisher :is(ol, ul, menu) { list-style: none; }
+.product-card-fire-extinguisher :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-fire-extinguisher :is(img, video) { max-width: 100%; height: auto; }
+.product-card-fire-extinguisher :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-fire-extinguisher ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-fire-extinguisher table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-fire-extinguisher summary { display: list-item; }
+
+/* Component */
+.product-card-fire-extinguisher {
+  width: 18rem;
+  border-width: 2px;
+  border-color: #000; /* black */
+  background-color: #fff; /* white */
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  color: #000; /* black */
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom-width: 1px;
+  border-color: #000; /* black */
+  background-color: oklch(75% 0.183 55.934); /* orange-400 */
+  padding: 0.75rem;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__body {
+  padding: 1rem;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__visual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__illustration {
+  height: 6rem;
+  width: 6rem;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__capacity {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.product-card-fire-extinguisher
+  .product-card-fire-extinguisher__capacity-label {
+  margin-top: 0.25rem;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__title {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  line-height: 1.5rem;
+  font-weight: 700;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__description {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  line-height: 1.25rem;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__specs {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top-width: 1px;
+  border-color: #000; /* black */
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__term {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__value {
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.product-card-fire-extinguisher .product-card-fire-extinguisher__cta {
+  margin-top: 1rem;
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000; /* black */
+  padding-inline: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 700;
+  color: #fff; /* white */
+}
+
+.product-card-fire-extinguisher
+  .product-card-fire-extinguisher__cta:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: #000; /* black */
+}
+
+@media (hover: hover) {
+  .product-card-fire-extinguisher .product-card-fire-extinguisher__cta:hover {
+    background-color: oklch(75% 0.183 55.934); /* orange-400 */
+    color: #000; /* black */
+  }
+}
+@media (width >= 40rem) {
+  .product-card-fire-extinguisher {
+    width: 21rem;
+  }
+}

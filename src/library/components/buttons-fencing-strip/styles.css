@@ -1,0 +1,136 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-fencing-strip, .buttons-fencing-strip *, .buttons-fencing-strip *::before, .buttons-fencing-strip *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-fencing-strip { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-fencing-strip :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-fencing-strip a { color: inherit; text-decoration: inherit; }
+.buttons-fencing-strip :is(b, strong) { font-weight: bolder; }
+.buttons-fencing-strip :is(ol, ul, menu) { list-style: none; }
+.buttons-fencing-strip :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-fencing-strip :is(img, video) { max-width: 100%; height: auto; }
+.buttons-fencing-strip :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-fencing-strip ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-fencing-strip table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-fencing-strip summary { display: list-item; }
+
+/* Component */
+.buttons-fencing-strip {
+  border-top: 4px solid oklch(39.6% 0.141 25.723); /* red-900 */
+  background-color: #fff;
+  padding: 1.25rem;
+  color: oklch(26.8% 0.007 34.298); /* stone-800 */
+  width: 18rem;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__heading {
+  margin-top: 1.25rem;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__note {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__booking {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__reserve {
+  display: flex;
+  height: 3rem;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: oklch(39.6% 0.141 25.723); /* red-900 */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__schedule {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid oklch(39.6% 0.141 25.723); /* red-900 */
+  color: oklch(39.6% 0.141 25.723); /* red-900 */
+  cursor: pointer;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__footer {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__guest {
+  padding-block: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(37.4% 0.01 67.558); /* stone-700 */
+  text-decoration-line: underline;
+  text-decoration-color: oklch(70.9% 0.01 56.259); /* stone-400 */
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* Keyboard focus */
+.buttons-fencing-strip .buttons-fencing-strip__reserve:focus-visible {
+  outline: 2px solid oklch(39.6% 0.141 25.723); /* red-900 */
+  outline-offset: 2px;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__schedule:focus-visible {
+  outline: 2px solid oklch(39.6% 0.141 25.723); /* red-900 */
+  outline-offset: 2px;
+}
+
+.buttons-fencing-strip .buttons-fencing-strip__guest:focus-visible {
+  outline: 2px solid oklch(39.6% 0.141 25.723); /* red-900 */
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .buttons-fencing-strip .buttons-fencing-strip__reserve:hover {
+    background-color: oklch(44.4% 0.177 26.899); /* red-800 */
+  }
+
+  .buttons-fencing-strip .buttons-fencing-strip__schedule:hover {
+    background-color: oklch(97.1% 0.013 17.38); /* red-50 */
+  }
+
+  .buttons-fencing-strip .buttons-fencing-strip__guest:hover {
+    color: oklch(39.6% 0.141 25.723); /* red-900 */
+  }
+}
+
+@media (width >= 40rem) {
+  .buttons-fencing-strip {
+    width: 25rem;
+  }
+}

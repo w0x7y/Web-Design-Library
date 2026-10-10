@@ -1,0 +1,120 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-water-loss, .stat-card-water-loss *, .stat-card-water-loss *::before, .stat-card-water-loss *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-water-loss { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-water-loss :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-water-loss a { color: inherit; text-decoration: inherit; }
+.stat-card-water-loss :is(b, strong) { font-weight: bolder; }
+.stat-card-water-loss :is(ol, ul, menu) { list-style: none; }
+.stat-card-water-loss :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-water-loss :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-water-loss :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-water-loss ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-water-loss table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-water-loss summary { display: list-item; }
+
+/* Component */
+.stat-card-water-loss {
+  width: 18rem;
+  border: 1px solid oklch(88.2% 0.059 254.128); /* blue-200 */
+  border-radius: 0.75rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(28.2% 0.091 267.935); /* blue-950 */
+}
+
+.stat-card-water-loss .stat-card-water-loss__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: oklch(52% 0.105 223.128); /* cyan-700 */
+}
+
+.stat-card-water-loss .stat-card-water-loss__heading {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.stat-card-water-loss .stat-card-water-loss__value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-water-loss .stat-card-water-loss__unit {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.stat-card-water-loss .stat-card-water-loss__note {
+  margin-top: 1.25rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: oklch(98.4% 0.019 200.873); /* cyan-50 */
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(39.8% 0.07 227.392); /* cyan-900 */
+}
+
+/* Daily flow comparison */
+
+.stat-card-water-loss .stat-card-water-loss__volumes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid oklch(93.2% 0.032 255.585); /* blue-100 */
+  padding-top: 1rem;
+}
+
+.stat-card-water-loss .stat-card-water-loss__label {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(42.4% 0.199 265.638); /* blue-800 */
+}
+
+.stat-card-water-loss .stat-card-water-loss__reading {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-water-loss .stat-card-water-loss__link {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  color: oklch(52% 0.105 223.128); /* cyan-700 */
+}
+
+.stat-card-water-loss .stat-card-water-loss__link:focus-visible {
+  outline: 2px solid oklch(28.2% 0.091 267.935); /* blue-950 */
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .stat-card-water-loss .stat-card-water-loss__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .stat-card-water-loss {
+    width: 20rem;
+  }
+}

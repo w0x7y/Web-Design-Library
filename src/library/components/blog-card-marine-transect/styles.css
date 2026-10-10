@@ -1,0 +1,124 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.blog-card-marine-transect, .blog-card-marine-transect *, .blog-card-marine-transect *::before, .blog-card-marine-transect *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.blog-card-marine-transect { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.blog-card-marine-transect :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.blog-card-marine-transect a { color: inherit; text-decoration: inherit; }
+.blog-card-marine-transect :is(b, strong) { font-weight: bolder; }
+.blog-card-marine-transect :is(ol, ul, menu) { list-style: none; }
+.blog-card-marine-transect :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.blog-card-marine-transect :is(img, video) { max-width: 100%; height: auto; }
+.blog-card-marine-transect :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.blog-card-marine-transect ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.blog-card-marine-transect table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.blog-card-marine-transect summary { display: list-item; }
+
+
+/* Component */
+
+.blog-card-marine-transect {
+  width: 18rem;
+  border: 1px solid oklch(92.9% 0.013 255.508) /* slate-200 */;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(30.2% 0.056 229.695) /* cyan-950 */;
+}
+
+/* Research station strip and article with an accent rail */
+
+.blog-card-marine-transect .blog-card-marine-transect__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508) /* slate-200 */;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1rem 1.25rem;
+  background-color: oklch(98.4% 0.003 247.858) /* slate-50 */;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__category {
+  font-size: 9px;
+  color: oklch(44.6% 0.043 257.281) /* slate-600 */;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__body {
+  border-left: 4px solid oklch(45% 0.085 224.283) /* cyan-800 */;
+  padding: 1.25rem;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: oklch(45% 0.085 224.283) /* cyan-800 */;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__heading {
+  margin-top: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__summary {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: oklch(44.6% 0.043 257.281) /* slate-600 */;
+}
+
+/* Contents note */
+
+.blog-card-marine-transect .blog-card-marine-transect__note {
+  margin-top: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  background-color: oklch(98.4% 0.019 200.873) /* cyan-50 */;
+  font-size: 11px;
+  line-height: 1rem;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__note-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: oklch(45% 0.085 224.283) /* cyan-800 */;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 10px;
+  color: oklch(44.6% 0.043 257.281) /* slate-600 */;
+}
+
+.blog-card-marine-transect .blog-card-marine-transect__link:focus-visible {
+  outline: 2px solid oklch(45% 0.085 224.283) /* cyan-800 */;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .blog-card-marine-transect .blog-card-marine-transect__link:hover {
+    color: oklch(45% 0.085 224.283) /* cyan-800 */;
+  }
+}
+
+@media (width >= 40rem) {
+  .blog-card-marine-transect {
+    width: 22rem;
+  }
+}

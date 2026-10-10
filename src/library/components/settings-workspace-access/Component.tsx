@@ -15,7 +15,7 @@ export default function SettingsWorkspaceAccess() {
         </header>
         <div className="mt-7 grid gap-7 md:grid-cols-[1fr_1.4fr]">
           <div className="grid content-start gap-2">
-            <h2 className="text-lg font-semibold">Invitations</h2>
+            <h3 className="text-lg font-semibold">Invitations</h3>
             <p className="text-sm leading-6 text-slate-400">
               Apply these rules to all new members.
             </p>
@@ -81,7 +81,7 @@ export default function SettingsWorkspaceAccess() {
         </div>
         <div className="mt-7 grid gap-7 border-t border-slate-700 pt-7 md:grid-cols-[1fr_1.4fr]">
           <div className="grid content-start gap-2">
-            <h2 className="text-lg font-semibold">External sharing</h2>
+            <h3 className="text-lg font-semibold">External sharing</h3>
             <p className="text-sm leading-6 text-slate-400">
               Control public access to workspace files.
             </p>
@@ -92,7 +92,7 @@ export default function SettingsWorkspaceAccess() {
           >
             Default link access
             <select
-              className="min-w-0 w-full rounded-lg border border-slate-600 bg-slate-900 px-3 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-w-0 w-full rounded-lg border border-slate-500 bg-slate-900 px-3 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               name="sharing"
               id="settings-workspace-access-sharing"
             >
@@ -103,7 +103,7 @@ export default function SettingsWorkspaceAccess() {
         </div>
         <footer className="mt-8 flex justify-end border-t border-slate-700 pt-6">
           <button
-            className="rounded-lg bg-cyan-200 px-5 py-3 text-sm font-semibold text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+            className="cursor-pointer rounded-lg bg-cyan-200 px-5 py-3 text-sm font-semibold text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
             type="button"
           >
             Save access rules

@@ -26,119 +26,126 @@ export default function DataTableTeamDirectory() {
             <p className="text-xs text-teal-700">2 seats available</p>
           </div>
         </div>
-        <table className="block w-full text-left text-sm md:table">
+        <table role="table" className="block w-full text-left text-sm md:table">
           <caption className="sr-only">Workspace members table</caption>
-          <thead className="hidden md:table-header-group">
-            <tr>
+          <thead role="rowgroup" className="sr-only md:not-sr-only md:table-header-group">
+            <tr role="row">
               <th
                 className="border-b border-teal-100 px-4 py-3 text-xs font-medium text-teal-700"
+                role="columnheader"
                 scope="col"
               >
                 Member
               </th>
               <th
                 className="border-b border-teal-100 px-4 py-3 text-xs font-medium text-teal-700"
+                role="columnheader"
                 scope="col"
               >
                 Role
               </th>
               <th
                 className="border-b border-teal-100 px-4 py-3 text-xs font-medium text-teal-700"
+                role="columnheader"
                 scope="col"
               >
                 Joined
               </th>
               <th
                 className="border-b border-teal-100 px-4 py-3 text-xs font-medium text-teal-700"
+                role="columnheader"
                 scope="col"
               >
                 Access
               </th>
             </tr>
           </thead>
-          <tbody className="grid gap-3 md:table-row-group">
-            <tr className="grid rounded-lg border border-teal-100 p-3 md:table-row md:border-0 md:p-0">
+          <tbody role="rowgroup" className="grid gap-3 md:table-row-group">
+            <tr role="row" className="grid rounded-lg border border-teal-100 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Member
                 </span>
                 <span className="min-w-0 break-words">Alex Rivera</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Role
                 </span>
                 <span className="min-w-0 break-words">Owner</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Joined
                 </span>
-                <span className="min-w-0 break-words">Oct 2</span>
+                <span className="min-w-0 break-words"><time dateTime="2026-10-02">Oct 2</time></span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Access
                 </span>
                 <span className="min-w-0 break-words">Full workspace</span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-teal-100 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-teal-100 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Member
                 </span>
                 <span className="min-w-0 break-words">Maya Chen</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Role
                 </span>
                 <span className="min-w-0 break-words">Designer</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Joined
                 </span>
-                <span className="min-w-0 break-words">Oct 4</span>
+                <span className="min-w-0 break-words"><time dateTime="2026-10-04">Oct 4</time></span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Access
                 </span>
                 <span className="min-w-0 break-words">Projects only</span>
               </td>
             </tr>
-            <tr className="grid rounded-lg border border-teal-100 p-3 md:table-row md:border-0 md:p-0">
+            <tr role="row" className="grid rounded-lg border border-teal-100 p-3 md:table-row md:border-0 md:p-0">
               <th
                 className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-medium"
+                role="rowheader"
                 scope="row"
               >
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Member
                 </span>
                 <span className="min-w-0 break-words">Sam Okafor</span>
               </th>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Role
                 </span>
                 <span className="min-w-0 break-words">Guest</span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Joined
                 </span>
-                <span className="min-w-0 break-words">Oct 8</span>
+                <span className="min-w-0 break-words"><time dateTime="2026-10-08">Oct 8</time></span>
               </td>
-              <td className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
-                <span className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
+              <td role="cell" className="flex min-w-0 items-center justify-between gap-4 px-1 py-2 md:table-cell md:border-b border-teal-100 md:px-4 md:py-4 font-normal">
+                <span aria-hidden="true" className="shrink-0 text-xs font-normal text-teal-700 md:hidden">
                   Access
                 </span>
                 <span className="min-w-0 break-words">One project</span>

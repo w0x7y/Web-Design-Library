@@ -20,7 +20,7 @@ export default function StatCardRevenueLedger() {
         <div className="h-11 bg-stone-300" />
         <div className="h-10 bg-stone-300" />
         <div className="h-14 bg-stone-300" />
-        <div className="h-16 bg-stone-300" />
+        <div className="h-[88.3%] bg-stone-300" />
         <div className="h-20 bg-stone-900" />
       </div>
       <div

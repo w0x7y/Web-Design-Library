@@ -1,0 +1,166 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dropdowns-laundry-cycle, .dropdowns-laundry-cycle *, .dropdowns-laundry-cycle *::before, .dropdowns-laundry-cycle *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dropdowns-laundry-cycle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dropdowns-laundry-cycle :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dropdowns-laundry-cycle a { color: inherit; text-decoration: inherit; }
+.dropdowns-laundry-cycle :is(b, strong) { font-weight: bolder; }
+.dropdowns-laundry-cycle :is(ol, ul, menu) { list-style: none; }
+.dropdowns-laundry-cycle :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dropdowns-laundry-cycle :is(img, video) { max-width: 100%; height: auto; }
+.dropdowns-laundry-cycle :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dropdowns-laundry-cycle ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dropdowns-laundry-cycle table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dropdowns-laundry-cycle summary { display: list-item; }
+
+/* Component */
+
+/* Panel */
+
+.dropdowns-laundry-cycle {
+  width: 18rem;
+  border-radius: 20px;
+  border: 2px solid oklch(40.8% 0.123 38.172) /* orange-900 */;
+  background-color: oklch(98% 0.016 73.684) /* orange-50 */;
+  padding: 1rem;
+  color: oklch(26.6% 0.079 36.259) /* orange-950 */;
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Identity and heading */
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__brand {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__wordmark {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__ticket {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  background-color: oklch(40.8% 0.123 38.172) /* orange-900 */;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Dropdown content */
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__cycles {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 0.5rem;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__cycle {
+  cursor: pointer;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(40.8% 0.123 38.172) /* orange-900 */;
+  background-color: #fff;
+  padding: 0.75rem;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__tile-top {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__radio {
+  width: 1rem;
+  height: 1rem;
+  accent-color: oklch(40.8% 0.123 38.172) /* orange-900 */;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__temperature {
+  border-radius: 9999px;
+  background-color: oklch(95.4% 0.038 75.164) /* orange-100 */;
+  padding: 0.125rem 0.5rem;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__name {
+  display: block;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__hint {
+  display: block;
+  font-size: 10px;
+  color: oklch(40.8% 0.123 38.172) /* orange-900 */;
+}
+
+/* Supporting information */
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+/* Disclosure and keyboard focus */
+.dropdowns-laundry-cycle summary::-webkit-details-marker {
+  display: none;
+}
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.dropdowns-laundry-cycle details[open] .dropdowns-laundry-cycle__chevron, .dropdowns-laundry-cycle[open] .dropdowns-laundry-cycle__chevron {
+  rotate: 180deg;
+}
+.dropdowns-laundry-cycle :is(summary, button, input, select, a):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__cycle:has(:checked) {
+  background-color: oklch(90.1% 0.076 70.697) /* orange-200 */;
+}
+
+@media (width >= 40rem) {
+  .dropdowns-laundry-cycle {
+    width: 20rem;
+  }
+}
+
+.dropdowns-laundry-cycle .dropdowns-laundry-cycle__summary:focus-visible {
+  outline-color: oklch(40.8% 0.123 38.172); /* orange-900 */
+}

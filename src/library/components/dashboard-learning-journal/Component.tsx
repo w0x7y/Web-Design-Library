@@ -20,9 +20,9 @@ export default function DashboardLearningJournal() {
             <span className="rounded-full bg-orange-100 px-3 py-1 text-[10px] font-bold">
               DRAWING THE EVERYDAY
             </span>
-            <h2 className="mt-6 text-2xl font-bold">
+            <h3 className="mt-6 text-2xl font-bold">
               Light, shadow & a cup of tea.
-            </h2>
+            </h3>
             <p className="mt-4 text-sm leading-6 text-orange-900">
               Your next lesson is a 20-minute study in finding shape through
               light.
@@ -30,7 +30,7 @@ export default function DashboardLearningJournal() {
             <div className="mt-6">
               <p className="text-xs font-semibold">6 of 8 lessons complete</p>
               <progress
-                className="mt-3 h-3 w-full align-baseline accent-orange-800"
+                className="mt-3 h-3 w-full align-baseline appearance-none overflow-hidden rounded-full bg-orange-100 [&::-webkit-progress-bar]:bg-orange-100 [&::-webkit-progress-value]:bg-orange-800 [&::-moz-progress-bar]:bg-orange-800 forced-colors:[&::-webkit-progress-value]:bg-[Highlight] forced-colors:[&::-moz-progress-bar]:bg-[Highlight]"
                 max="8"
                 value="6"
                 aria-label="Course lesson progress"
@@ -39,7 +39,7 @@ export default function DashboardLearningJournal() {
               </progress>
             </div>
             <button
-              className="mt-6 rounded-full bg-orange-900 px-5 py-3 text-sm font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
+              className="mt-6 rounded-full bg-orange-900 px-5 py-3 text-sm font-bold text-white cursor-pointer hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
               type="button"
             >
               Continue learning
@@ -47,7 +47,7 @@ export default function DashboardLearningJournal() {
           </article>
           <div className="grid gap-5">
             <article className="rounded-2xl bg-orange-200 p-6">
-              <div className="grid gap-2 ">
+              <div className="grid gap-2">
                 <p className="text-xs font-medium opacity-70">
                   This week’s practice
                 </p>
@@ -61,7 +61,7 @@ export default function DashboardLearningJournal() {
               </p>
             </article>
             <article className="rounded-2xl border-2 border-orange-200 p-6">
-              <h2 className="text-lg font-bold">A habit taking shape</h2>
+              <h3 className="text-lg font-bold">A habit taking shape</h3>
               <p className="mt-3 text-sm leading-6 text-orange-900">
                 You’ve practiced on four days this week. Keep a pencil somewhere
                 you can see it.

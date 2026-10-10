@@ -40,7 +40,7 @@ export default function DashboardSalesPipeline() {
         </div>
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <article>
-            <h2 className="text-lg font-semibold">Worth your attention</h2>
+            <h3 className="text-lg font-semibold">Worth your attention</h3>
             <ul className="mt-5 grid gap-5" role="list">
               <li className="border-b border-zinc-200 pb-5">
                 <div className="flex flex-wrap justify-between gap-3">
@@ -85,7 +85,7 @@ export default function DashboardSalesPipeline() {
               $19,800 / $30,000
             </p>
             <meter
-              className="mt-4 h-3 w-full accent-emerald-700"
+              className="mt-4 h-3 w-full appearance-none overflow-hidden rounded-full bg-emerald-100 [&::-webkit-meter-inner-element]:appearance-none [&::-webkit-meter-bar]:h-full [&::-webkit-meter-bar]:border-0 [&::-webkit-meter-bar]:rounded-full [&::-webkit-meter-bar]:bg-emerald-100 [&::-webkit-meter-bar]:bg-none [&::-webkit-meter-optimum-value]:bg-emerald-700 [&::-webkit-meter-optimum-value]:bg-none [&::-moz-meter-bar]:bg-emerald-700 forced-colors:[&::-webkit-meter-optimum-value]:bg-[Highlight] forced-colors:[&::-moz-meter-bar]:bg-[Highlight]"
               min="0"
               max="30000"
               value="19800"

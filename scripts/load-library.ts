@@ -30,20 +30,46 @@ async function readOrEmpty(path: string): Promise<string> {
   }
 }
 
+async function loadMeta(dir: string): Promise<ComponentMeta> {
+  // A runtime path in Node, not a module for Vite to bundle (the build config loads this file through Vite).
+  const metaModule = await import(/* @vite-ignore */ pathToFileURL(join(dir, 'meta.ts')).href) as { default: ComponentMeta }
+  return metaModule.default
+}
+
+async function readSources(dir: string): Promise<LibraryEntry['sources']> {
+  const [tsx, html, css] = await Promise.all([
+    readOrEmpty(join(dir, SOURCE_FILES.tsx)),
+    readOrEmpty(join(dir, SOURCE_FILES.html)),
+    readOrEmpty(join(dir, SOURCE_FILES.css)),
+  ])
+  return { tsx, html, css }
+}
+
+async function loadMetaItems(root: string): Promise<{ folder: string; meta: ComponentMeta }[]> {
+  const items = await Promise.all(
+    listComponentSlugs(root).map(async (folder) => ({ folder, meta: await loadMeta(resolve(root, folder)) })),
+  )
+  return items.sort((a, b) => compareMetas(a.meta, b.meta))
+}
+
+/** Every component's metadata in library order, without reading its source files. */
+export async function loadMetas(root = COMPONENTS_DIR): Promise<ComponentMeta[]> {
+  return (await loadMetaItems(root)).map(({ meta }) => meta)
+}
+
+/** One component from its folder; missing sources are empty strings, while missing metadata throws. */
+export async function loadEntry(slug: string, root = COMPONENTS_DIR): Promise<LibraryEntry> {
+  const dir = resolve(root, slug)
+  const [meta, sources] = await Promise.all([loadMeta(dir), readSources(dir)])
+  return { meta, sources }
+}
+
 /** Every component, read from its folder, in library order. */
 export async function loadLibrary(root = COMPONENTS_DIR): Promise<{ folder: string; entry: LibraryEntry }[]> {
-  const items = await Promise.all(
-    listComponentSlugs(root).map(async (folder) => {
-      const dir = resolve(root, folder)
-      const [metaModule, tsx, html, css] = await Promise.all([
-        // A runtime path in Node, not a module for Vite to bundle (the build config loads this file through Vite).
-        import(/* @vite-ignore */ pathToFileURL(join(dir, 'meta.ts')).href) as Promise<{ default: ComponentMeta }>,
-        readOrEmpty(join(dir, SOURCE_FILES.tsx)),
-        readOrEmpty(join(dir, SOURCE_FILES.html)),
-        readOrEmpty(join(dir, SOURCE_FILES.css)),
-      ])
-      return { folder, entry: { meta: metaModule.default, sources: { tsx, html, css } } }
-    }),
+  return Promise.all(
+    (await loadMetaItems(root)).map(async ({ folder, meta }) => ({
+      folder,
+      entry: { meta, sources: await readSources(resolve(root, folder)) },
+    })),
   )
-  return items.sort((a, b) => compareMetas(a.entry.meta, b.entry.meta))
 }

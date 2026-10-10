@@ -79,7 +79,7 @@ The rules, from [`AGENTS.md`](AGENTS.md#authoring-rules):
 - **Exactly one default export, and no props.** Import nothing except `react`, and only if you need it.
 - **If `meta.fonts` is not empty, line 1 must start with `// Fonts: `** and name every family. Use the font through an arbitrary class with a fallback stack, such as `font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]`.
 - **Use Tailwind v4 utility classes only.** No `dark:` variants: the site's dark mode must never restyle a component. No global CSS, no `<style>` tags.
-- **Interactivity is CSS-only.** Use `hover:`, `focus-visible:`, `group-*`, `peer-*`, `has-*`, `<details>`/`<summary>` and transitions. No hooks (`useState`, `useEffect`, …) and no event handlers (`onClick`, `onChange`, …). The rule checker rejects any `useX(` or `onX=`.
+- **Interactivity is CSS-only.** Use `hover:`, `focus-visible:`, `group-*`, `peer-*`, `has-*`, `<details>`/`<summary>` and transitions. No hooks (`useState`, `useEffect`, …) and no event handlers (`onClick`, `onChange`, …). The rule checker rejects hook calls and JSX event-handler attributes, regardless of spacing.
 - **Icons are inline `<svg>`.** No icon packages. Give decorative icons `aria-hidden="true"`.
 - **Every `<img>` has a literal `src` from `IMAGES`**, plus `alt`, `width` and `height`. Use the image's real intrinsic size.
 - **Make it accessible:**
@@ -162,13 +162,13 @@ Then add your rules below a `/* Component */` comment:
 
 [`badges-playful/styles.css`](src/library/components/badges-playful/styles.css) is a complete example.
 
-For components with literal Tailwind classes, you can generate a starting twin from the React version:
+To see the exact values Tailwind computes for your classes, generate a draft:
 
 ```bash
-npx tsx scripts/sync-component-twins.ts <slug>
+npx tsx scripts/draft-twin.ts <slug>
 ```
 
-The command overwrites only the named component's `index.html` and `styles.css`. It renders the markup, compiles the utilities to scoped plain CSS, and prefixes state markers and custom properties. Review the output and run the same parity, focus and layout checks below. After changing `Component.tsx`, run it again to keep the twin in sync.
+It writes `twin-drafts/<slug>/index.html` and `styles.css` (gitignored) and leaves your component folder alone. The draft renders like the React version but is not a twin to ship: its classes are numbered (`__part-3`) and its CSS goes through Tailwind's variables. Read values from it, then write the twin by hand to the standard of the examples above.
 
 ## 6. Check the rules
 
@@ -192,6 +192,8 @@ npx playwright test e2e/parity.spec.ts e2e/focus.spec.ts e2e/layout.spec.ts -g <
 ```
 
 > **Stale server.** Outside CI, Playwright reuses any server already on port 4317 and does not rebuild. The React side of each test comes from that build, so after you change `Component.tsx`, stop any running `npm run serve:build` (or an earlier test server) before you rerun. Otherwise you are testing old code.
+>
+> **Several checkouts at once.** Set `PATTERNBOOK_PORT` to give each checkout its own port, e.g. `PATTERNBOOK_PORT=4402 npx playwright test …`. Both the test server and `npm run serve:build` read it.
 
 What each spec requires:
 
@@ -259,7 +261,8 @@ Prefer an image already in `IMAGES`. If none fits:
 | `meta.slug "…" does not match its folder` | Rename the folder or the slug so they match. |
 | `styles.css must begin with the scoped reset … line N should read: …` | Regenerate the reset with the `npx tsx` command in step 5, then paste your rules back under it. |
 | `styles.css selector "…" is not scoped under .<slug>` | Prefix the selector with `.<slug> `. |
-| `Component.tsx uses hooks or event handlers` | Replace the state with CSS: `<details>`, `peer-checked:`, `has-[:checked]:`, `group-hover:`. A bare `onX=` anywhere in the file, even in a comment, also triggers this. |
+| `Component.tsx uses hooks or event handlers` | Replace the state with CSS: `<details>`, `peer-checked:`, `has-[:checked]:`, `group-hover:`. Hook calls and JSX event-handler attributes are checked structurally; comments are ignored. |
+| `Component.tsx uses the HTML attribute name stroke-width` | Write the React prop (`strokeWidth`, `stopColor`); keep the dashed name in `index.html`. Only `data-*` and `aria-*` keep their dashes in JSX. |
 | `Component.tsx must start with a "// Fonts: " comment` | Make line 1 `// Fonts: Family Name (https://fonts.google.com/specimen/Family+Name)`, naming every family in `meta.fonts`. |
 | `meta.fonts contains an invalid Google Fonts family` | Use the css2 `family` form, e.g. `Inter:wght@400..700` or `Instrument Serif:ital@0;1`, unencoded. |
 | `<img> src … is not a URL from IMAGES` | Use a literal URL from `src/library/assets.ts`, or add one (see above). |

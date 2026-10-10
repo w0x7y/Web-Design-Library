@@ -51,6 +51,7 @@ export default function StatCardReleaseHealth() {
         </div>
       </dl>
       <a
+        aria-label="View build report: Release health"
         href="#release-health-report"
         className="mt-5 inline-flex items-center gap-2 rounded-sm text-xs font-medium text-blue-700 hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
       >

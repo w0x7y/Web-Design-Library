@@ -23,15 +23,20 @@ export default function NavbarStudioDisclosure() {
           <details className="group">
             <summary className="flex cursor-pointer list-none items-center gap-3 rounded-md py-3 hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950 [&::-webkit-details-marker]:hidden">
               Services
-              <span
+              <svg
                 aria-hidden="true"
-                className="font-mono group-open:rotate-45"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                className="size-3.5 group-open:rotate-45"
               >
-                +
-              </span>
+                <path d="M8 3v10M3 8h10" />
+              </svg>
             </summary>
             <div className="max-w-64 rounded-lg border border-zinc-200 bg-zinc-50 p-4">
-              <p className="mb-3 text-xs uppercase tracking-wider text-zinc-500">
+              <p className="mb-3 text-xs uppercase tracking-wider text-zinc-600">
                 A small team, a full picture
               </p>
               <ul role="list" className="space-y-3">

@@ -3,7 +3,7 @@ export default function EmptyStateOfflineLibrary() {
     <section className="w-72 rounded-xl bg-slate-950 p-6 text-slate-100">
       <div className="flex items-center gap-3 text-cyan-300">
         <svg
-          className="size-12"
+          className="size-12 shrink-0"
           viewBox="0 0 48 48"
           fill="none"
           aria-hidden="true"
@@ -28,13 +28,13 @@ export default function EmptyStateOfflineLibrary() {
       </p>
       <div className="mt-6 grid gap-3">
         <button
-          className="rounded-lg bg-cyan-200 px-4 py-3 text-sm font-semibold text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+          className="rounded-lg bg-cyan-200 px-4 py-3 text-sm font-semibold text-slate-950 cursor-pointer hover:bg-cyan-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           type="button"
         >
           Open saved items
         </button>
         <button
-          className="rounded-lg border border-slate-600 px-4 py-2.5 text-xs font-medium text-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+          className="rounded-lg border border-slate-600 px-4 py-2.5 text-xs font-medium text-slate-200 cursor-pointer hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
           type="button"
         >
           Try again

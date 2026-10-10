@@ -1,4 +1,3 @@
-import { useImperativeHandle, useRef, type Ref } from 'react'
 import { useFormat } from '~/lib/format-preference'
 import { SOURCE_FILES } from '../../src/library/catalog'
 import { CopyIcon } from './icons'
@@ -11,14 +10,6 @@ const FILES: Record<Format, (keyof ComponentSources)[]> = { react: ['tsx'], html
 
 const lineCount = (text: string) => text.replace(/\n$/, '').split('\n').length
 
-export interface CodeViewHandle {
-  /**
-   * Selects a file's code (the first file's when `fileName` is not shown), so Ctrl/⌘+C copies it
-   * when the clipboard is blocked. The view must be visible: a hidden node can't be selected.
-   */
-  select(fileName?: string): void
-}
-
 /**
  * The files for the picked format, each a captioned figure holding Shiki's
  * pre-rendered (dual-theme) HTML. With `onCopyFile`, each caption gets a copy button.
@@ -27,30 +18,14 @@ export function CodeView({
   highlighted,
   sources,
   onCopyFile,
-  ref,
 }: {
   highlighted: HighlightedSources
   sources: ComponentSources
   onCopyFile?(file: { name: string; code: string }): void
-  ref?: Ref<CodeViewHandle>
 }) {
   const format = useFormat()
-  const root = useRef<HTMLDivElement>(null)
-  useImperativeHandle(ref, () => ({
-    select(fileName) {
-      const figures = [...(root.current?.querySelectorAll<HTMLElement>('[data-code-file]') ?? [])]
-      const file = figures.find((figure) => figure.dataset.codeFile === fileName) ?? figures[0]
-      const pre = file?.querySelector('pre')
-      const selection = getSelection()
-      if (!pre || !selection) return
-      const range = document.createRange()
-      range.selectNodeContents(pre)
-      selection.removeAllRanges()
-      selection.addRange(range)
-    },
-  }))
   return (
-    <div ref={root} className="space-y-4">
+    <div className="space-y-4">
       {FILES[format].map((key) => {
         const name = SOURCE_FILES[key]
         const lines = lineCount(sources[key])

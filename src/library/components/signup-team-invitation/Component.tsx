@@ -3,7 +3,7 @@ export default function SignupTeamInvitation() {
     <section className="bg-slate-50 px-6 py-12 text-slate-950 sm:px-12">
       <div className="mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
         <header className="flex items-center gap-4 border-b border-slate-200 pb-5">
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-700 font-bold text-white">
+          <span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-700 font-bold text-white">
             M
           </span>
           <div className="grid gap-1">
@@ -22,7 +22,7 @@ export default function SignupTeamInvitation() {
           >
             Your full name
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               id="signup-team-invitation-name"
               name="name"
               type="text"
@@ -37,7 +37,7 @@ export default function SignupTeamInvitation() {
           >
             Work email
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               id="signup-team-invitation-email"
               name="email"
               type="email"
@@ -52,14 +52,22 @@ export default function SignupTeamInvitation() {
           >
             Create a password
             <input
-              className="min-w-0 w-full rounded-lg border border-current/25 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+              className="min-w-0 w-full rounded-lg border border-current/60 bg-transparent px-3 py-2.5 font-normal placeholder:text-current/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
               id="signup-team-invitation-password"
+              aria-describedby="signup-team-invitation-password-hint"
+              minLength={12}
               name="password"
               type="password"
               autoComplete="new-password"
               placeholder=""
               required
             />
+            <span
+              id="signup-team-invitation-password-hint"
+              className="text-xs font-normal text-slate-600"
+            >
+              Use at least 12 characters.
+            </span>
           </label>
           <label
             className="flex items-start gap-3 text-sm"

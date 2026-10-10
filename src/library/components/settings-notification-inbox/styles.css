@@ -12,215 +12,152 @@
 .settings-notification-inbox table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .settings-notification-inbox summary { display: list-item; }
 
-@layer properties;
+/* Component */
 .settings-notification-inbox {
-  --settings-notification-inbox-color-blue-700: oklch(48.8% 0.243 264.376);
-  --settings-notification-inbox-color-slate-50: oklch(98.4% 0.003 247.858);
-  --settings-notification-inbox-color-slate-200: oklch(92.9% 0.013 255.508);
-  --settings-notification-inbox-color-slate-500: oklch(55.4% 0.046 257.417);
-  --settings-notification-inbox-color-slate-950: oklch(12.9% 0.042 264.695);
-  --settings-notification-inbox-color-stone-950: oklch(14.7% 0.004 49.25);
-  --settings-notification-inbox-color-white: #fff;
-  --settings-notification-inbox-spacing: 0.25rem;
-  --settings-notification-inbox-container-3xl: 48rem;
-  --settings-notification-inbox-text-xs: 0.75rem;
-  --settings-notification-inbox-text-xs--line-height: calc(1 / 0.75);
-  --settings-notification-inbox-text-sm: 0.875rem;
-  --settings-notification-inbox-text-sm--line-height: calc(1.25 / 0.875);
-  --settings-notification-inbox-text-base: 1rem;
-  --settings-notification-inbox-text-base--line-height: calc(1.5 / 1);
-  --settings-notification-inbox-text-3xl: 1.875rem;
-  --settings-notification-inbox-text-3xl--line-height: calc(2.25 / 1.875);
-  --settings-notification-inbox-font-weight-medium: 500;
-  --settings-notification-inbox-font-weight-semibold: 600;
-  --settings-notification-inbox-tracking-tight: -0.025em;
-  --settings-notification-inbox-tracking-widest: 0.1em;
-  --settings-notification-inbox-radius-lg: 0.5rem;
+  background: oklch(98.4% 0.003 247.858); /* slate-50 */
+  padding: 2.5rem 1.5rem;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
 }
-.settings-notification-inbox.settings-notification-inbox__part-1, .settings-notification-inbox .settings-notification-inbox__part-1 {
-  background-color: var(--settings-notification-inbox-color-slate-50);
-  padding-inline: calc(var(--settings-notification-inbox-spacing) * 6);
-  padding-block: calc(var(--settings-notification-inbox-spacing) * 10);
-  color: var(--settings-notification-inbox-color-slate-950);
-}
-@media (width >= 40rem) {
-  .settings-notification-inbox.settings-notification-inbox__part-1, .settings-notification-inbox .settings-notification-inbox__part-1 {
-    padding-inline: calc(var(--settings-notification-inbox-spacing) * 12);
-  }
-}
-.settings-notification-inbox.settings-notification-inbox__part-2, .settings-notification-inbox .settings-notification-inbox__part-2 {
+
+.settings-notification-inbox .settings-notification-inbox__form {
   margin-inline: auto;
-  max-width: var(--settings-notification-inbox-container-3xl);
-  border-style: var(--settings-notification-inbox-tw-border-style);
-  border-width: 1px;
-  border-color: var(--settings-notification-inbox-color-slate-200);
-  background-color: var(--settings-notification-inbox-color-white);
-  padding: calc(var(--settings-notification-inbox-spacing) * 6);
+  max-width: 48rem;
+  border: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  background: #fff;
+  padding: 1.5rem;
 }
-@media (width >= 40rem) {
-  .settings-notification-inbox.settings-notification-inbox__part-2, .settings-notification-inbox .settings-notification-inbox__part-2 {
-    padding: calc(var(--settings-notification-inbox-spacing) * 8);
-  }
+
+/* Notification channels */
+
+.settings-notification-inbox .settings-notification-inbox__header {
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  padding-bottom: 1.25rem;
 }
-.settings-notification-inbox.settings-notification-inbox__part-3, .settings-notification-inbox .settings-notification-inbox__part-3 {
-  border-bottom-style: var(--settings-notification-inbox-tw-border-style);
-  border-bottom-width: 1px;
-  border-color: var(--settings-notification-inbox-color-slate-200);
-  padding-bottom: calc(var(--settings-notification-inbox-spacing) * 5);
+
+.settings-notification-inbox .settings-notification-inbox__eyebrow {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
 }
-.settings-notification-inbox.settings-notification-inbox__part-4, .settings-notification-inbox .settings-notification-inbox__part-4 {
-  font-size: var(--settings-notification-inbox-text-xs);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-xs--line-height));
-  --settings-notification-inbox-tw-font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  --settings-notification-inbox-tw-tracking: var(--settings-notification-inbox-tracking-widest);
-  letter-spacing: var(--settings-notification-inbox-tracking-widest);
-  color: var(--settings-notification-inbox-color-slate-500);
+
+.settings-notification-inbox .settings-notification-inbox__heading {
+  margin-top: 0.75rem;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
-.settings-notification-inbox.settings-notification-inbox__part-5, .settings-notification-inbox .settings-notification-inbox__part-5 {
-  margin-top: calc(var(--settings-notification-inbox-spacing) * 3);
-  font-size: var(--settings-notification-inbox-text-3xl);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-3xl--line-height));
-  --settings-notification-inbox-tw-font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  --settings-notification-inbox-tw-tracking: var(--settings-notification-inbox-tracking-tight);
-  letter-spacing: var(--settings-notification-inbox-tracking-tight);
+
+.settings-notification-inbox .settings-notification-inbox__description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
 }
-.settings-notification-inbox.settings-notification-inbox__part-6, .settings-notification-inbox .settings-notification-inbox__part-6 {
-  margin-top: calc(var(--settings-notification-inbox-spacing) * 2);
-  font-size: var(--settings-notification-inbox-text-sm);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-sm--line-height));
-  color: var(--settings-notification-inbox-color-slate-500);
-}
-.settings-notification-inbox.settings-notification-inbox__part-7, .settings-notification-inbox .settings-notification-inbox__part-7 {
-  margin-top: calc(var(--settings-notification-inbox-spacing) * 6);
+
+.settings-notification-inbox .settings-notification-inbox__channels {
   display: grid;
-  gap: calc(var(--settings-notification-inbox-spacing) * 8);
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
-@media (width >= 48rem) {
-  .settings-notification-inbox.settings-notification-inbox__part-7, .settings-notification-inbox .settings-notification-inbox__part-7 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-.settings-notification-inbox.settings-notification-inbox__part-8, .settings-notification-inbox .settings-notification-inbox__part-8 {
+
+.settings-notification-inbox .settings-notification-inbox__channel {
   display: grid;
-  align-content: flex-start;
-  gap: calc(var(--settings-notification-inbox-spacing) * 5);
+  align-content: start;
+  gap: 1.25rem;
 }
-.settings-notification-inbox.settings-notification-inbox__part-9, .settings-notification-inbox .settings-notification-inbox__part-9 {
-  margin-bottom: calc(var(--settings-notification-inbox-spacing) * 4);
-  font-size: var(--settings-notification-inbox-text-base);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-base--line-height));
-  --settings-notification-inbox-tw-font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  font-weight: var(--settings-notification-inbox-font-weight-semibold);
+
+.settings-notification-inbox .settings-notification-inbox__legend {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
 }
-.settings-notification-inbox.settings-notification-inbox__part-10, .settings-notification-inbox .settings-notification-inbox__part-10 {
+
+.settings-notification-inbox .settings-notification-inbox__preference {
   display: flex;
   align-items: flex-start;
-  gap: calc(var(--settings-notification-inbox-spacing) * 3);
-  font-size: var(--settings-notification-inbox-text-sm);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-sm--line-height));
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
 }
-.settings-notification-inbox.settings-notification-inbox__part-11, .settings-notification-inbox .settings-notification-inbox__part-11 {
-  margin-top: var(--settings-notification-inbox-spacing);
-  width: calc(var(--settings-notification-inbox-spacing) * 4);
-  height: calc(var(--settings-notification-inbox-spacing) * 4);
+
+.settings-notification-inbox .settings-notification-inbox__checkbox {
+  margin-top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
   accent-color: currentcolor;
 }
-.settings-notification-inbox.settings-notification-inbox__part-11:focus-visible, .settings-notification-inbox .settings-notification-inbox__part-11:focus-visible {
-  outline-style: var(--settings-notification-inbox-tw-outline-style);
-  outline-width: 2px;
-}
-.settings-notification-inbox.settings-notification-inbox__part-11:focus-visible, .settings-notification-inbox .settings-notification-inbox__part-11:focus-visible {
-  outline-offset: 2px;
-}
-.settings-notification-inbox.settings-notification-inbox__part-11:focus-visible, .settings-notification-inbox .settings-notification-inbox__part-11:focus-visible {
-  outline-color: currentcolor;
-}
-.settings-notification-inbox.settings-notification-inbox__part-12, .settings-notification-inbox .settings-notification-inbox__part-12 {
+
+.settings-notification-inbox .settings-notification-inbox__preference-copy {
   display: grid;
-  gap: var(--settings-notification-inbox-spacing);
+  gap: 0.25rem;
 }
-.settings-notification-inbox.settings-notification-inbox__part-13, .settings-notification-inbox .settings-notification-inbox__part-13 {
-  --settings-notification-inbox-tw-font-weight: var(--settings-notification-inbox-font-weight-medium);
-  font-weight: var(--settings-notification-inbox-font-weight-medium);
+
+.settings-notification-inbox .settings-notification-inbox__preference-title {
+  font-weight: 500;
 }
-.settings-notification-inbox.settings-notification-inbox__part-14, .settings-notification-inbox .settings-notification-inbox__part-14 {
-  font-size: var(--settings-notification-inbox-text-xs);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-xs--line-height));
-  --settings-notification-inbox-tw-leading: calc(var(--settings-notification-inbox-spacing) * 5);
-  line-height: calc(var(--settings-notification-inbox-spacing) * 5);
-  opacity: 70%;
+
+.settings-notification-inbox .settings-notification-inbox__hint {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  opacity: 0.7;
 }
-.settings-notification-inbox.settings-notification-inbox__part-15, .settings-notification-inbox .settings-notification-inbox__part-15 {
-  margin-top: calc(var(--settings-notification-inbox-spacing) * 8);
+
+/* Save preferences */
+
+.settings-notification-inbox .settings-notification-inbox__footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: calc(var(--settings-notification-inbox-spacing) * 4);
-  border-top-style: var(--settings-notification-inbox-tw-border-style);
-  border-top-width: 1px;
-  border-color: var(--settings-notification-inbox-color-slate-200);
-  padding-top: calc(var(--settings-notification-inbox-spacing) * 5);
+  gap: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  padding-top: 1.25rem;
 }
-.settings-notification-inbox.settings-notification-inbox__part-16, .settings-notification-inbox .settings-notification-inbox__part-16 {
+
+.settings-notification-inbox .settings-notification-inbox__note {
   align-self: center;
-  font-size: var(--settings-notification-inbox-text-xs);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-xs--line-height));
-  color: var(--settings-notification-inbox-color-slate-500);
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
 }
-.settings-notification-inbox.settings-notification-inbox__part-17, .settings-notification-inbox .settings-notification-inbox__part-17 {
-  border-radius: var(--settings-notification-inbox-radius-lg);
-  background-color: var(--settings-notification-inbox-color-blue-700);
-  padding-inline: calc(var(--settings-notification-inbox-spacing) * 4);
-  padding-block: calc(var(--settings-notification-inbox-spacing) * 3);
-  font-size: var(--settings-notification-inbox-text-sm);
-  line-height: var(--settings-notification-inbox-tw-leading, var(--settings-notification-inbox-text-sm--line-height));
-  --settings-notification-inbox-tw-font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  font-weight: var(--settings-notification-inbox-font-weight-semibold);
-  color: var(--settings-notification-inbox-color-white);
+
+.settings-notification-inbox .settings-notification-inbox__save {
+  border-radius: 0.5rem;
+  background: oklch(48.8% 0.243 264.376); /* blue-700 */
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
 }
-.settings-notification-inbox.settings-notification-inbox__part-17:focus-visible, .settings-notification-inbox .settings-notification-inbox__part-17:focus-visible {
-  outline-style: var(--settings-notification-inbox-tw-outline-style);
-  outline-width: 2px;
-}
-.settings-notification-inbox.settings-notification-inbox__part-17:focus-visible, .settings-notification-inbox .settings-notification-inbox__part-17:focus-visible {
+
+.settings-notification-inbox .settings-notification-inbox__checkbox:focus-visible {
+  outline: 2px solid currentcolor;
   outline-offset: 2px;
 }
-.settings-notification-inbox.settings-notification-inbox__part-17:focus-visible, .settings-notification-inbox .settings-notification-inbox__part-17:focus-visible {
-  outline-color: var(--settings-notification-inbox-color-stone-950);
+
+.settings-notification-inbox .settings-notification-inbox__save:focus-visible {
+  outline: 2px solid oklch(14.7% 0.004 49.25); /* stone-950 */
+  outline-offset: 2px;
 }
-@property --settings-notification-inbox-tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
+
+@media (width >= 40rem) {
+  .settings-notification-inbox {
+    padding-inline: 3rem;
+  }
+  .settings-notification-inbox .settings-notification-inbox__form {
+    padding: 2rem;
+  }
 }
-@property --settings-notification-inbox-tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
-@property --settings-notification-inbox-tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
-@property --settings-notification-inbox-tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --settings-notification-inbox-tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    .settings-notification-inbox *, .settings-notification-inbox ::before, .settings-notification-inbox ::after, .settings-notification-inbox ::backdrop {
-      --settings-notification-inbox-tw-border-style: solid;
-      --settings-notification-inbox-tw-font-weight: initial;
-      --settings-notification-inbox-tw-tracking: initial;
-      --settings-notification-inbox-tw-outline-style: solid;
-      --settings-notification-inbox-tw-leading: initial;
-    }
+
+@media (width >= 48rem) {
+  .settings-notification-inbox .settings-notification-inbox__channels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

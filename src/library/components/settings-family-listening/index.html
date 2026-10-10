@@ -1,0 +1,94 @@
+<section class="settings-family-listening">
+  <form class="settings-family-listening__inner">
+    <p class="settings-family-listening__eyebrow">Mixnest / your family</p>
+    <h2 class="settings-family-listening__title">Different ears. Their own rules.</h2>
+    <p class="settings-family-listening__copy">Pick a family member, then set the listening preferences for their profile.</p>
+    <div class="settings-family-listening__layout">
+      <fieldset>
+        <legend class="settings-family-listening__subheading">Whose profile?</legend>
+        <div class="settings-family-listening__members">
+          <label class="settings-family-listening__member" for="settings-family-listening-nia">
+            <span class="settings-family-listening__initial" aria-hidden="true">N</span>
+            <span class="settings-family-listening__member-name">Nia · 11</span>
+            <input
+              class="settings-family-listening__check"
+              type="radio"
+              name="settings-family-listening-member"
+              value="nia"
+              id="settings-family-listening-nia"
+              checked
+            >
+          </label>
+          <label class="settings-family-listening__member" for="settings-family-listening-leo">
+            <span class="settings-family-listening__initial" aria-hidden="true">L</span>
+            <span class="settings-family-listening__member-name">Leo · 15</span>
+            <input
+              class="settings-family-listening__check"
+              type="radio"
+              name="settings-family-listening-member"
+              value="leo"
+              id="settings-family-listening-leo"
+            >
+          </label>
+          <label class="settings-family-listening__member" for="settings-family-listening-alex">
+            <span class="settings-family-listening__initial" aria-hidden="true">A</span>
+            <span class="settings-family-listening__member-name">Alex · adult</span>
+            <input
+              class="settings-family-listening__check"
+              type="radio"
+              name="settings-family-listening-member"
+              value="alex"
+              id="settings-family-listening-alex"
+            >
+          </label>
+        </div>
+      </fieldset>
+      <div class="settings-family-listening__controls">
+        <fieldset>
+          <legend class="settings-family-listening__subheading">Listening preferences</legend>
+          <p class="settings-family-listening__panel-caption">These controls are saved for the selected profile.</p>
+          <div class="settings-family-listening__footer">
+            <div class="settings-family-listening__stack">
+              <label class="settings-family-listening__option" for="settings-family-listening-explicit">
+                <input
+                  class="settings-family-listening__panel-check"
+                  id="settings-family-listening-explicit"
+                  name="explicit"
+                  type="checkbox"
+                  aria-describedby="settings-family-listening-explicit-hint"
+                  checked
+                >
+                <span><span>Filter explicit tracks</span><span class="settings-family-listening__panel-hint" id="settings-family-listening-explicit-hint">Skip songs marked with an explicit label.</span></span>
+              </label>
+              <label class="settings-family-listening__option" for="settings-family-listening-public">
+                <input
+                  class="settings-family-listening__panel-check"
+                  id="settings-family-listening-public"
+                  name="public"
+                  type="checkbox"
+                  aria-describedby="settings-family-listening-public-hint"
+                >
+                <span><span>Make playlists public</span><span class="settings-family-listening__panel-hint" id="settings-family-listening-public-hint">Let other listeners find this profile’s playlists.</span></span>
+              </label>
+              <label class="settings-family-listening__option" for="settings-family-listening-autoplay">
+                <input
+                  class="settings-family-listening__panel-check"
+                  id="settings-family-listening-autoplay"
+                  name="autoplay"
+                  type="checkbox"
+                  aria-describedby="settings-family-listening-autoplay-hint"
+                  checked
+                >
+                <span><span>Keep similar music playing</span><span class="settings-family-listening__panel-hint" id="settings-family-listening-autoplay-hint">Continue after an album or playlist ends.</span></span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <footer class="settings-family-listening__footer">
+      <p class="settings-family-listening__caption">Managed by Alex · family plan owner</p>
+      <button class="settings-family-listening__button" type="button">Save listening controls</button>
+    </footer>
+  </form>
+</section>

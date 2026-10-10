@@ -1,0 +1,160 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonials-seismic-stations, .testimonials-seismic-stations *, .testimonials-seismic-stations *::before, .testimonials-seismic-stations *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonials-seismic-stations { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonials-seismic-stations :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonials-seismic-stations a { color: inherit; text-decoration: inherit; }
+.testimonials-seismic-stations :is(b, strong) { font-weight: bolder; }
+.testimonials-seismic-stations :is(ol, ul, menu) { list-style: none; }
+.testimonials-seismic-stations :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonials-seismic-stations :is(img, video) { max-width: 100%; height: auto; }
+.testimonials-seismic-stations :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonials-seismic-stations ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonials-seismic-stations table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonials-seismic-stations summary { display: list-item; }
+
+
+/* Component */
+.testimonials-seismic-stations {
+  background-color: oklch(98.2% 0.018 155.826); /* green-50 */
+  color: oklch(26.6% 0.065 152.934); /* green-950 */
+  font-family: 'DM Mono',ui-monospace,monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__label {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__heading {
+  margin-top: 1.25rem;
+  max-width: 42rem;
+  font-size: 1.875rem;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__stamp {
+  border-width: 2px;
+  border-style: solid;
+  border-color: oklch(26.6% 0.065 152.934); /* green-950 */
+  background-color: oklch(94.5% 0.129 101.54); /* yellow-200 */
+  padding: 1rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__stations {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 0.125rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: oklch(26.6% 0.065 152.934); /* green-950 */
+  background-color: oklch(87.1% 0.15 154.449); /* green-300 */
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__report {
+  background-color: oklch(98.2% 0.018 155.826); /* green-50 */
+  padding: 1.5rem;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__station-id {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  color: oklch(44.8% 0.119 151.328); /* green-800 */
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__site {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__quote {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__operator {
+  margin-top: 1.5rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  color: oklch(44.8% 0.119 151.328); /* green-800 */
+}
+
+.testimonials-seismic-stations .testimonials-seismic-stations__link {
+  margin-top: 2rem;
+  display: inline-flex;
+  width: fit-content;
+  padding-block: 0.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+}
+
+/* Keyboard focus */
+.testimonials-seismic-stations .testimonials-seismic-stations__link:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 4px;
+  outline-color: currentColor;
+}
+
+@media (hover: hover) {
+  .testimonials-seismic-stations .testimonials-seismic-stations__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .testimonials-seismic-stations .testimonials-seismic-stations__inner {
+    padding-inline: 2.5rem;
+  }
+
+  .testimonials-seismic-stations .testimonials-seismic-stations__header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .testimonials-seismic-stations .testimonials-seismic-stations__heading {
+    font-size: 3rem;
+    line-height: 1.25;
+  }
+
+  .testimonials-seismic-stations .testimonials-seismic-stations__report {
+    padding: 2rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .testimonials-seismic-stations .testimonials-seismic-stations__stations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 64rem) {
+  .testimonials-seismic-stations .testimonials-seismic-stations__inner {
+    padding-block: 6rem;
+  }
+}

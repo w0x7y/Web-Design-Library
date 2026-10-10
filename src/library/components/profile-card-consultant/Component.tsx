@@ -32,6 +32,7 @@ export default function ProfileCardConsultant() {
       </ul>
       <a
         href="#book-amara"
+        aria-label="Book a conversation with Amara Nwosu"
         className="mt-4 flex h-9 items-center justify-between rounded-lg bg-stone-950 px-3 text-sm font-medium text-white hover:bg-stone-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-950"
       >
         Book a conversation

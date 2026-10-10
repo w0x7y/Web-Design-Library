@@ -7,19 +7,17 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An online course opening with a lesson outline and a clear enrollment action. Use it for focused creative classes and workshops.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:
-      'A 1152px two-column layout pairs course positioning and instructor initials with an outlined syllabus panel. Panel has a top course label, four numbered lessons, and a footer showing duration and format.',
+      'A centered 1152px grid with 24px horizontal and 80px vertical padding and 48px gaps. Introduction contains a course identifier, heading, 448px-wide paragraph, 48px-tall enrollment link and instructor row with 40px initials. Syllabus has a heading, chapter count, four ordered lessons with 40px number badges, 16px gaps and 20px vertical padding, then a schedule footer.',
     style:
-      'Amber-50 canvas, blue-950 text, blue-700 accent, white syllabus with blue-200 border. Heading is system serif at 60px on desktop. Lessons use blue-100 square number badges and thin blue-100 separators.',
+      'Amber-50 canvas, blue-950 text and default sans except the system-serif heading. Heading is 48px, line-height 1.25, -0.025em tracking; body is 18px blue-900 with 1.625 line-height. Enrollment link has 8px corners, blue-950 fill and white medium text. White syllabus has 16px corners, a blue-200 border and blue-100 separators and number badges.',
     states:
-      'Links have a visible 2px outline with 2px offset on keyboard focus. Hover changes the background or underlines text without moving the layout. No animated transitions.',
+      'Enrollment link fills blue-900 on hover and shows a 2px zinc-950 keyboard focus outline offset 2px, including forced colours. No transitions or other interactive states.',
     responsive:
-      'Two columns appear at 1024px. Heading is 48px below 640px and 60px above. All syllabus rows keep content in a flexible min-width-zero column so titles wrap.',
+      'Below 640px heading is 48px and syllabus has 24px padding. At 640px heading becomes 60px and syllabus padding 32px. At 1024px the grid becomes two equal columns with 80px gap. Lesson copy can shrink and wrap while number badges and instructor initials stay 40px wide.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

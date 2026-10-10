@@ -1,7 +1,7 @@
 import { expect, test, type Locator } from '@playwright/test'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
-import { loadLibrary } from '../scripts/load-library'
+import { loadMetas } from '../scripts/load-library'
 import { fontDisplayName } from '../src/library/fonts'
 import { STAGE } from '../app/lib/stage'
 import { downloadPng, openCapturePage, openDetail } from './lib/pages'
@@ -41,7 +41,7 @@ const MIN_TEXT_PIXEL_SHARE_OF_FRAME = 0.0005
 const TEXT_PIXEL_THRESHOLD = 0.1
 const WRONG_PIXEL_THRESHOLD = 0.2
 
-const WITH_FONTS = (await loadLibrary()).map((item) => item.entry.meta).filter((meta) => meta.fonts.length > 0)
+const WITH_FONTS = (await loadMetas()).filter((meta) => meta.fonts.length > 0)
 
 test.use({ deviceScaleFactor: 2 })
 

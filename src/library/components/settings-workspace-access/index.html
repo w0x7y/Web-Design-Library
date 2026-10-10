@@ -1,1 +1,63 @@
-<section class="settings-workspace-access settings-workspace-access__part-1"><form class="settings-workspace-access__part-2" action="#"><header class="settings-workspace-access__part-3"><p class="settings-workspace-access__part-4">ADMINISTRATION</p><h2 class="settings-workspace-access__part-5">Workspace access</h2><p class="settings-workspace-access__part-6">Rules for who can join and what leaves your team.</p></header><div class="settings-workspace-access__part-7"><div class="settings-workspace-access__part-8"><h2 class="settings-workspace-access__part-9">Invitations</h2><p class="settings-workspace-access__part-10">Apply these rules to all new members.</p></div><div class="settings-workspace-access__part-11"><label class="settings-workspace-access__part-12" for="settings-workspace-access-invites"><input class="settings-workspace-access__part-13" type="checkbox" id="settings-workspace-access-invites" aria-labelledby="settings-workspace-access-invites-label" aria-describedby="settings-workspace-access-invites-hint" name="invites" checked=""><span class="settings-workspace-access__part-14"><span id="settings-workspace-access-invites-label" class="settings-workspace-access__part-15">Allow member invitations</span><span class="settings-workspace-access__part-16" id="settings-workspace-access-invites-hint">Members can invite new collaborators.</span></span></label><label class="settings-workspace-access__part-12" for="settings-workspace-access-approval"><input class="settings-workspace-access__part-13" type="checkbox" id="settings-workspace-access-approval" aria-labelledby="settings-workspace-access-approval-label" aria-describedby="settings-workspace-access-approval-hint" name="approval" checked=""><span class="settings-workspace-access__part-14"><span id="settings-workspace-access-approval-label" class="settings-workspace-access__part-15">Require admin approval</span><span class="settings-workspace-access__part-16" id="settings-workspace-access-approval-hint">Review requests before granting access.</span></span></label></div></div><div class="settings-workspace-access__part-17"><div class="settings-workspace-access__part-8"><h2 class="settings-workspace-access__part-9">External sharing</h2><p class="settings-workspace-access__part-10">Control public access to workspace files.</p></div><label class="settings-workspace-access__part-18" for="settings-workspace-access-sharing">Default link access<select class="settings-workspace-access__part-19" name="sharing" id="settings-workspace-access-sharing"><option value="members">Workspace members only</option><option value="public">Anyone with the link</option></select></label></div><footer class="settings-workspace-access__part-20"><button class="settings-workspace-access__part-21" type="button">Save access rules</button></footer></form></section>
+<section class="settings-workspace-access">
+  <form class="settings-workspace-access__form" action="#">
+    <header class="settings-workspace-access__header">
+      <p class="settings-workspace-access__eyebrow">ADMINISTRATION</p>
+      <h2 class="settings-workspace-access__heading">Workspace access</h2>
+      <p class="settings-workspace-access__description">Rules for who can join and what leaves your team.</p>
+    </header>
+    <div class="settings-workspace-access__invitations">
+      <div class="settings-workspace-access__section-copy">
+        <h3 class="settings-workspace-access__section-heading">Invitations</h3>
+        <p class="settings-workspace-access__section-description">Apply these rules to all new members.</p>
+      </div>
+      <div class="settings-workspace-access__preferences">
+        <label class="settings-workspace-access__preference" for="settings-workspace-access-invites">
+          <input
+            class="settings-workspace-access__checkbox"
+            type="checkbox"
+            id="settings-workspace-access-invites"
+            aria-labelledby="settings-workspace-access-invites-label"
+            aria-describedby="settings-workspace-access-invites-hint"
+            name="invites"
+            checked=""
+          >
+          <span class="settings-workspace-access__preference-copy">
+            <span id="settings-workspace-access-invites-label" class="settings-workspace-access__preference-title">Allow member invitations</span>
+            <span class="settings-workspace-access__hint" id="settings-workspace-access-invites-hint">Members can invite new collaborators.</span>
+          </span>
+        </label>
+        <label class="settings-workspace-access__preference" for="settings-workspace-access-approval">
+          <input
+            class="settings-workspace-access__checkbox"
+            type="checkbox"
+            id="settings-workspace-access-approval"
+            aria-labelledby="settings-workspace-access-approval-label"
+            aria-describedby="settings-workspace-access-approval-hint"
+            name="approval"
+            checked=""
+          >
+          <span class="settings-workspace-access__preference-copy">
+            <span id="settings-workspace-access-approval-label" class="settings-workspace-access__preference-title">Require admin approval</span>
+            <span class="settings-workspace-access__hint" id="settings-workspace-access-approval-hint">Review requests before granting access.</span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="settings-workspace-access__sharing">
+      <div class="settings-workspace-access__section-copy">
+        <h3 class="settings-workspace-access__section-heading">External sharing</h3>
+        <p class="settings-workspace-access__section-description">Control public access to workspace files.</p>
+      </div>
+      <label class="settings-workspace-access__field" for="settings-workspace-access-sharing">
+        Default link access
+        <select class="settings-workspace-access__select" name="sharing" id="settings-workspace-access-sharing">
+          <option value="members">Workspace members only</option>
+          <option value="public">Anyone with the link</option>
+        </select>
+      </label>
+    </div>
+    <footer class="settings-workspace-access__footer">
+      <button class="settings-workspace-access__save" type="button">Save access rules</button>
+    </footer>
+  </form>
+</section>
