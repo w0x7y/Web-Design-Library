@@ -1,0 +1,62 @@
+<section class="login-dive-log">
+  <div class="login-dive-log__inner">
+    <header class="login-dive-log__header">
+      <p class="login-dive-log__brand">BELOWDECK</p>
+      <p>DIVE LOG / EXPEDITION RECORDS</p>
+    </header>
+    <div class="login-dive-log__body">
+      <div class="login-dive-log__glass">
+        <h1 class="login-dive-log__heading">Back below the surface.</h1>
+        <p
+          id="login-dive-log-hint"
+          class="login-dive-log__hint"
+        >
+          Sign in to record dives, check your certifications and share a trip with your buddy.
+        </p>
+        <form action="#" method="post" class="login-dive-log__form">
+          <label for="login-dive-log-email" class="login-dive-log__label">
+            Diver email
+            <input
+              id="login-dive-log-email"
+              name="email"
+              type="email"
+              autocomplete="username"
+              required
+              aria-describedby="login-dive-log-hint"
+              class="login-dive-log__input"
+            >
+          </label>
+          <label for="login-dive-log-password" class="login-dive-log__label">
+            Password
+            <input
+              id="login-dive-log-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+              class="login-dive-log__input"
+            >
+          </label>
+          <button type="submit" class="login-dive-log__submit">Return to my logbook</button>
+          <a href="#" class="login-dive-log__help">Trouble signing in?</a>
+        </form>
+      </div>
+      <aside class="login-dive-log__depths">
+        <div class="login-dive-log__depth-title">
+          <p class="login-dive-log__depth-label">THE LOGBOOK GOES WITH YOU</p>
+          <h2 class="login-dive-log__depth-heading">Good dives deserve good notes.</h2>
+        </div>
+        <dl class="login-dive-log__measurements">
+          <div class="login-dive-log__depth-row">
+            <dt class="login-dive-log__metric">18 m</dt>
+            <dd class="login-dive-log__metric-note">A depth, a place, a moment to remember.</dd>
+          </div>
+          <div class="login-dive-log__depth-row">
+            <dt class="login-dive-log__metric">42 min</dt>
+            <dd class="login-dive-log__metric-note">Keep the details after the fins come off.</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>

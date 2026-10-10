@@ -79,4 +79,7 @@ export const IMAGES = {
   // Added for new-dropdowns
   balloonLaunchSky: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80',
   flowerWholesaleBouquet: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&q=80',
+  // Added for new-login
+  greyHorseWoodland: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1600&q=80',
+  snowMountainPlateau: 'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1600&q=80',
 } as const

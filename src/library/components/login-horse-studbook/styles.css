@@ -1,0 +1,188 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-horse-studbook, .login-horse-studbook *, .login-horse-studbook *::before, .login-horse-studbook *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-horse-studbook { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-horse-studbook :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-horse-studbook a { color: inherit; text-decoration: inherit; }
+.login-horse-studbook :is(b, strong) { font-weight: bolder; }
+.login-horse-studbook :is(ol, ul, menu) { list-style: none; }
+.login-horse-studbook :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-horse-studbook :is(img, video) { max-width: 100%; height: auto; }
+.login-horse-studbook :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-horse-studbook ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-horse-studbook table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-horse-studbook summary { display: list-item; }
+
+
+/* Component */
+.login-horse-studbook {
+  background-color: oklch(98.6% 0.031 120.757); /* lime-50 */
+  padding: 2.5rem 1.5rem;
+  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  color: oklch(27.4% 0.072 132.109); /* lime-950 */
+}
+
+.login-horse-studbook .login-horse-studbook__inner {
+  margin-inline: auto;
+  max-width: 72rem;
+}
+
+.login-horse-studbook .login-horse-studbook__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid oklch(40.5% 0.101 131.063); /* lime-900 */
+  padding-bottom: 1.25rem;
+}
+
+.login-horse-studbook .login-horse-studbook__brand {
+  font-size: 2.25rem;
+  line-height: calc(2.5 / 2.25);
+}
+
+.login-horse-studbook .login-horse-studbook__scope {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.login-horse-studbook .login-horse-studbook__plate {
+  margin-top: 1.5rem;
+}
+
+.login-horse-studbook .login-horse-studbook__photo {
+  height: 11rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
+.login-horse-studbook .login-horse-studbook__caption {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.login-horse-studbook .login-horse-studbook__body {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+  border-top: 1px solid oklch(40.5% 0.101 131.063); /* lime-900 */
+  padding-top: 2rem;
+}
+
+.login-horse-studbook .login-horse-studbook__intro {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.login-horse-studbook .login-horse-studbook__heading {
+  max-width: 32rem;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+.login-horse-studbook .login-horse-studbook__hint {
+  max-width: 24rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.login-horse-studbook .login-horse-studbook__form {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+/* Credentials and account recovery */
+.login-horse-studbook .login-horse-studbook__label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.login-horse-studbook .login-horse-studbook__input {
+  height: 3rem;
+  min-width: 0;
+  width: 100%;
+  border: 1px solid oklch(40.5% 0.101 131.063); /* lime-900 */
+  background-color: oklch(98.6% 0.031 120.757); /* lime-50 */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 400;
+  border-radius: 0;
+}
+
+.login-horse-studbook .login-horse-studbook__submit {
+  display: flex;
+  min-height: 3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: oklch(27.4% 0.072 132.109); /* lime-950 */
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: oklch(98.6% 0.031 120.757); /* lime-50 */
+  border-radius: 0;
+}
+
+.login-horse-studbook .login-horse-studbook__help {
+  width: fit-content;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.login-horse-studbook .login-horse-studbook__input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-horse-studbook .login-horse-studbook__submit:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-horse-studbook .login-horse-studbook__help:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+@media (hover: hover) {
+  .login-horse-studbook .login-horse-studbook__submit:hover {
+    background-color: oklch(45.3% 0.124 130.933); /* lime-800 */
+  }
+}
+
+.login-horse-studbook .login-horse-studbook__submit:focus-visible {
+  outline-color: oklch(40.5% 0.101 131.063); /* lime-900 */
+}
+
+@media (width >= 40rem) {
+  .login-horse-studbook {
+    padding: 3.5rem 2.5rem;
+  }
+  .login-horse-studbook .login-horse-studbook__photo {
+    height: 18rem;
+  }
+  .login-horse-studbook .login-horse-studbook__heading {
+    font-size: 3.75rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .login-horse-studbook .login-horse-studbook__body {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 5rem;
+  }
+}

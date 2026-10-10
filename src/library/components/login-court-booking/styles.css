@@ -1,0 +1,211 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-court-booking, .login-court-booking *, .login-court-booking *::before, .login-court-booking *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-court-booking { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-court-booking :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-court-booking a { color: inherit; text-decoration: inherit; }
+.login-court-booking :is(b, strong) { font-weight: bolder; }
+.login-court-booking :is(ol, ul, menu) { list-style: none; }
+.login-court-booking :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-court-booking :is(img, video) { max-width: 100%; height: auto; }
+.login-court-booking :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-court-booking ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-court-booking table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-court-booking summary { display: list-item; }
+
+
+/* Component */
+.login-court-booking {
+  background-color: oklch(95% 0.052 163.051); /* emerald-100 */
+  padding: 3rem 1.5rem;
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+}
+
+.login-court-booking .login-court-booking__inner {
+  margin-inline: auto;
+  display: grid;
+  max-width: 72rem;
+  gap: 2rem;
+}
+
+.login-court-booking .login-court-booking__club {
+  display: grid;
+  align-content: start;
+  gap: 1.75rem;
+}
+
+.login-court-booking .login-court-booking__brand {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.login-court-booking .login-court-booking__heading {
+  max-width: 28rem;
+  font-size: 3rem;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.login-court-booking .login-court-booking__court {
+  position: relative;
+  border-radius: 2rem;
+  border: 2px solid oklch(26.2% 0.051 172.552); /* emerald-950 */
+  background-color: oklch(43.2% 0.095 166.913); /* emerald-800 */
+  padding: 1.5rem;
+}
+
+.login-court-booking .login-court-booking__diagram {
+  height: 10rem;
+  width: 100%;
+  color: oklch(95% 0.052 163.051); /* emerald-100 */
+}
+
+.login-court-booking .login-court-booking__caption {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(95% 0.052 163.051); /* emerald-100 */
+}
+
+.login-court-booking .login-court-booking__pass {
+  border-radius: 2rem;
+  border: 2px solid oklch(26.2% 0.051 172.552); /* emerald-950 */
+  background-color: oklch(97.3% 0.071 103.193); /* yellow-100 */
+  padding: 1.5rem;
+}
+
+.login-court-booking .login-court-booking__pass-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid oklch(43.2% 0.095 166.913); /* emerald-800 */
+  padding-bottom: 1.25rem;
+}
+
+.login-court-booking .login-court-booking__pass-label {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.login-court-booking .login-court-booking__season {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.login-court-booking .login-court-booking__form-heading {
+  margin-top: 1.5rem;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.login-court-booking .login-court-booking__form {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Credentials and account recovery */
+.login-court-booking .login-court-booking__label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.login-court-booking .login-court-booking__input {
+  height: 3rem;
+  min-width: 0;
+  width: 100%;
+  border: 1px solid oklch(43.2% 0.095 166.913); /* emerald-800 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 400;
+  border-radius: 9999px;
+}
+
+.login-court-booking .login-court-booking__submit {
+  display: flex;
+  min-height: 3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: oklch(97.3% 0.071 103.193); /* yellow-100 */
+  border-radius: 9999px;
+}
+
+.login-court-booking .login-court-booking__help {
+  width: fit-content;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.login-court-booking .login-court-booking__hint {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.login-court-booking .login-court-booking__input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-court-booking .login-court-booking__submit:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-court-booking .login-court-booking__help:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+@media (hover: hover) {
+  .login-court-booking .login-court-booking__submit:hover {
+    background-color: oklch(43.2% 0.095 166.913); /* emerald-800 */
+  }
+}
+
+.login-court-booking .login-court-booking__submit:focus-visible {
+  outline-color: oklch(43.2% 0.095 166.913); /* emerald-800 */
+}
+
+@media (width >= 40rem) {
+  .login-court-booking {
+    padding-inline: 2.5rem;
+  }
+  .login-court-booking .login-court-booking__heading {
+    font-size: 3.75rem;
+  }
+  .login-court-booking .login-court-booking__diagram {
+    height: 13rem;
+  }
+  .login-court-booking .login-court-booking__pass {
+    padding: 2rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .login-court-booking .login-court-booking__inner {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+  }
+}

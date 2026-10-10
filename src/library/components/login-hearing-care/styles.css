@@ -1,0 +1,200 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-hearing-care, .login-hearing-care *, .login-hearing-care *::before, .login-hearing-care *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-hearing-care { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-hearing-care :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-hearing-care a { color: inherit; text-decoration: inherit; }
+.login-hearing-care :is(b, strong) { font-weight: bolder; }
+.login-hearing-care :is(ol, ul, menu) { list-style: none; }
+.login-hearing-care :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-hearing-care :is(img, video) { max-width: 100%; height: auto; }
+.login-hearing-care :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-hearing-care ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-hearing-care table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-hearing-care summary { display: list-item; }
+
+
+/* Component */
+.login-hearing-care {
+  background-color: #fff; /* white */
+  padding: 2.5rem 1.5rem;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(29.3% 0.066 243.157); /* sky-950 */
+}
+
+.login-hearing-care .login-hearing-care__inner {
+  margin-inline: auto;
+  max-width: 72rem;
+}
+
+.login-hearing-care .login-hearing-care__masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid oklch(90.1% 0.058 230.902); /* sky-200 */
+  padding-bottom: 1.5rem;
+}
+
+.login-hearing-care .login-hearing-care__brand {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.login-hearing-care .login-hearing-care__portal {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.login-hearing-care .login-hearing-care__body {
+  display: grid;
+  gap: 2.5rem;
+  padding-top: 2.5rem;
+}
+
+.login-hearing-care .login-hearing-care__intro {
+  display: grid;
+  align-content: start;
+  gap: 1.5rem;
+}
+
+.login-hearing-care .login-hearing-care__eyebrow {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(50% 0.134 242.749); /* sky-700 */
+}
+
+.login-hearing-care .login-hearing-care__heading {
+  max-width: 32rem;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.login-hearing-care .login-hearing-care__description {
+  max-width: 24rem;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: oklch(44.3% 0.11 240.79); /* sky-800 */
+}
+
+.login-hearing-care .login-hearing-care__care-note {
+  margin-top: 1.5rem;
+  border-left: 2px solid oklch(58.8% 0.158 241.966); /* sky-600 */
+  padding-left: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+.login-hearing-care .login-hearing-care__form {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.login-hearing-care .login-hearing-care__form-title {
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 600;
+}
+
+/* Credentials and account recovery */
+.login-hearing-care .login-hearing-care__label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.login-hearing-care .login-hearing-care__input {
+  height: 3rem;
+  min-width: 0;
+  width: 100%;
+  border: 1px solid oklch(50% 0.134 242.749); /* sky-700 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 400;
+  border-radius: 0.5rem;
+}
+
+.login-hearing-care .login-hearing-care__submit {
+  display: flex;
+  min-height: 3rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: oklch(39.1% 0.09 240.876); /* sky-900 */
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: #fff; /* white */
+  border-radius: 0.5rem;
+}
+
+.login-hearing-care .login-hearing-care__help {
+  width: fit-content;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.login-hearing-care .login-hearing-care__hint {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: oklch(44.3% 0.11 240.79); /* sky-800 */
+}
+
+.login-hearing-care .login-hearing-care__input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-hearing-care .login-hearing-care__submit:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+.login-hearing-care .login-hearing-care__help:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.25rem;
+}
+
+@media (hover: hover) {
+  .login-hearing-care .login-hearing-care__submit:hover {
+    background-color: oklch(44.3% 0.11 240.79); /* sky-800 */
+  }
+}
+
+.login-hearing-care .login-hearing-care__submit:focus-visible {
+  outline-color: oklch(50% 0.134 242.749); /* sky-700 */
+}
+
+@media (width >= 40rem) {
+  .login-hearing-care {
+    padding: 4rem 2.5rem;
+  }
+  .login-hearing-care .login-hearing-care__heading {
+    font-size: 3rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .login-hearing-care .login-hearing-care__body {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 6rem;
+    padding-top: 4rem;
+  }
+  .login-hearing-care .login-hearing-care__form {
+    padding-top: 0.5rem;
+  }
+}
