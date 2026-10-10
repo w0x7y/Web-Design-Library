@@ -9,20 +9,31 @@ export const STORAGE_KEYS = {
 
 type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS]
 
-/** The stored value, or null when there is none or storage is blocked. */
+// The last value seen or written for each key, and the keys whose latest write storage refused:
+// for those the page's choice wins over whatever storage still holds, until a write succeeds.
+const fallback = new Map<StorageKey, string | null>()
+const unsaved = new Set<StorageKey>()
+
+/** The stored value, or this page's choice when storage is blocked or refused the last write. */
 export function readStored(key: StorageKey): string | null {
+  if (unsaved.has(key)) return fallback.get(key) ?? null
   try {
-    return localStorage.getItem(key)
+    const value = localStorage.getItem(key)
+    fallback.set(key, value)
+    return value
   } catch {
-    return null
+    return fallback.get(key) ?? null
   }
 }
 
-/** Stores `value`; does nothing when storage is blocked. */
+/** Remembers `value` for this page, and stores it when storage is available. */
 export function writeStored(key: StorageKey, value: string): void {
+  fallback.set(key, value)
   try {
     localStorage.setItem(key, value)
+    unsaved.delete(key)
   } catch {
     // Storage blocked: the choice still applies to this page.
+    unsaved.add(key)
   }
 }

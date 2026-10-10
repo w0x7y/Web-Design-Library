@@ -72,3 +72,14 @@ test('blocked storage: the default applies, and a choice lasts for the page', as
   formatStore.set('html')
   expect(formatStore.get()).toBe('html')
 })
+
+test('a format choice survives unsubscribe and resubscribe with storage blocked', async () => {
+  const { formatStore } = await freshStore({ blocked: true })
+  const unsubscribe = formatStore.subscribe(() => {})
+  expect(formatStore.get()).toBe('react')
+  formatStore.set('html')
+  unsubscribe()
+  const resubscribed = formatStore.subscribe(() => {})
+  expect(formatStore.get()).toBe('html')
+  resubscribed()
+})
