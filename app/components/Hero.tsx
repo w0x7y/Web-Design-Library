@@ -1,11 +1,17 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import { componentPath } from '../../src/library/urls'
-import { ArrowDownIcon, CodeIcon, FileIcon, SparkleIcon } from './icons'
+import { copyTextAction, type CopyRefusal } from '../lib/copy-action'
+import { useHydrated } from '../lib/use-hydrated'
+import { SITE } from '../site'
+import { ArrowDownIcon, CodeIcon, CopyIcon, FileIcon, SparkleIcon } from './icons'
 import { LiveThumbnail } from './LiveThumbnail'
 import { LogoMark } from './Logo'
+import { ManualCopy } from './ManualCopy'
 import { SHOWCASE } from './showcase'
-import { button } from './ui'
+import { button, TEXT_LINK } from './ui'
+
+const MCP_SETUP_COMMAND = 'claude mcp add patternbook -- npx -y patternbook-mcp'
 
 const FORMATS: { title: string; icon: ReactNode }[] = [
   {
@@ -43,8 +49,17 @@ function Showcase() {
   )
 }
 
-/** The home page's opening: what the library is, the three ways each component comes, and (from sm) a few of them. */
+/** The home intro, agent setup and component showcase. */
 export function Hero({ count }: { count: number }) {
+  const hydrated = useHydrated()
+  const [copyRefusal, setCopyRefusal] = useState<CopyRefusal | null>(null)
+  const copySetup = () => void copyTextAction({
+    text: MCP_SETUP_COMMAND,
+    label: 'MCP setup command',
+    message: 'Copied MCP setup command',
+    event: { name: 'copy_mcp_setup' },
+  }).then((result) => setCopyRefusal(result.status === 'refused' ? result : null))
+
   return (
     <section
       data-home-hero=""
@@ -57,7 +72,7 @@ export function Hero({ count }: { count: number }) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-zinc-300)_1px,transparent_1px)] bg-size-[20px_20px] [mask-image:radial-gradient(ellipse_60%_70%_at_75%_45%,black,transparent)] dark:bg-[radial-gradient(var(--color-zinc-800)_1px,transparent_1px)]"
       />
       <div className="relative mx-auto grid max-w-(--breakpoint-2xl) items-center gap-12 px-4 pt-12 pb-14 sm:px-6 sm:pt-16 sm:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:px-8 lg:pt-20 lg:pb-24">
-        <div>
+        <div className="min-w-0">
           <p className="inline-flex h-7 items-center gap-2 rounded-full border border-zinc-200 bg-white pr-3 pl-2 text-[13px] text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
             <LogoMark className="size-4 text-zinc-900 dark:text-white" />
             {count} components, free to copy
@@ -85,6 +100,28 @@ export function Hero({ count }: { count: number }) {
             >
               llms.txt for agents
             </a>
+          </div>
+          <div className="mt-6 max-w-lg">
+            <p className="text-[13px] text-zinc-600 dark:text-zinc-400">Or connect your agent:</p>
+            <div className="mt-2 flex min-w-0 items-center gap-2 rounded-xl border border-zinc-200 bg-white p-2 dark:border-zinc-800 dark:bg-zinc-900">
+              <code className="min-w-0 flex-1 overflow-x-auto px-1 py-1 font-shell-mono text-xs whitespace-nowrap text-zinc-700 dark:text-zinc-300">
+                {MCP_SETUP_COMMAND}
+              </code>
+              <button
+                type="button"
+                aria-label="Copy MCP setup command"
+                aria-disabled={!hydrated}
+                onClick={copySetup}
+                className={button({ variant: 'secondary', size: 'sm' })}
+              >
+                <CopyIcon />
+                Copy
+              </button>
+            </div>
+            <a href={`${SITE.repoUrl}/tree/main/mcp#readme`} className={`mt-2 inline-block ${TEXT_LINK}`}>
+              Setup for Codex, Cursor and other clients
+            </a>
+            {copyRefusal && <ManualCopy payload={copyRefusal} onDismiss={() => setCopyRefusal(null)} />}
           </div>
           <ul role="list" aria-label="Every component comes as" className="mt-10 flex flex-wrap gap-x-6 gap-y-3 sm:mt-12">
             {FORMATS.map((format) => (

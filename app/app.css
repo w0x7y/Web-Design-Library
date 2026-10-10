@@ -25,6 +25,8 @@ html[data-browse-filtered] [data-home-hero] {
 @theme {
   --font-shell: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-shell-mono: "Geist Mono", ui-monospace, monospace;
+  /* Geist Mono's ligatures swallow the space in " --", which misprints shell commands and code. */
+  --font-shell-mono--font-feature-settings: "liga" 0, "calt" 0;
   /* Shell focus rings (outline-focus). Not `@theme inline`: utilities must read the variable, so .dark can override it. */
   --color-focus: var(--color-zinc-900);
   /* The hero's showcase cards rise into place on load. */

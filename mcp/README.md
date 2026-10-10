@@ -2,34 +2,19 @@
 
 `patternbook-mcp` is a stdio MCP server for finding Patternbook UI components and fetching their code. It reads the site's static catalog and Markdown briefs over HTTP, so new components appear without a package release. It needs Node 20 or newer.
 
-The package isn't on npm yet. Use the from-source setup below today. The production site also needs a deploy that includes `catalog.json` and the per-format briefs. Until then, point the server at a local build with `PATTERNBOOK_URL`.
-
-## Build from source
-
-From this repository:
+It is published on npm. Your MCP client starts it with `npx -y patternbook-mcp`; in Claude Code:
 
 ```bash
-cd mcp
-npm install
-npm run build
+claude mcp add patternbook -- npx -y patternbook-mcp
 ```
 
-The entry point is `mcp/dist/index.js`. Use its absolute path in your MCP client. The package has its own dependencies and lockfile; it is not an npm workspace.
-
-To serve the agent files locally, run these commands from the repository root in another terminal:
-
-```bash
-npm run build
-npm run serve:build
-```
-
-The root site requires Node 22.22 or newer. Keep the static server running while using the local MCP configuration.
+Setup for [Codex](#codex) and [Cursor and other clients](#cursor-and-other-mcp-clients) is below. The setup uses the live Patternbook site.
 
 ## Tools
 
 | Tool | Inputs | Result |
 |---|---|---|
-| `search_components` | Optional `query`, `category`, `tags: string[]`, `kind: "section" \| "element"`, `limit: 1–50`, default 10 | One line per hit, match count, and structured metadata with page reference URLs. |
+| `search_components` | Optional `query`, `category`, `tags: string[]`, `kind: "section" \| "element"`, integer `limit: 1–50`, default 10 | One line per hit, match count, and structured metadata with page reference URLs. |
 | `get_component` | `slug`, optional `format: "react" \| "html"`, default `react` | The original per-format Markdown brief, including fonts and reference code. |
 | `list_categories` | None | Groups and categories with counts, tags with counts, formats and total component count, as text and structured data. |
 
@@ -39,37 +24,21 @@ Search lowercases and tokenizes words, drops common English stopwords, and strip
 
 Inputs are limited to 100 characters for slugs, 500 for queries, 60 for categories, and 20 tags of at most 40 characters each.
 
-Unknown category or tag ids return valid ids. Unknown slugs return nearby slugs and names. Expected HTTP and catalog errors are tool results with `isError: true`.
+Unknown category or tag ids return errors listing valid ids. Unknown slugs return errors with nearby slugs and names. Expected HTTP and catalog errors are tool results with `isError: true`.
 
 ## Configuration
 
 `PATTERNBOOK_URL` defaults to `https://patternbook-w0x7y.vercel.app`. It requires an absolute HTTPS URL, allowing HTTP only for loopback hosts `localhost`, `127.0.0.1` and `[::1]`. It trims trailing slashes, preserves path prefixes and removes empty query or fragment delimiters. Credentials, nonempty query parameters and fragments are rejected.
 
-Every fetch uses that base: `/catalog.json` and `/c/<slug>.<format>.md`. Absolute URLs in the catalog are reference links only. Requests reject redirects and HTML responses, use a 15-second timeout and a `patternbook-mcp/<version>` user agent, and limit catalogs to 5 MiB and briefs to 1 MiB. Limits apply to both declared content lengths and streamed bytes. The catalog and each brief are cached for five minutes, concurrent loads are shared, and the brief cache holds at most 100 entries. Errors are not cached. The server writes protocol messages to stdout and diagnostics to stderr.
+Every fetch uses that base: `/catalog.json` and `/c/<slug>.<format>.md`. Absolute URLs in the catalog are reference links only. Requests require HTTP 200, reject redirects and responses with a `text/html` content type, use a 15-second timeout and a `patternbook-mcp/<version>` user agent, and limit catalogs to 5 MiB and briefs to 1 MiB. Limits apply to both declared content lengths and streamed bytes. The catalog and each brief are cached for five minutes, concurrent loads are shared, and the brief cache holds at most 100 entries. Errors are not cached. The server writes protocol messages to stdout and diagnostics to stderr.
 
 Catalog version 1 validates only the metadata the tools read and strips unknown fields. New catalog formats are accepted; `list_categories` reports only formats supported by both the catalog and this server, which fetches React and HTML. Slugs and taxonomy ids must be lowercase kebab-case. Invalid metadata and unsupported catalog versions are rejected.
 
 ## Claude Code
 
-The working from-source form:
-
-```bash
-claude mcp add patternbook -e PATTERNBOOK_URL=http://localhost:4317 -- node /abs/path/mcp/dist/index.js
-```
-
-After the site deploy, omit the environment override to use production:
-
-```bash
-claude mcp add patternbook -- node /abs/path/mcp/dist/index.js
-```
-
-After this package is published, the npm form will be:
-
 ```bash
 claude mcp add patternbook -- npx -y patternbook-mcp
 ```
-
-That npm command does not work today.
 
 ## Codex
 
@@ -77,12 +46,9 @@ Add this to `~/.codex/config.toml`, using the [stdio MCP configuration](https://
 
 ```toml
 [mcp_servers.patternbook]
-command = "node"
-args = ["/abs/path/mcp/dist/index.js"]
-env = { PATTERNBOOK_URL = "http://localhost:4317" }
+command = "npx"
+args = ["-y", "patternbook-mcp"]
 ```
-
-After the site deploy, remove `env` to use production. After npm publication, you can replace `command` with `"npx"` and `args` with `["-y", "patternbook-mcp"]`.
 
 ## Cursor and other MCP clients
 
@@ -92,15 +58,39 @@ Put this in Cursor's `.cursor/mcp.json`, or the equivalent `mcp.json` for a clie
 {
   "mcpServers": {
     "patternbook": {
-      "command": "node",
-      "args": ["/abs/path/mcp/dist/index.js"],
-      "env": { "PATTERNBOOK_URL": "http://localhost:4317" }
+      "command": "npx",
+      "args": ["-y", "patternbook-mcp"]
     }
   }
 }
 ```
 
-Remove `env` after the production deploy. Restart or reload the MCP client after changing its configuration.
+Restart or reload the MCP client after changing its configuration.
+
+## Develop against a local build
+
+From the repository root, build and serve the site's agent files:
+
+```bash
+npm run build
+npm run serve:build
+```
+
+The root site requires Node 22.22 or newer. Keep the static server running and set `PATTERNBOOK_URL=http://localhost:4317` in your MCP client's environment. If you set `PATTERNBOOK_PORT` for the static server, use that port in the URL. `npm run dev` does not generate or serve the agent files. For Claude Code:
+
+```bash
+claude mcp add patternbook -e PATTERNBOOK_URL=http://localhost:4317 -- npx -y patternbook-mcp
+```
+
+To work on the server itself, build it from source:
+
+```bash
+cd mcp
+npm install
+npm run build
+```
+
+Replace `npx -y patternbook-mcp` in your client with `node /abs/path/mcp/dist/index.js`. The package has its own dependencies and lockfile; it is not an npm workspace.
 
 ## Development
 
@@ -112,9 +102,9 @@ npm run build
 npm test
 ```
 
-`npm test` cleans and builds the stdio entry point first. Tests cover ranking, filters, URL and slug validation, catalog parsing, caching, failures, the in-memory MCP protocol and spawned stdio processes. `test/contract.test.ts` always builds the catalog from the site's source metadata and catalog builder, without a site build or root dependencies, to check the schema, production origin, formats and brief paths.
+`npm test` cleans and builds the stdio entry point first. Tests cover ranking, filters, input limits, URL and slug validation, catalog parsing, caching, failures, the in-memory MCP protocol, spawned stdio processes, removal of stale build files and the package license. `test/contract.test.ts` always builds the catalog from the site's source metadata and catalog builder, without a site build or root dependencies, to check the schema, production origin, formats, brief paths and slug rule.
 
-`test/real-build.ts` gates descriptive-query and real-build stdio tests on `../build/client/catalog.json`. Without it, those tests skip; run `npm run build` at the root to enable them. Set `PATTERNBOOK_REQUIRE_BUILD=1` to fail when the build is missing. CI sets this after building the site.
+`test/real-build.ts` gates descriptive-query, brief-size and real-build stdio tests on `../build/client/catalog.json`. Without it, those tests skip; run `npm run build` at the root to enable them. Set `PATTERNBOOK_REQUIRE_BUILD=1` to fail when the build is missing. CI sets this in its Node 22 job after building the site. A separate Node 20 job runs the MCP checks without requiring the site build.
 
 `src/index.ts` reads the environment and starts stdio; `server.ts` registers tools and maps errors; `client.ts` handles HTTP, URLs and configuration; `cache.ts` owns caching; `catalog.ts` owns catalog validation and category summaries; `search.ts` owns ranking, search schemas, projection and text output. Direct cache tests live in `test/cache.test.ts`.
 

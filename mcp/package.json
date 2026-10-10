@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/w0x7y/Web-Design-Library.git",
+    "url": "git+https://github.com/w0x7y/Web-Design-Library.git",
     "directory": "mcp"
   },
   "scripts": {

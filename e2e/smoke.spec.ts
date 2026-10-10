@@ -16,6 +16,7 @@ import { downloadPng, openDetail } from './lib/pages'
 const LIBRARY = await loadMetas() // in library order, the order the site shows
 const HERO_ENTRY = await loadEntry('hero-split-image')
 const HERO = HERO_ENTRY.sources
+const MCP_SETUP_COMMAND = 'claude mcp add patternbook -- npx -y patternbook-mcp'
 
 // How many cards browse should show: the library on disk through browse's own results (unit-tested in filters.test.ts).
 function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: StyleTag[]; q?: string }): number {
@@ -41,6 +42,20 @@ test('the home page leads with the hero, whose heading is the page h1', async ({
   await page.getByRole('searchbox', { name: 'Search components' }).fill('glass')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('All components')
   await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toHaveCount(0)
+})
+
+test('the home hero shows npm setup and keeps its agent links before hydration', async ({ page }) => {
+  await page.route('**/assets/*.js', (route) => route.abort())
+  await page.goto('/')
+  const hero = page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })
+  await expect(hero.locator('code')).toHaveText(MCP_SETUP_COMMAND)
+  // Geist Mono's ligatures would swallow the space before "--"; the shell mono font turns them off.
+  await expect(hero.locator('code')).toHaveCSS('font-feature-settings', '"calt" 0, "liga" 0')
+  await expect(hero.getByRole('button', { name: 'Copy MCP setup command' })).toHaveAttribute('aria-disabled', 'true')
+  await expect(hero.getByRole('link', { name: 'Browse components' })).toHaveAttribute('href', '#components')
+  await expect(hero.getByRole('link', { name: 'llms.txt for agents' })).toHaveAttribute('href', '/llms.txt')
+  await expect(hero.getByRole('link', { name: 'Setup for Codex, Cursor and other clients' }))
+    .toHaveAttribute('href', `${SITE.repoUrl}/tree/main/mcp#readme`)
 })
 
 test('unknown path renders not-found page', async ({ page }) => {
@@ -482,6 +497,42 @@ test.describe('copy and export', () => {
 
   const readClipboard = (page: Page) => page.evaluate(() => navigator.clipboard.readText())
 
+  test('the home hero copies exactly the MCP setup command and announces success', async ({ page }) => {
+    await page.goto('/')
+    const copy = page.getByRole('button', { name: 'Copy MCP setup command' })
+    await expect(copy).toBeEnabled()
+    await copy.focus()
+    await expect(copy).toHaveCSS('outline-style', 'solid')
+    await page.keyboard.press('Enter')
+    await expect(page.getByText('Copied MCP setup command', { exact: true })).toBeVisible()
+    await expect(page.getByRole('region', { name: /^Notifications/ })).toHaveAttribute('aria-live', 'polite')
+    expect(await readClipboard(page)).toBe(MCP_SETUP_COMMAND)
+  })
+
+  test('refused MCP setup selects the exact command and restores focus on dismissal', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 900 })
+    await page.addInitScript(() => {
+      navigator.clipboard.writeText = () => Promise.reject(new Error('denied'))
+    })
+    await page.goto('/')
+    const copy = page.getByRole('button', { name: 'Copy MCP setup command' })
+    await expect(copy).toBeEnabled()
+    await copy.click()
+    await expect(page.getByText("Couldn't copy", { exact: true })).toBeVisible()
+    await expect(page.getByText('Copied MCP setup command', { exact: true })).toHaveCount(0)
+    const field = page.getByRole('textbox', { name: 'Copy manually: MCP setup command', exact: true })
+    await expect(field).toHaveValue(MCP_SETUP_COMMAND)
+    await expect(field).toHaveAttribute('readonly', '')
+    await expect(field).toBeFocused()
+    expect(await field.evaluate((node: HTMLTextAreaElement) => node.value.slice(node.selectionStart, node.selectionEnd))).toBe(MCP_SETUP_COMMAND)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0)
+    await page.keyboard.press('Tab')
+    await expect(page.getByRole('button', { name: 'Dismiss manual copy' })).toBeFocused()
+    await page.keyboard.press('Enter')
+    await expect(field).toHaveCount(0)
+    await expect(copy).toBeFocused()
+  })
+
   // The page is interactive once the actions enable; before that clicks would be lost.
   const openHero = (page: Page) => openDetail(page, 'hero-split-image')
 
@@ -791,11 +842,18 @@ test.describe('copy and export', () => {
     await page.getByRole('button', { name: 'Copy image' }).click()
     await expect(page.getByText('Copied image')).toBeVisible({ timeout: 12_000 })
 
+    await page.getByRole('link', { name: 'Patternbook', exact: true }).click()
+    const copySetup = page.getByRole('button', { name: 'Copy MCP setup command' })
+    await expect(copySetup).toBeEnabled()
+    await copySetup.click()
+    await expect(page.getByText('Copied MCP setup command', { exact: true })).toBeVisible()
+
     expect(await events()).toEqual([
       { name: 'copy_code', data: { slug: 'hero-split-image', format: 'react' } },
       { name: 'copy_ai', data: { slug: 'hero-split-image', format: 'html' } },
       { name: 'download_png', data: { slug: 'hero-split-image', viewport: 'mobile' } },
       { name: 'copy_image', data: { slug: 'hero-split-image' } },
+      { name: 'copy_mcp_setup', data: {} },
     ])
   })
 

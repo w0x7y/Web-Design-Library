@@ -27,6 +27,8 @@ src/library/components/<slug>/
 
 The site renders `Component.tsx` and also shows its raw text, so what renders is byte-for-byte what users copy. The site never renders `index.html` or `styles.css`. The copy builder and the parity test use them.
 
+New folders enter `llms.txt`, `catalog.json` and the Markdown briefs automatically at build time. The MCP server reads those files without separate registration. Agents see the component's `name`, `description` and `brief` text through the indexes, search results and briefs.
+
 ## meta.ts
 
 ```ts
@@ -51,7 +53,7 @@ export default {
 | `name` | Display name. Element sets read `<Kind> — <Style>`, e.g. `Buttons — Minimal`. |
 | `category` | One of `CATEGORY_IDS` in `src/library/taxonomy.ts`. |
 | `tags` | One or more of `STYLE_TAGS` in `src/library/taxonomy.ts`. |
-| `description` | Shown on cards and in `llms.txt`: what it is and when to use it. |
+| `description` | Shown on the detail page, in `llms.txt` and `catalog.json`, and in MCP search results and briefs: what it is and when to use it. |
 | `preview.kind` | `section` renders full width at the viewport width. `element` renders centred on white with 48px padding inside a 480px-tall frame, so it must stay within about 384px tall and fit 294px wide on mobile. |
 | `preview.parity` | Optional `{ maxDiffRatio, reason }`. Use it only for sub-pixel font differences you cannot remove, and write the reason. The default tolerance is 1% of pixels. |
 | `fonts` | Google Fonts css2 `family` params, e.g. `'Instrument Serif:ital@0;1'`. Leave it empty to inherit the page font. |
@@ -63,7 +65,7 @@ Font metadata must contain a family name, optionally followed by CSS2 axis names
 
 ## Authoring rules
 
-These are spec §4.5, verbatim:
+These are the [original design spec §4.5](docs/superpowers/specs/2026-10-08-web-library-design.md#45-authoring-rules), verbatim:
 
 1. `Component.tsx` has one default export, needs no props, and imports
    nothing except React (and only if needed).
@@ -113,7 +115,7 @@ The template is `resetCss()` in `src/library/reset.ts`, and `rules.ts` checks ev
 
 ## Accessibility details
 
-Rule 8 in practice, as `e2e/focus.spec.ts` checks it and the library does it:
+Rule 8 in practice. `e2e/focus.spec.ts` checks focus outlines; review the other accessibility details yourself:
 
 - **Focus.** Give every control a visible `focus-visible:` outline. When a wrapper or sibling shows focus instead (a field's border, a card's ring), remove the control's own outline with `focus-visible:outline-hidden`, never a bare `outline-hidden` or `outline-none`: forced-colors mode turns `outline-hidden`'s transparent outline into a visible one, so a bare one rings the control all the time, and `outline-none` leaves no focus cue there at all. In the twin, put `outline-style: none` on the `:focus-visible` selector and add `@media (forced-colors: active) { … :focus-visible { outline: 2px solid transparent; outline-offset: 2px; } }`.
 - **Forced colours.** Forced-colors mode repaints text, backgrounds and borders in system colours. Don't draw state with a fill alone (give a switch's track a `forced-colors:` border and its knob a system colour such as `CanvasText`), and hide an icon with opacity rather than a colour that matches its background.
