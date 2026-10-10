@@ -51,12 +51,11 @@ describe.skipIf(!hasBuild)('real layout catalog', () => {
   })
 })
 
-// These tests wait for their specific inventory layouts, not a hard-coded total.
-// With the three-pattern build only the hero query runs. The inventory fixture
-// exercises every query even before those layouts are authored.
+// Agent-style queries must rank their inventory layouts first in the real build. A missing or
+// renamed target pattern fails here rather than skipping.
 const catalog = hasBuild ? readBuiltCatalog() : undefined
 for (const { query, category, slugs } of layoutQueries) {
-  it.skipIf(!catalog?.components.some(({ slug }) => slugs.includes(slug)))
+  it.skipIf(!hasBuild)
     (`real layout ranking: "${query}" (requires ${slugs.join(' or ')})`, () => {
       if (!catalog) throw new Error('Expected a site build')
       const limit = Math.min(3, catalog.components.filter((component) => component.category === category).length)
