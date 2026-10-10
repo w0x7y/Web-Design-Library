@@ -15,9 +15,9 @@ export default {
 │ │                          Image                           │ │
 │ └──────────────────────────────────────────────────────────┘ │
 │                                                              │
-│ Fact label          │ Fact label         │ Fact label        │
+├─────────────────────┬────────────────────┬───────────────────┤
 │ Detail value        │ Detail value       │ Detail value      │
-└──────────────────────────────────────────────────────────────┘`,
+└─────────────────────┴────────────────────┴───────────────────┘`,
   brief: {
     layout: "A 1152px max-w-6xl container has 24px horizontal padding and 64px vertical padding, increasing to 96px at 640px. At 1024px a 12-column intro puts the h1 across seven columns and the lede/actions in columns 9–12 aligned to the bottom. A rounded-lg media placeholder follows after 48px. Three caption facts follow after 24px, separated by vertical neutral-200 borders and 24px left padding.",
     hierarchy: "The display headline is 36px, 48px at 640px and 60px at 1024px, semibold with tracking-tight and balanced wrapping. Read the title, 18px lede and two actions, then panoramic media and a three-fact dl. Each fact has a 14px muted label and 16px medium value. Slots: title 10 words, lede 25, actions 3, each label 3 and value 5.",

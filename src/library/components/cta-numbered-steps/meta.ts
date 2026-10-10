@@ -2,7 +2,7 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: "cta-numbered-steps",
-  name: "Call to action — Steps checklist",
+  name: "Call to action — Numbered steps",
   category: "cta",
   tags: ["split", "list", "numbers"],
   description: "A next-step introduction beside a bordered three-step list. Use it when a short process makes the action easier to understand.",

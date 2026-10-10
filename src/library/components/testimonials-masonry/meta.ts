@@ -9,16 +9,24 @@ export default {
   preview: { kind: 'section' },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
 │ Headline                    Lede / [Read stories]            │
-│ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐     │
-│ │ Short quote    │ │ Featured quote │ │ Medium quote   │     │
-│ │ AR Name / Role │ │                │ │ SK Name / Role │     │
-│ └────────────────┘ │ JL Name / Role │ └────────────────┘     │
-│ ┌────────────────┐ └────────────────┘ ┌────────────────┐     │
-│ │ Longer quote   │ ┌────────────────┐ │ Short quote    │     │
-│ │                │ │ Another quote  │ │ CP Name / Role │     │
-│ │ MT Name / Role │ │ RN Name / Role │ └────────────────┘     │
-│ └────────────────┘ └────────────────┘                        │
-│              Eight figures flow down columns                 │
+│                                                              │
+│ ┌────────────────┐  ┌────────────────┐  ┌────────────────┐   │
+│ │ Short quote    │  │ Featured quote │  │ Medium quote   │   │
+│ │ AR Name / Role │  │                │  │                │   │
+│ └────────────────┘  │                │  │ SK Name / Role │   │
+│                     │ JL Name / Role │  └────────────────┘   │
+│ ┌────────────────┐  └────────────────┘                       │
+│ │ Longer quote   │                      ┌────────────────┐   │
+│ │                │  ┌────────────────┐  │ Short quote    │   │
+│ │                │  │ Another quote  │  │ CP Name / Role │   │
+│ │ MT Name / Role │  │                │  └────────────────┘   │
+│ └────────────────┘  │ RN Name / Role │                       │
+│                     └────────────────┘  ┌────────────────┐   │
+│ ┌────────────────┐                      │ Final quote    │   │
+│ │ Brief quote    │                      │                │   │
+│ │ TL Name / Role │                      │ JC Name / Role │   │
+│ └────────────────┘                      └────────────────┘   │
+│                                                              │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:

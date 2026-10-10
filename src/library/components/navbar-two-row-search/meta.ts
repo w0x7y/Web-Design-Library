@@ -2,19 +2,18 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'navbar-two-row-search',
-  name: 'Navbar — Two rows with search',
+  name: 'Navbar — Announcement, search and categories',
   category: 'navbar',
   tags: ['stacked', 'row', 'form'],
-  description:
-    'An announcement strip sits above a logo and search row, followed by wrapping categories. Search remains visible on mobile.',
+  description: "An announcement strip sits above a logo and search row, followed by wrapping category links; search stays visible on mobile. Use it when people browse categories and search equally often.",
   preview: {
     kind: 'section',
   },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
 │           Short announcement sentence  [Read more]           │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │ Logo      [Search destinations           ] [Go] Account Cart │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │      Product   Collections   Guides   New   Popular   Help   │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

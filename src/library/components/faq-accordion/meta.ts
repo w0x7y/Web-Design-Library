@@ -28,7 +28,7 @@ export default {
     hierarchy: 'Read the 30px semibold heading, 18px introduction, then the five 16px semibold questions. The first answer is visible at entry; the others reveal 16px neutral-600 supporting text. Slots: heading up to 8 words, introduction up to 20, questions up to 10, answers up to 45.',
     states: 'Native details and summary controls share one name, so opening a question closes the previous one. The first is open by default. The chevron rotates 180 degrees while open with a 150ms transition. Keyboard focus shows a 2px neutral-900 outline offset 2px.',
     responsive: 'The rows remain a single column at every width. At 640px vertical padding increases from 64px to 96px and the heading from 30px to 36px. Questions wrap while the chevron keeps its 20px width and 24px gap.',
-    usage: 'Use for short answers to common questions with one answer visible at a time. Pick a static question list when all answers need comparing. Variations: open a different first question, group rows under topic headings, or add a help link below the list.',
+    usage: 'Use for short answers to common questions with one answer visible at a time. Choose faq-question-rows or faq-qa-grid when all answers need comparing. Variations: open a different first question, group rows under topic headings, or add a help link below the list.',
   },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

@@ -5,20 +5,20 @@ export default {
   name: 'Navbar — Mega menu panel',
   category: 'navbar',
   tags: ['layered', 'grid', 'media'],
-  description:
-    'A full-container product panel pairs six destinations with a featured resource. Mobile uses one flat native menu.',
+  description: "A wide product panel pairs six destinations with a featured resource card, and mobile uses one flat native menu. Use it for a broad product suite whose destinations need short descriptions and a featured resource.",
   preview: {
     kind: 'section',
   },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
 │ Logo  Products ^  Pricing Docs About  Log in [Get started]   │
+│                                                              │
 │ ┌──────────────────────────────────────────────────────────┐ │
-│ │[Icon] Overview    [Icon] Collaboration┌───────────────┐  │ │
-│ │Supporting copy    Supporting copy     │     Image     │  │ │
-│ │[Icon] Automation  [Icon] Reporting    └───────────────┘  │ │
-│ │Supporting copy    Supporting copy     Featured title     │ │
-│ │[Icon] Integrations[Icon] Security     Description        │ │
-│ │Supporting copy    Supporting copy     [Read guide]       │ │
+│ │ Icon Overview      Icon Collaboration   ┌──────────────┐ │ │
+│ │ Supporting copy    Supporting copy      │    Image     │ │ │
+│ │ Icon Automation    Icon Reporting       └──────────────┘ │ │
+│ │ Supporting copy    Supporting copy      Featured title   │ │
+│ │ Icon Integrations  Icon Security        Description      │ │
+│ │ Supporting copy    Supporting copy      [Read guide]     │ │
 │ └──────────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

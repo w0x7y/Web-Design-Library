@@ -20,7 +20,7 @@ export default {
 │ Timing question    Access question    Support question     │
 │ Visible answer     Visible answer     Visible answer       │
 │                                                            │
-│ ──────────────────────────────────────────────────────     │
+├────────────────────────────────────────────────────────────┤
 │ Closing help sentence                    [Contact support] │
 └────────────────────────────────────────────────────────────┘`,
   brief: {

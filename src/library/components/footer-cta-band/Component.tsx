@@ -2,8 +2,8 @@ export default function FooterCtaBand() {
   return (
     <footer className="border-t border-neutral-200 bg-white text-neutral-900">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-8 py-16 sm:py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <div className="max-w-2xl">
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 py-16 text-center sm:py-24">
+          <div>
             <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
               Headline that makes the final invitation clear
             </h2>
@@ -11,7 +11,7 @@ export default function FooterCtaBand() {
               One sentence that connects the main outcome to this final action.
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
             <a
               href="#"
               className="inline-flex h-11 items-center justify-center rounded-md bg-neutral-900 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"

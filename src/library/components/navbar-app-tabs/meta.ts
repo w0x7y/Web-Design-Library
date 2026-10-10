@@ -5,18 +5,17 @@ export default {
   name: 'Navbar — App header with tabs',
   category: 'navbar',
   tags: ['stacked', 'row', 'compact'],
-  description:
-    'Breadcrumbs, a project toolbar and page links form an app header. The native account menu opens above an independently scrolling mobile tab strip.',
+  description: "Breadcrumbs, a project toolbar and page links form an app header, with an account menu that drops below the avatar and a scrollable tab strip on mobile. Use it for signed-in app pages that need global utilities and local navigation.",
   preview: {
     kind: 'section',
   },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
 │ Workspace / Projects / Current project                       │
-│ ──────────────────────────────────────────────────────────── │
+├──────────────────────────────────────────────────────────────┤
 │ Logo  Project name [Active]              [Find] [Bell] [AR]  │
 │                                          ┌────────────────┐  │
 │ Overview Activity Files Members Settings │ Profile        │  │
-│ ──────────────────────────────────────── │ Preferences    │  │
+├──────────────────────────────────────────┤ Preferences    │  │
 │                                          │ Sign out       │  │
 │                                          └────────────────┘  │
 └──────────────────────────────────────────────────────────────┘`,

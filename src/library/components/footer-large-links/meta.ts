@@ -14,12 +14,12 @@ export default {
 │ Logo                   01   Destination title           ->   │
 │ Short statement             One-sentence description         │
 │                        ───────────────────────────────────   │
-│ 1,284                  02   Resource destination         ->  │
+│ 1,284                  02   Resource destination        ->   │
 │ members                     One-sentence description         │
 │                        ───────────────────────────────────   │
-│                        03   Contact destination          ->  │
+│                        03   Contact destination         ->   │
 │                             One-sentence description         │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │ Copyright                                   Privacy Terms    │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

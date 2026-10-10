@@ -14,7 +14,7 @@ export default {
 │ │                │ │                │ │                │     │
 │ │ AR Name / Role │ │ JL Name / Role │ │ SK Name / Role │     │
 │ └────────────────┘ └────────────────┘ └────────────────┘     │
-│ <       Focusable horizontal scroll region            >      │
+│              Focusable horizontal scroll region              │
 │                  Six cards in one row                        │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

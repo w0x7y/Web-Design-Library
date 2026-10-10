@@ -14,10 +14,10 @@ export default {
 │ Newsletter headline         Email                            │
 │ Short signup description    [name@example.com] [Subscribe]   │
 │                             Consent and frequency hint       │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │ Product        Resources       Company       Support         │
 │ Link list      Link list       Link list     Link list       │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │ Copyright                            Privacy Terms Cookies   │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

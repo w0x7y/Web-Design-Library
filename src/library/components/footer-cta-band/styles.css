@@ -13,13 +13,13 @@
 .footer-cta-band summary { display: list-item; }
 
 /* Footer */
-
 .footer-cta-band {
   border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
   background-color: #fff; /* white */
   color: oklch(20.5% 0 none); /* neutral-900 */
 }
 
+/* Container */
 .footer-cta-band .footer-cta-band__container {
   margin-inline: auto;
   max-width: 72rem; /* container-6xl */
@@ -27,18 +27,18 @@
 }
 
 /* Closing invitation */
-
-.footer-cta-band .footer-cta-band__closing-band {
-  display: grid;
+.footer-cta-band .footer-cta-band__closing {
+  margin-inline: auto;
+  display: flex;
+  max-width: 42rem; /* container-2xl */
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
   padding-block: 4rem;
+  text-align: center;
 }
 
-.footer-cta-band .footer-cta-band__closing-copy {
-  max-width: 42rem; /* container-2xl */
-}
-
-.footer-cta-band .footer-cta-band__closing-title {
+.footer-cta-band .footer-cta-band__heading {
   font-size: 1.875rem; /* text-3xl */
   line-height: calc(2.25 / 1.875); /* text-3xl */
   font-weight: 600;
@@ -46,7 +46,7 @@
   text-wrap: balance;
 }
 
-.footer-cta-band .footer-cta-band__closing-description {
+.footer-cta-band .footer-cta-band__lede {
   margin-top: 1rem;
   font-size: 1.125rem; /* text-lg */
   line-height: calc(1.75 / 1.125); /* text-lg */
@@ -54,13 +54,14 @@
   color: oklch(43.9% 0 none); /* neutral-600 */
 }
 
+/* Actions */
 .footer-cta-band .footer-cta-band__actions {
   display: flex;
+  width: 100%;
   flex-direction: column;
+  justify-content: center;
   gap: 0.75rem;
 }
-
-/* Shared actions */
 
 .footer-cta-band .footer-cta-band__action {
   display: inline-flex;
@@ -89,7 +90,6 @@
 }
 
 /* Directory */
-
 .footer-cta-band .footer-cta-band__directory {
   display: grid;
   gap: 2rem;
@@ -118,13 +118,13 @@
   color: oklch(43.9% 0 none); /* neutral-600 */
 }
 
-.footer-cta-band .footer-cta-band__group-title {
+.footer-cta-band .footer-cta-band__group-heading {
   font-size: 0.875rem; /* text-sm */
   line-height: calc(1.25 / 0.875); /* text-sm */
   font-weight: 600;
 }
 
-.footer-cta-band .footer-cta-band__group-links {
+.footer-cta-band .footer-cta-band__links {
   margin-top: 1rem;
   display: grid;
   gap: 0.75rem;
@@ -139,9 +139,8 @@
   text-underline-offset: 4px;
 }
 
-/* Copyright and legal */
-
-.footer-cta-band .footer-cta-band__legal-bar {
+/* Legal */
+.footer-cta-band .footer-cta-band__legal {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -162,8 +161,6 @@
   row-gap: 0.75rem;
 }
 
-/* Hover */
-
 @media (hover: hover) {
   .footer-cta-band .footer-cta-band__action--primary:hover {
     background-color: oklch(37.1% 0 none); /* neutral-700 */
@@ -173,13 +170,14 @@
     background-color: oklch(98.5% 0 none); /* neutral-50 */
   }
 
-  .footer-cta-band .footer-cta-band__logo:hover,
+  .footer-cta-band .footer-cta-band__logo:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
   .footer-cta-band .footer-cta-band__link:hover {
     color: oklch(43.9% 0 none); /* neutral-600 */
   }
 }
-
-/* Keyboard focus */
 
 .footer-cta-band .footer-cta-band__action:focus-visible,
 .footer-cta-band .footer-cta-band__logo:focus-visible,
@@ -188,19 +186,18 @@
   outline-offset: 2px;
 }
 
-/* Responsive layout */
-
 @media (width >= 40rem) {
-  .footer-cta-band .footer-cta-band__closing-band {
+  .footer-cta-band .footer-cta-band__closing {
     padding-block: 6rem;
   }
 
-  .footer-cta-band .footer-cta-band__closing-title {
+  .footer-cta-band .footer-cta-band__heading {
     font-size: 2.25rem; /* text-4xl */
     line-height: calc(2.5 / 2.25); /* text-4xl */
   }
 
   .footer-cta-band .footer-cta-band__actions {
+    width: auto;
     flex-direction: row;
   }
 
@@ -209,24 +206,15 @@
   }
 }
 
-/* Responsive layout */
-
 @media (width >= 48rem) {
-  .footer-cta-band .footer-cta-band__legal-bar {
+  .footer-cta-band .footer-cta-band__legal {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 }
 
-/* Responsive layout */
-
 @media (width >= 64rem) {
-  .footer-cta-band .footer-cta-band__closing-band {
-    grid-template-columns: minmax(0,1fr) auto;
-    align-items: flex-end;
-  }
-
   .footer-cta-band .footer-cta-band__directory {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

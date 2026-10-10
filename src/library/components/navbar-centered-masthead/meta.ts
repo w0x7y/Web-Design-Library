@@ -16,8 +16,8 @@ export default {
 │                             Logo                             │
 │                   One-line identity descriptor               │
 │                                                              │
-│ ──────────────────────────────────────────────────────────   │
-│    Latest   Topics   Guides   Stories   Events   About   Help│
+├──────────────────────────────────────────────────────────────┤
+│  Latest   Topics   Guides   Stories   Events   About   Help  │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:

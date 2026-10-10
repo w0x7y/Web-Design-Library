@@ -5,8 +5,7 @@ export default {
   name: 'Footer — Single row',
   category: 'footer',
   tags: ['row', 'compact'],
-  description:
-    'Identity and copyright, four links and social icons share one desktop row. Mobile stacks the three groups.',
+  description: "Identity and copyright, four links and social icons share one desktop row, and mobile stacks the three groups. Use it on a short page or an app shell.",
   preview: {
     kind: 'section',
   },

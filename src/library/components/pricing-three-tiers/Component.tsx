@@ -122,7 +122,7 @@ export default function PricingThreeTiers() {
               </li>
             </ul>
           </article>
-          <article className="rounded-lg border border-neutral-200 bg-white p-6 border-2 border-neutral-900 shadow-lg">
+          <article className="rounded-lg border border-neutral-900 bg-white p-6 shadow-lg">
             <div className="flex min-h-7 items-start">
               <span className="inline-flex items-center rounded-full border border-neutral-300 px-2.5 py-0.5 text-xs font-medium">Most popular</span>
             </div>

@@ -5,8 +5,7 @@ export default {
   name: 'Footer — Oversized wordmark',
   category: 'footer',
   tags: ['stacked', 'grid', 'spacious'],
-  description:
-    'A dark divided footer ends with a giant cropped Logo wordmark. Closing copy, links and contact sit above the identity.',
+  description: "A dark divided footer ends with a giant, cropped Logo wordmark, with closing copy, links and contact above it. Use it for a strong visual close with a short directory and a contact route.",
   preview: {
     kind: 'section',
   },
@@ -14,11 +13,11 @@ export default {
 │ Closing headline                     Links      Contact      │
 │ One-sentence closing statement       Product    Address      │
 │ [Start a conversation]               About      Email        │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │ Copyright                                   Privacy Terms    │
 │                                                              │
-│                   L  O  G  O                                 │
-│                   Cropped lower edge                         │
+│                          L  O  G  O                          │
+│                      Cropped lower edge                      │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:

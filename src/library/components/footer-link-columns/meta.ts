@@ -16,7 +16,7 @@ export default {
 │ identity statement  Features   Docs      Careers   Contact   │
 │ [Social icon links] Pricing    Updates   Press     Status    │
 │                     More links in each group                 │
-│ ──────────────────────────────────────────────────────────   │
+├──────────────────────────────────────────────────────────────┤
 │ Copyright                            Privacy Terms Cookies   │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

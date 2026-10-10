@@ -8,7 +8,7 @@ export default {
   description: "A top-divided signup band with copy beside a labelled email form. Use it for a newsletter or update subscription after other page content.",
   preview: { kind: 'section' },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
-│ ──────────────────────────────────────────────────────────── │
+├──────────────────────────────────────────────────────────────┤
 │ Heading for email updates       Email                        │
 │ Supporting lede                 [Email address] [Sign up]    │
 │                                 Email hint                   │

@@ -8,14 +8,15 @@ export default {
   description: 'Radio-card option picker with a changing price and adjacent inclusions panel. Use for one offer sold in three sizes.',
   preview: { kind: 'section' },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
-│ ┌─────────────────────────────────┐ ┌──────────────────┐     │
-│ │ Product title / Description     │ │ Whats included   │     │
-│ │ Choose a size                   │ │ Label    Value   │     │
-│ │ [Small] [Medium selected] [Large]│ │ Label    Value   │    │
-│ │ $49 /order                      │ │ Label    Value   │     │
-│ │ [Primary action]                │ │ Label    Value   │     │
-│ │ Terms hint                      │ │ Note             │     │
-│ └─────────────────────────────────┘ └──────────────────┘     │
+│ ┌───────────────────────────────────┐  ┌───────────────────┐ │
+│ │ Offer title / Description         │  │ What is included  │ │
+│ │ Choose a size                     │  │ Label    Value    │ │
+│ │ [Small] [Medium selected] [Large] │  │ Label    Value    │ │
+│ │ $49 /order                        │  │ Label    Value    │ │
+│ │ [Primary action]                  │  │ Label    Value    │ │
+│ │ Terms hint                        │  │ Note              │ │
+│ │                                   │  │                   │ │
+│ └───────────────────────────────────┘  └───────────────────┘ │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:

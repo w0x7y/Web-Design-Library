@@ -2,16 +2,16 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: "cta-detail-card",
-  name: "Call to action — Event detail card",
+  name: "Call to action — Dated detail card",
   category: "cta",
   tags: ["asymmetric", "numbers"],
   description: "An invitation beside a dated detail card with price, availability and a full-width action. Use it when the date and remaining capacity shape the decision.",
   preview: { kind: 'section' },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
-│ Eyebrow                         ┌──────────────────────────┐ │
+│ Eyebrow                         ┌────┬─────────────────────┐ │
 │ Heading for the next step       │14  │ Item title          │ │
 │ Supporting lede                 │MAR │ Time and place      │ │
-│ Capacity meta                   ├──────────────────────────┤ │
+│ Capacity meta                   ├────┴─────────────────────┤ │
 │                                 │Price                  $29│ │
 │                                 │Places left             12│ │
 │                                 │[Primary action]          │ │

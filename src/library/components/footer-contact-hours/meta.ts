@@ -12,12 +12,12 @@ export default {
   },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
 │ Phone  +1 (555) 010-2000                      [Book a visit] │
-│ ──────────────────────────────────────────────────────────   │
-│ Logo              Opening hours             Directory        │
+├──────────────────────────────────────────────────────────────┤
+│ Logo              Opening hours              Directory       │
 │ Street address    Mon          09:00-17:00   About  Guides   │
 │ Access note       Tue          09:00-17:00   Visit  Events   │
-│                   Seven day/time rows       Help   Contact   │
-│ ──────────────────────────────────────────────────────────   │
+│                   Seven day/time rows        Help   Contact  │
+├──────────────────────────────────────────────────────────────┤
 │ Copyright                                   Privacy Terms    │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {

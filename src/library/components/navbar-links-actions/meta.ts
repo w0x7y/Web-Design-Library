@@ -5,8 +5,7 @@ export default {
   name: 'Navbar — Logo, links and actions',
   category: 'navbar',
   tags: ['row', 'compact'],
-  description:
-    'A logo and five page links share a compact bar with login and a primary action. A native mobile menu keeps the main action visible.',
+  description: "A logo, five page links, a login link and a primary action share one compact bar, and a native mobile menu keeps the primary action visible. Use it for a landing page with a small primary navigation and a conversion action.",
   preview: {
     kind: 'section',
   },

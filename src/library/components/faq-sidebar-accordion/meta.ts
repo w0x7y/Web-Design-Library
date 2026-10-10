@@ -9,7 +9,7 @@ export default {
   preview: { kind: 'section' },
   wireframe: `┌────────────────────────────────────────────────────────────┐
 │ Heading for questions       ┌─────────────────────────┐    │
-│ Short introduction          │ Main question        ^  │    │
+│ Short introduction          │ Main question        x  │    │
 │                             │ Answer                  │    │
 │ ┌───────────────────────┐   ├─────────────────────────┤    │
 │ │ Contact heading       │   │ Getting started      +  │    │

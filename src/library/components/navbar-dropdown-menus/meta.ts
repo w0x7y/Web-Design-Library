@@ -5,23 +5,22 @@ export default {
   name: 'Navbar — Dropdown menus',
   category: 'navbar',
   tags: ['row', 'layered', 'list'],
-  description:
-    'Two native dropdowns mix with ordinary links in a compact bar. Each panel has four destinations with short descriptions.',
+  description: "A compact bar has two native dropdowns beside ordinary links, each panel listing four destinations with short descriptions. Use it for two small destination groups whose descriptions help readers choose.",
   preview: {
     kind: 'section',
   },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
 │ Logo  Product ^  Pricing  Resources v  About  [Get started]  │
-│ ┌────────────────────────────────────┐                       │
-│ │ Overview                           │                       │
-│ │ Short destination description      │                       │
-│ │ Features                           │                       │
-│ │ Supporting destination copy        │                       │
-│ │ Integrations                       │                       │
-│ │ Connection description             │                       │
-│ │ Security                           │                       │
-│ │ Access and protection description  │                       │
-│ └────────────────────────────────────┘                       │
+│       ┌────────────────────────────────────                  │
+│       │ Overview                                             │
+│       │ Short destination description                        │
+│       │ Features                                             │
+│       │ Supporting destination copy                          │
+│       │ Integrations                                         │
+│       │ Connection description                               │
+│       │ Security                                             │
+│       │ Access and protection description                    │
+│       └────────────────────────────────────                  │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:

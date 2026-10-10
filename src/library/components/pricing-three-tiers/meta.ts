@@ -19,7 +19,7 @@ export default {
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:
-      'White section with 1152px max-w-6xl container, 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. Centred max-w-xl header; billing pill 32px below, cards 40px below. Three lg:grid-cols-3 columns with 24px gap. Cards p-6, rounded-lg; featured card has 2px dark border, badge and shadow-lg. Five-item benefit lists follow a 24px-separated divider.',
+      'White section with 1152px max-w-6xl container, 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. Centred max-w-xl header; billing pill 32px below, cards 40px below. Three lg:grid-cols-3 columns with 24px gap. Cards p-6, rounded-lg; featured card has a 1px neutral-900 border, badge and shadow-lg. Five-item benefit lists follow a 24px-separated divider.',
     hierarchy:
       'Section headings are 30px text-3xl semibold, 36px sm:text-4xl at 640px, with tight tracking and balanced wrapping. Headline, billing choice, plan names, 48px text-5xl prices, actions then benefits. Slots: headline 8 words, lede 24, plan 3, description 12, benefit 7. Each card contains both price sets and matching billing notes.',
     states:

@@ -18,9 +18,9 @@ export default {
 │ │                       │    │ Starting question   v  │    │
 │ │                       │    ├────────────────────────┤    │
 │ └───────────────────────┘    │ Included details    v  │    │
-│ Image caption               ├────────────────────────┤     │
-│                             │ More help           v  │     │
-│                             └────────────────────────┘     │
+│ Image caption                ├────────────────────────┤    │
+│                              │ More help           v  │    │
+│                              └────────────────────────┘    │
 └────────────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A white section uses a 1152px max-w-6xl container, 24px px-6 side padding, and 64px py-16 vertical padding, rising to 96px sm:py-24 at 640px. At 1024px a grid-cols-[5fr_7fr] layout uses gap-16 64px and top alignment. A figure holds a 3:4 rounded-lg media placeholder and 14px caption 12px below. The other column holds the heading, lede 16px below and a four-item top-bordered accordion after 32px. Summaries have 20px vertical padding, 20px chevrons and 24px gaps; answers have 20px bottom padding.",

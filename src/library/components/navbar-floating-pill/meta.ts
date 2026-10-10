@@ -5,8 +5,7 @@ export default {
   name: 'Navbar — Floating pill',
   category: 'navbar',
   tags: ['layered', 'row', 'centered'],
-  description:
-    'A narrow floating navigation pill sits above a quiet surface. Its mobile menu opens as a separate card with a two-column link grid.',
+  description: "A rounded navigation pill with four links and one action floats above a quiet section, and its mobile menu opens as a separate two-column card. Use it above a sparse landing page where navigation should float clear of the content.",
   preview: {
     kind: 'section',
   },
@@ -23,7 +22,7 @@ export default {
     hierarchy:
       'Logo leads, followed by four 14px links and one Get started action. Keep link labels to 1–2 words and the action to 2 words. The rounded-full silhouette and space below distinguish the bar from an ordinary header.',
     states:
-      'Text links change from neutral-900 to neutral-600 on hover. The primary action uses the kit fill, 44px height and a pill radius. The mobile 40px round summary shows bars when closed and a cross when open. The details is initially open. Every enabled control shows a 2px keyboard-focus outline offset 2px. There are no disabled controls.',
+      'Text links change from neutral-900 to neutral-600 on hover. The primary action has a neutral-900 fill, neutral-700 hover fill, 44px height and a pill radius. The mobile 40px round summary shows bars when closed and a cross when open. The details is initially open. Every enabled control shows a 2px keyboard-focus outline offset 2px. There are no disabled controls.',
     responsive:
       'Below 768px the four desktop links hide and the native mobile menu appears. At 768px the links return, the mobile menu hides and the same floating section height remains. The menu grid stays two columns at 320px.',
     usage:

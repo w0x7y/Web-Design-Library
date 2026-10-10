@@ -5,8 +5,7 @@ export default {
   name: 'Navbar — Link index with callout',
   category: 'navbar',
   tags: ['asymmetric', 'grid', 'list'],
-  description:
-    'A static header spreads identity, a numbered two-column index and a callout across unequal columns. All destinations remain visible.',
+  description: "A static header spreads identity, a numbered two-column index of eight destinations and a callout across unequal columns. Use it for a directory or archive where every destination should stay visible.",
   preview: {
     kind: 'section',
   },
@@ -15,7 +14,7 @@ export default {
 │ Short identity   Pricing  02   Stories  06   │ Eyebrow     │ │
 │ descriptor       Docs     03   Events   07   │ Callout     │ │
 │                  About    04   Help     08   │ [Action]    │ │
-│                                             └─────────────┘  │
+│                                              └─────────────┘ │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:

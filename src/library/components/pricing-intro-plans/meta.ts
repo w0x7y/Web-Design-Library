@@ -15,7 +15,7 @@ export default {
 │                    │ Four benefits  │ │ Four benefits  │     │
 │                    │ [Choose plan]  │ │ [Choose plan]  │     │
 │                    └────────────────┘ └────────────────┘     │
-│ ────────────────────────────────────────────────────────     │
+├──────────────────────────────────────────────────────────────┤
 │ Every plan includes                                          │
 │ Icon Title         Icon Title          Icon Title            │
 │     Sentence           Sentence            Sentence          │

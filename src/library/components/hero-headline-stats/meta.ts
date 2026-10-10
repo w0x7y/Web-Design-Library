@@ -7,13 +7,13 @@ export default {
   tags: ["asymmetric", "numbers", "grid"],
   description: "An asymmetric opening with a supporting note and four figures below a divider. Use it when measured results reinforce the main claim.",
   preview: { kind: 'section' },
-  wireframe: `┌──────────────────────────────────────────────────────────────┐
-│ Eyebrow                                 │ Supporting note    │
-│ Headline for the main outcome           │ More context       │
-│ Supporting lede                         │ [Read more]        │
-│ [Primary action] [Secondary]                                 │
-│                                                              │
-│ ──────────────────────────────────────────────────────────── │
+  wireframe: `┌──────────────────────────────────────────┬───────────────────┐
+│ Eyebrow                                  │                   │
+│ Headline for the main outcome            │ Supporting note   │
+│ Supporting lede                          │ More context      │
+│ [Primary action] [Secondary]             │ [Read more]       │
+│                                          │                   │
+├──────────────────────────────────────────┴───────────────────┤
 │ 1,284           98%            24h            32             │
 │ Audience        Outcome        Response       Coverage       │
 └──────────────────────────────────────────────────────────────┘`,
