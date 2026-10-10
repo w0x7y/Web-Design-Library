@@ -1,0 +1,43 @@
+<section class="inputs-hat-blocking" aria-label="Crownform hat-blocking job">
+  <header class="inputs-hat-blocking__header">
+    <p class="inputs-hat-blocking__brand">Crownform / Hat workshop</p>
+    <h2 class="inputs-hat-blocking__heading">Set the crown</h2>
+  </header>
+  <div class="inputs-hat-blocking__body">
+    <label class="inputs-hat-blocking__label" for="inputs-hat-blocking-job">Workshop job code</label>
+    <input
+      class="inputs-hat-blocking__job-code"
+      id="inputs-hat-blocking-job"
+      name="job-code"
+      type="text"
+      maxlength="20"
+      value="CF-1024-018"
+    >
+    <div class="inputs-hat-blocking__grid">
+      <div>
+        <label class="inputs-hat-blocking__label" for="inputs-hat-blocking-block">Hat block</label>
+        <select
+          class="inputs-hat-blocking__field"
+          id="inputs-hat-blocking-block"
+          name="block"
+          aria-describedby="inputs-hat-blocking-hint"
+        >
+          <option value="fedora">Fedora</option>
+          <option value="cloche">Cloche</option>
+          <option value="pork-pie">Pork pie</option>
+        </select>
+      </div>
+      <div>
+        <label class="inputs-hat-blocking__label" for="inputs-hat-blocking-start">Started at</label>
+        <input
+          class="inputs-hat-blocking__field"
+          id="inputs-hat-blocking-start"
+          name="started-at"
+          type="time"
+          value="14:20"
+        >
+      </div>
+    </div>
+    <p class="inputs-hat-blocking__hint" id="inputs-hat-blocking-hint">Match the block to the customer fitting card.</p>
+  </div>
+</section>

@@ -116,4 +116,7 @@ export const IMAGES = {
   spiceMerchantTable: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
   // Added for retheme-f
   harbourWoodenBoats: 'https://images.unsplash.com/photo-1660745469414-543a641d22bf?w=1600&q=80',
+  // Added for retheme-h
+  rooftopTomatoVine: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=800&q=80',
+  recordingStudioDesk: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80',
 } as const
