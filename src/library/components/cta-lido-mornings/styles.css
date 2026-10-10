@@ -1,0 +1,155 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-lido-mornings, .cta-lido-mornings *, .cta-lido-mornings *::before, .cta-lido-mornings *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-lido-mornings { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-lido-mornings :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-lido-mornings a { color: inherit; text-decoration: inherit; }
+.cta-lido-mornings :is(b, strong) { font-weight: bolder; }
+.cta-lido-mornings :is(ol, ul, menu) { list-style: none; }
+.cta-lido-mornings :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-lido-mornings :is(img, video) { max-width: 100%; height: auto; }
+.cta-lido-mornings :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-lido-mornings ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-lido-mornings table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-lido-mornings summary { display: list-item; }
+
+/* Component */
+
+.cta-lido-mornings {
+  background-color: oklch(95.1% 0.026 236.824); /* sky-100 */
+  color: oklch(29.3% 0.066 243.157); /* sky-950 */
+  font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cta-lido-mornings .cta-lido-mornings__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  display: grid;
+  gap: 2.5rem;
+  padding: 3.5rem 1.5rem;
+}
+
+.cta-lido-mornings .cta-lido-mornings__eyebrow {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 700;
+}
+
+.cta-lido-mornings .cta-lido-mornings__heading {
+  margin-top: 1.25rem;
+  max-width: 36rem;
+  font-size: 3rem;
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.cta-lido-mornings .cta-lido-mornings__lede {
+  margin-top: 1.5rem;
+  max-width: 28rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.cta-lido-mornings .cta-lido-mornings__action {
+  display: inline-flex;
+  min-height: 3rem;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  background-color: oklch(29.3% 0.066 243.157); /* sky-950 */
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: #fff; /* white */
+}
+
+.cta-lido-mornings .cta-lido-mornings__actions {
+  margin-top: 2rem;
+}
+
+/* Pool membership and opening hours */
+.cta-lido-mornings .cta-lido-mornings__pool {
+  border-radius: 6rem 6rem 1.5rem 1.5rem;
+  border: 2px solid oklch(29.3% 0.066 243.157); /* sky-950 */
+  background-color: #fff; /* white */
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.cta-lido-mornings .cta-lido-mornings__illustration {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-lido-mornings .cta-lido-mornings__wave {
+  height: 3rem;
+  width: 7rem;
+  color: oklch(44.3% 0.11 240.79); /* sky-800 */
+}
+
+.cta-lido-mornings .cta-lido-mornings__plan {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 700;
+}
+
+.cta-lido-mornings .cta-lido-mornings__schedule {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid oklch(90.1% 0.058 230.902); /* sky-200 */
+  padding-top: 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.cta-lido-mornings .cta-lido-mornings__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cta-lido-mornings .cta-lido-mornings__note {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.3% 0.11 240.79); /* sky-800 */
+}
+
+@media (hover: hover) {
+  .cta-lido-mornings .cta-lido-mornings__action:hover {
+    background-color: oklch(39.1% 0.09 240.876); /* sky-900 */
+  }
+}
+
+@media (width >= 40rem) {
+  .cta-lido-mornings .cta-lido-mornings__inner {
+    padding: 5rem 2rem;
+  }
+  .cta-lido-mornings .cta-lido-mornings__heading {
+    font-size: 4rem;
+  }
+  .cta-lido-mornings .cta-lido-mornings__pool {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .cta-lido-mornings .cta-lido-mornings__inner {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+  }
+}
+
+.cta-lido-mornings .cta-lido-mornings__action:focus-visible {
+  outline: 2px solid oklch(29.3% 0.066 243.157);
+  outline-offset: 4px;
+}

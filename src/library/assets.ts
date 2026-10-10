@@ -96,4 +96,8 @@ export const IMAGES = {
   rollingCropFields: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80',
   // Added for retheme-a
   acousticGuitarPlaying: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80',
+  // Added for retheme-b
+  jazzTrumpetStage: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80',
+  sailingCoastalYachts: 'https://images.unsplash.com/photo-1589730349861-f17e3939c207?w=1600&q=80',
+  bookshopWoodenShelves: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1600&q=80',
 } as const
