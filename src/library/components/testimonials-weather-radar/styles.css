@@ -1,0 +1,179 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonials-weather-radar, .testimonials-weather-radar *, .testimonials-weather-radar *::before, .testimonials-weather-radar *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonials-weather-radar { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonials-weather-radar :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonials-weather-radar a { color: inherit; text-decoration: inherit; }
+.testimonials-weather-radar :is(b, strong) { font-weight: bolder; }
+.testimonials-weather-radar :is(ol, ul, menu) { list-style: none; }
+.testimonials-weather-radar :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonials-weather-radar :is(img, video) { max-width: 100%; height: auto; }
+.testimonials-weather-radar :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonials-weather-radar ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonials-weather-radar table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonials-weather-radar summary { display: list-item; }
+
+
+/* Component */
+.testimonials-weather-radar {
+  background-color: oklch(29.3% 0.136 325.661); /* fuchsia-950 */
+  color: oklch(90.1% 0.076 70.697); /* orange-200 */
+  font-family: 'Syne',ui-sans-serif,system-ui,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__label {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__heading {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__spread {
+  margin-top: 2.5rem;
+  display: grid;
+  align-items: center;
+  gap: 3rem;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__radar-panel {
+  display: flex;
+  aspect-ratio: 1/1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background-color: oklch(90.1% 0.076 70.697); /* orange-200 */
+  padding: 1.5rem;
+  color: oklch(14.5% 0 none); /* neutral-950 */
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__radar-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Static radar illustration */
+.testimonials-weather-radar .testimonials-weather-radar__radar {
+  width: 13rem;
+  height: 13rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background-color: oklch(14.5% 0 none); /* neutral-950 */
+  color: oklch(90.1% 0.076 70.697); /* orange-200 */
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__radar-caption {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__reports {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: oklch(90.3% 0.076 319.62 / 0.3); /* fuchsia-200/30 */
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__report {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 1rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: oklch(90.3% 0.076 319.62 / 0.3); /* fuchsia-200/30 */
+  padding-block: 1.5rem;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__number {
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  color: oklch(90.3% 0.076 319.62); /* fuchsia-200 */
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__quote {
+  font-size: 1.25rem;
+  line-height: 1.625;
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__customer {
+  margin-top: 1rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  color: oklch(90.3% 0.076 319.62); /* fuchsia-200 */
+}
+
+.testimonials-weather-radar .testimonials-weather-radar__link {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  width: fit-content;
+  padding-block: 0.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+}
+
+/* Keyboard focus */
+.testimonials-weather-radar .testimonials-weather-radar__link:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 4px;
+  outline-color: currentColor;
+}
+
+@media (hover: hover) {
+  .testimonials-weather-radar .testimonials-weather-radar__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .testimonials-weather-radar .testimonials-weather-radar__radar {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .testimonials-weather-radar .testimonials-weather-radar__inner {
+    padding-inline: 2.5rem;
+  }
+
+  .testimonials-weather-radar .testimonials-weather-radar__heading {
+    font-size: 3rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .testimonials-weather-radar .testimonials-weather-radar__spread {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}
+
+@media (width >= 64rem) {
+  .testimonials-weather-radar .testimonials-weather-radar__inner {
+    padding-block: 6rem;
+  }
+}

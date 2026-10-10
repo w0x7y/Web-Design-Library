@@ -1,0 +1,189 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonials-cycling-route-cards, .testimonials-cycling-route-cards *, .testimonials-cycling-route-cards *::before, .testimonials-cycling-route-cards *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonials-cycling-route-cards { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonials-cycling-route-cards :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonials-cycling-route-cards a { color: inherit; text-decoration: inherit; }
+.testimonials-cycling-route-cards :is(b, strong) { font-weight: bolder; }
+.testimonials-cycling-route-cards :is(ol, ul, menu) { list-style: none; }
+.testimonials-cycling-route-cards :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonials-cycling-route-cards :is(img, video) { max-width: 100%; height: auto; }
+.testimonials-cycling-route-cards :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonials-cycling-route-cards ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonials-cycling-route-cards table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonials-cycling-route-cards summary { display: list-item; }
+
+
+/* Component */
+.testimonials-cycling-route-cards {
+  background-color: oklch(97.9% 0.021 166.113); /* emerald-50 */
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  font-family: 'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__label {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: oklch(50.8% 0.118 165.612); /* emerald-700 */
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__heading {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__service {
+  max-width: 15rem;
+  font-size: .875rem;
+  line-height: 1.625;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__routes {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__route-card {
+  display: flex;
+  flex-direction: column;
+  border-width: 1px;
+  border-style: solid;
+  border-color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  background-color: #fff; /* white */
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__route {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  padding: 1.5rem;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__destination {
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__tour {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  color: oklch(50.8% 0.118 165.612); /* emerald-700 */
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__quote {
+  flex-grow: 1;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__rider {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-style: dashed;
+  border-color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+  padding: 1.5rem;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__name {
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__detail {
+  margin-top: 0.25rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  color: oklch(50.8% 0.118 165.612); /* emerald-700 */
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__duration {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__link {
+  margin-top: 2rem;
+  display: inline-flex;
+  width: fit-content;
+  padding-block: 0.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+}
+
+/* Keyboard focus */
+.testimonials-cycling-route-cards .testimonials-cycling-route-cards__link:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 4px;
+  outline-color: currentColor;
+}
+
+@media (hover: hover) {
+  .testimonials-cycling-route-cards .testimonials-cycling-route-cards__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .testimonials-cycling-route-cards .testimonials-cycling-route-cards__inner {
+    padding-inline: 2.5rem;
+  }
+
+  .testimonials-cycling-route-cards .testimonials-cycling-route-cards__header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .testimonials-cycling-route-cards .testimonials-cycling-route-cards__heading {
+    font-size: 3rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .testimonials-cycling-route-cards .testimonials-cycling-route-cards__routes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 64rem) {
+  .testimonials-cycling-route-cards .testimonials-cycling-route-cards__inner {
+    padding-block: 6rem;
+  }
+}

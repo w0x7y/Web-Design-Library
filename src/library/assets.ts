@@ -103,4 +103,7 @@ export const IMAGES = {
   // Added for retheme-c
   operaRedCurtainStage: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1600&q=80',
   architectureDraftingTable: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80',
+  // Added for retheme-d
+  riverDefenceStream: 'https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=1600&q=80',
+  droneSurveyOperator: 'https://images.unsplash.com/photo-1506947411487-a56738267384?w=1600&q=80',
 } as const
