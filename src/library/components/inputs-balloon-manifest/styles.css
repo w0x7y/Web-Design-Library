@@ -1,0 +1,128 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-balloon-manifest, .inputs-balloon-manifest *, .inputs-balloon-manifest *::before, .inputs-balloon-manifest *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-balloon-manifest { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-balloon-manifest :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-balloon-manifest a { color: inherit; text-decoration: inherit; }
+.inputs-balloon-manifest :is(b, strong) { font-weight: bolder; }
+.inputs-balloon-manifest :is(ol, ul, menu) { list-style: none; }
+.inputs-balloon-manifest :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-balloon-manifest :is(img, video) { max-width: 100%; height: auto; }
+.inputs-balloon-manifest :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-balloon-manifest ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-balloon-manifest table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-balloon-manifest summary { display: list-item; }
+
+/* Component */
+.inputs-balloon-manifest {
+  width: 18rem;
+  border-radius: 1.5rem;
+  background-image: linear-gradient(to bottom right in oklab, oklch(43.2% 0.095 166.913) /* emerald-800 */ 0%, oklch(26.2% 0.051 172.552) /* emerald-950 */ 50%, oklch(12.9% 0.042 264.695) /* slate-950 */ 100%);
+  padding: 1.25rem;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(97.9% 0.021 166.113) /* emerald-50 */;
+  color-scheme: dark;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__brand {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: oklch(93.8% 0.127 124.321) /* lime-200 */;
+  text-transform: uppercase;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__heading {
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__glass {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 0.1);
+  padding: 1rem;
+  backdrop-filter: blur(24px);
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__label {
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__name {
+  margin-top: 0.5rem;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 0.1);
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  line-height: normal;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__weight-label {
+  margin-top: 1rem;
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__weight-row {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__weight {
+  height: 2.75rem;
+  min-width: 0;
+  flex: 1;
+  border-radius: 0.5rem;
+  padding-inline: 0.75rem;
+  font-size: 1.5rem;
+  line-height: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__unit {
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(93.8% 0.127 124.321) /* lime-200 */;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__hint {
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  color: oklch(95% 0.052 163.051) /* emerald-100 */;
+}
+
+.inputs-balloon-manifest .inputs-balloon-manifest__flight {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
+  color: oklch(93.8% 0.127 124.321) /* lime-200 */;
+}
+
+.inputs-balloon-manifest :is(input, select, textarea):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+@media (width >= 40rem) {
+  .inputs-balloon-manifest { width: 24.0rem; }
+}

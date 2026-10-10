@@ -1,0 +1,82 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-salvage-intake, .inputs-salvage-intake *, .inputs-salvage-intake *::before, .inputs-salvage-intake *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-salvage-intake { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-salvage-intake :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-salvage-intake a { color: inherit; text-decoration: inherit; }
+.inputs-salvage-intake :is(b, strong) { font-weight: bolder; }
+.inputs-salvage-intake :is(ol, ul, menu) { list-style: none; }
+.inputs-salvage-intake :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-salvage-intake :is(img, video) { max-width: 100%; height: auto; }
+.inputs-salvage-intake :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-salvage-intake ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-salvage-intake table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-salvage-intake summary { display: list-item; }
+
+/* Component */
+.inputs-salvage-intake {
+  width: 18rem;
+  background-color: oklch(14.5% 0 none) /* neutral-950 */;
+  padding: 1.25rem;
+  font-family: "IBM Plex Mono", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(97% 0 none) /* neutral-100 */;
+  color-scheme: dark;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__header {
+  border-left: 4px solid oklch(83.7% 0.128 66.29) /* orange-300 */;
+  padding-left: 0.75rem;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__brand {
+  font-size: 0.625rem;
+  color: oklch(83.7% 0.128 66.29) /* orange-300 */;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__heading {
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 700;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__label {
+  margin-top: 1rem;
+  display: block;
+  font-size: 0.625rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__field {
+  margin-top: 0.5rem;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid oklch(55.6% 0 none) /* neutral-500 */;
+  background-color: oklch(20.5% 0 none) /* neutral-900 */;
+  padding-inline: 0.5rem;
+  font-size: 0.75rem;
+  line-height: normal;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.inputs-salvage-intake .inputs-salvage-intake__footer {
+  margin-top: 1.25rem;
+  border-top: 1px dashed oklch(55.6% 0 none) /* neutral-500 */;
+  padding-top: 0.75rem;
+  font-size: 0.625rem;
+  color: oklch(90.1% 0.076 70.697) /* orange-200 */;
+}
+
+.inputs-salvage-intake :is(input, select, textarea):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+@media (width >= 40rem) {
+  .inputs-salvage-intake { width: 22.0rem; }
+}

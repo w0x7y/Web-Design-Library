@@ -1,0 +1,43 @@
+<section class="inputs-mushroom-harvest" aria-label="Mycel House harvest record">
+  <img
+    class="inputs-mushroom-harvest__photo"
+    src="https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&q=80"
+    alt="Brown mushrooms on a stone work surface beside a harvest bowl"
+    width="800"
+    height="1098"
+  >
+  <div class="inputs-mushroom-harvest__body">
+    <p class="inputs-mushroom-harvest__brand">Mycel House / Grow room</p>
+    <h2 class="inputs-mushroom-harvest__heading">Today's harvest</h2>
+    <div class="inputs-mushroom-harvest__grid">
+      <div>
+        <label class="inputs-mushroom-harvest__label" for="inputs-mushroom-harvest-lot">Lot code</label>
+        <input
+          class="inputs-mushroom-harvest__field"
+          id="inputs-mushroom-harvest-lot"
+          name="lot"
+          type="text"
+          value="MH-1042"
+          aria-describedby="inputs-mushroom-harvest-note"
+        >
+      </div>
+      <div>
+        <label class="inputs-mushroom-harvest__label" for="inputs-mushroom-harvest-yield">Yield</label>
+        <div class="inputs-mushroom-harvest__weight-row">
+          <input
+            class="inputs-mushroom-harvest__weight"
+            id="inputs-mushroom-harvest-yield"
+            name="yield"
+            type="number"
+            min="0"
+            step="0.01"
+            value="3.25"
+            aria-describedby="inputs-mushroom-harvest-unit"
+          >
+          <span class="inputs-mushroom-harvest__unit" id="inputs-mushroom-harvest-unit">kg</span>
+        </div>
+      </div>
+    </div>
+    <p class="inputs-mushroom-harvest__note" id="inputs-mushroom-harvest-note">Match the lot to the grow-room label.</p>
+  </div>
+</section>

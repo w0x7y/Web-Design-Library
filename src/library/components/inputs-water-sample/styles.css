@@ -1,0 +1,113 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-water-sample, .inputs-water-sample *, .inputs-water-sample *::before, .inputs-water-sample *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-water-sample { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-water-sample :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-water-sample a { color: inherit; text-decoration: inherit; }
+.inputs-water-sample :is(b, strong) { font-weight: bolder; }
+.inputs-water-sample :is(ol, ul, menu) { list-style: none; }
+.inputs-water-sample :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-water-sample :is(img, video) { max-width: 100%; height: auto; }
+.inputs-water-sample :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-water-sample ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-water-sample table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-water-sample summary { display: list-item; }
+
+/* Component */
+.inputs-water-sample {
+  width: 18rem;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(55.4% 0.046 257.417) /* slate-500 */;
+  background-color: oklch(20.8% 0.042 265.755) /* slate-900 */;
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(96.8% 0.007 247.896) /* slate-100 */;
+  color-scheme: dark;
+}
+
+.inputs-water-sample .inputs-water-sample__header {
+  border-radius: 0.75rem 0.75rem 0 0;
+  border-bottom: 1px solid oklch(55.4% 0.046 257.417) /* slate-500 */;
+  background-color: oklch(29.3% 0.066 243.157) /* sky-950 */;
+  padding: 1rem;
+}
+
+.inputs-water-sample .inputs-water-sample__brand {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: oklch(90.1% 0.058 230.902) /* sky-200 */;
+  text-transform: uppercase;
+}
+
+.inputs-water-sample .inputs-water-sample__heading {
+  margin-top: 0.25rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  font-weight: 600;
+}
+
+.inputs-water-sample .inputs-water-sample__body {
+  padding: 1.25rem;
+}
+
+.inputs-water-sample .inputs-water-sample__label {
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(86.9% 0.022 252.894) /* slate-300 */;
+}
+
+.inputs-water-sample .inputs-water-sample__id {
+  margin-top: 0.5rem;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid oklch(55.4% 0.046 257.417) /* slate-500 */;
+  background-color: oklch(12.9% 0.042 264.695) /* slate-950 */;
+  padding-inline: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: normal;
+}
+
+.inputs-water-sample .inputs-water-sample__grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.inputs-water-sample .inputs-water-sample__field {
+  margin-top: 0.5rem;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0.25rem;
+  border: 1px solid oklch(55.4% 0.046 257.417) /* slate-500 */;
+  background-color: oklch(12.9% 0.042 264.695) /* slate-950 */;
+  padding-inline: 0.5rem;
+  font-size: 0.75rem;
+  line-height: normal;
+}
+
+.inputs-water-sample .inputs-water-sample__hint {
+  margin-top: 1rem;
+  border-top: 1px solid oklch(55.4% 0.046 257.417) /* slate-500 */;
+  padding-top: 0.75rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  color: oklch(86.9% 0.022 252.894) /* slate-300 */;
+}
+
+.inputs-water-sample :is(input, select, textarea):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.inputs-water-sample .inputs-water-sample__field:focus-within {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+@media (width >= 40rem) {
+  .inputs-water-sample { width: 22.0rem; }
+}

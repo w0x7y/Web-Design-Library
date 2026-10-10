@@ -1,0 +1,105 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-costume-measures, .inputs-costume-measures *, .inputs-costume-measures *::before, .inputs-costume-measures *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-costume-measures { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-costume-measures :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-costume-measures a { color: inherit; text-decoration: inherit; }
+.inputs-costume-measures :is(b, strong) { font-weight: bolder; }
+.inputs-costume-measures :is(ol, ul, menu) { list-style: none; }
+.inputs-costume-measures :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-costume-measures :is(img, video) { max-width: 100%; height: auto; }
+.inputs-costume-measures :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-costume-measures ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-costume-measures table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-costume-measures summary { display: list-item; }
+
+/* Component */
+.inputs-costume-measures {
+  width: 18rem;
+  background-color: oklch(27.1% 0.105 12.094) /* rose-950 */;
+  padding: 1.5rem;
+  font-family: "Newsreader", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(94.1% 0.03 12.58) /* rose-100 */;
+  color-scheme: dark;
+}
+
+.inputs-costume-measures .inputs-costume-measures__brand {
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: oklch(89.2% 0.058 10.001) /* rose-200 */;
+  text-transform: uppercase;
+}
+
+.inputs-costume-measures .inputs-costume-measures__heading {
+  margin-top: 0.25rem;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+}
+
+.inputs-costume-measures .inputs-costume-measures__grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.inputs-costume-measures .inputs-costume-measures__label {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.inputs-costume-measures .inputs-costume-measures__measurement {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid oklch(81% 0.117 11.638) /* rose-300 */;
+}
+
+.inputs-costume-measures .inputs-costume-measures__number {
+  height: 2.75rem;
+  min-width: 0;
+  flex: 1;
+  font-size: 1.5rem;
+  line-height: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.inputs-costume-measures .inputs-costume-measures__unit {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(89.2% 0.058 10.001) /* rose-200 */;
+}
+
+.inputs-costume-measures .inputs-costume-measures__note-header {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.inputs-costume-measures .inputs-costume-measures__hint {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(89.2% 0.058 10.001) /* rose-200 */;
+}
+
+.inputs-costume-measures .inputs-costume-measures__notes {
+  margin-top: 0.5rem;
+  display: block;
+  height: 4rem;
+  width: 100%;
+  resize: none;
+  border: 1px solid oklch(81% 0.117 11.638) /* rose-300 */;
+  background-color: oklch(41% 0.159 10.272) /* rose-900 */;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.inputs-costume-measures :is(input, select, textarea):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+@media (width >= 40rem) {
+  .inputs-costume-measures { width: 22.0rem; }
+}

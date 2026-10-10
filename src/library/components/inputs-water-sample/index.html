@@ -1,0 +1,43 @@
+<section class="inputs-water-sample" aria-label="Clearbatch sample intake">
+  <header class="inputs-water-sample__header">
+    <p class="inputs-water-sample__brand">Clearbatch / Treatment works</p>
+    <h2 class="inputs-water-sample__heading">New water sample</h2>
+  </header>
+  <div class="inputs-water-sample__body">
+    <label class="inputs-water-sample__label" for="inputs-water-sample-id">Sample identifier</label>
+    <input
+      class="inputs-water-sample__id"
+      id="inputs-water-sample-id"
+      name="sample-id"
+      type="text"
+      maxlength="20"
+      value="CB-1010-073"
+    >
+    <div class="inputs-water-sample__grid">
+      <div>
+        <label class="inputs-water-sample__label" for="inputs-water-sample-source">Source</label>
+        <select
+          class="inputs-water-sample__field"
+          id="inputs-water-sample-source"
+          name="source"
+          aria-describedby="inputs-water-sample-hint"
+        >
+          <option value="outlet">Outlet 2</option>
+          <option value="inlet">Inlet 1</option>
+          <option value="tank">Tank 3</option>
+        </select>
+      </div>
+      <div>
+        <label class="inputs-water-sample__label" for="inputs-water-sample-time">Collected at</label>
+        <input
+          class="inputs-water-sample__field"
+          id="inputs-water-sample-time"
+          name="collected-at"
+          type="time"
+          value="07:45"
+        >
+      </div>
+    </div>
+    <p class="inputs-water-sample__hint" id="inputs-water-sample-hint">Use the source printed on the custody label.</p>
+  </div>
+</section>
