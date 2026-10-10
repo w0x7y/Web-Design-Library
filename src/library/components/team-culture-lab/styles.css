@@ -1,0 +1,210 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.team-culture-lab, .team-culture-lab *, .team-culture-lab *::before, .team-culture-lab *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.team-culture-lab { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.team-culture-lab :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.team-culture-lab a { color: inherit; text-decoration: inherit; }
+.team-culture-lab :is(b, strong) { font-weight: bolder; }
+.team-culture-lab :is(ol, ul, menu) { list-style: none; }
+.team-culture-lab :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.team-culture-lab :is(img, video) { max-width: 100%; height: auto; }
+.team-culture-lab :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.team-culture-lab ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.team-culture-lab table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.team-culture-lab summary { display: list-item; }
+
+/* Component */
+.team-culture-lab {
+  background-image: linear-gradient(to bottom right in oklab, oklch(26.2% 0.051 172.552) 0%, oklch(37.8% 0.077 168.94) 50%, oklch(27.4% 0.072 132.109) 100%); /* emerald-950, emerald-900, lime-950 */
+  color: #fff;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.team-culture-lab .team-culture-lab__inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Introduction and current batch */
+.team-culture-lab .team-culture-lab__layout {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.team-culture-lab .team-culture-lab__eyebrow {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: oklch(93.8% 0.127 124.321); /* lime-200 */
+}
+
+.team-culture-lab .team-culture-lab__heading {
+  margin-top: 1rem;
+  font-size: 2.25rem;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  font-weight: 500;
+}
+
+.team-culture-lab .team-culture-lab__lede {
+  margin-top: 1.25rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: oklch(95% 0.052 163.051); /* emerald-100 */
+}
+
+.team-culture-lab .team-culture-lab__sample {
+  margin-top: 2.5rem;
+  max-width: 24rem;
+  border-radius: 1rem;
+  border: 1px solid oklch(92.4% 0.12 95.746 / 0.4); /* amber-200 */
+  background-color: oklch(92.4% 0.12 95.746 / 0.1); /* amber-200 */
+  padding: 1.25rem;
+}
+
+.team-culture-lab .team-culture-lab__sample-label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: oklch(92.4% 0.12 95.746); /* amber-200 */
+}
+
+.team-culture-lab .team-culture-lab__sample-title {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.team-culture-lab .team-culture-lab__sample-note {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: oklch(95% 0.052 163.051); /* emerald-100 */
+}
+
+/* Translucent team window */
+.team-culture-lab .team-culture-lab__window {
+  border-radius: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  background-color: rgb(255 255 255 / 0.1);
+  padding: 1.5rem;
+  backdrop-filter: blur(24px);
+}
+
+.team-culture-lab .team-culture-lab__window-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  padding-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: oklch(96.7% 0.067 122.328); /* lime-100 */
+}
+
+.team-culture-lab .team-culture-lab__scientist {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  padding-block: 1.25rem;
+}
+
+.team-culture-lab .team-culture-lab__initials {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(93.8% 0.127 124.321 / 0.4); /* lime-200 */
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: oklch(93.8% 0.127 124.321); /* lime-200 */
+}
+
+.team-culture-lab .team-culture-lab__name {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.team-culture-lab .team-culture-lab__role {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: oklch(96.7% 0.067 122.328); /* lime-100 */
+}
+
+.team-culture-lab .team-culture-lab__scope {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: oklch(95% 0.052 163.051); /* emerald-100 */
+}
+
+.team-culture-lab .team-culture-lab__visit {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  border-color: oklch(93.8% 0.127 124.321); /* lime-200 */
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: oklch(96.7% 0.067 122.328); /* lime-100 */
+}
+
+.team-culture-lab .team-culture-lab__arrow {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Keyboard focus */
+.team-culture-lab .team-culture-lab__visit:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .team-culture-lab .team-culture-lab__visit:hover {
+    background-color: oklch(93.8% 0.127 124.321); /* lime-200 */
+    color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  }
+}
+
+@media (width >= 40rem) {
+  .team-culture-lab .team-culture-lab__inner {
+    padding-inline: 2rem;
+  }
+  .team-culture-lab .team-culture-lab__heading {
+    font-size: 3.5rem;
+  }
+  .team-culture-lab .team-culture-lab__window {
+    padding: 2rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .team-culture-lab .team-culture-lab__inner {
+    padding-block: 6rem;
+  }
+  .team-culture-lab .team-culture-lab__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 4rem;
+  }
+}
+
+.team-culture-lab .team-culture-lab__scientist:last-child { border-bottom-width: 0; }

@@ -56,4 +56,7 @@ export const IMAGES = {
   // Added for new-testimonial-card
   portraitManGlasses: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
   portraitManSunlit: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&q=80',
+  // Added for new-team
+  portraitWomanPink: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80',
+  teamConversationBrick: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80',
 } as const
