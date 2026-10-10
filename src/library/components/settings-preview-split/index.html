@@ -1,0 +1,54 @@
+<section class="settings-preview-split">
+  <form class="settings-preview-split__form">
+    <h1 class="settings-preview-split__title">Appearance settings</h1>
+    <p class="settings-preview-split__lede">Explain how these choices shape the appearance of shared content.</p>
+    <div class="settings-preview-split__layout">
+      <figure class="settings-preview-split__preview">
+        <div role="img" aria-label="Image placeholder: live appearance preview" class="settings-preview-split__media">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-preview-split__icon">
+            <path d="M3 3h18v18H3zM3 15l6-6 6 6 3-3 3 3M8 7h.01"></path>
+          </svg>
+        </div>
+        <figcaption class="settings-preview-split__caption">Preview of the selected layout and display preferences.</figcaption>
+      </figure>
+      <div class="settings-preview-split__controls">
+        <fieldset>
+          <legend class="settings-preview-split__legend">Layout density</legend>
+          <div class="settings-preview-split__density-options">
+            <label class="settings-preview-split__option">
+              <input type="radio" name="layout" checked value="comfortable" class="settings-preview-split__radio">
+              <span class="settings-preview-split__field"><span aria-hidden="true" class="settings-preview-split__swatch settings-preview-split__swatch--comfortable"></span><span class="settings-preview-split__control-label">Comfortable</span></span>
+            </label>
+            <label class="settings-preview-split__option">
+              <input type="radio" name="layout" value="compact" class="settings-preview-split__radio">
+              <span class="settings-preview-split__field"><span aria-hidden="true" class="settings-preview-split__swatch settings-preview-split__swatch--compact"></span><span class="settings-preview-split__control-label">Compact</span></span>
+            </label>
+            <label class="settings-preview-split__option">
+              <input type="radio" name="layout" value="spacious" class="settings-preview-split__radio">
+              <span class="settings-preview-split__field"><span aria-hidden="true" class="settings-preview-split__swatch settings-preview-split__swatch--spacious"></span><span class="settings-preview-split__control-label">Spacious</span></span>
+            </label>
+          </div>
+        </fieldset>
+        <div class="settings-preview-split__field">
+          <label for="settings-preview-split-size" class="settings-preview-split__label">Text size</label><select id="settings-preview-split-size" name="size" aria-describedby="settings-preview-split-size-hint" class="settings-preview-split__select"><option>Default</option><option>Larger</option><option>Largest</option></select>
+          <p id="settings-preview-split-size-hint" class="settings-preview-split__field-hint">Choose the size used in content views.</p>
+        </div>
+        <div class="settings-preview-split__field">
+          <label for="settings-preview-split-width" class="settings-preview-split__label">Content width</label><select id="settings-preview-split-width" name="width" aria-describedby="settings-preview-split-width-hint" class="settings-preview-split__select"><option>Standard</option><option>Wide</option><option>Full width</option></select>
+          <p id="settings-preview-split-width-hint" class="settings-preview-split__field-hint">Set the maximum width of shared content.</p>
+        </div>
+        <div class="settings-preview-split__choice">
+          <input id="settings-preview-split-metadata" type="checkbox" aria-describedby="settings-preview-split-metadata-hint" name="metadata" checked class="settings-preview-split__checkbox">
+          <div class="settings-preview-split__field">
+            <label for="settings-preview-split-metadata" class="settings-preview-split__control-label">Show additional information</label>
+            <p id="settings-preview-split-metadata-hint" class="settings-preview-split__choice-hint">Include dates and ownership below item titles.</p>
+          </div>
+        </div>
+        <footer class="settings-preview-split__footer">
+          <button type="reset" class="settings-preview-split__action settings-preview-split__action--secondary">Reset</button>
+          <button type="submit" class="settings-preview-split__action settings-preview-split__action--primary">Save changes</button>
+        </footer>
+      </div>
+    </div>
+  </form>
+</section>

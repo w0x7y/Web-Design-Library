@@ -1,0 +1,101 @@
+<section class="settings-stacked-cards">
+  <div class="settings-stacked-cards__container">
+    <h1 class="settings-stacked-cards__title">Account settings</h1>
+    <p class="settings-stacked-cards__lede">Manage each part of your account separately.</p>
+    <div class="settings-stacked-cards__cards">
+      <form aria-labelledby="settings-stacked-cards-profile-title" class="settings-stacked-cards__card">
+        <div class="settings-stacked-cards__card-body">
+          <div>
+            <h2 id="settings-stacked-cards-profile-title" class="settings-stacked-cards__heading">Profile</h2>
+            <p class="settings-stacked-cards__description">Describe the identity shown to other members.</p>
+          </div>
+          <div class="settings-stacked-cards__photo-row">
+            <span aria-hidden="true" class="settings-stacked-cards__avatar">AR</span>
+            <div>
+              <p class="settings-stacked-cards__control-label">Profile photo</p>
+              <div class="settings-stacked-cards__actions">
+                <button type="button" aria-label="Change profile photo" class="settings-stacked-cards__action settings-stacked-cards__action--secondary">Change</button>
+                <button type="button" aria-label="Remove profile photo" class="settings-stacked-cards__action settings-stacked-cards__action--secondary">Remove</button>
+              </div>
+            </div>
+          </div>
+          <div class="settings-stacked-cards__name-grid">
+            <div class="settings-stacked-cards__field"><label for="settings-stacked-cards-first" class="settings-stacked-cards__label">First name</label><input id="settings-stacked-cards-first" type="text" name="first" value="Alex" class="settings-stacked-cards__text-field"></div>
+            <div class="settings-stacked-cards__field"><label for="settings-stacked-cards-last" class="settings-stacked-cards__label">Last name</label><input id="settings-stacked-cards-last" type="text" name="last" value="Rivera" class="settings-stacked-cards__text-field"></div>
+          </div>
+          <div class="settings-stacked-cards__field"><label for="settings-stacked-cards-email" class="settings-stacked-cards__label">Email</label><input id="settings-stacked-cards-email" type="email" name="email" value="name@example.com" class="settings-stacked-cards__text-field"></div>
+          <div>
+            <label for="settings-stacked-cards-bio" class="settings-stacked-cards__label">Bio</label><textarea id="settings-stacked-cards-bio" name="bio" rows="3" maxlength="160" aria-describedby="settings-stacked-cards-bio-hint" placeholder="Short personal introduction" class="settings-stacked-cards__textarea"></textarea>
+            <p id="settings-stacked-cards-bio-hint" class="settings-stacked-cards__field-hint">Keep your introduction under 160 characters.</p>
+          </div>
+        </div>
+        <footer class="settings-stacked-cards__footer">
+          <p class="settings-stacked-cards__save-note">Profile changes apply to your account.</p>
+          <button type="submit" class="settings-stacked-cards__action settings-stacked-cards__action--primary">Save profile</button>
+        </footer>
+      </form>
+      <form aria-labelledby="settings-stacked-cards-password-title" class="settings-stacked-cards__card">
+        <div class="settings-stacked-cards__card-body">
+          <div>
+            <h2 id="settings-stacked-cards-password-title" class="settings-stacked-cards__heading">Password</h2>
+            <p class="settings-stacked-cards__description">Explain how to keep account access secure.</p>
+          </div>
+          <div class="settings-stacked-cards__field"><label for="settings-stacked-cards-current" class="settings-stacked-cards__label">Current password</label><input id="settings-stacked-cards-current" type="password" name="current" value="" class="settings-stacked-cards__text-field"></div>
+          <div class="settings-stacked-cards__field">
+            <label for="settings-stacked-cards-new" class="settings-stacked-cards__label">New password</label><input id="settings-stacked-cards-new" type="password" aria-describedby="settings-stacked-cards-new-hint" name="new" value="" class="settings-stacked-cards__text-field">
+            <p id="settings-stacked-cards-new-hint" class="settings-stacked-cards__field-hint">Use at least 12 characters.</p>
+          </div>
+        </div>
+        <footer class="settings-stacked-cards__footer">
+          <p class="settings-stacked-cards__save-note">Use a password you have not used before.</p>
+          <button type="submit" class="settings-stacked-cards__action settings-stacked-cards__action--primary">Save password</button>
+        </footer>
+      </form>
+      <form aria-labelledby="settings-stacked-cards-notifications-title" class="settings-stacked-cards__card">
+        <div class="settings-stacked-cards__card-body">
+          <div>
+            <h2 id="settings-stacked-cards-notifications-title" class="settings-stacked-cards__heading">Notifications</h2>
+            <p class="settings-stacked-cards__description">Choose which activity can send an alert.</p>
+          </div>
+          <div class="settings-stacked-cards__switch-row">
+            <div class="settings-stacked-cards__field">
+              <label for="settings-stacked-cards-mentions" class="settings-stacked-cards__control-label">Mentions</label>
+              <p id="settings-stacked-cards-mentions-hint" class="settings-stacked-cards__switch-hint">Receive an alert when someone mentions you.</p>
+            </div>
+            <label class="settings-stacked-cards__switch">
+              <input id="settings-stacked-cards-mentions" type="checkbox" role="switch" aria-describedby="settings-stacked-cards-mentions-hint" name="mentions" checked class="settings-stacked-cards__switch-input">
+              <span aria-hidden="true" class="settings-stacked-cards__switch-track"></span>
+              <span aria-hidden="true" class="settings-stacked-cards__switch-knob"></span>
+            </label>
+          </div>
+          <div class="settings-stacked-cards__switch-row">
+            <div class="settings-stacked-cards__field">
+              <label for="settings-stacked-cards-requests" class="settings-stacked-cards__control-label">Access requests</label>
+              <p id="settings-stacked-cards-requests-hint" class="settings-stacked-cards__switch-hint">Review requests to join your workspace.</p>
+            </div>
+            <label class="settings-stacked-cards__switch">
+              <input id="settings-stacked-cards-requests" type="checkbox" role="switch" aria-describedby="settings-stacked-cards-requests-hint" name="requests" checked class="settings-stacked-cards__switch-input">
+              <span aria-hidden="true" class="settings-stacked-cards__switch-track"></span>
+              <span aria-hidden="true" class="settings-stacked-cards__switch-knob"></span>
+            </label>
+          </div>
+          <div class="settings-stacked-cards__switch-row">
+            <div class="settings-stacked-cards__field">
+              <label for="settings-stacked-cards-digest" class="settings-stacked-cards__control-label">Weekly summary</label>
+              <p id="settings-stacked-cards-digest-hint" class="settings-stacked-cards__switch-hint">Get a weekly email of recent changes.</p>
+            </div>
+            <label class="settings-stacked-cards__switch">
+              <input id="settings-stacked-cards-digest" type="checkbox" role="switch" aria-describedby="settings-stacked-cards-digest-hint" name="digest" class="settings-stacked-cards__switch-input">
+              <span aria-hidden="true" class="settings-stacked-cards__switch-track"></span>
+              <span aria-hidden="true" class="settings-stacked-cards__switch-knob"></span>
+            </label>
+          </div>
+        </div>
+        <footer class="settings-stacked-cards__footer">
+          <p class="settings-stacked-cards__save-note">These preferences affect only your account.</p>
+          <button type="submit" class="settings-stacked-cards__action settings-stacked-cards__action--primary">Save notifications</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+</section>

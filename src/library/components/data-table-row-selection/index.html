@@ -1,0 +1,81 @@
+<section class="data-table-row-selection">
+  <div class="data-table-row-selection__container">
+    <h2 class="data-table-row-selection__heading">Items for review</h2>
+    <p class="data-table-row-selection__summary">Select records to review them or apply an action together.</p>
+    <div class="data-table-row-selection__selection">
+      <div class="data-table-row-selection__bulk-actions">
+        <p class="data-table-row-selection__bulk-label">Bulk actions for selected rows</p>
+        <div class="data-table-row-selection__actions">
+          <button type="button" aria-label="Archive selected rows" class="data-table-row-selection__action">Archive</button>
+          <button type="button" aria-label="Assign selected rows" class="data-table-row-selection__action">Assign</button>
+          <button type="button" aria-label="Delete selected rows" class="data-table-row-selection__action">Delete</button>
+        </div>
+      </div>
+      <div role="region" tabindex="0" aria-label="Selectable items table" class="data-table-row-selection__table-region">
+        <table class="data-table-row-selection__table">
+          <caption class="data-table-row-selection__table-caption">Selectable records with owners, statuses, dates and amounts</caption>
+          <thead class="data-table-row-selection__table-head">
+            <tr>
+              <th scope="col" class="data-table-row-selection__column-heading data-table-row-selection__column-heading--primary">Selection</th>
+              <th scope="col" class="data-table-row-selection__column-heading data-table-row-selection__column-heading--primary">Name</th>
+              <th scope="col" class="data-table-row-selection__column-heading data-table-row-selection__column-heading--secondary">Owner</th>
+              <th scope="col" class="data-table-row-selection__column-heading data-table-row-selection__column-heading--primary">Status</th>
+              <th scope="col" class="data-table-row-selection__column-heading data-table-row-selection__column-heading--secondary">Date</th>
+              <th scope="col" class="data-table-row-selection__column-heading data-table-row-selection__column-heading--numeric">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="data-table-row-selection__record">
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><input type="checkbox" aria-label="Select Item 001" name="selected" checked value="001" class="data-table-row-selection__row-checkbox"></td>
+              <th scope="row" class="data-table-row-selection__cell data-table-row-selection__cell--name">Item 001</th>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--owner">Alex Rivera</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><span class="data-table-row-selection__status-badge">Active</span></td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--date">Mar 14, 2026</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--amount">$240.00</td>
+            </tr>
+            <tr class="data-table-row-selection__record">
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><input type="checkbox" aria-label="Select Item 002" name="selected" value="002" class="data-table-row-selection__row-checkbox"></td>
+              <th scope="row" class="data-table-row-selection__cell data-table-row-selection__cell--name">Item 002</th>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--owner">Jordan Lee</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><span class="data-table-row-selection__status-badge">Pending</span></td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--date">Mar 13, 2026</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--amount">$160.00</td>
+            </tr>
+            <tr class="data-table-row-selection__record">
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><input type="checkbox" aria-label="Select Item 003" name="selected" value="003" class="data-table-row-selection__row-checkbox"></td>
+              <th scope="row" class="data-table-row-selection__cell data-table-row-selection__cell--name">Item 003</th>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--owner">Sam Taylor</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><span class="data-table-row-selection__status-badge">Active</span></td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--date">Mar 12, 2026</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--amount">$200.00</td>
+            </tr>
+            <tr class="data-table-row-selection__record">
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><input type="checkbox" aria-label="Select Item 004" name="selected" value="004" class="data-table-row-selection__row-checkbox"></td>
+              <th scope="row" class="data-table-row-selection__cell data-table-row-selection__cell--name">Item 004</th>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--owner">Casey Morgan</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><span class="data-table-row-selection__status-badge">Archived</span></td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--date">Mar 11, 2026</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--amount">$120.00</td>
+            </tr>
+            <tr class="data-table-row-selection__record">
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><input type="checkbox" aria-label="Select Item 005" name="selected" value="005" class="data-table-row-selection__row-checkbox"></td>
+              <th scope="row" class="data-table-row-selection__cell data-table-row-selection__cell--name">Item 005</th>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--owner">Riley Chen</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><span class="data-table-row-selection__status-badge">Active</span></td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--date">Mar 10, 2026</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--amount">$300.00</td>
+            </tr>
+            <tr class="data-table-row-selection__record">
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><input type="checkbox" aria-label="Select Item 006" name="selected" value="006" class="data-table-row-selection__row-checkbox"></td>
+              <th scope="row" class="data-table-row-selection__cell data-table-row-selection__cell--name">Item 006</th>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--owner">Morgan Blake</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--selection"><span class="data-table-row-selection__status-badge">Pending</span></td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--date">Mar 09, 2026</td>
+              <td class="data-table-row-selection__cell data-table-row-selection__cell--amount">$180.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

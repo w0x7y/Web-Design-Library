@@ -1,0 +1,142 @@
+<section class="data-table-toolbar-pagination">
+  <div class="data-table-toolbar-pagination__container">
+    <header class="data-table-toolbar-pagination__header">
+      <div>
+        <h2 class="data-table-toolbar-pagination__heading">Items</h2>
+        <p class="data-table-toolbar-pagination__summary">A short summary of the records and their current status.</p>
+      </div>
+      <div class="data-table-toolbar-pagination__actions">
+        <a href="#" class="data-table-toolbar-pagination__action data-table-toolbar-pagination__action--secondary">Export</a>
+        <a href="#" class="data-table-toolbar-pagination__action data-table-toolbar-pagination__action--primary">New item</a>
+      </div>
+    </header>
+    <nav aria-label="Item status" class="data-table-toolbar-pagination__status-tabs">
+      <a href="#" aria-current="page" class="data-table-toolbar-pagination__status-tab data-table-toolbar-pagination__status-tab--current">All<span class="data-table-toolbar-pagination__responsive-label"><span class="data-table-toolbar-pagination__badge">64</span></span></a>
+      <a href="#" class="data-table-toolbar-pagination__status-tab data-table-toolbar-pagination__status-tab--idle">Active<span class="data-table-toolbar-pagination__responsive-label"><span class="data-table-toolbar-pagination__badge">48</span></span></a>
+      <a href="#" class="data-table-toolbar-pagination__status-tab data-table-toolbar-pagination__status-tab--idle">Pending<span class="data-table-toolbar-pagination__responsive-label"><span class="data-table-toolbar-pagination__badge">12</span></span></a>
+      <a href="#" class="data-table-toolbar-pagination__status-tab data-table-toolbar-pagination__status-tab--idle">Archived<span class="data-table-toolbar-pagination__responsive-label"><span class="data-table-toolbar-pagination__badge">4</span></span></a>
+    </nav>
+    <form role="search" class="data-table-toolbar-pagination__toolbar">
+      <div class="data-table-toolbar-pagination__search-field"><label for="data-table-toolbar-pagination-search" class="data-table-toolbar-pagination__accessible-label">Search items</label><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__search-icon">
+        <path d="M21 21l-5-5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0"></path>
+      </svg><input id="data-table-toolbar-pagination-search" type="search" placeholder="Search items" name="search" class="data-table-toolbar-pagination__input"></div>
+      <div><label for="data-table-toolbar-pagination-status" class="data-table-toolbar-pagination__accessible-label">Status</label><select id="data-table-toolbar-pagination-status" name="status" class="data-table-toolbar-pagination__select"><option>All statuses</option><option>Active</option><option>Pending</option><option>Archived</option></select></div>
+      <button type="button" class="data-table-toolbar-pagination__action data-table-toolbar-pagination__action--secondary">More filters</button>
+    </form>
+    <div role="region" tabindex="0" aria-label="Items table" class="data-table-toolbar-pagination__table-region">
+      <table class="data-table-toolbar-pagination__table">
+        <caption class="data-table-toolbar-pagination__accessible-label">Item identities, dates, units, amounts and statuses</caption>
+        <thead class="data-table-toolbar-pagination__table-head">
+          <tr>
+            <th scope="col" class="data-table-toolbar-pagination__column-heading data-table-toolbar-pagination__column-heading--text"><a href="#" aria-label="Sort by id" class="data-table-toolbar-pagination__sort-link">ID<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+              <path d="m8 14 4-4 4 4"></path>
+            </svg></a></th>
+            <th scope="col" class="data-table-toolbar-pagination__column-heading data-table-toolbar-pagination__column-heading--text"><a href="#" aria-label="Sort by name" class="data-table-toolbar-pagination__sort-link">Name<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+              <path d="m8 14 4-4 4 4"></path>
+            </svg></a></th>
+            <th scope="col" aria-sort="descending" class="data-table-toolbar-pagination__column-heading data-table-toolbar-pagination__column-heading--text"><a href="#" aria-label="Sort by date" class="data-table-toolbar-pagination__sort-link">Date<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+              <path d="m8 10 4 4 4-4"></path>
+            </svg></a></th>
+            <th scope="col" class="data-table-toolbar-pagination__column-heading data-table-toolbar-pagination__column-heading--numeric"><a href="#" aria-label="Sort by units" class="data-table-toolbar-pagination__sort-link">Units<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+              <path d="m8 14 4-4 4 4"></path>
+            </svg></a></th>
+            <th scope="col" class="data-table-toolbar-pagination__column-heading data-table-toolbar-pagination__column-heading--numeric"><a href="#" aria-label="Sort by amount" class="data-table-toolbar-pagination__sort-link">Amount<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+              <path d="m8 14 4-4 4 4"></path>
+            </svg></a></th>
+            <th scope="col" class="data-table-toolbar-pagination__column-heading data-table-toolbar-pagination__column-heading--text"><a href="#" aria-label="Sort by status" class="data-table-toolbar-pagination__sort-link">Status<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+              <path d="m8 14 4-4 4 4"></path>
+            </svg></a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 001" class="data-table-toolbar-pagination__record-link">001</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Alex Rivera</span><span class="data-table-toolbar-pagination__email">name@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 14, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">12</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$240.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Active</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 002" class="data-table-toolbar-pagination__record-link">002</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Jordan Lee</span><span class="data-table-toolbar-pagination__email">jordan@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 13, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">8</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$160.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Pending</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 003" class="data-table-toolbar-pagination__record-link">003</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Sam Taylor</span><span class="data-table-toolbar-pagination__email">sam@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 12, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">10</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$200.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Active</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 004" class="data-table-toolbar-pagination__record-link">004</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Casey Morgan</span><span class="data-table-toolbar-pagination__email">casey@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 11, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">6</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$120.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Archived</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 005" class="data-table-toolbar-pagination__record-link">005</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Riley Chen</span><span class="data-table-toolbar-pagination__email">riley@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 10, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">15</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$300.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Active</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 006" class="data-table-toolbar-pagination__record-link">006</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Morgan Blake</span><span class="data-table-toolbar-pagination__email">morgan@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 09, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">9</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$180.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Pending</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 007" class="data-table-toolbar-pagination__record-link">007</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Jamie Park</span><span class="data-table-toolbar-pagination__email">jamie@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 08, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">5</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$100.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Active</span></td>
+          </tr>
+          <tr class="data-table-toolbar-pagination__record">
+            <td class="data-table-toolbar-pagination__identity-cell"><a href="#" aria-label="View item 008" class="data-table-toolbar-pagination__record-link">008</a></td>
+            <th scope="row" class="data-table-toolbar-pagination__name-cell"><span class="data-table-toolbar-pagination__name">Taylor Reed</span><span class="data-table-toolbar-pagination__email">taylor@example.com</span></th>
+            <td class="data-table-toolbar-pagination__date-cell">Mar 07, 2026</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">7</td>
+            <td class="data-table-toolbar-pagination__numeric-cell">$140.00</td>
+            <td class="data-table-toolbar-pagination__status-cell"><span class="data-table-toolbar-pagination__badge">Active</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="data-table-toolbar-pagination__footer">
+      <p class="data-table-toolbar-pagination__count">Showing 1–8 of 64</p>
+      <nav aria-label="Pagination" class="data-table-toolbar-pagination__pagination">
+        <button type="button" disabled aria-label="Previous page" class="data-table-toolbar-pagination__previous-page">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+            <path d="m14 7-5 5 5 5"></path>
+          </svg>
+          <span class="data-table-toolbar-pagination__responsive-label">Previous</span>
+        </button>
+        <a href="#" aria-label="Page 1" aria-current="page" class="data-table-toolbar-pagination__page-link data-table-toolbar-pagination__page-link--current">1</a>
+        <a href="#" aria-label="Page 2" class="data-table-toolbar-pagination__page-link data-table-toolbar-pagination__page-link--idle">2</a>
+        <a href="#" aria-label="Page 3" class="data-table-toolbar-pagination__page-link data-table-toolbar-pagination__page-link--idle">3</a>
+        <span aria-hidden="true" class="data-table-toolbar-pagination__ellipsis">…</span>
+        <a href="#" aria-label="Page 8" class="data-table-toolbar-pagination__page-link data-table-toolbar-pagination__page-link--idle">8</a>
+        <a href="#" aria-label="Next page" class="data-table-toolbar-pagination__next-page">
+          <span class="data-table-toolbar-pagination__responsive-label">Next</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="data-table-toolbar-pagination__chevron">
+            <path d="m10 7 5 5-5 5"></path>
+          </svg>
+        </a>
+      </nav>
+    </footer>
+  </div>
+</section>

@@ -1,0 +1,119 @@
+<section class="settings-master-detail">
+  <form class="settings-master-detail__form">
+    <h1 class="settings-master-detail__title">Member settings</h1>
+    <p class="settings-master-detail__lede">Select a member to review their permissions and default access.</p>
+    <div class="settings-master-detail__layout">
+      <fieldset class="settings-master-detail__field">
+        <legend class="settings-master-detail__list-heading">Choose member</legend>
+        <div class="settings-master-detail__member-list"><label class="settings-master-detail__member">
+          <span aria-hidden="true" class="settings-master-detail__avatar">AR</span>
+          <span class="settings-master-detail__member-copy"><span class="settings-master-detail__member-name">Alex Rivera</span><span class="settings-master-detail__member-meta">Admin · Last active Mar 14</span></span>
+          <input id="settings-master-detail-alex" type="radio" aria-label="Select Alex Rivera" name="member" checked value="alex" class="settings-master-detail__member-radio">
+        </label><label class="settings-master-detail__member">
+          <span aria-hidden="true" class="settings-master-detail__avatar">JL</span>
+          <span class="settings-master-detail__member-copy"><span class="settings-master-detail__member-name">Jordan Lee</span><span class="settings-master-detail__member-meta">Member · Last active Mar 13</span></span>
+          <input id="settings-master-detail-jordan" type="radio" aria-label="Select Jordan Lee" name="member" value="jordan" class="settings-master-detail__member-radio">
+        </label><label class="settings-master-detail__member">
+          <span aria-hidden="true" class="settings-master-detail__avatar">ST</span>
+          <span class="settings-master-detail__member-copy"><span class="settings-master-detail__member-name">Sam Taylor</span><span class="settings-master-detail__member-meta">Viewer · Last active Mar 12</span></span>
+          <input id="settings-master-detail-sam" type="radio" aria-label="Select Sam Taylor" name="member" value="sam" class="settings-master-detail__member-radio">
+        </label></div>
+      </fieldset>
+      <div class="settings-master-detail__detail-panel"><fieldset class="settings-master-detail__detail settings-master-detail__detail--alex">
+        <legend class="settings-master-detail__detail-heading">Alex Rivera</legend>
+        <p class="settings-master-detail__description">Describe the permissions and default access for this member.</p>
+        <div class="settings-master-detail__permissions">
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-alex-edit" type="checkbox" aria-describedby="settings-master-detail-alex-edit-hint" name="alex-edit" checked class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-alex-edit" class="settings-master-detail__label">Edit shared content</label>
+              <p id="settings-master-detail-alex-edit-hint" class="settings-master-detail__permission-hint">Allow this member to update shared items.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-alex-invite" type="checkbox" aria-describedby="settings-master-detail-alex-invite-hint" name="alex-invite" checked class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-alex-invite" class="settings-master-detail__label">Invite members</label>
+              <p id="settings-master-detail-alex-invite-hint" class="settings-master-detail__permission-hint">Allow this member to send workspace invitations.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-alex-export" type="checkbox" aria-describedby="settings-master-detail-alex-export-hint" name="alex-export" checked class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-alex-export" class="settings-master-detail__label">Export records</label>
+              <p id="settings-master-detail-alex-export-hint" class="settings-master-detail__permission-hint">Allow this member to download workspace data.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__field">
+            <label for="settings-master-detail-alex-role" class="settings-master-detail__field-label">Default role</label><select id="settings-master-detail-alex-role" name="alex-role" aria-describedby="settings-master-detail-alex-role-hint" class="settings-master-detail__select"><option>Admin</option><option>Member</option><option>Viewer</option></select>
+            <p id="settings-master-detail-alex-role-hint" class="settings-master-detail__field-hint">Use this role for new shared items.</p>
+          </div>
+        </div>
+      </fieldset><fieldset class="settings-master-detail__detail settings-master-detail__detail--jordan">
+        <legend class="settings-master-detail__detail-heading">Jordan Lee</legend>
+        <p class="settings-master-detail__description">Describe the permissions and default access for this member.</p>
+        <div class="settings-master-detail__permissions">
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-jordan-edit" type="checkbox" aria-describedby="settings-master-detail-jordan-edit-hint" name="jordan-edit" checked class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-jordan-edit" class="settings-master-detail__label">Edit shared content</label>
+              <p id="settings-master-detail-jordan-edit-hint" class="settings-master-detail__permission-hint">Allow this member to update shared items.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-jordan-invite" type="checkbox" aria-describedby="settings-master-detail-jordan-invite-hint" name="jordan-invite" class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-jordan-invite" class="settings-master-detail__label">Invite members</label>
+              <p id="settings-master-detail-jordan-invite-hint" class="settings-master-detail__permission-hint">Allow this member to send workspace invitations.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-jordan-export" type="checkbox" aria-describedby="settings-master-detail-jordan-export-hint" name="jordan-export" class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-jordan-export" class="settings-master-detail__label">Export records</label>
+              <p id="settings-master-detail-jordan-export-hint" class="settings-master-detail__permission-hint">Allow this member to download workspace data.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__field">
+            <label for="settings-master-detail-jordan-role" class="settings-master-detail__field-label">Default role</label><select id="settings-master-detail-jordan-role" name="jordan-role" aria-describedby="settings-master-detail-jordan-role-hint" class="settings-master-detail__select"><option>Member</option><option>Viewer</option><option>Admin</option></select>
+            <p id="settings-master-detail-jordan-role-hint" class="settings-master-detail__field-hint">Use this role for new shared items.</p>
+          </div>
+        </div>
+      </fieldset><fieldset class="settings-master-detail__detail settings-master-detail__detail--sam">
+        <legend class="settings-master-detail__detail-heading">Sam Taylor</legend>
+        <p class="settings-master-detail__description">Describe the permissions and default access for this member.</p>
+        <div class="settings-master-detail__permissions">
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-sam-edit" type="checkbox" aria-describedby="settings-master-detail-sam-edit-hint" name="sam-edit" class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-sam-edit" class="settings-master-detail__label">Edit shared content</label>
+              <p id="settings-master-detail-sam-edit-hint" class="settings-master-detail__permission-hint">Allow this member to update shared items.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-sam-invite" type="checkbox" aria-describedby="settings-master-detail-sam-invite-hint" name="sam-invite" class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-sam-invite" class="settings-master-detail__label">Invite members</label>
+              <p id="settings-master-detail-sam-invite-hint" class="settings-master-detail__permission-hint">Allow this member to send workspace invitations.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__permission">
+            <input id="settings-master-detail-sam-export" type="checkbox" aria-describedby="settings-master-detail-sam-export-hint" name="sam-export" class="settings-master-detail__checkbox">
+            <div class="settings-master-detail__field">
+              <label for="settings-master-detail-sam-export" class="settings-master-detail__label">Export records</label>
+              <p id="settings-master-detail-sam-export-hint" class="settings-master-detail__permission-hint">Allow this member to download workspace data.</p>
+            </div>
+          </div>
+          <div class="settings-master-detail__field">
+            <label for="settings-master-detail-sam-role" class="settings-master-detail__field-label">Default role</label><select id="settings-master-detail-sam-role" name="sam-role" aria-describedby="settings-master-detail-sam-role-hint" class="settings-master-detail__select"><option>Viewer</option><option>Member</option><option>Admin</option></select>
+            <p id="settings-master-detail-sam-role-hint" class="settings-master-detail__field-hint">Use this role for new shared items.</p>
+          </div>
+        </div>
+      </fieldset></div>
+    </div>
+    <footer class="settings-master-detail__footer">
+      <p class="settings-master-detail__save-note">Changes apply when you save member settings.</p>
+      <button type="submit" class="settings-master-detail__action">Save changes</button>
+    </footer>
+  </form>
+</section>

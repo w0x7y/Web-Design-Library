@@ -1,0 +1,362 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.settings-stacked-cards, .settings-stacked-cards *, .settings-stacked-cards *::before, .settings-stacked-cards *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.settings-stacked-cards { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.settings-stacked-cards :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.settings-stacked-cards a { color: inherit; text-decoration: inherit; }
+.settings-stacked-cards :is(b, strong) { font-weight: bolder; }
+.settings-stacked-cards :is(ol, ul, menu) { list-style: none; }
+.settings-stacked-cards :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.settings-stacked-cards :is(img, video) { max-width: 100%; height: auto; }
+.settings-stacked-cards :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.settings-stacked-cards ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.settings-stacked-cards table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.settings-stacked-cards summary { display: list-item; }
+
+/* Layout */
+
+.settings-stacked-cards {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.settings-stacked-cards .settings-stacked-cards__container {
+  margin-inline: auto;
+  max-width: 48rem; /* container-3xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Text */
+
+.settings-stacked-cards .settings-stacked-cards__title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.settings-stacked-cards .settings-stacked-cards__lede {
+  margin-top: 1rem;
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Layout */
+
+.settings-stacked-cards .settings-stacked-cards__cards {
+  margin-top: 2.5rem;
+}
+
+.settings-stacked-cards .settings-stacked-cards__card {
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+}
+
+.settings-stacked-cards .settings-stacked-cards__card-body {
+  padding: 1.5rem;
+}
+
+/* Text */
+
+.settings-stacked-cards .settings-stacked-cards__heading {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+.settings-stacked-cards .settings-stacked-cards__description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Placeholders */
+
+.settings-stacked-cards .settings-stacked-cards__photo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.settings-stacked-cards .settings-stacked-cards__avatar {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 500;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Controls */
+
+.settings-stacked-cards .settings-stacked-cards__control-label {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+/* Actions */
+
+.settings-stacked-cards .settings-stacked-cards__actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.settings-stacked-cards .settings-stacked-cards__action {
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.settings-stacked-cards .settings-stacked-cards__action--secondary {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Layout */
+
+.settings-stacked-cards .settings-stacked-cards__name-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Controls */
+
+.settings-stacked-cards .settings-stacked-cards__field {
+  min-width: 0;
+}
+
+.settings-stacked-cards .settings-stacked-cards__label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.settings-stacked-cards .settings-stacked-cards__text-field {
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.settings-stacked-cards .settings-stacked-cards__textarea {
+  margin-top: 0.5rem;
+  min-height: 6rem;
+  width: 100%;
+  resize: vertical;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  padding-block: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.settings-stacked-cards .settings-stacked-cards__field-hint {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Actions */
+
+.settings-stacked-cards .settings-stacked-cards__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom-right-radius: 0.5rem; /* radius-lg */
+  border-bottom-left-radius: 0.5rem; /* radius-lg */
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+}
+
+.settings-stacked-cards .settings-stacked-cards__save-note {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.settings-stacked-cards .settings-stacked-cards__action--primary {
+  width: 100%;
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+/* Switches */
+
+.settings-stacked-cards .settings-stacked-cards__switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch-hint {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  cursor: pointer;
+  align-items: center;
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch-track {
+  height: 1.5rem;
+  width: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch-knob {
+  pointer-events: none;
+  position: absolute;
+  left: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background-color: #fff; /* white */
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Layout */
+
+.settings-stacked-cards :where(.settings-stacked-cards .settings-stacked-cards__cards > :not(:last-child)) {
+  margin-block-start: 0;
+  margin-block-end: 1.5rem;
+}
+
+.settings-stacked-cards :where(.settings-stacked-cards .settings-stacked-cards__card-body > :not(:last-child)) {
+  margin-block-start: 0;
+  margin-block-end: 1.5rem;
+}
+
+/* Switches */
+
+.settings-stacked-cards .settings-stacked-cards__switch-input:checked ~ .settings-stacked-cards__switch-track {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch-input:checked ~ .settings-stacked-cards__switch-knob {
+  translate: 1.25rem 0;
+}
+
+.settings-stacked-cards .settings-stacked-cards__switch-input:focus-visible ~ .settings-stacked-cards__switch-track, .settings-stacked-cards .settings-stacked-cards__action:focus-visible, .settings-stacked-cards .settings-stacked-cards__text-field:focus-visible, .settings-stacked-cards .settings-stacked-cards__textarea:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+/* Controls */
+
+.settings-stacked-cards .settings-stacked-cards__text-field::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.settings-stacked-cards .settings-stacked-cards__textarea::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .settings-stacked-cards .settings-stacked-cards__action--secondary:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__action--primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+@media (width >= 40rem) {
+  .settings-stacked-cards .settings-stacked-cards__container {
+    padding-block: 6rem;
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__name-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__action--primary {
+    width: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .settings-stacked-cards .settings-stacked-cards__switch-track {
+    border-color: ButtonText;
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__switch-knob {
+    background-color: CanvasText;
+  }
+
+  .settings-stacked-cards .settings-stacked-cards__switch-input:checked ~ .settings-stacked-cards__switch-knob {
+    background-color: CanvasText;
+  }
+}
