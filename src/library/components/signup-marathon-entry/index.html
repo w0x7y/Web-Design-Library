@@ -1,0 +1,81 @@
+<section class="signup-marathon-entry">
+  <div class="signup-marathon-entry__inner">
+    <aside class="signup-marathon-entry__bib">
+      <p class="signup-marathon-entry__eyebrow">Longmile / Race entry 2027</p>
+      <p class="signup-marathon-entry__distance">26.2</p>
+      <p class="signup-marathon-entry__distance-label">MILES / ONE FINISH LINE</p>
+      <dl class="signup-marathon-entry__race-facts">
+        <div class="signup-marathon-entry__fact">
+          <dt>Race day</dt>
+          <dd>18 April 2027</dd>
+        </div>
+        <div class="signup-marathon-entry__fact">
+          <dt>City</dt>
+          <dd>Manchester</dd>
+        </div>
+        <div class="signup-marathon-entry__fact">
+          <dt>Entry</dt>
+          <dd>£65</dd>
+        </div>
+      </dl>
+      <p
+        class="signup-marathon-entry__copy"
+      >
+        A closed-road course through the city, with a riverside finish. Entry includes your race number and timing chip.
+      </p>
+    </aside>
+    <form action="#" method="post" class="signup-marathon-entry__form">
+      <h2 class="signup-marathon-entry__heading">Put your name on the start line.</h2>
+      <div class="signup-marathon-entry__name-row">
+        <label for="signup-marathon-entry-name" class="signup-marathon-entry__label">
+          <span class="signup-marathon-entry__label-text">Full name</span>
+          <input id="signup-marathon-entry-name" name="name" type="text" autocomplete="name" required class="signup-marathon-entry__field" />
+        </label>
+        <label for="signup-marathon-entry-email" class="signup-marathon-entry__label">
+          <span class="signup-marathon-entry__label-text">Email address</span>
+          <input id="signup-marathon-entry-email" name="email" type="email" autocomplete="email" required class="signup-marathon-entry__field" />
+        </label>
+      </div>
+      <label for="signup-marathon-entry-pace" class="signup-marathon-entry__label">
+        <span class="signup-marathon-entry__label-text">Expected finish time</span>
+        <select id="signup-marathon-entry-pace" name="pace" class="signup-marathon-entry__field">
+          <option value="under4">Under 4 hours</option>
+          <option value="4to5">4 to 5 hours</option>
+          <option value="over5">Over 5 hours</option>
+          <option value="first">This is my first marathon</option>
+        </select>
+      </label>
+      <label for="signup-marathon-entry-emergency" class="signup-marathon-entry__label">
+        <span class="signup-marathon-entry__label-text">Emergency contact phone</span>
+        <input
+          id="signup-marathon-entry-emergency"
+          name="emergency"
+          type="tel"
+          autocomplete="off"
+          required
+          aria-describedby="signup-marathon-entry-emergency-hint"
+          class="signup-marathon-entry__field"
+        />
+        <p
+          id="signup-marathon-entry-emergency-hint"
+          class="signup-marathon-entry__hint"
+        >
+          Use the number of someone who will be reachable on race day.
+        </p>
+      </label>
+      <label for="signup-marathon-entry-rules" class="signup-marathon-entry__check">
+        <input id="signup-marathon-entry-rules" type="checkbox" name="rules" required class="signup-marathon-entry__checkbox" />
+        <span>I have read and accept the race entry conditions.</span>
+      </label>
+      <button type="submit" class="signup-marathon-entry__cta">Continue to entry payment</button>
+      <details class="signup-marathon-entry__details">
+        <summary class="signup-marathon-entry__summary">What happens after payment?</summary>
+        <p
+          class="signup-marathon-entry__answer"
+        >
+          We will email your entry confirmation. Your runner pack and race-number collection details follow nearer race day.
+        </p>
+      </details>
+    </form>
+  </div>
+</section>

@@ -73,4 +73,7 @@ export const IMAGES = {
   butterflyNectar: 'https://images.unsplash.com/photo-1475809913362-28a064062ccd?w=800&q=80',
   // Added for new-toggles
   horseWoodland: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80',
+  // Added for new-signup
+  vineyardMorningRows: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=1600&q=80',
+  cookingSchoolKitchen: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&q=80',
 } as const
