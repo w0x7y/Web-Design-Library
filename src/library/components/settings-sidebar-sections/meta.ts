@@ -10,19 +10,21 @@ export default {
   preview: {
     kind: 'section',
   },
-  wireframe: `┌─────────────────────────────────────────────────────────┐
-│ Settings                                                │
-│ Workspace settings                                      │
-│ Navigation       │ General: title    First / Last name  │
-│ [General]        │ Description       URL / selects      │
-│ [Notifications]  ├────────────────────────────────────  │
-│ [Members]        │ Notifications     Label    [Switch]  │
-│ [Billing]        │ Description       Hint     [Switch]  │
-│ [Security]       │                   Label    [Switch]  │
-│ [Advanced]       │                   Hint     [Switch]  │
-│                  ├────────────────────────────────────  │
-│                  │ Last saved          [Discard] [Save] │
-└─────────────────────────────────────────────────────────┘`,
+  wireframe: `┌──────────────────────────────────────────────────────────┐
+│ Settings                                                 │
+│ Workspace settings                                       │
+├───────────────────┬──────────────────────────────────────┤
+│ Navigation        │ General: title    First / Last name  │
+│ [General]         │ Description       URL / selects      │
+│ [Notifications]   ├──────────────────────────────────────┤
+│ [Members]         │ Notifications                        │
+│ [Billing]         │ Activity updates / Hint    [Switch]  │
+│ [Security]        │ Mentions / Hint            [Switch]  │
+│ [Advanced]        │ Reminders / Hint           [Switch]  │
+│                   │ Weekly digest / Hint       [Switch]  │
+│                   ├──────────────────────────────────────┤
+│                   │ Last saved        [Discard] [Save]   │
+└───────────────────┴──────────────────────────────────────┘`,
   brief: {
     layout:
       'A neutral-50 section with a 1280px max-w-7xl shell. 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. A 40px mt-10 gap follows the heading. At 1024px the grid has a 208px sidebar and flexible white bordered rounded-lg card, separated by 32px gap-8. Each card section has 24px p-6 padding and a 32px gap; at 768px a 224px description column sits beside controls. The footer uses 24px horizontal and 16px vertical padding.',

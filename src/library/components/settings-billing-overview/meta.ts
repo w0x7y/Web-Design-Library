@@ -2,11 +2,11 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'settings-billing-overview',
-  name: 'Settings — Plan and billing overview',
+  name: 'Settings — Billing cards and invoices',
   category: 'settings',
   tags: ['asymmetric', 'numbers', 'table'],
   description:
-    'Plan, usage and payment cards above an invoice history table. Use to gather the billing information a workspace owner needs in one section.',
+    'Current plan and payment method cards above an invoice history table. Use to gather the billing information a workspace owner needs in one section.',
   preview: {
     kind: 'section',
   },
@@ -15,8 +15,8 @@ export default {
 │ Lede                                                    │
 │ ┌──────────────────────────┐ ┌───────────────────────┐  │
 │ │ Current plan             │ │ Payment method        │  │
-│ │ Plan name   $29 / month   │ │ Card ending 4242      │ │
-│ │ Usage bar: 8 of 10 seats  │ │ Expiry / email        │ │
+│ │ Plan name   $29 / month  │ │ Card ending 4242      │  │
+│ │ Usage bar: 8 of 10 seats │ │ Expiry / email        │  │
 │ │ [Change plan] Compare    │ │ [Update]              │  │
 │ └──────────────────────────┘ └───────────────────────┘  │
 │ Invoices                                                │

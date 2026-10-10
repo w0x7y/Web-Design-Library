@@ -8,15 +8,15 @@ export default {
   description: 'A floating credential card over a full-width image placeholder, aligned right on desktop. Use when media should fill the sign-in view.',
   preview: { kind: 'section' },
   wireframe: `┌──────────────────────────────────────────────────────────┐
-│┌──────────────────────────────────────────────────────┐  │
-││                            ┌───────────────────────┐ │  │
-││                            │ Logo / Sign-in title  │ │  │
-││           Image            │ Email                 │ │  │
-││                            │ Password              │ │  │
-││                            │ [Sign in            ] │ │  │
-││                            │ [Sign up]             │ │  │
-││                            └───────────────────────┘ │  │
-│└──────────────────────────────────────────────────────┘  │
+│                                                          │
+│                              ┌────────────────────────┐  │
+│                              │ Logo / Sign-in title   │  │
+│         Image                │ Email                  │  │
+│                              │ Password               │  │
+│                              │ [Sign in]              │  │
+│                              │ [Sign up]              │  │
+│                              └────────────────────────┘  │
+│                                                          │
 └──────────────────────────────────────────────────────────┘`,
   brief: {
     layout: 'A relative section has a 640px minimum height. From 640px an absolute inset-0 neutral-200 image placeholder fills the background, behind a relative 1152px max-w-6xl container with 24px gutters and 64px vertical padding, 96px from 640px. A white max-w-sm card uses 32px padding, 8px radius and shadow-lg. It centres until 1024px, then aligns to the right.',

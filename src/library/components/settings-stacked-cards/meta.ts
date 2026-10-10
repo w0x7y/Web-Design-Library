@@ -13,8 +13,8 @@ export default {
   wireframe: `┌─────────────────────────────────────────────────────────┐
 │ Account settings                                        │
 │ ┌────────────────────────────────────────────────────┐  │
-│ │ Profile       Avatar   [Change] [Remove]            │ │
-│ │ Description   [First name] [Last name]              │ │
+│ │ Profile       Avatar   [Change] [Remove]           │  │
+│ │ Description   [First name] [Last name]             │  │
 │ │               [Email] [Bio text area]              │  │
 │ ├────────────────────────────────────────────────────┤  │
 │ │ Profile hint                         [Save profile]│  │
@@ -25,10 +25,11 @@ export default {
 │ │ Password hint                       [Save password]│  │
 │ └────────────────────────────────────────────────────┘  │
 │ ┌────────────────────────────────────────────────────┐  │
-│ │ Notifications                  Label      [Switch]│   │
-│ │                                Hint       [Switch]│   │
+│ │ Notifications        Mentions        [Switch]      │  │
+│ │                      Access requests [Switch]      │  │
+│ │                      Weekly summary  [Switch]      │  │
 │ ├────────────────────────────────────────────────────┤  │
-│ │ Notification hint                       [Save]    │   │
+│ │ Notification hint                       [Save]     │  │
 │ └────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────┘`,
   brief: {

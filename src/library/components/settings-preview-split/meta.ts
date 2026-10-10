@@ -10,17 +10,19 @@ export default {
   preview: {
     kind: 'section',
   },
-  wireframe: `┌────────────────────────────────────────────────────────────┐
-│ Appearance settings                                        │
-│ Lede                                                       │
-│ ┌──────────────────────────┐    Layout                     │
-│ │                          │    (o) Card ( ) Card ( ) Card │
-│ │          Image           │                               │
-│ │                          │    [Select              v]    │
-│ └──────────────────────────┘    [Select              v]    │
-│ Preview caption                 [ ] Setting + hint         │
-│                                 [Reset] [Save changes]     │
-└────────────────────────────────────────────────────────────┘`,
+  wireframe: `┌──────────────────────────────────────────────────────────────┐
+│ Appearance settings                                          │
+│ Lede                                                         │
+│ ┌─────────────────────────┐ Layout                           │
+│ │                         │ ┌───────────┐┌───────┐┌────────┐ │
+│ │ Image                   │ │ (o) ───   ││ ( ) ─ ││ ( ) ─  │ │
+│ │                         │ │Comfortable││Compact││Spacious│ │
+│ └─────────────────────────┘ └───────────┘└───────┘└────────┘ │
+│ Preview caption              [Select v]                      │
+│                              [Select v]                      │
+│                              [ ] Setting + hint              │
+│                              [Reset] [Save changes]          │
+└──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout:
       'A 1280px max-w-7xl form with 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. At 1024px the content is a 1.2fr/1fr lg:grid-cols-[1.2fr_1fr] grid with 48px gap-12, 40px below the header. A 4:3 rounded-lg media placeholder and 14px caption occupy the left column, sticky 32px from the top. The right has three padded radio cards, two selects, a checkbox and a ruled action footer, with 24px space-y-6.',

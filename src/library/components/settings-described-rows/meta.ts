@@ -10,21 +10,22 @@ export default {
   preview: {
     kind: 'section',
   },
-  wireframe: `┌────────────────────────────────────────────────────────┐
-│ Eyebrow                                                │
-│ Workspace preferences                                  │
-│ Lede                                                   │
-│ Permissions        │ [ ] Setting + hint                │
-│ Description        │ [ ] Other setting + hint          │
-│ ───────────────────┼────────────────────────────────── │
-│ Default access     │ [Select default role       v]     │
-│ Description        │ Hint                              │
-│ ───────────────────┼────────────────────────────────── │
-│ Invitations        │ [Email domain               ]     │
-│ Description        │ (o) Option    ( ) Option          │
-│ ───────────────────┴────────────────────────────────── │
-│ Save note                                      [Save]  │
-└────────────────────────────────────────────────────────┘`,
+  wireframe: `┌──────────────────────────────────────────────────────────┐
+│ Eyebrow                                                  │
+│ Workspace preferences                                    │
+│ Lede                                                     │
+├─────────────────────┬────────────────────────────────────┤
+│ Permissions         │ [ ] Setting + hint                 │
+│ Description         │ [ ] Other setting + hint           │
+├─────────────────────┼────────────────────────────────────┤
+│ Default access      │ [Select default role v]            │
+│ Description         │ Hint                               │
+├─────────────────────┼────────────────────────────────────┤
+│ Invitations         │ [Email domain]                     │
+│ Description         │ (o) Option    ( ) Option           │
+├─────────────────────┴────────────────────────────────────┤
+│ Save note                                      [Save]    │
+└──────────────────────────────────────────────────────────┘`,
   brief: {
     layout:
       'A 896px max-w-4xl form with 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. An eyebrow, heading and lede precede three hairline-separated rows by 40px. Each row has 32px py-8 padding, 24px gap-6 and a 1fr/2fr md:grid-cols-[1fr_2fr] grid at 768px. The ruled footer has 24px top padding.',

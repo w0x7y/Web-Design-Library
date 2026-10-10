@@ -10,18 +10,19 @@ export default {
   preview: {
     kind: 'section',
   },
-  wireframe: `┌─────────────────────────────────────────────────────────┐
-│ Items                      24 results          [Export] │
-│ [Search       ] │ Applied: Active [x]  Alex Rivera [x]  │
-│ Status        v │ ┌──────────────────────────────────┐  │
-│ [x] Active (18) │ │ Name       Owner Status Date Amt │  │
-│ [ ] Pending (6) │ │ Item 001   Alex  Active Mar14 $240│ │
-│ [ ] Archived   │ │ Item 002   Alex  Active Mar13 $160│  │
-│ Owner         > │ │ Item 003   Alex  Active Mar12 $200│ │
-│ Date          > │ │ ... Six rows                     │  │
-│ [Clear filters] │ └──────────────────────────────────┘  │
-│                 │ Showing 1-6 of 24                     │
-└─────────────────────────────────────────────────────────┘`,
+  wireframe: `┌──────────────────────────────────────────────────────────┐
+│ Items                        24 results         [Export] │
+├──────────────────┬───────────────────────────────────────┤
+│ [Search]         │ Applied: Active [x] Alex Rivera [x]   │
+│ Status v         │ ┌──────────────────────────────────┐  │
+│ [x] Active (24)  │ │ Name    Owner Status Date  Amount│  │
+│ [ ] Pending (12) │ │ Item001 Alex  Active Mar14 $240  │  │
+│ [ ] Archived (4) │ │ Item002 Alex  Active Mar13 $160  │  │
+│ Owner >          │ │ Item003 Alex  Active Mar12 $200  │  │
+│ Date >           │ │ ... Six rows                     │  │
+│ [Clear filters]  │ └──────────────────────────────────┘  │
+│                  │ Showing 1-6 of 24                     │
+└──────────────────┴───────────────────────────────────────┘`,
   brief: {
     layout:
       'A 1280px max-w-7xl shell with 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. A header row has title, result count and Export. After 32px a grid uses a 256px sidebar and flexible main column at 1024px, separated by 32px gap-8. The sidebar has a 40px search field, three rounded-lg details groups with 16px padding and a Clear filters link. Applied filter badges wrap above a bordered rounded-lg focusable table region by 16px. Its five-column six-row table is at least 576px wide; cells use 16px horizontal and 12px/16px header/body vertical padding.',

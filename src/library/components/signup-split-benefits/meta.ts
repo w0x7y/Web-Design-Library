@@ -8,17 +8,17 @@ export default {
   description: 'A trial-and-benefits panel beside workspace registration, with the form first on smaller screens. Use when sign-up needs a clear explanation of what is included.',
   preview: { kind: 'section' },
   wireframe: `┌──────────────────────────────────────────────────────────┐
-│┌──────────────────────────┐  Form title                  │
-││ [Free 14-day trial]      │  Workspace name              │
-││ Benefit headline        │  Email                        │
-││                         │  Password / Hint              │
-││ Check Access benefit    │                               │
-││ ──────────────────────  │  [ ] Accept terms             │
-││ Check Setup benefit     │  [Create workspace       ]    │
-││ ──────────────────────  │  Account? [Log in]            │
-││ Check Support benefit   │                               │
-││ No card required        │                               │
-│└──────────────────────────┘                              │
+│ ┌──────────────────────────┐  Form title                 │
+│ │ [Free 14-day trial]      │  Workspace name             │
+│ │ Benefit headline         │  Email                      │
+│ │                          │  Password / Hint            │
+│ │ Check Access benefit     │                             │
+│ │ ──────────────────────   │  [ ] Accept terms           │
+│ │ Check Setup benefit      │  [Create workspace]         │
+│ │ ──────────────────────   │  Account? [Log in]          │
+│ │ Check Support benefit    │                             │
+│ │ No card required         │                             │
+│ └──────────────────────────┘                             │
 └──────────────────────────────────────────────────────────┘`,
   brief: {
     layout: 'A 1152px max-w-6xl white section uses 24px gutters and 64px vertical padding, 96px from 640px. From 1024px the grid is two equal columns with a 48px gap. The left neutral-50 benefits panel has an 8px radius and 32px padding, 40px from 640px. Three rows use 20px vertical padding, hairlines and 20px checks. The right form uses 20px gaps and a full-width 44px submit.',

@@ -12,22 +12,19 @@
 .empty-state-permission table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .empty-state-permission summary { display: list-item; }
 
-/* Card */
-
+/* Access panel */
 .empty-state-permission {
   width: 18rem;
   border-radius: 0.5rem; /* radius-lg */
   border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
   background-color: #fff; /* white */
   padding: 1.5rem;
-  text-align: center;
+  text-align: left;
   color: oklch(20.5% 0 none); /* neutral-900 */
 }
 
-/* Lock */
-
+/* Access message */
 .empty-state-permission .empty-state-permission__lock-tile {
-  margin-inline: auto;
   display: flex;
   width: 2.5rem;
   height: 2.5rem;
@@ -42,8 +39,6 @@
   width: 1.25rem;
   height: 1.25rem;
 }
-
-/* Copy */
 
 .empty-state-permission .empty-state-permission__heading {
   margin-top: 0.75rem;
@@ -60,8 +55,7 @@
   color: oklch(43.9% 0 none); /* neutral-600 */
 }
 
-/* Owner */
-
+/* Resource owner */
 .empty-state-permission .empty-state-permission__owner {
   margin-top: 1rem;
   display: flex;
@@ -71,7 +65,6 @@
   border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
   background-color: #fff; /* white */
   padding: 0.75rem;
-  text-align: left;
 }
 
 .empty-state-permission .empty-state-permission__avatar {
@@ -89,8 +82,8 @@
   color: oklch(43.9% 0 none); /* neutral-600 */
 }
 
-.empty-state-permission .empty-state-permission__identity {
-  min-width: 0px;
+.empty-state-permission .empty-state-permission__owner-identity {
+  min-width: 0;
 }
 
 .empty-state-permission .empty-state-permission__owner-name {
@@ -99,22 +92,18 @@
   font-weight: 500;
 }
 
-.empty-state-permission .empty-state-permission__owner-role {
+.empty-state-permission .empty-state-permission__owner-detail {
   font-size: 0.75rem; /* text-xs */
   line-height: calc(1 / 0.75); /* text-xs */
   color: oklch(55.6% 0 none); /* neutral-500 */
 }
 
 .empty-state-permission .empty-state-permission__owner-email {
-  font-size: 0.75rem; /* text-xs */
-  line-height: calc(1 / 0.75); /* text-xs */
   overflow-wrap: break-word;
-  color: oklch(55.6% 0 none); /* neutral-500 */
 }
 
 /* Actions */
-
-.empty-state-permission .empty-state-permission__action {
+.empty-state-permission .empty-state-permission__request {
   margin-top: 1rem;
   display: inline-flex;
   height: 2.75rem;
@@ -133,13 +122,13 @@
   transition-duration: 150ms;
 }
 
-.empty-state-permission .empty-state-permission__account {
+.empty-state-permission .empty-state-permission__account-switch {
   margin-top: 0.75rem;
   font-size: 0.875rem; /* text-sm */
   line-height: calc(1.25 / 0.875); /* text-sm */
 }
 
-.empty-state-permission .empty-state-permission__link {
+.empty-state-permission .empty-state-permission__switch-link {
   font-weight: 500;
   color: oklch(20.5% 0 none); /* neutral-900 */
   text-decoration-line: underline;
@@ -147,21 +136,19 @@
 }
 
 @media (hover: hover) {
-  .empty-state-permission .empty-state-permission__action:hover {
+  .empty-state-permission .empty-state-permission__request:hover {
     background-color: oklch(37.1% 0 none); /* neutral-700 */
   }
 
-  .empty-state-permission .empty-state-permission__link:hover {
+  .empty-state-permission .empty-state-permission__switch-link:hover {
     color: oklch(43.9% 0 none); /* neutral-600 */
   }
 }
 
-/* Actions */
-
-.empty-state-permission .empty-state-permission__action:focus-visible,
-.empty-state-permission .empty-state-permission__link:focus-visible {
-  outline: 2px solid oklch(20.5% 0 none);
-  outline-offset: 2px; /* neutral-900 */
+.empty-state-permission .empty-state-permission__request:focus-visible,
+.empty-state-permission .empty-state-permission__switch-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
 }
 
 @media (width >= 40rem) {

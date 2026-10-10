@@ -18,9 +18,9 @@ export default {
 │ > Item 001          Alex Rivera  Mar 14         $240    │
 │ v Item 002          Jordan Lee   Mar 13         $160    │
 │   ┌──────────────────────────────────────────────────┐  │
-│   │ Reference: 002           Status: Pending          │ │
-│   │ Created: Mar 01          Units: 8                 │ │
-│   │ [View record] [Download]                          │ │
+│   │ Reference: 002           Status: Pending         │  │
+│   │ Created: Mar 01          Units: 8                │  │
+│   │ [View record] [Download]                         │  │
 │   └──────────────────────────────────────────────────┘  │
 │ > Item 003          Sam Taylor   Mar 12         $200    │
 │ > Item 004          Casey Morgan Mar 11         $120    │

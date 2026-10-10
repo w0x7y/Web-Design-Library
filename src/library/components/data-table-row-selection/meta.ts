@@ -14,7 +14,7 @@ export default {
 │ Items for review                                        │
 │ Description                                             │
 │ ┌────────────────────────────────────────────────────┐  │
-│ │ Bulk actions          [Archive] [Assign] [Delete]   │ │
+│ │ Bulk actions          [Archive] [Assign] [Delete]  │  │
 │ ├────────────────────────────────────────────────────┤  │
 │ │ Select Name         Owner   Status  Date    Amount │  │
 │ │ [x]    Item 001     Alex    Active  Mar 14  $240   │  │

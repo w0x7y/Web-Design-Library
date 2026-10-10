@@ -26,13 +26,13 @@ export default function DashboardSplitPanels() {
             </svg>
             <p className="sr-only">Seven illustrative daily bars. Total weekly activity: 1,284 items.</p>
             <div className="mt-3 grid grid-cols-7 text-center text-xs text-neutral-500">
+              <span>Sun</span>
               <span>Mon</span>
               <span>Tue</span>
               <span>Wed</span>
               <span>Thu</span>
               <span>Fri</span>
               <span>Sat</span>
-              <span>Sun</span>
             </div>
           </div>
           <div className="min-w-0 rounded-lg border border-neutral-200 bg-white p-6">

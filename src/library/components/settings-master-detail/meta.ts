@@ -10,19 +10,20 @@ export default {
   preview: {
     kind: 'section',
   },
-  wireframe: `┌────────────────────────────────────────────────────────┐
-│ Member settings                                        │
-│ Lede                                                   │
-│ Choose member          │ Alex Rivera                   │
-│ (o) Avatar Name        │ Description                   │
-│     Meta               │ [ ] Permission + hint         │
-│ ( ) Avatar Name        │ [ ] Permission + hint         │
-│     Meta               │ [ ] Permission + hint         │
-│ ( ) Avatar Name        │ [Default role           v]    │
-│     Meta               │ Hint                          │
-│ ───────────────────────┴────────────────────────────── │
-│ Save note                               [Save changes] │
-└────────────────────────────────────────────────────────┘`,
+  wireframe: `┌──────────────────────────────────────────────────────────┐
+│ Member settings                                          │
+│ Lede                                                     │
+├─────────────────────────┬────────────────────────────────┤
+│ Choose member           │ Alex Rivera                    │
+│ (o) Avatar Name         │ Description                    │
+│     Meta                │ [ ] Permission + hint          │
+│ ( ) Avatar Name         │ [ ] Permission + hint          │
+│     Meta                │ [ ] Permission + hint          │
+│ ( ) Avatar Name         │ [Default role v]               │
+│     Meta                │ Hint                           │
+├─────────────────────────┴────────────────────────────────┤
+│ Save note                               [Save changes]   │
+└──────────────────────────────────────────────────────────┘`,
   brief: {
     layout:
       'A 1280px max-w-7xl form with 24px px-6 side padding and 64px py-16 vertical padding, increasing to 96px sm:py-24 at 640px. The heading and lede precede a 40px-spaced grid. At 1024px a 352px lg:grid-cols-[22rem_minmax(0,1fr)] member fieldset sits beside a flexible detail panel with 48px gap-12. Member rows have 16px padding, 40px avatars and 12px separation. The rounded-lg neutral-50 panel uses 24px p-6. A footer spans both columns after 32px, with a top border and 24px top padding.',

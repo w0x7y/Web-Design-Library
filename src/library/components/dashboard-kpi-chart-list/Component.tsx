@@ -74,12 +74,12 @@ export default function DashboardKpiChartList() {
               <rect x="194.667" y="18" width="12.6667" height="102" rx="2" fill="currentColor" stroke="none" className="text-neutral-300" />
               <rect x="213.333" y="8" width="12.6667" height="112" rx="2" fill="currentColor" stroke="none" className="text-neutral-500" />
             </svg>
-            <p className="sr-only">Illustrative bar trend over four weeks. Total: 1,284 items, up 8.2 percent.</p>
+            <p className="sr-only">Illustrative bar trend over Oct 4–10. Total: 1,284 items, up 8.2 percent.</p>
             <div className="mt-3 flex flex-wrap justify-between gap-2 text-xs text-neutral-500">
-              <span>Week 1</span>
-              <span>Week 2</span>
-              <span>Week 3</span>
-              <span>Week 4</span>
+              <span>Oct 4</span>
+              <span>Oct 6</span>
+              <span>Oct 8</span>
+              <span>Oct 10</span>
             </div>
           </div>
           <div className="min-w-0 rounded-lg border border-neutral-200 bg-white p-6">

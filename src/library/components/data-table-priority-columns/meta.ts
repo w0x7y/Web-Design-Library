@@ -14,11 +14,11 @@ export default {
 │ Ranked records                       [Week] [Month] [All] │
 │ 12 records                                                │
 │ ┌──────────────────────────────────────────────────────┐  │
-│ │ # Name          Points Count Total Rate Recent      │   │
+│ │ # Name          Points Count Total Rate Recent       │  │
 │ ├──────────────────────────────────────────────────────┤  │
-│ │ 1 Avatar Alex   98    24    1,284 96%  Done / Open    │ │
-│ │ 2 Avatar Jordan 95    23    1,216 95%  Done / Hold    │ │
-│ │ 3 Avatar Sam    92    22    1,148 94%  Open / Done    │ │
+│ │ 1 Avatar Alex   98    24    1,284 96%  Done / Open   │  │
+│ │ 2 Avatar Jordan 95    23    1,216 95%  Done / Hold   │  │
+│ │ 3 Avatar Sam    92    22    1,148 94%  Open / Done   │  │
 │ │ ... Twelve rows; header stays visible while scrolling│  │
 │ └──────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────┘`,

@@ -2,7 +2,7 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'empty-state-skeleton-preview',
-  name: "Empty state — Ghost rows preview",
+  name: "Empty state — Preview rows above action",
   category: 'empty-state',
   tags: ["stacked", "list", "compact"],
   description: "Ghost rows show the anatomy of a future list above a creation action. Use it to explain what will appear before the first item is added.",
