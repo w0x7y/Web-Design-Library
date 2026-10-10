@@ -2,7 +2,7 @@
 
 Copy-paste UI layouts for developers building with AI agents.
 
-Patternbook is a static site of copy-paste UI components (36 today) in four groups: Sections (hero, navbar, features, pricing, testimonials, call to action, FAQ, footer), Cards & profiles (profile, team, product, stat, testimonial and blog cards), Elements (buttons, inputs, badges, toggles, tabs, dropdowns) and App UI (login, sign-up, settings, data table, empty state, dashboard).
+Patternbook is a static site with hundreds of copy-paste UI components in four groups: Sections, Cards & profiles, Elements and App UI. The categories and style tags are defined in [`src/library/taxonomy.ts`](src/library/taxonomy.ts).
 
 Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. On a component's page (`/c/<slug>`) you can:
 
@@ -31,29 +31,32 @@ The end-to-end tests drive Chromium. Install it once with `npx playwright instal
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Starts the dev server. It serves the pages, but not the agent files (`/c/<slug>.md`, `/c/<slug>.react.md`, `/c/<slug>.html.md`, `/catalog.json`, `/llms.txt`), which only `npm run build` produces. |
+| `npm run dev` | Starts the dev server. It serves the pages, but not the agent files (`/c/<slug>.md`, `/c/<slug>.react.md`, `/c/<slug>.html.md`, `/catalog.json`, `/llms.txt`) or discovery files (`/sitemap.xml`, `/robots.txt`), which only `npm run build` produces. |
 | `npm run build` | Pre-renders the site into `build/client`, writes agent files, and generates `.vercel/output` with static files and deployment headers. |
-| `npm run serve:build` | Serves `build/client` on port 4317 with the generated security headers and SPA fallback. Run `npm run build` first. |
+| `npm run serve:build` | Serves `build/client` with the generated security headers, agent-file 404s and SPA fallback. Uses `PATTERNBOOK_PORT`, default 4317. Run `npm run build` first. |
 | `npm run lint` | Runs oxlint. |
 | `npm run typecheck` | Runs `react-router typegen`, then `tsc`. |
 | `npm test` | Runs the Vitest unit and contract tests (see below). |
-| `npm run test:e2e` | Runs every Playwright spec in `e2e/`. It builds the site and serves it on port 4317 first. |
+| `npm run test:e2e` | Runs every Playwright spec in `e2e/`. It builds the site and serves it on `PATTERNBOOK_PORT`, default 4317, unless it reuses a running server. |
 | `npm run test:parity` | Runs only `e2e/parity.spec.ts`. |
 
-CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run test:e2e` on every push and pull request.
+CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run test:e2e` on Node 22 on every push and pull request. After the site build, it installs and checks `mcp/` with `PATTERNBOOK_REQUIRE_BUILD=1`. A separate Node 20 job checks the MCP package without requiring a site build. Both MCP checks run typecheck and `npm test`, which builds the package first.
 
-`npm run test:e2e` starts `npm run build && npm run serve:build` itself. Outside CI it reuses a server that is already listening on port 4317, so stop a stale `serve:build` before you rerun the tests against new code.
+`npm run test:e2e` starts `npm run build && npm run serve:build` itself. Outside CI it reuses a server already listening on the selected port, so stop a stale `serve:build` before you rerun the tests against new code. Set `PATTERNBOOK_PORT` to run several checkouts at once; Playwright and `serve:build` both read it.
 
 ### What the tests cover
 
-- **Vitest** (`npm test`, files under `src/`, `app/` and `scripts/`): the authoring rules checked over every component folder (`src/library/library.test.ts`, `rules.ts`), the catalog and the contract that its two loaders (Vite globs for the app, `fs` for Node) agree, the reset template, the brief and `llms.txt` builders, prerender paths, and the app logic in `app/lib/` (component actions, capture, clipboard, filters, theme, analytics, viewports).
+- **Vitest** (`npm test`, files under `src/`, `app/` and `scripts/`): the authoring rules checked over every component folder (`src/library/library.test.ts`, `rules.ts`), the catalog and the contract that its two loaders (Vite globs for the app, `fs` for Node) agree, taxonomy, font metadata, the reset template, briefs, agent and discovery files, and prerender paths. App tests cover copy actions, capture, clipboard, filters, theme, storage, format preferences, analytics, viewports, stage attributes, related components, syntax highlighting and hero showcase references.
 - **Smoke** (`e2e/smoke.spec.ts`): the pre-rendered site in Chromium. Browse and filters, theme, detail page, the preview stage, copy and export actions, analytics events, and the served agent files.
 - **Parity** (`e2e/parity.spec.ts`): for each component at desktop and mobile size, the HTML + CSS version must render like the React version, within 1% of pixels by default.
 - **Capture** (`e2e/capture-fonts.spec.ts`, `e2e/capture-placeholders.spec.ts`, `e2e/capture-scrollbars.spec.ts`): a downloaded PNG shows the component's web fonts and its placeholder colours, and a section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide.
 - **Focus** (`e2e/focus.spec.ts`): in forced-colors mode, tabbing to each control of both versions of every component makes a focus outline appear.
-- **Layout** (`e2e/layout.spec.ts`): every section reflows from 320px up without horizontal scrolling, and every element fits its frame inside the stage padding.
+- **Layout** (`e2e/layout.spec.ts`): React sections have no horizontal scrolling at 320, 640, 768, 1024 and 1280px, and React elements fit their frames inside the stage padding at both capture sizes.
 - **Browse entry** (`e2e/browse-entry.spec.ts`): filtered home links show the grid before React hydrates, at desktop and mobile widths.
-- **Security** (`e2e/security.spec.ts`): every pre-rendered page's CSP matches its HTML, injected scripts are blocked, copy and image export still work, and the shell's local fonts load without Google Fonts.
+- **Security** (`e2e/security.spec.ts`): every pre-rendered page's CSP matches its HTML, injected scripts are blocked, navigation and PNG export still work, and the shell's local fonts load without Google Fonts.
+- **Discovery** (`e2e/discovery.spec.ts`): the sitemap lists every canonical page and its URLs resolve correctly; robots, social metadata, the 1200 × 630 social PNG and preview `noindex` are served.
+- **Preview state** (`e2e/preview-state.spec.ts`): a ready capture preview keeps the default accordion answer open when animation frames are delayed.
+- **MCP** (`cd mcp && npm test`): search ranking and filters, input limits, catalog contracts, HTTP validation and failures, caches, in-memory and stdio protocol calls, and package builds. Tests against the real site build run when it exists; CI requires them after building the site.
 
 Every browser spec runs against the build with its CSP enforced. The unit tests also cover generated deployment routes, headers, and removal of stale output on rebuilds.
 
@@ -69,26 +72,29 @@ When the folder is ready, `npm test` must report no violations, and `npm run tes
 app/                  The site (React Router app)
   routes/             shell layout, browse, detail, not-found, and preview (the bare stage page)
   components/         site UI: header, sidebar, cards, action bar, download menu, ...
-  lib/                browser logic: component-actions.ts (copy and export actions), capture.ts (PNG capture),
+  lib/                browser logic: copy-action.ts (shared text copy), component-actions.ts (component actions), capture.ts (PNG capture),
                       stage.ts (the stage's DOM contract), viewports.ts (frame and thumbnail geometry),
                       clipboard, analytics, theme, format-preference, storage, filters
   site.ts             re-exports SITE from src/site.ts
 src/site.ts           SITE: name, slug, tagline, URL and repo URL
 src/library/          The component library
   components/<slug>/  one folder per component (see above)
-  catalog.ts          folder convention, library order and grouping
+  catalog.ts          folder convention, SLUG_PATTERN, library order and grouping
+  types.ts            component metadata and source types, supported FORMATS
   registry.ts         client-safe metadata and lazy component loaders
   sources.server.ts   raw sources for the code view, kept out of the client bundle
   taxonomy.ts         groups, categories and style tags
   brief.ts            the AI brief and copyable source
   agent-files.ts      agent and discovery files, their content types and CORS rules
+  discovery.ts        sitemap and robots builders
+  fonts.ts            font metadata validation, display names and stylesheet links
   rules.ts, reset.ts  authoring-rule checks and the pinned CSS reset
-  urls.ts             every path the site serves, and the prerender list
+  urls.ts             page, agent and discovery URL helpers, and the prerender list
 scripts/              load-library.ts (reads the library from disk), build-agent-files.ts,
                       build-vercel-output.ts (static deployment and per-page CSP), serve-build.ts
 mcp/                  standalone stdio MCP server, with its own dependencies and tests
 e2e/                  Playwright specs
-docs/superpowers/     design spec and implementation plan
+docs/superpowers/     the original design spec and implementation plan
 ```
 
 ### How a component page works
@@ -111,7 +117,17 @@ docs/superpowers/     design spec and implementation plan
 - `sitemap.xml`: canonical URLs for the home, category and component pages, generated from the taxonomy and catalog. Standalone previews, filter queries and agent files are excluded.
 - `robots.txt`: allows crawling and points to the production sitemap. Preview pages remain crawlable so search engines can read their `noindex` directive.
 
-The build logs `Agent and discovery files: <n> written`: three briefs per component plus four index and discovery files. The generated Vercel config serves them with the right `Content-Type` and allows cross-origin reads of `catalog.json`, `llms.txt` and component Markdown files.
+The build logs `Agent and discovery files: <n> written`: three briefs per component plus four index and discovery files. `src/library/agent-files.ts` sets how they are served, and both the Vercel config and `npm run serve:build` follow it (all types with `charset=utf-8`):
+
+| Files | Content-Type | `Access-Control-Allow-Origin: *` |
+|---|---|---|
+| `/catalog.json` | `application/json` | Yes |
+| `/llms.txt` | `text/plain` | Yes |
+| `/c/<slug>.md`, `/c/<slug>.react.md`, `/c/<slug>.html.md` | `text/markdown` | Yes |
+| `/sitemap.xml` | `application/xml` | Not set by the config |
+| `/robots.txt` | `text/plain` | Not set by the config |
+
+Vercel also adds `Access-Control-Allow-Origin: *` to static files on its own, so in production every file has it. A request for an agent-file path that doesn't exist, such as `/c/<unknown-slug>.react.md`, returns 404 instead of the SPA fallback page. The dev server does not serve these generated files.
 
 ### MCP server
 

@@ -15,7 +15,7 @@ A component is one folder, `src/library/components/<slug>/`, with four files:
 | `index.html` | The same markup as a plain HTML fragment. |
 | `styles.css` | Plain CSS for `index.html`, scoped under `.<slug>`. |
 
-Both versions must look the same. A test screenshots both and compares them pixel by pixel. Nothing else needs registering: the catalog, the pre-render list, `catalog.json`, `llms.txt`, component Markdown briefs and the sitemap all pick up the folder automatically.
+Both versions must look the same. A test screenshots both and compares them pixel by pixel. Nothing else needs registering: the catalog, the pre-render list, `catalog.json`, `llms.txt`, component Markdown briefs and the sitemap all pick up the folder automatically. The MCP server reads the generated catalog and briefs, so it picks up new components without a package change.
 
 Ground rules:
 
@@ -34,7 +34,7 @@ npm install
 npx playwright install chromium   # on Linux: npx playwright install --with-deps chromium
 ```
 
-Run `npm test` once before you change anything. It should pass. If it doesn't, your setup is the problem, not your component.
+Run `npm test` once before you change anything. It should pass. If it doesn't, check your setup and report any existing failures before adding your component.
 
 ## 2. Plan the component
 
@@ -119,7 +119,7 @@ The field reference is in [`AGENTS.md`](AGENTS.md#metats). Some notes:
 
 - `slug` must equal the folder name.
 - `addedAt` is the date you add the component, `YYYY-MM-DD`.
-- `description` appears on cards and in `llms.txt`. Say what it contains and where it fits, e.g. "…Use it on listing cards, profiles and filter bars of friendly consumer apps."
+- `description` appears on the detail page, in `llms.txt` and `catalog.json`, and in MCP search results and briefs. Say what it contains and where it fits, e.g. "…Use it on listing cards, profiles and filter bars of friendly consumer apps."
 - `brief` is what **Copy for AI** and `/c/<slug>.md` give to an agent. `/c/<slug>.react.md` and `/c/<slug>.html.md` include reference code for only that format. Each of the four fields must be detailed enough to rebuild the component without seeing the code, so give sizes in px, colours as Tailwind names (`indigo-950`, `lime-300`) and breakpoints in px:
   - `layout`: structure, widths, padding, gaps and element sizes.
   - `style`: fonts, colours, radii, borders, shadows and the reason for any accessibility choice.
@@ -185,13 +185,13 @@ npm run typecheck
 
 ## 7. Check parity, focus and layout
 
-These Playwright specs build the site and serve it on port 4317 before they run. The first run takes a few minutes. To run only your components' tests, pass their full slugs to `-g` as a regular expression (`-g "slug-a|slug-b"` for several):
+These Playwright specs build the site and serve it on `PATTERNBOOK_PORT`, default 4317, unless they reuse a running server. The first run takes a few minutes. To run only your components' tests, pass their full slugs to `-g` as a regular expression (`-g "slug-a|slug-b"` for several):
 
 ```bash
 npx playwright test e2e/parity.spec.ts e2e/focus.spec.ts e2e/layout.spec.ts -g <slug>
 ```
 
-> **Stale server.** Outside CI, Playwright reuses any server already on port 4317 and does not rebuild. The React side of each test comes from that build, so after you change `Component.tsx`, stop any running `npm run serve:build` (or an earlier test server) before you rerun. Otherwise you are testing old code.
+> **Stale server.** Outside CI, Playwright reuses any server already on the selected port and does not rebuild. The React side of each test comes from that build, so after you change `Component.tsx`, stop any running `npm run serve:build` (or an earlier test server) before you rerun. Otherwise you are testing old code.
 >
 > **Several checkouts at once.** Set `PATTERNBOOK_PORT` to give each checkout its own port, e.g. `PATTERNBOOK_PORT=4402 npx playwright test …`. Both the test server and `npm run serve:build` read it.
 
@@ -199,9 +199,9 @@ What each spec requires:
 
 | Spec | Passes when |
 |---|---|
-| `parity.spec.ts` | At `desktop` (1440px) and `mobile` (390px), the HTML/CSS screenshot has the same size as the React one and differs in at most 1% of pixels. |
+| `parity.spec.ts` | At `desktop` (1440px) and `mobile` (390px), the HTML/CSS screenshot has the same size as the React one and differs in at most 1% of pixels by default. All images load in both versions. |
 | `focus.spec.ts` | In forced-colors mode, tabbing to every control in both versions makes a new outline appear. Components with no controls are skipped. |
-| `layout.spec.ts` | A section has no horizontal scroll at 320, 640, 768, 1024 and 1280px. An element fits its frame inside the stage padding at both capture sizes. |
+| `layout.spec.ts` | A React section has no horizontal scroll at 320, 640, 768, 1024 and 1280px. A React element fits its frame inside the stage padding at both capture sizes. |
 
 When parity fails, open the diff image:
 
@@ -226,7 +226,7 @@ Open `/c/<slug>` and check:
 - **Download** at desktop and mobile: the PNG includes the fonts and images;
 - `/preview/<slug>`, the bare stage page, which shows the component on its own.
 
-`npm run dev` doesn't serve component Markdown briefs, `/catalog.json` or `/llms.txt`. To check those, run `npm run build && npm run serve:build` and open `http://localhost:4317/catalog.json`, `/llms.txt` or `/c/<slug>.md`, `/c/<slug>.react.md` and `/c/<slug>.html.md`.
+`npm run dev` doesn't serve component Markdown briefs, `/catalog.json`, `/llms.txt`, `/sitemap.xml` or `/robots.txt`. To check those, run `npm run build && npm run serve:build` and open `http://localhost:4317/catalog.json`, `/llms.txt`, `/c/<slug>.md`, `/c/<slug>.react.md`, `/c/<slug>.html.md`, `/sitemap.xml` and `/robots.txt`. Use your selected port if you set `PATTERNBOOK_PORT`.
 
 ## 9. Open the pull request
 
@@ -239,7 +239,7 @@ In the PR description, include:
 - the output of the checks you ran: `npm test`, lint, typecheck, and the Playwright line from step 7;
 - any `preview.parity` override, with its reason.
 
-CI runs lint, typecheck, `npm test` and the full `npm run test:e2e` on every push. If the e2e job fails, the `playwright-report` artifact on the run contains the diff images.
+CI runs lint, typecheck, `npm test` and the full `npm run test:e2e` on Node 22 on every push and pull request. It also runs MCP typecheck and tests after building the site, with `PATTERNBOOK_REQUIRE_BUILD=1`, plus a separate MCP job on Node 20 without a required site build. If the browser tests fail, the `playwright-report` artifact on the run contains the diff images.
 
 ## Adding an image
 
