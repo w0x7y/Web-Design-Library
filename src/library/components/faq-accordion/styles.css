@@ -12,21 +12,99 @@
 .faq-accordion table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .faq-accordion summary { display: list-item; }
 
-/* Pattern */
-.faq-accordion { background: #fff; color: oklch(20.5% 0 none); /* neutral-900 */ }
-.faq-accordion .faq-accordion__container { max-width: 48rem; margin-inline: auto; padding: 4rem 1.5rem; }
-.faq-accordion .faq-accordion__heading { text-align: center; }
-.faq-accordion .faq-accordion__title { font-size: 1.875rem; line-height: calc(2.25 / 1.875); font-weight: 600; letter-spacing: -0.025em; text-wrap: balance; }
-.faq-accordion .faq-accordion__intro { margin-top: 1rem; font-size: 1.125rem; line-height: calc(1.75 / 1.125); text-wrap: pretty; color: oklch(43.9% 0 none); /* neutral-600 */ }
-.faq-accordion .faq-accordion__list { margin-top: 3rem; border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */ }
-.faq-accordion .faq-accordion__item { border-bottom: 1px solid oklch(92.2% 0 none); /* neutral-200 */ }
-.faq-accordion .faq-accordion__question { display: flex; cursor: pointer; list-style: none; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.25rem; font-size: 1rem; line-height: 1.5; font-weight: 600; }
-.faq-accordion .faq-accordion__question::-webkit-details-marker { display: none; }
-.faq-accordion .faq-accordion__question:focus-visible { outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */ outline-offset: 2px; }
-.faq-accordion .faq-accordion__chevron { width: 1.25rem; height: 1.25rem; flex-shrink: 0; transition: rotate 150ms cubic-bezier(0.4, 0, 0.2, 1); }
-.faq-accordion .faq-accordion__item[open] .faq-accordion__chevron { rotate: 180deg; }
-.faq-accordion .faq-accordion__answer { padding-bottom: 1.25rem; font-size: 1rem; line-height: 1.5; text-wrap: pretty; color: oklch(43.9% 0 none); /* neutral-600 */ }
+/* Section */
+.faq-accordion {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.faq-accordion .faq-accordion__container {
+  margin-inline: auto;
+  max-width: 48rem; /* container-3xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.faq-accordion .faq-accordion__intro {
+  text-align: center;
+}
+
+.faq-accordion .faq-accordion__heading {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.faq-accordion .faq-accordion__lede {
+  margin-top: 1rem;
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Questions */
+.faq-accordion .faq-accordion__list {
+  margin-top: 3rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.faq-accordion .faq-accordion__item {
+  border-bottom: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.faq-accordion .faq-accordion__question {
+  display: flex;
+  cursor: pointer;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.25rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.faq-accordion .faq-accordion__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-accordion .faq-accordion__chevron {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  transition-property: transform, translate, scale, rotate;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.faq-accordion .faq-accordion__answer {
+  padding-bottom: 1.25rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.faq-accordion .faq-accordion__item[open] .faq-accordion__chevron {
+  rotate: 180deg;
+}
+
+.faq-accordion .faq-accordion__question:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
 @media (width >= 40rem) {
-  .faq-accordion .faq-accordion__container { padding-block: 6rem; }
-  .faq-accordion .faq-accordion__title { font-size: 2.25rem; line-height: calc(2.5 / 2.25); }
+  .faq-accordion .faq-accordion__container {
+    padding-block: 6rem;
+  }
+
+  .faq-accordion .faq-accordion__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
 }

@@ -9,7 +9,7 @@ For the end-to-end contribution workflow (setup, planning, verification, trouble
 1. Create `src/library/components/<slug>/`. The slug is kebab-case, unique, starts with `<category>-`, and becomes the URL (`/c/<slug>`). A new pattern needs a distinct layout, not a new skin of an existing one.
 2. Write `meta.ts` (field guide below), including a desktop wireframe and all five brief fields.
 3. Write `Component.tsx` using the wireframe kit below and slot copy that describes what belongs there.
-4. Run `npx tsx scripts/draft-twin.ts <slug>` for a reference draft in `twin-drafts/`. Hand-finish `index.html` and `styles.css`. `styles.css` begins with the reset template below.
+4. Run `npx tsx scripts/draft-twin.ts <slug> --write` to generate `index.html` and `styles.css`, then tidy them by hand (see [Writing the HTML/CSS twin](#writing-the-htmlcss-twin)).
 5. Run `npm test`. Done when the library test reports no violations for your folder.
 6. Run `npm run test:parity`. Done when both the `desktop` (1440px wide) and `mobile` (390px wide) tests pass. Each one renders in the frame the PNG is captured in. Fix the CSS, not the tolerance.
 7. Run `npx playwright test e2e/focus.spec.ts e2e/layout.spec.ts`. Done when every control of both versions shows a focus outline in forced-colors mode, a section reflows from 320px up without horizontal scrolling, and an element fits its frame (see `preview.kind` below).
@@ -159,7 +159,26 @@ Rule 8 in practice. `e2e/focus.spec.ts` checks focus outlines; review the other 
 
 ## Writing the HTML/CSS twin
 
-Run `npx tsx scripts/draft-twin.ts <slug>` first. It writes a reference draft to `twin-drafts/<slug>/` without changing the pattern folder. Use its computed values to hand-finish semantic slug-prefixed parts and plain CSS. The shipped twin must reproduce Tailwind exactly and pass parity.
+Finish `Component.tsx` first, then generate the twin and tidy it by hand:
+
+```bash
+npx tsx scripts/draft-twin.ts <slug> --write
+```
+
+The generator renders the React markup and compiles its Tailwind classes into `index.html` and `styles.css`: the scoped reset, the root class, literal values with token comments, role-based part classes, readable `[open]`/`:hover`/`:checked` selectors, merged breakpoints and prefixed keyframes. Elements with identical class lists share a class. Without `--write` it writes to `twin-drafts/<slug>/` instead. Running it again overwrites your tidying, so regenerate only after changing the React version, then tidy again.
+
+Tidy until the twin reads like hand-written CSS (the three reference patterns show the result):
+
+- **Names.** Rename vague, numbered or misleading parts (`__button-2`, `__meta` for an eyebrow, `__button--primary` on a disabled button) after their role, in the HTML and CSS together.
+- **Shared anatomy.** When several parts repeat most declarations (button variants, cards, list items), move the shared declarations into one base class and keep the differences in modifiers: `class="slug__action slug__action--primary"`.
+- **Shorthands.** Collapse longhands where the result is the same: `border-top: 1px solid …`, `outline: 2px solid …`, `line-height: 1.5` for `calc(1.5 / 1)`. Merge identical `:focus-visible` rules into the base class.
+- **Order.** Group rules by region with a short comment per group (`/* Actions */`). Keep base rules before modifiers, and hover, focus and breakpoint blocks after them, as generated, because the cascade depends on that order.
+- **Redundancy.** Delete declarations a breakpoint repeats without changing.
+- **Whitespace.** Keep inline adjacency as generated. A line break between inline elements renders as a space.
+
+Then run the rules, parity, focus and layout checks again. Parity must pass at the default tolerance.
+
+Background for reading or fixing a twin:
 
 - **Tokens.** Copy neutral colour values from `node_modules/tailwindcss/theme.css` as `oklch(… 0 none)`, with the token name in a comment. Spacing is `n × 0.25rem`.
 - **Type.** `text-sm` sets both font size and line height (`0.875rem` and `calc(1.25 / 0.875)`). An arbitrary `text-[…]` sets only the size. `leading-*` overrides the line height of responsive `text-*` sizes too.

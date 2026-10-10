@@ -93,23 +93,17 @@ The five brief fields let an agent rebuild the pattern without seeing the code:
 
 ## 5. Write `index.html` and `styles.css`
 
-Read [Writing the HTML/CSS twin](AGENTS.md#writing-the-htmlcss-twin). First generate a reference:
+Read [Writing the HTML/CSS twin](AGENTS.md#writing-the-htmlcss-twin). Generate the twin from the finished `Component.tsx`:
 
 ```bash
-npx tsx scripts/draft-twin.ts <slug>
+npx tsx scripts/draft-twin.ts <slug> --write
 ```
 
-It writes only to gitignored `twin-drafts/<slug>/`. Hand-finish the shipped twin using the exact values it computes.
+It writes `index.html` and `styles.css` into the pattern folder, starting with the pinned reset. Then tidy it by hand as that section describes: role-based names, a base class plus modifiers for repeated anatomy, shorthands, and comments per region. Without `--write`, the draft goes to gitignored `twin-drafts/<slug>/`.
 
-`index.html` is a fragment with the slug class on its root and no `<html>`, `<head>`, `<body>`, `<link>`, `<style>` or `<script>`. Keep the React structure, text, attributes, ARIA and SVGs. Convert React prop names to HTML attributes. Use semantic part names, `<slug>__part` and `<slug>__part--modifier`.
+`index.html` is a fragment with the slug class on its root and no `<html>`, `<head>`, `<body>`, `<link>`, `<style>` or `<script>`. It keeps the React structure, text, attributes, ARIA and SVGs, with HTML attribute names. Part classes are `<slug>__part` and `<slug>__part--modifier`.
 
-Start CSS with the pinned reset:
-
-```bash
-npx tsx -e "import { resetCss } from './src/library/reset.ts'; process.stdout.write(resetCss('<slug>'))" > src/library/components/<slug>/styles.css
-```
-
-Then add rules under a `/* Pattern */` comment. Scope selectors under `.<slug>`, use `.slug .slug__part` specificity, and prefix animation names. Copy neutral values as `oklch(… 0 none)` with token comments; spacing is multiples of 0.25rem. Match type line heights and breakpoints exactly. Wrap hover in `@media (hover: hover)`. CSS has only achromatic colours, no gradients or external resources. Keep the reset sans family, `inherit`, or Tailwind's mono stack.
+The finished CSS keeps every selector scoped under `.<slug>` with `.slug .slug__part` specificity and slug-prefixed animation names. Copy neutral values as `oklch(… 0 none)` with token comments; spacing is multiples of 0.25rem. Match type line heights and breakpoints exactly. Wrap hover in `@media (hover: hover)`. CSS has only achromatic colours, no gradients or external resources. Keep the reset sans family, `inherit`, or Tailwind's mono stack.
 
 ## 6. Check the rules
 
