@@ -115,7 +115,7 @@ export function DownloadMenu({
           aria-label="Download PNG"
           tabIndex={-1}
           onKeyDown={onMenuKeyDown}
-          className="absolute top-full right-0 z-20 mt-1.5 w-56 sm:right-auto sm:left-0 rounded-xl border border-zinc-200 bg-white p-1 shadow-[0_8px_24px_-8px_rgb(0_0_0/0.18)] focus-visible:outline-hidden dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-[0_8px_24px_-8px_rgb(0_0_0/0.6)]"
+          className="absolute top-full right-0 z-20 mt-1.5 w-56 origin-top-right animate-shell-pop motion-reduce:animate-shell-fade sm:right-auto sm:left-0 sm:origin-top-left rounded-xl border border-zinc-200 bg-white p-1 shadow-[0_8px_24px_-8px_rgb(0_0_0/0.18)] focus-visible:outline-hidden dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-[0_8px_24px_-8px_rgb(0_0_0/0.6)]"
         >
           {SIZES.map(({ viewport, label }) => (
             <button key={viewport} type="button" role="menuitem" tabIndex={-1} onClick={() => choose(viewport)} className={ITEM}>

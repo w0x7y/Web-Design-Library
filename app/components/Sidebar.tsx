@@ -92,6 +92,8 @@ export function Sidebar({ active }: { active: CategoryId | null }) {
               key={group.id}
               open={open.has(group.id)}
               onToggle={(event) => toggle(group.id, event.currentTarget.open)}
+              // data-nav-group: app.css slides the group open and shut.
+              data-nav-group=""
               className="group"
             >
               <summary
@@ -106,7 +108,7 @@ export function Sidebar({ active }: { active: CategoryId | null }) {
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="-ml-1 size-3.5 text-zinc-400 transition-transform duration-150 group-open:rotate-90 motion-reduce:transition-none dark:text-zinc-500"
+                    className="-ml-1 size-3.5 text-zinc-400 transition-transform duration-200 ease-shell-out group-open:rotate-90 motion-reduce:transition-none dark:text-zinc-500"
                   >
                     <path d="m6 3.5 4.5 4.5L6 12.5" />
                   </svg>

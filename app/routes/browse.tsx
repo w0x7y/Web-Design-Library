@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { data, isRouteErrorResponse, type ShouldRevalidateFunctionArgs } from 'react-router'
 import { ComponentCard } from '~/components/ComponentCard'
 import { EmptyState } from '~/components/EmptyState'
@@ -106,10 +106,10 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
           <div className="mt-8">
             {results.length > 0 ? (
               <ul role="list" className="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
-                {results.map((meta) => (
-                  <li key={meta.slug}>
+                {results.map((meta, index) => (
+                  <GridItem key={meta.slug} index={index}>
                     <ComponentCard meta={meta} />
-                  </li>
+                  </GridItem>
                 ))}
               </ul>
             ) : (
@@ -125,6 +125,28 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
         </div>
       </div>
     </main>
+  )
+}
+
+/** How many cards, from the top of the grid, rise in one after another: three rows at the widest. */
+const RISING = 9
+const STAGGER_MS = 30
+
+/**
+ * A grid cell. A card that arrives near the top of the grid after the page has loaded (with a filter
+ * or category change) rises into place, each a beat after the one before. The pre-rendered grid, a
+ * card that stays put as the filters change, and the cards further down (off screen, and up to
+ * hundreds at once) appear as they are.
+ */
+function GridItem({ index, children }: { index: number; children: ReactNode }) {
+  const hydrated = useHydrated()
+  // Fixed at mount, so a card that later moves up or down the grid doesn't rise again.
+  const [delay] = useState(hydrated && index < RISING ? index * STAGGER_MS : null)
+  if (delay === null) return <li>{children}</li>
+  return (
+    <li className="animate-shell-rise motion-reduce:animate-shell-fade" style={{ animationDelay: `${delay}ms` }}>
+      {children}
+    </li>
   )
 }
 

@@ -5,7 +5,7 @@ import { SearchField } from './SearchField'
 import { ThemeToggle } from './ThemeToggle'
 
 const ICON_BUTTON =
-  'inline-flex size-9 items-center justify-center rounded-lg text-zinc-500 transition-colors duration-150 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100'
+  'inline-flex size-9 items-center justify-center rounded-lg text-zinc-500 shell-press hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-zinc-100'
 
 export function Header() {
   return (

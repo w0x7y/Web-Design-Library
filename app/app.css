@@ -35,6 +35,86 @@ html[data-browse-filtered] [data-home-hero] {
       transform: translateY(16px);
     }
   }
+
+  /*
+   * Shell motion. New names only: library components render with this stylesheet, so redefining a
+   * Tailwind default (such as --ease-out) would change how they look on the site but not once copied.
+   */
+  --ease-shell-out: cubic-bezier(0.23, 1, 0.32, 1);
+  /* Browse cards that arrive with a filter or category change. */
+  --animate-shell-rise: shell-rise 200ms var(--ease-shell-out) both;
+  /* A menu growing out of its trigger. */
+  --animate-shell-pop: shell-pop 180ms var(--ease-shell-out) both;
+  /* The theme toggle's icon after a switch. */
+  --animate-shell-turn: shell-turn 250ms var(--ease-shell-out) both;
+  /* What each of those becomes under reduced motion: the fade without the movement. */
+  --animate-shell-fade: shell-fade 200ms var(--ease-shell-out) both;
+  @keyframes shell-rise {
+    from {
+      opacity: 0;
+      translate: 0 8px;
+    }
+  }
+  @keyframes shell-pop {
+    from {
+      opacity: 0;
+      scale: 0.96;
+    }
+  }
+  @keyframes shell-turn {
+    from {
+      opacity: 0;
+      rotate: -90deg;
+      scale: 0.9;
+    }
+  }
+  @keyframes shell-fade {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+/*
+ * Press feedback for the site's controls (button(), chip() and the header's icon buttons): colours
+ * change as transition-colors had them, and a press dips the control to 97% so it answers at once.
+ * Unavailable controls stay still, and so does everything under reduced motion.
+ */
+@utility shell-press {
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    outline-color 150ms ease,
+    text-decoration-color 150ms ease,
+    scale 160ms var(--ease-shell-out);
+  @media (prefers-reduced-motion: no-preference) {
+    &:active:not(:disabled, [aria-disabled="true"]) {
+      scale: 0.97;
+    }
+  }
+}
+
+/*
+ * The sidebar's groups slide open and shut. Only browsers that can animate to a height of auto do it;
+ * elsewhere a group snaps open, as before.
+ */
+@supports (interpolate-size: allow-keywords) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-nav-group] {
+      interpolate-size: allow-keywords;
+    }
+    [data-nav-group]::details-content {
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        block-size 200ms var(--ease-shell-out),
+        content-visibility 200ms allow-discrete;
+    }
+    [data-nav-group][open]::details-content {
+      block-size: auto;
+    }
+  }
 }
 
 .dark {

@@ -4,13 +4,13 @@ import type { ComponentMeta } from '../../src/library/types'
 import { componentPath } from '../../src/library/urls'
 import { LiveThumbnail } from './LiveThumbnail'
 
-/** A live thumbnail, name and style tags; the whole card links to the component's page. */
+/** A live thumbnail, name and style tags; the whole card links to the component's page. On hover the thumbnail lifts as its shadow grows. */
 export function ComponentCard({ meta }: { meta: ComponentMeta }) {
   return (
     <article data-testid="component-card" className="group relative">
       <LiveThumbnail
         meta={meta}
-        className="transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-zinc-300 group-hover:shadow-[0_12px_32px_-14px_rgb(0_0_0/0.28)] dark:group-hover:border-zinc-600 dark:group-hover:shadow-[0_12px_32px_-14px_rgb(0_0_0/0.9)]"
+        className="transition-[background-color,border-color,box-shadow,translate] duration-200 ease-shell-out group-hover:border-zinc-300 group-hover:shadow-[0_12px_32px_-14px_rgb(0_0_0/0.28)] motion-safe:group-hover:-translate-y-1 dark:group-hover:border-zinc-600 dark:group-hover:shadow-[0_12px_32px_-14px_rgb(0_0_0/0.9)]"
       />
       <h3 className="mt-3 text-sm/5 font-medium text-zinc-900 dark:text-zinc-100">
         <Link

@@ -1,4 +1,7 @@
 import { Component, Suspense, useCallback, useState, type CSSProperties, type ReactNode } from 'react'
+import { preinit } from 'react-dom'
+import { fontStylesheetHref } from '../../src/library/fonts'
+import { preloadComponent } from '../../src/library/registry'
 import type { ComponentMeta } from '../../src/library/types'
 import { THUMBNAIL_ELEMENT_MAX_WIDTH, THUMBNAIL_STAGE_WIDTH, thumbnailFit, thumbnailStageWidth } from '~/lib/viewports'
 import { LibraryComponent } from './LibraryComponent'
@@ -7,6 +10,10 @@ import { PreviewSurface } from './PreviewSurface'
 // Sections render on a desktop-width stage scaled down to the frame; elements at their natural size,
 // centred. thumbnailFit has the rules. A short section's frame takes the section's own background
 // (colour, gradient or image) so no white band shows, and a thin one sits above a sketch of a page.
+
+// A thumbnail starts loading this far outside the viewport (a screen's height either way), so it has
+// rendered by the time it scrolls into view.
+const LOAD_MARGIN = '100% 0px'
 
 interface Size {
   width: number
@@ -28,8 +35,9 @@ function backgroundOf(el: Element | null): CSSProperties | null {
   return { backgroundColor: clear ? undefined : color, backgroundImage: image === 'none' ? undefined : image, backgroundSize: 'cover', backgroundPosition: 'center' }
 }
 
-/** A live, non-interactive render of the library component `meta`, mounted when it first nears the viewport. */
+/** A live, non-interactive render of the library component `meta`, mounted once its code has loaded as it nears the viewport. */
 export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; className?: string }) {
+  const { slug } = meta
   const { kind } = meta.preview
   const { fonts } = meta
   const [mounted, setMounted] = useState(false)
@@ -41,10 +49,18 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
     const visibility = new IntersectionObserver(
       (entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return
-        setMounted(true)
         visibility.disconnect()
+        // Load the code and insert the font stylesheet before mounting, so the render never suspends.
+        // React holds back revealing a suspended thumbnail while others keep suspending, so during a
+        // scroll none would appear until the scrolling stopped. A failed load still mounts, and the
+        // boundary below catches it.
+        const fontHref = fontStylesheetHref(fonts)
+        if (fontHref) preinit(fontHref, { as: 'style', precedence: 'default', crossOrigin: 'anonymous' })
+        preloadComponent(slug)
+          .catch(() => {})
+          .finally(() => setMounted(true))
       },
-      { rootMargin: '200px' },
+      { rootMargin: LOAD_MARGIN },
     )
     const resize = new ResizeObserver(([entry]) =>
       setFrame({ ...boxSize(entry), stage: thumbnailStageWidth(window.innerWidth) }),
@@ -55,7 +71,7 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
       visibility.disconnect()
       resize.disconnect()
     }
-  }, [])
+  }, [slug, fonts])
 
   const observeContent = useCallback((el: HTMLDivElement) => {
     const resize = new ResizeObserver(([entry]) => {
@@ -76,7 +92,10 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
       inert
       aria-hidden="true"
       // Until the component has rendered, the frame is a quiet placeholder in the site's theme, not a white flash.
-      className={`relative aspect-[16/10] overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 ${ready ? 'bg-white' : 'bg-zinc-100 dark:bg-zinc-900'} ${className}`}
+      // Each library font that loads restyles and relays out the whole page; content-visibility skips the
+      // thumbnails off screen, so that work stays proportional to what is in view. The frame's size never
+      // depends on its content, so skipping it moves nothing.
+      className={`relative aspect-[16/10] overflow-hidden [content-visibility:auto] rounded-lg border border-zinc-200 dark:border-zinc-800 ${ready ? 'bg-white' : 'bg-zinc-100 dark:bg-zinc-900'} ${className}`}
     >
       {mounted && (
         <ThumbnailBoundary>
