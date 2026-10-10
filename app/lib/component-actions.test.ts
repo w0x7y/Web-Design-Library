@@ -9,8 +9,8 @@ const meta: ComponentMeta = {
   tags: [],
   description: 'A card for the tests.',
   preview: { kind: 'section' },
-  fonts: ['Hanken Grotesk:wght@400..700'],
-  brief: { layout: 'Layout.', style: 'Style.', states: 'States.', responsive: 'Responsive.' },
+  wireframe: '┌──┐\n│UI│\n└──┘',
+  brief: { layout: 'Layout.', hierarchy: 'Style.', usage: 'Use this layout.', states: 'States.', responsive: 'Responsive.' },
   addedAt: '2026-10-08',
 }
 const sources: ComponentSources = {
@@ -125,10 +125,10 @@ describe('copying text', () => {
     expect(ports.track).not.toHaveBeenCalled()
   })
 
-  test('refused HTML code includes the font link, CSS and markup from the copy builder', async () => {
+  test('refused HTML code includes CSS and markup from the copy builder', async () => {
     const { actions, ports } = setup()
     ports.copyText.mockResolvedValue(false)
-    const text = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk%3Awght%40400..700&amp;display=swap">\n<style>\n.demo { color: red; }\n</style>\n<div class="demo"></div>\n'
+    const text = '<style>\n.demo { color: red; }\n</style>\n<div class="demo"></div>\n'
     expect(await actions.copyCode('html')).toEqual({ status: 'refused', text, label: 'HTML + CSS' })
   })
 

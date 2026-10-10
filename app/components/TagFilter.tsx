@@ -1,18 +1,18 @@
 import type { Filters } from '~/lib/filters'
 import { useHydrated } from '~/lib/use-hydrated'
-import { STYLE_TAGS, TAG_GROUPS, type StyleTag } from '../../src/library/taxonomy'
+import { LAYOUT_TAGS, TAG_GROUPS, type LayoutTag } from '../../src/library/taxonomy'
 import { chip } from './ui'
 
-/** One toggle per style tag, clustered by TAG_GROUPS; the selection lives in ?tags. A component must carry every selected tag. */
+/** One toggle per layout tag, clustered by TAG_GROUPS; the selection lives in ?tags. A component must carry every selected tag. */
 export function TagFilter({ filters, onChange }: { filters: Filters; onChange(next: Filters): void }) {
   // A click before hydration would be lost, so the chips open up once React is live.
   const hydrated = useHydrated()
 
-  function toggle(tag: StyleTag) {
+  function toggle(tag: LayoutTag) {
     const selected = new Set(filters.tags)
     if (selected.has(tag)) selected.delete(tag)
     else selected.add(tag)
-    onChange({ ...filters, tags: STYLE_TAGS.filter((t) => selected.has(t)) })
+    onChange({ ...filters, tags: LAYOUT_TAGS.filter((t) => selected.has(t)) })
   }
 
   return (

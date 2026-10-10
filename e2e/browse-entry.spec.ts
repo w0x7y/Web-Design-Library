@@ -28,7 +28,7 @@ for (const theme of ['light', 'dark']) {
 }
 
 for (const width of [390, 1440]) {
-  for (const query of ['?q=glass', '?tags=minimal', '?tags=unknown&tags=LIGHT,minimal']) {
+  for (const query of ['?q=accordion', '?tags=centered', '?tags=unknown&tags=SPACIOUS,centered']) {
     test(`filtered home puts the grid first before hydration (${width}px, ${query})`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 })
       // Leave head init scripts running, but prevent React from hydrating the static page.
@@ -42,14 +42,14 @@ for (const width of [390, 1440]) {
 }
 
 test('a filtered deep link stays above the fold after hydration and clearing restores the intro', async ({ page }) => {
-  await page.goto('/?tags=minimal')
-  await expect(page.getByRole('button', { name: 'minimal', pressed: true })).toBeEnabled()
+  await page.goto('/?tags=centered')
+  await expect(page.getByRole('button', { name: 'centered', pressed: true })).toBeEnabled()
   await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'All components', level: 1 })).toBeVisible()
   await page.getByRole('button', { name: 'Clear style filters' }).click()
   await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toBeVisible()
-  await page.getByRole('button', { name: 'minimal', exact: true }).click()
-  await expect(page.getByRole('button', { name: 'minimal', pressed: true })).toBeVisible()
+  await page.getByRole('button', { name: 'centered', exact: true }).click()
+  await expect(page.getByRole('button', { name: 'centered', pressed: true })).toBeVisible()
   await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toBeVisible()
 })
 
@@ -61,7 +61,7 @@ test('blank searches and unknown tags retain the intro before hydration', async 
 
 test('applying tags in place keeps the intro and chip position stable', async ({ page }) => {
   await page.goto('/')
-  const chip = page.getByRole('button', { name: 'minimal', exact: true })
+  const chip = page.getByRole('button', { name: 'centered', exact: true })
   await expect(chip).toBeEnabled()
   await chip.scrollIntoViewIfNeeded()
   const before = await chip.boundingBox()

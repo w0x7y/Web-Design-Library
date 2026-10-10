@@ -1,18 +1,18 @@
 # Patternbook
 
-Copy-paste UI layouts for developers building with AI agents.
+Layout patterns for developers building with AI agents.
 
-Patternbook is a static site with hundreds of copy-paste UI components in four groups: Sections, Cards & profiles, Elements and App UI. The categories and style tags are defined in [`src/library/taxonomy.ts`](src/library/taxonomy.ts).
+Patternbook is a static site of neutral layout patterns with copy-paste code in four groups: Sections, Cards & profiles, Elements and App UI. The categories and layout tags are defined in [`src/library/taxonomy.ts`](src/library/taxonomy.ts).
 
-Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. On a component's page (`/c/<slug>`) you can:
+Every pattern comes in two forms: React + Tailwind v4, and HTML + plain CSS. On a pattern's page (`/c/<slug>`) you can:
 
 - preview it at desktop, tablet and mobile widths, and read its code;
 - **Copy code** in the format you picked;
-- **Copy for AI**, a text brief (layout, visual style, states, responsive behaviour and the full source) to paste into an AI agent;
+- **Copy for AI**, a text brief (desktop wireframe, layout, hierarchy, states, responsive behaviour, usage and the full source) to paste into an AI agent;
 - **Download** a PNG at desktop or mobile size, optionally with a transparent background;
 - **Copy image**, the desktop PNG straight to the clipboard (transparent if the Download menu's Transparent background option is on).
 
-AI agents can also fetch components without a browser: `/llms.txt` lists every component, and `/catalog.json` provides a versioned metadata index with counts and absolute URLs. `/c/<slug>.md` returns a brief with both formats; `/c/<slug>.react.md` and `/c/<slug>.html.md` return the same brief as Copy for AI for one format.
+AI agents can also fetch patterns without a browser: `/llms.txt` lists every pattern, and `/catalog.json` provides a versioned metadata index with counts and absolute URLs. `/c/<slug>.md` returns a brief with both formats; `/c/<slug>.react.md` and `/c/<slug>.html.md` return the same brief as Copy for AI for one format.
 
 It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, component and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files. The build also packages them for Vercel with a Content Security Policy for each page.
 
@@ -46,11 +46,11 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run te
 
 ### What the tests cover
 
-- **Vitest** (`npm test`, files under `src/`, `app/` and `scripts/`): the authoring rules checked over every component folder (`src/library/library.test.ts`, `rules.ts`), the catalog and the contract that its two loaders (Vite globs for the app, `fs` for Node) agree, taxonomy, font metadata, the reset template, briefs, agent and discovery files, and prerender paths. App tests cover copy actions, capture, clipboard, filters, theme, storage, format preferences, analytics, viewports, stage attributes, related components, syntax highlighting and hero showcase references.
+- **Vitest** (`npm test`, files under `src/`, `app/` and `scripts/`): the authoring rules checked over every pattern folder (`src/library/library.test.ts`, `rules.ts`), the catalog and the contract that its two loaders (Vite globs for the app, `fs` for Node) agree, taxonomy, the reset template, briefs, agent and discovery files, and prerender paths. App tests cover copy actions, capture, clipboard, filters, theme, storage, format preferences, analytics, viewports, stage attributes, related patterns, syntax highlighting and hero showcase references.
 - **Smoke** (`e2e/smoke.spec.ts`): the pre-rendered site in Chromium. Browse and filters, theme, detail page, the preview stage, copy and export actions, analytics events, and the served agent files.
-- **Parity** (`e2e/parity.spec.ts`): for each component at desktop and mobile size, the HTML + CSS version must render like the React version, within 1% of pixels by default.
-- **Capture** (`e2e/capture-fonts.spec.ts`, `e2e/capture-placeholders.spec.ts`, `e2e/capture-scrollbars.spec.ts`): a downloaded PNG shows the component's web fonts and its placeholder colours, and a section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide.
-- **Focus** (`e2e/focus.spec.ts`): in forced-colors mode, tabbing to each control of both versions of every component makes a focus outline appear.
+- **Parity** (`e2e/parity.spec.ts`): for each pattern at desktop and mobile size, the HTML + CSS version must render like the React version, within 1% of pixels by default.
+- **Capture** (`e2e/capture-scrollbars.spec.ts` and smoke export checks): PNG downloads preserve capture dimensions, transparency and motion freezing. A section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide. Component web-font checks are retired; the three exemplars have no inputs, so input-placeholder e2e checks are retired while the capture unit coverage stays.
+- **Focus** (`e2e/focus.spec.ts`): in forced-colors mode, tabbing to each control of both versions of every pattern makes a focus outline appear.
 - **Layout** (`e2e/layout.spec.ts`): React sections have no horizontal scrolling at 320, 640, 768, 1024 and 1280px, and React elements fit their frames inside the stage padding at both capture sizes.
 - **Browse entry** (`e2e/browse-entry.spec.ts`): filtered home links show the grid before React hydrates, at desktop and mobile widths.
 - **Security** (`e2e/security.spec.ts`): every pre-rendered page's CSP matches its HTML, injected scripts are blocked, navigation and PNG export still work, and the shell's local fonts load without Google Fonts.
@@ -60,9 +60,9 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run te
 
 Every browser spec runs against the build with its CSP enforced. The unit tests also cover generated deployment routes, headers, and removal of stale output on rebuilds.
 
-## Adding a component
+## Adding a pattern
 
-Create a folder in `src/library/components/<slug>/` with `meta.ts`, `Component.tsx`, `index.html` and `styles.css`. Nothing else needs registering: the folder is picked up by the catalog, the pre-render list and the agent files. [`CONTRIBUTING.md`](CONTRIBUTING.md) walks through the whole process, from planning to pull request. [`AGENTS.md`](AGENTS.md) is the rulebook. It has the checklist, the `meta.ts` fields, the authoring rules, the `styles.css` reset template and the details that make the HTML + CSS twin pass parity.
+Create a unique `<category>-<layout words>` folder in `src/library/components/<slug>/` with `meta.ts`, `Component.tsx`, `index.html` and `styles.css`. Each pattern uses the neutral kit, descriptive slot copy, layout tags, a desktop wireframe and five brief fields. Agents keep its structure and apply the host project's colours, type, radius, imagery and content. The initial exemplars are `hero-split-image`, `faq-accordion` and `buttons-hierarchy`. Nothing else needs registering: the folder is picked up by the catalog, the pre-render list and the agent files. [`CONTRIBUTING.md`](CONTRIBUTING.md) walks through the whole process, from planning to pull request. [`AGENTS.md`](AGENTS.md) is the rulebook. It has the checklist, the `meta.ts` fields, the authoring rules, the `styles.css` reset template and the details that make the HTML + CSS twin pass parity.
 
 When the folder is ready, `npm test` must report no violations, and `npm run test:parity`, `e2e/focus.spec.ts` and `e2e/layout.spec.ts` must pass.
 
@@ -77,47 +77,46 @@ app/                  The site (React Router app)
                       clipboard, analytics, theme, format-preference, storage, filters
   site.ts             re-exports SITE from src/site.ts
 src/site.ts           SITE: name, slug, tagline, URL and repo URL
-src/library/          The component library
-  components/<slug>/  one folder per component (see above)
+src/library/          The layout pattern library
+  components/<slug>/  one folder per pattern (see above)
   catalog.ts          folder convention, SLUG_PATTERN, library order and grouping
-  types.ts            component metadata and source types, supported FORMATS
+  types.ts            component metadata, wireframes, five-part briefs and source types, supported FORMATS
   registry.ts         client-safe metadata and lazy component loaders
   sources.server.ts   raw sources for the code view, kept out of the client bundle
-  taxonomy.ts         groups, categories and style tags
+  taxonomy.ts         groups, categories and layout tags
   brief.ts            the AI brief and copyable source
   agent-files.ts      agent and discovery files, their content types and CORS rules
   discovery.ts        sitemap and robots builders
-  fonts.ts            font metadata validation, display names and stylesheet links
   rules.ts, reset.ts  authoring-rule checks and the pinned CSS reset
   urls.ts             page, agent and discovery URL helpers, and the prerender list
 scripts/              load-library.ts (reads the library from disk), build-agent-files.ts,
                       build-vercel-output.ts (static deployment and per-page CSP), serve-build.ts
 mcp/                  standalone stdio MCP server, with its own dependencies and tests
 e2e/                  Playwright specs
-docs/superpowers/     the original design spec and implementation plan
+docs/superpowers/     the layout patterns spec, prior design and implementation plans
 ```
 
-### How a component page works
+### How a pattern page works
 
-- **The preview stage.** `/preview/<slug>` renders one component alone on a bare page. It has none of the site's theme, fonts, toasts or analytics, and it is `noindex`. The detail page shows it in an iframe, so site dark mode never restyles a component. Opening it with `?capture=1` freezes motion.
-- **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `patternbook-<slug>-<desktop|mobile>.png`. Known limitation: `modern-screenshot` draws `backdrop-filter` blur differently from the browser, so a glass component's PNG (navbar-glass, for example) differs slightly from its preview behind the frosted areas.
+- **The preview stage.** `/preview/<slug>` renders one pattern alone on a bare page. It has none of the site's theme, fonts, toasts or analytics, and it is `noindex`. The detail page shows it in an iframe, so site dark mode never restyles a pattern. Opening it with `?capture=1` freezes motion.
+- **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `patternbook-<slug>-<desktop|mobile>.png`. Patterns use the neutral wireframe kit and labelled media placeholders, with no external imagery or web fonts.
 - **Preferences.** The site theme and the React/HTML choice are kept in `localStorage` (`wl:theme` and `wl:format`).
-- **Filtered home links.** A head script hides the home intro before first paint when a search or known style tag is present. React takes over after hydration; clearing all filters brings the intro back. Applying tags on the ordinary home page keeps the intro in place so the chips do not jump.
+- **Filtered home links.** A head script hides the home intro before first paint when a search or known layout tag is present. React takes over after hydration; clearing all filters brings the intro back. Applying tags on the ordinary home page keeps the intro in place so the chips do not jump.
 - **Home hero.** Browse components, open `llms.txt`, or copy the Claude Code MCP setup command. A setup link covers Codex, Cursor and other clients. Refused clipboard writes show the same manual-copy field as component actions.
-- **Site fonts.** Geist and Geist Mono are served from `public/fonts`, with their upstream license and source commit recorded there. Component fonts remain declared in `meta.fonts` and loaded from Google Fonts.
+- **Site fonts.** Geist and Geist Mono are served from `public/fonts`, with their upstream license and source commit recorded there. Patterns use the system sans stack, with `font-mono` allowed for code and figures.
 
 ### Agent files
 
-`npm run build` runs `scripts/build-agent-files.ts` after `react-router build`. The script loads every component folder from disk and writes the files defined by `src/library/agent-files.ts` into `build/client`:
+`npm run build` runs `scripts/build-agent-files.ts` after `react-router build`. The script loads every pattern folder from disk and writes the files defined by `src/library/agent-files.ts` into `build/client`:
 
-- `c/<slug>.md` for each component: the same brief that Copy for AI produces, but with the reference code in both React + Tailwind and HTML + CSS (Copy for AI includes only the format you picked);
-- `c/<slug>.react.md` and `c/<slug>.html.md` for each component: exactly the Copy for AI brief for that format;
-- `catalog.json`: a compact version 1 index with formats, populated groups, categories and tags with counts, and component metadata with absolute page and brief URLs. Fonts use display names; brief text and source code are omitted. Its TypeScript shape is `CatalogJson` in `src/library/agent-files.ts`;
-- `llms.txt`: an index of every component by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
+- `c/<slug>.md` for each pattern: the same brief that Copy for AI produces, but with the reference code in both React + Tailwind and HTML + CSS (Copy for AI includes only the format you picked);
+- `c/<slug>.react.md` and `c/<slug>.html.md` for each pattern: exactly the Copy for AI brief for that format;
+- `catalog.json`: a compact version 1 index with formats, populated groups, categories and tags with counts, and component metadata with absolute page and brief URLs. The `fonts` field stays as `[]` for version 1 consumers; wireframes, brief text and source code are omitted. Its TypeScript shape is `CatalogJson` in `src/library/agent-files.ts`;
+- `llms.txt`: an index of every pattern by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
 - `sitemap.xml`: canonical URLs for the home, category and component pages, generated from the taxonomy and catalog. Standalone previews, filter queries and agent files are excluded.
 - `robots.txt`: allows crawling and points to the production sitemap. Preview pages remain crawlable so search engines can read their `noindex` directive.
 
-The build logs `Agent and discovery files: <n> written`: three briefs per component plus four index and discovery files. `src/library/agent-files.ts` sets how they are served, and both the Vercel config and `npm run serve:build` follow it (all types with `charset=utf-8`):
+The build logs `Agent and discovery files: <n> written`: three briefs per pattern plus four index and discovery files. `src/library/agent-files.ts` sets how they are served, and both the Vercel config and `npm run serve:build` follow it (all types with `charset=utf-8`):
 
 | Files | Content-Type | `Access-Control-Allow-Origin: *` |
 |---|---|---|
@@ -131,7 +130,7 @@ Vercel also adds `Access-Control-Allow-Origin: *` to static files on its own, so
 
 ### MCP server
 
-The standalone `patternbook-mcp` package is published on npm. It lets coding agents search components, list categories and fetch a React or HTML brief over MCP. It reads the live site's agent files over HTTP and picks up new components without a package release. Connect Claude Code with:
+The standalone `patternbook-mcp` package is published on npm. It lets coding agents search patterns, list categories and fetch a React or HTML brief over MCP. It reads the live site's agent files over HTTP and picks up new patterns without a package release. Connect Claude Code with:
 
 ```bash
 claude mcp add patternbook -- npx -y patternbook-mcp
@@ -186,4 +185,4 @@ After each release, verify the live canonical URLs, component pages, markdown br
 
 ## License
 
-The code and authored components are [MIT licensed](LICENSE). Bundled Geist fonts retain their [SIL Open Font License 1.1](public/fonts/OFL.txt).
+The code and authored patterns are [MIT licensed](LICENSE). Bundled Geist fonts retain their [SIL Open Font License 1.1](public/fonts/OFL.txt).

@@ -39,7 +39,6 @@ export default function Preview({ loaderData }: Route.ComponentProps) {
     <PreviewSurface
       ref={root}
       kind={component.preview.kind}
-      fonts={component.fonts}
       mode="page"
       capture={hydrated && isCaptureRequest(searchParams)}
       state={state}

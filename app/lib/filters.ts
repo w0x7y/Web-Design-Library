@@ -1,11 +1,11 @@
-import { isStyleTag, type CategoryId, type StyleTag } from '../../src/library/taxonomy'
+import { isLayoutTag, type CategoryId, type LayoutTag } from '../../src/library/taxonomy'
 import type { ComponentMeta } from '../../src/library/types'
 
 // Browse filters live in the URL (?q=…&tags=a,b) so every view can be shared.
 
 export interface Filters {
   q: string
-  tags: StyleTag[]
+  tags: LayoutTag[]
 }
 
 export const NO_FILTERS: Filters = { q: '', tags: [] }
@@ -13,10 +13,10 @@ export const NO_FILTERS: Filters = { q: '', tags: [] }
 /** Lenient: trims, lowercases and dedupes tags, and drops anything outside the vocabulary. */
 export function parseFilters(params: URLSearchParams): Filters {
   const q = (params.get('q') ?? '').trim()
-  const tags: StyleTag[] = []
+  const tags: LayoutTag[] = []
   for (const raw of params.getAll('tags').flatMap((value) => value.split(','))) {
     const tag = raw.trim().toLowerCase()
-    if (isStyleTag(tag) && !tags.includes(tag)) tags.push(tag)
+    if (isLayoutTag(tag) && !tags.includes(tag)) tags.push(tag)
   }
   return { q, tags }
 }

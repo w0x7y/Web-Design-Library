@@ -1,16 +1,16 @@
 import postcss, { type AtRule, type Node, type Root, type Rule } from 'postcss'
 import ts from 'typescript'
-import { IMAGES } from './assets'
-import { fontDisplayName, isFontFamily } from './fonts'
+import { parseFragment, type DefaultTreeAdapterMap } from 'parse5'
+import { classTokens, outsideKit, checkKitDeclaration } from './wireframe-kit'
 import { isSlug, SOURCE_FILES } from './catalog'
 import { resetCss } from './reset'
-import { isCategoryId, isStyleTag } from './taxonomy'
+import { CATEGORY_LABELS, isCategoryId, isLayoutTag } from './taxonomy'
 import type { ComponentMeta, ComponentSources, LibraryEntry } from './types'
 
-// Mechanical checks for the authoring rules in AGENTS.md (spec §4.5).
+// Mechanical checks for the authoring rules in AGENTS.md (layout patterns spec §4).
 
-const BRIEF_FIELDS = ['layout', 'style', 'states', 'responsive'] as const
-const IMAGE_URLS = new Set<string>(Object.values(IMAGES))
+const BRIEF_FIELDS = ['layout', 'hierarchy', 'states', 'responsive', 'usage'] as const
+const MEDIA_TAGS = new Set(['img', 'video', 'iframe', 'picture', 'source'])
 
 /**
  * Every component folder's violations of the authoring rules, in the order given. A rule that
@@ -27,7 +27,7 @@ function checkComponent(entry: LibraryEntry, folder: string, allSlugs: string[])
   for (const key of Object.keys(SOURCE_FILES) as (keyof ComponentSources)[]) {
     if (!sources[key].trim()) violations.push(`${SOURCE_FILES[key]} is missing or empty`)
   }
-  if (sources.tsx.trim()) violations.push(...checkTsx(sources.tsx, meta.fonts))
+  if (sources.tsx.trim()) violations.push(...checkTsx(sources.tsx))
   if (sources.html.trim()) violations.push(...checkHtml(sources.html, meta.slug))
   if (sources.css.trim()) violations.push(...checkCss(sources.css, meta.slug))
   return violations
@@ -41,13 +41,22 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (!meta.name.trim()) out.push('meta.name is empty')
   if (!meta.description.trim()) out.push('meta.description is empty')
   if (!isCategoryId(meta.category)) out.push(`unknown category "${meta.category}"`)
-  if (meta.tags.length === 0) out.push('meta.tags must list at least one style tag')
+  if (meta.tags.length === 0) out.push('meta.tags must list at least one layout tag')
   for (const tag of meta.tags) {
-    if (!isStyleTag(tag)) out.push(`unknown style tag "${tag}"`)
+    if (!isLayoutTag(tag)) out.push(`unknown layout tag "${tag}"`)
   }
-  for (const family of meta.fonts) {
-    if (!isFontFamily(family)) out.push(`meta.fonts contains an invalid Google Fonts family: ${JSON.stringify(family)}`)
+  if (!meta.slug.startsWith(`${meta.category}-`)) out.push(`meta.slug must start with "${meta.category}-"`)
+  if (meta.name.trim() && isCategoryId(meta.category) && !meta.name.startsWith(`${CATEGORY_LABELS[meta.category]} — `)) {
+    out.push(`meta.name must start with "${CATEGORY_LABELS[meta.category]} — "`)
   }
+  const wireframe = meta.wireframe ?? ''
+  const lines = wireframe.split('\n')
+  if (!wireframe.trim()) out.push('meta.wireframe is empty')
+  if (lines.length > 24) out.push('meta.wireframe must have at most 24 lines')
+  if (lines.some((line) => [...line].length > 64)) out.push('meta.wireframe lines must have at most 64 characters')
+  if (wireframe.includes('\t')) out.push('meta.wireframe must not contain tabs')
+  if (lines.some((line) => / +$/.test(line))) out.push('meta.wireframe must not have trailing spaces')
+  if (!lines[0].trim() || !lines.at(-1)!.trim()) out.push('meta.wireframe must not have a blank first or last line')
   for (const field of BRIEF_FIELDS) {
     if (!meta.brief[field]?.trim()) out.push(`brief.${field} is empty`)
   }
@@ -60,22 +69,9 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   return out
 }
 
-function checkTsx(tsx: string, fonts: string[]): string[] {
-  const out: string[] = []
+function checkTsx(tsx: string): string[] {
   const source = ts.createSourceFile('Component.tsx', tsx, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
-  out.push(...checkTsxSyntax(source))
-  if (fonts.length > 0) {
-    const names = fonts.map(fontDisplayName)
-    const firstLine = tsx.split('\n', 1)[0]
-    if (!firstLine.startsWith('// Fonts: ')) {
-      out.push(`Component.tsx must start with a "// Fonts: " comment naming ${names.join(', ')}`)
-    } else {
-      for (const name of names) {
-        if (!firstLine.includes(name)) out.push(`Component.tsx "// Fonts: " comment does not name ${name}`)
-      }
-    }
-  }
-  return out
+  return checkTsxSyntax(source)
 }
 
 function checkTsxSyntax(source: ts.SourceFile): string[] {
@@ -126,6 +122,19 @@ function checkTsxSyntax(source: ts.SourceFile): string[] {
       if (/^on[A-Z]/.test(name)) {
         out.add('Component.tsx uses hooks or event handlers; interactivity must be CSS-only (no interactive JS)')
       }
+      if (/^src(?:set)?$/i.test(name)) out.add(`Component.tsx must not use a ${name} attribute; use a media placeholder`)
+      if (name === 'fill' || name === 'stroke') {
+        const value = node.initializer && ts.isJsxExpression(node.initializer) ? node.initializer.expression : node.initializer
+        const literal = value && unwrapExpression(value)
+        if (!literal || !ts.isStringLiteralLike(literal) || !['none', 'currentColor'].includes(literal.text)) {
+          out.add(`Component.tsx SVG ${name} must be none or currentColor`)
+        }
+      }
+      if (name === 'className' && node.initializer) {
+        for (const token of literalClasses(node.initializer, declarations)) {
+          if (outsideKit(token)) out.add(`Component.tsx class "${token}" is outside the wireframe kit`)
+        }
+      }
       if (name === 'style') out.add('Component.tsx uses a style attribute; use Tailwind classes only')
       // React warns about HTML-style names such as stroke-width; only data-* and aria-* keep their dashes.
       if (name.includes('-') && !/^(data|aria)-/.test(name)) {
@@ -141,9 +150,7 @@ function checkTsxSyntax(source: ts.SourceFile): string[] {
       if (tag === 'style' || tag === 'script') {
         out.add(`Component.tsx must not contain <${tag}>; use Tailwind classes and CSS-only interactivity`)
       }
-      if (tag === 'img') {
-        for (const violation of checkJsxImage(node.attributes)) out.add(violation)
-      }
+      if (MEDIA_TAGS.has(tag)) out.add(`Component.tsx must not contain <${tag}>; use a media placeholder`)
     }
     ts.forEachChild(node, visit)
   }
@@ -191,47 +198,37 @@ function hasDarkVariant(node: ts.Node): boolean {
   return ts.forEachChild(node, hasDarkVariant) ?? false
 }
 
-function checkJsxImage(attributes: ts.JsxAttributes): string[] {
-  const out: string[] = []
-  const attrs = attributes.properties.filter(ts.isJsxAttribute)
-  const missing = ['alt', 'width', 'height'].filter((name) => !attrs.some((attr) => ts.isIdentifier(attr.name) && attr.name.text === name))
-  if (missing.length > 0) out.push(`Component.tsx: <img> is missing ${missing.join(', ')}`)
-  const initializer = attrs.find((attr) => ts.isIdentifier(attr.name) && attr.name.text === 'src')?.initializer
-  const value = initializer && ts.isJsxExpression(initializer) ? initializer.expression : initializer
-  const literal = value && unwrapExpression(value)
-  const src = literal && ts.isStringLiteralLike(literal) ? literal.text : undefined
-  if (src === undefined || !IMAGE_URLS.has(src)) {
-    out.push(`Component.tsx: <img> src ${src === undefined ? '(not a literal)' : `"${src}"`} is not a URL from IMAGES in src/library/assets.ts`)
+function literalClasses(node: ts.Node, declarations: Map<string, ts.Node>, seen = new Set<string>()): string[] {
+  if (ts.isIdentifier(node)) {
+    const initializer = declarations.get(node.text)
+    if (!initializer || seen.has(node.text)) return []
+    return literalClasses(initializer, declarations, new Set(seen).add(node.text))
   }
-  return out
-}
-
-function checkImages(source: string, file: string): string[] {
-  const out: string[] = []
-  for (const [tag] of source.matchAll(/<img\b[^>]*>/g)) {
-    const missing = ['alt', 'width', 'height'].filter((attr) => !new RegExp(`\\s${attr}=`).test(tag))
-    if (missing.length > 0) out.push(`${file}: <img> is missing ${missing.join(', ')}`)
-    const m = tag.match(/\ssrc=(?:"([^"]*)"|'([^']*)'|\{\s*(["'`])(.*?)\3\s*\})/)
-    const src = m ? (m[1] ?? m[2] ?? m[4]) : undefined
-    if (src === undefined || !IMAGE_URLS.has(src)) {
-      out.push(`${file}: <img> src ${src === undefined ? '(not a literal)' : `"${src}"`} is not a URL from IMAGES in src/library/assets.ts`)
-    }
-  }
-  return out
+  if (ts.isStringLiteralLike(node) || ts.isTemplateLiteralToken(node)) return classTokens(node.text)
+  const tokens: string[] = []
+  ts.forEachChild(node, (child) => { tokens.push(...literalClasses(child, declarations, seen)) })
+  return tokens
 }
 
 function checkHtml(html: string, slug: string): string[] {
   const out: string[] = []
-  for (const tag of ['link', 'style', 'script']) {
-    if (new RegExp(`<${tag}\\b`, 'i').test(html)) {
-      out.push(`index.html must not contain <${tag}>; the copy builder and parity harness add fonts and styles`)
-    }
-  }
-  const root = html.replace(/^(?:\s|<!--[\s\S]*?-->)*/, '').match(/^<[a-zA-Z][\w-]*\b([^>]*)>/)
-  const classAttr = root?.[1].match(/\sclass=(?:"([^"]*)"|'([^']*)')/)
-  const classes = (classAttr?.[1] ?? classAttr?.[2] ?? '').split(/\s+/)
+  const fragment = parseFragment(html)
+  const root = fragment.childNodes.find((node) => 'tagName' in node)
+  const classes = root && 'attrs' in root ? root.attrs.find((attr) => attr.name === 'class')?.value.split(/\s+/) ?? [] : []
   if (!classes.includes(slug)) out.push(`index.html root element must have the class "${slug}"`)
-  out.push(...checkImages(html, 'index.html'))
+  function visit(node: DefaultTreeAdapterMap['node']) {
+    if ('tagName' in node) {
+      if (['link', 'style', 'script'].includes(node.tagName)) out.push(`index.html must not contain <${node.tagName}>; the copy builder and parity harness add styles`)
+      if (MEDIA_TAGS.has(node.tagName)) out.push(`index.html must not contain <${node.tagName}>; use a media placeholder`)
+      for (const attr of node.attrs) {
+        if (['src', 'srcset', 'style'].includes(attr.name)) out.push(`index.html must not use a ${attr.name} attribute`)
+        if (['fill', 'stroke'].includes(attr.name) && !['none', 'currentColor'].includes(attr.value)) out.push(`index.html SVG ${attr.name} must be none or currentColor`)
+      }
+      if ('content' in node) visit(node.content)
+    }
+    if ('childNodes' in node) node.childNodes.forEach(visit)
+  }
+  visit(fragment)
   return out
 }
 
@@ -247,9 +244,11 @@ function checkCss(css: string, slug: string): string[] {
   if (mismatch) {
     out.push(`styles.css must begin with the scoped reset (template in AGENTS.md); line ${mismatch.line} should read: ${mismatch.expected}`)
   }
-  root.walkAtRules('import', () => {
-    out.push('styles.css must not use @import; declare fonts in meta.fonts')
+  root.walkAtRules((rule) => {
+    if (/^(?:import|font-face)$/i.test(rule.name)) out.push(`styles.css must not use @${rule.name}`)
   })
+  const resetFamilyLine = css.split('\n').findIndex((line) => line.startsWith(resetCss(slug).split('\n')[2].split(';')[0] + ';')) + 1
+  root.walkDecls((declaration) => { out.push(...checkKitDeclaration(declaration, resetFamilyLine)) })
   root.walkAtRules((rule) => {
     if (!/keyframes$/i.test(rule.name)) return
     const name = rule.params.trim().replace(/^(['"])(.*)\1$/, '$2')

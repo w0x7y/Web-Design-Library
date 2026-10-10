@@ -1,25 +1,27 @@
 # AGENTS.md
 
-Patternbook is a static site of copy-paste UI components. This file is the authoring guide for components in `src/library/components/`. `npm test` enforces the mechanically checkable rules (`src/library/rules.ts`), and `npm run test:parity` checks that the HTML/CSS version renders like the React version.
+Patternbook is a static site of copy-paste layout patterns, shown as neutral wireframes. This file is the authoring guide for patterns in `src/library/components/`. `npm test` enforces the mechanically checkable rules (`src/library/rules.ts`), and `npm run test:parity` checks that the HTML/CSS version renders like the React version.
 
-For the end-to-end contribution workflow (setup, planning, verification, troubleshooting and the pull request), see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+For the end-to-end contribution workflow (setup, planning, verification, troubleshooting and the pull request), see [`CONTRIBUTING.md`](CONTRIBUTING.md). The [layout patterns spec](docs/superpowers/specs/2026-10-10-layout-patterns-design.md) is the contract wherever older documents disagree.
 
-## Add a component
+## Add a pattern
 
-1. Create `src/library/components/<slug>/`. The slug is kebab-case, unique, and becomes the URL (`/c/<slug>`).
-2. Write `meta.ts` (field guide below).
-3. Write `Component.tsx`.
-4. Write `index.html` and `styles.css`. `styles.css` begins with the reset template below.
+1. Create `src/library/components/<slug>/`. The slug is kebab-case, unique, starts with `<category>-`, and becomes the URL (`/c/<slug>`). A new pattern needs a distinct layout, not a new skin of an existing one.
+2. Write `meta.ts` (field guide below), including a desktop wireframe and all five brief fields.
+3. Write `Component.tsx` using the wireframe kit below and slot copy that describes what belongs there.
+4. Run `npx tsx scripts/draft-twin.ts <slug>` for a reference draft in `twin-drafts/`. Hand-finish `index.html` and `styles.css`. `styles.css` begins with the reset template below.
 5. Run `npm test`. Done when the library test reports no violations for your folder.
 6. Run `npm run test:parity`. Done when both the `desktop` (1440px wide) and `mobile` (390px wide) tests pass. Each one renders in the frame the PNG is captured in. Fix the CSS, not the tolerance.
 7. Run `npx playwright test e2e/focus.spec.ts e2e/layout.spec.ts`. Done when every control of both versions shows a focus outline in forced-colors mode, a section reflows from 320px up without horizontal scrolling, and an element fits its frame (see `preview.kind` below).
 8. Check `/c/<slug>` in `npm run dev` at desktop and mobile widths, in both the light and dark site themes.
 
+Set `PATTERNBOOK_PORT` to a free port for browser tests when several checkouts are running. Stop any stale server on that port before rerunning after changes; Playwright otherwise reuses its old build.
+
 ## Folder layout
 
 ```
 src/library/components/<slug>/
-  meta.ts         metadata (see below)
+  meta.ts         metadata, desktop wireframe and five-part brief
   Component.tsx   React + Tailwind v4 version: exactly the file users copy
   index.html      HTML version (markup fragment, no <html>/<head>)
   styles.css      plain CSS version, every selector scoped under .<slug>
@@ -27,7 +29,7 @@ src/library/components/<slug>/
 
 The site renders `Component.tsx` and also shows its raw text, so what renders is byte-for-byte what users copy. The site never renders `index.html` or `styles.css`. The copy builder and the parity test use them.
 
-New folders enter `llms.txt`, `catalog.json` and the Markdown briefs automatically at build time. The MCP server reads those files without separate registration. Agents see the component's `name`, `description` and `brief` text through the indexes, search results and briefs.
+New folders enter `llms.txt`, `catalog.json` and the Markdown briefs automatically at build time. The MCP server reads those files without separate registration. Agents see the pattern's `name`, `description`, wireframe and brief through the indexes, search results and briefs. Internal APIs retain the word "component".
 
 ## meta.ts
 
@@ -36,60 +38,93 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'hero-split-image',
-  name: 'Split hero with image',
+  name: 'Hero — Split with image',
   category: 'hero',
-  tags: ['minimal', 'light', 'has-image'],
-  description: 'One or two sentences: what it is and when to use it.',
+  tags: ['split', 'media', 'spacious'],
+  description: 'One or two sentences: what the layout is and when to use it.',
   preview: { kind: 'section' },
-  fonts: ['Hanken Grotesk:wght@400..700'],
-  brief: { layout: '…', style: '…', states: '…', responsive: '…' },
-  addedAt: '2026-10-08',
+  wireframe: `┌─────────────────────────────────────┐
+│ Headline          ┌───────────────┐ │
+│ Lede              │     Image     │ │
+│ [Primary action]  └───────────────┘ │
+└─────────────────────────────────────┘`,
+  brief: { layout: '…', hierarchy: '…', states: '…', responsive: '…', usage: '…' },
+  addedAt: '2026-10-10',
 } satisfies ComponentMeta
 ```
 
 | Field | Meaning |
 |---|---|
-| `slug` | Same as the folder name. |
-| `name` | Display name. Element sets read `<Kind> — <Style>`, e.g. `Buttons — Minimal`. |
-| `category` | One of `CATEGORY_IDS` in `src/library/taxonomy.ts`. |
-| `tags` | One or more of `STYLE_TAGS` in `src/library/taxonomy.ts`. |
-| `description` | Shown on the detail page, in `llms.txt` and `catalog.json`, and in MCP search results and briefs: what it is and when to use it. |
+| `slug` | Same as the folder name; `<category>-<layout words>`, kebab-case and unique. |
+| `name` | Starts with `CATEGORY_LABELS[category]` and ` — `, then the layout name, e.g. `Buttons — Primary, secondary and tertiary`. |
+| `category` | One of `CATEGORY_IDS` in `src/library/taxonomy.ts`. Categories and groups stay unchanged. |
+| `tags` | One or more `LAYOUT_TAGS` in `src/library/taxonomy.ts`, grouped as Composition, Arrangement, Content and Density. |
+| `description` | Shown on the detail page, in `llms.txt` and `catalog.json`, and in MCP results: what the layout is and when to use it. |
 | `preview.kind` | `section` renders full width at the viewport width. `element` renders centred on white with 48px padding inside a 480px-tall frame, so it must stay within about 384px tall and fit 294px wide on mobile. |
-| `preview.parity` | Optional `{ maxDiffRatio, reason }`. Use it only for sub-pixel font differences you cannot remove, and write the reason. The default tolerance is 1% of pixels. |
-| `fonts` | Google Fonts css2 `family` params, e.g. `'Instrument Serif:ital@0;1'`. Leave it empty to inherit the page font. |
-| `brief.*` | The four sections of the AI brief (layout, visual style, hover/focus states, responsive changes). Write them so an agent could rebuild the component without seeing the code: name colours, sizes and breakpoints. |
+| `preview.parity` | Optional `{ maxDiffRatio, reason }`. Use it only for sub-pixel text rendering differences you cannot remove, and write the reason. Default tolerance is 1% of pixels. |
+| `wireframe` | Desktop layout in a template literal using `┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼`. Name regions with slot copy, actions as `[Label]`, media as a box labelled `Image` or `Video`. At most 64 characters per line and 24 lines; no tabs, trailing spaces or blank first/last line. |
+| `brief.layout` | Regions, grid, column widths, alignment and spacing, in px and Tailwind names. |
+| `brief.hierarchy` | Reading order, emphasis, and each content slot with its length limit. |
+| `brief.states` | Hover, focus, open, selected and disabled states. |
+| `brief.responsive` | Breakpoints and what changes at each. |
+| `brief.usage` | When to use it, when to pick a different pattern, and two or three variations. |
 | `addedAt` | `YYYY-MM-DD`. |
 | `author` | Reserved for community submissions. Leave it unset. |
 
-Font metadata must contain a family name, optionally followed by CSS2 axis names and value tuples. Every tuple must have one value or strictly ascending range per axis; tuples must not overlap or touch. `npm test` rejects malformed names, duplicate axes and invalid values. Keep metadata unencoded; the copy builder and preview encode the URL parameters.
+## Wireframe kit
+
+Use Tailwind's `neutral` palette plus `white`, `black`, `transparent`, `current` and `inherit`, with optional opacity modifiers. Page surfaces are white; alternate surfaces neutral-50; media and avatar fills neutral-100 or neutral-200. Borders are neutral-200, control borders neutral-300. Headings use neutral-900, body neutral-600, meta text neutral-500, decorative glyphs neutral-400. Dark bands may use neutral-900 or neutral-950 with white or neutral-300 text. Keep text contrast at least 4.5:1.
+
+Use the default sans stack. `font-mono` is allowed for code, keys and tabular figures. Section containers use `mx-auto max-w-6xl px-6 py-16 sm:py-24`, `max-w-3xl` for narrow content. Controls use `rounded-md`, cards and media `rounded-lg`, and pills, avatars, switches and badges `rounded-full`. Use 1px borders. Shadows (`shadow-sm` to `shadow-lg`) are for elevation.
+
+Display headlines use `text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl`; section headlines use `text-3xl font-semibold tracking-tight text-balance sm:text-4xl`. Item titles are `text-base font-semibold` or `text-lg`. Eyebrows are `text-sm font-medium text-neutral-500`, ledes `text-lg text-pretty text-neutral-600`, body `text-base text-neutral-600` (or `text-sm` in cards and elements), and meta text `text-sm text-neutral-500` or `text-xs`.
+
+Every control uses:
+
+```text
+focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900
+```
+
+| Part | Standard classes or markup |
+|---|---|
+| Primary action | `inline-flex h-11 items-center justify-center rounded-md bg-neutral-900 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-700` plus focus classes. |
+| Secondary action | `inline-flex h-11 items-center justify-center rounded-md border border-neutral-300 bg-white px-5 text-sm font-medium text-neutral-900 transition-colors hover:bg-neutral-50` plus focus classes. |
+| Text link | `font-medium text-neutral-900 underline underline-offset-4 hover:text-neutral-600` plus focus classes. |
+| Card | `rounded-lg border border-neutral-200 bg-white p-6`. |
+| Input | `h-10 w-full rounded-md border border-neutral-300 bg-white px-3 text-sm placeholder:text-neutral-500` plus focus classes, a label and `aria-describedby` for hints. |
+| Badge | `inline-flex items-center rounded-full border border-neutral-300 px-2.5 py-0.5 text-xs font-medium`. |
+| Media placeholder | `<div role="img" aria-label="Image placeholder: product screenshot or photo">` with `flex aspect-[4/3] items-center justify-center rounded-lg bg-neutral-100 text-neutral-400` and a decorative `size-10` image glyph. Use a play glyph for video. |
+| Avatar placeholder | `<span aria-hidden="true">AR</span>` with `flex size-10 items-center justify-center rounded-full bg-neutral-200 text-sm font-medium text-neutral-600`, next to a visible name. |
+| Icon tile | `<span aria-hidden="true">` with `flex size-10 items-center justify-center rounded-md bg-neutral-100 text-neutral-900` and a 20px stroke icon. |
+| Logo placeholder | A 24px neutral glyph beside the word "Logo" in `font-semibold`. |
+
+Icons are inline SVGs with a 24×24 viewBox, `strokeWidth="1.5"`, `fill="none"`, `stroke="currentColor"` and `aria-hidden="true"`. SVG fill and stroke values are only `none` or `currentColor`.
+
+Copy names the role of each slot at a realistic length: "Headline that names the main outcome", "Primary action", "Plan name". Standard navigation and form labels are fine. Use generic realistic values only when the format matters, such as prices, dates, counts, names or emails. Leave brand, industry and story names out; no lorem ipsum or jokes.
 
 ## Authoring rules
 
-These are the [original design spec §4.5](docs/superpowers/specs/2026-10-08-web-library-design.md#45-authoring-rules), verbatim:
+These are the [layout patterns spec §4](docs/superpowers/specs/2026-10-10-layout-patterns-design.md#4-authoring-rules-replace-agentsmd-authoring-rules), verbatim. Its §2 defines the kit referenced here:
 
-1. `Component.tsx` has one default export, needs no props, and imports
-   nothing except React (and only if needed).
-2. Styling uses Tailwind v4 classes only. No `dark:` variants (the site's
-   dark mode must never restyle components). No arbitrary global CSS.
-3. Interactivity is CSS-only: `hover:`, `focus-visible:`, `group-hover:`,
-   transitions. No state, no effects, no event handlers.
-4. Icons are inline `<svg>`; no icon packages.
-5. Images use URLs from the curated list in `src/library/assets.ts`
-   (Unsplash CDN, verified to send `Access-Control-Allow-Origin: *`, which
-   image capture requires). Every `<img>` has `alt`, `width`, and `height`.
-6. Fonts beyond the default sans stack are declared in `meta.fonts`.
-   `Component.tsx` starts with a one-line comment naming the Google Font
-   to load. `index.html` does not contain the font `<link>`; the copy
-   builder and parity harness generate it from `meta.fonts`.
-7. All four files exist, the slug is unique and matches the folder name,
-   the category and tags exist in the taxonomy, and every `brief` field is
-   non-empty.
-8. Markup is accessible: semantic elements, labelled controls, visible
-   focus styles, sufficient contrast.
+1. `Component.tsx` has one default export, needs no props, and imports nothing
+   except React (and only if needed).
+2. Tailwind v4 classes only, from the wireframe kit (§2). No `dark:`. No
+   arbitrary global CSS.
+3. Interactivity is CSS-only: `hover:`, `focus-visible:`, `group-*:`,
+   `peer-*:`, `open:`/`<details>`, transitions. No state, effects or handlers.
+4. Icons are inline stroke `<svg>` with `currentColor`.
+5. No images: media is a placeholder (§2.4).
+6. No web fonts.
+7. All four files exist; the slug is unique, matches the folder and starts
+   with the category; the name starts with the category label; tags exist;
+   every brief field and the wireframe are non-empty.
+8. Markup is accessible: semantic elements, labelled controls, visible focus,
+   4.5:1 text contrast, `role="list"` on styled lists, `aria-describedby` for
+   hints.
 
-`rules.ts` also checks that `styles.css` starts with the reset, that every selector outside `@keyframes` starts with `.<slug>`, that the root element of `index.html` has the class `<slug>`, and that `index.html` has no `<link>`, `<style>` or `<script>`.
+`rules.ts` also checks that `styles.css` starts with the reset, that every selector outside `@keyframes` starts with `.<slug>`, that keyframe names start with the slug, that the root element of `index.html` has the class `<slug>`, and that `index.html` has no `<link>`, `<style>` or `<script>`.
 
-Before adding an image to `IMAGES`, check that `curl -sI -H "Origin: https://example.com" <url>` returns `200` and `access-control-allow-origin: *`. Use the image's real intrinsic size for `width` and `height`.
+The kit checker rejects colour utilities outside the allowed neutral palette, arbitrary colours, gradients, backdrop effects, blend modes, filters, arbitrary font families, serif fonts and decorative animation. Both formats reject media elements (`img`, `video`, `iframe`, `picture`, `source`), `src`/`srcset`, inline style and painted SVG attributes. CSS colours must be achromatic: equal RGB channels, hex with equal red/green/blue, zero-chroma `oklch`, or the kit keywords. System colours are allowed inside forced-colors media only. CSS has no gradients, `url()`, `@import` or `@font-face`. The only font families are the reset line, `inherit` and Tailwind's `--font-mono` stack.
 
 ## styles.css reset template
 
@@ -124,14 +159,13 @@ Rule 8 in practice. `e2e/focus.spec.ts` checks focus outlines; review the other 
 
 ## Writing the HTML/CSS twin
 
-The twin passes parity when it reproduces Tailwind's computed values exactly. These are the details that are easy to miss:
+Run `npx tsx scripts/draft-twin.ts <slug>` first. It writes a reference draft to `twin-drafts/<slug>/` without changing the pattern folder. Use its computed values to hand-finish semantic slug-prefixed parts and plain CSS. The shipped twin must reproduce Tailwind exactly and pass parity.
 
-- **Tokens.** Copy colour values from `node_modules/tailwindcss/theme.css` as `oklch(…)`, with the token name in a comment. Spacing is `n × 0.25rem`.
-- **Type.** `text-sm` sets both font size and line height (`0.875rem` and `calc(1.25 / 0.875)`). An arbitrary `text-[…]` sets only the size. `leading-*` also overrides the line height of any responsive `text-*` size.
+- **Tokens.** Copy neutral colour values from `node_modules/tailwindcss/theme.css` as `oklch(… 0 none)`, with the token name in a comment. Spacing is `n × 0.25rem`.
+- **Type.** `text-sm` sets both font size and line height (`0.875rem` and `calc(1.25 / 0.875)`). An arbitrary `text-[…]` sets only the size. `leading-*` overrides the line height of responsive `text-*` sizes too.
 - **Variants.** Breakpoints are `@media (width >= 40rem)` for `sm:`, `48rem` for `md:` and `64rem` for `lg:`. Tailwind wraps `hover:` in `@media (hover: hover)`, so wrap the twin's hover rules the same way.
-- **Colour.** Gradients interpolate in oklab with stops at 0%, 50% and 100%, e.g. `linear-gradient(to top right in oklab, A 0%, B 50%, C 100%)`. Opacity modifiers become alpha: `bg-white/10` is `rgb(255 255 255 / 0.1)` and `bg-sky-400/50` is `oklch(74.6% 0.16 232.661 / 0.5)`.
-- **Specificity.** Reset rules such as `.slug :is(img, video)` are (0,1,1) and beat a single class. Write component rules as `.slug .slug__part` (0,2,0).
-- **Naming.** Prefix element classes with the slug (`.slug__part`, `.slug__part--modifier`), so that host-page classes like `.btn` cannot collide. `@keyframes` names are global too, so prefix them as well.
-- **Fonts.** In TSX, use an arbitrary family class with a fallback stack, e.g. `font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]`. Never change the theme. Use the same stack in the CSS.
+- **Colour.** Opacity modifiers become alpha: `bg-white/10` is `rgb(255 255 255 / 0.1)` and `bg-neutral-900/50` is `oklch(20.5% 0 none / 0.5)`.
+- **Specificity.** Reset rules such as `.slug :is(svg)` are (0,1,1) and beat a single class. Write part rules as `.slug .slug__part` (0,2,0).
+- **Naming.** Prefix element classes with the slug (`.slug__part`, `.slug__part--modifier`) so host-page classes cannot collide. Prefix `@keyframes` names too.
 - **Element sizing.** An element's capture root is `fit-content` wide (`app/stage.css`), so give element roots fixed widths with `sm:` steps (e.g. `w-72 sm:w-[22rem]`) rather than percentages.
-- **Debugging.** Run `npx playwright test e2e/parity.spec.ts --reporter=html`, then `npx playwright show-report`, to see the `diff` image attached to a failing test.
+- **Debugging.** Run `npx playwright test e2e/parity.spec.ts --reporter=html`, then `npx playwright show-report`, to see the `diff` image attached to a failing test. Fix the CSS, not the tolerance.
