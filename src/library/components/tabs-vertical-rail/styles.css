@@ -1,0 +1,210 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.tabs-vertical-rail, .tabs-vertical-rail *, .tabs-vertical-rail *::before, .tabs-vertical-rail *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.tabs-vertical-rail { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.tabs-vertical-rail :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.tabs-vertical-rail a { color: inherit; text-decoration: inherit; }
+.tabs-vertical-rail :is(b, strong) { font-weight: bolder; }
+.tabs-vertical-rail :is(ol, ul, menu) { list-style: none; }
+.tabs-vertical-rail :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.tabs-vertical-rail :is(img, video) { max-width: 100%; height: auto; }
+.tabs-vertical-rail :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.tabs-vertical-rail ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.tabs-vertical-rail table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.tabs-vertical-rail summary { display: list-item; }
+
+/* Pattern */
+.tabs-vertical-rail {
+  display: grid;
+  width: 18rem;
+  grid-template-columns: 44px 1fr;
+  gap: 1rem;
+  background-color: #fff /* white */;
+  color: oklch(20.5% 0 none) /* neutral-900 */;
+}
+
+/* Category rail */
+.tabs-vertical-rail .tabs-vertical-rail__rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__choice {
+  display: flex;
+  height: 2.25rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  padding-inline: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(43.9% 0 none) /* neutral-600 */;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__choice-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* Content */
+.tabs-vertical-rail .tabs-vertical-rail__content {
+  min-width: 0;
+  border-left: 1px solid oklch(92.2% 0 none) /* neutral-200 */;
+  padding-left: 1rem;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__panel {
+  display: none;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__heading {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__body {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none) /* neutral-600 */;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__action {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  border: 1px solid oklch(87% 0 none) /* neutral-300 */;
+  background-color: #fff /* white */;
+  padding-inline: 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(20.5% 0 none) /* neutral-900 */;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__choice:has(:checked) {
+  background-color: oklch(97% 0 none) /* neutral-100 */;
+  font-weight: 500;
+  color: oklch(20.5% 0 none) /* neutral-900 */;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__choice:has(:focus-visible) {
+  outline: 2px solid oklch(20.5% 0 none) /* neutral-900 */;
+  outline-offset: 2px;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__action:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none) /* neutral-900 */;
+  outline-offset: 2px;
+}
+
+/* Selection and focus */
+.tabs-vertical-rail:has(#tabs-vertical-rail-overview:checked) .tabs-vertical-rail__panel--overview {
+  display: block;
+}
+
+.tabs-vertical-rail:has(#tabs-vertical-rail-details:checked) .tabs-vertical-rail__panel--details {
+  display: block;
+}
+
+.tabs-vertical-rail:has(#tabs-vertical-rail-activity:checked) .tabs-vertical-rail__panel--activity {
+  display: block;
+}
+
+.tabs-vertical-rail:has(#tabs-vertical-rail-settings:checked) .tabs-vertical-rail__panel--settings {
+  display: block;
+}
+
+.tabs-vertical-rail .tabs-vertical-rail__input:focus-visible {
+  outline-style: none;
+}
+
+@media (hover: hover) {
+  .tabs-vertical-rail .tabs-vertical-rail__choice:hover {
+    background-color: oklch(98.5% 0 none) /* neutral-50 */;
+  }
+
+  .tabs-vertical-rail .tabs-vertical-rail__choice:has(:checked):hover {
+    background-color: oklch(97% 0 none) /* neutral-100 */;
+  }
+
+  .tabs-vertical-rail .tabs-vertical-rail__action:hover {
+    background-color: oklch(98.5% 0 none) /* neutral-50 */;
+  }
+
+}
+
+@media (forced-colors: active) {
+  .tabs-vertical-rail .tabs-vertical-rail__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .tabs-vertical-rail .tabs-vertical-rail__choice:has(:checked) {
+    border-color: Highlight;
+  }
+
+}
+
+@media (width >= 40rem) {
+  .tabs-vertical-rail {
+    width: 32rem;
+    grid-template-columns: 160px 1fr;
+  }
+
+  .tabs-vertical-rail .tabs-vertical-rail__choice {
+    justify-content: flex-start;
+    padding-inline: 0.75rem;
+  }
+
+  .tabs-vertical-rail .tabs-vertical-rail__choice-label {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+
+}
