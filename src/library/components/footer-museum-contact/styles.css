@@ -1,0 +1,164 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.footer-museum-contact, .footer-museum-contact *, .footer-museum-contact *::before, .footer-museum-contact *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.footer-museum-contact { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.footer-museum-contact :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.footer-museum-contact a { color: inherit; text-decoration: inherit; }
+.footer-museum-contact :is(b, strong) { font-weight: bolder; }
+.footer-museum-contact :is(ol, ul, menu) { list-style: none; }
+.footer-museum-contact :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.footer-museum-contact :is(img, video) { max-width: 100%; height: auto; }
+.footer-museum-contact :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.footer-museum-contact ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.footer-museum-contact table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.footer-museum-contact summary { display: list-item; }
+
+/* Component */
+.footer-museum-contact {
+  background-color: #fff;
+  color: oklch(14.5% 0 none) /* neutral-950 */;
+  font-family: 'Instrument Serif', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer-museum-contact .footer-museum-contact__inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 3rem 1.5rem;
+}
+
+.footer-museum-contact .footer-museum-contact__link {
+  text-underline-offset: 4px;
+}
+
+.footer-museum-contact .footer-museum-contact__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.footer-museum-contact .footer-museum-contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.footer-museum-contact .footer-museum-contact__bottom {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  border-top-width: 1px;
+  border-top-style: solid;
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  border-color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+.footer-museum-contact .footer-museum-contact__brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+}
+
+.footer-museum-contact .footer-museum-contact__wordmark {
+  font-size: 2rem;
+  letter-spacing: -0.05em;
+}
+
+.footer-museum-contact .footer-museum-contact__exhibit {
+  margin-top: 2rem;
+  display: grid;
+  align-items: end;
+  gap: 2rem;
+}
+
+.footer-museum-contact .footer-museum-contact__photo {
+  height: 11rem;
+  width: 9rem;
+  object-fit: cover;
+}
+
+.footer-museum-contact .footer-museum-contact__caption {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: oklch(43.9% 0 none) /* neutral-600 */;
+}
+
+.footer-museum-contact .footer-museum-contact__heading {
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+.footer-museum-contact .footer-museum-contact__invitation {
+  margin-top: 1.25rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: oklch(44.4% 0.177 26.899) /* red-800 */;
+}
+
+.footer-museum-contact .footer-museum-contact__visit {
+  border-top: 1px solid oklch(87% 0 none) /* neutral-300 */;
+  padding-top: 1.25rem;
+}
+
+.footer-museum-contact .footer-museum-contact__hours {
+  margin-top: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.footer-museum-contact .footer-museum-contact__visit-link {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1rem;
+  color: oklch(44.4% 0.177 26.899) /* red-800 */;
+}
+
+/* Pointer and keyboard states */
+@media (hover: hover) {
+  .footer-museum-contact .footer-museum-contact__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+.footer-museum-contact .footer-museum-contact__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (width >= 40rem) {
+  .footer-museum-contact .footer-museum-contact__heading {
+    font-size: 4.5rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .footer-museum-contact .footer-museum-contact__exhibit {
+    grid-template-columns: 9rem 1fr;
+  }
+  .footer-museum-contact .footer-museum-contact__visit {
+    grid-column: span 2 / span 2;
+  }
+}
+
+@media (width >= 64rem) {
+  .footer-museum-contact .footer-museum-contact__inner {
+    padding-inline: 2rem;
+  }
+  .footer-museum-contact .footer-museum-contact__exhibit {
+    grid-template-columns: 9rem 1fr 16rem;
+  }
+  .footer-museum-contact .footer-museum-contact__visit {
+    grid-column: span 1 / span 1;
+  }
+}
+
