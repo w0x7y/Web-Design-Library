@@ -11,11 +11,11 @@ export default {
 │ ┌──────────┬──────────┬──────────┐                   │
 │ │ Overview │ Details  │ Notes    │                   │
 │ ├──────────┴──────────┴──────────┴───────────────┐   │
-│ │ Panel heading                                │     │
-│ │ Two lines that explain this content group.   │     │
-│ │                                              │     │
-│ │ [Secondary action]                           │     │
-│ └──────────────────────────────────────────────┘     │
+│ │ Panel heading                                  │   │
+│ │ Two lines that explain this content group.     │   │
+│ │                                                │   │
+│ │ [Secondary action]                             │   │
+│ └────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A 288px (w-72) root expands to 448px (sm:w-[28rem]) at 640px. Three 40px folder labels have 16px horizontal padding, rounded-t-md corners and neutral-200 borders overlapping by 1px. Their row overlaps a rounded-b-lg rounded-tr-lg bordered panel by 1px. The panel has 16px padding, a 16px semibold heading, 8px to 14px body and 24px to a 44px outlined action.",

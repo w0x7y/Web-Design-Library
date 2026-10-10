@@ -7,13 +7,13 @@ export default {
   tags: ["sidebar", "icons", "compact"],
   description: "Four radio choices form a narrow icon rail beside a bordered content panel. Use when category navigation should stay beside a compact explanation and action.",
   preview: { kind: 'element' },
-  wireframe: `┌──────────────────────────────────────────────────────┐
+  wireframe: `┌──────────────────┬───────────────────────────────────┐
 │ [Icon Overview]  │ Panel heading                     │
 │ [Icon Details]   │ Two lines describing              │
 │ [Icon Activity]  │ the selected category.            │
 │ [Icon Settings]  │                                   │
 │                  │ [Secondary action]                │
-└──────────────────────────────────────────────────────┘`,
+└──────────────────┴───────────────────────────────────┘`,
   brief: {
     layout: "A 288px (w-72) two-column grid uses a 44px rail, flexible panel and 16px gap. At 640px it becomes 512px (sm:w-[32rem]) with a 160px rail. Four 36px-high rounded-md labels stack 4px apart with 16px stroke icons and 8px icon-to-label gaps. The panel has a 1px neutral-200 left border and 16px left padding, a 16px heading, 8px to 14px body and 24px to a 44px secondary action.",
     hierarchy: "The selected category leads into its heading, explanation and outlined next action. Category labels are one word and retain accessible names in the icon-only rail. Headings use up to 4 words, explanations up to 18 and action labels up to 3. Only the selected section is exposed.",

@@ -19,7 +19,7 @@ export default {
   "hierarchy": "Each column reads its size caption, then Off, On, Disabled off and Disabled on. All controls are native checkbox inputs with role=switch, named with size and state. Knobs and tracks are decorative; visible labels stay short, at most two words.",
   "states": "On examples start defaultChecked; the final two examples in each column are native disabled. Checked tracks fill neutral-900, and knobs translate 20px or 16px. Enabled hover fills neutral-300 when off and neutral-700 when on. Track focus uses peer-focus-visible to show a 2px neutral-900 outline offset 2px. Disabled tracks and labels have 50% opacity and tracks use a not-allowed cursor. Knobs slide over 150ms, removed by reduced-motion preference. Forced-colors mode gives tracks a ButtonText border and knobs a CanvasText fill, so position remains legible.",
   "responsive": "Only width changes at 640px, from 288px to 384px. Both columns retain 24px minimum row heights and the same switch sizes, labels and gaps. The root is 172px tall.",
-  "usage": "Use to document on/off and disabled states in two sizes. Pick toggles-switch-list for real settings with descriptions. Variations: use only the default column, choose a different initial checked pair, or add longer descriptions in a settings card. No structural deviation from the inventory."
+  "usage": "Use to document on/off and disabled states in two sizes. Pick toggles-switch-list for real settings with descriptions. Variations: use only the default column, choose a different initial checked pair, or add longer descriptions in a settings card."
 },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

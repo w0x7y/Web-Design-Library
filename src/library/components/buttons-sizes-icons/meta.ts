@@ -20,7 +20,7 @@ export default {
   "hierarchy": "Read Small, Default and Large captions before comparing the same outlined Add action, filled Next action with a trailing arrow, and outlined Add item icon button. Visible action labels are one word. Icon-only names include their size; SVGs are decorative.",
   "states": "Primary hover fills neutral-700; secondary and icon-only hover fill neutral-50. All nine controls show a 2px neutral-900 focus-visible outline offset 2px. Colours transition in 150ms. No controls are disabled.",
   "responsive": "Below 640px the root is 288px wide; from 640px it is 416px. Flex rows wrap if their controls do not fit, retaining 8px gaps. Heights, captions and icon sizes do not change at a breakpoint.",
-  "usage": "Use for a size comparison and choosing leading versus trailing icons. Pick buttons-hierarchy to compare emphasis and disabled states. Variations: replace Add with a download action, use a trailing chevron for navigation, or omit icon-only actions. The default size follows the reference pattern at 44px rather than the inventory 40px."
+  "usage": "Use for a size comparison and choosing leading versus trailing icons. Pick buttons-hierarchy to compare emphasis and disabled states. Variations: replace Add with a download action, use a trailing chevron for navigation, or omit icon-only actions."
 },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta

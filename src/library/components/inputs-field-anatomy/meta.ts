@@ -20,7 +20,7 @@ export default {
 │ ! Error: enter a valid email.                │
 │ Account ID                                   │
 │ ┌─────────────────────────────────────────┐  │
-│ │ AC-1042 (disabled)                       │ │
+│ │ AC-1042 (disabled)                      │  │
 │ └─────────────────────────────────────────┘  │
 │ Hint: this value cannot change               │
 └──────────────────────────────────────────────┘`,

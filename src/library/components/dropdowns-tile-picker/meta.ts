@@ -5,7 +5,7 @@ export default {
   name: "Dropdowns — Picker with option tiles",
   category: "dropdowns",
   tags: ["layered", "grid", "form", "compact"],
-  description: "An input-shaped time disclosure opens a three-column grid of radio tiles. The checked time fills its tile and updates the trigger through CSS.",
+  description: "An input-shaped time disclosure opens a three-column grid of radio tiles. Use it to choose one time from a short list of slots.",
   preview: { kind: 'element' },
   wireframe: `┌──────────────────────────────────────────────────────┐
 │ Time                                                 │

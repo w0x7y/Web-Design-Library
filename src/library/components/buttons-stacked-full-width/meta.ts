@@ -20,7 +20,7 @@ export default {
   "hierarchy": "The 16px semibold title names the action group in up to four words, followed by one line of 14px context up to five words. Primary action spans the card; Add and Export share secondary emphasis. Tertiary action is underlined. The final note stays one line, up to five words.",
   "states": "Primary hover changes neutral-900 to neutral-700; secondary hover fills neutral-50; the tertiary link turns neutral-600. All actions use a 2px neutral-900 keyboard-focus outline with a 2px offset. Button colour changes transition in 150ms. No disabled controls.",
   "responsive": "The single-card structure and two secondary columns remain unchanged at all widths. Below 640px the root is 288px, and from 640px it is 320px. Short secondary labels fit without wrapping at mobile width.",
-  "usage": "Use for a compact card or sidebar with one recommended action. Pick buttons-joined-group for related actions sharing borders. Variations: place a confirmation note below the primary, use two export formats for the secondaries, or replace the tertiary link with a help link. Secondary buttons use the reference 44px default rather than 40px."
+  "usage": "Use for a compact card or sidebar with one recommended action. Pick buttons-joined-group for related actions sharing borders. Variations: place a confirmation note below the primary, use two export formats for the secondaries, or replace the tertiary link with a help link. Secondary buttons are 44px high."
 },
   addedAt: '2026-10-10',
 } satisfies ComponentMeta
