@@ -30,6 +30,10 @@ jobs:
       - run: npm test
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+        env:
+          # Match SVG/canvas capture's grayscale text rendering in native screenshots.
+          FONTCONFIG_FILE: ${{ github.workspace }}/e2e/fontconfig.conf
+          PATTERNBOOK_PORT: 4391
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: failure()
         with:
