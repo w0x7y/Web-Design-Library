@@ -1,0 +1,30 @@
+<fieldset aria-describedby="toggles-checkbox-nested-hint" class="toggles-checkbox-nested">
+  <legend class="toggles-checkbox-nested__title">Option group title</legend>
+  <p id="toggles-checkbox-nested-hint" class="toggles-checkbox-nested__guidance">Short selection guidance</p>
+  <div class="toggles-checkbox-nested__groups">
+    <div class="toggles-checkbox-nested__parent-group">
+      <div class="toggles-checkbox-nested__row">
+        <input id="toggles-checkbox-nested-parent" type="checkbox" aria-describedby="toggles-checkbox-nested-parent-hint" checked class="toggles-checkbox-nested__checkbox">
+        <div>
+          <label for="toggles-checkbox-nested-parent" class="toggles-checkbox-nested__label">Parent option</label>
+          <p id="toggles-checkbox-nested-parent-hint" class="toggles-checkbox-nested__hint">Description of the parent</p>
+        </div>
+      </div>
+      <div class="toggles-checkbox-nested__children"><label class="toggles-checkbox-nested__option"><input type="checkbox" checked class="toggles-checkbox-nested__checkbox">Child option</label><label class="toggles-checkbox-nested__option"><input type="checkbox" class="toggles-checkbox-nested__checkbox">Related child option</label></div>
+    </div>
+    <div class="toggles-checkbox-nested__row">
+      <input id="toggles-checkbox-nested-independent" type="checkbox" aria-describedby="toggles-checkbox-nested-independent-hint" class="toggles-checkbox-nested__checkbox">
+      <div>
+        <label for="toggles-checkbox-nested-independent" class="toggles-checkbox-nested__label">Independent option</label>
+        <p id="toggles-checkbox-nested-independent-hint" class="toggles-checkbox-nested__hint">Description of this option</p>
+      </div>
+    </div>
+    <div class="toggles-checkbox-nested__row toggles-checkbox-nested__row--disabled">
+      <input id="toggles-checkbox-nested-disabled" type="checkbox" disabled aria-describedby="toggles-checkbox-nested-disabled-hint" class="toggles-checkbox-nested__checkbox toggles-checkbox-nested__checkbox--disabled">
+      <div>
+        <label for="toggles-checkbox-nested-disabled" class="toggles-checkbox-nested__label toggles-checkbox-nested__label--disabled">Unavailable option</label>
+        <p id="toggles-checkbox-nested-disabled-hint" class="toggles-checkbox-nested__hint">Reason this option is disabled</p>
+      </div>
+    </div>
+  </div>
+</fieldset>
