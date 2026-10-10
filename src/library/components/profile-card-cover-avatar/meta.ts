@@ -8,10 +8,10 @@ export default {
   description: "A short cover image above an overlapping avatar, biography and two profile facts. Use it when a cover and a compact identity need to share one card.",
   preview: { kind: 'element' },
   wireframe: `┌──────────────────────────────────────────────────────────┐
-│┌──────────────────────────────────────────────────────┐  │
-││                       Image                          │  │
-│└──────────────────────────────────────────────────────┘  │
-│   Avatar overlapping cover              [Message]        │
+│                          Image                           │
+│   ┌────────┐                                             │
+├───┤ Avatar ├─────────────────────────────────────────────┤
+│   └────────┘                         [Message]           │
 │   Morgan Chen                                            │
 │   Role or handle                                         │
 │   Short biography                                        │

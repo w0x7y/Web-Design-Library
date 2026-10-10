@@ -1,7 +1,7 @@
 export default function TeamBioRows() {
   const people = [
-    { name: 'Cameron Bell', role: 'Team director', email: 'cameron@example.com', opening: 'Opening biography that introduces experience, responsibilities and areas of focus. Give readers the context they need to understand this person\'s role.', background: 'Supporting paragraph describing the approach to collaboration and the strengths brought to the team. Keep this section specific and relevant to the work.' },
-    { name: 'Dakota Ross', role: 'Design director', email: 'dakota@example.com', opening: 'Brief background describing the path to this role and the expertise it requires. Name the kinds of decisions this person helps the team make.', background: 'Further context about current responsibilities and working methods. Explain what others can expect when collaborating with this person.' },
+    { name: 'Cameron Bell', role: 'Team director', email: 'cameron@example.com', opening: 'Opening biography that introduces experience, responsibilities and areas of focus. Context that helps readers understand this person\'s role.', background: 'Supporting paragraph describing the approach to collaboration and the strengths brought to the team. Specific details relevant to the work.' },
+    { name: 'Dakota Ross', role: 'Design director', email: 'dakota@example.com', opening: 'Brief background describing the path to this role and the expertise it requires. The kinds of decisions this person helps the team make.', background: 'Further context about current responsibilities and working methods. What others can expect when collaborating with this person.' },
   ]
   return (
     <section className="bg-white text-neutral-900">

@@ -10,17 +10,18 @@ export default {
   wireframe: `┌──────────────────────────────────────────────────────────┐
 │Heading about the people                                  │
 │Short introduction                                        │
-│┌────────────────────────────────┐  ┌──────────────────┐  │
-││             Image              │  │Team              │  │
-│└────────────────────────────────┘  │Avatar Name / Role│  │
-│[Lead]                             │──────────────────│   │
-│Name / Role                        │Avatar Name / Role│   │
-│Short biography                    │──────────────────│   │
-│[Profile] [Email]                  │Avatar Name / Role│   │
-│                                   │──────────────────│   │
-│                                   │Avatar Name / Role│   │
-│                                   │[View all]        │   │
-│                                   └──────────────────┘   │
+│┌───────────────────────────────┐  ┌─────────────────────┐│
+││             Image             │  │ Team                ││
+││                               │  │ Avatar Name / Role  ││
+│├───────────────────────────────┤  ├─────────────────────┤│
+││ [Lead]                        │  │ Avatar Name / Role  ││
+││ Name / Role                   │  ├─────────────────────┤│
+││ Short biography               │  │ Avatar Name / Role  ││
+││                               │  ├─────────────────────┤│
+││ [Profile] [Email]             │  │ Avatar Name / Role  ││
+│└───────────────────────────────┘  │                     ││
+│                                   │ [View all]          ││
+│                                   └─────────────────────┘│
 └──────────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A white section with a 1152px max-w-6xl container, 24px side padding and 64px vertical padding, 96px from 640px. A left-aligned headline and 672px max-w-2xl lede precede the cards by 48px. Cards stack with a 32px gap; from 1024px a 12-column grid places the featured card across seven columns and the roster across five. Both cards have rounded-lg 8px corners and 1px borders. Featured media is 16:9 with rounded top corners. Its p-6 body has a Lead badge, name 12px below, role 4px later, biography 12px later and two links 16px later. The p-6 roster has a Team heading, a four-row list 16px below, 40px avatars, 12px gaps, 16px row padding and a View all link 16px below.",

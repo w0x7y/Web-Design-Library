@@ -8,15 +8,13 @@ export default {
   description: "A full-bleed article image with a category badge and a dark bottom headline panel. Use it for one featured or pinned post.",
   preview: { kind: "element" },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
-│ ┌────────────────────────────────────────────────────┐       │
-│ │ [Category]                                         │       │
-│ │                       Image                        │       │
-│ │                                                    │       │
-│ │ ┌────────────────────────────────────────────────┐ │       │
-│ │ │ [Article headline that names the main topic]   │ │       │
-│ │ │ Alex Rivera / 6 min read                       │ │       │
-│ │ └────────────────────────────────────────────────┘ │       │
-│ └────────────────────────────────────────────────────┘       │
+│ [Category]                                                   │
+│                                                              │
+│                            Image                             │
+│                                                              │
+├──────────────────────────────────────────────────────────────┤
+│ [Article headline that names the main topic]                 │
+│ Alex Rivera / 6 min read                                     │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A relative article 288px wide, 352px from 640px, and 320px tall (h-80), with a single minmax(0,1fr) grid column, an 8px radius and clipped edges. A neutral-100 media placeholder fills the full card with its 40px glyph centred horizontally at 64px from the top. A white category badge sits 16px from the top-left. A min-w-0 panel overlaps the media in the same grid cell, aligns to the bottom with self-end and spans the width with neutral-950 at 80% opacity and p-5 (20px), containing the title and a metadata line 12px below it.",

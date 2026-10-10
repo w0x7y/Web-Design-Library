@@ -10,8 +10,8 @@ export default {
   wireframe: `┌──────────────────────────────────────────────┐
 │ Logo                                         │
 │ Quote that describes the experience          │
-│ and the benefit in the author words.         │
-│ ────────────────────────────────────────     │
+│ and the benefit in the author's words.       │
+│ ──────────────────────────────────────────   │
 │ (AR)  Alex Rivera                            │
 │       Role, Company                          │
 └──────────────────────────────────────────────┘`,

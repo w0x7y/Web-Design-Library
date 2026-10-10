@@ -8,14 +8,17 @@ export default {
   description: "A tinted quotation bubble with a small tail sits above an indented avatar and author. Use it when the quote and attribution should read as separate regions.",
   preview: { kind: 'element' },
   wireframe: `┌──────────────────────────────────────────────┐
-│ ┌─────────────────────────────────────┐      │
-│ │ *****                               │      │
-│ │ Quote that describes the benefit    │      │
-│ │ in the author own words.            │      │
-│ └──────┬──────────────────────────────┘      │
-│        v                                     │
-│       (AR)  Alex Rivera                      │
-│             Role, Company                    │
+│ ┌──────────────────────────────────────────┐ │
+│ │ *****                                    │ │
+│ │ Quote that describes the benefit         │ │
+│ │ in the author's own words.               │ │
+│ │                                          │ │
+│ └──────┐ ┌─────────────────────────────────┘ │
+│        │ │                                   │
+│        └─┘                                   │
+│                                              │
+│        (AR)  Alex Rivera                     │
+│              Role, Company                   │
 └──────────────────────────────────────────────┘`,
   brief: {
     layout: "A frameless 288px w-72 figure, 352px sm:w-[22rem] from 640px. The bubble has 24px p-6 padding, an 8px rounded-lg radius, a 1px neutral-200 border and neutral-50 fill. A five-star row has 16px icons with 4px gaps; the quote starts 16px below. A 16px square rotated 45 degrees sits 8px below the bubble edge and 32px from the left, drawing only right and bottom borders. The figcaption starts 20px below and is indented 32px, with a 12px avatar/byline gap.",

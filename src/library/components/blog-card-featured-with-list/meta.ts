@@ -8,18 +8,19 @@ export default {
   description: "A prominent featured article beside three compact article rows. Use it for an editorial section with one leading story and supporting links.",
   preview: { kind: "section" },
   wireframe: `┌──────────────────────────────────────────────────────────────┐
-│ Section headline                     [View all posts]        │
-│ ┌─────────────────────────┐ Category    ┌───────────┐        │
-│ │          Image          │ [Headline]  │   Image   │        │
-│ └─────────────────────────┘ 6 min read  └───────────┘        │
-│ Category / Oct 10            ────────────────────────        │
-│ [Featured article headline]  Category    ┌───────────┐       │
-│ Three-line excerpt           [Headline]  │   Image   │       │
-│ (AR) Alex Rivera             4 min read  └───────────┘       │
-│                              ────────────────────────        │
-│                              Category    ┌───────────┐       │
-│                              [Headline]  │   Image   │       │
-│                              8 min read  └───────────┘       │
+│ Section headline                      [View all posts]       │
+│                                                              │
+│ ┌────────────────────────┐  Category     ┌────────────┐      │
+│ │         Image          │  [Headline]   │   Image    │      │
+│ └────────────────────────┘  6 min read   └────────────┘      │
+│ Category / Oct 10           ───────────────────────────      │
+│ [Featured headline]         Category     ┌────────────┐      │
+│ Three-line excerpt          [Headline]   │   Image    │      │
+│ about the value and         4 min read   └────────────┘      │
+│ question answered           ───────────────────────────      │
+│                             Category     ┌────────────┐      │
+│ (AR) Alex Rivera            [Headline]   │   Image    │      │
+│                             8 min read   └────────────┘      │
 └──────────────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A white section with a 1152px max-w-6xl container, 24px sides and 64px vertical padding, increasing to 96px at 640px. A heading/link header precedes the content by 32px. From 1024px the content is a 7fr/5fr grid with a 48px gap; below it the regions stack. The relative featured article has a 16:9 media placeholder, category/date row after 16px, title after 8px, excerpt after 12px and a 32px-avatar byline after 20px. The supporting role=list contains three relative flex rows with 24px vertical padding and bottom dividers, 16px gaps and 80px square thumbnails.",

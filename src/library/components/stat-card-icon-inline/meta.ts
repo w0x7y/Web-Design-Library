@@ -2,7 +2,7 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'stat-card-icon-inline',
-  name: 'Stat cards — Icon, label and value in one row',
+  name: 'Stat cards — Icon, label and value row',
   category: 'stat-card',
   tags: ["row","icons","numbers","compact"],
   description: "An icon tile, a label and figure, and a directional change badge share one compact row. Use it for stacked dashboard summaries or a row of short metrics.",

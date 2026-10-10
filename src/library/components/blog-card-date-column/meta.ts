@@ -7,12 +7,12 @@ export default {
   tags: ["asymmetric", "numbers", "compact"],
   description: "A narrow publication-date column separated from headline and excerpt by a vertical divider. Use it for news, announcements and event write-ups.",
   preview: { kind: "element" },
-  wireframe: `┌──────────────────────────────────────────────────────────────┐
+  wireframe: `┌───────┬──────────────────────────────────────────────────────┐
 │ 10    │ Category label                                       │
 │ Oct   │ [Article headline that names the update]             │
 │       │ Two-line excerpt explaining the announcement         │
 │       │ 6 min read                                           │
-└──────────────────────────────────────────────────────────────┘`,
+└───────┴──────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A relative bordered article, 288px wide and 352px from 640px, with p-5 (20px) and an 8px radius. A two-column grid has a 56px date column and a minmax(0,1fr) text column with a 16px gap. The date column is one time element with a 1px right divider and 16px right padding; it shows a 30px semibold day over a 12px month. The content has category, headline after 4px, excerpt after 8px and reading time after 12px.",
     hierarchy: "The day number and 16px semibold headline draw attention first, followed by the 12px category, 14px excerpt and 12px reading time. Slots: headline up to 7 words, category up to 2 words, excerpt up to 10 words, two-digit day and three-letter month. The time element has an accessible full-date label.",

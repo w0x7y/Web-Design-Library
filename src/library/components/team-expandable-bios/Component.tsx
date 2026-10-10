@@ -1,10 +1,10 @@
 export default function TeamExpandableBios() {
   const people = [
-    { name: 'Quinn Adams', role: 'Team lead', initials: 'QA', email: 'quinn@example.com', bio: 'Biography that introduces this person\'s responsibilities and areas of expertise. Describe their approach to the work and how they support the wider team.' },
-    { name: 'River Brooks', role: 'Product designer', initials: 'RB', email: 'river@example.com', bio: 'A short background explaining the experience behind this role. Add a sentence on working methods and the kinds of decisions this person helps make.' },
-    { name: 'Blair Jordan', role: 'Engineer', initials: 'BJ', email: 'blair@example.com', bio: 'An introduction to technical focus and day-to-day responsibilities. Explain how this person collaborates with colleagues and contributes to shared outcomes.' },
-    { name: 'Ellis Gray', role: 'Researcher', initials: 'EG', email: 'ellis@example.com', bio: 'A concise biography describing methods, interests and current responsibilities. Include the context readers need before reaching out.' },
-    { name: 'Lane Foster', role: 'Operations lead', initials: 'LF', email: 'lane@example.com', bio: 'Background on the experience and skills relevant to this role. Describe the practical support this person brings to the team and the work they coordinate.' },
+    { name: 'Quinn Adams', role: 'Team lead', initials: 'QA', email: 'quinn@example.com', bio: 'Biography that introduces this person\'s responsibilities and areas of expertise. Their approach to the work and how they support the wider team.' },
+    { name: 'River Brooks', role: 'Product designer', initials: 'RB', email: 'river@example.com', bio: 'A short background explaining the experience behind this role. Working methods and the kinds of decisions this person helps make.' },
+    { name: 'Blair Jordan', role: 'Engineer', initials: 'BJ', email: 'blair@example.com', bio: 'An introduction to technical focus and day-to-day responsibilities. How this person collaborates with colleagues and contributes to shared outcomes.' },
+    { name: 'Ellis Gray', role: 'Researcher', initials: 'EG', email: 'ellis@example.com', bio: 'A concise biography describing methods, interests and current responsibilities. The context readers need before reaching out.' },
+    { name: 'Lane Foster', role: 'Operations lead', initials: 'LF', email: 'lane@example.com', bio: 'Background on the experience and skills relevant to this role. The practical support this person brings to the team and the work they coordinate.' },
   ]
   return (
     <section className="bg-white text-neutral-900">

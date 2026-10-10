@@ -8,15 +8,16 @@ export default {
   description: "A left-aligned identity row above three practical details and a full-width booking action. Use it when availability and profile facts inform the next step.",
   preview: { kind: 'element' },
   wireframe: `┌──────────────────────────────────────────────────────────┐
-│Avatar    Jordan Ellis                                    │
-│          Role or specialty                               │
-│Short biography                                           │
-│──────────────────────────────────────────────────────────│
-│Time zone                                     UTC+1       │
-│Languages                              English, Spanish   │
-│Next available                                Mar 14      │
-│──────────────────────────────────────────────────────────│
-│                   [Book a session]                       │
+│ Avatar    Jordan Ellis                                   │
+│           Role or specialty                              │
+│ Short biography                                          │
+├──────────────────────────────────────────────────────────┤
+│ Time zone                                     UTC+1      │
+│ Languages                              English, Spanish  │
+│ Next available                                Mar 14     │
+├──────────────────────────────────────────────────────────┤
+│                                                          │
+│ [                    Book a session                    ] │
 └──────────────────────────────────────────────────────────┘`,
   brief: {
     layout: "A 288px card (w-72), 320px from 640px (sm:w-80), with p-6 24px padding, rounded-lg 8px corners and a 1px border. A 48px avatar sits beside name and role with a 12px gap. The two-line bio follows by 8px. A definition list begins 12px later, with three hairline-separated flex rows, 4px vertical padding, 12px gaps and right-aligned values capped at 55% width. A full-width 44px primary action follows by 12px.",

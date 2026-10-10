@@ -2,7 +2,7 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'team-tile-directory',
-  name: 'Team — Hairline tile directory',
+  name: 'Team — Tile directory',
   category: 'team',
   tags: ['grid','compact'],
   description: "Six compact contact tiles in one hairline-divided panel beneath a split header. Use it for a directory where names, roles, time zones and email matter more than portraits.",

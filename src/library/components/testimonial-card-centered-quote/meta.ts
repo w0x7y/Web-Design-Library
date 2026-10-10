@@ -2,18 +2,18 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'testimonial-card-centered-quote',
-  name: 'Testimonial cards — Centred large quote',
+  name: 'Testimonial cards — Centred quote with logo',
   category: 'testimonial-card',
   tags: ["centered","spacious"],
-  description: "A centered logo and balanced quote sit above a vertically stacked avatar, name and role. Use it for a short statement that should read as a single focal point.",
+  description: "A centred logo and balanced quote sit above a vertically stacked avatar, name and role. Use it for a short statement that should read as a single focal point.",
   preview: { kind: 'element' },
   wireframe: `┌──────────────────────────────────────────────┐
-│                   Logo                       │
-│              Large centred quote             │
+│                     Logo                     │
+│                Centred quote                 │
 │            about the main benefit            │
-│                   (AR)                       │
-│               Alex Rivera                    │
-│               Role, Company                  │
+│                     (AR)                     │
+│                 Alex Rivera                  │
+│                Role, Company                 │
 └──────────────────────────────────────────────┘`,
   brief: {
     layout: "A centred 288px w-72 figure with 24px p-6 padding, 1px border and 8px radius. At 640px it becomes 384px sm:w-96 with 32px sm:p-8 padding. The logo row is centred with a 24px glyph and 8px gap. The quote begins 20px below; the figcaption follows after another 20px. A centred 48px size-12 avatar sits above the name by 8px and the role by a further 4px.",
