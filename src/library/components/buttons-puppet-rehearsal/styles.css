@@ -1,0 +1,145 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-puppet-rehearsal, .buttons-puppet-rehearsal *, .buttons-puppet-rehearsal *::before, .buttons-puppet-rehearsal *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-puppet-rehearsal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-puppet-rehearsal :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-puppet-rehearsal a { color: inherit; text-decoration: inherit; }
+.buttons-puppet-rehearsal :is(b, strong) { font-weight: bolder; }
+.buttons-puppet-rehearsal :is(ol, ul, menu) { list-style: none; }
+.buttons-puppet-rehearsal :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-puppet-rehearsal :is(img, video) { max-width: 100%; height: auto; }
+.buttons-puppet-rehearsal :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-puppet-rehearsal ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-puppet-rehearsal table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-puppet-rehearsal summary { display: list-item; }
+
+/* Component */
+.buttons-puppet-rehearsal {
+  border-radius: 1rem;
+  background-color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  padding: 1.25rem;
+  color: oklch(96.2% 0.059 95.617); /* amber-100 */
+  width: 18rem;
+  font-family: "Familjen Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__heading {
+  margin-top: 1rem;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__hint {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(90.5% 0.093 164.15); /* emerald-200 */
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__cues {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__curtain {
+  display: flex;
+  height: 5rem;
+  flex: 3;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 1.5rem 0 1.5rem 1.5rem;
+  background-color: oklch(92.4% 0.12 95.746); /* amber-200 */
+  padding-inline: 1rem;
+  text-align: left;
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  cursor: pointer;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__cue-label {
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__cue-note {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__reset {
+  margin-top: 1.25rem;
+  display: flex;
+  height: 5rem;
+  flex: 2;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 0 1.5rem 1.5rem 0;
+  background-color: oklch(89.9% 0.061 343.231); /* pink-200 */
+  padding-inline: 0.75rem;
+  text-align: left;
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+  cursor: pointer;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__prompt {
+  margin-top: 1.25rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid oklch(84.5% 0.143 164.978); /* emerald-300 */
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  cursor: pointer;
+}
+
+/* Keyboard focus */
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__curtain:focus-visible {
+  outline: 2px solid oklch(92.4% 0.12 95.746); /* amber-200 */
+  outline-offset: 2px;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__reset:focus-visible {
+  outline: 2px solid oklch(92.4% 0.12 95.746); /* amber-200 */
+  outline-offset: 2px;
+}
+
+.buttons-puppet-rehearsal .buttons-puppet-rehearsal__prompt:focus-visible {
+  outline: 2px solid oklch(92.4% 0.12 95.746); /* amber-200 */
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .buttons-puppet-rehearsal .buttons-puppet-rehearsal__curtain:hover {
+    background-color: oklch(96.2% 0.059 95.617); /* amber-100 */
+  }
+
+  .buttons-puppet-rehearsal .buttons-puppet-rehearsal__reset:hover {
+    background-color: oklch(94.8% 0.028 342.258); /* pink-100 */
+  }
+
+  .buttons-puppet-rehearsal .buttons-puppet-rehearsal__prompt:hover {
+    color: #fff;
+  }
+}
+
+@media (width >= 40rem) {
+  .buttons-puppet-rehearsal {
+    width: 23rem;
+  }
+}
