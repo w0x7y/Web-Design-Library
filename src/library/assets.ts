@@ -91,4 +91,7 @@ export const IMAGES = {
   // Added for new-empty-state
   travelJournalHarbor: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1600&q=80',
   desertRoadJournal: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80',
+  // Added for new-data-table
+  hotelCourtyardPool: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80',
+  rollingCropFields: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80',
 } as const
