@@ -1,0 +1,41 @@
+<div class="inputs-leading-trailing-addons">
+  <div>
+    <label for="addons-website" class="inputs-leading-trailing-addons__label">Website</label>
+    <div class="inputs-leading-trailing-addons__field">
+      <span aria-hidden="true" class="inputs-leading-trailing-addons__url-prefix">https://</span>
+      <input id="addons-website" type="text" autocomplete="url" aria-describedby="addons-website-hint" placeholder="Enter domain" name="website" class="inputs-leading-trailing-addons__input">
+    </div>
+    <p id="addons-website-hint" class="inputs-leading-trailing-addons__sr-only">Enter the domain after https://.</p>
+  </div>
+  <div>
+    <label for="addons-amount" class="inputs-leading-trailing-addons__label">Amount</label>
+    <div class="inputs-leading-trailing-addons__field">
+      <span aria-hidden="true" class="inputs-leading-trailing-addons__currency-prefix">$</span>
+      <input id="addons-amount" type="text" inputmode="decimal" aria-describedby="addons-amount-hint addons-currency" placeholder="0.00" name="amount" class="inputs-leading-trailing-addons__input">
+      <span id="addons-currency" class="inputs-leading-trailing-addons__currency-suffix">USD</span>
+    </div>
+    <p id="addons-amount-hint" class="inputs-leading-trailing-addons__sr-only">Enter the amount in US dollars.</p>
+  </div>
+  <div>
+    <label for="addons-email" class="inputs-leading-trailing-addons__label">Email</label>
+    <div class="inputs-leading-trailing-addons__field">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-leading-trailing-addons__mail-icon">
+        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+        <path d="m3 7 9 6 9-6"></path>
+      </svg>
+      <input id="addons-email" type="email" autocomplete="email" aria-describedby="addons-email-hint" placeholder="name@example.com" name="email" class="inputs-leading-trailing-addons__input">
+    </div>
+    <p id="addons-email-hint" class="inputs-leading-trailing-addons__sr-only">Enter your contact email address.</p>
+  </div>
+  <div>
+    <label for="addons-reference" class="inputs-leading-trailing-addons__label">Reference</label>
+    <div class="inputs-leading-trailing-addons__field">
+      <input id="addons-reference" type="text" readonly aria-describedby="addons-reference-hint" placeholder="Reference ID" name="reference" value="AC-1042" class="inputs-leading-trailing-addons__input">
+      <button type="button" aria-label="Copy reference" class="inputs-leading-trailing-addons__copy"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-leading-trailing-addons__copy-icon">
+        <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+        <path d="M16 8V4H4v12h4"></path>
+      </svg>Copy</button>
+    </div>
+    <p id="addons-reference-hint" class="inputs-leading-trailing-addons__sr-only">Read-only reference for this account.</p>
+  </div>
+</div>
