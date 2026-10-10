@@ -67,7 +67,8 @@ export const IMAGES = {
   honeyJarDipper: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1600&q=80',
   // Added for new-buttons
   forestSurveySapling: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
-
   // Added for new-inputs
   groomingGoldenRetriever: 'https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=80',
+  // Added for new-badges
+  butterflyNectar: 'https://images.unsplash.com/photo-1475809913362-28a064062ccd?w=800&q=80',
 } as const
