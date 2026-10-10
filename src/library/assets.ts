@@ -66,6 +66,5 @@ export const IMAGES = {
   californiaPoppies: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600&q=80',
   honeyJarDipper: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1600&q=80',
   // Added for new-buttons
-  harvestMushrooms: 'https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&q=80',
   forestSurveySapling: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
 } as const
