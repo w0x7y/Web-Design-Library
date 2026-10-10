@@ -49,7 +49,7 @@ function Showcase() {
   )
 }
 
-/** The home intro, agent setup and component showcase. */
+/** The home intro, agent setup and pattern showcase. */
 export function Hero({ count }: { count: number }) {
   const hydrated = useHydrated()
   const [copyRefusal, setCopyRefusal] = useState<CopyRefusal | null>(null)
@@ -75,23 +75,23 @@ export function Hero({ count }: { count: number }) {
         <div className="min-w-0">
           <p className="inline-flex h-7 items-center gap-2 rounded-full border border-zinc-200 bg-white pr-3 pl-2 text-[13px] text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
             <LogoMark className="size-4 text-zinc-900 dark:text-white" />
-            {count} components, free to copy
+            {count} {count === 1 ? 'pattern' : 'patterns'}, free to copy
           </p>
           <h1
             id="hero-title"
             className="mt-6 max-w-xl text-[2.5rem]/[1.05] font-semibold tracking-[-0.035em] text-balance text-zinc-950 sm:text-6xl/[1.02] xl:text-7xl/[1] dark:text-white"
           >
-            Copy-paste UI for you and your agent.
+            Layout patterns for your next page.
           </h1>
           <p className="mt-6 max-w-lg text-lg/relaxed text-pretty text-zinc-600 dark:text-zinc-400">
-            Pick a layout, copy it into your project, or hand your agent the brief and let it build the layout for you.
+            Neutral wireframes with copy-paste code and an AI brief. Restyle each pattern in your own design system.
           </p>
           <div className="mt-8 flex flex-wrap gap-2.5 sm:gap-3">
             <a
               href="#components"
               className={button({ variant: 'primary', size: 'lg' })}
             >
-              Browse components
+              Browse patterns
               <ArrowDownIcon />
             </a>
             <a
@@ -123,7 +123,7 @@ export function Hero({ count }: { count: number }) {
             </a>
             {copyRefusal && <ManualCopy payload={copyRefusal} onDismiss={() => setCopyRefusal(null)} />}
           </div>
-          <ul role="list" aria-label="Every component comes as" className="mt-10 flex flex-wrap gap-x-6 gap-y-3 sm:mt-12">
+          <ul role="list" aria-label="Every pattern comes as" className="mt-10 flex flex-wrap gap-x-6 gap-y-3 sm:mt-12">
             {FORMATS.map((format) => (
               <li key={format.title} className="flex items-center gap-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">

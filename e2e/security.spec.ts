@@ -32,7 +32,7 @@ test('CSP blocks an injected inline script while navigation and image capture wo
   const { png } = await downloadPng(page, 'mobile')
   expect(png.width).toBe(780)
   await page.getByRole('link', { name: 'Patternbook', exact: true }).click()
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Copy-paste UI for you and your agent.')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Layout patterns for your next page.')
 })
 
 test('the shell loads local Geist fonts while Google Fonts is unavailable', async ({ page }) => {

@@ -22,7 +22,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 export const meta: Route.MetaFunction = ({ loaderData }) => {
   const component = loaderData && metaBySlug(loaderData.slug)
   return [
-    { title: component ? `${component.name} preview — ${SITE.name}` : `Component not found — ${SITE.name}` },
+    { title: component ? `${component.name} preview — ${SITE.name}` : `Pattern not found — ${SITE.name}` },
     { name: 'robots', content: 'noindex' },
   ]
 }

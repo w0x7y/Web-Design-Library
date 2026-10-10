@@ -2,11 +2,12 @@
 
 Layout patterns for developers building with AI agents.
 
-Patternbook is a static site of neutral layout patterns with copy-paste code in four groups: Sections, Cards & profiles, Elements and App UI. The categories and layout tags are defined in [`src/library/taxonomy.ts`](src/library/taxonomy.ts).
+Patternbook is a static site of neutral layout patterns, shown as grey wireframes with copy-paste code and an AI brief. Take a pattern's structure and restyle it in your own design system. Browse four groups: Sections, Cards & profiles, Elements and App UI. The categories and layout tags are defined in [`src/library/taxonomy.ts`](src/library/taxonomy.ts).
 
 Every pattern comes in two forms: React + Tailwind v4, and HTML + plain CSS. On a pattern's page (`/c/<slug>`) you can:
 
-- preview it at desktop, tablet and mobile widths, and read its code;
+- preview it at desktop, tablet and mobile widths;
+- read its desktop wireframe and notes on when to use it, hierarchy, responsive behaviour, layout and states;
 - **Copy code** in the format you picked;
 - **Copy for AI**, a text brief (desktop wireframe, layout, hierarchy, states, responsive behaviour, usage and the full source) to paste into an AI agent;
 - **Download** a PNG at desktop or mobile size, optionally with a transparent background;
@@ -14,7 +15,7 @@ Every pattern comes in two forms: React + Tailwind v4, and HTML + plain CSS. On 
 
 AI agents can also fetch patterns without a browser: `/llms.txt` lists every pattern, and `/catalog.json` provides a versioned metadata index with counts and absolute URLs. `/c/<slug>.md` returns a brief with both formats; `/c/<slug>.react.md` and `/c/<slug>.html.md` return the same brief as Copy for AI for one format.
 
-It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, component and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files. The build also packages them for Vercel with a Content Security Policy for each page.
+It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, pattern and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files. The build also packages them for Vercel with a Content Security Policy for each page.
 
 ## Getting started
 
@@ -49,10 +50,11 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, `npm test` and `npm run te
 - **Vitest** (`npm test`, files under `src/`, `app/` and `scripts/`): the authoring rules checked over every pattern folder (`src/library/library.test.ts`, `rules.ts`), the catalog and the contract that its two loaders (Vite globs for the app, `fs` for Node) agree, taxonomy, the reset template, briefs, agent and discovery files, and prerender paths. App tests cover copy actions, capture, clipboard, filters, theme, storage, format preferences, analytics, viewports, stage attributes, related patterns, syntax highlighting and hero showcase references.
 - **Smoke** (`e2e/smoke.spec.ts`): the pre-rendered site in Chromium. Browse and filters, theme, detail page, the preview stage, copy and export actions, analytics events, and the served agent files.
 - **Parity** (`e2e/parity.spec.ts`): for each pattern at desktop and mobile size, the HTML + CSS version must render like the React version, within 1% of pixels by default.
-- **Capture** (`e2e/capture-scrollbars.spec.ts` and smoke export checks): PNG downloads preserve capture dimensions, transparency and motion freezing. A section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide. Component web-font checks are retired; the three exemplars have no inputs, so input-placeholder e2e checks are retired while the capture unit coverage stays.
+- **Capture** (`e2e/capture-scrollbars.spec.ts` and smoke export checks): PNG downloads preserve capture dimensions, transparency and motion freezing. A section taller than the capture frame is still exactly 2880 (desktop) or 780 (mobile) pixels wide. Capture unit tests also cover input-placeholder styles.
 - **Focus** (`e2e/focus.spec.ts`): in forced-colors mode, tabbing to each control of both versions of every pattern makes a focus outline appear.
 - **Layout** (`e2e/layout.spec.ts`): React sections have no horizontal scrolling at 320, 640, 768, 1024 and 1280px, and React elements fit their frames inside the stage padding at both capture sizes.
 - **Browse entry** (`e2e/browse-entry.spec.ts`): filtered home links show the grid before React hydrates, at desktop and mobile widths.
+- **Pattern ideas** (`e2e/pattern-ideas.spec.ts`): labelled layout tag groups, filter URLs, prerendered brief notes and wireframes, and keyboard scrolling and focus from 320px up in both site themes.
 - **Security** (`e2e/security.spec.ts`): every pre-rendered page's CSP matches its HTML, injected scripts are blocked, navigation and PNG export still work, and the shell's local fonts load without Google Fonts.
 - **Discovery** (`e2e/discovery.spec.ts`): the sitemap lists every canonical page and its URLs resolve correctly; robots, social metadata, the 1200 × 630 social PNG and preview `noindex` are served.
 - **Preview state** (`e2e/preview-state.spec.ts`): a ready capture preview keeps the default accordion answer open when animation frames are delayed.
@@ -102,7 +104,7 @@ docs/superpowers/     the layout patterns spec, prior design and implementation 
 - **Images.** PNG capture loads the stage page with `?capture=1` in a hidden iframe at the target size (desktop 1440 px or mobile 390 px wide, 480 px tall for elements) and renders it at 2x with `modern-screenshot`. A capture that takes longer than 10 seconds fails with a Retry toast. Files are named `patternbook-<slug>-<desktop|mobile>.png`. Patterns use the neutral wireframe kit and labelled media placeholders, with no external imagery or web fonts.
 - **Preferences.** The site theme and the React/HTML choice are kept in `localStorage` (`wl:theme` and `wl:format`).
 - **Filtered home links.** A head script hides the home intro before first paint when a search or known layout tag is present. React takes over after hydration; clearing all filters brings the intro back. Applying tags on the ordinary home page keeps the intro in place so the chips do not jump.
-- **Home hero.** Browse components, open `llms.txt`, or copy the Claude Code MCP setup command. A setup link covers Codex, Cursor and other clients. Refused clipboard writes show the same manual-copy field as component actions.
+- **Home hero.** Browse patterns, open `llms.txt`, or copy the Claude Code MCP setup command. A setup link covers Codex, Cursor and other clients. Refused clipboard writes show the same manual-copy field as pattern actions.
 - **Site fonts.** Geist and Geist Mono are served from `public/fonts`, with their upstream license and source commit recorded there. Patterns use the system sans stack, with `font-mono` allowed for code and figures.
 
 ### Agent files
@@ -113,7 +115,7 @@ docs/superpowers/     the layout patterns spec, prior design and implementation 
 - `c/<slug>.react.md` and `c/<slug>.html.md` for each pattern: exactly the Copy for AI brief for that format;
 - `catalog.json`: a compact version 1 index with formats, populated groups, categories and tags with counts, and component metadata with absolute page and brief URLs. The `fonts` field stays as `[]` for version 1 consumers; wireframes, brief text and source code are omitted. Its TypeScript shape is `CatalogJson` in `src/library/agent-files.ts`;
 - `llms.txt`: an index of every pattern by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
-- `sitemap.xml`: canonical URLs for the home, category and component pages, generated from the taxonomy and catalog. Standalone previews, filter queries and agent files are excluded.
+- `sitemap.xml`: canonical URLs for the home, category and pattern pages, generated from the taxonomy and catalog. Standalone previews, filter queries and agent files are excluded.
 - `robots.txt`: allows crawling and points to the production sitemap. Preview pages remain crawlable so search engines can read their `noindex` directive.
 
 The build logs `Agent and discovery files: <n> written`: three briefs per pattern plus four index and discovery files. `src/library/agent-files.ts` sets how they are served, and both the Vercel config and `npm run serve:build` follow it (all types with `charset=utf-8`):
@@ -140,14 +142,14 @@ See [`mcp/README.md`](mcp/README.md) for Codex, Cursor and local development set
 
 ### Link previews
 
-Home, category and component pages include canonical URLs and complete Open Graph and Twitter metadata in their pre-rendered HTML. All use the branded 1200 × 630 PNG at [`public/social-preview.png`](public/social-preview.png), with page-specific titles and descriptions. The editable vector source is [`docs/assets/social-preview.svg`](docs/assets/social-preview.svg); it uses the bundled Geist and Geist Mono fonts. The PNG is committed, so deployments need no image renderer.
+Home, category and pattern pages include canonical URLs and complete Open Graph and Twitter metadata in their pre-rendered HTML. All use the branded 1200 × 630 PNG at [`public/social-preview.png`](public/social-preview.png), with page-specific titles and descriptions. The editable vector source is [`docs/assets/social-preview.svg`](docs/assets/social-preview.svg); it uses the bundled Geist and Geist Mono fonts. The PNG is committed, so deployments need no image renderer.
 
 ## Deploying to Vercel
 
 The site uses Vercel's [Build Output API](https://vercel.com/docs/build-output-api). After pre-rendering, `scripts/build-vercel-output.ts` copies `build/client` into `.vercel/output/static` and writes `.vercel/output/config.json`. This contains routes, agent-file content types, baseline security headers and a CSP with the exact inline script hashes for each page. Static assets resolve before the SPA fallback, which has its own policy.
 
 1. **Import the repo.** In Vercel, import `w0x7y/Web-Design-Library` as a project. `vercel.json` sets `npm run build` and `framework: null`. Leave the Output Directory override unset so Vercel consumes `.vercel/output`. Make sure the project uses Node 22.22 or newer.
-2. **Set the real URL.** After the first deploy, set `SITE.url` in `src/site.ts` to the production domain, with no trailing slash, and redeploy. (`app/site.ts` re-exports it, so this is the only place to edit.) `SITE.url` builds the canonical and Open Graph URLs on component pages, the `Source:` line in each brief, and every link in `llms.txt`, so they are wrong until it matches the real domain.
+2. **Set the real URL.** After the first deploy, set `SITE.url` in `src/site.ts` to the production domain, with no trailing slash, and redeploy. (`app/site.ts` re-exports it, so this is the only place to edit.) `SITE.url` builds the canonical and Open Graph URLs on pattern pages, the `Source:` line in each brief, and every link in `llms.txt`, so they are wrong until it matches the real domain.
 3. **Turn on Web Analytics.** In the Vercel project, open the Analytics tab and enable Web Analytics. `@vercel/analytics` is already mounted in the site layout.
 
 The CSP allows the site's scripts and the inline scripts whose hashes the build recorded. It restricts frames, forms and fonts to their required sources, rejects inline event handlers, and disables objects and base tags. Inline styles remain allowed for Tailwind layout attributes, Shiki and image capture. `npm run serve:build` applies the same generated headers, so local browser tests exercise the policy before deployment. After deploying, check the actual Vercel headers and Web Analytics delivery as well.
@@ -181,7 +183,7 @@ npm run build
 npx vercel deploy --prebuilt --prod --scope w0x7y
 ```
 
-After each release, verify the live canonical URLs, component pages, markdown briefs, `llms.txt`, response headers, image downloads, and Web Analytics delivery.
+After each release, verify the live canonical URLs, pattern pages, markdown briefs, `llms.txt`, response headers, image downloads, and Web Analytics delivery.
 
 ## License
 

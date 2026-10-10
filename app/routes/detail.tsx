@@ -5,6 +5,7 @@ import { CodeView } from '~/components/CodeView'
 import { ComponentCard } from '~/components/ComponentCard'
 import { ManualCopy } from '~/components/ManualCopy'
 import { NotFoundView } from '~/components/NotFoundView'
+import { PatternNotes } from '~/components/PatternNotes'
 import { PreviewFrame } from '~/components/PreviewFrame'
 import { chip, TEXT_LINK } from '~/components/ui'
 import { ViewportToggle } from '~/components/ViewportToggle'
@@ -43,7 +44,7 @@ const isUnknownSlug = (slug: string | undefined) => slug === undefined || metaBy
 
 export const meta: Route.MetaFunction = ({ loaderData, error, params }) => {
   if (error || !loaderData) {
-    return [{ title: `${isUnknownSlug(params.slug) ? 'Component not found' : 'Something went wrong'} — ${SITE.name}` }]
+    return [{ title: `${isUnknownSlug(params.slug) ? 'Pattern not found' : 'Something went wrong'} — ${SITE.name}` }]
   }
   const { name, slug, description } = loaderData.meta
   return pageMeta({ title: `${name} — ${SITE.name}`, description, path: componentPath(slug) })
@@ -109,7 +110,7 @@ function ComponentDetail({ meta: component, sources, highlighted }: Route.Compon
             {component.name}
           </h1>
           <p className="mt-2.5 max-w-2xl text-pretty text-zinc-600 dark:text-zinc-400">{component.description}</p>
-          <ul role="list" aria-label="Style tags" className="mt-4 flex flex-wrap gap-1.5">
+          <ul role="list" aria-label="Layout tags" className="mt-4 flex flex-wrap gap-1.5">
             {component.tags.map((tag) => (
               <li key={tag}>
                 <Link
@@ -154,6 +155,8 @@ function ComponentDetail({ meta: component, sources, highlighted }: Route.Compon
         />
       </div>
 
+      <PatternNotes brief={component.brief} wireframe={component.wireframe} />
+
       {related.length > 0 && (
         <section aria-labelledby={`${id}-related`} className="mt-20">
           <div className="flex items-baseline justify-between gap-4">
@@ -164,7 +167,7 @@ function ComponentDetail({ meta: component, sources, highlighted }: Route.Compon
               to={browsePath(component.category)}
               className={TEXT_LINK}
             >
-              View all<span className="sr-only"> {categoryLabel} components</span>
+              View all<span className="sr-only"> {categoryLabel} patterns</span>
             </Link>
           </div>
           <ul role="list" className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -242,7 +245,7 @@ export function ErrorBoundary({ error, params }: Route.ErrorBoundaryProps) {
   // An unknown slug is a 404 however it surfaced: a missing .data file, or a
   // host answering it with the HTML fallback instead.
   if (isUnknownSlug(params.slug) || (isRouteErrorResponse(error) && error.status === 404)) {
-    return <NotFoundView title="Component not found" />
+    return <NotFoundView title="Pattern not found" />
   }
   throw error
 }
