@@ -1,0 +1,41 @@
+<section aria-label="Rinsepost laundry locker orders" class="tabs-laundry-lockers">
+  <header class="tabs-laundry-lockers__header">
+    <h2 class="tabs-laundry-lockers__brand">Rinsepost</h2>
+    <span class="tabs-laundry-lockers__location">ASH COURT</span>
+  </header>
+  <fieldset class="tabs-laundry-lockers__selector">
+    <legend class="tabs-laundry-lockers__legend">Choose laundry order status</legend>
+    <label id="tabs-laundry-lockers-ready-label" class="tabs-laundry-lockers__tab">
+      <input id="tabs-laundry-lockers-ready" type="radio" name="tabs-laundry-lockers-view" value="ready" checked aria-controls="tabs-laundry-lockers-ready-panel" class="tabs-laundry-lockers__radio">
+      <span class="tabs-laundry-lockers__service">Ready to collect</span>
+      <span class="tabs-laundry-lockers__bags">2 bags</span>
+    </label>
+    <label id="tabs-laundry-lockers-washing-label" class="tabs-laundry-lockers__tab">
+      <input id="tabs-laundry-lockers-washing" type="radio" name="tabs-laundry-lockers-view" value="washing" aria-controls="tabs-laundry-lockers-washing-panel" class="tabs-laundry-lockers__radio">
+      <span class="tabs-laundry-lockers__service">In the wash</span>
+      <span class="tabs-laundry-lockers__bags">1 bag</span>
+    </label>
+  </fieldset>
+  <section id="tabs-laundry-lockers-ready-panel" aria-labelledby="tabs-laundry-lockers-ready-label" class="tabs-laundry-lockers__panel tabs-laundry-lockers__panel--ready">
+    <p class="tabs-laundry-lockers__kicker">Collection locker</p>
+    <div class="tabs-laundry-lockers__locker-number">
+      <h3 class="tabs-laundry-lockers__number">B·17</h3>
+      <svg viewBox="0 0 40 56" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="tabs-laundry-lockers__locker-drawing">
+        <path d="M5 3H35V53H5ZM5 19H35M5 36H35M20 3V53M14 10V13M26 10V13M14 26V29M26 26V29M14 43V46M26 43V46"></path>
+      </svg>
+    </div>
+    <p class="tabs-laundry-lockers__note">Order RP-1048 · Folded &amp; packed</p>
+    <p class="tabs-laundry-lockers__detail">Scan your collection receipt at the kiosk. Open today until 21:00.</p>
+  </section>
+  <section id="tabs-laundry-lockers-washing-panel" aria-labelledby="tabs-laundry-lockers-washing-label" class="tabs-laundry-lockers__panel tabs-laundry-lockers__panel--washing">
+    <p class="tabs-laundry-lockers__kicker">Order in progress</p>
+    <div class="tabs-laundry-lockers__locker-number">
+      <h3 class="tabs-laundry-lockers__number">1049</h3>
+      <svg viewBox="0 0 40 56" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="tabs-laundry-lockers__locker-drawing">
+        <path d="M5 3H35V53H5ZM5 19H35M5 36H35M20 3V53M14 10V13M26 10V13M14 26V29M26 26V29M14 43V46M26 43V46"></path>
+      </svg>
+    </div>
+    <p class="tabs-laundry-lockers__note">Order RP-1049 · Delicates cycle</p>
+    <p class="tabs-laundry-lockers__detail">Expected tomorrow after 16:00. We will send your collection receipt when ready.</p>
+  </section>
+</section>

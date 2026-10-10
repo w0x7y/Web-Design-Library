@@ -1,0 +1,51 @@
+<section aria-label="Downbeam satellite communication pass" class="tabs-satellite-pass">
+  <header class="tabs-satellite-pass__header">
+    <h2 class="tabs-satellite-pass__brand">Downbeam</h2>
+    <span class="tabs-satellite-pass__station">GROUND / 07</span>
+  </header>
+  <section id="tabs-satellite-pass-sband-panel" aria-labelledby="tabs-satellite-pass-sband-label" class="tabs-satellite-pass__panel tabs-satellite-pass__panel--sband">
+    <div class="tabs-satellite-pass__band-heading">
+      <h3 class="tabs-satellite-pass__band-name">S-band</h3>
+      <span class="tabs-satellite-pass__frequency">2.24 GHz</span>
+    </div>
+    <svg viewBox="0 0 240 80" aria-hidden="true" class="tabs-satellite-pass__pass-chart">
+      <path d="M0 62H240M0 30H240M40 8V72M120 8V72M200 8V72" fill="none" stroke="#92400e" stroke-width="1"></path>
+      <path d="M16 62Q120-35 224 62L224 70H16Z" fill="#fcd34d" fill-opacity="0.12"></path>
+      <path d="M16 62Q120-35 224 62" fill="none" stroke="#fcd34d" stroke-width="2"></path>
+      <circle cx="120" cy="14" r="4" fill="#fde68a"></circle>
+    </svg>
+    <div class="tabs-satellite-pass__pass-time">
+      <span>18:04 → 18:12 UTC</span>
+      <span>64° peak</span>
+    </div>
+    <p class="tabs-satellite-pass__status">Command uplink scheduled · DB-24</p>
+  </section>
+  <section id="tabs-satellite-pass-xband-panel" aria-labelledby="tabs-satellite-pass-xband-label" class="tabs-satellite-pass__panel tabs-satellite-pass__panel--xband">
+    <div class="tabs-satellite-pass__band-heading">
+      <h3 class="tabs-satellite-pass__band-name">X-band</h3>
+      <span class="tabs-satellite-pass__frequency">8.12 GHz</span>
+    </div>
+    <svg viewBox="0 0 240 80" aria-hidden="true" class="tabs-satellite-pass__pass-chart">
+      <path d="M0 62H240M0 30H240M40 8V72M120 8V72M200 8V72" fill="none" stroke="#92400e" stroke-width="1"></path>
+      <path d="M16 62Q120-35 224 62L224 70H16Z" fill="#fcd34d" fill-opacity="0.12"></path>
+      <path d="M16 62Q120-35 224 62" fill="none" stroke="#fcd34d" stroke-width="2"></path>
+      <circle cx="120" cy="14" r="4" fill="#fde68a"></circle>
+    </svg>
+    <div class="tabs-satellite-pass__pass-time">
+      <span>18:05 → 18:11 UTC</span>
+      <span>64° peak</span>
+    </div>
+    <p class="tabs-satellite-pass__status">Payload downlink reserved · DB-24</p>
+  </section>
+  <fieldset class="tabs-satellite-pass__selector">
+    <legend class="tabs-satellite-pass__legend">Choose satellite radio band</legend>
+    <label id="tabs-satellite-pass-sband-label" class="tabs-satellite-pass__tab">
+      <input id="tabs-satellite-pass-sband" type="radio" name="tabs-satellite-pass-view" value="sband" checked aria-controls="tabs-satellite-pass-sband-panel" class="tabs-satellite-pass__radio">
+      Command / S
+    </label>
+    <label id="tabs-satellite-pass-xband-label" class="tabs-satellite-pass__tab">
+      <input id="tabs-satellite-pass-xband" type="radio" name="tabs-satellite-pass-view" value="xband" aria-controls="tabs-satellite-pass-xband-panel" class="tabs-satellite-pass__radio">
+      Payload / X
+    </label>
+  </fieldset>
+</section>

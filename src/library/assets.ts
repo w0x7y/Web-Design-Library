@@ -85,4 +85,7 @@ export const IMAGES = {
   // Added for new-settings
   thermostatLivingRoom: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',
   cameraHomeInterior: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80',
+  // Added for new-tabs
+  vineyardMorningRowsSmall: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=800&q=80',
+  cinemaRedSeats: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80',
 } as const

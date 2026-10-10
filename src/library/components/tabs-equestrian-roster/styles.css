@@ -1,0 +1,172 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.tabs-equestrian-roster, .tabs-equestrian-roster *, .tabs-equestrian-roster *::before, .tabs-equestrian-roster *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.tabs-equestrian-roster { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.tabs-equestrian-roster :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.tabs-equestrian-roster a { color: inherit; text-decoration: inherit; }
+.tabs-equestrian-roster :is(b, strong) { font-weight: bolder; }
+.tabs-equestrian-roster :is(ol, ul, menu) { list-style: none; }
+.tabs-equestrian-roster :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.tabs-equestrian-roster :is(img, video) { max-width: 100%; height: auto; }
+.tabs-equestrian-roster :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.tabs-equestrian-roster ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.tabs-equestrian-roster table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.tabs-equestrian-roster summary { display: list-item; }
+
+/* Component */
+/* Frame and typography */
+.tabs-equestrian-roster {
+  width: 18rem;
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(86.9% 0.022 252.894); /* slate-300 */
+  background-color: #fff;
+  color: oklch(20.8% 0.042 265.755); /* slate-900 */
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__brand {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__title {
+  margin-top: 0.25rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 700;
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__header {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  background-color: oklch(29.3% 0.066 243.157); /* sky-950 */
+  padding: 0.75rem 1rem;
+  color: #fff;
+}
+
+/* Native controls */
+.tabs-equestrian-roster .tabs-equestrian-roster__radio,
+.tabs-equestrian-roster .tabs-equestrian-roster__legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Tab labels */
+.tabs-equestrian-roster .tabs-equestrian-roster__tab {
+  display: flex;
+  height: 2.75rem;
+  flex: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid transparent;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+/* Selector layout */
+.tabs-equestrian-roster .tabs-equestrian-roster__selector {
+  margin-inline: 1rem;
+  display: flex;
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__session {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__horse {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 700;
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__rider {
+  margin-top: 0.25rem;
+  font-size: 11px;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__stall {
+  font-size: 10px;
+  font-weight: 600;
+  color: oklch(39.1% 0.09 240.876); /* sky-900 */
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__assignment {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  padding: 0.75rem;
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__roster {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Selected content */
+.tabs-equestrian-roster .tabs-equestrian-roster__panel {
+  display: none;
+  padding: 1rem;
+}
+
+/* Selection, keyboard focus and hover */
+.tabs-equestrian-roster .tabs-equestrian-roster__tab:has(:checked) {
+  border-color: oklch(44.3% 0.11 240.79); /* sky-800 */
+  color: oklch(39.1% 0.09 240.876); /* sky-900 */
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__tab:has(:focus-visible) {
+  outline: 2px solid oklch(39.1% 0.09 240.876); /* sky-900 */
+  outline-offset: 2px;
+}
+
+.tabs-equestrian-roster .tabs-equestrian-roster__radio:focus-visible {
+  outline-style: none;
+}
+
+@media (hover: hover) {
+  .tabs-equestrian-roster .tabs-equestrian-roster__tab:hover:not(:has(:checked)) {
+    background-color: oklch(97.7% 0.013 236.62); /* sky-50 */
+  }
+}
+
+@media (forced-colors: active) {
+  .tabs-equestrian-roster .tabs-equestrian-roster__radio:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .tabs-equestrian-roster .tabs-equestrian-roster__tab:has(:checked) {
+    text-decoration-line: underline;
+  }
+}
+
+.tabs-equestrian-roster:has(#tabs-equestrian-roster-indoor:checked) .tabs-equestrian-roster__panel--indoor {
+  display: block;
+}
+
+.tabs-equestrian-roster:has(#tabs-equestrian-roster-outdoor:checked) .tabs-equestrian-roster__panel--outdoor {
+  display: block;
+}
+
+@media (width >= 40rem) {
+  .tabs-equestrian-roster {
+    width: 22rem;
+  }
+}
