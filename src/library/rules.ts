@@ -58,7 +58,9 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (lines.some((line) => / +$/.test(line))) out.push('meta.wireframe must not have trailing spaces')
   if (!lines[0].trim() || !lines.at(-1)!.trim()) out.push('meta.wireframe must not have a blank first or last line')
   if (new Set(lines.map((line) => [...line].length)).size > 1) out.push('meta.wireframe lines must all have the same width: draw one outer frame')
-  if (/[^\n\x20-\x7e\u2500-\u259f]/u.test(wireframe)) out.push('meta.wireframe may only use printable ASCII and box-drawing characters')
+  if (/[^\n\x20-\x7e─│┌┐└┘├┤┬┴┼]/u.test(wireframe)) out.push('meta.wireframe may only use printable ASCII and the box-drawing characters ─ │ ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼')
+  const breaks = wireframeBreaks(lines)
+  if (breaks.length > 0) out.push(`meta.wireframe box lines must connect: ${breaks.slice(0, 3).join('; ')}`)
   for (const field of BRIEF_FIELDS) {
     if (!meta.brief[field]?.trim()) out.push(`brief.${field} is empty`)
   }
@@ -68,6 +70,34 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (meta.preview.parity && !meta.preview.parity.reason.trim()) {
     out.push('preview.parity overrides the parity tolerance without a reason')
   }
+  return out
+}
+
+// Which neighbours each box-drawing character's strokes reach: [up, down, left, right].
+const STROKES: Record<string, [boolean, boolean, boolean, boolean]> = {
+  '─': [false, false, true, true], '│': [true, true, false, false],
+  '┌': [false, true, false, true], '┐': [false, true, true, false],
+  '└': [true, false, false, true], '┘': [true, false, true, false],
+  '├': [true, true, false, true], '┤': [true, true, true, false],
+  '┬': [false, true, true, true], '┴': [true, false, true, true],
+  '┼': [true, true, true, true],
+}
+
+/** Box-drawing strokes that end in mid-air or meet a character that does not stroke back (columns are code points). */
+function wireframeBreaks(lines: string[]): string[] {
+  const grid = lines.map((line) => [...line])
+  const at = (y: number, x: number) => STROKES[grid[y]?.[x] ?? ''] ?? [false, false, false, false]
+  const out: string[] = []
+  grid.forEach((row, y) => row.forEach((char, x) => {
+    const strokes = STROKES[char]
+    if (!strokes) return
+    const [up, down, left, right] = strokes
+    const where = `line ${y + 1}, column ${x + 1} ("${char}")`
+    if (up && !at(y - 1, x)[1]) out.push(`${where} has no line above`)
+    if (down && !at(y + 1, x)[0]) out.push(`${where} has no line below`)
+    if (left && char !== '─' && !at(y, x - 1)[3]) out.push(`${where} has no line to the left`)
+    if (right && char !== '─' && !at(y, x + 1)[2]) out.push(`${where} has no line to the right`)
+  }))
   return out
 }
 

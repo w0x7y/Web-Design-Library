@@ -211,6 +211,11 @@ test.each([
   expect(violations(withMeta(validEntry(), { wireframe })).join('\n')).toMatch(pattern)
 })
 
+test('wireframe accepts joined inner boxes and dividers', () => {
+  const wireframe = ['┌─────┬─────┐', '│ a   │ b   │', '├─────┼─────┤', '│ ┌─┐ │ [x] │', '│ └─┘ │ -v- │', '└─────┴─────┘'].join('\n')
+  expect(violations(withMeta(validEntry(), { wireframe }))).toEqual([])
+})
+
 test('wireframe accepts its exact limits', () => {
   const wireframe = ['┌' + '─'.repeat(62) + '┐', ...Array(22).fill('│' + ' '.repeat(62) + '│'), '└' + '─'.repeat(62) + '┘'].join('\n')
   expect(violations(withMeta(validEntry(), { wireframe }))).toEqual([])
@@ -218,9 +223,12 @@ test('wireframe accepts its exact limits', () => {
 
 test.each([
   ['┌──┐\n│ x │\n└──┘', /same width/],
-  ['┌───┐\n│ ∧ │\n└───┘', /printable ASCII and box-drawing/],
-  ['┌───┐\n│ ◌ │\n└───┘', /printable ASCII and box-drawing/],
-])('rejects a ragged or non-ASCII wireframe %j', (wireframe, pattern) => {
+  ['┌───┐\n│ ∧ │\n└───┘', /printable ASCII and the box-drawing/],
+  ['┌───┐\n│ ◌ │\n└───┘', /printable ASCII and the box-drawing/],
+  ['╔═══╗\n║ x ║\n╚═══╝', /printable ASCII and the box-drawing/],
+  ['┌───┐\n│  ││\n└───┘', /must connect: line 2, column 4 \("│"\) has no line above/],
+  ['┌─┬─┐\n│   │\n└───┘', /must connect: line 1, column 3 \("┬"\) has no line below/],
+])('rejects a ragged, broken or non-ASCII wireframe %j', (wireframe, pattern) => {
   expect(violations(withMeta(validEntry(), { wireframe })).join('\n')).toMatch(pattern)
 })
 

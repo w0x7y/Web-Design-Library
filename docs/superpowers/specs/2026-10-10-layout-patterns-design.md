@@ -210,8 +210,10 @@ export default {
 `┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼`, name regions with their slot copy, write actions as
 `[Label]`, and draw media as a box with `Image` (or `Video`) inside.
 Draw one outer frame so every line has the same width: at most 64 characters
-and 24 lines. Printable ASCII and box-drawing characters only (`^`/`v` for
-chevrons). No tabs; no trailing spaces; no blank first or last line. Example (`hero-split-image`):
+and 24 lines. Printable ASCII and `─ │ ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼` only (`^`/`v` for
+chevrons). Box lines connect: vertical strokes continue above and below, and
+dividers meet their frame with `┬ ┴ ├ ┤`. No tabs; no trailing spaces; no
+blank first or last line. Example (`hero-split-image`):
 
 ```
 ┌──────────────────────────────────────────────────────────┐
