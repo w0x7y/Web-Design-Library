@@ -114,4 +114,6 @@ export const IMAGES = {
   weddingEveningBouquet: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
   // Added for retheme-g
   spiceMerchantTable: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
+  // Added for retheme-f
+  harbourWoodenBoats: 'https://images.unsplash.com/photo-1660745469414-543a641d22bf?w=1600&q=80',
 } as const

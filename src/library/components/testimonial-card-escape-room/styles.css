@@ -1,0 +1,88 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonial-card-escape-room, .testimonial-card-escape-room *, .testimonial-card-escape-room *::before, .testimonial-card-escape-room *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonial-card-escape-room { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonial-card-escape-room :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonial-card-escape-room a { color: inherit; text-decoration: inherit; }
+.testimonial-card-escape-room :is(b, strong) { font-weight: bolder; }
+.testimonial-card-escape-room :is(ol, ul, menu) { list-style: none; }
+.testimonial-card-escape-room :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonial-card-escape-room :is(img, video) { max-width: 100%; height: auto; }
+.testimonial-card-escape-room :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonial-card-escape-room ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonial-card-escape-room table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonial-card-escape-room summary { display: list-item; }
+
+
+/* Component */
+.testimonial-card-escape-room {
+  position: relative;
+  width: 18rem;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 20px;
+  background-color: oklch(30.2% 0.056 229.695) /* cyan-950 */;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  color: #fff;
+}
+
+/* Maze paths behind translucent glass */
+.testimonial-card-escape-room .testimonial-card-escape-room__maze {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: oklch(85.5% 0.138 181.071) /* teal-300 */;
+  opacity: 0.3;
+}
+
+.testimonial-card-escape-room .testimonial-card-escape-room__pane {
+  position: relative;
+  padding: 1.25rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 0.75rem;
+  background-color: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.testimonial-card-escape-room .testimonial-card-escape-room__label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: oklch(91.7% 0.08 205.041) /* cyan-200 */;
+}
+
+.testimonial-card-escape-room .testimonial-card-escape-room__quote {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.testimonial-card-escape-room .testimonial-card-escape-room__location {
+  margin-top: 1.25rem;
+  font-size: 11px;
+  color: oklch(95.3% 0.051 180.801) /* teal-100 */;
+}
+
+.testimonial-card-escape-room .testimonial-card-escape-room__credit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  padding-inline: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(95.3% 0.051 180.801) /* teal-100 */;
+}
+
+.testimonial-card-escape-room .testimonial-card-escape-room__name {
+  font-weight: 600;
+  color: #fff;
+}
+
+@media (width >= 40rem) {
+  .testimonial-card-escape-room {
+    width: 22rem;
+  }
+}
