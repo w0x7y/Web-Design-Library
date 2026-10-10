@@ -1,0 +1,90 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonial-card-lift-inspection, .testimonial-card-lift-inspection *, .testimonial-card-lift-inspection *::before, .testimonial-card-lift-inspection *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonial-card-lift-inspection { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonial-card-lift-inspection :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonial-card-lift-inspection a { color: inherit; text-decoration: inherit; }
+.testimonial-card-lift-inspection :is(b, strong) { font-weight: bolder; }
+.testimonial-card-lift-inspection :is(ol, ul, menu) { list-style: none; }
+.testimonial-card-lift-inspection :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonial-card-lift-inspection :is(img, video) { max-width: 100%; height: auto; }
+.testimonial-card-lift-inspection :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonial-card-lift-inspection ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonial-card-lift-inspection table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonial-card-lift-inspection summary { display: list-item; }
+
+/* Component */
+.testimonial-card-lift-inspection {
+  width: 18rem;
+  border: 2px solid oklch(14.5% 0 none) /* neutral-950 */;
+  background-color: oklch(14.5% 0 none) /* neutral-950 */;
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  color: #fff;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: oklch(90.5% 0.182 98.111) /* yellow-300 */;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(14.5% 0 none) /* neutral-950 */;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__brand {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__body {
+  padding: 1.25rem;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__quote {
+  margin-top: 1rem;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+/* Signed inspection */
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__credit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 1rem 1.25rem;
+  border-top: 1px solid oklch(37.1% 0 none) /* neutral-700 */;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__name {
+  font-weight: 700;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__role {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 400;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+.testimonial-card-lift-inspection .testimonial-card-lift-inspection__site {
+  padding-left: 0.75rem;
+  border-left: 1px solid oklch(37.1% 0 none) /* neutral-700 */;
+  color: oklch(87% 0 none) /* neutral-300 */;
+}
+
+@media (width >= 40rem) {
+  .testimonial-card-lift-inspection {
+    width: 22rem;
+  }
+}

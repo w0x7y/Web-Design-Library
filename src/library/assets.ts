@@ -53,4 +53,7 @@ export const IMAGES = {
   // Added for new-profile-card
   portraitWomanGarden: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80',
   portraitManSuit: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
+  // Added for new-testimonial-card
+  portraitManGlasses: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+  portraitManSunlit: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&q=80',
 } as const
