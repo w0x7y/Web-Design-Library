@@ -10,9 +10,12 @@ import type { ComponentMeta, ComponentSources } from './types'
 /** The folder that holds one folder per component, from the project root. */
 export const COMPONENTS_DIR = 'src/library/components'
 
+/** The slug rule as an unanchored regex source, for patterns that embed a slug. */
+export const SLUG_PATTERN = '[a-z0-9]+(?:-[a-z0-9]+)*'
+
 /** Whether `value` is a valid slug: kebab-case, so it is safe as a folder name, a URL segment and a file name. */
 export function isSlug(value: string): boolean {
-  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)
+  return new RegExp(`^${SLUG_PATTERN}$`).test(value)
 }
 
 /** The file in a component folder that holds each source format. */

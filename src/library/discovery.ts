@@ -1,6 +1,6 @@
 import type { ComponentMeta } from './types'
 import { CATEGORY_IDS } from './taxonomy'
-import { absoluteUrl, browsePath, componentPath } from './urls'
+import { absoluteUrl, browsePath, componentPath, sitemapPath } from './urls'
 
 /** Indexable pages only: the standalone previews and agent files have other discovery paths. */
 export function buildSitemap(metas: readonly Pick<ComponentMeta, 'slug'>[]): string {
@@ -13,9 +13,10 @@ export function buildSitemap(metas: readonly Pick<ComponentMeta, 'slug'>[]): str
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`
 }
 
+/** Crawler policy and the canonical sitemap location. */
 export function buildRobotsTxt(): string {
   // Let crawlers read the preview pages' noindex directive instead of blocking that directive.
-  return `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl('/sitemap.xml')}\n`
+  return `User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl(sitemapPath())}\n`
 }
 
 function escapeXml(value: string): string {

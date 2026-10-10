@@ -1,6 +1,8 @@
 import type { CategoryId, StyleTag } from './taxonomy'
 
-export type Format = 'react' | 'html'
+/** Supported source formats, in display and agent-file order. */
+export const FORMATS = ['react', 'html'] as const
+export type Format = (typeof FORMATS)[number]
 
 export interface ComponentBrief {
   layout: string

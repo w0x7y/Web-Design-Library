@@ -3,11 +3,12 @@ import { PNG } from 'pngjs'
 import { loadMetas } from '../scripts/load-library'
 import { CATEGORY_IDS } from '../src/library/taxonomy'
 import { SITE } from '../src/site'
+import { absoluteUrl, robotsPath, sitemapPath } from '../src/library/urls'
 
 test.use({ javaScriptEnabled: false })
 
 test('the sitemap contains every canonical page and each URL resolves to that page', async ({ page, request }) => {
-  const response = await request.get('/sitemap.xml')
+  const response = await request.get(sitemapPath())
   expect(response.status()).toBe(200)
   expect(response.headers()['content-type']).toMatch(/^application\/xml/)
   const sitemap = await response.text()
@@ -44,10 +45,10 @@ test('the sitemap contains every canonical page and each URL resolves to that pa
 })
 
 test('robots.txt permits crawling and advertises the production sitemap', async ({ request }) => {
-  const response = await request.get('/robots.txt')
+  const response = await request.get(robotsPath())
   expect(response.status()).toBe(200)
   expect(response.headers()['content-type']).toMatch(/^text\/plain/)
-  expect(await response.text()).toBe(`User-agent: *\nAllow: /\n\nSitemap: ${SITE.url}/sitemap.xml\n`)
+  expect(await response.text()).toBe(`User-agent: *\nAllow: /\n\nSitemap: ${absoluteUrl(sitemapPath())}\n`)
 })
 
 for (const path of ['/', '/browse/hero', '/c/hero-split-image']) {

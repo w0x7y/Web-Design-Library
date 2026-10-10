@@ -3,11 +3,13 @@ import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join, relative, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parse, type DefaultTreeAdapterMap } from 'parse5'
+import { agentFileServing, CROSS_ORIGIN_ROUTE, escapeRegex } from '../src/library/agent-files'
 
 type VercelRoute =
   | { handle: 'filesystem' }
   | { src: string; headers: Record<string, string>; continue: true }
   | { src: string; headers: Record<string, string>; dest: string }
+  | { src: string; status: 404 }
 
 export type VercelOutputConfig = {
   version: 3
@@ -42,13 +44,6 @@ export function contentSecurityPolicy(html: string): string {
   ].join('; ')
 }
 
-const escapeRegex = (path: string) => path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-const DISCOVERY_CONTENT_TYPES: Partial<Record<string, string>> = {
-  'llms.txt': 'text/plain; charset=utf-8',
-  'robots.txt': 'text/plain; charset=utf-8',
-  'sitemap.xml': 'application/xml; charset=utf-8',
-}
-
 /** An index page is served at its directory URL and at its explicit filename, with the same policy. */
 function pagePattern(file: string): string {
   if (file === 'index.html') return '^/(?:index\\.html)?$'
@@ -71,12 +66,14 @@ export async function buildVercelConfig(clientDir: string): Promise<VercelOutput
     version: 3,
     routes: [
       { src: '/(.*)', headers: { 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin' }, continue: true },
+      { src: CROSS_ORIGIN_ROUTE, headers: { 'Access-Control-Allow-Origin': '*' }, continue: true },
       ...pages,
       { handle: 'filesystem' },
+      { src: CROSS_ORIGIN_ROUTE, status: 404 },
       { ...fallback, src: '/(.*)' },
     ],
     overrides: Object.fromEntries(files.flatMap((file) => {
-      const contentType = file.endsWith('.md') ? 'text/markdown; charset=utf-8' : DISCOVERY_CONTENT_TYPES[file]
+      const contentType = agentFileServing(file)?.contentType
       return contentType ? [[file, { contentType }]] : []
     })),
   }
