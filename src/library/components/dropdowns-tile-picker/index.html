@@ -1,0 +1,30 @@
+<div class="dropdowns-tile-picker">
+  <p id="dropdowns-tile-picker-label" class="dropdowns-tile-picker__label">Time</p>
+  <details open class="dropdowns-tile-picker__disclosure">
+    <summary aria-labelledby="dropdowns-tile-picker-label dropdowns-tile-picker-value" aria-describedby="dropdowns-tile-picker-note" class="dropdowns-tile-picker__trigger">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dropdowns-tile-picker__clock">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>
+      <span id="dropdowns-tile-picker-value" class="dropdowns-tile-picker__current-value"><span class="dropdowns-tile-picker__value dropdowns-tile-picker__value--0900">09:00</span><span class="dropdowns-tile-picker__value dropdowns-tile-picker__value--0930">09:30</span><span class="dropdowns-tile-picker__value dropdowns-tile-picker__value--1000">10:00</span><span class="dropdowns-tile-picker__value dropdowns-tile-picker__value--1030">10:30</span><span class="dropdowns-tile-picker__value dropdowns-tile-picker__value--1100">11:00</span><span class="dropdowns-tile-picker__value dropdowns-tile-picker__value--1130">11:30</span></span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dropdowns-tile-picker__chevron">
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    </summary>
+    <div class="dropdowns-tile-picker__panel">
+      <p class="dropdowns-tile-picker__date">Today, Mar 14</p>
+      <fieldset class="dropdowns-tile-picker__choices">
+        <legend class="dropdowns-tile-picker__legend">Choose a time</legend>
+        <div class="dropdowns-tile-picker__grid">
+          <label class="dropdowns-tile-picker__tile dropdowns-tile-picker__tile--enabled"><input id="dropdowns-tile-picker-0900" type="radio" aria-describedby="dropdowns-tile-picker-note" name="dropdowns-tile-picker" checked class="dropdowns-tile-picker__input">09:00</label>
+          <label class="dropdowns-tile-picker__tile dropdowns-tile-picker__tile--enabled"><input id="dropdowns-tile-picker-0930" type="radio" aria-describedby="dropdowns-tile-picker-note" name="dropdowns-tile-picker" class="dropdowns-tile-picker__input">09:30</label>
+          <label class="dropdowns-tile-picker__tile dropdowns-tile-picker__tile--enabled"><input id="dropdowns-tile-picker-1000" type="radio" aria-describedby="dropdowns-tile-picker-note" name="dropdowns-tile-picker" class="dropdowns-tile-picker__input">10:00</label>
+          <label class="dropdowns-tile-picker__tile dropdowns-tile-picker__tile--enabled"><input id="dropdowns-tile-picker-1030" type="radio" aria-describedby="dropdowns-tile-picker-note" name="dropdowns-tile-picker" class="dropdowns-tile-picker__input">10:30</label>
+          <label class="dropdowns-tile-picker__tile dropdowns-tile-picker__tile--enabled"><input id="dropdowns-tile-picker-1100" type="radio" aria-describedby="dropdowns-tile-picker-note" name="dropdowns-tile-picker" class="dropdowns-tile-picker__input">11:00</label>
+          <label class="dropdowns-tile-picker__tile dropdowns-tile-picker__tile--disabled"><input id="dropdowns-tile-picker-1130" type="radio" aria-describedby="dropdowns-tile-picker-note" disabled name="dropdowns-tile-picker" class="dropdowns-tile-picker__input">11:30</label>
+        </div>
+      </fieldset>
+      <p id="dropdowns-tile-picker-note" class="dropdowns-tile-picker__note">Times use your local zone.</p>
+    </div>
+  </details>
+</div>

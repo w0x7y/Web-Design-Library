@@ -22,7 +22,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 export const meta: Route.MetaFunction = ({ loaderData }) => {
   const component = loaderData && metaBySlug(loaderData.slug)
   return [
-    { title: component ? `${component.name} preview — ${SITE.name}` : `Component not found — ${SITE.name}` },
+    { title: component ? `${component.name} preview — ${SITE.name}` : `Pattern not found — ${SITE.name}` },
     { name: 'robots', content: 'noindex' },
   ]
 }
@@ -39,7 +39,6 @@ export default function Preview({ loaderData }: Route.ComponentProps) {
     <PreviewSurface
       ref={root}
       kind={component.preview.kind}
-      fonts={component.fonts}
       mode="page"
       capture={hydrated && isCaptureRequest(searchParams)}
       state={state}

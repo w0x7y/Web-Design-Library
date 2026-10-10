@@ -8,7 +8,7 @@ import { STORAGE_KEYS } from '../app/lib/storage'
 import { relatedMetas } from '../app/lib/related'
 import { frameSize, previewBox } from '../app/lib/viewports'
 import { loadEntry, loadMetas } from '../scripts/load-library'
-import type { CategoryId, StyleTag } from '../src/library/taxonomy'
+import type { CategoryId, LayoutTag } from '../src/library/taxonomy'
 import { absoluteUrl, catalogPath, componentFormatMarkdownPath, componentMarkdownPath, llmsPath, previewPath } from '../src/library/urls'
 import { SITE } from '../src/site'
 import { downloadPng, openDetail } from './lib/pages'
@@ -19,7 +19,7 @@ const HERO = HERO_ENTRY.sources
 const MCP_SETUP_COMMAND = 'claude mcp add patternbook -- npx -y patternbook-mcp'
 
 // How many cards browse should show: the library on disk through browse's own results (unit-tested in filters.test.ts).
-function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: StyleTag[]; q?: string }): number {
+function expectedCount({ category, tags = [], q = '' }: { category?: CategoryId; tags?: LayoutTag[]; q?: string }): number {
   return browseResults(LIBRARY, category ?? null, { tags, q }).results.length
 }
 
@@ -36,23 +36,25 @@ test('home page renders with site title', async ({ page }) => {
 
 test('the home page leads with the hero, whose heading is the page h1', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Copy-paste UI for you and your agent.')
-  await expect(page.getByRole('heading', { level: 2, name: 'All components' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Layout patterns for your next page.')
+  await expect(page.getByText(`${LIBRARY.length} patterns, free to copy`)).toBeVisible()
+  await expect(page.getByText('Neutral wireframes with copy-paste code and an AI brief. Restyle each pattern in your own design system.')).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: 'All patterns' })).toBeVisible()
   // A search hides the hero, so the results lead the page and their heading becomes the h1.
-  await page.getByRole('searchbox', { name: 'Search components' }).fill('glass')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('All components')
-  await expect(page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })).toHaveCount(0)
+  await page.getByRole('searchbox', { name: 'Search patterns' }).fill('accordion')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('All patterns')
+  await expect(page.getByRole('region', { name: 'Layout patterns for your next page.' })).toHaveCount(0)
 })
 
 test('the home hero shows npm setup and keeps its agent links before hydration', async ({ page }) => {
   await page.route('**/assets/*.js', (route) => route.abort())
   await page.goto('/')
-  const hero = page.getByRole('region', { name: 'Copy-paste UI for you and your agent.' })
+  const hero = page.getByRole('region', { name: 'Layout patterns for your next page.' })
   await expect(hero.locator('code')).toHaveText(MCP_SETUP_COMMAND)
   // Geist Mono's ligatures would swallow the space before "--"; the shell mono font turns them off.
   await expect(hero.locator('code')).toHaveCSS('font-feature-settings', '"calt" 0, "liga" 0')
   await expect(hero.getByRole('button', { name: 'Copy MCP setup command' })).toHaveAttribute('aria-disabled', 'true')
-  await expect(hero.getByRole('link', { name: 'Browse components' })).toHaveAttribute('href', '#components')
+  await expect(hero.getByRole('link', { name: 'Browse patterns' })).toHaveAttribute('href', '#components')
   await expect(hero.getByRole('link', { name: 'llms.txt for agents' })).toHaveAttribute('href', '/llms.txt')
   await expect(hero.getByRole('link', { name: 'Setup for Codex, Cursor and other clients' }))
     .toHaveAttribute('href', `${SITE.repoUrl}/tree/main/mcp#readme`)
@@ -64,14 +66,14 @@ test('unknown path renders not-found page', async ({ page }) => {
 })
 
 test('preview ?capture=1 freezes motion after hydration', async ({ page }) => {
-  await page.goto(previewPath('buttons-minimal', { capture: true }))
+  await page.goto(previewPath('buttons-hierarchy', { capture: true }))
   await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'ready')
   await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-capture', '')
   await expect(page.locator(`${STAGE.root} .animate-spin`).first()).toHaveCSS('animation-name', 'none')
 })
 
 test('preview without ?capture=1 keeps motion', async ({ page }) => {
-  await page.goto(previewPath('buttons-minimal'))
+  await page.goto(previewPath('buttons-hierarchy'))
   // Ready means hydrated, so a capture flag would have been set by now.
   await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'ready')
   await expect(page.locator(`${STAGE.root} .animate-spin`).first()).toHaveCSS('animation-name', 'spin')
@@ -82,19 +84,19 @@ test('the preview page is a bare stage: no site theme, fonts, toaster or analyti
   await page.addInitScript(([key, theme]) => localStorage.setItem(key, theme), [STORAGE_KEYS.theme, 'dark'])
   const requests: string[] = []
   page.on('request', (request) => requests.push(request.url()))
-  await page.goto(previewPath('buttons-minimal'))
+  await page.goto(previewPath('buttons-hierarchy'))
   await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'ready') // hydrated, so the site's effects would have run
   expect(await page.evaluate(() => document.documentElement.classList.contains('dark'))).toBe(false)
   await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
   await expect(page.locator('section[aria-label^="Notifications"]')).toHaveCount(0) // Sonner's toaster region
-  expect(requests.filter((url) => url.includes('/_vercel/insights/') || url.includes('family=Geist'))).toEqual([])
+  expect(requests.filter((url) => url.includes('/_vercel/insights/') || url.includes('/fonts/'))).toEqual([])
 })
 
 // Parity shares the stage stylesheet with the preview page, so it can't see a stage that is wrong on both sides.
 test('the stage fills the frame and centres an element at its own width inside 48px of padding', async ({ page }) => {
   const frame = frameSize('element', 'desktop')
   await page.setViewportSize(frame)
-  await page.goto(previewPath('buttons-minimal'))
+  await page.goto(previewPath('buttons-hierarchy'))
   const backdrop = page.locator(STAGE.ready)
   await expect(backdrop).toHaveCSS('padding', '48px')
   const stage = (await backdrop.boundingBox())!
@@ -108,7 +110,7 @@ test('the stage fills the frame and centres an element at its own width inside 4
 
 test('a preview whose component fails to load reports failed', async ({ page }) => {
   await page.route('**/Component-*.js', (route) => route.abort())
-  await page.goto(previewPath('buttons-minimal'))
+  await page.goto(previewPath('buttons-hierarchy'))
   await expect(page.locator(STAGE.backdrop)).toHaveAttribute('data-preview-state', 'failed')
 })
 
@@ -157,47 +159,47 @@ test('browse lists all components and filters by category', async ({ page }) => 
   expectNarrowing(heroes)
   await page.goto('/')
   await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
-  await page.getByRole('link', { name: /^Hero/ }).first().click()
+  await page.getByRole('navigation', { name: 'Categories' }).getByRole('link', { name: /^Hero/ }).click()
   await expect(page).toHaveURL(/\/browse\/hero/)
   await expect(page.getByRole('heading', { level: 1, name: 'Hero' })).toBeVisible()
   await expect(page.getByTestId('component-card')).toHaveCount(heroes)
 })
 
 test("the sidebar opens the current category's group and keeps the others closed", async ({ page }) => {
-  await page.goto('/browse/toggles')
+  await page.goto('/browse/buttons')
   const nav = page.getByRole('navigation', { name: 'Categories' })
   const group = (label: string) => nav.locator('details').filter({ has: page.locator('summary', { hasText: label }) })
   await expect(group('Elements')).toHaveAttribute('open', '')
   await expect(group('Sections')).not.toHaveAttribute('open')
-  await expect(nav.getByRole('link', { name: /^Toggles/ })).toHaveAttribute('aria-current', 'page')
+  await expect(nav.getByRole('link', { name: /^Buttons/ })).toHaveAttribute('aria-current', 'page')
   await expect(nav.getByRole('link', { name: /^Hero/ })).toBeHidden()
   // A closed group opens from the keyboard, and moving to one of its categories keeps the current group open too.
-  await group('App UI').locator('summary').focus()
+  await group('Sections').locator('summary').focus()
   await page.keyboard.press('Enter')
-  await expect(group('App UI')).toHaveAttribute('open', '')
-  await nav.getByRole('link', { name: /^Settings/ }).click()
-  await expect(page).toHaveURL(/\/browse\/settings/)
-  await expect(group('App UI')).toHaveAttribute('open', '')
+  await expect(group('Sections')).toHaveAttribute('open', '')
+  await nav.getByRole('link', { name: /^Hero/ }).click()
+  await expect(page).toHaveURL(/\/browse\/hero/)
+  await expect(group('Sections')).toHaveAttribute('open', '')
   await expect(group('Elements')).toHaveAttribute('open', '')
 })
 
 test('search and tag filters sync with the URL', async ({ page }) => {
-  const glass = expectedCount({ q: 'glass' })
-  const minimal = expectedCount({ tags: ['minimal'] })
-  expectNarrowing(glass)
-  expectNarrowing(minimal)
+  const accordion = expectedCount({ q: 'accordion' })
+  const centered = expectedCount({ tags: ['centered'] })
+  expectNarrowing(accordion)
+  expectNarrowing(centered)
   await page.goto('/')
-  await page.getByRole('searchbox', { name: 'Search components' }).fill('glass')
-  await expect(page).toHaveURL(/q=glass/)
-  await expect(page.getByTestId('component-card')).toHaveCount(glass)
-  await page.goto('/?tags=minimal')
-  await expect(page.getByRole('button', { name: 'minimal', pressed: true })).toBeVisible()
-  await expect(page.getByTestId('component-card')).toHaveCount(minimal)
+  await page.getByRole('searchbox', { name: 'Search patterns' }).fill('accordion')
+  await expect(page).toHaveURL(/q=accordion/)
+  await expect(page.getByTestId('component-card')).toHaveCount(accordion)
+  await page.goto('/?tags=centered')
+  await expect(page.getByRole('button', { name: 'centered', pressed: true })).toBeVisible()
+  await expect(page.getByTestId('component-card')).toHaveCount(centered)
 })
 
 test('zero results show empty state with working reset', async ({ page }) => {
-  await page.goto('/?q=zzzz&tags=brutalist,unknown')
-  await expect(page.getByText('No components match')).toBeVisible()
+  await page.goto('/?q=zzzz&tags=split,unknown')
+  await expect(page.getByText('No patterns match')).toBeVisible()
   await page.getByRole('button', { name: 'Clear filters' }).click()
   await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
 })
@@ -211,7 +213,7 @@ for (const path of ['/?q=zzzz', '/browse/hero?q=zzzz']) {
     await clear.focus()
     await page.keyboard.press('Enter')
     await expect(page.getByTestId('component-card').first()).toBeVisible()
-    await expect(page.getByRole('heading', { name: path.startsWith('/browse') ? 'Hero' : 'All components', exact: true })).toBeFocused()
+    await expect(page.getByRole('heading', { name: path.startsWith('/browse') ? 'Hero' : 'All patterns', exact: true })).toBeFocused()
   })
 }
 
@@ -267,7 +269,7 @@ test('without a stored choice the theme follows the system, through one shared l
 })
 
 // The --color-focus token (app.css): zinc-900 in the light theme, zinc-100 in the dark one.
-const FOCUS_LIGHT = 'oklch(0.21 0.006 285.885)'
+const FOCUS_SPACIOUS = 'oklch(0.21 0.006 285.885)'
 const FOCUS_DARK = 'oklch(0.967 0.001 286.375)'
 
 test('focus rings take the focus colour of the current theme', async ({ page }) => {
@@ -277,7 +279,7 @@ test('focus rings take the focus colour of the current theme', async ({ page }) 
   await expect(toggle).toBeEnabled()
   await toggle.focus()
   await expect(toggle).toHaveCSS('outline-style', 'solid')
-  await expect(toggle).toHaveCSS('outline-color', FOCUS_LIGHT)
+  await expect(toggle).toHaveCSS('outline-color', FOCUS_SPACIOUS)
   await page.keyboard.press('Enter') // switches the theme; focus stays on the toggle
   await expect(page.locator('html')).toHaveClass(DARK_CLASS)
   await expect(toggle).toBeFocused()
@@ -288,7 +290,7 @@ test('focused controls keep a visible outline in forced-colors mode', async ({ p
   await page.emulateMedia({ forcedColors: 'active' })
   await page.goto('/c/hero-split-image')
   await expect(page.getByRole('button', { name: 'Copy code' })).toBeEnabled()
-  const search = page.getByRole('searchbox', { name: 'Search components' })
+  const search = page.getByRole('searchbox', { name: 'Search patterns' })
   await search.focus()
   await expect(search).toHaveCSS('outline-style', 'solid')
   await page.getByRole('button', { name: 'Download' }).focus()
@@ -302,32 +304,32 @@ test.describe('before hydration', () => {
   // The pre-rendered page has no handlers yet, so its controls wait rather than drop a click or keystroke.
   test('the browse controls are disabled until the page hydrates', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('searchbox', { name: 'Search components' })).toHaveAttribute('readonly', '')
+    await expect(page.getByRole('searchbox', { name: 'Search patterns' })).toHaveAttribute('readonly', '')
     await expect(page.getByRole('button', { name: /^Switch to/ })).toBeDisabled()
-    for (const tag of ['minimal', 'brutalist', 'has-image']) await expect(page.getByRole('button', { name: tag })).toBeDisabled()
+    for (const tag of ['centered', 'split', 'media']) await expect(page.getByRole('button', { name: tag })).toBeDisabled()
   })
 })
 
 test('tag chips toggle their filter once the page hydrates', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: 'minimal' }).click()
-  await expect(page).toHaveURL(/\?tags=minimal$/)
-  await expect(page.getByRole('button', { name: 'minimal', pressed: true })).toBeVisible()
-  await expect(page.getByTestId('component-card')).toHaveCount(expectedCount({ tags: ['minimal'] }))
-  await page.getByRole('button', { name: 'Clear style filters' }).click()
+  await page.getByRole('button', { name: 'centered' }).click()
+  await expect(page).toHaveURL(/\?tags=centered$/)
+  await expect(page.getByRole('button', { name: 'centered', pressed: true })).toBeVisible()
+  await expect(page.getByTestId('component-card')).toHaveCount(expectedCount({ tags: ['centered'] }))
+  await page.getByRole('button', { name: 'Clear layout filters' }).click()
   await expect(page.getByTestId('component-card')).toHaveCount(LIBRARY.length)
 })
 
 test('detail page is pre-rendered with title and Open Graph tags', async ({ request }) => {
   const html = await (await request.get('/c/hero-split-image')).text()
-  expect(html).toContain('Split hero with image')
+  expect(html).toContain('Hero — Split with image')
   expect(html).toMatch(/property="og:title"/)
   expect(html).toContain(`rel="canonical" href="${SITE.url}/c/hero-split-image"`)
 })
 
 test('preview viewport toggle resizes the frame', async ({ page }) => {
   await page.goto('/c/hero-split-image')
-  const frame = page.locator('iframe[title="Split hero with image preview"]')
+  const frame = page.locator('iframe[title="Hero — Split with image preview"]')
   await expect(frame).toHaveAttribute('width', '1440')
   await page.getByRole('radio', { name: 'Mobile' }).click()
   await expect(frame).toHaveAttribute('width', '390')
@@ -337,7 +339,7 @@ test('on a phone the preview starts at the Mobile width', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/c/hero-split-image')
   await expect(page.getByRole('radio', { name: 'Mobile' })).toBeChecked()
-  await expect(page.locator('iframe[title="Split hero with image preview"]')).toHaveAttribute('width', '390')
+  await expect(page.locator('iframe[title="Hero — Split with image preview"]')).toHaveAttribute('width', '390')
 })
 
 test('code tab shows files for the selected format', async ({ page }) => {
@@ -351,8 +353,8 @@ test('code tab shows files for the selected format', async ({ page }) => {
 
 test('unknown component and category show not-found views', async ({ page }) => {
   await page.goto('/c/does-not-exist')
-  await expect(page.getByRole('heading', { name: 'Component not found' })).toBeVisible()
-  await expect(page.getByRole('searchbox', { name: 'Search components' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Pattern not found' })).toBeVisible()
+  await expect(page.getByRole('searchbox', { name: 'Search patterns' })).toBeVisible()
   await page.goto('/browse/nope')
   await expect(page.getByRole('heading', { name: 'Category not found' })).toBeVisible()
 })
@@ -360,7 +362,7 @@ test('unknown component and category show not-found views', async ({ page }) => 
 test('preview frame scales its viewport down to fit the page', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 800 })
   await page.goto('/c/hero-split-image')
-  const frame = page.locator('iframe[title="Split hero with image preview"]')
+  const frame = page.locator('iframe[title="Hero — Split with image preview"]')
   await expect(frame).toHaveCSS('opacity', '1') // shown once measured
   const desktop = (await frame.boundingBox())!
   expect(desktop.width).toBeLessThan(1024)
@@ -371,23 +373,23 @@ test('preview frame scales its viewport down to fit the page', async ({ page }) 
 })
 
 test('a section shorter than the viewport shows no empty stage below it', async ({ page }) => {
-  await page.goto('/c/footer-columns')
-  const frame = page.locator('iframe[title="Column footer preview"]')
+  await page.goto('/c/hero-split-image')
+  const frame = page.locator('iframe[title="Hero — Split with image preview"]')
   await expect(frame).toHaveCSS('opacity', '1')
   const box = frame.locator('xpath=..')
-  const footer = frame.contentFrame().locator(STAGE.root)
+  const sectionRoot = frame.contentFrame().locator(STAGE.root)
   await expect(frame.contentFrame().locator(STAGE.ready)).toBeAttached()
-  const footerHeight = await footer.evaluate((el) => el.getBoundingClientRect().height)
+  const sectionRootHeight = await sectionRoot.evaluate((el) => el.getBoundingClientRect().height)
   const desktop = frameSize('section', 'desktop')
-  expect(footerHeight).toBeLessThan(desktop.height) // the case this guards: a short section in its frame
+  expect(sectionRootHeight).toBeLessThan(desktop.height) // the case this guards: a short section in its frame
   const { width, height } = (await box.boundingBox())!
-  // The visible box is previewBox's (the footer's own height), at the preview's scale.
-  expect(height).toBeCloseTo(previewBox('section', desktop, footerHeight).height * (width / desktop.width), 0)
+  // The visible box is previewBox's (the sectionRoot's own height), at the preview's scale.
+  expect(height).toBeCloseTo(previewBox('section', desktop, sectionRootHeight).height * (width / desktop.width), 0)
 })
 
 test('an element preview is clipped to the element and the stage padding, and stays centred', async ({ page }) => {
-  await page.goto('/c/buttons-minimal')
-  const frame = page.locator('iframe[title="Buttons — Minimal preview"]')
+  await page.goto('/c/buttons-hierarchy')
+  const frame = page.locator('iframe[title="Buttons — Primary, secondary and tertiary preview"]')
   await expect(frame).toHaveCSS('opacity', '1')
   await expect(frame.contentFrame().locator(STAGE.ready)).toBeAttached()
   const root = frame.contentFrame().locator(STAGE.root)
@@ -405,17 +407,17 @@ test('an element preview is clipped to the element and the stage padding, and st
 })
 
 test('a short section thumbnail is centred on its own background', async ({ page }) => {
-  await page.goto('/browse/footer')
-  const card = page.getByTestId('component-card').filter({ hasText: 'Column footer' })
+  await page.goto('/browse/hero')
+  const card = page.getByTestId('component-card').filter({ hasText: 'Hero — Split with image' })
   const frame = card.locator('[inert]')
-  const footer = frame.locator(`${STAGE.root} > * > *`).first()
-  await expect(footer).toBeVisible()
-  // The card's frame takes the footer's own background colour instead of showing a white band.
-  const footerColour = await footer.evaluate((el) => getComputedStyle(el).backgroundColor)
-  await expect(frame).toHaveCSS('background-color', footerColour)
-  // And the footer sits in the middle of the frame, not pinned to its top.
+  const sectionRoot = frame.locator(`${STAGE.root} > * > *`).first()
+  await expect(sectionRoot).toBeVisible()
+  // The card's frame takes the sectionRoot's own background colour instead of showing a white band.
+  const sectionColour = await sectionRoot.evaluate((el) => getComputedStyle(el).backgroundColor)
+  await expect(frame).toHaveCSS('background-color', sectionColour)
+  // And the sectionRoot sits in the middle of the frame, not pinned to its top.
   const outer = (await frame.boundingBox())!
-  const inner = (await footer.boundingBox())!
+  const inner = (await sectionRoot.boundingBox())!
   expect(Math.abs(inner.y - outer.y - (outer.y + outer.height - (inner.y + inner.height)))).toBeLessThan(2)
 })
 
@@ -555,8 +557,8 @@ test.describe('copy and export', () => {
     await page.getByRole('button', { name: 'Copy code' }).click()
     await expect(page.getByText('Copied HTML + CSS')).toBeVisible()
     const text = await readClipboard(page)
-    // The font link comes first (hero-split-image loads Hanken Grotesk), then the scoped CSS, then the markup.
-    expect(text).toMatch(/^<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com\/css2\?family=Hanken\+Grotesk[^"]*">\n<style>\n\/\* Scoped reset/)
+    expect(text).toMatch(/^<style>\n\/\* Scoped reset/)
+    expect(text).not.toContain('<link')
     expect(text).toContain(`<style>\n${HERO.css.trim()}\n</style>\n${HERO.html.trim()}\n`)
     await page.reload()
     await expect(page.getByRole('radio', { name: 'HTML' })).toBeChecked()
@@ -567,7 +569,7 @@ test.describe('copy and export', () => {
     await page.getByRole('button', { name: 'Copy for AI' }).click()
     await expect(page.getByText('Copied AI brief')).toBeVisible()
     const brief = await readClipboard(page)
-    expect(brief).toMatch(/^# Split hero with image \(Patternbook\)\n/)
+    expect(brief).toMatch(/^# Hero — Split with image \(Patternbook\)\n/)
     expect(brief).toContain('## Reference code (React + Tailwind v4)')
 
     await page.getByRole('radio', { name: 'HTML' }).click()
@@ -601,14 +603,14 @@ test.describe('copy and export', () => {
   })
 
   test('transparent element capture has alpha and no backdrop', async ({ page }) => {
-    await openDetail(page, 'buttons-minimal')
+    await openDetail(page, 'buttons-hierarchy')
     const { png } = await downloadPng(page, 'desktop', { transparent: true })
     expect(png.width).toBeLessThan(2880)
     expect(png.data.some((v, i) => i % 4 === 3 && v === 0)).toBe(true) // some fully transparent pixel
   })
 
   test('consecutive PNG downloads keep the requested transparency', async ({ page }) => {
-    await openDetail(page, 'buttons-minimal')
+    await openDetail(page, 'buttons-hierarchy')
     for (const transparent of [true, true, false]) {
       const { png } = await downloadPng(page, 'desktop', { transparent })
       expect(png.data.some((v, i) => i % 4 === 3 && v === 0)).toBe(transparent)
@@ -618,7 +620,7 @@ test.describe('copy and export', () => {
   })
 
   test('opaque element capture keeps the white backdrop at the full frame width', async ({ page }) => {
-    await openDetail(page, 'buttons-minimal')
+    await openDetail(page, 'buttons-hierarchy')
     const { png } = await downloadPng(page, 'desktop')
     expect({ width: png.width, height: png.height }).toEqual({ width: 2880, height: 960 })
     expect(png.data.some((v, i) => i % 4 === 3 && v !== 255)).toBe(false) // fully opaque
@@ -700,19 +702,6 @@ test.describe('copy and export', () => {
       .toHaveValue(codeForFormat(HERO_ENTRY.meta, HERO, 'html'))
   })
 
-  test('capture survives failed images and cleans up', async ({ page }) => {
-    await page.route('https://images.unsplash.com/**', (r) => r.abort())
-    await openHero(page)
-    await page.getByRole('button', { name: 'Download' }).click()
-    const [dl] = await Promise.all([
-      page.waitForEvent('download', { timeout: 12_000 }),
-      page.getByRole('menuitem', { name: 'Desktop PNG' }).click(),
-    ])
-    expect(dl.suggestedFilename()).toMatch(/desktop\.png$/)
-    await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
-    await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()
-  })
-
   // The page that the hidden capture frame loads. Aborting it makes the capture fail as soon as the frame loads.
   const isCapturePage = (url: URL) => url.pathname + url.search === previewPath('hero-split-image', { capture: true })
 
@@ -741,7 +730,8 @@ test.describe('copy and export', () => {
     await page.getByRole('menuitem', { name: 'Desktop PNG' }).click()
     await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(1)
 
-    await page.getByRole('region', { name: /^More in / }).getByRole('heading', { level: 3 }).getByRole('link').first().click()
+    await page.getByRole('link', { name: 'Patternbook', exact: true }).click()
+    await page.getByTestId('component-card').filter({ hasText: 'Buttons — Primary, secondary and tertiary' }).getByRole('heading', { level: 3 }).getByRole('link').click()
     await expect(page).not.toHaveURL(/\/hero-split-image$/)
     await expect(page.locator('iframe[data-capture-frame]')).toHaveCount(0)
     await expect(page.getByRole('button', { name: 'Copy image' })).toBeEnabled()

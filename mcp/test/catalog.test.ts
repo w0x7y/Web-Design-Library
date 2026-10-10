@@ -10,12 +10,20 @@ describe('catalog contract', () => {
       expect(catalogSchema.safeParse({ ...fixture, components: [{ ...fixture.components[0], slug }] }).success).toBe(false)
     })
 
-  it('accepts additive fields and formats without unused component metadata', () => {
+  it.each([{ fonts: [] }, { fonts: ['Inter'] }])('accepts v1 catalogs with fonts $fonts and strips unused metadata', ({ fonts }) => {
     const component = { ...fixture.components[0], addedAt: 'yesterday', markdownUrl: false, future: true }
     expect(component).not.toHaveProperty('fonts')
     expect(component).not.toHaveProperty('formatUrls')
-    expect(parseCatalog({ ...fixture, future: true, formats: ['react', 'html', 'vue'], components: [component] }))
+    expect(parseCatalog({ ...fixture, future: true, formats: ['react', 'html', 'vue'], components: [{ ...component, fonts }] }))
       .toEqual({ ...fixture, formats: ['react', 'html', 'vue'], components: [fixture.components[0]] })
+  })
+
+  it('continues to accept legacy v1 style tags alongside layout catalogs', () => {
+    const legacy = {
+      ...fixture, tags: [{ id: 'minimal', count: 1 }, { id: 'light', count: 1 }],
+      components: [{ ...fixture.components[0], tags: ['minimal', 'light'] }],
+    }
+    expect(parseCatalog(legacy)).toEqual(legacy)
   })
 
   it('validates the fields tools read and reports unsupported versions separately', () => {
@@ -50,19 +58,19 @@ describe('catalog contract', () => {
       total: 5,
       formats: ['react', 'html'],
       groups: [
-        { id: 'sections', label: 'Sections', categories: [{ id: 'hero', label: 'Hero', count: 1 }, { id: 'pricing', label: 'Pricing tables', count: 3 }] },
+        { id: 'sections', label: 'Sections', categories: [{ id: 'hero', label: 'Hero', count: 1 }, { id: 'pricing', label: 'Pricing', count: 3 }] },
         { id: 'elements', label: 'Elements', categories: [{ id: 'badges', label: 'Badges', count: 1 }] },
       ],
       tags: fixture.tags,
     })
     expect(formatCategories(summary)).toBe([
-      '5 components. Formats: react, html.',
+      '5 layout patterns. Formats: react, html.',
       'Sections (sections)',
       '  hero | Hero | 1',
-      '  pricing | Pricing tables | 3',
+      '  pricing | Pricing | 3',
       'Elements (elements)',
       '  badges | Badges | 1',
-      'Tags: minimal (3), light (3), dark (1), playful (1).',
+      'Layout tags: split (1), media (1), spacious (1), table (1), numbers (3), compact (2), centered (1), grid (1), asymmetric (1), list (2).',
     ].join('\n'))
     expect(categorySummary({ ...fixture, formats: ['vue', 'html'] }).formats).toEqual(['html'])
     expect(categorySummary({ ...fixture, formats: ['vue'] }).formats).toEqual([])

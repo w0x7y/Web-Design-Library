@@ -36,8 +36,8 @@ export const meta: Route.MetaFunction = ({ loaderData, error, params }) => {
   if (error) return [{ title: `${isUnknownCategory(params.category) ? 'Category not found' : 'Something went wrong'} — ${SITE.name}` }]
   const category = loaderData?.category
   return pageMeta({
-    title: category ? `${CATEGORY_LABELS[category]} components — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`,
-    description: category ? `Browse ${CATEGORY_LABELS[category]} components to copy as React + Tailwind, HTML + CSS, AI briefs, or PNG references.` : SITE.tagline,
+    title: category ? `${CATEGORY_LABELS[category]} patterns — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`,
+    description: category ? `Browse neutral ${CATEGORY_LABELS[category]} layout patterns with React + Tailwind, HTML + CSS and an AI brief to restyle in your own design system.` : 'Browse neutral layout patterns with React + Tailwind, HTML + CSS and an AI brief. Restyle them in your own design system.',
     path: browsePath(category ?? null),
   })
 }
@@ -89,20 +89,20 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
         <Sidebar active={category} />
         <div className="min-w-0 flex-1 pt-0 pb-24 lg:pt-10">
           <CategoryScroller active={category} />
-          {/* The hero's "Browse components" lands here (the page's scroll padding clears the sticky header). */}
+          {/* The hero's "Browse patterns" lands here (the page's scroll padding clears the sticky header). */}
           <div id="components" className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <Heading ref={headingRef} tabIndex={-1} className="text-2xl font-semibold tracking-tight text-zinc-950 focus-visible:outline-hidden dark:text-white">
-              {category ? CATEGORY_LABELS[category] : 'All components'}
+              {category ? CATEGORY_LABELS[category] : 'All patterns'}
             </Heading>
             <p aria-live="polite" className="text-sm text-zinc-500 tabular-nums dark:text-zinc-400">
               {filtered ? `${results.length} of ${inView.length}` : inView.length}
-              <span className="sr-only"> {inView.length === 1 ? 'component' : 'components'}</span>
+              <span className="sr-only"> {inView.length === 1 ? 'pattern' : 'patterns'}</span>
             </p>
           </div>
           <div className="mt-5">
             <TagFilter filters={filters} onChange={applyFilters} />
           </div>
-          {!showHero && <h2 className="sr-only">Components</h2>}
+          {!showHero && <h2 className="sr-only">Patterns</h2>}
           <div className="mt-8">
             {results.length > 0 ? (
               <ul role="list" className="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">

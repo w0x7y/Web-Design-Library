@@ -1,0 +1,166 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.team-bio-rows, .team-bio-rows *, .team-bio-rows *::before, .team-bio-rows *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.team-bio-rows { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.team-bio-rows :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.team-bio-rows a { color: inherit; text-decoration: inherit; }
+.team-bio-rows :is(b, strong) { font-weight: bolder; }
+.team-bio-rows :is(ol, ul, menu) { list-style: none; }
+.team-bio-rows :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.team-bio-rows :is(img, video) { max-width: 100%; height: auto; }
+.team-bio-rows :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.team-bio-rows ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.team-bio-rows table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.team-bio-rows summary { display: list-item; }
+
+/* Section */
+
+.team-bio-rows {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.team-bio-rows .team-bio-rows__container {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.team-bio-rows .team-bio-rows__heading {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.team-bio-rows .team-bio-rows__lede {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125);
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Biography rows */
+
+.team-bio-rows .team-bio-rows__people {
+  margin-top: 3rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.team-bio-rows .team-bio-rows__person {
+  display: grid;
+  gap: 2rem;
+  border-bottom: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-block: 3rem;
+}
+
+/* Portrait */
+
+.team-bio-rows .team-bio-rows__portrait {
+  display: flex;
+  aspect-ratio: 4/5;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.team-bio-rows .team-bio-rows__image-glyph {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Biography and contact links */
+
+.team-bio-rows .team-bio-rows__biography {
+  max-width: 36rem;
+}
+
+.team-bio-rows .team-bio-rows__name {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.team-bio-rows .team-bio-rows__role {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.team-bio-rows .team-bio-rows__paragraph {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.team-bio-rows .team-bio-rows__paragraph--opening {
+  margin-top: 1.25rem;
+}
+
+.team-bio-rows .team-bio-rows__paragraph--background {
+  margin-top: 1rem;
+}
+
+.team-bio-rows .team-bio-rows__actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+}
+
+.team-bio-rows .team-bio-rows__contact-link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Interaction and responsive layout */
+
+@media (hover: hover) {
+  .team-bio-rows .team-bio-rows__contact-link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.team-bio-rows .team-bio-rows__contact-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .team-bio-rows .team-bio-rows__container {
+    padding-block: 6rem;
+  }
+
+  .team-bio-rows .team-bio-rows__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25);
+  }
+
+  .team-bio-rows .team-bio-rows__person {
+    grid-template-columns: 192px minmax(0,1fr);
+  }
+
+  .team-bio-rows .team-bio-rows__portrait {
+    width: 100%;
+  }
+}
+
+@media (width >= 64rem) {
+  .team-bio-rows .team-bio-rows__person {
+    gap: 3rem;
+    grid-template-columns: 288px minmax(0,1fr);
+  }
+}

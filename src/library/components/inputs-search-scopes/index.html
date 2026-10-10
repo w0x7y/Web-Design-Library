@@ -1,0 +1,32 @@
+<form role="search" action="#" class="inputs-search-scopes">
+  <label for="scopes-query" class="inputs-search-scopes__sr-only">Search items</label>
+  <div class="inputs-search-scopes__search-field"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-search-scopes__search-icon">
+    <circle cx="10.5" cy="10.5" r="6.5"></circle>
+    <path d="m16 16 4 4"></path>
+  </svg><input id="scopes-query" type="search" aria-describedby="scopes-query-hint" placeholder="Search items" name="q" class="inputs-search-scopes__input"><kbd aria-hidden="true" class="inputs-search-scopes__key-hint">⌘K</kbd></div>
+  <p id="scopes-query-hint" class="inputs-search-scopes__sr-only">Choose a scope to narrow your search.</p>
+  <fieldset class="inputs-search-scopes__scopes">
+    <legend class="inputs-search-scopes__sr-only">Scope</legend>
+    <label class="inputs-search-scopes__option"><input type="radio" name="scope" checked value="all" class="inputs-search-scopes__sr-only">All</label>
+    <label class="inputs-search-scopes__option"><input type="radio" name="scope" value="titles" class="inputs-search-scopes__sr-only">Titles</label>
+    <label class="inputs-search-scopes__option"><input type="radio" name="scope" value="tags" class="inputs-search-scopes__sr-only">Tags</label>
+    <label class="inputs-search-scopes__option"><input type="radio" name="scope" value="people" class="inputs-search-scopes__sr-only">People</label>
+  </fieldset>
+  <div class="inputs-search-scopes__recent">
+    <h2 class="inputs-search-scopes__recent-title">Recent</h2>
+    <ul role="list" class="inputs-search-scopes__recent-list">
+      <li><a href="#" class="inputs-search-scopes__recent-link"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-search-scopes__clock-icon">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>Recent query</a></li>
+      <li><a href="#" class="inputs-search-scopes__recent-link"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-search-scopes__clock-icon">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>Saved search</a></li>
+      <li><a href="#" class="inputs-search-scopes__recent-link"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-search-scopes__clock-icon">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>Previous lookup</a></li>
+    </ul>
+  </div>
+</form>

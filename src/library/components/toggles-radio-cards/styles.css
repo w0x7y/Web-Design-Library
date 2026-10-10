@@ -1,0 +1,192 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-radio-cards, .toggles-radio-cards *, .toggles-radio-cards *::before, .toggles-radio-cards *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-radio-cards { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-radio-cards :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-radio-cards a { color: inherit; text-decoration: inherit; }
+.toggles-radio-cards :is(b, strong) { font-weight: bolder; }
+.toggles-radio-cards :is(ol, ul, menu) { list-style: none; }
+.toggles-radio-cards :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-radio-cards :is(img, video) { max-width: 100%; height: auto; }
+.toggles-radio-cards :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-radio-cards ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-radio-cards table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-radio-cards summary { display: list-item; }
+
+/* Choice grid and shared card anatomy */
+
+.toggles-radio-cards {
+  width: 18rem;
+  color: oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-radio-cards .toggles-radio-cards__title {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.toggles-radio-cards .toggles-radio-cards__plans {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.toggles-radio-cards .toggles-radio-cards__plan {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid oklch(87% 0 none);
+  /* neutral-300 */
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 1rem;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.toggles-radio-cards .toggles-radio-cards__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.toggles-radio-cards .toggles-radio-cards__indicator {
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid oklch(87% 0 none);
+  /* neutral-300 */
+  border-radius: 9999px;
+}
+
+.toggles-radio-cards .toggles-radio-cards__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 9999px;
+  background-color: oklch(20.5% 0 none);
+  /* neutral-900 */
+  opacity: 0;
+}
+
+.toggles-radio-cards .toggles-radio-cards__copy {
+  min-width: 0;
+}
+
+.toggles-radio-cards .toggles-radio-cards__name {
+  display: block;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.toggles-radio-cards .toggles-radio-cards__description {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none);
+  /* neutral-500 */
+}
+
+.toggles-radio-cards .toggles-radio-cards__figure {
+  margin-left: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Native selection, disability and keyboard focus */
+
+.toggles-radio-cards .toggles-radio-cards__plan:has(:checked) {
+  border-color: oklch(20.5% 0 none);
+  /* neutral-900 */
+  box-shadow: 0 0 0 1px oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-radio-cards .toggles-radio-cards__plan:has(:checked) .toggles-radio-cards__indicator {
+  border-color: oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-radio-cards .toggles-radio-cards__plan:has(:checked) .toggles-radio-cards__dot {
+  opacity: 1;
+}
+
+.toggles-radio-cards .toggles-radio-cards__plan:has(:disabled) {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.toggles-radio-cards .toggles-radio-cards__input:focus-visible {
+  outline-style: none;
+}
+
+@media (hover: hover) {
+  .toggles-radio-cards .toggles-radio-cards__plan:has(:enabled):hover {
+    border-color: oklch(70.8% 0 none);
+    /* neutral-400 */
+  }
+  .toggles-radio-cards .toggles-radio-cards__plan:has(:enabled):has(:checked):hover {
+    border-color: oklch(20.5% 0 none);
+    /* neutral-900 */
+  }
+}
+
+.toggles-radio-cards .toggles-radio-cards__plan:has(:focus-visible) {
+  outline: 2px solid oklch(20.5% 0 none);
+  /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  .toggles-radio-cards .toggles-radio-cards__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .toggles-radio-cards .toggles-radio-cards__plan,
+  .toggles-radio-cards .toggles-radio-cards__indicator {
+    border-color: ButtonText;
+  }
+  .toggles-radio-cards .toggles-radio-cards__plan:has(:checked) {
+    border-color: Highlight;
+  }
+  .toggles-radio-cards .toggles-radio-cards__dot {
+    background-color: CanvasText;
+  }
+}
+
+@media (width >= 40rem) {
+  .toggles-radio-cards {
+    width: 36rem;
+  }
+  .toggles-radio-cards .toggles-radio-cards__plans {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .toggles-radio-cards .toggles-radio-cards__plan {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .toggles-radio-cards .toggles-radio-cards__copy {
+    margin-top: 0.75rem;
+  }
+  .toggles-radio-cards .toggles-radio-cards__figure {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+}

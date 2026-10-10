@@ -1,0 +1,32 @@
+<section class="login-magic-link">
+  <div class="login-magic-link__container">
+    <div class="login-magic-link__content">
+      <span aria-hidden="true" class="login-magic-link__envelope-tile">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="login-magic-link__envelope-glyph">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="m3 6 9 7 9-7"></path>
+        </svg>
+      </span>
+      <h1 class="login-magic-link__title">Sign in with an email link</h1>
+      <p class="login-magic-link__lede">Enter your email to receive a secure sign-in link.</p>
+      <form class="login-magic-link__form">
+        <div>
+          <label for="login-magic-link-email" class="login-magic-link__label">Email</label><input id="login-magic-link-email" type="email" autocomplete="username" required placeholder="name@example.com" aria-describedby="login-magic-link-expiry" name="email" class="login-magic-link__input">
+        </div>
+        <button type="submit" class="login-magic-link__submit">Email me a sign-in link</button>
+        <p id="login-magic-link-expiry" class="login-magic-link__expiry">Hint describing how long the link remains valid.</p>
+      </form>
+      <details class="login-magic-link__delivery-tips">
+        <summary class="login-magic-link__delivery-question">Didn't get the email?<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="login-magic-link__chevron">
+          <path d="m6 9 6 6 6-6"></path>
+        </svg></summary>
+        <ul role="list" class="login-magic-link__list">
+          <li>Check that the email address matches your account.</li>
+          <li>Look in the spam or junk folder.</li>
+          <li>Wait a few minutes before requesting another link.</li>
+        </ul>
+      </details>
+      <footer class="login-magic-link__footer"><a href="#" class="login-magic-link__link">Sign in with a password instead</a></footer>
+    </div>
+  </div>
+</section>

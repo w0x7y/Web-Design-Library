@@ -1,3 +1,5 @@
+Implementation note: the [layout patterns spec](2026-10-10-layout-patterns-design.md) supersedes this design wherever they disagree.
+
 # Web Library — Design Spec
 
 Date: 2026-10-08

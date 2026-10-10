@@ -11,14 +11,14 @@ describe('HTTP client', () => {
   it('uses the package version for the user agent', () => expect(VERSION).toBe(manifest.version))
 
   it('normalizes trailing slashes while preserving a deployment path prefix', () => {
-    expect(normalizeBaseUrl('http://localhost:4317///')).toBe('http://localhost:4317')
+    expect(normalizeBaseUrl('http://localhost:4404///')).toBe('http://localhost:4404')
     expect(normalizeBaseUrl('https://example.com/patternbook/')).toBe('https://example.com/patternbook')
-    expect(normalizeBaseUrl('http://localhost:4317/?')).toBe('http://localhost:4317')
+    expect(normalizeBaseUrl('http://localhost:4404/?')).toBe('http://localhost:4404')
     expect(normalizeBaseUrl('https://example.com/patternbook/?#')).toBe('https://example.com/patternbook')
   })
 
   it.each(['localhost', '127.0.0.1', '[::1]'])('allows HTTP for loopback host %s', (host) => {
-    expect(normalizeBaseUrl(`http://${host}:4317/`)).toBe(`http://${host}:4317`)
+    expect(normalizeBaseUrl(`http://${host}:4404/`)).toBe(`http://${host}:4404`)
   })
 
   it.each(['example.com', '192.168.1.1', '169.254.169.254', 'localhost.example.com'])('requires HTTPS for remote host %s', (host) => {
@@ -26,19 +26,19 @@ describe('HTTP client', () => {
     expect(normalizeBaseUrl(`https://${host}/`)).toBe(`https://${host}`)
   })
 
-  it.each(['file:///tmp/site', 'ftp://example.com', 'localhost:4317', '', 'https://user:pass@example.com', 'https://example.com?x=1', 'https://example.com#x'])
+  it.each(['file:///tmp/site', 'ftp://example.com', 'localhost:4404', '', 'https://user:pass@example.com', 'https://example.com?x=1', 'https://example.com#x'])
     ('rejects invalid base URL %s', (baseUrl) => expect(() => new PatternbookClient({ baseUrl })).toThrow('PATTERNBOOK_URL'))
 
   it('uses the configured base for catalog and both formats, with timeout and user agent', async () => {
     const fetcher = fixtureFetch()
     const timeout = vi.spyOn(AbortSignal, 'timeout')
-    const client = new PatternbookClient({ baseUrl: 'http://localhost:4317/prefix/', fetch: fetcher })
-    expect(await client.getBrief('pricing-minimal', 'react')).toBe(fixtureBrief('react'))
-    expect(await client.getBrief('pricing-minimal', 'html')).toBe(fixtureBrief('html'))
+    const client = new PatternbookClient({ baseUrl: 'http://localhost:4404/prefix/', fetch: fetcher })
+    expect(await client.getBrief('pricing-comparison-table', 'react')).toBe(fixtureBrief('react'))
+    expect(await client.getBrief('pricing-comparison-table', 'html')).toBe(fixtureBrief('html'))
     expect(fetcher.mock.calls.map(([url]) => url)).toEqual([
-      'http://localhost:4317/prefix/catalog.json',
-      'http://localhost:4317/prefix/c/pricing-minimal.react.md',
-      'http://localhost:4317/prefix/c/pricing-minimal.html.md',
+      'http://localhost:4404/prefix/catalog.json',
+      'http://localhost:4404/prefix/c/pricing-comparison-table.react.md',
+      'http://localhost:4404/prefix/c/pricing-comparison-table.html.md',
     ])
     expect(timeout).toHaveBeenCalledWith(15_000)
     for (const [, options] of fetcher.mock.calls) {
@@ -59,7 +59,7 @@ describe('HTTP client', () => {
     const client = new PatternbookClient({ fetch: fetcher })
     await expect(client.getBrief('../escape', 'react')).rejects.toThrow('Invalid slug')
     expect(fetcher).not.toHaveBeenCalled()
-    await expect(client.getBrief('pricing-minmal', 'react')).rejects.toThrow('pricing-minimal (Minimal pricing)')
+    await expect(client.getBrief('pricing-comparison-tabl', 'react')).rejects.toThrow('pricing-comparison-table (Pricing — Comparison table)')
     expect(fetcher).toHaveBeenCalledTimes(1)
   })
 
@@ -82,7 +82,7 @@ describe('HTTP client', () => {
     const client = new PatternbookClient({ fetch: fetcher })
     await client.getCatalog()
     fetcher.mockResolvedValueOnce(new Response('', { status: 404 }))
-    await expect(client.getBrief('pricing-minimal', 'react')).rejects.toThrow(`Could not fetch ${DEFAULT_URL}/c/pricing-minimal.react.md: HTTP 404`)
+    await expect(client.getBrief('pricing-comparison-table', 'react')).rejects.toThrow(`Could not fetch ${DEFAULT_URL}/c/pricing-comparison-table.react.md: HTTP 404`)
   })
 
   it('rejects redirects without fetching their target and still reads direct agent files', async () => {
@@ -95,10 +95,10 @@ describe('HTTP client', () => {
     })
     try {
       const client = new PatternbookClient({ baseUrl: http.url })
-      await expect(client.getBrief('pricing-minimal', 'react')).rejects.toThrow('Redirects are not allowed')
-      expect(http.requests.map(({ path }) => path)).toEqual(['/catalog.json', '/c/pricing-minimal.react.md'])
+      await expect(client.getBrief('pricing-comparison-table', 'react')).rejects.toThrow('Redirects are not allowed')
+      expect(http.requests.map(({ path }) => path)).toEqual(['/catalog.json', '/c/pricing-comparison-table.react.md'])
       redirect = false
-      expect(await client.getBrief('pricing-minimal', 'react')).toBe(fixtureBrief('react'))
+      expect(await client.getBrief('pricing-comparison-table', 'react')).toBe(fixtureBrief('react'))
     } finally { await http.close() }
   })
 
@@ -107,9 +107,9 @@ describe('HTTP client', () => {
     const client = new PatternbookClient({ fetch: fetcher })
     if (file === 'brief') await client.getCatalog()
     fetcher.mockResolvedValueOnce(new Response('<html>App</html>', { headers: { 'Content-Type': 'Text/HTML; charset=utf-8' } }))
-    await expect(file === 'catalog' ? client.getCatalog() : client.getBrief('pricing-minimal', 'react'))
+    await expect(file === 'catalog' ? client.getCatalog() : client.getBrief('pricing-comparison-table', 'react'))
       .rejects.toThrow('not an agent file; is the deploy current?')
-    expect(await client.getBrief('pricing-minimal', 'react')).toBe(fixtureBrief('react'))
+    expect(await client.getBrief('pricing-comparison-table', 'react')).toBe(fixtureBrief('react'))
   })
 
   it.each([undefined, 'text/plain', 'text/markdown; charset=utf-8', 'application/octet-stream'])('accepts a brief content type of %s', async (contentType) => {
@@ -117,7 +117,7 @@ describe('HTTP client', () => {
     const client = new PatternbookClient({ fetch: fetcher })
     await client.getCatalog()
     fetcher.mockResolvedValueOnce(new Response(fixtureBrief('react'), { headers: contentType ? { 'Content-Type': contentType } : {} }))
-    expect(await client.getBrief('pricing-minimal', 'react')).toBe(fixtureBrief('react'))
+    expect(await client.getBrief('pricing-comparison-table', 'react')).toBe(fixtureBrief('react'))
   })
 
   it.each([['catalog', 5 * 1024 * 1024], ['brief', 1024 * 1024]] as const)('limits %s bytes from content-length and streamed chunks', async (file, cap) => {
@@ -137,11 +137,11 @@ describe('HTTP client', () => {
       if (!response.body) throw new Error('Expected a streamed response')
       const getReader = vi.spyOn(response.body, 'getReader')
       fetcher.mockResolvedValueOnce(response)
-      await expect(file === 'catalog' ? client.getCatalog() : client.getBrief('pricing-minimal', 'react'))
+      await expect(file === 'catalog' ? client.getCatalog() : client.getBrief('pricing-comparison-table', 'react'))
         .rejects.toThrow(`exceeds ${cap} bytes`)
       expect(cancel).toHaveBeenCalledOnce()
       if (declared) expect(getReader).not.toHaveBeenCalled()
-      expect(await client.getBrief('pricing-minimal', 'react')).toBe(fixtureBrief('react'))
+      expect(await client.getBrief('pricing-comparison-table', 'react')).toBe(fixtureBrief('react'))
     }
   })
 
@@ -158,6 +158,6 @@ describe('HTTP client', () => {
         controller.close()
       },
     })))
-    expect(await client.getBrief('pricing-minimal', 'react')).toBe(text)
+    expect(await client.getBrief('pricing-comparison-table', 'react')).toBe(text)
   })
 })

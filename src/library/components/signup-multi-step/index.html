@@ -1,0 +1,48 @@
+<section class="signup-multi-step">
+  <div class="signup-multi-step__container">
+    <div class="signup-multi-step__content">
+      <ol role="list" aria-label="Registration progress" class="signup-multi-step__progress">
+        <li class="signup-multi-step__step">
+          <span aria-hidden="true" class="signup-multi-step__step-circle signup-multi-step__step-circle--completed">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="signup-multi-step__completed-glyph">
+              <path d="m5 12 4 4L19 6"></path>
+            </svg>
+          </span>
+          <span class="signup-multi-step__step-label signup-multi-step__step-label--completed">Account<span class="signup-multi-step__completed-label">, completed</span></span>
+          <span aria-hidden="true" class="signup-multi-step__connector"></span>
+        </li>
+        <li aria-current="step" class="signup-multi-step__step">
+          <span aria-hidden="true" class="signup-multi-step__step-circle signup-multi-step__step-circle--current">2</span>
+          <span class="signup-multi-step__step-label signup-multi-step__step-label--current">Workspace</span>
+          <span aria-hidden="true" class="signup-multi-step__connector"></span>
+        </li>
+        <li class="signup-multi-step__last-step">
+          <span aria-hidden="true" class="signup-multi-step__step-circle signup-multi-step__step-circle--upcoming">3</span>
+          <span class="signup-multi-step__step-label signup-multi-step__step-label--upcoming">Finish</span>
+        </li>
+      </ol>
+      <p class="signup-multi-step__mobile-caption">Step 2 of 3: Workspace</p>
+      <form class="signup-multi-step__form">
+        <fieldset class="signup-multi-step__fieldset">
+          <legend class="signup-multi-step__legend">Workspace details</legend>
+          <p class="signup-multi-step__lede">Short explanation of the details needed for this step.</p>
+          <div class="signup-multi-step__fields">
+            <div><label for="signup-multi-step-company" class="signup-multi-step__label">Company name</label><input id="signup-multi-step-company" type="text" autocomplete="organization" required placeholder="Company name" name="company" class="signup-multi-step__input"></div>
+            <div>
+              <label for="signup-multi-step-team-size" class="signup-multi-step__label">Team size</label><select id="signup-multi-step-team-size" name="team-size" autocomplete="off" required aria-describedby="signup-multi-step-team-size-hint" class="signup-multi-step__input"><option value="" disabled selected>Select a team size</option><option value="1">Just me</option><option value="2-10">2–10 people</option><option value="11-50">11–50 people</option><option value="51-plus">51 or more people</option></select>
+              <p id="signup-multi-step-team-size-hint" class="signup-multi-step__field-hint">Include everyone who will use the workspace.</p>
+            </div>
+            <div>
+              <label for="signup-multi-step-role" class="signup-multi-step__label">Role</label><select id="signup-multi-step-role" name="role" autocomplete="organization-title" required aria-describedby="signup-multi-step-role-hint" class="signup-multi-step__input"><option value="" disabled selected>Select your role</option><option value="member">Member</option><option value="manager">Manager</option><option value="owner">Owner</option></select>
+              <p id="signup-multi-step-role-hint" class="signup-multi-step__field-hint">Choose the role closest to your responsibilities.</p>
+            </div>
+          </div>
+        </fieldset>
+        <footer class="signup-multi-step__footer">
+          <button type="submit" class="signup-multi-step__action signup-multi-step__action--primary">Continue</button>
+          <a href="#" class="signup-multi-step__action signup-multi-step__action--secondary">Back</a>
+        </footer>
+      </form>
+    </div>
+  </div>
+</section>

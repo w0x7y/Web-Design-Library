@@ -113,7 +113,7 @@ export class PatternbookClient {
   }
 
   async getBrief(slug: string, format: Format): Promise<string> {
-    if (!isSlug(slug)) throw new Error('Invalid slug. Use lowercase kebab-case, such as pricing-minimal.')
+    if (!isSlug(slug)) throw new Error('Invalid slug. Use lowercase kebab-case, such as hero-split-image.')
     const catalog = await this.getCatalog()
     if (!catalog.components.some((component) => component.slug === slug)) {
       const suggestions = closestComponents(catalog.components, slug).map((component) => `${component.slug} (${component.name})`)

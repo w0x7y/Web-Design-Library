@@ -1,0 +1,21 @@
+<div class="inputs-field-grid">
+  <div><label for="grid-name" class="inputs-field-grid__label">Full name</label>
+    <input id="grid-name" type="text" autocomplete="name" aria-describedby="grid-hint" placeholder="Enter full name" name="name" class="inputs-field-grid__control inputs-field-grid__control--text"></div>
+  <div class="inputs-field-grid__mixed-row">
+    <div class="inputs-field-grid__cell"><label for="grid-city" class="inputs-field-grid__label">City</label>
+    <input id="grid-city" type="text" autocomplete="address-level2" aria-describedby="grid-hint" placeholder="Enter city" name="city" class="inputs-field-grid__control inputs-field-grid__control--text"></div>
+    <div class="inputs-field-grid__cell"><label for="grid-postal" class="inputs-field-grid__label">Postal code</label>
+    <input id="grid-postal" type="text" autocomplete="postal-code" aria-describedby="grid-hint" placeholder="00000" name="postal-code" class="inputs-field-grid__control inputs-field-grid__control--text"></div>
+  </div>
+  <div class="inputs-field-grid__equal-row">
+    <div class="inputs-field-grid__cell">
+      <label for="grid-country" class="inputs-field-grid__label">Country</label>
+      <div class="inputs-field-grid__select-field"><select id="grid-country" name="country" autocomplete="country-name" aria-describedby="grid-hint" class="inputs-field-grid__control inputs-field-grid__control--select"><option value="" disabled selected>Select</option><option value="first">First option</option><option value="second">Other option</option></select><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-field-grid__chevron">
+        <path d="m6 9 6 6 6-6"></path>
+      </svg></div>
+    </div>
+    <div class="inputs-field-grid__cell"><label for="grid-phone" class="inputs-field-grid__label">Phone</label>
+    <input id="grid-phone" type="tel" autocomplete="tel" aria-describedby="grid-hint" placeholder="Enter phone" name="phone" class="inputs-field-grid__control inputs-field-grid__control--text"></div>
+  </div>
+  <p id="grid-hint" class="inputs-field-grid__sr-only">Use the contact details for this account.</p>
+</div>

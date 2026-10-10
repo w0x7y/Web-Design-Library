@@ -1,0 +1,238 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.pricing-comparison-table, .pricing-comparison-table *, .pricing-comparison-table *::before, .pricing-comparison-table *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.pricing-comparison-table { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.pricing-comparison-table :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.pricing-comparison-table a { color: inherit; text-decoration: inherit; }
+.pricing-comparison-table :is(b, strong) { font-weight: bolder; }
+.pricing-comparison-table :is(ol, ul, menu) { list-style: none; }
+.pricing-comparison-table :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.pricing-comparison-table :is(img, video) { max-width: 100%; height: auto; }
+.pricing-comparison-table :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.pricing-comparison-table ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.pricing-comparison-table table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.pricing-comparison-table summary { display: list-item; }
+
+/* Section */
+.pricing-comparison-table {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.pricing-comparison-table .pricing-comparison-table__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Introduction */
+.pricing-comparison-table .pricing-comparison-table__header {
+  display: grid;
+  gap: 2rem;
+}
+
+.pricing-comparison-table .pricing-comparison-table__heading {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.pricing-comparison-table .pricing-comparison-table__lede {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Comparison */
+.pricing-comparison-table .pricing-comparison-table__table-region {
+  position: relative;
+  margin-top: 2.5rem;
+  overflow-x: auto;
+}
+
+.pricing-comparison-table .pricing-comparison-table__comparison {
+  width: 100%;
+  min-width: 640px;
+  table-layout: fixed;
+}
+
+/* Supporting content */
+.pricing-comparison-table .pricing-comparison-table__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Introduction */
+.pricing-comparison-table .pricing-comparison-table__feature-heading {
+  position: sticky;
+  left: 0px;
+  z-index: 10;
+  width: 28%;
+  background-color: #fff; /* white */
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 600;
+}
+
+.pricing-comparison-table .pricing-comparison-table__plan-heading {
+  width: 24%;
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Plans */
+.pricing-comparison-table .pricing-comparison-table__plan-title {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+/* Prices and selection */
+.pricing-comparison-table .pricing-comparison-table__table-price {
+  margin-top: 1rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.pricing-comparison-table .pricing-comparison-table__table-period {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Actions */
+.pricing-comparison-table .pricing-comparison-table__action {
+  margin-top: 1rem;
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.pricing-comparison-table .pricing-comparison-table__action--secondary {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Introduction */
+.pricing-comparison-table .pricing-comparison-table__plan-heading--featured {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+}
+
+/* Actions */
+.pricing-comparison-table .pricing-comparison-table__action--primary {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+/* Comparison */
+.pricing-comparison-table .pricing-comparison-table__group-label {
+  border-block: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 600;
+}
+
+.pricing-comparison-table .pricing-comparison-table__feature-cell {
+  position: sticky;
+  left: 0px;
+  z-index: 10;
+  border-bottom: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.pricing-comparison-table .pricing-comparison-table__value-cell {
+  border-bottom: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.pricing-comparison-table .pricing-comparison-table__value-cell--featured {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+}
+
+.pricing-comparison-table .pricing-comparison-table__inclusion {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Benefits */
+.pricing-comparison-table .pricing-comparison-table__check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+@media (hover: hover) {
+  .pricing-comparison-table .pricing-comparison-table__action--secondary:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+
+  .pricing-comparison-table .pricing-comparison-table__action--primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.pricing-comparison-table .pricing-comparison-table__table-region:focus-visible,
+.pricing-comparison-table .pricing-comparison-table__action--secondary:focus-visible,
+.pricing-comparison-table .pricing-comparison-table__action--primary:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .pricing-comparison-table .pricing-comparison-table__container {
+    padding-block: 6rem;
+  }
+
+  .pricing-comparison-table .pricing-comparison-table__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}
+
+@media (width >= 64rem) {
+  .pricing-comparison-table .pricing-comparison-table__header {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: flex-end;
+  }
+}

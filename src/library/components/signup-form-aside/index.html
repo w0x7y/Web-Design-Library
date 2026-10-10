@@ -1,0 +1,77 @@
+<section class="signup-form-aside">
+  <div class="signup-form-aside__container">
+    <div class="signup-form-aside__form-card">
+      <h1 class="signup-form-aside__title">Heading for registration details</h1>
+      <p class="signup-form-aside__lede">Brief introduction explaining which details are needed and why.</p>
+      <form class="signup-form-aside__form">
+        <div class="signup-form-aside__field-pair">
+          <div>
+            <label for="signup-form-aside-first-name" class="signup-form-aside__label">First name</label><input id="signup-form-aside-first-name" type="text" autocomplete="given-name" required name="first-name" class="signup-form-aside__input">
+          </div>
+          <div>
+            <label for="signup-form-aside-last-name" class="signup-form-aside__label">Last name</label><input id="signup-form-aside-last-name" type="text" autocomplete="family-name" required name="last-name" class="signup-form-aside__input">
+          </div>
+        </div>
+        <div>
+          <label for="signup-form-aside-email" class="signup-form-aside__label">Email</label><input id="signup-form-aside-email" type="email" autocomplete="email" required placeholder="name@example.com" name="email" class="signup-form-aside__input">
+        </div>
+        <div>
+          <label for="signup-form-aside-phone" class="signup-form-aside__label">Phone</label><input id="signup-form-aside-phone" type="tel" autocomplete="tel" aria-describedby="signup-form-aside-phone-hint" required placeholder="+1 555 010 1234" name="phone" class="signup-form-aside__input">
+          <p id="signup-form-aside-phone-hint" class="signup-form-aside__field-hint">Include the country code.</p>
+        </div>
+        <div class="signup-form-aside__field-pair">
+          <div>
+            <label for="signup-form-aside-city" class="signup-form-aside__label">City</label><input id="signup-form-aside-city" type="text" autocomplete="address-level2" required name="city" class="signup-form-aside__input">
+          </div>
+          <div>
+            <label for="signup-form-aside-postcode" class="signup-form-aside__label">Postcode</label><input id="signup-form-aside-postcode" type="text" autocomplete="postal-code" required name="postcode" class="signup-form-aside__input">
+          </div>
+        </div>
+        <div>
+          <label for="signup-form-aside-account-type" class="signup-form-aside__label">Account type</label><select id="signup-form-aside-account-type" name="account-type" autocomplete="off" required aria-describedby="signup-form-aside-account-type-hint" class="signup-form-aside__input"><option value="" disabled selected>Select an account type</option><option value="individual">Individual</option><option value="team">Team</option></select>
+          <p id="signup-form-aside-account-type-hint" class="signup-form-aside__field-hint">Choose the option that describes your account.</p>
+        </div>
+        <div>
+          <label class="signup-form-aside__consent">
+            <input type="checkbox" required aria-describedby="signup-form-aside-consent-hint" name="consent" class="signup-form-aside__checkbox">
+            <span>I consent to the use of these details.</span>
+          </label>
+          <p id="signup-form-aside-consent-hint" class="signup-form-aside__field-hint">Hint naming the purpose of this consent.</p>
+        </div>
+        <button type="submit" class="signup-form-aside__submit">Submit details</button>
+      </form>
+    </div>
+    <aside class="signup-form-aside__aside">
+      <h2 class="signup-form-aside__aside-title">What happens next</h2>
+      <ol role="list" class="signup-form-aside__list">
+        <li class="signup-form-aside__item">
+          <span aria-hidden="true" class="signup-form-aside__step-number">1</span>
+          <div>
+            <h3 class="signup-form-aside__step-title">Review your details</h3>
+            <p class="signup-form-aside__step-description">A short note about checking the submitted information.</p>
+          </div>
+        </li>
+        <li class="signup-form-aside__item">
+          <span aria-hidden="true" class="signup-form-aside__step-number">2</span>
+          <div>
+            <h3 class="signup-form-aside__step-title">Confirm your account</h3>
+            <p class="signup-form-aside__step-description">One line explaining the confirmation message.</p>
+          </div>
+        </li>
+        <li class="signup-form-aside__item">
+          <span aria-hidden="true" class="signup-form-aside__step-number">3</span>
+          <div>
+            <h3 class="signup-form-aside__step-title">Get started</h3>
+            <p class="signup-form-aside__step-description">A brief description of the first account task.</p>
+          </div>
+        </li>
+      </ol>
+      <details class="signup-form-aside__data-details">
+        <summary class="signup-form-aside__data-question">How we use your data<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="signup-form-aside__chevron">
+          <path d="m6 9 6 6 6-6"></path>
+        </svg></summary>
+        <p class="signup-form-aside__data-answer">Explanation of which details are stored, how they support registration and where to read the data policy.</p>
+      </details>
+    </aside>
+  </div>
+</section>

@@ -4,7 +4,7 @@ import type { ComponentMeta } from '../../src/library/types'
 import { componentPath } from '../../src/library/urls'
 import { LiveThumbnail } from './LiveThumbnail'
 
-/** A live thumbnail, name and style tags; the whole card links to the component's page. On hover the thumbnail lifts as its shadow grows. */
+/** A live thumbnail, name and layout tags; the whole card links to the component's page. On hover the thumbnail lifts as its shadow grows. */
 export function ComponentCard({ meta }: { meta: ComponentMeta }) {
   return (
     <article data-testid="component-card" className="group relative">
@@ -21,7 +21,7 @@ export function ComponentCard({ meta }: { meta: ComponentMeta }) {
         </Link>
       </h3>
       <p className="mt-0.5 text-xs/5 text-zinc-500 dark:text-zinc-400">
-        <span className="sr-only">Style: </span>
+        <span className="sr-only">Layout tags: </span>
         {meta.tags.map((tag, index) => (
           <Fragment key={tag}>
             {index > 0 && (

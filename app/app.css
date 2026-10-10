@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "./stage.css";
+@source not "../**/*.test.ts";
+@source not "../e2e";
+@source not "../docs";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {

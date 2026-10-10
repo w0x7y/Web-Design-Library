@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises'
 import { createServer, type ServerResponse } from 'node:http'
 import { relative, resolve, sep } from 'node:path'
 
-/** Serve a fixture or build directory on an ephemeral local port. */
-export async function serveDirectory(directory: string, respond?: (pathname: string, response: ServerResponse) => boolean) {
+/** Serve fixtures on an ephemeral port, or a site build on a chosen port. */
+export async function serveDirectory(directory: string, respond?: (pathname: string, response: ServerResponse) => boolean, port = 0) {
   const requests: { path: string; userAgent: string | undefined }[] = []
   const server = createServer(async (request, response) => {
     const pathname = new URL(request.url ?? '/', 'http://localhost').pathname
@@ -22,7 +22,7 @@ export async function serveDirectory(directory: string, respond?: (pathname: str
       response.end('Not found')
     }
   })
-  server.listen(0, '127.0.0.1')
+  server.listen(port, '127.0.0.1')
   await once(server, 'listening')
   const address = server.address()
   if (!address || typeof address === 'string') throw new Error('Expected an ephemeral TCP port')

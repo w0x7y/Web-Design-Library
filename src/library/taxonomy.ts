@@ -38,15 +38,16 @@ export const CATEGORY_LABELS: Record<CategoryId, string> = {
   dashboard: 'Dashboard',
 }
 
-export const STYLE_TAGS = ['minimal', 'brutalist', 'glass', 'editorial', 'playful', 'corporate', 'dark', 'light', 'gradient', 'has-image'] as const
+export const LAYOUT_TAGS = ['centered', 'split', 'asymmetric', 'stacked', 'sidebar', 'grid', 'bento', 'list', 'row', 'table', 'layered', 'media', 'icons', 'numbers', 'form', 'compact', 'spacious'] as const
 
-export type StyleTag = (typeof STYLE_TAGS)[number]
+export type LayoutTag = (typeof LAYOUT_TAGS)[number]
 
-/** How the tag filter clusters the tags: looks, light or dark, and visual details. Every tag is in one group. */
-export const TAG_GROUPS: { label: string; tags: StyleTag[] }[] = [
-  { label: 'Style', tags: ['minimal', 'brutalist', 'glass', 'editorial', 'playful', 'corporate'] },
-  { label: 'Theme', tags: ['light', 'dark'] },
-  { label: 'Details', tags: ['gradient', 'has-image'] },
+/** Every layout tag belongs to exactly one filter group. */
+export const TAG_GROUPS: { label: string; tags: LayoutTag[] }[] = [
+  { label: 'Composition', tags: ['centered', 'split', 'asymmetric', 'stacked', 'sidebar'] },
+  { label: 'Arrangement', tags: ['grid', 'bento', 'list', 'row', 'table', 'layered'] },
+  { label: 'Content', tags: ['media', 'icons', 'numbers', 'form'] },
+  { label: 'Density', tags: ['compact', 'spacious'] },
 ]
 
 export function groupOf(category: CategoryId): (typeof GROUPS)[number] {
@@ -59,6 +60,6 @@ export function isCategoryId(value: string): value is CategoryId {
   return (CATEGORY_IDS as string[]).includes(value)
 }
 
-export function isStyleTag(value: string): value is StyleTag {
-  return (STYLE_TAGS as readonly string[]).includes(value)
+export function isLayoutTag(value: string): value is LayoutTag {
+  return (LAYOUT_TAGS as readonly string[]).includes(value)
 }
