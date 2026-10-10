@@ -1,0 +1,170 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonials-repair-receipts, .testimonials-repair-receipts *, .testimonials-repair-receipts *::before, .testimonials-repair-receipts *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonials-repair-receipts { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonials-repair-receipts :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonials-repair-receipts a { color: inherit; text-decoration: inherit; }
+.testimonials-repair-receipts :is(b, strong) { font-weight: bolder; }
+.testimonials-repair-receipts :is(ol, ul, menu) { list-style: none; }
+.testimonials-repair-receipts :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonials-repair-receipts :is(img, video) { max-width: 100%; height: auto; }
+.testimonials-repair-receipts :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonials-repair-receipts ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonials-repair-receipts table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonials-repair-receipts summary { display: list-item; }
+
+/* Component */
+.testimonials-repair-receipts {
+  background-color: oklch(90.5% 0.182 98.111); /* yellow-300 */
+  color: oklch(14.5% 0 none); /* neutral-950 */
+  font-family: 'IBM Plex Mono',ui-monospace,monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+  display: grid;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__label {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__heading {
+  margin-top: 1.5rem;
+  max-width: 32rem;
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__intro {
+  margin-top: 1.5rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__link {
+  margin-top: 2rem;
+  display: inline-flex;
+  width: fit-content;
+  padding-block: 0.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__receipt {
+  border-width: 2px;
+  border-style: solid;
+  border-color: oklch(14.5% 0 none); /* neutral-950 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__receipt-heading {
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__serial {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__job {
+  margin-top: 1.5rem;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-style: dashed;
+  border-color: oklch(87% 0 none); /* neutral-300 */
+  padding-top: 1.5rem;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 500;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__quote {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__customer {
+  margin-top: 1rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.testimonials-repair-receipts .testimonials-repair-receipts__total {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-style: dashed;
+  border-color: oklch(14.5% 0 none); /* neutral-950 */
+  padding-top: 1.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+}
+
+/* Keyboard focus */
+.testimonials-repair-receipts .testimonials-repair-receipts__link:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 4px;
+  outline-color: currentColor;
+}
+
+@media (hover: hover) {
+  .testimonials-repair-receipts .testimonials-repair-receipts__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .testimonials-repair-receipts .testimonials-repair-receipts__inner {
+    padding-inline: 2.5rem;
+  }
+
+  .testimonials-repair-receipts .testimonials-repair-receipts__heading {
+    font-size: 3rem;
+  }
+
+  .testimonials-repair-receipts .testimonials-repair-receipts__receipt {
+    padding: 2rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .testimonials-repair-receipts .testimonials-repair-receipts__inner {
+    padding-block: 6rem;
+    grid-template-columns: 1fr 26rem;
+    gap: 4rem;
+  }
+}

@@ -1,0 +1,154 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonials-crux-route, .testimonials-crux-route *, .testimonials-crux-route *::before, .testimonials-crux-route *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonials-crux-route { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonials-crux-route :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonials-crux-route a { color: inherit; text-decoration: inherit; }
+.testimonials-crux-route :is(b, strong) { font-weight: bolder; }
+.testimonials-crux-route :is(ol, ul, menu) { list-style: none; }
+.testimonials-crux-route :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonials-crux-route :is(img, video) { max-width: 100%; height: auto; }
+.testimonials-crux-route :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonials-crux-route ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonials-crux-route table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonials-crux-route summary { display: list-item; }
+
+/* Component */
+.testimonials-crux-route {
+  background-color: oklch(14.5% 0 none); /* neutral-950 */
+  color: oklch(97% 0 none); /* neutral-100 */
+  font-family: 'Archivo',ui-sans-serif,system-ui,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.testimonials-crux-route .testimonials-crux-route__inner {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+  display: grid;
+  gap: 3rem;
+}
+
+.testimonials-crux-route .testimonials-crux-route__label {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: oklch(75% 0.183 55.934); /* orange-400 */
+}
+
+.testimonials-crux-route .testimonials-crux-route__heading {
+  margin-top: 1.25rem;
+  font-size: 2.25rem;
+  line-height: 1.05;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.testimonials-crux-route .testimonials-crux-route__lede {
+  margin-top: 1.5rem;
+  font-size: .875rem;
+  line-height: 1.625;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+.testimonials-crux-route .testimonials-crux-route__link {
+  margin-top: 2rem;
+  display: inline-flex;
+  width: fit-content;
+  padding-block: 0.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  font-weight: 600;
+  color: oklch(75% 0.183 55.934); /* orange-400 */
+}
+
+.testimonials-crux-route .testimonials-crux-route__route {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-color: oklch(75% 0.183 55.934); /* orange-400 */
+  padding-left: 1.5rem;
+}
+
+.testimonials-crux-route .testimonials-crux-route__stop {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: oklch(37.1% 0 none); /* neutral-700 */
+  padding-block: 2rem;
+}
+
+.testimonials-crux-route .testimonials-crux-route__number {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: oklch(75% 0.183 55.934); /* orange-400 */
+}
+
+.testimonials-crux-route .testimonials-crux-route__grade {
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: oklch(75% 0.183 55.934); /* orange-400 */
+}
+
+.testimonials-crux-route .testimonials-crux-route__quote {
+  margin-top: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.testimonials-crux-route .testimonials-crux-route__climber {
+  margin-top: 1.25rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+/* Keyboard focus */
+.testimonials-crux-route .testimonials-crux-route__link:focus-visible {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 4px;
+  outline-color: currentColor;
+}
+
+@media (hover: hover) {
+  .testimonials-crux-route .testimonials-crux-route__link:hover {
+    text-decoration-line: underline;
+  }
+}
+
+@media (width >= 40rem) {
+  .testimonials-crux-route .testimonials-crux-route__inner {
+    padding-inline: 2.5rem;
+  }
+
+  .testimonials-crux-route .testimonials-crux-route__heading {
+    font-size: 3.75rem;
+  }
+
+  .testimonials-crux-route .testimonials-crux-route__route {
+    padding-left: 2rem;
+  }
+}
+
+@media (width >= 48rem) {
+  .testimonials-crux-route .testimonials-crux-route__inner {
+    grid-template-columns: 17.5rem 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .testimonials-crux-route .testimonials-crux-route__inner {
+    padding-block: 6rem;
+  }
+}
