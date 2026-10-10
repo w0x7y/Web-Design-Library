@@ -5,15 +5,14 @@ import { STAGE } from '../app/lib/stage'
 import { STORAGE_KEYS } from '../app/lib/storage'
 import { relatedMetas } from '../app/lib/related'
 import { frameSize, previewBox } from '../app/lib/viewports'
-import { loadLibrary } from '../scripts/load-library'
+import { loadEntry, loadMetas } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
 import { previewPath } from '../src/library/urls'
 import { SITE } from '../src/site'
 import { downloadPng, openDetail } from './lib/pages'
 
-const ITEMS = await loadLibrary()
-const LIBRARY = ITEMS.map((item) => item.entry.meta) // in library order, the order the site shows
-const HERO_ENTRY = ITEMS.find((item) => item.entry.meta.slug === 'hero-split-image')!.entry
+const LIBRARY = await loadMetas() // in library order, the order the site shows
+const HERO_ENTRY = await loadEntry('hero-split-image')
 const HERO = HERO_ENTRY.sources
 
 // How many cards browse should show: the library on disk through browse's own results (unit-tested in filters.test.ts).
@@ -526,6 +525,16 @@ test.describe('copy and export', () => {
     const { png } = await downloadPng(page, 'desktop', { transparent: true })
     expect(png.width).toBeLessThan(2880)
     expect(png.data.some((v, i) => i % 4 === 3 && v === 0)).toBe(true) // some fully transparent pixel
+  })
+
+  test('consecutive PNG downloads keep the requested transparency', async ({ page }) => {
+    await openDetail(page, 'buttons-minimal')
+    for (const transparent of [true, true, false]) {
+      const { png } = await downloadPng(page, 'desktop', { transparent })
+      expect(png.data.some((v, i) => i % 4 === 3 && v === 0)).toBe(transparent)
+      if (transparent) expect(png.width).toBeLessThan(2880)
+      else expect({ width: png.width, height: png.height }).toEqual({ width: 2880, height: 960 })
+    }
   })
 
   test('opaque element capture keeps the white backdrop at the full frame width', async ({ page }) => {
