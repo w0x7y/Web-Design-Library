@@ -11,6 +11,7 @@ import type { ComponentMeta, ComponentSources, LibraryEntry } from './types'
 
 const BRIEF_FIELDS = ['layout', 'hierarchy', 'states', 'responsive', 'usage'] as const
 const MEDIA_TAGS = new Set(['img', 'video', 'iframe', 'picture', 'source'])
+const INTERNAL_JARGON = /\b(?:inventory|twins?|(?:wireframe )?kit|parity|capture (?:widths?|frames?)|the reference(?: pattern| default| \d+px)|(?:frame|element) budget|reference pattern)\b/i
 
 /**
  * Every component folder's violations of the authoring rules, in the order given. A rule that
@@ -63,6 +64,11 @@ function checkMeta(meta: ComponentMeta, folder: string, allSlugs: string[]): str
   if (breaks.length > 0) out.push(`meta.wireframe box lines must connect: ${breaks.slice(0, 3).join('; ')}`)
   for (const field of BRIEF_FIELDS) {
     if (!meta.brief[field]?.trim()) out.push(`brief.${field} is empty`)
+  }
+  // Briefs reach users and agents; they describe the pattern, not how it was authored or tested.
+  for (const [field, text] of [['name', meta.name], ['description', meta.description], ...BRIEF_FIELDS.map((f) => [`brief.${f}`, meta.brief[f] ?? ''])]) {
+    const jargon = text.match(INTERNAL_JARGON)?.[0]
+    if (jargon) out.push(`meta.${field} mentions authoring internals ("${jargon}"); describe the pattern itself`)
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(meta.addedAt) || Number.isNaN(Date.parse(meta.addedAt))) {
     out.push(`addedAt "${meta.addedAt}" must be an ISO date (YYYY-MM-DD)`)

@@ -71,6 +71,8 @@ export default {
 | `addedAt` | `YYYY-MM-DD`. |
 | `author` | Reserved for community submissions. Leave it unset. |
 
+Write the brief for the person or agent who reads it: describe the pattern itself, not how it was authored or tested. `npm test` rejects internal terms such as "inventory", "twin", "kit", "parity" and "the reference pattern".
+
 ## Wireframe kit
 
 Use Tailwind's `neutral` palette plus `white`, `black`, `transparent`, `current` and `inherit`, with optional opacity modifiers. Page surfaces are white; alternate surfaces neutral-50; media and avatar fills neutral-100 or neutral-200. Borders are neutral-200, control borders neutral-300. Headings use neutral-900, body neutral-600, meta text neutral-500, decorative glyphs neutral-400. Dark bands may use neutral-900 or neutral-950 with white or neutral-300 text. Keep text contrast at least 4.5:1.

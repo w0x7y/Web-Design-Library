@@ -195,6 +195,17 @@ test.each([
   expect(violations(withMeta(validEntry(), meta as Partial<ComponentMeta>)).join('\n')).toMatch(pattern)
 })
 
+test.each([
+  'Uses the kit fill.', 'No structural deviation from the inventory.', 'The twin adds a fallback.',
+  'Follows the reference 44px default.', 'Fits within the element budget.', 'Fits at both capture widths.',
+])('rejects authoring jargon in a brief: %s', (usage) => {
+  expect(violations(withBrief(validEntry(), { usage })).join('\n')).toMatch(/authoring internals/)
+})
+
+test('allows ordinary words that resemble the jargon', () => {
+  expect(violations(withBrief(validEntry(), { usage: 'Shows an item reference and a budget figure; capture email addresses.' }))).toEqual([])
+})
+
 test.each(['layout', 'hierarchy', 'states', 'responsive', 'usage'] as const)('requires brief.%s', (field) => {
   expect(violations(withBrief(validEntry(), { [field]: ' ' }))).toContain(`brief.${field} is empty`)
 })
