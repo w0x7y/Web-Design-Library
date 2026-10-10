@@ -1,6 +1,4 @@
 import { Component, Suspense, useCallback, useState, type CSSProperties, type ReactNode } from 'react'
-import { preinit } from 'react-dom'
-import { fontStylesheetHref } from '../../src/library/fonts'
 import { preloadComponent } from '../../src/library/registry'
 import type { ComponentMeta } from '../../src/library/types'
 import { THUMBNAIL_ELEMENT_MAX_WIDTH, THUMBNAIL_STAGE_WIDTH, thumbnailFit, thumbnailStageWidth } from '~/lib/viewports'
@@ -39,7 +37,6 @@ function backgroundOf(el: Element | null): CSSProperties | null {
 export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; className?: string }) {
   const { slug } = meta
   const { kind } = meta.preview
-  const { fonts } = meta
   const [mounted, setMounted] = useState(false)
   const [frame, setFrame] = useState<(Size & { stage: number }) | null>(null)
   const [content, setContent] = useState<Size | null>(null)
@@ -50,12 +47,10 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
       (entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return
         visibility.disconnect()
-        // Load the code and insert the font stylesheet before mounting, so the render never suspends.
+        // Load the code before mounting, so the render never suspends.
         // React holds back revealing a suspended thumbnail while others keep suspending, so during a
         // scroll none would appear until the scrolling stopped. A failed load still mounts, and the
         // boundary below catches it.
-        const fontHref = fontStylesheetHref(fonts)
-        if (fontHref) preinit(fontHref, { as: 'style', precedence: 'default', crossOrigin: 'anonymous' })
         preloadComponent(slug)
           .catch(() => {})
           .finally(() => setMounted(true))
@@ -71,7 +66,7 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
       visibility.disconnect()
       resize.disconnect()
     }
-  }, [slug, fonts])
+  }, [slug])
 
   const observeContent = useCallback((el: HTMLDivElement) => {
     const resize = new ResizeObserver(([entry]) => {
@@ -92,9 +87,8 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
       inert
       aria-hidden="true"
       // Until the component has rendered, the frame is a quiet placeholder in the site's theme, not a white flash.
-      // Each library font that loads restyles and relays out the whole page; content-visibility skips the
-      // thumbnails off screen, so that work stays proportional to what is in view. The frame's size never
-      // depends on its content, so skipping it moves nothing.
+      // Content visibility skips thumbnails off screen. The frame's size never depends on its
+      // content, so skipping it moves nothing.
       className={`relative aspect-[16/10] overflow-hidden [content-visibility:auto] rounded-lg border border-zinc-200 dark:border-zinc-800 ${ready ? 'bg-white' : 'bg-zinc-100 dark:bg-zinc-900'} ${className}`}
     >
       {mounted && (
@@ -113,12 +107,12 @@ export function LiveThumbnail({ meta, className = '' }: { meta: ComponentMeta; c
                     transformOrigin: '0 0',
                   }}
                 >
-                  <PreviewSurface kind="section" fonts={fonts} mode="thumbnail">
+                  <PreviewSurface kind="section" mode="thumbnail">
                     <div ref={observeContent}><LibraryComponent slug={meta.slug} /></div>
                   </PreviewSurface>
                 </div>
               ) : (
-                <PreviewSurface kind="element" fonts={fonts} mode="thumbnail">
+                <PreviewSurface kind="element" mode="thumbnail">
                   <div
                     ref={observeContent}
                     style={{ width: 'max-content', maxWidth: THUMBNAIL_ELEMENT_MAX_WIDTH, transform: `scale(${scale})` }}

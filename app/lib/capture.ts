@@ -57,7 +57,7 @@ async function render(frame: HTMLIFrameElement, meta: ComponentMeta, transparent
   // An error page (the request failed) belongs to another origin, so its document can't be read.
   if (!frame.contentDocument) throw new Error('The preview page did not load')
 
-  // The page reports ready once its component has rendered with its fonts and images, and freezes motion
+  // The page reports ready once its pattern has rendered and settled, and freezes motion
   // (data-capture) once hydrated; a capture needs both. The document is read afresh on every poll, in
   // case the frame swaps documents while it loads.
   const backdrop = await until(() => {

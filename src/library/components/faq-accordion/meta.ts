@@ -2,22 +2,33 @@ import type { ComponentMeta } from '../../types'
 
 export default {
   slug: 'faq-accordion',
-  name: 'FAQ accordion',
+  name: 'FAQ — Accordion',
   category: 'faq',
-  tags: ['minimal', 'light'],
-  description:
-    'A minimal FAQ for a photo-backup service, built from native <details> and <summary>, so it opens and closes without JavaScript. A semi-condensed headline and a support link sit on the left; on the right, six questions on hairlines, each with a ringed plus that fills and turns into a minus when open. The first answer is open by default. Use it on pricing, product or help pages.',
+  tags: ['centered', 'list', 'spacious'],
+  description: 'A centred heading and introduction above five expandable question rows. Use it to answer common questions while keeping the section easy to scan.',
   preview: { kind: 'section' },
-  fonts: ['Radio Canada:wdth,wght@75..100,300..700'],
+  wireframe: `┌────────────────────────────────────────────────────────┐
+│             Heading for common questions               │
+│                Short introduction                      │
+│                                                        │
+├────────────────────────────────────────────────────────┤
+│ [Question about the main benefit]                    ∧  │
+│ Explain the main benefit in two or three sentences.     │
+├────────────────────────────────────────────────────────┤
+│ [Question about getting started]                    ∨  │
+├────────────────────────────────────────────────────────┤
+│ [Question about what is included]                   ∨  │
+├────────────────────────────────────────────────────────┤
+│ [Question about changing a choice]                  ∨  │
+├────────────────────────────────────────────────────────┤
+│ [Question about finding more help]                  ∨  │
+└────────────────────────────────────────────────────────┘`,
   brief: {
-    layout:
-      '1152px container with 24px side padding (32px from 1024px). Below 1024px the intro and the questions stack 48px apart; from 1024px a 12-column grid with 32px gaps puts the intro in columns 1–4 and the questions in columns 6–12. Intro: the h2, a paragraph 20px below (max 384px), and a "Write to support" link with a 16px arrow 24px below that. Questions: a wrapper with a 1px top border holding six <details name="faq-accordion"> (the shared name makes them an exclusive accordion where browsers support it), each with a 1px bottom border; the first has the open attribute. Each <summary> is a flex row (24px padding top and bottom, 24px gap, items aligned to the top) with the question text and, at the right, a 32px ring pulled up 2px, holding a plus drawn from two 12 × 2px bars. The answer is a paragraph of at most 60ch with 28px bottom padding.',
-    style:
-      'White background, zinc-950 text, Radio Canada throughout. h2: 40px semibold at semi-condensed width (87.5%), −0.03em tracking, line height 1, balanced. Paragraph: 17px zinc-600, 1.625 line height. Link: 17px semibold with a 2px zinc-300 underline offset 0.3em. Hairlines: 1px zinc-200. Questions: 18px medium, 28px line height, −0.01em tracking. Ring: an inset 1px zinc-300 ring, fully round; the bars are zinc-950 with rounded ends. Answers: 16px zinc-600, 1.625 line height. The default disclosure marker is removed (list-style none and a hidden ::-webkit-details-marker).',
-    states:
-      'Open item: the ring fills zinc-950, both bars turn white, and the vertical bar rotates 90deg (200ms) so the plus becomes a minus. Hovering a question darkens its ring to zinc-950. Summaries are natively keyboard operable (Enter or Space toggles them) and show a 2px zinc-950 outline offset 2px, with a 6px radius, on keyboard focus. On hover the support link\'s underline turns zinc-950 and its arrow moves 2px right; on focus the link shows a 2px zinc-950 outline offset 4px. Colour changes use 150ms transitions, and hover rules apply only on devices that support hover.',
-    responsive:
-      'h2: 40px, 48px from 640px. Questions: 18px, 20px from 640px, with a 28px line height throughout. From 640px the answers get 56px of right padding, so they stop under the question text rather than under the ring. Vertical padding: 80px, 96px from 640px, 128px from 1024px. Layout: stacked below 1024px; from 1024px a 4 + 7 column split with one empty column between.',
+    layout: 'One section with a centred 768px (max-w-3xl) container, 24px side padding and 64px vertical padding, increasing to 96px at 640px. A centred heading and introduction precede five full-width details rows by 48px. Each row has 20px vertical summary padding, a 20px chevron and a 1px neutral-200 divider. Answers have 20px bottom padding.',
+    hierarchy: 'Read the 30px semibold heading, 18px introduction, then the five 16px semibold questions. The first answer is visible at entry; the others reveal 16px neutral-600 supporting text. Slots: heading up to 8 words, introduction up to 20, questions up to 10, answers up to 45.',
+    states: 'Native details and summary controls share one name, so opening a question closes the previous one. The first is open by default. The chevron rotates 180 degrees while open with a 150ms transition. Keyboard focus shows a 2px neutral-900 outline offset 2px.',
+    responsive: 'The rows remain a single column at every width. At 640px vertical padding increases from 64px to 96px and the heading from 30px to 36px. Questions wrap while the chevron keeps its 20px width and 24px gap.',
+    usage: 'Use for short answers to common questions with one answer visible at a time. Pick a static question list when all answers need comparing. Variations: open a different first question, group rows under topic headings, or add a help link below the list.',
   },
-  addedAt: '2026-10-08',
+  addedAt: '2026-10-10',
 } satisfies ComponentMeta

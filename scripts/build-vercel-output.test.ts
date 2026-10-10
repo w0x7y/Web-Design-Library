@@ -8,9 +8,9 @@ import { buildVercelConfig, contentSecurityPolicy, writeVercelOutput, type Verce
 
 const agentFiles = buildAgentFiles([{
   meta: {
-    slug: 'demo', name: 'Demo hero', category: 'hero', tags: ['minimal'], description: 'A centered hero.',
-    preview: { kind: 'section' }, fonts: [], addedAt: '2026-10-08',
-    brief: { layout: 'Centered column.', style: 'Neutral palette.', states: 'Visible focus.', responsive: 'Stacks below 640px.' },
+    slug: 'demo', name: 'Demo hero', category: 'hero', tags: ['centered'], description: 'A centered hero.',
+    preview: { kind: 'section' }, wireframe: '┌──┐\n│UI│\n└──┘', addedAt: '2026-10-08',
+    brief: { layout: 'Centered column.', hierarchy: 'Neutral palette.', usage: 'Use this layout.', states: 'Visible focus.', responsive: 'Stacks below 640px.' },
   },
   sources: { tsx: 'export default function Demo() {}\n', html: '<section>Demo</section>', css: 'section { padding: 2rem; }' },
 }])

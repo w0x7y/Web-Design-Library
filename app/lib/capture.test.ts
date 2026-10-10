@@ -11,8 +11,8 @@ const meta: ComponentMeta = {
   tags: [],
   description: 'A card for the tests.',
   preview: { kind: 'section' },
-  fonts: [],
-  brief: { layout: 'Layout.', style: 'Style.', states: 'States.', responsive: 'Responsive.' },
+  wireframe: '┌──┐\n│UI│\n└──┘',
+  brief: { layout: 'Layout.', hierarchy: 'Style.', usage: 'Use this layout.', states: 'States.', responsive: 'Responsive.' },
   addedAt: '2026-10-08',
 }
 const PNG = new Blob(['png'], { type: 'image/png' })
