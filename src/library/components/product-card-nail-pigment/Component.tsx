@@ -17,11 +17,11 @@ export default function ProductCardNailPigment() {
               y2="120"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#fbcfe8" />
-              <stop offset=".3" stop-color="#fef3c7" />
-              <stop offset=".55" stop-color="#a3a635" />
-              <stop offset=".8" stop-color="#364314" />
-              <stop offset="1" stop-color="#ecfccb" />
+              <stop stopColor="#fbcfe8" />
+              <stop offset=".3" stopColor="#fef3c7" />
+              <stop offset=".55" stopColor="#a3a635" />
+              <stop offset=".8" stopColor="#364314" />
+              <stop offset="1" stopColor="#ecfccb" />
             </linearGradient>
           </defs>
           <path

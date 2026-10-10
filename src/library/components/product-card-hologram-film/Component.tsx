@@ -21,9 +21,9 @@ export default function ProductCardHologramFilm() {
             y2="100"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#fde68a" stop-opacity=".9" />
-            <stop offset=".45" stop-color="#6ee7b7" stop-opacity=".8" />
-            <stop offset="1" stop-color="#fda4af" stop-opacity=".9" />
+            <stop stopColor="#fde68a" stopOpacity=".9" />
+            <stop offset=".45" stopColor="#6ee7b7" stopOpacity=".8" />
+            <stop offset="1" stopColor="#fda4af" stopOpacity=".9" />
           </linearGradient>
         </defs>
         <path

@@ -18,9 +18,9 @@ export default function ProductCardMarbleSet() {
             cy=".2"
             r=".8"
           >
-            <stop stop-color="#cffafe" />
-            <stop offset=".5" stop-color="#67e8f9" />
-            <stop offset="1" stop-color="#1e40af" />
+            <stop stopColor="#cffafe" />
+            <stop offset=".5" stopColor="#67e8f9" />
+            <stop offset="1" stopColor="#1e40af" />
           </radialGradient>
           <radialGradient
             id="product-card-marble-set-pink"
@@ -28,9 +28,9 @@ export default function ProductCardMarbleSet() {
             cy=".2"
             r=".8"
           >
-            <stop stop-color="#fff1f2" />
-            <stop offset=".6" stop-color="#f9a8d4" />
-            <stop offset="1" stop-color="#be185d" />
+            <stop stopColor="#fff1f2" />
+            <stop offset=".6" stopColor="#f9a8d4" />
+            <stop offset="1" stopColor="#be185d" />
           </radialGradient>
         </defs>
         <circle

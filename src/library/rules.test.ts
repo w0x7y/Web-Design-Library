@@ -164,7 +164,7 @@ test('allowed patterns raise no violations', () => {
     tsx: [
       '// Fonts: Inter, Lora',
       "import { type ReactNode } from 'react'",
-      `export default function Demo() { return <section className="p-8 hover:bg-zinc-50"><img src="${IMAGES.officeBright}" alt="" width={1600} height={1067} /></section> }`,
+      `export default function Demo() { return <section className="p-8 hover:bg-zinc-50" data-state="open" aria-label="Demo"><img src="${IMAGES.officeBright}" alt="" width={1600} height={1067} /><svg aria-hidden="true"><path strokeWidth="2" /></svg></section> }`,
       'export type Slot = ReactNode',
       '',
     ].join('\n'),
@@ -191,6 +191,8 @@ test.each<[string, string, RegExp]>([
   ['optional typed props', 'export default function Demo(props?: {}) { return null }', /no parameters/],
   ['named function props', 'function Demo(props) { return null }\nexport default Demo', /no parameters/],
   ['named arrow props', 'const Demo = (props = {}) => null\nexport default Demo', /no parameters/],
+  ['kebab-case svg attribute', 'export default () => <svg><path stroke-width="2" /></svg>', /strokeWidth/],
+  ['kebab-case gradient stop', 'export default () => <svg><stop stop-color="#fff" /></svg>', /stopColor/],
   ['inline style', 'export default () => <p style={{ color: "red" }} />', /style.*Tailwind/],
   ['spaced inline style', 'export default () => <p style\n= {{ color: "red" }} />', /style.*Tailwind/],
   ['style element', 'export default () => <style>{"p { color: red; }"}</style>', /<style>/],

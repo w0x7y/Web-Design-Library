@@ -262,6 +262,7 @@ Prefer an image already in `IMAGES`. If none fits:
 | `styles.css must begin with the scoped reset … line N should read: …` | Regenerate the reset with the `npx tsx` command in step 5, then paste your rules back under it. |
 | `styles.css selector "…" is not scoped under .<slug>` | Prefix the selector with `.<slug> `. |
 | `Component.tsx uses hooks or event handlers` | Replace the state with CSS: `<details>`, `peer-checked:`, `has-[:checked]:`, `group-hover:`. Hook calls and JSX event-handler attributes are checked structurally; comments are ignored. |
+| `Component.tsx uses the HTML attribute name stroke-width` | Write the React prop (`strokeWidth`, `stopColor`); keep the dashed name in `index.html`. Only `data-*` and `aria-*` keep their dashes in JSX. |
 | `Component.tsx must start with a "// Fonts: " comment` | Make line 1 `// Fonts: Family Name (https://fonts.google.com/specimen/Family+Name)`, naming every family in `meta.fonts`. |
 | `meta.fonts contains an invalid Google Fonts family` | Use the css2 `family` form, e.g. `Inter:wght@400..700` or `Instrument Serif:ital@0;1`, unencoded. |
 | `<img> src … is not a URL from IMAGES` | Use a literal URL from `src/library/assets.ts`, or add one (see above). |

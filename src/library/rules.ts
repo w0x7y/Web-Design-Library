@@ -127,6 +127,11 @@ function checkTsxSyntax(source: ts.SourceFile): string[] {
         out.add('Component.tsx uses hooks or event handlers; interactivity must be CSS-only (no interactive JS)')
       }
       if (name === 'style') out.add('Component.tsx uses a style attribute; use Tailwind classes only')
+      // React warns about HTML-style names such as stroke-width; only data-* and aria-* keep their dashes.
+      if (name.includes('-') && !/^(data|aria)-/.test(name)) {
+        const prop = name.replace(/-(\w)/g, (_, letter: string) => letter.toUpperCase())
+        out.add(`Component.tsx uses the HTML attribute name ${name}; write the React prop ${prop}`)
+      }
       if (name === 'className' && node.initializer && hasDarkVariant(node.initializer)) {
         out.add('Component.tsx uses a dark: variant; components must not follow the site theme')
       }

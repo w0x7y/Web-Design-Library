@@ -15,7 +15,7 @@ export default function HeroClimbingWall() {
           </div>
           <svg className="aspect-[4/5] w-full sm:aspect-[3/2] lg:aspect-[4/5]" aria-hidden="true" viewBox="0 0 400 500" fill="none">
             <path d="M0 500V0H270L400 140V500Z" fill="#27272a" />
-            <path d="M65 500 155 320 110 220 238 72" stroke="#a1a1aa" strokeWidth="1" stroke-dasharray="5 8" />
+            <path d="M65 500 155 320 110 220 238 72" stroke="#a1a1aa" strokeWidth="1" strokeDasharray="5 8" />
             <g fill="#bef264">
               <path d="m71 412 30-8 14 18-19 17-30-9Z" />
               <path d="m148 312 27-11 12 24-27 15-20-13Z" />

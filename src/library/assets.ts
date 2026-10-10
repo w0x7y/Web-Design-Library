@@ -58,7 +58,6 @@ export const IMAGES = {
   portraitManSunlit: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&q=80',
   // Added for new-team
   portraitWomanPink: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80',
-  teamConversationBrick: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80',
   // Added for new-stat-card
   aquariumCoral: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800&q=80',
   chestnutMushrooms: 'https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&q=80',
