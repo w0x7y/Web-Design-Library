@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'minimal'],
   description:
     'A developer platform hero with a deployment log and production status. Use it for infrastructure tools and technical product launches.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -5,7 +5,8 @@ export default {
   name: 'Marine transect article card',
   category: 'blog-card',
   tags: ['corporate', 'light'],
-  description: 'A marine-biology lab article with a station masthead, cyan accent rail and inset survey contents. Use it for coastal research journals and field reports.',
+  description:
+    'A marine-biology lab article with a station masthead, cyan accent rail and inset survey contents. Use it for coastal research journals and field reports.',
   preview: { kind: 'element' },
   fonts: ['IBM Plex Sans:wght@400..600'],
   brief: {

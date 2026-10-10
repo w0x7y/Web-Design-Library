@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A side-by-side comparison of a fragmented workflow and a shared workspace. Use it to show practical benefits of a team product.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

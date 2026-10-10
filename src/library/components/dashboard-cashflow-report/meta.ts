@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A financial overview with balance, weekly income and recent payments. Use it for a freelance or small-business dashboard.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

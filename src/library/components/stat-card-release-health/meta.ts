@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A build reliability card with a circular success graphic, recent run counts and a report link. Use it in deployment dashboards and engineering summaries.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

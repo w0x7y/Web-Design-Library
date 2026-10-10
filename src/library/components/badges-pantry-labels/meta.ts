@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'Food-label badges that mix an oval maker seal with dietary tags and origin information. Use them on specialty grocery products.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

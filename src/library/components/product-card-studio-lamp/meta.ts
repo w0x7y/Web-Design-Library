@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A design-store product card with an illustrated desk lamp, color description and delivery note. Use it for furniture, lighting and home office catalogs.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

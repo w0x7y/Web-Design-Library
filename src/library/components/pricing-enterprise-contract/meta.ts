@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A business pricing section with team and enterprise offers plus a shared capability list. Use it for products sold through both self-service and assisted contracts.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

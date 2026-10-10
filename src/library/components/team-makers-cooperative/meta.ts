@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A warm cooperative team section with colorful craft cards and a workshop invitation. Use it for local studios, maker collectives and community organizations.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

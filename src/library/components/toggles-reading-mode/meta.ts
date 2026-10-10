@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'Quiet reading preferences presented below a serif article sample, with independent switches for generous spacing and margin notes.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

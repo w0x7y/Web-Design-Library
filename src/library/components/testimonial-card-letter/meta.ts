@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A partner endorsement framed like a short letter, with organization branding and a detailed author credit. Use it in service proposals and company websites.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

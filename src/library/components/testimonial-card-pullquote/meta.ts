@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An understated editorial quote with a small publication label and customer attribution. Use it beside product stories and long-form case studies.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'A bold report export disclosure with three file-format actions and a native source-data opt-in.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

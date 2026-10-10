@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A native delivery-options disclosure with labelled shipping radios, written arrival estimates and prices.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

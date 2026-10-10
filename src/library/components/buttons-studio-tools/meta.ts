@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'minimal'],
   description:
     'A compact action palette for an audio recording. Pair four editing tools with a prominent review action.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

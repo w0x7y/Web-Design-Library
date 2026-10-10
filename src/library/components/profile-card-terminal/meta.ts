@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'minimal'],
   description:
     'A developer identity card with terminal styling, engineering interests and open-source counts. Use it in contributor directories or developer portfolios.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

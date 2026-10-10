@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'brutalist'],
   description:
     'A terminal-inspired sign-in with a service status rail. Use it for developer tools and infrastructure consoles.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

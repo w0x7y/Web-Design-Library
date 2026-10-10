@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'dark'],
   description:
     'A dark native account disclosure with a profile summary, navigation links and a separate sign-out action.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

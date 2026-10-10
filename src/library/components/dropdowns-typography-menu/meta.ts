@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A native text-style disclosure with font-family radios, typographic samples and a native type-size selector.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

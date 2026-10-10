@@ -5,7 +5,8 @@ export default {
   name: 'Consulting arborist profile',
   category: 'profile-card',
   tags: ['playful', 'light'],
-  description: 'A Crown & Root arborist profile with an illustrated tree, local survey specialism and a named booking link. Use it in tree-care service directories.',
+  description:
+    'A Crown & Root arborist profile with an illustrated tree, local survey specialism and a named booking link. Use it in tree-care service directories.',
   preview: { kind: 'element' },
   fonts: ['Bricolage Grotesque:wght@400..800'],
   brief: {

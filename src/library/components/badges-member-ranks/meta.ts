@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'Friendly achievement badges for a walking club, combining circular award emblems with clear milestones.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

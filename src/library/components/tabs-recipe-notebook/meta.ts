@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'Two functional notebook-style radio tabs for a recipe ingredient list and cooking method.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

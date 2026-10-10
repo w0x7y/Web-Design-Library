@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A four-digit verification input set with separate labelled numeric fields and a recovery email field.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

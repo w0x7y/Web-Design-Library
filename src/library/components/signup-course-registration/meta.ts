@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A course enrollment form with cohort and lesson details. Use it for a small learning platform or creative workshop.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

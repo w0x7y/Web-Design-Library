@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A studio enquiry section with a short project form and a realistic reply-time promise. Use it for agencies and independent service businesses.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

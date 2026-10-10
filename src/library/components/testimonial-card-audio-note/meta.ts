@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A warm voice-note styled testimonial with a decorative waveform and transcript quote. Use it in coaching, creator tools and personal service pages.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

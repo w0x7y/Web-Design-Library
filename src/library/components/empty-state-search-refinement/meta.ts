@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A search-results empty state with query context and next steps. Use it when filters leave a collection with no matches.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

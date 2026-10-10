@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'dark'],
   description:
     'A high-contrast energy-use card with a budget bar, target and readable remaining allowance. Use it in facilities dashboards and sustainability reports.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

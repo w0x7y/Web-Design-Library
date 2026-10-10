@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A sales dashboard with stage values, priority opportunities and target progress. Use it for a compact CRM overview.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'brutalist', 'light'],
   description:
     'Chunky game-room buttons with a play action, a score board and a sound control. Useful for playful onboarding or casual games.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

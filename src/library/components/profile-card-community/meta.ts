@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A friendly member card for a neighborhood volunteer with interests and a visible contribution count. Use it in community platforms and volunteer directories.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

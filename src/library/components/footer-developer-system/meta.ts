@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'minimal'],
   description:
     'A developer product footer with an operational status banner and grouped technical links. Use it for infrastructure and API product websites.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

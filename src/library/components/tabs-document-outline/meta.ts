@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A vertical native radio navigation for a project brief, switching between overview, milestones and owner details.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

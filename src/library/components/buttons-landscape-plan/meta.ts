@@ -5,7 +5,8 @@ export default {
   name: 'Buttons — Landscape plan',
   category: 'buttons',
   tags: ['editorial', 'light'],
-  description: 'A landscape-architecture plan review for Contour Studio, pairing sketch-to-plan stages with approval, revisions and a download action.',
+  description:
+    'A landscape-architecture plan review for Contour Studio, pairing sketch-to-plan stages with approval, revisions and a download action.',
   preview: { kind: 'element' },
   fonts: ['Newsreader:wght@400;500;600;700'],
   brief: {

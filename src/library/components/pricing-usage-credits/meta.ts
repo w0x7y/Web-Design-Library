@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'minimal'],
   description:
     'A transparent usage pricing section with a unit price, example monthly bill and included infrastructure. Use it for metered developer products.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

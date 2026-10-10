@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A warm editorial login for an independent publication. Use it when the membership experience should feel like the publication itself.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

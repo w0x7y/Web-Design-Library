@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'Priority, type and ownership labels for a product issue tracker, grouped by their practical use.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

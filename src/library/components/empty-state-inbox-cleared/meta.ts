@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A quiet inbox-zero state that acknowledges completed work. Use it in a notifications or review queue.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

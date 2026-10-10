@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'corporate'],
   description:
     'A workspace security form with native controls for invitations and external sharing. Use it for team administration screens.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

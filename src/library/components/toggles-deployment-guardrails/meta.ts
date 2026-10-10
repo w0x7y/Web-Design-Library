@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A native checkbox group for deployment protections, with explanatory labels and a mandatory verification reminder.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

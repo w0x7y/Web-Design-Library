@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A workshop reservation banner with a ticket-like date panel and clear booking action. Use it for small in-person events and creative classes.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

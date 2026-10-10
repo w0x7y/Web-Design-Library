@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A billing settings panel with current usage, payment method and invoice access. Use it for a subscription account page.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

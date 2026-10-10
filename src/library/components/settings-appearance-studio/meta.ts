@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A theme-choice settings panel using native radios and preview swatches. Use it to illustrate appearance preferences in a creative tool.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

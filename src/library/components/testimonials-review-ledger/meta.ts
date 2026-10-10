@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A compact review ledger with rating summary and three detailed customer rows. Use it for booking services and trusted local businesses.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An online course opening with a lesson outline and a clear enrollment action. Use it for focused creative classes and workshops.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An editorial email subscription with a sample issue. Use it for a publication or a thoughtful weekly digest.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

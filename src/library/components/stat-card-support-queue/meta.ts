@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A compact helpdesk queue card with a total, priority counts and an average-response line. Use it in customer support workspaces and small team dashboards.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A quiet ceramics card with a custom vase illustration, material details and price. Use it in independent craft stores and curated homeware listings.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A community testimonial section with three personal stories and a compact member tally. Use it for clubs, creative spaces and local communities.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

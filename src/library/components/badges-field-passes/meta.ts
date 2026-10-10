@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'Bold event access badges with serial numbers, admission tiers and explicit access descriptions.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

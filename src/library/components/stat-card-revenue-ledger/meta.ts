@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A paper-like monthly revenue card with a six-month bar comparison and net growth. Use it in small business dashboards and financial summaries.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A workspace creation screen with a trial-benefit list, password guidance and terms link. Use it for team software with a simple self-serve trial.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

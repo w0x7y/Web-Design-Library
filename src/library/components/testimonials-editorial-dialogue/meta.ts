@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'Two customer perspectives presented like a short interview with question labels. Use it for educational courses and thoughtful service brands.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

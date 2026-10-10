@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A project dashboard with weekly milestones, progress and an upcoming review. Use it for a design or product team’s home view.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

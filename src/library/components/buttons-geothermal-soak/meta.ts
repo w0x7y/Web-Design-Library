@@ -5,7 +5,8 @@ export default {
   name: 'Buttons — Geothermal soak',
   category: 'buttons',
   tags: ['playful', 'dark'],
-  description: 'Interlocking soak-booking and towel-set buttons for Fumarole geothermal spa, with a separate bathing-guide action.',
+  description:
+    'Interlocking soak-booking and towel-set buttons for Fumarole geothermal spa, with a separate bathing-guide action.',
   preview: { kind: 'element' },
   fonts: ['Familjen Grotesk:wght@400;500;600;700'],
   brief: {

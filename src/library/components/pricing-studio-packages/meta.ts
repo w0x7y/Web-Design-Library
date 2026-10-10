@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A service package menu with three clearly scoped offers and starting prices. Use it for design studios, consultants and freelance practices.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

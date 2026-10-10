@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A publication’s submissions queue framed with editorial rules and serif type. Use it for a magazine or content studio.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

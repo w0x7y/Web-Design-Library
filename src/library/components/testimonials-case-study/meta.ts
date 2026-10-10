@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A customer quote paired with measurable project outcomes and a case study action. Use it for B2B product landing pages.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

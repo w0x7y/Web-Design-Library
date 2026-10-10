@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'A compact conference badge with a speaker number, talk title and session time. Use it for event lineups and speaker directories.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

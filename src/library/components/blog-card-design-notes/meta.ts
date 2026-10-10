@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'An illustrated design article card with a process diagram, category label and reading time. Use it for product design blogs and learning resource indexes.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

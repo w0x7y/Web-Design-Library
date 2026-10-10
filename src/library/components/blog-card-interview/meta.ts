@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A colorful interview card with a typographic Q&A cover, guest name and short introduction. Use it for creator interviews and studio journals.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

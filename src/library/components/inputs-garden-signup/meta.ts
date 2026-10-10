@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'Friendly rounded fields for a neighborhood garden club, with name, email and a volunteer opt-in.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'corporate'],
   description:
     'A migration invitation with a compact checklist and an assisted-start action. Use it for B2B software that replaces an existing workflow.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

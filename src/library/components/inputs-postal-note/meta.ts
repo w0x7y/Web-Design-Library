@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A warm letter-style input set for a gift note, with a sender field and a bordered message area.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

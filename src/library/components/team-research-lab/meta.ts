@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A research team section with a featured principal investigator and compact colleague directory. Use it for labs, policy groups and specialist organizations.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

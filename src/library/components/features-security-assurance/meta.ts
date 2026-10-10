@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A security overview with a trust banner and four explicit assurance rows. Use it for enterprise products that handle sensitive information.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

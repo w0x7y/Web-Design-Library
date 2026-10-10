@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A native disclosure workspace switcher with workspace identities, membership details and a create-workspace action.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

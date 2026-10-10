@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A friendly empty team roster with overlapping avatar placeholders and an invitation action. Use it after a solo workspace is created.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

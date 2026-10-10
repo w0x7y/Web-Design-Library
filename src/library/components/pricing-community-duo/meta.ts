@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'Two friendly membership plans for a maker community with clear benefits and an accessible supporter offer. Use it for clubs and community spaces.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

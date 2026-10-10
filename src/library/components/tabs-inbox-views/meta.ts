@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A segmented radio filter for a shared inbox with separate message lists for all, unread and assigned views.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

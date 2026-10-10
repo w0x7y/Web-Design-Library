@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'A ticket-like event waitlist with a concise email form. Use it to collect interest ahead of a creative conference or meetup.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

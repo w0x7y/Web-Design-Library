@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A resource invitation with a designed book cover, contents preview and download link. Use it to promote a practical guide or report.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

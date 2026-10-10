@@ -5,7 +5,8 @@ export default {
   name: 'Olive mill first-press card',
   category: 'blog-card',
   tags: ['gradient', 'editorial', 'light'],
-  description: 'An olive-oil mill story with a branch illustration, warm harvest gradient and oil-lot footer. Use it for harvest journals and producer stories.',
+  description:
+    'An olive-oil mill story with a branch illustration, warm harvest gradient and oil-lot footer. Use it for harvest journals and producer stories.',
   preview: { kind: 'element' },
   fonts: ['Instrument Serif'],
   brief: {

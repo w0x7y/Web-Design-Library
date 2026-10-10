@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A restrained studio header with a native services disclosure and prominent project enquiry link. Use it for small agencies and independent studios.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

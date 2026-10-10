@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A compact first-project prompt with a folder illustration. Use it in a new account before the first project is created.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

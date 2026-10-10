@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'An invoice table with payment status and an outstanding balance. Use it in a billing or freelance administration workspace.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

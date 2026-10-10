@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'Square binary controls for a shared makerspace, organized as a compact permissions board.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

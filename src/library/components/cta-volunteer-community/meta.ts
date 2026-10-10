@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A community invitation with participation options and a clear volunteer action. Use it for local initiatives, nonprofits and neighborhood groups.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

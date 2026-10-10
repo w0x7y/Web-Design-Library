@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'A sharply ruled team map that connects four project stages to their owners. Use it in project briefs and agency delivery pages where responsibilities matter.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

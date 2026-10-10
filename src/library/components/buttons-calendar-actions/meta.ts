@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'An appointment action group with a date tile, a confirm button, and compact reschedule and cancellation actions.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

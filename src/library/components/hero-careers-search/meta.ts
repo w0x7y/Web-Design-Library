@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A recruitment landing section with a native role-search form and curated job categories. Use it for specialist job boards.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

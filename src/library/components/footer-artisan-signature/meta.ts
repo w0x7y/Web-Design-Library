@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A quiet maker footer with a serif signature, studio address and compact navigation. Use it for artisans and independent creative businesses.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

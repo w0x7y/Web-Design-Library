@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An understated account form with profile initials and public identity fields. Use it for a community or a small membership service.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

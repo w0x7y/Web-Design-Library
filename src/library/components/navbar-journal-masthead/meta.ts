@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A publication masthead with a central serif title and a horizontal topic index. Use it for magazines, essays and independent journals.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

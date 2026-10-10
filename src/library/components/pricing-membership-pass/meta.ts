@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A single membership offer with a benefit list and a ticket-like price panel. Use it for reading clubs, cultural memberships and small subscription products.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

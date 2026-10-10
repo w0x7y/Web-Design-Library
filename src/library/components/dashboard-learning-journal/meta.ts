@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A learning dashboard with course progress, weekly practice and the next lesson. Use it for a creative learning platform.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

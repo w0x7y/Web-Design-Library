@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A project FAQ with an introductory scope note and four open answer rows. Use it for agencies and professional services where contract details matter.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

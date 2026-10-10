@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'corporate'],
   description:
     'A functional time-window radio selector with response-time summaries for three monitoring intervals.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'minimal'],
   description:
     'Three native audio preference switches for a podcast recording, with a microphone connection summary.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

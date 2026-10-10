@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'editorial'],
   description:
     'A publication footer centered on a newsletter invitation with a native email form. Use it for independent journals and content businesses.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

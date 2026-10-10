@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'corporate'],
   description:
     'An operations overview with service health, request volume and incident history. Use it for a developer service or internal reliability tool.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

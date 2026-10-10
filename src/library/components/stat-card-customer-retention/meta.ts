@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A retention card that compares retention rates for teams and individuals within a July cohort. Use it in subscription analytics and customer success dashboards.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

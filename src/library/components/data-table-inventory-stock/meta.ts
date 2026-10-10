@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A stock-management table with a summary row and explicit reorder labels. Use it for a small store’s operations dashboard.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

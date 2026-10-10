@@ -5,7 +5,8 @@ export default {
   name: 'Buttons — Spice dispatch',
   category: 'buttons',
   tags: ['minimal', 'dark', 'has-image'],
-  description: 'Unequal packing and sack-label buttons with a spice photograph for Saffron Lane spice merchants. Use it beside a wholesale order record.',
+  description:
+    'Unequal packing and sack-label buttons with a spice photograph for Saffron Lane spice merchants. Use it beside a wholesale order record.',
   preview: { kind: 'element' },
   fonts: ['Archivo:wght@400;500;600;700'],
   brief: {

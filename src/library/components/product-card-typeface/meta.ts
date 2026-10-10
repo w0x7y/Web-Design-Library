@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A digital typeface card with a large system-serif specimen, family details and a licensing link. Use it in font stores and design resource catalogs.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

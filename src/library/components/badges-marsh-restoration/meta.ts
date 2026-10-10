@@ -5,7 +5,8 @@ export default {
   name: 'Badges — Marsh restoration',
   category: 'badges',
   tags: ['minimal', 'editorial', 'light'],
-  description: 'Brackhaven salt-marsh conservation badges pair restored-area figures with habitat labels and a survey window. Use them on reserve monitoring records.',
+  description:
+    'Brackhaven salt-marsh conservation badges pair restored-area figures with habitat labels and a survey window. Use them on reserve monitoring records.',
   preview: { kind: 'element' },
   fonts: ['Instrument Serif'],
   brief: {

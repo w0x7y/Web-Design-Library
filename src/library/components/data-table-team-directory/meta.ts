@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A member directory with clear role and access columns. Use it for workspace administration and invitations.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

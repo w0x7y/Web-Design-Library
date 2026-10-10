@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An exhibition opening with oversized serif typography and a compact visitor schedule. Use it for museums, galleries and cultural events.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

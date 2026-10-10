@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A two-level shop header with a shipping announcement and clearly grouped product links. Use it for a small homeware or lifestyle store.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

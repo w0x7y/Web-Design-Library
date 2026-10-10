@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'corporate'],
   description:
     'A release-status badge collection for a developer dashboard, pairing version rows with production, preview and review states.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

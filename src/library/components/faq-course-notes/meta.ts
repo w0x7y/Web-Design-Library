@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An always-visible course FAQ presented as numbered editorial notes. Use it for education products where readers should compare requirements easily.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A cheerful seed-kit card with illustrated herbs, included contents and a shop link. Use it for gift shops, gardening brands and starter kits.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A focused email and password login with project context. Use it for a small studio’s client portal.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

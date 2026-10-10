@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'Quiet reading actions for a long-form journal, with numbered rows and a generous subscription link.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['dark', 'corporate'],
   description:
     'A monospace deployment log with environments, commit hashes and outcomes. Use it for an infrastructure console.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

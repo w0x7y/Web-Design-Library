@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A typographic studio roster with numbered people, disciplines and individual contact links. Use it for small creative teams with a shared practice.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A calm outdoor reading card with a trail illustration, guide number and author note. Use it in local travel journals and nature publications.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

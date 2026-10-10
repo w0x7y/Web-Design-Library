@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'A numbered service index with editorial typography and deliverable summaries. Use it for design studios and professional service websites.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

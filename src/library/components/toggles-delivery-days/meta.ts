@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'Selectable day-of-week tiles for a neighborhood bakery delivery schedule, with checked days clearly marked.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

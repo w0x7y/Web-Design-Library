@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A channel-oriented notification form with grouped preferences. Use it for collaboration software with email and in-app alerts.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

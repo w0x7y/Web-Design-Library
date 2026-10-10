@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A three-step service process with numbered steps and a delivery promise. Use it to explain a product onboarding or professional service.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

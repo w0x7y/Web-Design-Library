@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A neighborhood service footer with hours, contact details and a compact directory. Use it for local businesses and civic services.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

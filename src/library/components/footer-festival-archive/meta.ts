@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'An event footer with festival dates and venue, attendee and archive links, and a newsletter invitation. Use it for annual festivals and conferences.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

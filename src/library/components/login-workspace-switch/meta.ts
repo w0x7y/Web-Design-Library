@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A business login paired with a workspace preview and security note. Use it for project management and team software.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

@@ -7,9 +7,7 @@ export default {
   tags: ['editorial', 'light'],
   description:
     'An editorial researcher card with a monogram, fieldwork details and a link to published notes. Use it for author pages, fellowships and research directories.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

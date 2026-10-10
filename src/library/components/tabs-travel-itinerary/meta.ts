@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A native radio-backed day selector that switches a compact city itinerary, with times and activity descriptions.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

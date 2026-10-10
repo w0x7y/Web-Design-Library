@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'light'],
   description:
     'A product review card with an accessible star rating, verified buyer label and usage context. Use it in shop reviews and customer feedback pages.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

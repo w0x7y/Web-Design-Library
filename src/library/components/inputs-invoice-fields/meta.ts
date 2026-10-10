@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'Compact billing fields with a currency prefix, invoice reference and due-date control.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

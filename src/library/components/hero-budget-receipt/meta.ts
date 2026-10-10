@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A friendly personal finance hero beside a monthly budget receipt. Use it to introduce a budgeting service with a concrete savings example.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

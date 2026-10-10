@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A grouped membership FAQ with joining and participation topics in separate colored columns. Use it for community and club memberships.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

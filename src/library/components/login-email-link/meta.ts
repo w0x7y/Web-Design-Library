@@ -7,9 +7,7 @@ export default {
   tags: ['minimal', 'dark'],
   description:
     'A password-free entry form that explains the email-link flow. Use it for a service that authenticates with a link sent by email.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

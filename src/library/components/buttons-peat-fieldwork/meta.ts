@@ -5,7 +5,8 @@ export default {
   name: 'Buttons — Peat fieldwork',
   category: 'buttons',
   tags: ['corporate', 'light'],
-  description: 'A peat-restoration visit button and joined plot-map/contact toolbar for Moorback Project. Use it beside a fieldwork plot reference.',
+  description:
+    'A peat-restoration visit button and joined plot-map/contact toolbar for Moorback Project. Use it beside a fieldwork plot reference.',
   preview: { kind: 'element' },
   fonts: ['IBM Plex Sans:wght@400;500;600;700'],
   brief: {

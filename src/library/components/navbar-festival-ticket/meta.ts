@@ -7,9 +7,7 @@ export default {
   tags: ['playful', 'light'],
   description:
     'A festival header with an early-bird announcement, two-line wordmark, ticket action, dates and venue. Use it for creative festivals and community gatherings.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

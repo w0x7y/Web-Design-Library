@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'An invited-member sign-up with team details and a compact account form. Use it as the first screen for a new colleague.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:

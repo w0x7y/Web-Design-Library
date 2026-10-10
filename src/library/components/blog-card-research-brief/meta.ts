@@ -7,9 +7,7 @@ export default {
   tags: ['brutalist', 'light'],
   description:
     'A sharply framed research article with chart artwork and a report number. Use it in product research archives and policy publications.',
-  preview: {
-    kind: 'element',
-  },
+  preview: { kind: 'element' },
   fonts: [],
   brief: {
     layout:

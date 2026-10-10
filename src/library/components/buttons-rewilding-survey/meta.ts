@@ -5,7 +5,8 @@ export default {
   name: 'Buttons — Rewilding survey',
   category: 'buttons',
   tags: ['corporate', 'dark'],
-  description: 'A habitat-survey action with a native field-document disclosure for Wildreach rewilding trust. Use it beside a restoration site record.',
+  description:
+    'A habitat-survey action with a native field-document disclosure for Wildreach rewilding trust. Use it beside a restoration site record.',
   preview: { kind: 'element' },
   fonts: ['DM Sans:wght@400;500;600;700'],
   brief: {

@@ -7,9 +7,7 @@ export default {
   tags: ['corporate', 'light'],
   description:
     'A customer support section with delivery disclosures and a compact contact card. Use it for small ecommerce stores.',
-  preview: {
-    kind: 'section',
-  },
+  preview: { kind: 'section' },
   fonts: [],
   brief: {
     layout:
