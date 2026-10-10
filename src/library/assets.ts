@@ -106,4 +106,7 @@ export const IMAGES = {
   // Added for retheme-d
   riverDefenceStream: 'https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=1600&q=80',
   droneSurveyOperator: 'https://images.unsplash.com/photo-1506947411487-a56738267384?w=1600&q=80',
+  // Added for new-dashboard
+  windTurbineField: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80',
+  studioMatTraining: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80',
 } as const
