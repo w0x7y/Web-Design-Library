@@ -4,7 +4,7 @@ Date: 2026-10-10
 
 The 183 patterns that replace the 478 retired components (spec: [layout patterns design](../specs/2026-10-10-layout-patterns-design.md), §8). Built by clustering the retired components by structure and adding canonical layouts they missed. `from` names retired components (in git history before the port) that show the structure.
 
-Authors may adjust details while building, but keep each slug, name, kind and structure recognisable; record any change in the pattern's brief.
+Authors could adjust details while building. Names, kinds and tags below were synced to the built library after the port; the pattern folders are the source of truth, and `structure` is the original plan.
 
 ## Group: Sections
 
@@ -90,7 +90,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: navbar-journal-masthead
 
 #### navbar-two-row-search
-- name: Navbar — Two rows with search
+- name: Navbar — Announcement, search and categories
 - kind: section
 - tags: stacked, row, form
 - structure: Three stacked bands: a full-width neutral-900 announcement strip (40px tall) with one centred white sentence and an underlined link; a main row with the logo, a search form (visually hidden label, an input up to 576px wide, an icon submit button with an aria-label) and utility links on the right (Account, and Cart with a count badge); and a hairline-topped category row of six links with 32px gaps. Below 768px the main row wraps, with the logo and utilities sharing the first line and the search form taking the full second line. The category links wrap at every width.
@@ -336,14 +336,14 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: cta-sailing-week
 
 #### cta-detail-card
-- name: Call to action — Event detail card
+- name: Call to action — Dated detail card
 - kind: section
 - tags: asymmetric, numbers
 - structure: From 1024px a 7/5 grid with a 48px gap, vertically centred. The left column holds an eyebrow, the section headline, a lede (max 448px) and a capacity meta line. The right column holds one bordered card with a header row (a date block with the day at text-4xl over the month, a vertical hairline, then the item title and a time/place meta line), a <dl> of two rows (price, places left) and a full-width primary action. Below 1024px the card follows the copy; below 640px the date block sits above the title, with a horizontal hairline between them.
 - from: cta-event-reservation, cta-heat-pump-survey, cta-lido-mornings
 
 #### cta-numbered-steps
-- name: Call to action — Steps checklist
+- name: Call to action — Numbered steps
 - kind: section
 - tags: split, list, numbers
 - structure: From 768px two equal columns with a 64px gap, vertically centred: the left holds an eyebrow, the section headline, a lede and a wrapping row of primary + secondary actions; the right holds a bordered card with an <ol> of three steps, 24px apart, each a 32px numbered circle beside an item title and a one-sentence body. Below 768px the card follows the copy. Static apart from action hover and focus.
@@ -361,7 +361,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 #### faq-accordion
 - name: FAQ — Accordion
 - kind: section
-- tags: centered, stacked, list
+- tags: centered, list, spacious
 - structure: A centred column (max-w-3xl) opens with a centred section headline and a lede that contains a support text link, then six <details> items between hairlines (top border on the list, bottom border on each item) that share one name so only one stays open where supported, the first open. Each <summary> hides the default marker, shows the focus outline, and is a 24px-padded justified row with the question (font-medium, text-base, text-lg from 640px) and a 20px plus icon that rotates 45° with group-open. Each answer is a paragraph (max 65ch) with 24px bottom padding, and the layout is one column at every width.
 - from: faq-developer-answers, faq-comedy-box-office, faq-film-darkroom
 
@@ -454,7 +454,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 #### footer-cta-band
 - name: Footer — Closing call to action band
 - kind: section
-- tags: split, grid
+- tags: centered, grid
 - structure: Three stacked bands. The closing band, from 1024px, is a justified row aligned to the bottom: the section headline (max-w-2xl) and a one-sentence lede on the left, primary + secondary actions on the right. Below 1024px it stacks, and below 640px the actions go full width; a hairline follows the band. The links band holds a brand block and three link groups in four equal columns from 1024px (two from 640px, one below), followed by a bottom bar with the copyright and legal links.
 - from: footer-artisan-signature, footer-credit-union-window, footer-refill-loop
 
@@ -505,7 +505,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: profile-card-perfumer, profile-card-parachute-inspector, profile-card-stage-rigger
 
 #### profile-card-inline-follow
-- name: Profile cards — Compact row with follow toggle
+- name: Profile cards — Row with follow toggle
 - kind: element
 - tags: row, compact
 - structure: A bordered card 288px wide (352px from 640px), p-4, about 160px tall. One header row holds a 40px avatar, the name over an @handle (truncating), and a Follow toggle pushed right: a `<label>` pill wrapping a visually hidden native checkbox (accessible name "Follow Alex Rivera") whose `peer-checked:` state swaps the filled "Follow" for an outlined "Following", with the focus outline drawn on the pill via `peer-focus-visible:`. Under the row sit a two-line bio and a meta line of two counts ("1,284 followers · 312 following", the numbers in neutral-900). Nothing reflows below 640px; the name truncates before the toggle wraps.
@@ -542,7 +542,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: team-grid, team-fencing-club
 
 #### team-tile-directory
-- name: Team — Hairline tile directory
+- name: Team — Tile directory
 - kind: section
 - tags: grid, compact
 - structure: Section shell with a header row: the section headline on the left and a two-line lede on the right, side by side from 768px and stacked below. Below it, one bordered panel (8px radius, clipped) of six white tiles separated by 1px hairlines (`gap-px` over a neutral-200 fill): three columns from 1024px, two from 640px, one below. Each p-6 tile holds a row with a 48px initials avatar and a right-aligned meta badge (team or time zone, "UTC+1"), then the name, "Role · City" in meta text, a two-line bio and an "Email Alex" text link.
@@ -630,7 +630,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: stat-card-water-loss, stat-card-glass-recovery, stat-card-goalball-blocks
 
 #### stat-card-icon-inline
-- name: Stat cards — Icon, label and value in one row
+- name: Stat cards — Icon, label and value row
 - kind: element
 - tags: row, icons, numbers, compact
 - structure: A bordered card 288px wide (352px from 640px), p-4, about 88px tall, laid out as one row: a 40px icon tile, a middle column with a meta label over the value (text-2xl semibold, tabular figures), and a change badge ("+4.1%" with an arrow) pushed to the right edge. The label truncates instead of wrapping and nothing reflows below 640px. Several of these stack into a dashboard column or a KPI row.
@@ -681,7 +681,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: testimonial-card-letter, testimonial-card-pullquote, testimonial-card-audio-note
 
 #### testimonial-card-centered-quote
-- name: Testimonial cards — Centred large quote
+- name: Testimonial cards — Centred quote with logo
 - kind: element
 - tags: centered, spacious
 - structure: A bordered `<figure>` 288px wide (384px from 640px), p-6 (p-8 from 640px), about 330px tall, with every line centred: a logo placeholder, a large quote (text-base, text-xl from 640px, font-medium, balanced wrapping, at most 20 words), then a 48px avatar centred above the name and role. Nothing reflows below 640px; only the width, padding and quote size change.
@@ -746,7 +746,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: blog-card-honey-harvest, blog-card-puppet-stage, blog-card-flower-border
 
 #### blog-card-text-only
-- name: Blog cards — Text only with author footer
+- name: Blog cards — Text only with author header
 - kind: element
 - tags: stacked, compact
 - structure: A bordered card 288px wide (352px from 640px), p-5, about 260px tall, with no media: a meta row with the date (`<time>`) and a category badge, a headline link (text-lg semibold) whose `::after` covers the card, and a three-line excerpt. A footer under a hairline holds a 32px avatar beside the author's name and role, and a trailing arrow that shifts 2px right on group-hover. Nothing reflows below 640px.
@@ -780,7 +780,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 #### buttons-hierarchy
 - name: Buttons — Primary, secondary and tertiary
 - kind: element
-- tags: row, compact
+- tags: grid, icons, compact
 - structure: Two captioned groups stacked 24px apart, each a text-xs neutral-500 caption over a flex-wrap row of 40px buttons (h-10, px-4, rounded-md, text-sm font-medium, one-word labels) with 12px gaps: "Emphasis" holds a filled neutral-900 primary, an outlined neutral-300 secondary, a text-only tertiary and a destructive action, outlined with a leading 16px trash icon and explicit wording ("Delete item"); "States" holds a 40px square icon-only button with an aria-label, a disabled primary, and a disabled loading primary whose leading 16px ring spinner uses `animate-spin motion-reduce:animate-none` beside the visible label "Saving…". Root `w-72 sm:w-[30rem]`, about 150px tall from 640px; below 640px the Emphasis row wraps its fourth button onto a second line (about 200px tall) and nothing else changes. States: hover (primary to neutral-700, secondary, destructive and icon-only fill neutral-50, tertiary underlines), the kit FOCUS outline, `disabled:` (50% opacity, not-allowed cursor, no hover) and loading.
 - from: buttons-minimal
 
@@ -989,7 +989,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: tabs-cricket-score, tabs-satellite-pass, tabs-cinema-reel
 
 #### tabs-link-overflow
-- name: Tabs — Link tabs with counts and More menu
+- name: Tabs — Counted links with More menu
 - kind: element
 - tags: row, layered, numbers, compact
 - structure: A `<nav aria-label>` holding an underline row (1px neutral-200 bottom border) of 40px link tabs (text-sm font-medium neutral-500), each with a trailing count pill (rounded-full bg-neutral-100 px-1.5 text-xs tabular-nums); the current link has `aria-current="page"`, neutral-900 text and a 2px underline, and the row ends with a "More" tab that is the summary of a relative `<details open>`. Below 640px two links show and More lists the rest; from 640px four links show (the extra links are `hidden sm:flex` in the row and `sm:hidden` in the menu). More's panel sits absolutely below it, right-aligned, w-48, rounded-md border shadow-lg p-1, with three 36px links; root `relative w-72 sm:w-[32rem]` with a fixed height of about 190px that reserves the open panel. States: link hover (neutral-700 text, neutral-300 underline), current, FOCUS on links and summary, and the chevron turning 180° when open.
@@ -1181,7 +1181,7 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 - from: settings-family-listening, settings-rota-handover, settings-crew-rest
 
 #### settings-billing-overview
-- name: Settings — Plan and billing overview
+- name: Settings — Billing cards and invoices
 - kind: section
 - tags: asymmetric, numbers, table
 - structure: A max-w-5xl section: a header row (h1 + lede left, "Renews Mar 14" badge right), then from 1024px two cards at 3fr/2fr: Current plan (plan name, "$29 / month", a usage bar drawn as a neutral-200 track with a neutral-900 fill plus visible "8 of 10 seats" text, "Change plan" primary and "Compare plans" link) and Payment method (card glyph tile, "Card ending 4242", expiry meta, billing email, "Update" secondary). Below them an Invoices table (Date, Description, Amount right-aligned, Status badge, Download link naming its invoice) with four rows in a focusable horizontal-scroll region. Below 1024px the cards stack; below 640px the table scrolls sideways.
@@ -1271,12 +1271,12 @@ Authors may adjust details while building, but keep each slug, name, kind and st
 #### empty-state-permission
 - name: Empty state — Access required
 - kind: element
-- tags: centered, icons, compact
+- tags: stacked, icons, compact
 - structure: A bordered card, 288px wide (384px from 640px), p-6, centred: a 40px lock icon tile, a short heading ("You need access", at most four words), a two-line explanation, a left-aligned owner box (bordered, p-3: avatar placeholder + "Alex Rivera" + "Owner · name@example.com"), a full-width "Request access" primary and a "Switch account" meta text link. Same layout at every width; about 340px tall.
 - from: new
 
 #### empty-state-skeleton-preview
-- name: Empty state — Ghost rows preview
+- name: Empty state — Preview rows above action
 - kind: element
 - tags: stacked, list, compact
 - structure: A bordered panel, 288px wide (384px from 640px), p-6: an `aria-hidden` preview of three ghost rows (each a 32px neutral-100 square plus two neutral-100 bars at 60% and 40% width; the third row is a dashed neutral-300 slot with a plus glyph) showing where content will appear, then a heading, a two-line description and a full-width primary action. Same layout at every width; about 340px tall.
