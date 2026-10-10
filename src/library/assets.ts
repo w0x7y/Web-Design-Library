@@ -112,4 +112,6 @@ export const IMAGES = {
   // Added for retheme-e
   cobblerLeatherShoes: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=800&q=80',
   weddingEveningBouquet: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+  // Added for retheme-g
+  spiceMerchantTable: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
 } as const

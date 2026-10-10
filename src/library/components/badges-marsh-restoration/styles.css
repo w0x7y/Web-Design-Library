@@ -1,0 +1,88 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-marsh-restoration, .badges-marsh-restoration *, .badges-marsh-restoration *::before, .badges-marsh-restoration *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-marsh-restoration { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-marsh-restoration :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-marsh-restoration a { color: inherit; text-decoration: inherit; }
+.badges-marsh-restoration :is(b, strong) { font-weight: bolder; }
+.badges-marsh-restoration :is(ol, ul, menu) { list-style: none; }
+.badges-marsh-restoration :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-marsh-restoration :is(img, video) { max-width: 100%; height: auto; }
+.badges-marsh-restoration :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-marsh-restoration ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-marsh-restoration table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-marsh-restoration summary { display: list-item; }
+
+
+/* Component */
+.badges-marsh-restoration {
+  width: 18rem;
+  border: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
+  background-color: oklch(98.5% 0.001 106.423); /* stone-50 */
+  padding: 1.5rem;
+  color: oklch(14.7% 0.004 49.25); /* stone-950 */
+}
+
+.badges-marsh-restoration .badges-marsh-restoration__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  letter-spacing: 0.025em;
+}
+
+/* Restored marsh area */
+.badges-marsh-restoration .badges-marsh-restoration__area {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-size: 2.25rem;
+  line-height: calc(2.5 / 2.25);
+}
+
+.badges-marsh-restoration .badges-marsh-restoration__arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+}
+
+/* Habitat status */
+.badges-marsh-restoration .badges-marsh-restoration__labels {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badges-marsh-restoration .badges-marsh-restoration__restored {
+  background-color: oklch(95% 0.052 163.051); /* emerald-100 */
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 500;
+  color: oklch(26.2% 0.051 172.552); /* emerald-950 */
+}
+
+.badges-marsh-restoration .badges-marsh-restoration__label {
+  border: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.badges-marsh-restoration .badges-marsh-restoration__survey {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid oklch(86.9% 0.005 56.366); /* stone-300 */
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.4% 0.011 73.639); /* stone-600 */
+}
+
+/* Wider preview */
+@media (width >= 40rem) {
+  .badges-marsh-restoration {
+    width: 22rem;
+  }
+}
