@@ -192,6 +192,8 @@ npx playwright test e2e/parity.spec.ts e2e/focus.spec.ts e2e/layout.spec.ts -g <
 ```
 
 > **Stale server.** Outside CI, Playwright reuses any server already on port 4317 and does not rebuild. The React side of each test comes from that build, so after you change `Component.tsx`, stop any running `npm run serve:build` (or an earlier test server) before you rerun. Otherwise you are testing old code.
+>
+> **Several checkouts at once.** Set `PATTERNBOOK_PORT` to give each checkout its own port, e.g. `PATTERNBOOK_PORT=4402 npx playwright test …`. Both the test server and `npm run serve:build` read it.
 
 What each spec requires:
 
