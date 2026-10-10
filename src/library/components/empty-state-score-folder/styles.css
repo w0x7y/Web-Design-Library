@@ -33,7 +33,7 @@
 }
 
 .empty-state-score-folder .empty-state-score-folder__label {
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.625rem;
   letter-spacing: 0.1em;
 }
@@ -52,7 +52,7 @@
 
 .empty-state-score-folder .empty-state-score-folder__copy {
   margin-top: 0.75rem;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.75rem;
   line-height: 1.25rem;
   color: oklch(41% 0.159 10.272); /* rose-900 */
@@ -69,7 +69,7 @@
 }
 
 .empty-state-score-folder .empty-state-score-folder__cta {
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.75rem;
   line-height: calc(1 / 0.75);
   font-weight: 600;

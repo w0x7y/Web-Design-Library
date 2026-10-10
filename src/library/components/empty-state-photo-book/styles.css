@@ -33,7 +33,7 @@
 }
 
 .empty-state-photo-book .empty-state-photo-book__label {
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.5625rem;
   line-height: 1rem;
   color: oklch(44.4% 0.011 73.639); /* stone-600 */
@@ -96,7 +96,7 @@
 
 .empty-state-photo-book .empty-state-photo-book__copy {
   margin-top: 0.75rem;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.75rem;
   line-height: 1.25rem;
   color: oklch(44.4% 0.011 73.639); /* stone-600 */
@@ -109,7 +109,7 @@
   align-items: center;
   border: 1px solid oklch(26.8% 0.007 34.298); /* stone-800 */
   padding-inline: 0.75rem;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.75rem;
   line-height: calc(1 / 0.75);
   font-weight: 500;
