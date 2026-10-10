@@ -1,0 +1,109 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-translation-proof, .stat-card-translation-proof *, .stat-card-translation-proof *::before, .stat-card-translation-proof *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-translation-proof { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-translation-proof :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-translation-proof a { color: inherit; text-decoration: inherit; }
+.stat-card-translation-proof :is(b, strong) { font-weight: bolder; }
+.stat-card-translation-proof :is(ol, ul, menu) { list-style: none; }
+.stat-card-translation-proof :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-translation-proof :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-translation-proof :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-translation-proof ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-translation-proof table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-translation-proof summary { display: list-item; }
+
+/* Component */
+.stat-card-translation-proof {
+  width: 18rem;
+  padding: 1.5rem;
+  background-color: oklch(27.1% 0.105 12.094); /* rose-950 */
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+  color: oklch(94.1% 0.03 12.58); /* rose-100 */
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__folio {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: oklch(90.1% 0.076 70.697); /* orange-200 */
+}
+
+/* Proof approval, marked with a folio rule */
+
+.stat-card-translation-proof .stat-card-translation-proof__result {
+  margin-top: 1.5rem;
+  border-left: 2px solid oklch(81% 0.117 11.638); /* rose-300 */
+  padding-left: 1.25rem;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__value {
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__percent {
+  font-size: 36px;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__heading {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__caption {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: oklch(89.2% 0.058 10.001); /* rose-200 */
+}
+
+/* Native language-pair disclosure */
+
+.stat-card-translation-proof .stat-card-translation-proof__details {
+  margin-top: 1.25rem;
+  border-top: 1px solid oklch(81% 0.117 11.638); /* rose-300 */
+  padding-top: 0.75rem;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__summary:focus-visible {
+  outline: 2px solid oklch(90.1% 0.076 70.697); /* orange-200 */
+  outline-offset: 2px;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__pairs {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__pair {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.stat-card-translation-proof .stat-card-translation-proof__pair + .stat-card-translation-proof__pair {
+  margin-top: 0.5rem;
+}
+
+@media (hover: hover) {
+  .stat-card-translation-proof .stat-card-translation-proof__summary:hover {
+    color: oklch(90.1% 0.076 70.697); /* orange-200 */
+  }
+}
+
+@media (width >= 40rem) {
+  .stat-card-translation-proof {
+    width: 22rem;
+  }
+}
