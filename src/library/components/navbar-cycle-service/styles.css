@@ -1,0 +1,129 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.navbar-cycle-service, .navbar-cycle-service *, .navbar-cycle-service *::before, .navbar-cycle-service *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.navbar-cycle-service { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.navbar-cycle-service :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.navbar-cycle-service a { color: inherit; text-decoration: inherit; }
+.navbar-cycle-service :is(b, strong) { font-weight: bolder; }
+.navbar-cycle-service :is(ol, ul, menu) { list-style: none; }
+.navbar-cycle-service :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.navbar-cycle-service :is(img, video) { max-width: 100%; height: auto; }
+.navbar-cycle-service :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.navbar-cycle-service ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.navbar-cycle-service table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.navbar-cycle-service summary { display: list-item; }
+
+/* Component */
+.navbar-cycle-service {
+  border-block: 2px solid #000; /* black */
+  background-color: oklch(97.3% 0.071 103.193); /* yellow-100 */
+  font-family: "Space Mono", ui-monospace, monospace;
+  color: #000; /* black */
+}
+
+.navbar-cycle-service .navbar-cycle-service__inner {
+  margin-inline: auto;
+  display: grid;
+  max-width: 80rem;
+  border-inline: 2px solid #000; /* black */
+}
+
+.navbar-cycle-service .navbar-cycle-service__identity {
+  border-bottom: 2px solid #000; /* black */
+  padding: 1.5rem;
+}
+
+.navbar-cycle-service .navbar-cycle-service__brand {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.navbar-cycle-service .navbar-cycle-service__emblem {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.navbar-cycle-service .navbar-cycle-service__accent {
+  fill: oklch(64.6% 0.222 41.116); /* orange-600 */
+}
+
+.navbar-cycle-service .navbar-cycle-service__location {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.navbar-cycle-service .navbar-cycle-service__navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: center;
+  gap: 1rem;
+  border-bottom: 2px solid #000; /* black */
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.navbar-cycle-service .navbar-cycle-service__link {
+  text-underline-offset: 4px;
+}
+
+.navbar-cycle-service .navbar-cycle-service__booking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000; /* black */
+  padding: 1.5rem;
+  color: oklch(97.3% 0.071 103.193); /* yellow-100 */
+}
+
+.navbar-cycle-service .navbar-cycle-service__capacity {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.navbar-cycle-service .navbar-cycle-service__action {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 700;
+}
+
+/* Keyboard focus remains visible in forced-colors mode. */
+.navbar-cycle-service :is(a, button, input, select, summary):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Pointer states */
+@media (hover: hover) {
+  .navbar-cycle-service .navbar-cycle-service__brand:hover {
+    text-decoration-line: underline;
+  }
+  .navbar-cycle-service .navbar-cycle-service__link:hover {
+    text-decoration-line: underline;
+  }
+  .navbar-cycle-service .navbar-cycle-service__booking:hover {
+    background-color: oklch(26.9% 0 none); /* neutral-800 */
+  }
+}
+
+@media (width >= 48rem) {
+  .navbar-cycle-service .navbar-cycle-service__inner {
+    grid-template-columns: 1fr 1fr auto;
+  }
+  .navbar-cycle-service .navbar-cycle-service__identity {
+    border-right: 2px solid #000; /* black */
+    border-bottom-width: 0;
+  }
+  .navbar-cycle-service .navbar-cycle-service__navigation {
+    border-right: 2px solid #000; /* black */
+    border-bottom-width: 0;
+  }
+}
+
