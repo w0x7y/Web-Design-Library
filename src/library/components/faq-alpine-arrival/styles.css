@@ -1,0 +1,163 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.faq-alpine-arrival, .faq-alpine-arrival *, .faq-alpine-arrival *::before, .faq-alpine-arrival *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.faq-alpine-arrival { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.faq-alpine-arrival :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.faq-alpine-arrival a { color: inherit; text-decoration: inherit; }
+.faq-alpine-arrival :is(b, strong) { font-weight: bolder; }
+.faq-alpine-arrival :is(ol, ul, menu) { list-style: none; }
+.faq-alpine-arrival :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.faq-alpine-arrival :is(img, video) { max-width: 100%; height: auto; }
+.faq-alpine-arrival :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.faq-alpine-arrival ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.faq-alpine-arrival table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.faq-alpine-arrival summary { display: list-item; }
+
+/* Component */
+.faq-alpine-arrival {
+  position: relative;
+  isolation: isolate;
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout and introduction */
+.faq-alpine-arrival .faq-alpine-arrival__inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 4rem 1.5rem;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__eyebrow {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__title {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__lede {
+  margin-top: 1.25rem;
+  max-width: 38rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Question layout */
+.faq-alpine-arrival .faq-alpine-arrival__questions {
+  display: grid;
+  gap: 0;
+  border-radius: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  background-color: oklch(12.9% 0.042 264.695 / 0.8); /* slate-950 / 80% */
+  padding: 0.5rem 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__disclosure {
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+}
+
+/* Native disclosures and keyboard focus */
+.faq-alpine-arrival .faq-alpine-arrival__summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__summary:focus-visible {
+  outline: 2px solid #fff; /* white */
+  outline-offset: 4px;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__indicator {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__disclosure[open] .faq-alpine-arrival__indicator {
+  rotate: 45deg;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__answer {
+  max-width: 65ch;
+  padding-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: oklch(92.9% 0.013 255.508); /* slate-200 */
+}
+
+/* Photography */
+.faq-alpine-arrival .faq-alpine-arrival__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__arrival {
+  display: grid;
+  align-items: start;
+  gap: 2.5rem;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__travel-note {
+  margin-top: 2rem;
+  max-width: 30rem;
+  border-top: 1px solid rgb(255 255 255 / 0.4);
+  padding-top: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.faq-alpine-arrival .faq-alpine-arrival__disclosure:last-child {
+  border-bottom-width: 0;
+}
+
+@media (width >= 40rem) {
+  .faq-alpine-arrival .faq-alpine-arrival__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .faq-alpine-arrival .faq-alpine-arrival__inner {
+    padding: 6rem 2.5rem;
+  }
+
+  .faq-alpine-arrival .faq-alpine-arrival__arrival {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+@media (hover: hover) {
+  .faq-alpine-arrival .faq-alpine-arrival__summary:hover {
+    text-decoration-line: underline;
+  }
+}
