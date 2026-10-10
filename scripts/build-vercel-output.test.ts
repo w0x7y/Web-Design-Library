@@ -1,7 +1,19 @@
 import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { agentFileServing, buildAgentFiles, CROSS_ORIGIN_ROUTE } from '../src/library/agent-files'
+import { FORMATS } from '../src/library/types'
+import { browsePath, catalogPath, componentFormatMarkdownPath, componentMarkdownPath, componentPath, llmsPath, robotsPath, sitemapPath } from '../src/library/urls'
 import { buildVercelConfig, contentSecurityPolicy, writeVercelOutput, type VercelOutputConfig } from './build-vercel-output'
+
+const agentFiles = buildAgentFiles([{
+  meta: {
+    slug: 'demo', name: 'Demo hero', category: 'hero', tags: ['minimal'], description: 'A centered hero.',
+    preview: { kind: 'section' }, fonts: [], addedAt: '2026-10-08',
+    brief: { layout: 'Centered column.', style: 'Neutral palette.', states: 'Visible focus.', responsive: 'Stacks below 640px.' },
+  },
+  sources: { tsx: 'export default function Demo() {}\n', html: '<section>Demo</section>', css: 'section { padding: 2rem; }' },
+}])
 
 test('CSP hashes actual inline script text, including modules and normalized newlines', () => {
   const policy = contentSecurityPolicy('<script>alert(1)</script><script type="module">console.log("module")</script><script> first\r\nsecond </script><script src="/external.js">ignored</script><script>alert(1)</script>')
@@ -27,8 +39,7 @@ beforeEach(async () => {
   await writeFile(join(client, 'c/demo/index.html'), '<script>console.log("module")</script>Detail')
   await writeFile(join(client, 'preview/demo/index.html'), '<p>Preview</p>')
   await writeFile(join(client, '__spa-fallback.html'), '<p>Fallback</p>')
-  await writeFile(join(client, 'c/demo.md'), '# Demo')
-  await writeFile(join(client, 'llms.txt'), '# Library')
+  await Promise.all(agentFiles.map(({ path, content }) => writeFile(join(client, path), content)))
 })
 afterEach(async () => { await rm(root, { recursive: true, force: true }) })
 
@@ -51,30 +62,74 @@ test('each page gets its own policy on the public URL, trailing slash, and expli
 })
 
 test('static assets and agent files resolve before the protected SPA fallback', async () => {
-  await writeFile(join(client, 'sitemap.xml'), '<urlset/>')
-  await writeFile(join(client, 'robots.txt'), 'User-agent: *\nAllow: /')
   const config = await buildVercelConfig(client)
-  expect(config.overrides['c/demo.md']).toEqual({ contentType: 'text/markdown; charset=utf-8' })
-  expect(config.overrides['llms.txt']).toEqual({ contentType: 'text/plain; charset=utf-8' })
-  expect(config.overrides['robots.txt']).toEqual({ contentType: 'text/plain; charset=utf-8' })
-  expect(config.overrides['sitemap.xml']).toEqual({ contentType: 'application/xml; charset=utf-8' })
-  expect(config.routes.at(-2)).toEqual({ handle: 'filesystem' })
+  expect(Object.keys(config.overrides)).toHaveLength(agentFiles.length)
+  for (const { path } of agentFiles) expect(config.overrides[path], path).toEqual({ contentType: agentFileServing(path)?.contentType })
+  expect(config.routes.at(-3)).toEqual({ handle: 'filesystem' })
   const fallback = pageRoute(config, '/unknown/path')
   expect(fallback.dest).toBe('/__spa-fallback.html')
   expect(fallback.headers['Content-Security-Policy']).toBe(contentSecurityPolicy('<p>Fallback</p>'))
 })
 
+test('missing agent files return 404 after static resolution and before the SPA fallback', async () => {
+  const config = await buildVercelConfig(client)
+  const filesystem = config.routes.findIndex((route) => 'handle' in route)
+  const missing = config.routes[filesystem + 1]
+  expect(missing).toEqual({ src: CROSS_ORIGIN_ROUTE, status: 404 })
+  if (!('src' in missing)) throw new Error('Missing agent-file 404 route')
+  const pattern = new RegExp(missing.src, 'i')
+  for (const path of ['/catalog.json', '/llms.txt', '/c/does-not-exist.md', '/c/does-not-exist.react.md', '/c/does-not-exist.html.md', '/c/DOES-NOT-EXIST.react.md']) {
+    expect(pattern.test(path), path).toBe(true)
+  }
+  for (const path of ['/c/demo', '/browse/hero', '/other.json', '/README.md', '/c/demo.other.md', '/c/nested/demo.md']) {
+    expect(pattern.test(path), path).toBe(false)
+  }
+  expect(config.routes.at(-1)).toHaveProperty('dest', '/__spa-fallback.html')
+})
+
+test('unrelated Markdown files do not get agent-file overrides or CORS', async () => {
+  const paths = ['README.md', 'c/demo.other.md']
+  for (const path of paths) await writeFile(join(client, path), '# Readme')
+  const config = await buildVercelConfig(client)
+  const cors = config.routes.find((route) => 'headers' in route && 'Access-Control-Allow-Origin' in route.headers)
+  if (!cors || !('src' in cors)) throw new Error('Missing CORS header route')
+  for (const path of paths) {
+    expect(config.overrides[path], path).toBeUndefined()
+    expect(new RegExp(cors.src).test('/' + path), path).toBe(false)
+  }
+})
+
+test('agent files allow cross-origin reads through a continuing header route before static resolution', async () => {
+  const config = await buildVercelConfig(client)
+  const corsRoutes = config.routes.filter((route) => 'headers' in route && 'Access-Control-Allow-Origin' in route.headers)
+  expect(corsRoutes).toHaveLength(1)
+  const cors = corsRoutes[0]
+  if (!('src' in cors && 'headers' in cors)) throw new Error('Missing CORS header route')
+  expect(cors.headers).toEqual({ 'Access-Control-Allow-Origin': '*' })
+  expect(cors).toHaveProperty('continue', true)
+  expect(cors).not.toHaveProperty('dest')
+  expect(config.routes.indexOf(cors)).toBeLessThan(config.routes.findIndex((route) => 'handle' in route))
+  const pattern = new RegExp(cors.src)
+  for (const path of [catalogPath(), llmsPath(), componentMarkdownPath('demo'), ...FORMATS.map((format) => componentFormatMarkdownPath('demo', format))]) {
+    expect(pattern.test(path), path).toBe(true)
+  }
+  for (const path of [browsePath(null), componentPath('demo'), `${componentPath('demo')}/index.html`, robotsPath(), sitemapPath(), '/other.md', '/catalogXjson', `${catalogPath()}/extra`, componentMarkdownPath('nested/demo'), `${componentMarkdownPath('demo')}/extra`]) {
+    expect(pattern.test(path), path).toBe(false)
+  }
+})
+
 test('writes deployable static output and replaces stale files on a rebuild', async () => {
   const out = join(root, 'output')
+  const markdownPath = componentMarkdownPath('demo').slice(1)
   const config = await writeVercelOutput(client, out)
   expect(JSON.parse(await readFile(join(out, 'config.json'), 'utf8'))).toEqual(config)
-  expect(await readFile(join(out, 'static/c/demo.md'), 'utf8')).toBe('# Demo')
-  await rm(join(client, 'c/demo.md'))
+  expect(await readFile(join(out, 'static', markdownPath), 'utf8')).toBe(agentFiles.find(({ path }) => path === markdownPath)?.content)
+  await rm(join(client, markdownPath))
   await writeFile(join(client, 'index.html'), '<script>console.log("module")</script>Updated')
   const updated = await writeVercelOutput(client, out)
   expect(pageRoute(updated, '/')).not.toEqual(pageRoute(config, '/'))
   expect(await readFile(join(out, 'static/index.html'), 'utf8')).toContain('Updated')
-  await expect(readFile(join(out, 'static/c/demo.md'))).rejects.toThrow(/ENOENT/)
+  await expect(readFile(join(out, 'static', markdownPath))).rejects.toThrow(/ENOENT/)
 })
 
 test('a missing SPA fallback fails the build rather than emitting an unprotected route', async () => {

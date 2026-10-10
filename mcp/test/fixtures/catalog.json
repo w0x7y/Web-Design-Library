@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "name": "Patternbook",
+  "url": "https://patternbook-w0x7y.vercel.app",
+  "formats": ["react", "html"],
+  "groups": [
+    {"id":"sections","label":"Sections","categories":["hero","pricing"]},
+    {"id":"elements","label":"Elements","categories":["badges"]}
+  ],
+  "categories": [
+    {"id":"hero","label":"Hero","group":"sections","count":1},
+    {"id":"pricing","label":"Pricing tables","group":"sections","count":3},
+    {"id":"badges","label":"Badges","group":"elements","count":1}
+  ],
+  "tags": [{"id":"minimal","count":3},{"id":"light","count":3},{"id":"dark","count":1},{"id":"playful","count":1}],
+  "components": [
+    {"slug":"hero-split-image","name":"Split hero with image","category":"hero","tags":["minimal","light"],"description":"A split introduction for a product launch.","kind":"section","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/hero-split-image","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/hero-split-image.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/hero-split-image.react.md","html":"https://patternbook-w0x7y.vercel.app/c/hero-split-image.html.md"}},
+    {"slug":"pricing-minimal","name":"Minimal pricing","category":"pricing","tags":["minimal","light"],"description":"Compare three plans in a clear pricing table.","kind":"section","fonts":["Inter"],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal.react.md","html":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal.html.md"}},
+    {"slug":"pricing-dark","name":"Dark plan comparison","category":"pricing","tags":["minimal","dark"],"description":"Pricing cards for monthly subscriptions.","kind":"section","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/pricing-dark","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/pricing-dark.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/pricing-dark.react.md","html":"https://patternbook-w0x7y.vercel.app/c/pricing-dark.html.md"}},
+    {"slug":"plan-card","name":"Plan comparison","category":"pricing","tags":["light"],"description":"A standalone pricing card.","kind":"element","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/plan-card","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/plan-card.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/plan-card.react.md","html":"https://patternbook-w0x7y.vercel.app/c/plan-card.html.md"}},
+    {"slug":"badges-playful","name":"Badges — Playful","category":"badges","tags":["playful"],"description":"Colourful status labels for listing cards.","kind":"element","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/badges-playful","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/badges-playful.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/badges-playful.react.md","html":"https://patternbook-w0x7y.vercel.app/c/badges-playful.html.md"}}
+  ]
+}

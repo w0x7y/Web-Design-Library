@@ -1,16 +1,12 @@
 import { mkdir, stat, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { buildAgentMarkdown, buildLlmsTxt } from '../src/library/brief'
+import { buildAgentFiles } from '../src/library/agent-files'
 import { isSlug } from '../src/library/catalog'
-import { buildRobotsTxt, buildSitemap } from '../src/library/discovery'
 import type { LibraryEntry } from '../src/library/types'
-import { componentMarkdownPath } from '../src/library/urls'
 import { loadLibrary } from './load-library'
 
-// Post-build step: writes /c/<slug>.md for every component and /llms.txt into
-// the pre-rendered output so AI agents can fetch components directly. Also writes
-// sitemap.xml and robots.txt for search-engine discovery from the same catalog.
+// Post-build I/O for the files defined by agent-files.ts.
 
 async function assertDirectory(dir: string): Promise<void> {
   const isDirectory = await stat(dir).then(
@@ -25,27 +21,18 @@ async function assertDirectory(dir: string): Promise<void> {
   }
 }
 
-/**
- * Writes the agent files into `outDir` and returns their paths relative to it. Each slug becomes a
- * file name, so an invalid one (which could point outside `outDir`) fails the build before anything is written.
- */
+/** Writes agent files into an existing output directory, rejecting unsafe slugs before writing. */
 export async function writeAgentFiles(outDir: string, entries: LibraryEntry[]): Promise<string[]> {
   for (const { meta } of entries) {
     if (!isSlug(meta.slug)) throw new Error(`"${meta.slug}" is not a valid slug (kebab-case); agent files not written.`)
   }
   await assertDirectory(outDir)
-  await mkdir(join(outDir, 'c'), { recursive: true })
-
-  const files = [
-    ...entries.map(({ meta, sources }) => ({
-      path: componentMarkdownPath(meta.slug).slice(1), // relative to outDir
-      content: buildAgentMarkdown(meta, sources),
-    })),
-    { path: 'llms.txt', content: buildLlmsTxt(entries.map(({ meta }) => meta)) },
-    { path: 'sitemap.xml', content: buildSitemap(entries.map(({ meta }) => meta)) },
-    { path: 'robots.txt', content: buildRobotsTxt() },
-  ]
-  await Promise.all(files.map(({ path, content }) => writeFile(join(outDir, path), content)))
+  const files = buildAgentFiles(entries)
+  await Promise.all(files.map(async ({ path, content }) => {
+    const file = join(outDir, path)
+    await mkdir(dirname(file), { recursive: true })
+    await writeFile(file, content)
+  }))
   return files.map(({ path }) => path)
 }
 

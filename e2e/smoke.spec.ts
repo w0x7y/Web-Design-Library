@@ -1,5 +1,7 @@
 import { expect, test, type Page } from '@playwright/test'
+import type { CatalogJson } from '../src/library/agent-files'
 import { buildBrief, codeForFormat } from '../src/library/brief'
+import { FORMATS } from '../src/library/types'
 import { browseResults } from '../app/lib/filters'
 import { STAGE } from '../app/lib/stage'
 import { STORAGE_KEYS } from '../app/lib/storage'
@@ -7,7 +9,7 @@ import { relatedMetas } from '../app/lib/related'
 import { frameSize, previewBox } from '../app/lib/viewports'
 import { loadEntry, loadMetas } from '../scripts/load-library'
 import type { CategoryId, StyleTag } from '../src/library/taxonomy'
-import { previewPath } from '../src/library/urls'
+import { absoluteUrl, catalogPath, componentFormatMarkdownPath, componentMarkdownPath, llmsPath, previewPath } from '../src/library/urls'
 import { SITE } from '../src/site'
 import { downloadPng, openDetail } from './lib/pages'
 
@@ -101,11 +103,38 @@ test('a preview of an unknown component reports failed', async ({ page }) => {
 })
 
 test('agent files are served', async ({ request }) => {
-  const llms = await (await request.get('/llms.txt')).text()
-  expect(llms).toContain('/c/hero-split-image.md')
-  const md = await (await request.get('/c/hero-split-image.md')).text()
+  const missing = await request.get('/c/does-not-exist.react.md')
+  expect(missing.status()).toBe(404)
+  expect(missing.headers()['access-control-allow-origin']).toBe('*')
+  expect(await missing.text()).not.toContain('<html')
+  const llmsResponse = await request.get(llmsPath())
+  expect(llmsResponse.status()).toBe(200)
+  expect(llmsResponse.headers()['content-type']).toBe('text/plain; charset=utf-8')
+  expect(llmsResponse.headers()['access-control-allow-origin']).toBe('*')
+  const llms = await llmsResponse.text()
+  expect(llms).toContain(componentMarkdownPath('hero-split-image'))
+  const mdResponse = await request.get(componentMarkdownPath('hero-split-image'))
+  expect(mdResponse.status()).toBe(200)
+  expect(mdResponse.headers()['content-type']).toBe('text/markdown; charset=utf-8')
+  expect(mdResponse.headers()['access-control-allow-origin']).toBe('*')
+  const md = await mdResponse.text()
   expect(md).toContain('## Reference code (React + Tailwind v4)')
   expect(md).toContain('## Reference code (HTML + CSS)')
+  const catalogResponse = await request.get(catalogPath())
+  expect(catalogResponse.status()).toBe(200)
+  expect(catalogResponse.headers()['content-type']).toBe('application/json; charset=utf-8')
+  expect(catalogResponse.headers()['access-control-allow-origin']).toBe('*')
+  const catalog: CatalogJson = await catalogResponse.json()
+  expect(catalog.version).toBe(1)
+  expect(catalog.components).toHaveLength(LIBRARY.length)
+  expect(catalog.components.find((component) => component.slug === 'hero-split-image')?.formatUrls.react).toBe(absoluteUrl(componentFormatMarkdownPath('hero-split-image', 'react')))
+  for (const format of FORMATS) {
+    const response = await request.get(componentFormatMarkdownPath('hero-split-image', format))
+    expect(response.status()).toBe(200)
+    expect(response.headers()['content-type']).toBe('text/markdown; charset=utf-8')
+    expect(response.headers()['access-control-allow-origin']).toBe('*')
+    expect(await response.text()).toBe(buildBrief(HERO_ENTRY.meta, HERO, format))
+  }
 })
 
 test('browse lists all components and filters by category', async ({ page }) => {
@@ -576,7 +605,7 @@ test.describe('copy and export', () => {
     await expect(download).toBeFocused()
   })
 
-  for (const format of ['react', 'html'] as const) {
+  for (const format of FORMATS) {
     for (const action of ['Copy code', 'Copy for AI'] as const) {
       test(`refused ${action} (${format}) selects the exact payload for manual copy`, async ({ page }) => {
         await page.addInitScript(() => {

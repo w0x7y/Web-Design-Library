@@ -1,5 +1,5 @@
 import { buildBrief, codeForFormat } from '../../src/library/brief'
-import type { ComponentMeta, ComponentSources, Format } from '../../src/library/types'
+import { FORMATS, type ComponentMeta, type ComponentSources, type Format } from '../../src/library/types'
 import { browserPorts, createComponentActions, type ActionPorts, type ComponentActions, type CopyResult, type ToastOptions } from './component-actions'
 
 const meta: ComponentMeta = {
@@ -77,7 +77,7 @@ afterEach(() => {
 })
 
 describe('copying text', () => {
-  test.each(['react', 'html'] as const)('Copy code (%s) copies the code, says so and records copy_code', async (format) => {
+  test.each(FORMATS)('Copy code (%s) copies the code, says so and records copy_code', async (format) => {
     const { actions, ports, toasts } = setup()
     expect(await actions.copyCode(format)).toEqual({ status: 'copied' })
     expect(ports.copyText.mock.calls).toEqual([[codeForFormat(meta, sources, format)]])
@@ -85,7 +85,7 @@ describe('copying text', () => {
     expect(ports.track.mock.calls).toEqual([[{ name: 'copy_code', slug: 'demo-card', format }]])
   })
 
-  test.each(['react', 'html'] as const)('Copy for AI (%s) copies the brief, says so and records copy_ai', async (format) => {
+  test.each(FORMATS)('Copy for AI (%s) copies the brief, says so and records copy_ai', async (format) => {
     const { actions, ports, toasts } = setup()
     await actions.copyBrief(format)
     expect(ports.copyText.mock.calls).toEqual([[buildBrief(meta, sources, format)]])

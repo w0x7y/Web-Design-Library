@@ -1,5 +1,6 @@
 {
   "include": ["**/*", ".react-router/types/**/*"],
+  "exclude": ["node_modules", "bower_components", "jspm_packages", "build", ".vercel", "mcp"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2023"],
     "types": ["node", "vite/client", "vitest/globals"],

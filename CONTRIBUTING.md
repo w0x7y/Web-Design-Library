@@ -15,7 +15,7 @@ A component is one folder, `src/library/components/<slug>/`, with four files:
 | `index.html` | The same markup as a plain HTML fragment. |
 | `styles.css` | Plain CSS for `index.html`, scoped under `.<slug>`. |
 
-Both versions must look the same. A test screenshots both and compares them pixel by pixel. Nothing else needs registering: the catalog, the pre-render list, `llms.txt` and the sitemap all pick up the folder automatically.
+Both versions must look the same. A test screenshots both and compares them pixel by pixel. Nothing else needs registering: the catalog, the pre-render list, `catalog.json`, `llms.txt`, component Markdown briefs and the sitemap all pick up the folder automatically.
 
 Ground rules:
 
@@ -120,7 +120,7 @@ The field reference is in [`AGENTS.md`](AGENTS.md#metats). Some notes:
 - `slug` must equal the folder name.
 - `addedAt` is the date you add the component, `YYYY-MM-DD`.
 - `description` appears on cards and in `llms.txt`. Say what it contains and where it fits, e.g. "…Use it on listing cards, profiles and filter bars of friendly consumer apps."
-- `brief` is what **Copy for AI** and `/c/<slug>.md` give to an agent. Each of the four fields must be detailed enough to rebuild the component without seeing the code, so give sizes in px, colours as Tailwind names (`indigo-950`, `lime-300`) and breakpoints in px:
+- `brief` is what **Copy for AI** and `/c/<slug>.md` give to an agent. `/c/<slug>.react.md` and `/c/<slug>.html.md` include reference code for only that format. Each of the four fields must be detailed enough to rebuild the component without seeing the code, so give sizes in px, colours as Tailwind names (`indigo-950`, `lime-300`) and breakpoints in px:
   - `layout`: structure, widths, padding, gaps and element sizes.
   - `style`: fonts, colours, radii, borders, shadows and the reason for any accessibility choice.
   - `states`: hover, focus, motion and reduced motion, or a statement that there are none.
@@ -226,7 +226,7 @@ Open `/c/<slug>` and check:
 - **Download** at desktop and mobile: the PNG includes the fonts and images;
 - `/preview/<slug>`, the bare stage page, which shows the component on its own.
 
-`npm run dev` doesn't serve `/c/<slug>.md` or `llms.txt`. To check those, run `npm run build && npm run serve:build` and open `http://localhost:4317/c/<slug>.md`.
+`npm run dev` doesn't serve component Markdown briefs, `/catalog.json` or `/llms.txt`. To check those, run `npm run build && npm run serve:build` and open `http://localhost:4317/catalog.json`, `/llms.txt` or `/c/<slug>.md`, `/c/<slug>.react.md` and `/c/<slug>.html.md`.
 
 ## 9. Open the pull request
 

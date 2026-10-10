@@ -1,10 +1,12 @@
 import { expect, test } from 'vitest'
 import { SITE } from '../site'
-import { absoluteUrl, browsePath, componentMarkdownPath, componentPath, isBrowsePath, isCaptureRequest, prerenderPaths, previewPath } from './urls'
+import { absoluteUrl, browsePath, componentFormatMarkdownPath, componentMarkdownPath, componentPath, isBrowsePath, isCaptureRequest, prerenderPaths, previewPath } from './urls'
 
 test('component, agent-file and preview paths', () => {
   expect(componentPath('hero-split-image')).toBe('/c/hero-split-image')
   expect(componentMarkdownPath('hero-split-image')).toBe('/c/hero-split-image.md')
+  expect(componentFormatMarkdownPath('hero-split-image', 'react')).toBe('/c/hero-split-image.react.md')
+  expect(componentFormatMarkdownPath('hero-split-image', 'html')).toBe('/c/hero-split-image.html.md')
   expect(previewPath('hero-split-image')).toBe('/preview/hero-split-image')
   expect(previewPath('hero-split-image', { capture: true })).toBe('/preview/hero-split-image?capture=1')
 })

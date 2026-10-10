@@ -1,5 +1,5 @@
 import { SITE } from '../site'
-import { buildAgentMarkdown, buildBrief, buildHtmlSnippet, buildLlmsTxt, codeForFormat } from './brief'
+import { buildAgentMarkdown, buildBrief, codeForFormat } from './brief'
 import type { ComponentMeta, ComponentSources } from './types'
 
 const meta: ComponentMeta = {
@@ -27,25 +27,16 @@ const src: ComponentSources = {
 
 const withFonts = (fonts: string[]): ComponentMeta => ({ ...meta, fonts })
 
-const metaA_hero: ComponentMeta = meta
-const metaB_pricing: ComponentMeta = {
-  ...meta,
-  slug: 'plans',
-  name: 'Plans grid',
-  category: 'pricing',
-  description: 'Three pricing tiers.',
-}
-
 test('html snippet = font link, style block, markup', () => {
-  expect(buildHtmlSnippet(withFonts(['Inter:wght@400']), src)).toBe(
+  expect(codeForFormat(withFonts(['Inter:wght@400']), src, 'html')).toBe(
     `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400&amp;display=swap">\n<style>\n${src.css.trim()}\n</style>\n${src.html.trim()}\n`)
-  expect(buildHtmlSnippet(meta, src).startsWith('<style>\n')).toBe(true)
+  expect(codeForFormat(meta, src, 'html').startsWith('<style>\n')).toBe(true)
 })
 test('codeForFormat returns raw tsx for react', () => {
   expect(codeForFormat(meta, src, 'react')).toBe(src.tsx)
 })
 test('codeForFormat returns the html snippet for html', () => {
-  expect(codeForFormat(meta, src, 'html')).toBe(buildHtmlSnippet(meta, src))
+  expect(codeForFormat(meta, src, 'html')).toBe(`<style>\n${src.css.trim()}\n</style>\n${src.html.trim()}\n`)
 })
 test('brief header and sections', () => {
   const b = buildBrief(meta, src, 'react')
@@ -92,47 +83,4 @@ test('agent markdown includes both formats', () => {
   expect(md.startsWith('# Demo hero (Patternbook)\nSource: ' + SITE.url + '/c/demo\n')).toBe(true)
   expect(md.trimEnd().endsWith(
     'Adapt names, tokens and conventions to the existing project; keep the layout, hierarchy and spacing rhythm.')).toBe(true)
-})
-test('llms.txt groups by group and category in taxonomy order, skipping empty ones', () => {
-  const txt = buildLlmsTxt([metaB_pricing, metaA_hero])
-  expect(txt.startsWith('# Patternbook\n\n> Copy-paste UI layouts for developers building with AI agents.\n\n')).toBe(true)
-  expect(txt.indexOf('### Hero')).toBeLessThan(txt.indexOf('### Pricing'))
-  expect(txt).toContain(`- [Demo hero](${SITE.url}/c/demo.md): ` + metaA_hero.description)
-  expect(txt).not.toContain('## Elements')
-})
-test('llms.txt intro, group heading and entry layout', () => {
-  expect(buildLlmsTxt([metaA_hero])).toBe(
-    '# Patternbook\n\n' +
-    '> Copy-paste UI layouts for developers building with AI agents.\n\n' +
-    'Copy-paste UI components as React + Tailwind v4 or HTML + CSS. Each link returns a markdown brief with full source code.\n\n' +
-    '## Sections\n\n' +
-    '### Hero\n\n' +
-    `- [Demo hero](${SITE.url}/c/demo.md): A centered hero with a headline and two buttons.\n`)
-})
-// llms.txt lists components in library order, the order the site shows them in: taxonomy, then name by
-// UTF-16 code unit (capitals before lowercase, so not localeCompare's order), then slug.
-test('llms.txt lists entries in library order', () => {
-  const entry = (slug: string, name: string, category: ComponentMeta['category'] = 'hero'): ComponentMeta =>
-    ({ ...meta, slug, name, category, description: `${name}.` })
-  const txt = buildLlmsTxt([
-    entry('btn', 'Solid button', 'buttons'),
-    entry('lower', 'alpha hero'),
-    entry('zed-2', 'Zed hero'),
-    entry('plans', 'Plans grid', 'pricing'),
-    entry('zed', 'Zed hero'),
-    entry('demo', 'Demo hero'),
-  ])
-  const url = `${SITE.url}/c`
-  expect(txt.slice(txt.indexOf('## '))).toBe(
-    '## Sections\n\n' +
-    '### Hero\n\n' +
-    `- [Demo hero](${url}/demo.md): Demo hero.\n` +
-    `- [Zed hero](${url}/zed.md): Zed hero.\n` +
-    `- [Zed hero](${url}/zed-2.md): Zed hero.\n` +
-    `- [alpha hero](${url}/lower.md): alpha hero.\n\n` +
-    '### Pricing\n\n' +
-    `- [Plans grid](${url}/plans.md): Plans grid.\n\n` +
-    '## Elements\n\n' +
-    '### Buttons\n\n' +
-    `- [Solid button](${url}/btn.md): Solid button.\n`)
 })

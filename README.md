@@ -12,7 +12,7 @@ Every component comes in two forms: React + Tailwind v4, and HTML + plain CSS. O
 - **Download** a PNG at desktop or mobile size, optionally with a transparent background;
 - **Copy image**, the desktop PNG straight to the clipboard (transparent if the Download menu's Transparent background option is on).
 
-AI agents can also fetch components without a browser: `/llms.txt` lists every component, and `/c/<slug>.md` returns the brief for one.
+AI agents can also fetch components without a browser: `/llms.txt` lists every component, and `/catalog.json` provides a versioned metadata index with counts and absolute URLs. `/c/<slug>.md` returns a brief with both formats; `/c/<slug>.react.md` and `/c/<slug>.html.md` return the same brief as Copy for AI for one format.
 
 It is built with React Router 8 in framework mode (`ssr: false`, with the home, category, component and preview pages pre-rendered), Vite and Tailwind CSS v4. The output is plain static files. The build also packages them for Vercel with a Content Security Policy for each page.
 
@@ -31,7 +31,7 @@ The end-to-end tests drive Chromium. Install it once with `npx playwright instal
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Starts the dev server. It serves the pages, but not the agent files (`/c/<slug>.md`, `/llms.txt`), which only `npm run build` produces. |
+| `npm run dev` | Starts the dev server. It serves the pages, but not the agent files (`/c/<slug>.md`, `/c/<slug>.react.md`, `/c/<slug>.html.md`, `/catalog.json`, `/llms.txt`), which only `npm run build` produces. |
 | `npm run build` | Pre-renders the site into `build/client`, writes agent files, and generates `.vercel/output` with static files and deployment headers. |
 | `npm run serve:build` | Serves `build/client` on port 4317 with the generated security headers and SPA fallback. Run `npm run build` first. |
 | `npm run lint` | Runs oxlint. |
@@ -80,11 +80,13 @@ src/library/          The component library
   registry.ts         client-safe metadata and lazy component loaders
   sources.server.ts   raw sources for the code view, kept out of the client bundle
   taxonomy.ts         groups, categories and style tags
-  brief.ts            the AI brief, the HTML snippet and llms.txt builders
+  brief.ts            the AI brief and copyable source
+  agent-files.ts      agent and discovery files, their content types and CORS rules
   rules.ts, reset.ts  authoring-rule checks and the pinned CSS reset
   urls.ts             every path the site serves, and the prerender list
 scripts/              load-library.ts (reads the library from disk), build-agent-files.ts,
                       build-vercel-output.ts (static deployment and per-page CSP), serve-build.ts
+mcp/                  standalone stdio MCP server, with its own dependencies and tests
 e2e/                  Playwright specs
 docs/superpowers/     design spec and implementation plan
 ```
@@ -99,14 +101,20 @@ docs/superpowers/     design spec and implementation plan
 
 ### Agent files
 
-`npm run build` runs `scripts/build-agent-files.ts` after `react-router build`. The script loads every component folder from disk and writes into `build/client`:
+`npm run build` runs `scripts/build-agent-files.ts` after `react-router build`. The script loads every component folder from disk and writes the files defined by `src/library/agent-files.ts` into `build/client`:
 
 - `c/<slug>.md` for each component: the same brief that Copy for AI produces, but with the reference code in both React + Tailwind and HTML + CSS (Copy for AI includes only the format you picked);
+- `c/<slug>.react.md` and `c/<slug>.html.md` for each component: exactly the Copy for AI brief for that format;
+- `catalog.json`: a compact version 1 index with formats, populated groups, categories and tags with counts, and component metadata with absolute page and brief URLs. Fonts use display names; brief text and source code are omitted. Its TypeScript shape is `CatalogJson` in `src/library/agent-files.ts`;
 - `llms.txt`: an index of every component by group and category, linking to each `.md` file with an absolute URL built from `SITE.url`.
 - `sitemap.xml`: canonical URLs for the home, category and component pages, generated from the taxonomy and catalog. Standalone previews, filter queries and agent files are excluded.
 - `robots.txt`: allows crawling and points to the production sitemap. Preview pages remain crawlable so search engines can read their `noindex` directive.
 
-The build logs `Agent and discovery files: <n> written`: one brief per component plus the three discovery files (39 today). The generated Vercel config serves them with the right `Content-Type`.
+The build logs `Agent and discovery files: <n> written`: three briefs per component plus four index and discovery files. The generated Vercel config serves them with the right `Content-Type` and allows cross-origin reads of `catalog.json`, `llms.txt` and component Markdown files.
+
+### MCP server
+
+The standalone [`patternbook-mcp` package](mcp/README.md) lets coding agents search components, list categories and fetch a React or HTML brief over MCP. It reads the agent files over HTTP and picks up new components without a package release. It isn't on npm yet; the package README has working from-source setup for Claude Code, Codex and Cursor, including a local build option until the agent files are deployed.
 
 ### Link previews
 
