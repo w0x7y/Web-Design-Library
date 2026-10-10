@@ -1,0 +1,117 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-antique-auction, .toggles-antique-auction *, .toggles-antique-auction *::before, .toggles-antique-auction *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-antique-auction { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-antique-auction :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-antique-auction a { color: inherit; text-decoration: inherit; }
+.toggles-antique-auction :is(b, strong) { font-weight: bolder; }
+.toggles-antique-auction :is(ol, ul, menu) { list-style: none; }
+.toggles-antique-auction :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-antique-auction :is(img, video) { max-width: 100%; height: auto; }
+.toggles-antique-auction :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-antique-auction ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-antique-auction table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-antique-auction summary { display: list-item; }
+
+/* Component */
+
+.toggles-antique-auction {
+  width: 18rem;
+  border: 1px solid oklch(88.5% 0.062 18.334); /* red-200 */
+  background-color: oklch(98.7% 0.022 95.277); /* amber-50 */
+  padding: 1.25rem;
+  font-family: "Newsreader", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(25.8% 0.092 26.042); /* red-950 */
+}
+
+/* Content */
+
+.toggles-antique-auction .toggles-antique-auction__eyebrow {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: oklch(44.4% 0.177 26.899); /* red-800 */
+  text-transform: uppercase;
+}
+
+.toggles-antique-auction .toggles-antique-auction__lot-number {
+  font-size: 3.5rem;
+  line-height: 1;
+  color: oklch(44.4% 0.177 26.899); /* red-800 */
+}
+
+.toggles-antique-auction .toggles-antique-auction__title {
+  font-size: 1.625rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+.toggles-antique-auction .toggles-antique-auction__lot {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  align-items: end;
+  gap: 1rem;
+}
+
+.toggles-antique-auction .toggles-antique-auction__lot-description {
+  margin-top: 0.75rem;
+  border-bottom: 1px solid oklch(88.5% 0.062 18.334); /* red-200 */
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.toggles-antique-auction .toggles-antique-auction__label {
+  display: block;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.toggles-antique-auction .toggles-antique-auction__hint {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.4% 0.177 26.899); /* red-800 */
+}
+
+.toggles-antique-auction .toggles-antique-auction__checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: oklch(39.6% 0.141 25.723); /* red-900 */
+}
+
+.toggles-antique-auction .toggles-antique-auction__control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.toggles-antique-auction .toggles-antique-auction__bidding {
+  margin-top: 1rem;
+}
+
+.toggles-antique-auction .toggles-antique-auction__footnote {
+  margin-top: 1rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  color: oklch(44.4% 0.177 26.899); /* red-800 */
+}
+
+/* Control states and keyboard focus */
+
+.toggles-antique-auction .toggles-antique-auction__checkbox:focus-visible {
+  outline: 2px solid oklch(39.6% 0.141 25.723); /* red-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive width */
+@media (width >= 40rem) {
+  .toggles-antique-auction { width: 24rem; }
+}
+
+.toggles-antique-auction .toggles-antique-auction__bidding > * + * { margin-top: 1rem; }

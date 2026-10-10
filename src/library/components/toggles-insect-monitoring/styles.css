@@ -1,0 +1,121 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-insect-monitoring, .toggles-insect-monitoring *, .toggles-insect-monitoring *::before, .toggles-insect-monitoring *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-insect-monitoring { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-insect-monitoring :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-insect-monitoring a { color: inherit; text-decoration: inherit; }
+.toggles-insect-monitoring :is(b, strong) { font-weight: bolder; }
+.toggles-insect-monitoring :is(ol, ul, menu) { list-style: none; }
+.toggles-insect-monitoring :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-insect-monitoring :is(img, video) { max-width: 100%; height: auto; }
+.toggles-insect-monitoring :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-insect-monitoring ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-insect-monitoring table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-insect-monitoring summary { display: list-item; }
+
+/* Component */
+
+.toggles-insect-monitoring {
+  width: 18rem;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(86.9% 0.022 252.894); /* slate-300 */
+  background-color: #fff;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(20.8% 0.042 265.755); /* slate-900 */
+}
+
+/* Content */
+
+.toggles-insect-monitoring .toggles-insect-monitoring__trap-id {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: oklch(50% 0.134 242.749); /* sky-700 */
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__trap-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__label {
+  margin-top: 0.75rem;
+  display: block;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 600;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__trap {
+  border-radius: 0.5rem;
+  border: 1px solid oklch(86.9% 0.022 252.894); /* slate-300 */
+  background-color: oklch(98.4% 0.003 247.858); /* slate-50 */
+  padding: 0.75rem;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__eyebrow {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+  text-transform: uppercase;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__title {
+  margin-top: 0.25rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__site {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__header {
+  border-bottom: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  padding: 0.75rem 1rem;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__trap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__policy {
+  border-top: 1px solid oklch(92.9% 0.013 255.508); /* slate-200 */
+  padding: 0.75rem 1rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  color: oklch(44.6% 0.043 257.281); /* slate-600 */
+}
+
+/* Control states and keyboard focus */
+
+.toggles-insect-monitoring .toggles-insect-monitoring__checkbox:focus-visible {
+  outline: 2px solid oklch(44.3% 0.11 240.79); /* sky-800 */
+  outline-offset: 2px;
+}
+
+.toggles-insect-monitoring .toggles-insect-monitoring__trap:has(:checked) {
+  border-color: oklch(50% 0.134 242.749); /* sky-700 */
+  background-color: oklch(97.7% 0.013 236.62); /* sky-50 */
+}
+
+/* Responsive width */
+@media (width >= 40rem) {
+  .toggles-insect-monitoring { width: 20rem; }
+}

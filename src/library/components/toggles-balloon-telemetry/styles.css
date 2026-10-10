@@ -1,0 +1,156 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-balloon-telemetry, .toggles-balloon-telemetry *, .toggles-balloon-telemetry *::before, .toggles-balloon-telemetry *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-balloon-telemetry { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-balloon-telemetry :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-balloon-telemetry a { color: inherit; text-decoration: inherit; }
+.toggles-balloon-telemetry :is(b, strong) { font-weight: bolder; }
+.toggles-balloon-telemetry :is(ol, ul, menu) { list-style: none; }
+.toggles-balloon-telemetry :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-balloon-telemetry :is(img, video) { max-width: 100%; height: auto; }
+.toggles-balloon-telemetry :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-balloon-telemetry ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-balloon-telemetry table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-balloon-telemetry summary { display: list-item; }
+
+/* Component */
+
+.toggles-balloon-telemetry {
+  width: 18rem;
+  border-radius: 1rem;
+  border: 1px solid oklch(52% 0.105 223.128); /* cyan-700 */
+  background-image: linear-gradient(to bottom right in oklab, oklch(12.9% 0.042 264.695) 0%, oklch(38.6% 0.063 188.416) 100%);
+  padding: 1.25rem;
+  font-family: "DM Mono", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(98.4% 0.019 200.873); /* cyan-50 */
+}
+
+/* Content */
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__eyebrow {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: oklch(91.7% 0.08 205.041); /* cyan-200 */
+  text-transform: uppercase;
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__title {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__height {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.025em;
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__unit {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(91.7% 0.08 205.041); /* cyan-200 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__altitude {
+  margin-top: 1.25rem;
+  border-left: 2px solid oklch(86.5% 0.127 207.078); /* cyan-300 */
+  padding-left: 1rem;
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__label {
+  display: block;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__hint {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(91.7% 0.08 205.041); /* cyan-200 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__switch {
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  appearance: none;
+  border: 2px solid oklch(91.7% 0.08 205.041); /* cyan-200 */
+  border-radius: 9999px;
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__capture {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(52% 0.105 223.128); /* cyan-700 */
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  padding: 0.75rem;
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__sensor-label {
+  color: oklch(91.7% 0.08 205.041); /* cyan-200 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__sensors {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+/* Control states and keyboard focus */
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__switch::after {
+  content: '';
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background-color: oklch(91.7% 0.08 205.041); /* cyan-200 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__switch:checked {
+  border-color: oklch(86.5% 0.127 207.078); /* cyan-300 */
+  background-color: oklch(86.5% 0.127 207.078); /* cyan-300 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__switch:checked::after {
+  translate: 1.25rem 0;
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+.toggles-balloon-telemetry .toggles-balloon-telemetry__switch:focus-visible {
+  outline: 2px solid oklch(91.7% 0.08 205.041); /* cyan-200 */
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .toggles-balloon-telemetry .toggles-balloon-telemetry__switch:hover { opacity: 0.8; }
+}
+
+@media (forced-colors: active) {
+  .toggles-balloon-telemetry .toggles-balloon-telemetry__switch { border-color: ButtonText; }
+  .toggles-balloon-telemetry .toggles-balloon-telemetry__switch::after,
+  .toggles-balloon-telemetry .toggles-balloon-telemetry__switch:checked::after { background-color: CanvasText; }
+}
+
+/* Responsive width */
+@media (width >= 40rem) {
+  .toggles-balloon-telemetry { width: 20rem; }
+}

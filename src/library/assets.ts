@@ -71,4 +71,6 @@ export const IMAGES = {
   groomingGoldenRetriever: 'https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=80',
   // Added for new-badges
   butterflyNectar: 'https://images.unsplash.com/photo-1475809913362-28a064062ccd?w=800&q=80',
+  // Added for new-toggles
+  horseWoodland: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80',
 } as const
