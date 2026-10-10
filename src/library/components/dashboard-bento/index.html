@@ -1,0 +1,118 @@
+<section class="dashboard-bento">
+  <div class="dashboard-bento__container">
+    <header class="dashboard-bento__header">
+      <div>
+        <h1 class="dashboard-bento__title">Overview title</h1>
+        <p class="dashboard-bento__date">Summary for the current period</p>
+      </div>
+      <a href="#" class="dashboard-bento__action">New item</a>
+    </header>
+    <div class="dashboard-bento__tiles">
+      <div class="dashboard-bento__tile dashboard-bento__tile--chart">
+        <h2 class="dashboard-bento__tile-title">Activity over time</h2>
+        <p class="dashboard-bento__chart-value">1,284</p>
+        <p class="dashboard-bento__chart-summary">Items in the current period</p>
+        <svg aria-hidden="true" viewBox="0 0 240 128" fill="none" stroke="currentColor" stroke-width="1.5" preserveAspectRatio="none" class="dashboard-bento__chart">
+          <path d="M4 16h232M4 48h232M4 80h232M4 112h232" class="dashboard-bento__gridline"></path>
+          <path d="m4 98 21-15 21 8 21-26 21 13 21-28 21 8 21-22 21 8 21-21 21 9 21-18" class="dashboard-bento__trend"></path>
+        </svg>
+        <p class="dashboard-bento__visually-hidden">Illustrative line trend. Current period total: 1,284 items.</p>
+        <div class="dashboard-bento__axis">
+          <span>Oct 1</span>
+          <span>Oct 10</span>
+        </div>
+      </div>
+      <div class="dashboard-bento__tile dashboard-bento__tile--members">
+        <h2 class="dashboard-bento__tile-title">Active members</h2>
+        <p class="dashboard-bento__kpi-value">248</p>
+        <p class="dashboard-bento__kpi-meta">Up 4.1% this period</p>
+      </div>
+      <div class="dashboard-bento__tile dashboard-bento__tile--tasks">
+        <h2 class="dashboard-bento__tile-title">Open tasks</h2>
+        <p class="dashboard-bento__kpi-value">36</p>
+        <p class="dashboard-bento__kpi-meta">12 ready for review</p>
+      </div>
+      <div class="dashboard-bento__tile dashboard-bento__tile--activity">
+        <h2 class="dashboard-bento__tile-title">Recent activity</h2>
+        <ul role="list" class="dashboard-bento__activity">
+          <li class="dashboard-bento__activity-item">
+            <span aria-hidden="true" class="dashboard-bento__avatar">AR</span>
+            <div class="dashboard-bento__identity">
+              <p class="dashboard-bento__person">Alex Rivera</p>
+              <p class="dashboard-bento__event-meta">Updated item · <time datetime="2026-10-10T09:41:00Z">09:41</time></p>
+            </div>
+          </li>
+          <li class="dashboard-bento__activity-item">
+            <span aria-hidden="true" class="dashboard-bento__avatar">SL</span>
+            <div class="dashboard-bento__identity">
+              <p class="dashboard-bento__person">Sam Lee</p>
+              <p class="dashboard-bento__event-meta">Added entry · <time datetime="2026-10-10T09:26:00Z">09:26</time></p>
+            </div>
+          </li>
+          <li class="dashboard-bento__activity-item">
+            <span aria-hidden="true" class="dashboard-bento__avatar">JM</span>
+            <div class="dashboard-bento__identity">
+              <p class="dashboard-bento__person">Jordan Morgan</p>
+              <p class="dashboard-bento__event-meta">Shared document · <time datetime="2026-10-10T09:12:00Z">09:12</time></p>
+            </div>
+          </li>
+          <li class="dashboard-bento__activity-item">
+            <span aria-hidden="true" class="dashboard-bento__avatar">CK</span>
+            <div class="dashboard-bento__identity">
+              <p class="dashboard-bento__person">Casey Kim</p>
+              <p class="dashboard-bento__event-meta">Completed task · <time datetime="2026-10-10T08:54:00Z">08:54</time></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="dashboard-bento__tile dashboard-bento__tile--progress">
+        <h2 class="dashboard-bento__tile-title">Progress toward goals</h2>
+        <div class="dashboard-bento__goals">
+          <div>
+            <div class="dashboard-bento__goal-label">
+              <span>Primary goal</span>
+              <span class="dashboard-bento__trend">75%</span>
+            </div>
+            <div role="progressbar" aria-label="Primary goal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" class="dashboard-bento__progress-track">
+              <div aria-hidden="true" class="dashboard-bento__progress-fill dashboard-bento__progress-fill--primary"></div>
+            </div>
+          </div>
+          <div>
+            <div class="dashboard-bento__goal-label">
+              <span>Secondary goal</span>
+              <span class="dashboard-bento__trend">50%</span>
+            </div>
+            <div role="progressbar" aria-label="Secondary goal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" class="dashboard-bento__progress-track">
+              <div aria-hidden="true" class="dashboard-bento__progress-fill dashboard-bento__progress-fill--secondary"></div>
+            </div>
+          </div>
+          <div>
+            <div class="dashboard-bento__goal-label">
+              <span>Current milestone</span>
+              <span class="dashboard-bento__trend">60%</span>
+            </div>
+            <div role="progressbar" aria-label="Current milestone" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" class="dashboard-bento__progress-track">
+              <div aria-hidden="true" class="dashboard-bento__progress-fill dashboard-bento__progress-fill--milestone"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-bento__tile dashboard-bento__tile--announcement">
+        <div class="dashboard-bento__announcement">
+          <div role="img" aria-label="Image placeholder: announcement illustration" class="dashboard-bento__media">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-bento__media-icon">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <circle cx="9" cy="9" r="2"></circle>
+              <path d="m21 15-5-5L5 21"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="dashboard-bento__tile-title">Announcement title</h2>
+            <p class="dashboard-bento__announcement-copy">A short line explaining what changed and why it matters.</p>
+            <a href="#" class="dashboard-bento__link">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
