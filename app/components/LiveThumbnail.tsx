@@ -7,7 +7,7 @@ import { PreviewSurface } from './PreviewSurface'
 
 // Sections render on a desktop-width stage scaled down to the frame; elements at their natural size,
 // centred. thumbnailFit has the rules. A short section's frame takes the section's own background
-// (colour, gradient or image) so no white band shows, and a thin one sits above a sketch of a page.
+// colour so no white band shows, and a thin one sits above a sketch of a page.
 
 // A thumbnail starts loading this far outside the viewport (a screen's height either way), so it has
 // rendered by the time it scrolls into view.
@@ -22,15 +22,12 @@ function boxSize(entry: ResizeObserverEntry): Size {
   return { width: entry.contentRect.width, height: entry.contentRect.height }
 }
 
-/** How the element paints its background (colour and any gradient or image), or null when it paints none. */
+/** The pattern's solid background colour, or null when it paints none. */
 function backgroundOf(el: Element | null): CSSProperties | null {
   if (!el) return null
-  const style = getComputedStyle(el)
-  const image = style.backgroundImage
-  const color = style.backgroundColor
+  const color = getComputedStyle(el).backgroundColor
   const clear = color === 'transparent' || /^rgba\(.*,\s*0\)$/.test(color) || /\/\s*0\s*\)$/.test(color)
-  if (image === 'none' && clear) return null
-  return { backgroundColor: clear ? undefined : color, backgroundImage: image === 'none' ? undefined : image, backgroundSize: 'cover', backgroundPosition: 'center' }
+  return clear ? null : { backgroundColor: color }
 }
 
 /** A live, non-interactive render of the library component `meta`, mounted once its code has loaded as it nears the viewport. */
