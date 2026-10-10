@@ -15,7 +15,8 @@ type HtmlNode = DefaultTreeAdapterMap['node']
 type Element = DefaultTreeAdapterMap['element']
 type Condition = { name: string; params: string }
 type CssBlock = { selector: string; conditions: Condition[]; declarations: Declaration[]; order: number }
-type Part = { classes: string; name: string; root: boolean; reused: boolean }
+type Part = { classes: string; name: string; root: boolean; reused: boolean; elements: Element[] }
+type Marker = { name: string; elements: Element[] }
 
 function elements(node: HtmlNode): Element[] {
   return [
@@ -32,14 +33,25 @@ function isMarker(name: string): boolean {
   return /^(group|peer)(\/[^:]+)?$/.test(name)
 }
 
-function markerName(slug: string, marker: string): string {
-  return `${slug}__${marker.replace('/', '--')}`
+function parentElement(element: Element): Element | undefined {
+  return element.parentNode && 'tagName' in element.parentNode ? element.parentNode : undefined
 }
 
-/** Prefer structural roles over content, which authors are likely to replace. */
+function ancestors(element: Element): Element[] {
+  const parent = parentElement(element)
+  return parent ? [parent, ...ancestors(parent)] : []
+}
+
+function wordName(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40)
+}
+
+/** Prefer structural roles over copy, with labels and type hints for otherwise generic parts. */
 function partRole(element: Element, classes: string): string {
   const tag = element.tagName
   const role = attr(element, 'role')
+  const parent = parentElement(element)
+  const parents = ancestors(element)
   if (role === 'img' || ['img', 'video', 'picture', 'figure'].includes(tag)) return 'media'
   if (tag === 'svg') return 'icon'
   if (tag === 'h1') return 'title'
@@ -47,24 +59,35 @@ function partRole(element: Element, classes: string): string {
   if (/^h[3-6]$/.test(tag)) return 'subheading'
   if (['ul', 'ol'].includes(tag) || role === 'list') return 'list'
   if (tag === 'li' || role === 'listitem') return 'item'
+  if (parents.some(p => p.tagName === 'summary') && tag === 'span') {
+    if (attr(element, 'aria-hidden') === 'true') return 'toggle'
+    if (parent && attr(parent, 'aria-hidden') === 'true') return 'marker'
+    return 'question'
+  }
+  if (tag === 'span' && /\bpeer-(?:checked|has-)/.test(classes) && /\brounded-full\b/.test(classes)) return 'track'
   if (tag === 'button' || role === 'button' || (tag === 'a' && /\b(?:inline-flex|h-\d+|bg-|border\b)/.test(classes))) return 'button'
   if (tag === 'a') return 'link'
+  if (tag === 'label' && element.childNodes.some(n => 'tagName' in n && n.tagName === 'input')) return 'option'
   if (['input', 'textarea', 'select', 'label', 'form', 'summary', 'details'].includes(tag)) return tag
   if (tag === 'p') {
-    if (/\btext-(?:lg|xl|2xl)\b/.test(classes)) return 'lede'
+    if (parents.some(p => p.tagName === 'details')) return 'answer'
+    if (/\btext-(?:lg|xl|2xl)\b/.test(classes) || /text-\[(?:1\.(?!0(?:rem|em|px))|[2-9])[\d.]*(?:rem|em)\]/.test(classes)) return 'lede'
     if (/\b(?:uppercase|tracking-widest)\b/.test(classes)) return 'eyebrow'
-    if (/\btext-xs\b/.test(classes)) return 'meta'
+    if (/\btext-xs\b/.test(classes) || /\btext-sm\b/.test(classes) && /\btext-(?:neutral|zinc|slate|gray|stone)-[456]00\b/.test(classes)) return 'meta'
     return 'text'
   }
   if (tag === 'nav' || role === 'navigation') return 'navigation'
   if (['header', 'footer', 'main', 'aside', 'section', 'article'].includes(tag)) return tag
   if (tag === 'figcaption') return 'caption'
+  const label = wordName(attr(element, 'aria-label') || attr(element, 'id'))
+  if (label) return label
   const children = element.childNodes.filter(n => 'tagName' in n)
-  if (children.length && children.every(n => 'tagName' in n && ['button', 'a'].includes(n.tagName))) return 'actions'
+  if (children.length && children.every(n => ['button', 'a'].includes(n.tagName))) return 'actions'
   if (/\bmx-auto\b/.test(classes) && /\bmax-w-/.test(classes)) return 'container'
   if (/\bgrid\b/.test(classes)) return 'grid'
+  if (children.some(n => ['ul', 'ol', 'details'].includes(n.tagName))) return 'list'
+  if (children.some(n => /^h[1-6]$/.test(n.tagName))) return 'intro'
   if (/\brounded/.test(classes) && /\bborder\b/.test(classes)) return 'card'
-  if (attr(element, 'aria-label')) return attr(element, 'aria-label').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || tag
   if (/\bflex-col\b/.test(classes)) return 'stack'
   if (/\bflex\b/.test(classes)) return 'row'
   return tag === 'div' ? 'content' : tag
@@ -77,6 +100,14 @@ function modifier(role: string, classes: string): string | undefined {
     if (/\bbg-(?!white\b|transparent\b)/.test(classes)) return 'primary'
     if (/\b(?:size-|p-\d)/.test(classes) && !/\bpx-/.test(classes)) return 'icon'
   }
+  if (role === 'marker') {
+    if (/\bh-/.test(classes)) return 'horizontal'
+    if (/\bw-/.test(classes)) return 'vertical'
+  }
+  if (role === 'icon') {
+    const size = Number(classes.match(/\bsize-([\d.]+)\b/)?.[1])
+    if (size) return size <= 4 ? 'sm' : size <= 5 ? 'md' : 'lg'
+  }
   if (/\bhidden\b/.test(classes)) return 'hidden'
   return undefined
 }
@@ -86,34 +117,45 @@ function nameParts(fragment: DefaultTreeAdapterMap['documentFragment'], slug: st
   const root = all[0]
   if (!root || fragment.childNodes.filter(n => 'tagName' in n).length !== 1) throw new Error(`${slug}: expected one root element`)
   const parts = new Map<string, Part>()
-  const names = new Set<string>(['group', 'peer'])
-  const markers = new Map<string, string>()
+  const names = new Set<string>()
+  const markers = new Map<string, Marker>()
   const layouts = new Set<Element>()
   for (const element of all) {
     const utilities = attr(element, 'class').split(/\s+/).filter(Boolean)
     if (utilities.some(c => /^(?:flex|grid|inline-flex|inline-grid)$/.test(c))) layouts.add(element)
     const classes = [...new Set(utilities.filter(c => !isMarker(c)))].sort().join(' ')
-    let part = parts.get(classes)
-    if (classes && !part) {
+    const membership = utilities.filter(isMarker).sort()
+    // Identical styles do not imply identical group/peer membership.
+    const key = `${classes}|${membership.join(' ')}`
+    let part = parts.get(key)
+    if ((classes || membership.length) && !part) {
       const role = partRole(element, classes)
-      let name = role
+      const suffix = modifier(role, classes)
+      let name = role === 'marker' && suffix ? `${role}--${suffix}` : role
       if (names.has(name)) {
-        const suffix = modifier(role, classes)
-        if (suffix && !names.has(`${role}--${suffix}`)) name = `${role}--${suffix}`
-        else { let ordinal = 2; while (names.has(`${role}-${ordinal}`)) ordinal++; name = `${role}-${ordinal}` }
+        const parent = parentElement(element)
+        const parentName = parent && attr(parent, 'class').replace(`${slug}__`, '')
+        const candidates = [
+          suffix ? `${role}--${suffix}` : '',
+          wordName(attr(element, 'aria-label') || attr(element, 'id')),
+          /^h[3-6]$/.test(element.tagName) ? `${role}--${element.tagName}` : '',
+          parentName && parentName !== slug ? `${parentName}-${role}` : '',
+        ]
+        name = candidates.find(candidate => candidate && !names.has(candidate)) ?? ''
+        if (!name) { let ordinal = 2; while (names.has(`${role}-${ordinal}`)) ordinal++; name = `${role}-${ordinal}` }
       }
       names.add(name)
-      part = { classes, name: `${slug}__${name}`, root: element === root, reused: false }
-      parts.set(classes, part)
-    } else if (part && element !== root) part.reused = true
-    const output = [element === root ? slug : part?.name ?? '']
-    for (const marker of utilities.filter(isMarker)) {
-      const name = markerName(slug, marker)
-      markers.set(marker, name)
-      output.push(name)
+      part = { classes, name: `${slug}__${name}`, root: element === root, reused: false, elements: [element] }
+      parts.set(key, part)
+    } else if (part && element !== root) { part.reused = true; part.elements.push(element) }
+    for (const marker of membership) {
+      let entry = markers.get(marker)
+      if (!entry) { entry = { name: `${slug}__twin-marker-${markers.size}`, elements: [] }; markers.set(marker, entry) }
+      entry.elements.push(element)
     }
     element.attrs = element.attrs.filter(a => a.name !== 'class')
-    if (output.some(Boolean)) element.attrs.push({ name: 'class', value: output.filter(Boolean).join(' ') })
+    const name = element === root ? slug : part?.name
+    if (name) element.attrs.push({ name: 'class', value: name })
   }
   return { parts: [...parts.values()], markers, layouts }
 }
@@ -185,6 +227,7 @@ function replaceFunctions(value: string, name: string, replace: (body: string) =
 function simplifyCalc(value: string): string {
   return replaceFunctions(value, 'calc', body => {
     body = simplifyCalc(body)
+    if (/^\s*infinity\s*\*\s*1px\s*$/.test(body)) return '9999px'
     const number = '(-?(?:\\d*\\.)?\\d+)([a-z%]*)'
     const simple = body.match(new RegExp(`^\\s*${number}\\s*([+*/-])\\s*${number}\\s*$`))
     if (!simple) return `calc(${body})`
@@ -228,7 +271,8 @@ export function resolveValue(value: string, variables: ReadonlyMap<string, strin
     const [name, ...fallback] = splitTop(body)
     const raw = variables.get(name)
     if (raw !== undefined && raw !== 'initial' && !chain.includes(name)) {
-      if (!name.startsWith('--tw-')) tokens.add(name.replace(/^--(?:color-)?/, ''))
+      if (name.startsWith('--color-')) tokens.add(name.slice(8))
+      else if (/^--(?:text|radius|container|leading|tracking|ease|shadow|inset-shadow|blur|drop-shadow|perspective|aspect|animate)-/.test(name)) tokens.add(name.slice(2).replace(/--line-height$/, ''))
       else if (annotations.has(name)) tokens.add(annotations.get(name) ?? '')
       return substitute(raw, [...chain, name])
     }
@@ -317,7 +361,7 @@ function intersectContexts(source: CssBlock[], base: string): CssBlock[] {
     for (const right of [...targets.values()]) {
       const a = predicates(left.selector, base); const b = predicates(right.selector, base)
       if (!a || !b || (!b.length && !right.conditions.length)) continue
-      const states = [...new Set([...a, ...b])]
+      const states = [...new Set([...a, ...b])].sort()
       const conditions = [...left.conditions]
       for (const c of right.conditions) if (!conditions.some(t => t.name === c.name && t.params === c.params)) conditions.push(c)
       const widths = conditions.filter(c => /^\(width >= [\d.]+rem\)$/.test(c.params))
@@ -341,7 +385,7 @@ function literalBlocks(blocks: CssBlock[], defaults: Map<string, string>, baseSe
     else contexts.set(key, { ...block, declarations: [...block.declarations] })
   }
   const source = [...contexts.values()]
-  return intersectContexts(source, baseSelector).flatMap(target => {
+  const literals = intersectContexts(source, baseSelector).flatMap(target => {
     // Descendant and pseudo-element rules have their own non-inheriting --tw defaults.
     const targetStates = predicates(target.selector, baseSelector)
     const sameElement = targetStates !== undefined
@@ -370,6 +414,8 @@ function literalBlocks(blocks: CssBlock[], defaults: Map<string, string>, baseSe
         if (!ownNative.has(prop) && baseline && resolveValue(baseline.value, baseVars).value === resolved.value) continue
       }
       let value = resolved.value
+      if (prop === 'box-shadow') value = splitTop(value).filter(layer => !/^(?:inset )?0 0 #0000$/.test(layer)).join(', ') || 'none'
+      if (['filter', 'backdrop-filter', 'transform'].includes(prop) && !value) value = 'none'
       if (prop === 'transition-property') value = [...new Set(splitTop(value).map(p => p.startsWith('--tw-') ? 'background-image' : p))].join(', ')
       const literal = declaration.clone({ value })
       // Store token comments beside their declarations rather than in a separate global token table.
@@ -378,6 +424,93 @@ function literalBlocks(blocks: CssBlock[], defaults: Map<string, string>, baseSe
     }
     return declarations.length ? [{ ...target, declarations }] : []
   })
+  const seen = new Set<string>()
+  const composed = new Set(literals.flatMap(block => block.declarations.filter(d => d.value !== 'none').map(d => d.prop)))
+  return literals.sort((a, b) => a.order - b.order).flatMap(block => {
+    block.declarations = block.declarations.filter(d => {
+      if (!['box-shadow', 'filter', 'backdrop-filter', 'transform'].includes(d.prop)) return true
+      if (d.value === 'none' && !seen.has(d.prop) && (!composed.has(d.prop) || block.selector === baseSelector && !block.conditions.length)) return false
+      if (d.value !== 'none') seen.add(d.prop)
+      return true
+    })
+    return block.declarations.length ? [block] : []
+  })
+}
+
+/** Bind marker variants to the ancestors/siblings that actually carry that marker. */
+function markerOwners(element: Element, marker: string, entry: Marker): Element[] {
+  const family = marker.split('/')[0]
+  const parent = parentElement(element)
+  const candidates = family === 'group' ? ancestors(element) : parent?.childNodes.slice(0, parent.childNodes.indexOf(element)).filter(n => 'tagName' in n) ?? []
+  return entry.elements.filter(owner => candidates.includes(owner))
+}
+
+function readableSelector(block: CssBlock, siblings: CssBlock[], base: string, part: Part, markers: Map<string, Marker>): string {
+  const bindings = [...markers].map(([marker, entry]) => ({
+    marker, entry, owners: [...new Set(part.elements.flatMap(element => markerOwners(element, marker, entry)))],
+  }))
+  const conflicting = siblings.some(other => other !== block && other.selector !== base && other.selector !== block.selector &&
+    other.declarations.some(d => block.declarations.some(b => b.prop === d.prop && (b.value !== d.value || b.important !== d.important))))
+  const namedHas = (selector: string, owners: Element[]) => conflicting ? selector : replaceFunctions(selector, 'has', body => {
+    if (![':checked', '*:checked', 'input:checked'].includes(body)) return `has(${body})`
+    const controls = owners.flatMap(elements).filter(element => element.tagName === 'input' || body !== 'input:checked' && element.tagName === 'option')
+    if (!controls.length || controls.some(element => !attr(element, 'class'))) return `has(${body})`
+    return `has(${[...new Set(controls.map(element => `.${attr(element, 'class')}:checked`))].join(', ')})`
+  })
+  const hasExtendedOpen = (element: Element) => element.tagName === 'dialog' || element.attrs.some(a => a.name === 'popover')
+  // Keep literal nesting when markers have multiple possible owners or competing variant values.
+  const literal = (selector: string) => {
+    for (const { entry, owners } of bindings) {
+      const names = [...new Set(owners.map(owner => `.${attr(owner, 'class')}`))]
+      selector = selector.replace(new RegExp(`\\.${entry.name}(?![\\w-])`, 'g'), names.join(', ') || ':not(*)')
+    }
+    const referenced = bindings.filter(({ entry }) => new RegExp(`\\.${entry.name}(?![\\w-])`).test(block.selector))
+    if (![...part.elements, ...referenced.flatMap(b => b.owners)].some(hasExtendedOpen)) selector = selector.replaceAll(':is([open], :popover-open, :open)', '[open]')
+    return block.selector.includes('__twin-marker-') ? selector : namedHas(selector, part.elements)
+  }
+  const states = predicates(block.selector, base)
+  if (!states) return literal(block.selector)
+  const relations: { owner: Element; state: string; peer: boolean }[] = []
+  const self: string[] = []
+  for (const state of states) {
+    const match = state.match(/^:is\(:where\(\.([\w-]+)\)(.*?) (\*|~ \*)\)$/)
+    if (!match) { self.push(state); continue }
+    const binding = bindings.find(b => b.entry.name === match[1])
+    if (!binding || !binding.owners.length || binding.owners.some(hasExtendedOpen)) return literal(block.selector)
+    const owners = part.elements.map(element => markerOwners(element, binding.marker, binding.entry))
+    if (owners.some(list => list.length !== 1) || new Set(binding.owners.map(owner => attr(owner, 'class'))).size !== 1) return literal(block.selector)
+    relations.push({ owner: owners[0][0], state: match[2].replaceAll(':is([open], :popover-open, :open)', '[open]'), peer: match[3] === '~ *' })
+  }
+  if (!relations.length) return literal(block.selector)
+  if (conflicting) return literal(block.selector)
+  const groups = relations.filter(r => !r.peer)
+  const peers = relations.filter(r => r.peer)
+  if (new Set(peers.map(r => r.owner)).size > 1) return literal(block.selector)
+  const targetAncestors = ancestors(part.elements[0])
+  const owners = [...new Set(groups.map(r => r.owner))].sort((a, b) => targetAncestors.indexOf(b) - targetAncestors.indexOf(a))
+  // All instances sharing a part must have the same ancestry order.
+  for (const element of part.elements) {
+    const path = ancestors(element).map(owner => attr(owner, 'class')).reverse()
+    const indices = owners.map(owner => path.indexOf(attr(owner, 'class')))
+    if (indices.some((index, i) => index < 0 || i > 0 && index <= indices[i - 1])) return literal(block.selector)
+  }
+  const ownerSelector = (owner: Element, entries: typeof relations) => `.${attr(owner, 'class')}${[...new Set(entries.filter(r => r.owner === owner).map(r => namedHas(r.state, [owner])))].sort().join('')}`
+  const scope = base.split(' ')[0]
+  const path = owners.map(owner => ownerSelector(owner, groups))
+  if (!owners.some(owner => `.${attr(owner, 'class')}` === scope)) path.unshift(scope)
+  if (peers.length) path.push(`${ownerSelector(peers[0].owner, peers)} ~`)
+  path.push(`${base.slice(scope.length).trim()}${self.join('')}`)
+  return path.join(' ')
+}
+
+function deduplicateBlocks(blocks: CssBlock[]): CssBlock[] {
+  const seen = new Set<string>()
+  return [...blocks].sort((a, b) => a.order - b.order).reverse().filter(block => {
+    const key = JSON.stringify([block.selector, block.conditions, block.declarations.map(d => [d.prop, d.value, d.important])])
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  }).reverse()
 }
 
 function formatBlocks(blocks: CssBlock[]): string {
@@ -420,7 +553,7 @@ export async function generateTwin({ slug, markup, theme }: { slug: string; mark
   const { parts, markers, layouts } = nameParts(fragment, slug)
   const allUtilities = [...new Set(parts.flatMap(p => p.classes.split(' ')))].join(' ')
   const orderSelector = `.${slug}__twin-order`
-  const compiler = await compile(`${theme}\n${allUtilities ? `${orderSelector} { @apply ${allUtilities}; }` : ''}\n${parts.map(part => `${part.root ? `.${slug}__twin-root` : `.${slug} .${part.name}`} { @apply ${part.classes}; }`).join('\n')}`)
+  const compiler = await compile(`${theme}\n${allUtilities ? `${orderSelector} { @apply ${allUtilities}; }` : ''}\n${parts.filter(part => part.classes).map(part => `${part.root ? `.${slug}__twin-root` : `.${slug} .${part.name}`} { @apply ${part.classes}; }`).join('\n')}`)
   const compiled = postcss.parse(compiler.build([]))
   const defaults = new Map<string, string>()
   postcss.parse(theme).walkDecls(d => { if (d.prop.startsWith('--')) defaults.set(d.prop, d.value) })
@@ -446,15 +579,18 @@ export async function generateTwin({ slug, markup, theme }: { slug: string; mark
     let flat = flattened.filter(block => owns.test(block.selector)).map(block => ({ ...block, selector: block.selector.replaceAll(`.${slug}__twin-root`, `.${slug}`) }))
     flat = flat.map(block => ({ ...block, order: block.selector === base && !block.conditions.length ? -1 : ordering.get(contextKey(block, base)) ?? 0, selector: block.selector.replace(/\.((?:group|peer)(?:\\\/[^:) ]+)?)\b/g, (original, escaped: string) => {
       const marker = escaped.replace(/\\(.)/g, '$1')
-      return markers.has(marker) ? `.${markers.get(marker)}` : original
+      return markers.has(marker) ? `.${markers.get(marker)?.name}` : original
     }) }))
-    for (const block of literalBlocks(flat, defaults, base)) {
+    const literals = literalBlocks(flat, defaults, base)
+    const selectors = literals.map(block => readableSelector(block, literals, base, part, markers))
+    for (const [index, block] of literals.entries()) {
+      block.selector = selectors[index]
       block.selector = splitTop(block.selector).map(s => s.startsWith(`.${slug}`) ? s : `.${slug} ${s}`).join(', ')
       if (part.root && part.reused) block.selector = splitTop(block.selector).flatMap(selector => [selector, selector.replaceAll(`.${slug}`, `.${slug} .${part.name}`)]).join(', ')
       blocks.push(block)
     }
   }
-  let output = formatBlocks(blocks)
+  let output = formatBlocks(deduplicateBlocks(blocks))
   const keyframes: string[] = []
   compiled.walkAtRules('keyframes', animation => {
     const clone = animation.clone({ params: `${slug}-${animation.params}` })

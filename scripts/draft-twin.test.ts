@@ -63,14 +63,14 @@ describe('literal CSS', () => {
     expect(() => resolveValue('var(--unknown)', tokens)).toThrow('--unknown')
   })
 
-  it('merges breakpoint media, retains explicit leading, and scopes group and peer markers', async () => {
+  it('merges breakpoint media, retains explicit leading, and references group and peer parts', async () => {
     const { html, css } = await generate('<section class="p-4 sm:p-6 group"><h1 class="text-sm leading-relaxed sm:text-lg">Title</h1><input type="checkbox" class="peer"><span class="group-hover:opacity-50 peer-checked:bg-black sm:block">State</span></section>')
     expect(css.match(/@media \(width >= 40rem\)/g)).toHaveLength(1)
     expect(css).toContain('line-height: 1.625;')
     expect(css).not.toContain('calc(1.75 / 1.125)')
     expect(css).toContain('@media (hover: hover)')
-    expect(css).toContain(':where(.test-pattern__group):hover')
-    expect(css).toContain(':where(.test-pattern__peer):checked')
+    expect(css).toContain('.test-pattern:hover .test-pattern__span')
+    expect(css).toContain('.test-pattern .test-pattern__input:checked ~ .test-pattern__span')
     expect(html).not.toMatch(/class="(?:group|peer)"/)
   })
 
@@ -103,7 +103,8 @@ describe('literal CSS', () => {
     expect(css).toContain('outline-offset: 2px;')
     expect(css).toContain('@media (prefers-reduced-motion: reduce)')
     expect(css).toContain('::placeholder')
-    expect(css).toContain(':is([open], :popover-open, :open)')
+    expect(css).toContain('.test-pattern[open]')
+    expect(css).not.toMatch(/:popover-open|:open/)
   })
 })
 
@@ -160,19 +161,121 @@ describe('attribute state selectors', () => {
   })
 })
 
-describe('compiled token annotations and marker names', () => {
+describe('compiled token annotations and marker owners', () => {
   it('annotates theme shadows after Tailwind inlines their values', async () => {
     const { css } = await generate('<section class="shadow-lg"><div class="shadow-sm"></div></section>')
     expect(rule(css, '.test-pattern')).toContain('/* shadow-lg */')
     expect(rule(css, '.test-pattern .test-pattern__content')).toContain('/* shadow-sm */')
   })
 
-  it('scopes named group and peer markers', async () => {
-    const { html, css } = await generate('<section class="group/card"><input type="checkbox" class="peer/toggle"><span class="group-hover/card:text-black peer-checked/toggle:text-white">State</span></section>')
-    expect(html).toContain('test-pattern__group--card')
-    expect(html).toContain('test-pattern__peer--toggle')
-    expect(css).toContain(':where(.test-pattern__group--card):hover')
-    expect(css).toContain(':where(.test-pattern__peer--toggle):checked')
+  it('references named group and peer owners without extra classes', async () => {
+    const { html, css } = await generate('<section class="group/card"><input type="checkbox" class="peer/toggle"><span class="group-hover/card:opacity-50 peer-checked/toggle:text-white">State</span></section>')
+    expect(html).toContain('class="test-pattern__input"')
+    expect(html).not.toMatch(/__group|__peer/)
+    expect(css).toContain('.test-pattern:hover .test-pattern__span')
+    expect(css).toContain('.test-pattern .test-pattern__input:checked ~ .test-pattern__span')
     expect(css).not.toContain('.group\\/card')
   })
+})
+
+
+describe('author-ready output', () => {
+  it('comments colours and useful named scales, without spacing or default timing noise', async () => {
+    const { css } = await generate('<section class="max-w-6xl p-6 rounded-md text-lg font-medium text-neutral-900 transition-colors"><p class="leading-relaxed">Copy</p></section>')
+    for (const token of ['container-6xl', 'radius-md', 'text-lg', 'neutral-900', 'leading-relaxed']) expect(css).toContain(`/* ${token} */`)
+    expect(css).not.toMatch(/\/\* (?:spacing|font-weight-|default-transition-|text-lg--line-height)/)
+    expect(css).toContain('line-height: calc(1.75 / 1.125); /* text-lg */')
+  })
+
+  it('removes empty composition layers and emits none only for an override', async () => {
+    const { css } = await generate('<section class="ring-1 ring-inset ring-neutral-300 rounded-full"><div class="shadow-none filter"></div><button class="shadow-sm hover:shadow-none">Reset</button><p class="sm:shadow-md lg:shadow-none">Responsive</p></section>')
+    expect(rule(css, '.test-pattern')).toContain('box-shadow: inset 0 0 0 1px oklch(87% 0 none);')
+    expect(css).toContain('border-radius: 9999px;')
+    expect(css).not.toMatch(/0 0 #0000|infinity/)
+    expect(rule(css, '.test-pattern .test-pattern__content')).not.toMatch(/box-shadow:|filter:/)
+    expect(rule(css, '.test-pattern .test-pattern__button:hover')).toContain('box-shadow: none;')
+    expect(rule(css, '.test-pattern .test-pattern__text')).toContain('box-shadow: none;')
+  })
+
+  it('names disclosure parts and canonicalizes overlapping ancestor states', async () => {
+    const { html, css } = await generate('<section><details class="group border"><summary class="group/summary flex text-lg">Question<span aria-hidden="true" class="relative ring-1 ring-inset ring-neutral-300 group-open:bg-black group-open:ring-black group-hover/summary:ring-black"><span class="absolute h-0.5 bg-black group-open:bg-white"></span><span class="absolute w-0.5 bg-black group-open:rotate-90 group-open:bg-white"></span></span></summary><p class="text-neutral-600">Answer</p></details></section>')
+    for (const part of ['details', 'summary', 'toggle', 'marker--horizontal', 'marker--vertical', 'answer']) expect(html).toContain(`test-pattern__${part}`)
+    expect(html).not.toMatch(/__group|__peer|__span|__text-\d/)
+    expect(html).toContain('>Question<span')
+    expect(css).toContain('.test-pattern .test-pattern__details[open] .test-pattern__toggle')
+    expect(css).toContain('.test-pattern .test-pattern__summary:hover .test-pattern__toggle')
+    expect(css).not.toMatch(/:popover-open|:open/)
+    const selectors: string[] = []
+    postcss.parse(css).walkRules(node => { selectors.push(`${node.parent?.type === 'atrule' ? node.parent.toString().split('{')[0] : ''}|${node.selector}`) })
+    expect(new Set(selectors).size).toBe(selectors.length)
+  })
+
+  it('uses parent, label, id, and text hints before numbered names', async () => {
+    const { html } = await generate('<section><div class="mb-8"><h2 class="text-3xl">Heading</h2><p class="text-sm text-neutral-500">Metadata</p><p class="text-[1.0625rem] text-neutral-600">Lede</p></div><div class="border-t"><details class="border"><summary class="py-4"><span class="font-medium">Question</span></summary><p class="text-base">Answer</p></details></div><span id="status" class="text-green-700">OK</span><span aria-label="Updated at" class="text-xs">Today</span><div role="img" class="bg-neutral-100"></div><svg class="size-4"></svg><svg class="size-6"></svg></section>')
+    for (const part of ['intro', 'meta', 'lede', 'list', 'question', 'answer', 'status', 'updated-at', 'media', 'icon', 'icon--lg']) expect(html).toContain(`test-pattern__${part}`)
+    expect(html).not.toMatch(/__(?:span|content|text|icon)-\d/)
+  })
+
+  it('indents block children in a link while preserving text-marker and SVG adjacency', async () => {
+    const { html } = await generate('<section><a href="#"><div class="p-4">Block one</div><div class="p-6">Block two</div></a><button class="inline-flex">Go<svg class="size-4"><path d="M0 0"></path></svg></button><details><summary class="flex">Question<span aria-hidden="true" class="size-4"></span></summary></details><p><span>one</span> <span>two</span></p></section>')
+    expect(html).toContain('<a href="#">\n    <div')
+    expect(html).toContain('>Go<svg')
+    expect(html).toContain('\n    <path')
+    expect(html).toContain('>Question<span')
+    expect(html).toContain('<span>one</span> <span>two</span>')
+  })
+
+  it('keeps literal open states for dialogs and popovers', async () => {
+    const { css } = await generate('<section><dialog class="open:bg-white"></dialog><div popover class="open:bg-black"></div></section>')
+    expect(css).toContain(':is([open], :popover-open, :open)')
+  })
+
+  it('retains group specificity when a later self state sets a competing value', async () => {
+    const { css } = await generate('<section><div class="group p-4"><button class="group-hover:bg-black focus-visible:bg-white">Action</button></div></section>')
+    expect(css).toContain('.test-pattern .test-pattern__button:is(:where(.test-pattern__actions):hover *)')
+    expect(css.indexOf(':where(.test-pattern__actions):hover')).toBeLessThan(css.indexOf('.test-pattern .test-pattern__button:focus-visible'))
+  })
+
+  it('binds group selectors to each real ancestor without leaking to an unrelated group', async () => {
+    const { html, css } = await generate('<section><a href="#" class="group p-4"><svg class="size-4 group-hover:opacity-50"></svg></a><details class="group border"><summary class="py-4">Question<span class="group-open:rotate-90"></span></summary></details></section>')
+    expect(html).not.toMatch(/__group|__peer/)
+    expect(css).toContain('.test-pattern .test-pattern__link:hover .test-pattern__icon')
+    expect(css).toContain('.test-pattern .test-pattern__details[open] .test-pattern__question')
+    expect(css).not.toContain('.test-pattern__link[open]')
+  })
+})
+
+
+describe('control relationships', () => {
+  it('names toggle tracks and uses the input sibling for peer states', async () => {
+    const { html, css } = await generate('<section><label class="flex"><input type="checkbox" class="peer sr-only"><span class="h-6 w-11 rounded-full bg-white peer-checked:bg-black"></span></label></section>')
+    expect(html).toContain('test-pattern__option')
+    expect(html).toContain('test-pattern__track')
+    expect(css).toContain('.test-pattern .test-pattern__input:checked ~ .test-pattern__track')
+  })
+
+  it('references the real input in a simple has-checked selector', async () => {
+    const { css } = await generate('<section><label class="border has-checked:bg-black"><input type="checkbox" class="sr-only">Option</label></section>')
+    expect(css).toContain('.test-pattern .test-pattern__option:has(.test-pattern__input:checked)')
+  })
+
+  it('keeps empty composition overrides that precede a later breakpoint', async () => {
+    const { css } = await generate('<section class="sm:shadow-md hover:shadow-none"></section>')
+    expect(rule(css, '.test-pattern:hover')).toContain('box-shadow: none;')
+  })
+
+  it('keeps duplicate style lists with different marker membership separate', async () => {
+    const { html, css } = await generate('<section><div class="group border"><span class="group-hover:text-black">Grouped</span></div><div class="border"><span class="group-hover:text-black">Ungrouped</span></div></section>')
+    expect(html).toContain('test-pattern__content-2')
+    expect(css).not.toContain('.test-pattern__content-2:hover')
+  })
+})
+
+
+it('binds double-digit marker identifiers without replacing a shorter prefix', async () => {
+  const groups = Array.from({ length: 12 }, (_, i) => `<div class="group/g${i} border"><button class="group-hover/g${i}:bg-black focus-visible:bg-white">Action</button></div>`).join('')
+  const { css } = await generate(`<section>${groups}</section>`)
+  expect(css).toContain(':where(.test-pattern__actions-11):hover')
+  expect(css).toContain(':where(.test-pattern__actions-12):hover')
+  expect(css).not.toMatch(/:not\(\*\)\d|__twin-marker/)
 })
