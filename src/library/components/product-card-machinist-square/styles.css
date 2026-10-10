@@ -1,0 +1,107 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-machinist-square, .product-card-machinist-square *, .product-card-machinist-square *::before, .product-card-machinist-square *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-machinist-square { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-machinist-square :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-machinist-square a { color: inherit; text-decoration: inherit; }
+.product-card-machinist-square :is(b, strong) { font-weight: bolder; }
+.product-card-machinist-square :is(ol, ul, menu) { list-style: none; }
+.product-card-machinist-square :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-machinist-square :is(img, video) { max-width: 100%; height: auto; }
+.product-card-machinist-square :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-machinist-square ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-machinist-square table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-machinist-square summary { display: list-item; }
+
+/* Component */
+.product-card-machinist-square {
+  width: 18rem;
+  border-width: 1px;
+  border-color: oklch(89.7% 0.196 126.665); /* lime-300 */
+  background-color: #000; /* black */
+  font-family: "DM Mono",ui-monospace,SFMono-Regular,monospace;
+  color: oklch(89.7% 0.196 126.665); /* lime-300 */
+}
+
+.product-card-machinist-square .product-card-machinist-square__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom-width: 1px;
+  border-color: oklch(89.7% 0.196 126.665); /* lime-300 */
+  padding: 0.75rem;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.product-card-machinist-square .product-card-machinist-square__body {
+  padding: 1rem;
+}
+
+.product-card-machinist-square .product-card-machinist-square__illustration {
+  height: 6rem;
+  width: 100%;
+}
+
+.product-card-machinist-square .product-card-machinist-square__title {
+  margin-top: 0.75rem;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 500;
+  color: #fff; /* white */
+}
+
+.product-card-machinist-square .product-card-machinist-square__specs {
+  margin-top: 1rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  line-height: 1.25rem;
+}
+
+.product-card-machinist-square .product-card-machinist-square__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top-width: 1px;
+  border-color: oklch(37% 0.013 285.805); /* zinc-700 */
+  padding-block: 0.5rem;
+}
+
+.product-card-machinist-square .product-card-machinist-square__term {
+  font-size: 10px;
+  color: oklch(87.1% 0.006 286.286); /* zinc-300 */
+}
+
+.product-card-machinist-square .product-card-machinist-square__value {
+  font-variant-numeric: tabular-nums;
+}
+
+.product-card-machinist-square .product-card-machinist-square__cta {
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: oklch(89.7% 0.196 126.665); /* lime-300 */
+  padding-inline: 1rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  font-weight: 500;
+  color: #000; /* black */
+}
+
+.product-card-machinist-square .product-card-machinist-square__cta:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: oklch(89.7% 0.196 126.665); /* lime-300 */
+}
+
+@media (hover: hover) {
+  .product-card-machinist-square .product-card-machinist-square__cta:hover {
+    background-color: oklch(93.8% 0.127 124.321); /* lime-200 */
+  }
+}
+@media (width >= 40rem) {
+  .product-card-machinist-square {
+    width: 22rem;
+  }
+}

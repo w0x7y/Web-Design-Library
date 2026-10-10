@@ -1,0 +1,138 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-dog-travel, .product-card-dog-travel *, .product-card-dog-travel *::before, .product-card-dog-travel *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-dog-travel { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-dog-travel :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-dog-travel a { color: inherit; text-decoration: inherit; }
+.product-card-dog-travel :is(b, strong) { font-weight: bolder; }
+.product-card-dog-travel :is(ol, ul, menu) { list-style: none; }
+.product-card-dog-travel :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-dog-travel :is(img, video) { max-width: 100%; height: auto; }
+.product-card-dog-travel :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-dog-travel ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-dog-travel table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-dog-travel summary { display: list-item; }
+
+/* Component */
+.product-card-dog-travel {
+  width: 18rem;
+  border-radius: 1.5rem;
+  background-color: oklch(96.9% 0.015 12.422); /* rose-50 */
+  padding: 1.25rem;
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  color: oklch(27.1% 0.105 12.094); /* rose-950 */
+}
+
+.product-card-dog-travel .product-card-dog-travel__brand {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.product-card-dog-travel .product-card-dog-travel__header {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product-card-dog-travel .product-card-dog-travel__photo {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-color: oklch(27.1% 0.105 12.094); /* rose-950 */
+  object-fit: cover;
+}
+
+.product-card-dog-travel .product-card-dog-travel__title {
+  font-size: 26px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.product-card-dog-travel .product-card-dog-travel__description {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  line-height: 1.25rem;
+  color: oklch(45.5% 0.188 13.697); /* rose-800 */
+}
+
+.product-card-dog-travel .product-card-dog-travel__field {
+  margin-top: 0.75rem;
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.product-card-dog-travel .product-card-dog-travel__select {
+  margin-top: 0.25rem;
+  height: 2.25rem;
+  width: 100%;
+  cursor: pointer;
+  appearance: auto;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: oklch(45.5% 0.188 13.697); /* rose-800 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.product-card-dog-travel .product-card-dog-travel__footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product-card-dog-travel .product-card-dog-travel__price {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.product-card-dog-travel .product-card-dog-travel__cta {
+  display: inline-flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background-color: oklch(27.1% 0.105 12.094); /* rose-950 */
+  padding-inline: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-weight: 700;
+  color: #fff; /* white */
+}
+
+.product-card-dog-travel .product-card-dog-travel__select:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: oklch(27.1% 0.105 12.094); /* rose-950 */
+}
+
+.product-card-dog-travel .product-card-dog-travel__cta:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: oklch(27.1% 0.105 12.094); /* rose-950 */
+}
+
+@media (hover: hover) {
+  .product-card-dog-travel .product-card-dog-travel__cta:hover {
+    background-color: oklch(45.5% 0.188 13.697); /* rose-800 */
+  }
+}
+@media (width >= 40rem) {
+  .product-card-dog-travel {
+    width: 21rem;
+  }
+}

@@ -1,0 +1,135 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-linen-roll, .product-card-linen-roll *, .product-card-linen-roll *::before, .product-card-linen-roll *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-linen-roll { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-linen-roll :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-linen-roll a { color: inherit; text-decoration: inherit; }
+.product-card-linen-roll :is(b, strong) { font-weight: bolder; }
+.product-card-linen-roll :is(ol, ul, menu) { list-style: none; }
+.product-card-linen-roll :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-linen-roll :is(img, video) { max-width: 100%; height: auto; }
+.product-card-linen-roll :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-linen-roll ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-linen-roll table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-linen-roll summary { display: list-item; }
+
+/* Component */
+.product-card-linen-roll {
+  display: grid;
+  width: 18rem;
+  grid-template-columns: 3.5rem 1fr;
+  background-color: oklch(14.7% 0.004 49.25); /* stone-950 */
+  font-family: "Newsreader",ui-serif,Georgia,serif;
+  color: oklch(98% 0.016 73.684); /* orange-50 */
+}
+
+.product-card-linen-roll .product-card-linen-roll__swatch {
+  position: relative;
+  overflow: hidden;
+  background-color: oklch(47% 0.157 37.304); /* orange-800 */
+}
+
+.product-card-linen-roll .product-card-linen-roll__weave {
+  height: 100%;
+  width: 100%;
+}
+
+.product-card-linen-roll .product-card-linen-roll__body {
+  min-width: 0;
+  padding: 1.25rem;
+}
+
+.product-card-linen-roll .product-card-linen-roll__brand {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: oklch(86.9% 0.005 56.366); /* stone-300 */
+}
+
+.product-card-linen-roll .product-card-linen-roll__title {
+  margin-top: 1rem;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.product-card-linen-roll .product-card-linen-roll__description {
+  margin-top: 0.75rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  line-height: 1.25rem;
+  color: oklch(86.9% 0.005 56.366); /* stone-300 */
+}
+
+.product-card-linen-roll .product-card-linen-roll__options {
+  margin-top: 1.25rem;
+}
+
+.product-card-linen-roll .product-card-linen-roll__legend {
+  margin-bottom: 0.5rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  color: oklch(86.9% 0.005 56.366); /* stone-300 */
+}
+
+.product-card-linen-roll .product-card-linen-roll__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.product-card-linen-roll .product-card-linen-roll__choice {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: .875rem;
+  line-height: calc(1.25 / .875);
+}
+
+.product-card-linen-roll .product-card-linen-roll__radio {
+  width: 0.75rem;
+  height: 0.75rem;
+  accent-color: currentColor;
+  appearance: auto;
+  cursor: pointer;
+}
+
+.product-card-linen-roll .product-card-linen-roll__price {
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
+  line-height: calc(1.75 / 1.25);
+  line-height: 1;
+}
+
+.product-card-linen-roll .product-card-linen-roll__cta {
+  margin-top: 1rem;
+  display: inline-flex;
+  border-radius: 0.25rem;
+  padding-block: 0.25rem;
+  font-size: .75rem;
+  line-height: calc(1 / .75);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.product-card-linen-roll .product-card-linen-roll__radio:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: oklch(98% 0.016 73.684); /* orange-50 */
+}
+
+.product-card-linen-roll .product-card-linen-roll__cta:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+  outline-color: oklch(98% 0.016 73.684); /* orange-50 */
+}
+
+@media (hover: hover) {
+  .product-card-linen-roll .product-card-linen-roll__cta:hover {
+    color: oklch(90.1% 0.076 70.697); /* orange-200 */
+  }
+}
+@media (width >= 40rem) {
+  .product-card-linen-roll {
+    width: 22rem;
+  }
+}

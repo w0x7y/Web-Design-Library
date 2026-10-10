@@ -47,4 +47,7 @@ export const IMAGES = {
 
   // Architecture
   archWhiteArcadeStairs: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?w=1600&q=80',
+  // Added for new-product-card
+  productRentalCamera: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+  petTravelCompanion: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800&q=80',
 } as const
