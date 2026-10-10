@@ -1,0 +1,112 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.testimonial-card-rating-review, .testimonial-card-rating-review *, .testimonial-card-rating-review *::before, .testimonial-card-rating-review *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.testimonial-card-rating-review { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.testimonial-card-rating-review :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.testimonial-card-rating-review a { color: inherit; text-decoration: inherit; }
+.testimonial-card-rating-review :is(b, strong) { font-weight: bolder; }
+.testimonial-card-rating-review :is(ol, ul, menu) { list-style: none; }
+.testimonial-card-rating-review :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.testimonial-card-rating-review :is(img, video) { max-width: 100%; height: auto; }
+.testimonial-card-rating-review :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.testimonial-card-rating-review ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.testimonial-card-rating-review table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.testimonial-card-rating-review summary { display: list-item; }
+
+/* Card */
+.testimonial-card-rating-review {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Rating */
+
+.testimonial-card-rating-review .testimonial-card-rating-review__rating-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__star {
+  width: 1rem;
+  height: 1rem;
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__verified-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding-inline: 0.625rem;
+  padding-block: 0.125rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+}
+
+/* Review */
+
+.testimonial-card-rating-review .testimonial-card-rating-review__review-title {
+  margin-top: 1.25rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__review {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Reviewer details */
+
+.testimonial-card-rating-review .testimonial-card-rating-review__reviewer {
+  margin-top: 1.25rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1rem;
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__byline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__name {
+  font-weight: 600;
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__date {
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.testimonial-card-rating-review .testimonial-card-rating-review__usage {
+  margin-top: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (width >= 40rem) {
+  .testimonial-card-rating-review {
+    width: 20rem;
+  }
+}
