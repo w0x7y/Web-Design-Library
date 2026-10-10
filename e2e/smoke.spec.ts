@@ -409,6 +409,8 @@ test('format choice persists across reloads', async ({ page }) => {
 
 // relatedMetas (unit-tested in related.test.ts) is the oracle: the library on disk is in the order the site uses.
 test('related section lists the first three others from the same category, in library order', async ({ page }) => {
+  // One page visit per component, so the budget grows with the library.
+  test.setTimeout(30_000 + LIBRARY.length * 250)
   for (const meta of LIBRARY) {
     const related = relatedMetas(meta, LIBRARY).map((other) => other.name)
     await page.goto(`/c/${meta.slug}`)
