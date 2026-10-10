@@ -17,7 +17,7 @@ const id = z.string().regex(new RegExp(`^${SLUG_PATTERN}$`), 'Expected a lowerca
 const count = z.number().int().nonnegative()
 const url = z.url({ protocol: /^https?$/ })
 
-/** Component metadata read by the tools; unused fields are stripped. */
+/** Layout pattern metadata read by the tools; unused v1 fields such as fonts are stripped. */
 export const componentSchema = z.object({
   slug: z.string().refine(isSlug, 'Expected a lowercase kebab-case slug'),
   name: text,
@@ -87,14 +87,14 @@ export function categorySummary(catalog: Catalog): z.infer<typeof categoriesOutp
   }
 }
 
-/** Render available groups, filters, formats and component count. */
+/** Render available groups, layout filters, formats and pattern count. */
 export function formatCategories(summary: z.infer<typeof categoriesOutputSchema>): string {
   return [
-    `${summary.total} components. Formats: ${summary.formats.join(', ')}.`,
+    `${summary.total} layout patterns. Formats: ${summary.formats.join(', ')}.`,
     ...summary.groups.flatMap((group) => [
       `${group.label} (${group.id})`,
       ...group.categories.map((category) => `  ${category.id} | ${category.label} | ${category.count}`),
     ]),
-    `Tags: ${summary.tags.map((tag) => `${tag.id} (${tag.count})`).join(', ')}.`,
+    `Layout tags: ${summary.tags.map((tag) => `${tag.id} (${tag.count})`).join(', ')}.`,
   ].join('\n')
 }

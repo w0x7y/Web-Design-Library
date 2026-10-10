@@ -8,7 +8,7 @@ import { createServer } from '../src/server.js'
 import { fixtureBrief, fixtureFetch } from './fixtures.js'
 
 async function connect(fetcher = fixtureFetch()) {
-  const server = createServer({ baseUrl: 'http://localhost:4317', fetch: fetcher })
+  const server = createServer({ baseUrl: 'http://localhost:4404', fetch: fetcher })
   const client = new Client({ name: 'test', version: '1.0.0' })
   const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair()
   await server.connect(serverTransport)
@@ -51,7 +51,7 @@ describe('MCP protocol', () => {
         ['get_component', { slug: 'x'.repeat(101) }],
         ['search_components', { query: 'x'.repeat(501) }],
         ['search_components', { category: 'x'.repeat(61) }],
-        ['search_components', { tags: Array(21).fill('minimal') }],
+        ['search_components', { tags: Array(21).fill('table') }],
         ['search_components', { tags: ['x'.repeat(41)] }],
       ] as const) {
         const result = CallToolResultSchema.parse(await connection.client.callTool({ name, arguments: args }))
@@ -59,10 +59,10 @@ describe('MCP protocol', () => {
         expect(result.content).toEqual([{ type: 'text', text: expect.stringContaining('Input validation error') }])
       }
       expect(fetcher).not.toHaveBeenCalled()
-      const search = CallToolResultSchema.parse(await connection.client.callTool({ name: 'search_components', arguments: { query: 'pricing', category: 'pricing', tags: ['minimal'] } }))
+      const search = CallToolResultSchema.parse(await connection.client.callTool({ name: 'search_components', arguments: { query: 'pricing', category: 'pricing', tags: ['table', 'compact'] } }))
       expect(search.isError).not.toBe(true)
-      expect(searchOutputSchema.parse(search.structuredContent).components[0].slug).toBe('pricing-minimal')
-      const brief = await connection.client.callTool({ name: 'get_component', arguments: { slug: 'pricing-minimal' } })
+      expect(searchOutputSchema.parse(search.structuredContent).components[0].slug).toBe('pricing-comparison-table')
+      const brief = await connection.client.callTool({ name: 'get_component', arguments: { slug: 'pricing-comparison-table' } })
       expect(brief.content).toEqual([{ type: 'text', text: fixtureBrief('react') }])
     } finally { await connection.close() }
   })
@@ -71,14 +71,14 @@ describe('MCP protocol', () => {
     const connection = await connect()
     try {
       const result = CallToolResultSchema.parse(await connection.client.callTool({ name: 'search_components', arguments: { query: 'pricing', limit: 1 } }))
-      expect(searchOutputSchema.parse(result.structuredContent)).toMatchObject({ showing: 1, total: 3, components: [{ slug: 'pricing-minimal' }] })
-      expect(result.content).toEqual([{ type: 'text', text: expect.stringContaining('Showing 1 of 3 matches.\npricing-minimal | Minimal pricing | pricing | section | minimal, light |') }])
-      expect(searchOutputSchema.parse(result.structuredContent).components[0].url).toBe('https://patternbook-w0x7y.vercel.app/c/pricing-minimal')
+      expect(searchOutputSchema.parse(result.structuredContent)).toMatchObject({ showing: 1, total: 3, components: [{ slug: 'pricing-comparison-table' }] })
+      expect(result.content).toEqual([{ type: 'text', text: expect.stringContaining('Showing 1 of 3 matches.\npricing-comparison-table | Pricing — Comparison table | pricing | section | table, numbers, compact |') }])
+      expect(searchOutputSchema.parse(result.structuredContent).components[0].url).toBe('https://patternbook-w0x7y.vercel.app/c/pricing-comparison-table')
       const categories = CallToolResultSchema.parse(await connection.client.callTool({ name: 'list_categories' }))
       expect(categoriesOutputSchema.parse(categories.structuredContent)).toMatchObject({ total: 5, formats: ['react', 'html'], groups: [{ id: 'sections', categories: [{ id: 'hero', count: 1 }, { id: 'pricing', count: 3 }] }, { id: 'elements' }] })
       expect(categories.content).toEqual([{ type: 'text', text: expect.stringContaining('Sections (sections)\n  hero | Hero | 1') }])
       for (const format of FORMATS) {
-        const brief = await connection.client.callTool({ name: 'get_component', arguments: { slug: 'pricing-minimal', ...(format === 'html' ? { format } : {}) } })
+        const brief = await connection.client.callTool({ name: 'get_component', arguments: { slug: 'pricing-comparison-table', ...(format === 'html' ? { format } : {}) } })
         expect(brief.content).toEqual([{ type: 'text', text: fixtureBrief(format) }])
       }
       const empty = CallToolResultSchema.parse(await connection.client.callTool({ name: 'search_components', arguments: { query: 'missing' } }))
@@ -94,14 +94,14 @@ describe('MCP protocol', () => {
         ['search_components', { category: 'wrong' }, 'Valid category ids'],
         ['search_components', { tags: ['wrong'] }, 'Valid tag ids'],
         ['get_component', { slug: '../escape' }, 'Invalid slug'],
-        ['get_component', { slug: 'pricing-minmal' }, 'Closest components: pricing-minimal'],
+        ['get_component', { slug: 'pricing-comparison-tabl' }, 'Closest components: pricing-comparison-table'],
       ] as const) {
         const result = CallToolResultSchema.parse(await connection.client.callTool({ name, arguments: args }))
         expect(result.isError).toBe(true)
         expect(result.content).toEqual([{ type: 'text', text: expect.stringContaining(message) }])
       }
       fetcher.mockRejectedValueOnce(new Error('offline'))
-      const result = CallToolResultSchema.parse(await connection.client.callTool({ name: 'get_component', arguments: { slug: 'pricing-minimal' } }))
+      const result = CallToolResultSchema.parse(await connection.client.callTool({ name: 'get_component', arguments: { slug: 'pricing-comparison-table' } }))
       expect(result.isError).toBe(true)
       expect(result.content).toEqual([{ type: 'text', text: expect.stringContaining('offline') }])
     } finally { await connection.close() }

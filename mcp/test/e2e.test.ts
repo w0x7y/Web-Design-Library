@@ -12,8 +12,8 @@ import { searchOutputSchema } from '../src/search.js'
 import { serveDirectory } from './http.js'
 import { buildDirectory, catalogFile, hasBuild } from './real-build.js'
 
-async function checkStdio(directory: string, count: number, slug: string) {
-  const http = await serveDirectory(directory)
+async function checkStdio(directory: string, count: number, slug: string, port = 0) {
+  const http = await serveDirectory(directory, undefined, port)
   const transport = new StdioClientTransport({
     command: process.execPath,
     args: [fileURLToPath(new URL('../dist/index.js', import.meta.url))],
@@ -75,13 +75,13 @@ describe('built stdio entry point', () => {
   }, 15_000)
 
   it('serves fixture search, taxonomy and both briefs over stdio', async () => {
-    await checkStdio(fileURLToPath(new URL('./fixtures/', import.meta.url)), 5, 'pricing-minimal')
+    await checkStdio(fileURLToPath(new URL('./fixtures/', import.meta.url)), 5, 'pricing-comparison-table')
   }, 15_000)
 
   it.skipIf(!hasBuild)('serves the real static build over stdio', async () => {
     const catalog = parseCatalog(JSON.parse(readFileSync(catalogFile, 'utf8')))
     const component = catalog.components[0]
     expect(component).toBeDefined()
-    await checkStdio(buildDirectory, catalog.components.length, component.slug)
+    await checkStdio(buildDirectory, catalog.components.length, component.slug, Number(process.env.PATTERNBOOK_PORT ?? 4404))
   }, 15_000)
 })
