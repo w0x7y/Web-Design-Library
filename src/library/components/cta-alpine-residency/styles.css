@@ -1,0 +1,190 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-alpine-residency, .cta-alpine-residency *, .cta-alpine-residency *::before, .cta-alpine-residency *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-alpine-residency { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-alpine-residency :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-alpine-residency a { color: inherit; text-decoration: inherit; }
+.cta-alpine-residency :is(b, strong) { font-weight: bolder; }
+.cta-alpine-residency :is(ol, ul, menu) { list-style: none; }
+.cta-alpine-residency :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-alpine-residency :is(img, video) { max-width: 100%; height: auto; }
+.cta-alpine-residency :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-alpine-residency ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-alpine-residency table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-alpine-residency summary { display: list-item; }
+
+/* Component */
+
+.cta-alpine-residency {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: oklch(12.9% 0.042 264.695); /* slate-950 */
+  color: #fff; /* white */
+  font-family: 'Newsreader', ui-serif, Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Photo backdrop and contrast scrim */
+.cta-alpine-residency .cta-alpine-residency__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -20;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cta-alpine-residency .cta-alpine-residency__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background-image: linear-gradient(
+    to right in oklab,
+    oklch(12.9% 0.042 264.695 / 0.9) 0%,
+    oklch(12.9% 0.042 264.695 / 0.6) 100%
+  ); /* slate-950 at 90% and 60% */
+}
+
+.cta-alpine-residency .cta-alpine-residency__inner {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.cta-alpine-residency .cta-alpine-residency__masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.3);
+  padding-bottom: 1.5rem;
+}
+
+.cta-alpine-residency .cta-alpine-residency__brand {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+}
+
+.cta-alpine-residency .cta-alpine-residency__eyebrow {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(92.4% 0.12 95.746); /* amber-200 */
+}
+
+.cta-alpine-residency .cta-alpine-residency__body {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.cta-alpine-residency .cta-alpine-residency__heading {
+  max-width: 36rem;
+  font-size: 3.25rem;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.cta-alpine-residency .cta-alpine-residency__lede {
+  margin-top: 1.5rem;
+  max-width: 28rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: oklch(96.8% 0.007 247.896); /* slate-100 */
+}
+
+/* Residency application panel */
+.cta-alpine-residency .cta-alpine-residency__pane {
+  border-radius: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  background-color: oklch(12.9% 0.042 264.695 / 0.7);
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.cta-alpine-residency .cta-alpine-residency__pane-title {
+  font-size: 1.5rem;
+  line-height: calc(2 / 1.5);
+}
+
+.cta-alpine-residency .cta-alpine-residency__facts {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  font-size: 1rem;
+  line-height: calc(1.5 / 1);
+}
+
+.cta-alpine-residency .cta-alpine-residency__fact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.cta-alpine-residency .cta-alpine-residency__fact-label {
+  color: oklch(92.9% 0.013 255.508); /* slate-200 */
+}
+
+.cta-alpine-residency .cta-alpine-residency__actions {
+  margin-top: 1.5rem;
+}
+
+.cta-alpine-residency .cta-alpine-residency__action {
+  display: inline-flex;
+  min-height: 3rem;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: oklch(92.4% 0.12 95.746); /* amber-200 */
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+  color: oklch(12.9% 0.042 264.695); /* slate-950 */
+}
+
+.cta-alpine-residency .cta-alpine-residency__note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: oklch(92.9% 0.013 255.508); /* slate-200 */
+}
+
+@media (hover: hover) {
+  .cta-alpine-residency .cta-alpine-residency__action:hover {
+    background-color: oklch(96.2% 0.059 95.617); /* amber-100 */
+  }
+}
+
+@media (width >= 40rem) {
+  .cta-alpine-residency .cta-alpine-residency__inner {
+    padding: 5rem 2rem;
+  }
+  .cta-alpine-residency .cta-alpine-residency__heading {
+    font-size: 5rem;
+  }
+  .cta-alpine-residency .cta-alpine-residency__pane {
+    padding: 2rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .cta-alpine-residency .cta-alpine-residency__body {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: end;
+    gap: 5rem;
+  }
+}
+
+.cta-alpine-residency .cta-alpine-residency__action:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
