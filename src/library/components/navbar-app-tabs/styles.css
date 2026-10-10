@@ -1,0 +1,269 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.navbar-app-tabs, .navbar-app-tabs *, .navbar-app-tabs *::before, .navbar-app-tabs *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.navbar-app-tabs { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.navbar-app-tabs :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.navbar-app-tabs a { color: inherit; text-decoration: inherit; }
+.navbar-app-tabs :is(b, strong) { font-weight: bolder; }
+.navbar-app-tabs :is(ol, ul, menu) { list-style: none; }
+.navbar-app-tabs :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.navbar-app-tabs :is(img, video) { max-width: 100%; height: auto; }
+.navbar-app-tabs :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.navbar-app-tabs ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.navbar-app-tabs table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.navbar-app-tabs summary { display: list-item; }
+
+/* Header frame */
+
+.navbar-app-tabs {
+  min-height: 18rem;
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.navbar-app-tabs .navbar-app-tabs__container {
+  margin-inline: auto;
+  max-width: 80rem; /* container-7xl */
+  padding-inline: 1.5rem;
+}
+
+/* Breadcrumbs */
+
+.navbar-app-tabs .navbar-app-tabs__breadcrumb {
+  padding-block: 0.75rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.navbar-app-tabs .navbar-app-tabs__breadcrumb-link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Project toolbar */
+
+.navbar-app-tabs .navbar-app-tabs__toolbar {
+  display: flex;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-block: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+/* Identity */
+
+.navbar-app-tabs .navbar-app-tabs__identity {
+  display: flex;
+  min-width: 0px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.navbar-app-tabs .navbar-app-tabs__logo-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__project-name {
+  max-width: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.navbar-app-tabs .navbar-app-tabs__status {
+  display: none;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding-inline: 0.625rem;
+  padding-block: 0.125rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+}
+
+/* Global utilities */
+
+.navbar-app-tabs .navbar-app-tabs__utilities {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__icon-control {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+}
+
+.navbar-app-tabs .navbar-app-tabs__utility-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__account-menu {
+  position: relative;
+}
+
+.navbar-app-tabs .navbar-app-tabs__account-trigger {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+.navbar-app-tabs .navbar-app-tabs__avatar {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Account menu */
+
+.navbar-app-tabs .navbar-app-tabs__account-panel {
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  z-index: 10;
+  margin-top: 0.5rem;
+  width: 12rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+}
+
+.navbar-app-tabs .navbar-app-tabs__account-link {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border-radius: 0.375rem; /* radius-md */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+/* Page navigation */
+
+.navbar-app-tabs .navbar-app-tabs__page-navigation {
+  padding-top: 0.5rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__tab-scroll {
+  overflow-x: auto;
+  padding-block: 0.25rem;
+}
+
+.navbar-app-tabs .navbar-app-tabs__tabs {
+  display: flex;
+  min-width: max-content;
+  gap: 0.25rem;
+  border-bottom: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+/* Tabs */
+
+.navbar-app-tabs .navbar-app-tabs__tab {
+  display: block;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.navbar-app-tabs .navbar-app-tabs__tab--current {
+  border-color: oklch(20.5% 0 none); /* neutral-900 */
+  font-weight: 600;
+}
+
+.navbar-app-tabs .navbar-app-tabs__tab--default {
+  border-color: transparent;
+  font-weight: 500;
+}
+
+/* Hover */
+
+@media (hover: hover) {
+  .navbar-app-tabs .navbar-app-tabs__breadcrumb-link:hover,
+  .navbar-app-tabs .navbar-app-tabs__logo:hover,
+  .navbar-app-tabs .navbar-app-tabs__tab:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .navbar-app-tabs .navbar-app-tabs__icon-control:hover,
+  .navbar-app-tabs .navbar-app-tabs__account-link:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+}
+
+/* Keyboard focus */
+
+.navbar-app-tabs .navbar-app-tabs__breadcrumb-link:focus-visible,
+.navbar-app-tabs .navbar-app-tabs__logo:focus-visible,
+.navbar-app-tabs .navbar-app-tabs__icon-control:focus-visible,
+.navbar-app-tabs .navbar-app-tabs__account-trigger:focus-visible,
+.navbar-app-tabs .navbar-app-tabs__account-link:focus-visible,
+.navbar-app-tabs .navbar-app-tabs__tab-scroll:focus-visible,
+.navbar-app-tabs .navbar-app-tabs__tab:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive layout */
+
+@media (width >= 40rem) {
+  .navbar-app-tabs .navbar-app-tabs__project-name {
+    max-width: 16rem;
+  }
+
+  .navbar-app-tabs .navbar-app-tabs__status {
+    display: inline-flex;
+  }
+}
+
+.navbar-app-tabs .navbar-app-tabs__account-trigger::-webkit-details-marker {
+  display: none;
+}
