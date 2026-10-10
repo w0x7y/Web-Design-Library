@@ -1,0 +1,126 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.dropdowns-wine-vintages, .dropdowns-wine-vintages *, .dropdowns-wine-vintages *::before, .dropdowns-wine-vintages *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.dropdowns-wine-vintages { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.dropdowns-wine-vintages :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.dropdowns-wine-vintages a { color: inherit; text-decoration: inherit; }
+.dropdowns-wine-vintages :is(b, strong) { font-weight: bolder; }
+.dropdowns-wine-vintages :is(ol, ul, menu) { list-style: none; }
+.dropdowns-wine-vintages :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.dropdowns-wine-vintages :is(img, video) { max-width: 100%; height: auto; }
+.dropdowns-wine-vintages :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.dropdowns-wine-vintages ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.dropdowns-wine-vintages table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.dropdowns-wine-vintages summary { display: list-item; }
+
+/* Component */
+
+/* Panel */
+
+.dropdowns-wine-vintages {
+  width: 18rem;
+  border-radius: 0.125rem;
+  background-color: oklch(27.1% 0.105 12.094) /* rose-950 */;
+  padding: 1.25rem;
+  color: oklch(96.9% 0.015 12.422) /* rose-50 */;
+  font-family: "Newsreader", ui-serif, Georgia, serif;
+}
+
+/* Identity and heading */
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__brand {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-block: 1px solid oklch(89.2% 0.058 10.001 / 0.4) /* rose-200 */;
+  padding-block: 0.75rem;
+}
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__title {
+  font-size: 26px;
+  line-height: 2rem;
+}
+
+/* Dropdown content */
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__index {
+  margin-top: 0.5rem;
+}
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__vintage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid oklch(89.2% 0.058 10.001 / 0.2) /* rose-200 */;
+  padding-block: 0.75rem;
+}
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__year {
+  width: 4rem;
+  flex-shrink: 0;
+  font-size: 32px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__name {
+  display: block;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__stock {
+  display: block;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(89.2% 0.058 10.001) /* rose-200 */;
+}
+
+/* Supporting information */
+
+.dropdowns-wine-vintages .dropdowns-wine-vintages__note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  font-style: italic;
+  color: oklch(89.2% 0.058 10.001) /* rose-200 */;
+}
+
+/* Disclosure and keyboard focus */
+.dropdowns-wine-vintages summary::-webkit-details-marker {
+  display: none;
+}
+.dropdowns-wine-vintages .dropdowns-wine-vintages__chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.dropdowns-wine-vintages details[open] .dropdowns-wine-vintages__chevron, .dropdowns-wine-vintages[open] .dropdowns-wine-vintages__chevron {
+  rotate: 180deg;
+}
+.dropdowns-wine-vintages :is(summary, button, input, select, a):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .dropdowns-wine-vintages .dropdowns-wine-vintages__vintage:hover {
+    background-color: oklch(41% 0.159 10.272) /* rose-900 */;
+  }
+}
+
+@media (width >= 40rem) {
+  .dropdowns-wine-vintages {
+    width: 20rem;
+  }
+}

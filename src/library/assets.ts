@@ -76,4 +76,7 @@ export const IMAGES = {
   // Added for new-signup
   vineyardMorningRows: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=1600&q=80',
   cookingSchoolKitchen: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&q=80',
+  // Added for new-dropdowns
+  balloonLaunchSky: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80',
+  flowerWholesaleBouquet: 'https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&q=80',
 } as const
