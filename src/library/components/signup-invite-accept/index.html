@@ -1,0 +1,32 @@
+<section class="signup-invite-accept">
+  <div class="signup-invite-accept__container">
+    <div class="signup-invite-accept__card">
+      <header class="signup-invite-accept__header">
+        <span aria-hidden="true" class="signup-invite-accept__workspace-tile">WN</span>
+        <div>
+          <h1 class="signup-invite-accept__title">Alex Rivera invited you to join Workspace name</h1>
+          <p class="signup-invite-accept__note">Role: Member</p>
+        </div>
+      </header>
+      <form class="signup-invite-accept__form">
+        <div>
+          <label for="signup-invite-accept-email" class="signup-invite-accept__label">Invited email</label><input id="signup-invite-accept-email" type="email" autocomplete="email" readonly aria-describedby="signup-invite-accept-email-hint" name="email" value="name@example.com" class="signup-invite-accept__input signup-invite-accept__input--invited">
+          <p id="signup-invite-accept-email-hint" class="signup-invite-accept__note">This invitation is tied to this address.</p>
+        </div>
+        <div>
+          <label for="signup-invite-accept-name" class="signup-invite-accept__label">Full name</label><input id="signup-invite-accept-name" type="text" autocomplete="name" required placeholder="Full name" name="name" class="signup-invite-accept__input">
+        </div>
+        <div>
+          <label for="signup-invite-accept-password" class="signup-invite-accept__label">Password</label><input id="signup-invite-accept-password" type="password" autocomplete="new-password" aria-describedby="signup-invite-accept-password-hint" required minlength="12" name="password" class="signup-invite-accept__input">
+          <p id="signup-invite-accept-password-hint" class="signup-invite-accept__note">Password rules and minimum length.</p>
+        </div>
+        <label class="signup-invite-accept__consent">
+          <input type="checkbox" required name="terms" class="signup-invite-accept__checkbox">
+          <span>I agree to the <a href="#" class="signup-invite-accept__link">Terms</a> and <a href="#" class="signup-invite-accept__link">Privacy policy</a>.</span>
+        </label>
+        <button type="submit" class="signup-invite-accept__submit">Accept and join</button>
+      </form>
+      <p class="signup-invite-accept__account">Not you? <a href="#" class="signup-invite-accept__link">Use another account</a></p>
+    </div>
+  </div>
+</section>
