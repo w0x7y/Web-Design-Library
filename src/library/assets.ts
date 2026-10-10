@@ -109,4 +109,7 @@ export const IMAGES = {
   // Added for new-dashboard
   windTurbineField: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80',
   studioMatTraining: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80',
+  // Added for retheme-e
+  cobblerLeatherShoes: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=800&q=80',
+  weddingEveningBouquet: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
 } as const
