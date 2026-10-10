@@ -100,4 +100,7 @@ export const IMAGES = {
   jazzTrumpetStage: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80',
   sailingCoastalYachts: 'https://images.unsplash.com/photo-1589730349861-f17e3939c207?w=1600&q=80',
   bookshopWoodenShelves: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1600&q=80',
+  // Added for retheme-c
+  operaRedCurtainStage: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1600&q=80',
+  architectureDraftingTable: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80',
 } as const
