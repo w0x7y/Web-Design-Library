@@ -1,6 +1,6 @@
 {
   "name": "patternbook-mcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Search neutral Patternbook layout patterns and fetch their React or HTML briefs over MCP.",
   "type": "module",
   "bin": { "patternbook-mcp": "dist/index.js" },
