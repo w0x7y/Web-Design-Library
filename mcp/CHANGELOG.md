@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 - 2026-10-11
+
+- Same code as 0.2.0. Version 0.2.0 is held in npm's staged-publishing queue and was never released, so 0.2.1 is the first published release of these changes.
+
 ## 0.2.0 - 2026-10-10
 
 - Describe neutral layout patterns and layout tags. Guide agents to preserve structure, hierarchy and responsive behaviour while applying host design tokens and real content.
