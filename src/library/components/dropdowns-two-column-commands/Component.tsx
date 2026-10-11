@@ -1,0 +1,15 @@
+export default function DropdownsTwoColumnCommands() {
+  return (
+    <details className="w-72 text-neutral-900 sm:w-[28rem]" open><summary className="flex h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-md border border-neutral-300 bg-white px-3 text-sm font-medium text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 [&::-webkit-details-marker]:hidden">Item options<svg className="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></summary>
+    <div className="mt-2 rounded-lg border border-neutral-200 bg-white p-3 shadow-lg"><div className="grid grid-cols-2 gap-3"><div><p className="mb-1 px-2 text-xs font-medium text-neutral-500">Actions</p>
+    <ul role="list"><li><button className="flex h-9 w-full items-center rounded-md px-2 text-left text-sm text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" type="button" >Edit item</button></li>
+    <li><button className="flex h-9 w-full items-center rounded-md px-2 text-left text-sm text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" type="button" >Duplicate</button></li>
+    <li><button className="flex h-9 w-full items-center rounded-md px-2 text-left text-sm text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" type="button" >Move item</button></li></ul></div>
+    <div className="border-l border-neutral-200 pl-3"><p className="mb-1 px-2 text-xs font-medium text-neutral-500">Resources</p>
+    <ul role="list"><li><a className="block rounded-md px-2 py-2 text-sm text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" href="#"><span className="block font-medium">Help</span>
+    <span className="mt-0.5 block text-xs text-neutral-500">Get task guidance</span></a></li>
+    <li><a className="block rounded-md px-2 py-2 text-sm text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" href="#"><span className="block font-medium">Guides</span>
+    <span className="mt-0.5 block text-xs text-neutral-500">Read related steps</span></a></li></ul></div></div>
+    <div className="mt-3 border-t border-neutral-200 pt-2"><a className="flex h-9 items-center justify-between rounded-md px-2 text-sm font-medium text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" href="#">All commands<svg className="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a></div></div></details>
+  )
+}

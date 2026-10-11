@@ -1,0 +1,58 @@
+<section class="dashboard-inbox-workbench">
+  <div class="dashboard-inbox-workbench__container">
+    <div>
+      <h1 class="dashboard-inbox-workbench__title">Request inbox</h1>
+      <p class="dashboard-inbox-workbench__lede">Review incoming work and open the next item to act on.</p>
+    </div>
+    <dl class="dashboard-inbox-workbench__inbox-counts">
+      <div class="dashboard-inbox-workbench__inbox-count">
+        <dt class="dashboard-inbox-workbench__count-label">Open</dt>
+        <dd class="dashboard-inbox-workbench__count-value">12</dd>
+      </div>
+      <div class="dashboard-inbox-workbench__inbox-count">
+        <dt class="dashboard-inbox-workbench__count-label">Assigned</dt>
+        <dd class="dashboard-inbox-workbench__count-value">8</dd>
+      </div>
+      <div class="dashboard-inbox-workbench__inbox-count">
+        <dt class="dashboard-inbox-workbench__count-label">Waiting</dt>
+        <dd class="dashboard-inbox-workbench__count-value">4</dd>
+      </div>
+    </dl>
+    <div class="dashboard-inbox-workbench__inbox-layout">
+      <nav aria-label="Inbox requests">
+        <ul role="list" class="dashboard-inbox-workbench__request-list">
+          <li><a href="#" aria-current="true" class="dashboard-inbox-workbench__request--selected"><span class="dashboard-inbox-workbench__request-header">
+            <span class="dashboard-inbox-workbench__request-title">Request title</span>
+            <time datetime="2026-10-11T09:41:00" class="dashboard-inbox-workbench__request-time">09:41</time>
+          </span><span class="dashboard-inbox-workbench__request-owner">Alex Rivera</span><span class="dashboard-inbox-workbench__request-preview">Short preview of the request contents.</span></a></li>
+          <li><a href="#" class="dashboard-inbox-workbench__request--default"><span class="dashboard-inbox-workbench__request-header">
+            <span class="dashboard-inbox-workbench__request-title">Review title</span>
+            <time datetime="2026-10-11T09:25:00" class="dashboard-inbox-workbench__request-time">09:25</time>
+          </span><span class="dashboard-inbox-workbench__request-owner">Jordan Lee</span><span class="dashboard-inbox-workbench__request-preview">Short preview of the request contents.</span></a></li>
+          <li><a href="#" class="dashboard-inbox-workbench__request--default"><span class="dashboard-inbox-workbench__request-header">
+            <span class="dashboard-inbox-workbench__request-title">Update title</span>
+            <time datetime="2026-10-11T09:12:00" class="dashboard-inbox-workbench__request-time">09:12</time>
+          </span><span class="dashboard-inbox-workbench__request-owner">Sam Taylor</span><span class="dashboard-inbox-workbench__request-preview">Short preview of the request contents.</span></a></li>
+        </ul>
+      </nav>
+      <article class="dashboard-inbox-workbench__request-detail">
+        <header class="dashboard-inbox-workbench__header">
+          <div>
+            <h2 class="dashboard-inbox-workbench__detail-title">Request title</h2>
+            <p class="dashboard-inbox-workbench__detail-sender">Alex Rivera · 09:41</p>
+          </div>
+          <span class="dashboard-inbox-workbench__detail-status">Open</span>
+        </header>
+        <p class="dashboard-inbox-workbench__message">A short message explains the requested outcome and the context needed to review it.</p>
+        <dl class="dashboard-inbox-workbench__detail-metadata">
+          <div><dt class="dashboard-inbox-workbench__metadata-label">Owner</dt><dd class="dashboard-inbox-workbench__metadata-value">Alex Rivera</dd></div>
+          <div><dt class="dashboard-inbox-workbench__metadata-label">Due date</dt><dd class="dashboard-inbox-workbench__metadata-value"><time datetime="2026-10-14">14 Oct 2026</time></dd></div>
+        </dl>
+        <footer class="dashboard-inbox-workbench__detail-actions">
+          <a href="#" class="dashboard-inbox-workbench__action dashboard-inbox-workbench__action-primary">Review request</a>
+          <a href="#" class="dashboard-inbox-workbench__action dashboard-inbox-workbench__action-secondary">Assign owner</a>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>

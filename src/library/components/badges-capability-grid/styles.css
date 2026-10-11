@@ -1,0 +1,70 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-capability-grid, .badges-capability-grid *, .badges-capability-grid *::before, .badges-capability-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-capability-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-capability-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-capability-grid a { color: inherit; text-decoration: inherit; }
+.badges-capability-grid :is(b, strong) { font-weight: bolder; }
+.badges-capability-grid :is(ol, ul, menu) { list-style: none; }
+.badges-capability-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-capability-grid :is(img, video) { max-width: 100%; height: auto; }
+.badges-capability-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-capability-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-capability-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-capability-grid summary { display: list-item; }
+
+/* Container */
+.badges-capability-grid {
+  display: grid;
+  width: 18rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.badges-capability-grid .badges-capability-grid__capability-card {
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 0.75rem;
+}
+
+.badges-capability-grid .badges-capability-grid__capability-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.badges-capability-grid .badges-capability-grid__icon {
+  width: 1rem;
+  height: 1rem;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.badges-capability-grid .badges-capability-grid__capability-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.badges-capability-grid .badges-capability-grid__capability-title {
+  margin-top: 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 600;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .badges-capability-grid {
+    width: 26rem;
+  }
+}

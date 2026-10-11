@@ -1,0 +1,129 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-contact-directory, .cta-contact-directory *, .cta-contact-directory *::before, .cta-contact-directory *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-contact-directory { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-contact-directory :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-contact-directory a { color: inherit; text-decoration: inherit; }
+.cta-contact-directory :is(b, strong) { font-weight: bolder; }
+.cta-contact-directory :is(ol, ul, menu) { list-style: none; }
+.cta-contact-directory :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-contact-directory :is(img, video) { max-width: 100%; height: auto; }
+.cta-contact-directory :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-contact-directory ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-contact-directory table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-contact-directory summary { display: list-item; }
+
+/* Surface and spacing */
+
+.cta-contact-directory {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.cta-contact-directory .cta-contact-directory__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.cta-contact-directory .cta-contact-directory__header {
+  margin-inline: auto;
+  max-width: 42rem; /* container-2xl */
+  text-align: center;
+}
+
+.cta-contact-directory .cta-contact-directory__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.cta-contact-directory .cta-contact-directory__heading {
+  margin-top: 1rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+/* Routes */
+
+.cta-contact-directory .cta-contact-directory__routes {
+  margin-top: 3rem;
+  border-top: 1px solid;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.cta-contact-directory .cta-contact-directory__route {
+  display: grid;
+  gap: 1rem;
+  border-bottom: 1px solid;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding-block: 1.5rem;
+}
+
+.cta-contact-directory .cta-contact-directory__icon-tile {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+}
+
+.cta-contact-directory .cta-contact-directory__contact-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cta-contact-directory .cta-contact-directory__route-title {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+.cta-contact-directory .cta-contact-directory__route-description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.cta-contact-directory .cta-contact-directory__route-action {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .cta-contact-directory .cta-contact-directory__route-action:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.cta-contact-directory .cta-contact-directory__route-action:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .cta-contact-directory .cta-contact-directory__container {
+    padding-block: 6rem;
+  }
+
+  .cta-contact-directory .cta-contact-directory__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}
+
+@media (width >= 48rem) {
+  .cta-contact-directory .cta-contact-directory__route {
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+  }
+}

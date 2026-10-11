@@ -1,0 +1,104 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-confirmation-footer, .buttons-confirmation-footer *, .buttons-confirmation-footer *::before, .buttons-confirmation-footer *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-confirmation-footer { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-confirmation-footer :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-confirmation-footer a { color: inherit; text-decoration: inherit; }
+.buttons-confirmation-footer :is(b, strong) { font-weight: bolder; }
+.buttons-confirmation-footer :is(ol, ul, menu) { list-style: none; }
+.buttons-confirmation-footer :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-confirmation-footer :is(img, video) { max-width: 100%; height: auto; }
+.buttons-confirmation-footer :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-confirmation-footer ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-confirmation-footer table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-confirmation-footer summary { display: list-item; }
+
+/* Container */
+.buttons-confirmation-footer {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Regions */
+.buttons-confirmation-footer .buttons-confirmation-footer__decision-summary {
+  padding: 1.25rem;
+}
+
+/* Text and indicators */
+.buttons-confirmation-footer .buttons-confirmation-footer__heading {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.buttons-confirmation-footer .buttons-confirmation-footer__description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Actions */
+.buttons-confirmation-footer .buttons-confirmation-footer__decision-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 1rem;
+}
+
+.buttons-confirmation-footer .buttons-confirmation-footer__action {
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.buttons-confirmation-footer .buttons-confirmation-footer__action--secondary {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.buttons-confirmation-footer .buttons-confirmation-footer__action--primary {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+/* Hover */
+@media (hover: hover) {
+  .buttons-confirmation-footer .buttons-confirmation-footer__action--secondary:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+
+  .buttons-confirmation-footer .buttons-confirmation-footer__action--primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+/* Keyboard focus */
+.buttons-confirmation-footer .buttons-confirmation-footer__action--secondary:focus-visible,
+.buttons-confirmation-footer .buttons-confirmation-footer__action--primary:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .buttons-confirmation-footer {
+    width: 24rem;
+  }
+}

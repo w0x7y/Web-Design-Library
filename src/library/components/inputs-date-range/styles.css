@@ -1,0 +1,107 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-date-range, .inputs-date-range *, .inputs-date-range *::before, .inputs-date-range *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-date-range { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-date-range :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-date-range a { color: inherit; text-decoration: inherit; }
+.inputs-date-range :is(b, strong) { font-weight: bolder; }
+.inputs-date-range :is(ol, ul, menu) { list-style: none; }
+.inputs-date-range :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-date-range :is(img, video) { max-width: 100%; height: auto; }
+.inputs-date-range :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-date-range ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-date-range table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-date-range summary { display: list-item; }
+
+/* Container */
+.inputs-date-range {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.inputs-date-range .inputs-date-range__legend {
+  padding-inline: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+/* Controls */
+.inputs-date-range .inputs-date-range__date-fields {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.inputs-date-range .inputs-date-range__field-label {
+  margin-bottom: 0.375rem;
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 500;
+}
+
+/* Text and indicators */
+.inputs-date-range .inputs-date-range__date-focus-frame {
+  display: flex;
+  border-radius: 0.375rem; /* radius-md */
+}
+
+/* Controls */
+.inputs-date-range .inputs-date-range__date-field {
+  height: 2.5rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.inputs-date-range .inputs-date-range__range-hint {
+  margin-top: 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.inputs-date-range .inputs-date-range__date-field::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.inputs-date-range .inputs-date-range__date-focus-frame:focus-within {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Keyboard focus */
+.inputs-date-range .inputs-date-range__date-field:focus-visible {
+  outline-style: none;
+}
+
+/* Forced colors */
+@media (forced-colors: active) {
+  .inputs-date-range .inputs-date-range__date-field:focus-visible {
+    outline-style: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .inputs-date-range {
+    width: 28rem;
+  }
+
+  .inputs-date-range .inputs-date-range__date-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

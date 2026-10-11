@@ -1,0 +1,34 @@
+<section class="login-account-picker">
+  <div class="login-account-picker__container">
+    <div>
+      <h1 class="login-account-picker__title">Choose an account</h1>
+      <p class="login-account-picker__lede">Select a saved identity, then confirm access.</p>
+    </div>
+    <form class="login-account-picker__form">
+      <fieldset>
+        <legend class="login-account-picker__legend">Saved accounts</legend>
+        <div class="login-account-picker__account-list"><label class="login-account-picker__account-option">
+          <span aria-hidden="true" class="login-account-picker__avatar">AR</span>
+          <span class="login-account-picker__identity"><span class="login-account-picker__account-name">Alex Rivera</span><span class="login-account-picker__account-email">alex@example.com</span></span>
+          <input type="radio" aria-label="Sign in as Alex Rivera" name="account" checked value="AR" class="login-account-picker__account-radio">
+        </label><label class="login-account-picker__account-option">
+          <span aria-hidden="true" class="login-account-picker__avatar">JL</span>
+          <span class="login-account-picker__identity"><span class="login-account-picker__account-name">Jordan Lee</span><span class="login-account-picker__account-email">jordan@example.com</span></span>
+          <input type="radio" aria-label="Sign in as Jordan Lee" name="account" value="JL" class="login-account-picker__account-radio">
+        </label></div>
+        <p class="login-account-picker__alternate-account"><a href="#" class="login-account-picker__link">Use another account</a></p>
+      </fieldset>
+      <div class="login-account-picker__credential-card">
+        <h2 class="login-account-picker__credential-title">Confirm your identity</h2>
+        <div class="login-account-picker__alternate-account">
+          <div class="login-account-picker__password-field">
+            <label for="login-account-picker-password" class="login-account-picker__label">Password</label><input id="login-account-picker-password" type="password" required autocomplete="current-password" aria-describedby="login-account-picker-password-hint" name="password" class="login-account-picker__password-input">
+            <p id="login-account-picker-password-hint" class="login-account-picker__password-hint">Enter the password for the selected account.</p>
+          </div>
+        </div>
+        <div class="login-account-picker__alternate-account"><button type="submit" class="login-account-picker__action-primary">Sign in</button></div>
+        <p class="login-account-picker__recovery-link"><a href="#" class="login-account-picker__link">Forgot password?</a></p>
+      </div>
+    </form>
+  </div>
+</section>

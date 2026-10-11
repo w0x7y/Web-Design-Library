@@ -1,0 +1,170 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.data-table-availability-grid, .data-table-availability-grid *, .data-table-availability-grid *::before, .data-table-availability-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.data-table-availability-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.data-table-availability-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.data-table-availability-grid a { color: inherit; text-decoration: inherit; }
+.data-table-availability-grid :is(b, strong) { font-weight: bolder; }
+.data-table-availability-grid :is(ol, ul, menu) { list-style: none; }
+.data-table-availability-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.data-table-availability-grid :is(img, video) { max-width: 100%; height: auto; }
+.data-table-availability-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.data-table-availability-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.data-table-availability-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.data-table-availability-grid summary { display: list-item; }
+
+/* Surface and section container */
+
+.data-table-availability-grid {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.data-table-availability-grid .data-table-availability-grid__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Introduction */
+
+.data-table-availability-grid .data-table-availability-grid__title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.data-table-availability-grid .data-table-availability-grid__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Table and records */
+
+.data-table-availability-grid .data-table-availability-grid__table {
+  margin-top: 2rem;
+  width: 100%;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.data-table-availability-grid .data-table-availability-grid__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.data-table-availability-grid .data-table-availability-grid__thead {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+}
+
+.data-table-availability-grid .data-table-availability-grid__member-heading {
+  width: calc(1 / 3 * 100%);
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-availability-grid .data-table-availability-grid__day-heading {
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-availability-grid .data-table-availability-grid__member-row {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.data-table-availability-grid .data-table-availability-grid__member-name {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-availability-grid .data-table-availability-grid__free-cell {
+  padding-inline: 0.25rem;
+  padding-block: 1rem;
+  text-align: center;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.data-table-availability-grid .data-table-availability-grid__busy-cell {
+  padding-inline: 0.25rem;
+  padding-block: 1rem;
+  text-align: center;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.data-table-availability-grid .data-table-availability-grid__table-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.data-table-availability-grid .data-table-availability-grid__availability-legend {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.data-table-availability-grid .data-table-availability-grid__link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Interaction states and responsive layout */
+
+@media (hover: hover) {
+  .data-table-availability-grid .data-table-availability-grid__link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.data-table-availability-grid .data-table-availability-grid__link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .data-table-availability-grid .data-table-availability-grid__container {
+    padding-block: 6rem;
+  }
+
+  .data-table-availability-grid .data-table-availability-grid__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}

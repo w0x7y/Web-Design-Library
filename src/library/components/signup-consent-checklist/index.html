@@ -1,0 +1,46 @@
+<section class="signup-consent-checklist">
+  <div class="signup-consent-checklist__container">
+    <div>
+      <h1 class="signup-consent-checklist__title">Review your account preferences</h1>
+      <p class="signup-consent-checklist__lede">Explain which agreements are required and which are optional.</p>
+    </div>
+    <form class="signup-consent-checklist__form">
+      <fieldset class="signup-consent-checklist__agreement-list">
+        <legend class="signup-consent-checklist__agreement-title">Agreements and preferences</legend>
+        <div class="signup-consent-checklist__agreement-row">
+          <div class="signup-consent-checklist__agreement-option">
+            <input id="signup-consent-checklist-terms" type="checkbox" aria-describedby="signup-consent-checklist-terms-hint" required name="terms" value="terms" class="signup-consent-checklist__agreement-checkbox">
+            <div class="signup-consent-checklist__agreement-copy">
+              <label for="signup-consent-checklist-terms" class="signup-consent-checklist__agreement-label">Accept terms of service</label>
+              <p id="signup-consent-checklist-terms-hint" class="signup-consent-checklist__agreement-hint">Required agreement for account access.</p>
+            </div>
+          </div>
+        </div>
+        <div class="signup-consent-checklist__agreement-row">
+          <div class="signup-consent-checklist__agreement-option">
+            <input id="signup-consent-checklist-privacy" type="checkbox" aria-describedby="signup-consent-checklist-privacy-hint" required name="privacy" value="privacy" class="signup-consent-checklist__agreement-checkbox">
+            <div class="signup-consent-checklist__agreement-copy">
+              <label for="signup-consent-checklist-privacy" class="signup-consent-checklist__agreement-label">Acknowledge privacy policy</label>
+              <p id="signup-consent-checklist-privacy-hint" class="signup-consent-checklist__agreement-hint">Explain how account information will be used.</p>
+            </div>
+          </div>
+        </div>
+        <div class="signup-consent-checklist__agreement-row">
+          <div class="signup-consent-checklist__agreement-option">
+            <input id="signup-consent-checklist-updates" type="checkbox" aria-describedby="signup-consent-checklist-updates-hint" name="updates" value="updates" class="signup-consent-checklist__agreement-checkbox">
+            <div class="signup-consent-checklist__agreement-copy">
+              <label for="signup-consent-checklist-updates" class="signup-consent-checklist__agreement-label">Receive product updates</label>
+              <p id="signup-consent-checklist-updates-hint" class="signup-consent-checklist__agreement-hint">Optional email preference; change it at any time.</p>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="signup-consent-checklist__identity-band">
+        <div class="signup-consent-checklist__agreement-copy"><label for="signup-consent-checklist-name" class="signup-consent-checklist__field-label">Name</label><input id="signup-consent-checklist-name" type="text" required name="name" value="Alex Rivera" class="signup-consent-checklist__identity-input"></div>
+        <div class="signup-consent-checklist__agreement-copy"><label for="signup-consent-checklist-email" class="signup-consent-checklist__field-label">Email</label><input id="signup-consent-checklist-email" type="email" placeholder="name@example.com" required autocomplete="email" name="email" class="signup-consent-checklist__identity-input"></div>
+        <button type="submit" class="signup-consent-checklist__action-primary">Create account</button>
+      </div>
+      <p class="signup-consent-checklist__policy-link"><a href="#" class="signup-consent-checklist__link">Read full policies</a></p>
+    </form>
+  </div>
+</section>

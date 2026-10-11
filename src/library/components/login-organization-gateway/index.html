@@ -1,0 +1,26 @@
+<section class="login-organization-gateway">
+  <div class="login-organization-gateway__container">
+    <div class="login-organization-gateway__introduction">
+      <div>
+        <h1 class="login-organization-gateway__title">Find your organization</h1>
+        <p class="login-organization-gateway__lede">Enter the workspace address to continue with your organization account.</p>
+      </div>
+    </div>
+    <form class="login-organization-gateway__form">
+      <div>
+        <label for="login-organization-gateway-domain" class="login-organization-gateway__label">Workspace address</label>
+        <div class="login-organization-gateway__address-control">
+          <input id="login-organization-gateway-domain" type="text" required autocomplete="organization" aria-describedby="login-organization-gateway-hint" placeholder="workspace" name="domain" class="login-organization-gateway__input">
+          <span class="login-organization-gateway__domain-suffix">.example.com</span>
+        </div>
+        <p id="login-organization-gateway-hint" class="login-organization-gateway__address-hint">Use the address supplied by your administrator.</p>
+      </div>
+      <button type="submit" class="login-organization-gateway__action-primary">Continue</button>
+    </form>
+    <dl class="login-organization-gateway__policy-notes">
+      <div><dt class="login-organization-gateway__policy-label">Managed access</dt><dd class="login-organization-gateway__address-hint">Short identity-provider note.</dd></div>
+      <div><dt class="login-organization-gateway__policy-label">Account requirements</dt><dd class="login-organization-gateway__address-hint">Short membership requirement.</dd></div>
+      <div><dt class="login-organization-gateway__policy-label">Need help?</dt><dd class="login-organization-gateway__policy-description"><a href="#" class="login-organization-gateway__link">Contact administrator</a></dd></div>
+    </dl>
+  </div>
+</section>

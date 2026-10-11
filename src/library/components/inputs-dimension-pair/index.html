@@ -1,0 +1,16 @@
+<fieldset class="inputs-dimension-pair">
+  <legend class="inputs-dimension-pair__legend">Dimensions</legend>
+  <div class="inputs-dimension-pair__dimension-fields">
+    <div class="inputs-dimension-pair__dimension-group"><label for="inputs-dimension-pair-width" class="inputs-dimension-pair__dimension-label">Width</label><input id="inputs-dimension-pair-width" type="number" min="1" aria-describedby="inputs-dimension-pair-hint" name="width" value="1280" class="inputs-dimension-pair__dimension-field"></div>
+    <span aria-hidden="true" class="inputs-dimension-pair__dimension-divider">x</span>
+    <div class="inputs-dimension-pair__dimension-group"><label for="inputs-dimension-pair-height" class="inputs-dimension-pair__dimension-label">Height</label><input id="inputs-dimension-pair-height" type="number" min="1" aria-describedby="inputs-dimension-pair-hint" name="height" value="720" class="inputs-dimension-pair__dimension-field"></div>
+  </div>
+  <div class="inputs-dimension-pair__dimension-options">
+    <label class="inputs-dimension-pair__proportion-label"><input type="checkbox" aria-describedby="inputs-dimension-pair-hint" name="lock-proportions" checked class="inputs-dimension-pair__proportion-control">Lock proportions</label>
+    <div class="inputs-dimension-pair__unit-group">
+      <label for="inputs-dimension-pair-units" class="inputs-dimension-pair__unit-label">Units</label>
+      <select id="inputs-dimension-pair-units" name="units" aria-describedby="inputs-dimension-pair-hint" class="inputs-dimension-pair__unit-select"><option>px</option><option>cm</option></select>
+    </div>
+  </div>
+  <p id="inputs-dimension-pair-hint" class="inputs-dimension-pair__dimension-hint">Enter positive values for both dimensions.</p>
+</fieldset>

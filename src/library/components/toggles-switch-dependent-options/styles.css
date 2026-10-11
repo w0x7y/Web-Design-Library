@@ -1,0 +1,188 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-switch-dependent-options, .toggles-switch-dependent-options *, .toggles-switch-dependent-options *::before, .toggles-switch-dependent-options *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-switch-dependent-options { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-switch-dependent-options :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-switch-dependent-options a { color: inherit; text-decoration: inherit; }
+.toggles-switch-dependent-options :is(b, strong) { font-weight: bolder; }
+.toggles-switch-dependent-options :is(ol, ul, menu) { list-style: none; }
+.toggles-switch-dependent-options :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-switch-dependent-options :is(img, video) { max-width: 100%; height: auto; }
+.toggles-switch-dependent-options :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-switch-dependent-options ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-switch-dependent-options table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-switch-dependent-options summary { display: list-item; }
+
+/* Container */
+.toggles-switch-dependent-options {
+  width: 18rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Regions */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__enable-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Text and indicators */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-label {
+  display: block;
+  cursor: pointer;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-hint {
+  margin-top: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Controls */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-control {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-track {
+  position: relative;
+  display: inline-flex;
+  height: 1.5rem;
+  width: 2.75rem;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding: 1px;
+}
+
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: #fff; /* white */
+}
+
+/* Regions */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__dependent-panel {
+  margin-top: 1rem;
+  display: none;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 1rem;
+}
+
+/* Text and indicators */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__delivery-legend {
+  padding-inline: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Controls */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__delivery-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Text and indicators */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__delivery-label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Controls */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__delivery-checkbox {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__delivery-note {
+  margin-top: 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Selected states */
+.toggles-switch-dependent-options:has(*:is(#toggles-switch-dependent-options-enabled:checked)) .toggles-switch-dependent-options__dependent-panel {
+  display: block;
+}
+
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-input:checked ~ .toggles-switch-dependent-options__switch-track {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Keyboard focus */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-input:focus-visible ~ .toggles-switch-dependent-options__switch-track {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Forced colors */
+@media (forced-colors: active) {
+  .toggles-switch-dependent-options .toggles-switch-dependent-options__switch-input:focus-visible {
+    outline-style: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .toggles-switch-dependent-options .toggles-switch-dependent-options__switch-track {
+    border-color: ButtonText;
+  }
+
+  .toggles-switch-dependent-options .toggles-switch-dependent-options__switch-thumb {
+    background-color: CanvasText;
+  }
+}
+
+/* Keyboard focus */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-input:focus-visible {
+  outline-style: none;
+}
+
+.toggles-switch-dependent-options .toggles-switch-dependent-options__delivery-checkbox:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .toggles-switch-dependent-options {
+    width: 24rem;
+  }
+}
+
+/* Selected states */
+.toggles-switch-dependent-options .toggles-switch-dependent-options__switch-track:is(:where(.toggles-switch-dependent-options__switch-input):checked ~ *)>span {
+  translate: 1.25rem 0;
+}

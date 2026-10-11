@@ -1,0 +1,107 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-access-matrix, .badges-access-matrix *, .badges-access-matrix *::before, .badges-access-matrix *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-access-matrix { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-access-matrix :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-access-matrix a { color: inherit; text-decoration: inherit; }
+.badges-access-matrix :is(b, strong) { font-weight: bolder; }
+.badges-access-matrix :is(ol, ul, menu) { list-style: none; }
+.badges-access-matrix :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-access-matrix :is(img, video) { max-width: 100%; height: auto; }
+.badges-access-matrix :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-access-matrix ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-access-matrix table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-access-matrix summary { display: list-item; }
+
+/* Container */
+.badges-access-matrix {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.badges-access-matrix .badges-access-matrix__access-table {
+  width: 100%;
+}
+
+.badges-access-matrix .badges-access-matrix__table-caption {
+  margin-bottom: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+.badges-access-matrix .badges-access-matrix__column-label {
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Regions */
+.badges-access-matrix .badges-access-matrix__column-label--group {
+  padding-right: 0.5rem;
+  text-align: left;
+}
+
+/* Text and indicators */
+.badges-access-matrix .badges-access-matrix__column-label--view {
+  padding-inline: 0.25rem;
+  text-align: center;
+}
+
+.badges-access-matrix .badges-access-matrix__column-label--edit {
+  padding-left: 0.25rem;
+  text-align: center;
+}
+
+/* Regions */
+.badges-access-matrix .badges-access-matrix__access-row {
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.badges-access-matrix .badges-access-matrix__group-label {
+  padding-block: 0.75rem;
+  padding-right: 0.5rem;
+  text-align: left;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.badges-access-matrix .badges-access-matrix__access-cell-view {
+  padding: 0.75rem 0.25rem;
+  text-align: center;
+}
+
+.badges-access-matrix .badges-access-matrix__access-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.badges-access-matrix .badges-access-matrix__access-cell-edit {
+  padding-block: 0.75rem;
+  padding-left: 0.25rem;
+  text-align: center;
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .badges-access-matrix {
+    width: 28rem;
+  }
+}

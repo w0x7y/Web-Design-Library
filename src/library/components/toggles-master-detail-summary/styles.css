@@ -1,0 +1,111 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-master-detail-summary, .toggles-master-detail-summary *, .toggles-master-detail-summary *::before, .toggles-master-detail-summary *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-master-detail-summary { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-master-detail-summary :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-master-detail-summary a { color: inherit; text-decoration: inherit; }
+.toggles-master-detail-summary :is(b, strong) { font-weight: bolder; }
+.toggles-master-detail-summary :is(ol, ul, menu) { list-style: none; }
+.toggles-master-detail-summary :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-master-detail-summary :is(img, video) { max-width: 100%; height: auto; }
+.toggles-master-detail-summary :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-master-detail-summary ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-master-detail-summary table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-master-detail-summary summary { display: list-item; }
+
+/* Container */
+.toggles-master-detail-summary {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.toggles-master-detail-summary .toggles-master-detail-summary__mode-label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+/* Controls */
+.toggles-master-detail-summary .toggles-master-detail-summary__mode-checkbox {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.toggles-master-detail-summary .toggles-master-detail-summary__mode-hint {
+  margin-top: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Regions */
+.toggles-master-detail-summary .toggles-master-detail-summary__mode-preview {
+  margin-top: 1rem;
+  display: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 0.75rem;
+}
+
+.toggles-master-detail-summary .toggles-master-detail-summary__preview-label {
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.toggles-master-detail-summary .toggles-master-detail-summary__preview-value {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.toggles-master-detail-summary .toggles-master-detail-summary__members-preview {
+  border-left: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-left: 0.75rem;
+}
+
+/* Text and indicators */
+.toggles-master-detail-summary .toggles-master-detail-summary__off-note {
+  margin-top: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Selected states */
+.toggles-master-detail-summary:has(*:is(#toggles-master-detail-summary-active:checked)) .toggles-master-detail-summary__mode-preview {
+  display: grid;
+}
+
+.toggles-master-detail-summary:has(*:is(#toggles-master-detail-summary-active:checked)) .toggles-master-detail-summary__off-note {
+  display: none;
+}
+
+/* Keyboard focus */
+.toggles-master-detail-summary .toggles-master-detail-summary__mode-checkbox:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .toggles-master-detail-summary {
+    width: 24rem;
+  }
+}

@@ -1,0 +1,46 @@
+<section class="settings-notification-matrix">
+  <div class="settings-notification-matrix__container">
+    <div>
+      <h1 class="settings-notification-matrix__title">Notification preferences</h1>
+      <p class="settings-notification-matrix__lede">Choose how each kind of account update reaches you.</p>
+    </div>
+    <form class="settings-notification-matrix__notification-layout">
+      <div>
+        <table class="settings-notification-matrix__table">
+          <caption class="settings-notification-matrix__matrix-title">Delivery channels</caption>
+          <thead class="settings-notification-matrix__matrix-header">
+            <tr>
+              <th scope="col" class="settings-notification-matrix__topic-heading">Topic</th>
+              <th scope="col" class="settings-notification-matrix__channel-heading">Email</th>
+              <th scope="col" class="settings-notification-matrix__channel-heading">Push</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="settings-notification-matrix__topic-row">
+              <th scope="row" class="settings-notification-matrix__topic-label">Account activity</th>
+              <td class="settings-notification-matrix__channel-cell"><input type="checkbox" aria-label="Email notifications for account activity" name="account-email" checked class="settings-notification-matrix__channel-checkbox"></td>
+              <td class="settings-notification-matrix__channel-cell"><input type="checkbox" aria-label="Push notifications for account activity" name="account-push" class="settings-notification-matrix__channel-checkbox"></td>
+            </tr>
+            <tr class="settings-notification-matrix__topic-row">
+              <th scope="row" class="settings-notification-matrix__topic-label">Team updates</th>
+              <td class="settings-notification-matrix__channel-cell"><input type="checkbox" aria-label="Email notifications for team updates" name="team-email" checked class="settings-notification-matrix__channel-checkbox"></td>
+              <td class="settings-notification-matrix__channel-cell"><input type="checkbox" aria-label="Push notifications for team updates" name="team-push" class="settings-notification-matrix__channel-checkbox"></td>
+            </tr>
+            <tr class="settings-notification-matrix__topic-row">
+              <th scope="row" class="settings-notification-matrix__topic-label">Weekly summary</th>
+              <td class="settings-notification-matrix__channel-cell"><input type="checkbox" aria-label="Email notifications for weekly summary" name="summary-email" checked class="settings-notification-matrix__channel-checkbox"></td>
+              <td class="settings-notification-matrix__channel-cell"><input type="checkbox" aria-label="Push notifications for weekly summary" name="summary-push" class="settings-notification-matrix__channel-checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="settings-notification-matrix__save-action"><button type="submit" class="settings-notification-matrix__action-primary">Save preferences</button></div>
+      </div>
+      <aside class="settings-notification-matrix__guidance-panel">
+        <h2 class="settings-notification-matrix__guidance-title">Delivery guidance</h2>
+        <p class="settings-notification-matrix__guidance-copy">Explain the difference between routine and essential account messages.</p>
+        <p class="settings-notification-matrix__essential-note">Essential security notices remain enabled.</p>
+        <p class="settings-notification-matrix__quiet-hours-link"><a href="#" class="settings-notification-matrix__link">Manage quiet hours</a></p>
+      </aside>
+    </form>
+  </div>
+</section>

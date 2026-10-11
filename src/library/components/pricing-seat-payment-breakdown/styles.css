@@ -1,0 +1,201 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.pricing-seat-payment-breakdown, .pricing-seat-payment-breakdown *, .pricing-seat-payment-breakdown *::before, .pricing-seat-payment-breakdown *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.pricing-seat-payment-breakdown { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.pricing-seat-payment-breakdown :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.pricing-seat-payment-breakdown a { color: inherit; text-decoration: inherit; }
+.pricing-seat-payment-breakdown :is(b, strong) { font-weight: bolder; }
+.pricing-seat-payment-breakdown :is(ol, ul, menu) { list-style: none; }
+.pricing-seat-payment-breakdown :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.pricing-seat-payment-breakdown :is(img, video) { max-width: 100%; height: auto; }
+.pricing-seat-payment-breakdown :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.pricing-seat-payment-breakdown ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.pricing-seat-payment-breakdown table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.pricing-seat-payment-breakdown summary { display: list-item; }
+
+.pricing-seat-payment-breakdown {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* container */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* eyebrow */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* heading */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__heading {
+  margin-top: 0.75rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+/* lede */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* seat breakdown */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__seat-breakdown {
+  margin-top: 2.5rem;
+  display: grid;
+  overflow: hidden;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+}
+
+/* payment total */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__payment-total {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 1.5rem;
+}
+
+/* price */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__price {
+  margin-top: 0.75rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+/* price unit */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__price-unit {
+  margin-left: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 400;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* description */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__description {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* action primary */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__action-primary {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: #fff; /* white */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* payment lines */
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__payment-lines {
+  padding: 1.5rem;
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__item-title {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__payment-ledger {
+  margin-top: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__payment-line {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 0.75rem;
+  padding-block: 1rem;
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__line-description {
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__line-amount {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 500;
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__payment-note {
+  margin-top: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.pricing-seat-payment-breakdown :where(.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__payment-ledger > :not(:last-child)) {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-top: 0px solid oklch(92.2% 0 none);
+  border-bottom: 1px solid oklch(92.2% 0 none);
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+@media (hover: hover) {
+  .pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__action-primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__action-primary:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__container {
+    padding-block: 6rem;
+  }
+
+  .pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}
+
+@media (width >= 48rem) {
+  .pricing-seat-payment-breakdown .pricing-seat-payment-breakdown__seat-breakdown {
+    grid-template-columns: 1fr 2fr;
+  }
+}

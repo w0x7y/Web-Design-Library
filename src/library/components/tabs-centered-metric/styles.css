@@ -1,0 +1,173 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.tabs-centered-metric, .tabs-centered-metric *, .tabs-centered-metric *::before, .tabs-centered-metric *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.tabs-centered-metric { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.tabs-centered-metric :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.tabs-centered-metric a { color: inherit; text-decoration: inherit; }
+.tabs-centered-metric :is(b, strong) { font-weight: bolder; }
+.tabs-centered-metric :is(ol, ul, menu) { list-style: none; }
+.tabs-centered-metric :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.tabs-centered-metric :is(img, video) { max-width: 100%; height: auto; }
+.tabs-centered-metric :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.tabs-centered-metric ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.tabs-centered-metric table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.tabs-centered-metric summary { display: list-item; }
+
+/* Container */
+.tabs-centered-metric {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.25rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.tabs-centered-metric .tabs-centered-metric__heading {
+  text-align: center;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+/* Controls */
+.tabs-centered-metric .tabs-centered-metric__period-selector {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.tabs-centered-metric .tabs-centered-metric__period-option {
+  display: flex;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid transparent;
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.tabs-centered-metric .tabs-centered-metric__view-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Regions */
+.tabs-centered-metric .tabs-centered-metric__view-panel {
+  margin-top: 1.25rem;
+  display: none;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+/* Text and indicators */
+.tabs-centered-metric .tabs-centered-metric__metric-total {
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 1.1111111111111112; /* text-4xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  font-variant-numeric: tabular-nums;
+}
+
+.tabs-centered-metric .tabs-centered-metric__metric-label {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.tabs-centered-metric .tabs-centered-metric__metric-note {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Selected states */
+.tabs-centered-metric:has(*:is(#tabs-centered-metric-month:checked)) .tabs-centered-metric__view-panel--month {
+  display: block;
+}
+
+.tabs-centered-metric:has(*:is(#tabs-centered-metric-week:checked)) .tabs-centered-metric__view-panel--week {
+  display: block;
+}
+
+.tabs-centered-metric:has(*:is(#tabs-centered-metric-year:checked)) .tabs-centered-metric__view-panel--year {
+  display: block;
+}
+
+/* Hover */
+@media (hover: hover) {
+  .tabs-centered-metric .tabs-centered-metric__period-option:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+
+  .tabs-centered-metric .tabs-centered-metric__period-option:has(*:is(:checked)):hover {
+    border-color: oklch(87% 0 none); /* neutral-300 */
+    color: oklch(20.5% 0 none); /* neutral-900 */
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+    font-weight: 500;
+  }
+}
+
+/* Keyboard focus */
+.tabs-centered-metric .tabs-centered-metric__view-input:focus-visible {
+  outline-style: none;
+}
+
+/* Forced colors */
+@media (forced-colors: active) {
+  .tabs-centered-metric .tabs-centered-metric__view-input:focus-visible {
+    outline-style: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .tabs-centered-metric .tabs-centered-metric__period-option:has(*:is(:checked)) {
+    border-color: Highlight;
+    color: oklch(20.5% 0 none); /* neutral-900 */
+    font-weight: 500;
+  }
+}
+
+/* Selected states */
+.tabs-centered-metric .tabs-centered-metric__period-option:has(*:is(:checked)) {
+  border-color: oklch(87% 0 none); /* neutral-300 */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  font-weight: 500;
+}
+
+/* Keyboard focus */
+.tabs-centered-metric .tabs-centered-metric__period-option:has(*:is(:focus-visible)) {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+.tabs-centered-metric .tabs-centered-metric__period-option:has(*:is(:checked)):has(*:is(:focus-visible)) {
+  border-color: oklch(87% 0 none); /* neutral-300 */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  font-weight: 500;
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .tabs-centered-metric {
+    width: 24rem;
+  }
+}

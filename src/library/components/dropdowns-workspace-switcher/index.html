@@ -1,0 +1,33 @@
+<details open class="dropdowns-workspace-switcher">
+  <summary class="dropdowns-workspace-switcher__trigger">
+    <span class="dropdowns-workspace-switcher__current-personal">Personal workspace</span>
+    <span class="dropdowns-workspace-switcher__current-shared">Shared workspace</span>
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dropdowns-workspace-switcher__icon">
+      <path d="m6 9 6 6 6-6"></path>
+    </svg>
+  </summary>
+  <div class="dropdowns-workspace-switcher__workspace-panel">
+    <fieldset class="dropdowns-workspace-switcher__workspace-choices">
+      <legend class="dropdowns-workspace-switcher__workspace-legend">Choose workspace</legend>
+      <label class="dropdowns-workspace-switcher__workspace-option">
+        <input id="dropdowns-workspace-switcher-personal" type="radio" aria-describedby="dropdowns-workspace-switcher-personal-hint" name="dropdowns-workspace-switcher" checked value="personal" class="dropdowns-workspace-switcher__workspace-input">
+        <span aria-hidden="true" class="dropdowns-workspace-switcher__workspace-initials">PW</span>
+        <span class="dropdowns-workspace-switcher__workspace-copy"><span class="dropdowns-workspace-switcher__workspace-title">Personal workspace</span><span id="dropdowns-workspace-switcher-personal-hint" class="dropdowns-workspace-switcher__workspace-hint">Only you have access</span></span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dropdowns-workspace-switcher__workspace-check">
+          <path d="m5 12 4 4L19 6"></path>
+        </svg>
+      </label>
+      <label class="dropdowns-workspace-switcher__workspace-option">
+        <input id="dropdowns-workspace-switcher-shared" type="radio" aria-describedby="dropdowns-workspace-switcher-shared-hint" name="dropdowns-workspace-switcher" value="shared" class="dropdowns-workspace-switcher__workspace-input">
+        <span aria-hidden="true" class="dropdowns-workspace-switcher__workspace-initials">SW</span>
+        <span class="dropdowns-workspace-switcher__workspace-copy"><span class="dropdowns-workspace-switcher__workspace-title">Shared workspace</span><span id="dropdowns-workspace-switcher-shared-hint" class="dropdowns-workspace-switcher__workspace-hint">12 members have access</span></span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dropdowns-workspace-switcher__workspace-check">
+          <path d="m5 12 4 4L19 6"></path>
+        </svg>
+      </label>
+    </fieldset>
+    <div class="dropdowns-workspace-switcher__workspace-footer"><button type="button" class="dropdowns-workspace-switcher__create-workspace"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dropdowns-workspace-switcher__create-icon">
+      <path d="M12 5v14M5 12h14"></path>
+    </svg>Create workspace</button></div>
+  </div>
+</details>

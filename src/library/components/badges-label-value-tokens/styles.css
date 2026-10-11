@@ -1,0 +1,69 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-label-value-tokens, .badges-label-value-tokens *, .badges-label-value-tokens *::before, .badges-label-value-tokens *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-label-value-tokens { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-label-value-tokens :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-label-value-tokens a { color: inherit; text-decoration: inherit; }
+.badges-label-value-tokens :is(b, strong) { font-weight: bolder; }
+.badges-label-value-tokens :is(ol, ul, menu) { list-style: none; }
+.badges-label-value-tokens :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-label-value-tokens :is(img, video) { max-width: 100%; height: auto; }
+.badges-label-value-tokens :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-label-value-tokens ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-label-value-tokens table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-label-value-tokens summary { display: list-item; }
+
+/* Container */
+.badges-label-value-tokens {
+  width: 18rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.badges-label-value-tokens .badges-label-value-tokens__heading {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+/* Regions */
+.badges-label-value-tokens .badges-label-value-tokens__attribute-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+/* Text and indicators */
+.badges-label-value-tokens .badges-label-value-tokens__attribute-token {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+}
+
+.badges-label-value-tokens .badges-label-value-tokens__token-label {
+  border-right: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 0.25rem 0.625rem;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.badges-label-value-tokens .badges-label-value-tokens__token-value {
+  min-width: 0;
+  flex: 1;
+  padding: 0.25rem 0.625rem;
+  text-align: center;
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .badges-label-value-tokens {
+    width: 26rem;
+  }
+}

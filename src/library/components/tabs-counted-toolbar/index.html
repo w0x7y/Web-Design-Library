@@ -1,0 +1,51 @@
+<div class="tabs-counted-toolbar">
+  <div class="tabs-counted-toolbar__collection-toolbar">
+    <h2 class="tabs-counted-toolbar__heading">Collection views</h2>
+    <button type="button" aria-label="Add collection item" class="tabs-counted-toolbar__add-item">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-counted-toolbar__icon">
+        <path d="M12 5v14M5 12h14"></path>
+      </svg>
+    </button>
+  </div>
+  <div role="radiogroup" aria-label="Collection view" class="tabs-counted-toolbar__view-selector">
+    <label id="tabs-counted-toolbar-incoming-label" class="tabs-counted-toolbar__counted-option"><input id="tabs-counted-toolbar-incoming" type="radio" aria-controls="tabs-counted-toolbar-incoming-panel" name="tabs-counted-toolbar" checked value="incoming" class="tabs-counted-toolbar__view-input">Incoming<span class="tabs-counted-toolbar__view-count">8</span></label>
+    <label id="tabs-counted-toolbar-sent-label" class="tabs-counted-toolbar__counted-option"><input id="tabs-counted-toolbar-sent" type="radio" aria-controls="tabs-counted-toolbar-sent-panel" name="tabs-counted-toolbar" value="sent" class="tabs-counted-toolbar__view-input">Sent<span class="tabs-counted-toolbar__view-count">12</span></label>
+    <label id="tabs-counted-toolbar-saved-label" class="tabs-counted-toolbar__counted-option"><input id="tabs-counted-toolbar-saved" type="radio" aria-controls="tabs-counted-toolbar-saved-panel" name="tabs-counted-toolbar" value="saved" class="tabs-counted-toolbar__view-input">Saved<span class="tabs-counted-toolbar__view-count">6</span></label>
+  </div>
+  <section id="tabs-counted-toolbar-incoming-panel" aria-labelledby="tabs-counted-toolbar-incoming-label" class="tabs-counted-toolbar__view-panel tabs-counted-toolbar__view-panel--incoming">
+    <ul role="list" class="tabs-counted-toolbar__collection-list">
+      <li class="tabs-counted-toolbar__collection-item">
+        <span class="tabs-counted-toolbar__collection-item-title">First incoming item</span>
+        <span class="tabs-counted-toolbar__collection-item-date">Oct 11</span>
+      </li>
+      <li class="tabs-counted-toolbar__collection-item">
+        <span class="tabs-counted-toolbar__collection-item-title">Second incoming item</span>
+        <span class="tabs-counted-toolbar__collection-item-date">Oct 10</span>
+      </li>
+    </ul>
+  </section>
+  <section id="tabs-counted-toolbar-sent-panel" aria-labelledby="tabs-counted-toolbar-sent-label" class="tabs-counted-toolbar__view-panel tabs-counted-toolbar__view-panel--sent">
+    <ul role="list" class="tabs-counted-toolbar__collection-list">
+      <li class="tabs-counted-toolbar__collection-item">
+        <span class="tabs-counted-toolbar__collection-item-title">First sent item</span>
+        <span class="tabs-counted-toolbar__collection-item-date">Oct 11</span>
+      </li>
+      <li class="tabs-counted-toolbar__collection-item">
+        <span class="tabs-counted-toolbar__collection-item-title">Second sent item</span>
+        <span class="tabs-counted-toolbar__collection-item-date">Oct 10</span>
+      </li>
+    </ul>
+  </section>
+  <section id="tabs-counted-toolbar-saved-panel" aria-labelledby="tabs-counted-toolbar-saved-label" class="tabs-counted-toolbar__view-panel tabs-counted-toolbar__view-panel--saved">
+    <ul role="list" class="tabs-counted-toolbar__collection-list">
+      <li class="tabs-counted-toolbar__collection-item">
+        <span class="tabs-counted-toolbar__collection-item-title">First saved item</span>
+        <span class="tabs-counted-toolbar__collection-item-date">Oct 11</span>
+      </li>
+      <li class="tabs-counted-toolbar__collection-item">
+        <span class="tabs-counted-toolbar__collection-item-title">Second saved item</span>
+        <span class="tabs-counted-toolbar__collection-item-date">Oct 10</span>
+      </li>
+    </ul>
+  </section>
+</div>

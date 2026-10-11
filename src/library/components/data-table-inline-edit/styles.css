@@ -1,0 +1,204 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.data-table-inline-edit, .data-table-inline-edit *, .data-table-inline-edit *::before, .data-table-inline-edit *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.data-table-inline-edit { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.data-table-inline-edit :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.data-table-inline-edit a { color: inherit; text-decoration: inherit; }
+.data-table-inline-edit :is(b, strong) { font-weight: bolder; }
+.data-table-inline-edit :is(ol, ul, menu) { list-style: none; }
+.data-table-inline-edit :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.data-table-inline-edit :is(img, video) { max-width: 100%; height: auto; }
+.data-table-inline-edit :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.data-table-inline-edit ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.data-table-inline-edit table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.data-table-inline-edit summary { display: list-item; }
+
+/* Surface and section container */
+
+.data-table-inline-edit {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Introduction */
+
+.data-table-inline-edit .data-table-inline-edit__title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.data-table-inline-edit .data-table-inline-edit__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Form layout */
+
+.data-table-inline-edit .data-table-inline-edit__form {
+  margin-top: 2rem;
+}
+
+/* Table and records */
+
+.data-table-inline-edit .data-table-inline-edit__table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.data-table-inline-edit .data-table-inline-edit__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.data-table-inline-edit .data-table-inline-edit__thead {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__name-heading {
+  width: calc(1 / 2 * 100%);
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-inline-edit .data-table-inline-edit__value-heading {
+  width: calc(1 / 4 * 100%);
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-inline-edit .data-table-inline-edit__edit-row {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__edit-cell {
+  padding: 0.5rem;
+}
+
+/* Controls */
+
+.data-table-inline-edit .data-table-inline-edit__input {
+  height: 2.5rem;
+  width: 100%;
+  min-width: 0px;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.data-table-inline-edit .data-table-inline-edit__data-table-inline-edit-count-1 {
+  height: 2.5rem;
+  width: 100%;
+  min-width: 0px;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.data-table-inline-edit .data-table-inline-edit__save-row-action {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.data-table-inline-edit .data-table-inline-edit__save-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__input::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__data-table-inline-edit-count-1::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Interaction states and responsive layout */
+
+@media (hover: hover) {
+  .data-table-inline-edit .data-table-inline-edit__save-row-action:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+}
+
+.data-table-inline-edit .data-table-inline-edit__input:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__data-table-inline-edit-count-1:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.data-table-inline-edit .data-table-inline-edit__save-row-action:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .data-table-inline-edit .data-table-inline-edit__container {
+    padding-block: 6rem;
+  }
+
+  .data-table-inline-edit .data-table-inline-edit__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+
+  .data-table-inline-edit .data-table-inline-edit__data-table-inline-edit-count-1 {
+    padding-inline: 0.75rem;
+  }
+}

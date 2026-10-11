@@ -1,0 +1,224 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.pricing-license-rows-inclusions, .pricing-license-rows-inclusions *, .pricing-license-rows-inclusions *::before, .pricing-license-rows-inclusions *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.pricing-license-rows-inclusions { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.pricing-license-rows-inclusions :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.pricing-license-rows-inclusions a { color: inherit; text-decoration: inherit; }
+.pricing-license-rows-inclusions :is(b, strong) { font-weight: bolder; }
+.pricing-license-rows-inclusions :is(ol, ul, menu) { list-style: none; }
+.pricing-license-rows-inclusions :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.pricing-license-rows-inclusions :is(img, video) { max-width: 100%; height: auto; }
+.pricing-license-rows-inclusions :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.pricing-license-rows-inclusions ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.pricing-license-rows-inclusions table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.pricing-license-rows-inclusions summary { display: list-item; }
+
+.pricing-license-rows-inclusions {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* container */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* eyebrow */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* heading */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__heading {
+  margin-top: 0.75rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+/* lede */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* license layout */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-layout {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* license options */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-options {
+  min-width: 0px;
+}
+
+/* license price */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-price {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+/* license option */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-option {
+  display: flex;
+  cursor: pointer;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom-style: solid;
+  border-bottom: 1px solid oklch(92.2% 0 none);
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding-block: 1.25rem;
+}
+
+/* license radio */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-radio {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* license description */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-description {
+  min-width: 0px;
+  flex: 1;
+}
+
+/* license name */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-name {
+  display: block;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+/* license summary */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-summary {
+  margin-top: 0.25rem;
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* license inclusions */
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-inclusions {
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding: 1.5rem;
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__benefits {
+  margin-top: 1.25rem;
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__check {
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__glyph-check-size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__action-primary {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: #fff; /* white */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__description {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.pricing-license-rows-inclusions :where(.pricing-license-rows-inclusions .pricing-license-rows-inclusions__benefits > :not(:last-child)) {
+  margin-block-start: 0rem;
+  margin-block-end: 0.75rem;
+}
+
+@media (hover: hover) {
+  .pricing-license-rows-inclusions .pricing-license-rows-inclusions__action-primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-radio:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.pricing-license-rows-inclusions .pricing-license-rows-inclusions__action-primary:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .pricing-license-rows-inclusions .pricing-license-rows-inclusions__container {
+    padding-block: 6rem;
+  }
+
+  .pricing-license-rows-inclusions .pricing-license-rows-inclusions__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}
+
+@media (width >= 48rem) {
+  .pricing-license-rows-inclusions .pricing-license-rows-inclusions__license-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}

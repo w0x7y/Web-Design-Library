@@ -1,0 +1,125 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-provenance-header, .badges-provenance-header *, .badges-provenance-header *::before, .badges-provenance-header *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-provenance-header { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-provenance-header :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-provenance-header a { color: inherit; text-decoration: inherit; }
+.badges-provenance-header :is(b, strong) { font-weight: bolder; }
+.badges-provenance-header :is(ol, ul, menu) { list-style: none; }
+.badges-provenance-header :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-provenance-header :is(img, video) { max-width: 100%; height: auto; }
+.badges-provenance-header :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-provenance-header ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-provenance-header table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-provenance-header summary { display: list-item; }
+
+/* Container */
+.badges-provenance-header {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Regions */
+.badges-provenance-header .badges-provenance-header__document-summary {
+  padding: 1rem;
+}
+
+.badges-provenance-header .badges-provenance-header__document-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Text and indicators */
+.badges-provenance-header .badges-provenance-header__heading {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.badges-provenance-header .badges-provenance-header__version-badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.badges-provenance-header .badges-provenance-header__description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.badges-provenance-header .badges-provenance-header__document-meta {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badges-provenance-header .badges-provenance-header__document-meta-text {
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.badges-provenance-header .badges-provenance-header__metadata-divider {
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+/* Regions */
+.badges-provenance-header .badges-provenance-header__provenance-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 0.75rem 1rem;
+}
+
+/* Text and indicators */
+.badges-provenance-header .badges-provenance-header__verification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.badges-provenance-header .badges-provenance-header__icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.badges-provenance-header .badges-provenance-header__visibility-label {
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .badges-provenance-header {
+    width: 24rem;
+  }
+}

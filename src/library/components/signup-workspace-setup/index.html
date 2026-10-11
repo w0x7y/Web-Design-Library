@@ -1,0 +1,45 @@
+<section class="signup-workspace-setup">
+  <div class="signup-workspace-setup__container">
+    <div>
+      <h1 class="signup-workspace-setup__title">Create your workspace</h1>
+      <p class="signup-workspace-setup__lede">Describe what the workspace will hold and who can join.</p>
+    </div>
+    <form class="signup-workspace-setup__form">
+      <div class="signup-workspace-setup__step-description">
+        <div class="signup-workspace-setup__field">
+          <label for="signup-workspace-setup-workspace" class="signup-workspace-setup__label">Workspace name</label><input id="signup-workspace-setup-workspace" type="text" required aria-describedby="signup-workspace-setup-workspace-hint" name="workspace" class="signup-workspace-setup__input">
+          <p id="signup-workspace-setup-workspace-hint" class="signup-workspace-setup__field-hint">Use a name your collaborators will recognize.</p>
+        </div>
+        <div class="signup-workspace-setup__field">
+          <label for="signup-workspace-setup-address" class="signup-workspace-setup__label">Workspace URL</label><input id="signup-workspace-setup-address" type="text" placeholder="workspace-name" required aria-describedby="signup-workspace-setup-address-hint" name="address" class="signup-workspace-setup__input">
+          <p id="signup-workspace-setup-address-hint" class="signup-workspace-setup__field-hint">Choose a short address with letters and numbers.</p>
+        </div>
+        <div class="signup-workspace-setup__identity-fields">
+          <div class="signup-workspace-setup__field"><label for="signup-workspace-setup-name" class="signup-workspace-setup__label">Your name</label><input id="signup-workspace-setup-name" type="text" required name="name" value="Alex Rivera" class="signup-workspace-setup__input"></div>
+          <div class="signup-workspace-setup__field"><label for="signup-workspace-setup-email" class="signup-workspace-setup__label">Work email</label><input id="signup-workspace-setup-email" type="email" placeholder="name@example.com" required autocomplete="email" name="email" class="signup-workspace-setup__input"></div>
+        </div>
+        <button type="submit" class="signup-workspace-setup__action-primary">Create workspace</button>
+      </div>
+      <aside class="signup-workspace-setup__setup-summary">
+        <h2 class="signup-workspace-setup__summary-title">Setup overview</h2>
+        <ol role="list" class="signup-workspace-setup__setup-steps">
+          <li>
+            <p class="signup-workspace-setup__step-number">01</p>
+            <h3 class="signup-workspace-setup__step-title">Name the workspace</h3>
+            <p class="signup-workspace-setup__field-hint">Current step description.</p>
+          </li>
+          <li>
+            <p class="signup-workspace-setup__step-number">02</p>
+            <h3 class="signup-workspace-setup__step-title">Invite collaborators</h3>
+            <p class="signup-workspace-setup__field-hint">Next step description.</p>
+          </li>
+          <li>
+            <p class="signup-workspace-setup__step-number">03</p>
+            <h3 class="signup-workspace-setup__step-title">Add first content</h3>
+            <p class="signup-workspace-setup__field-hint">Final setup description.</p>
+          </li>
+        </ol>
+      </aside>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<section class="signup-profile-first">
+  <div class="signup-profile-first__container">
+    <div>
+      <h1 class="signup-profile-first__title">Set up your member profile</h1>
+      <p class="signup-profile-first__lede">Describe where your name and profile will appear.</p>
+    </div>
+    <form class="signup-profile-first__form">
+      <div class="signup-profile-first__identity-layout">
+        <div class="signup-profile-first__initials-panel">
+          <span aria-hidden="true" class="signup-profile-first__avatar">AR</span>
+          <p class="signup-profile-first__initials-caption">Initials preview</p>
+        </div>
+        <div class="signup-profile-first__profile-fields">
+          <div class="signup-profile-first__field">
+            <label for="signup-profile-first-name" class="signup-profile-first__label">Display name</label><input id="signup-profile-first-name" type="text" required aria-describedby="signup-profile-first-name-hint" name="name" value="Alex Rivera" class="signup-profile-first__input">
+            <p id="signup-profile-first-name-hint" class="signup-profile-first__field-hint">Shown beside your shared content.</p>
+          </div>
+          <div class="signup-profile-first__field">
+            <label for="signup-profile-first-handle" class="signup-profile-first__label">Profile handle</label><input id="signup-profile-first-handle" type="text" placeholder="alex-rivera" required aria-describedby="signup-profile-first-handle-hint" name="handle" class="signup-profile-first__input">
+            <p id="signup-profile-first-handle-hint" class="signup-profile-first__field-hint">Use letters, numbers and hyphens.</p>
+          </div>
+        </div>
+      </div>
+      <fieldset class="signup-profile-first__credential-panel">
+        <legend class="signup-profile-first__credential-title">Account credentials</legend>
+        <div class="signup-profile-first__credential-fields">
+          <div class="signup-profile-first__field"><label for="signup-profile-first-email" class="signup-profile-first__label">Email</label><input id="signup-profile-first-email" type="email" placeholder="name@example.com" required autocomplete="email" name="email" class="signup-profile-first__input"></div>
+          <div class="signup-profile-first__field">
+            <label for="signup-profile-first-password" class="signup-profile-first__label">Password</label><input id="signup-profile-first-password" type="password" required autocomplete="new-password" aria-describedby="signup-profile-first-password-hint" name="password" class="signup-profile-first__input">
+            <p id="signup-profile-first-password-hint" class="signup-profile-first__field-hint">Use at least 12 characters.</p>
+          </div>
+        </div>
+      </fieldset>
+      <div class="signup-profile-first__registration-footer">
+        <button type="submit" class="signup-profile-first__action-primary">Create profile</button>
+        <p class="signup-profile-first__signin-link"><a href="#" class="signup-profile-first__link">Sign in instead</a></p>
+      </div>
+    </form>
+  </div>
+</section>

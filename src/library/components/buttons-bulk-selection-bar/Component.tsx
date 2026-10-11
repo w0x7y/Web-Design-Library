@@ -1,0 +1,8 @@
+export default function ButtonsBulkSelectionBar() {
+  return (
+    <div className="w-72 rounded-lg border border-neutral-200 bg-white p-4 text-neutral-900 sm:w-[28rem]"><div className="flex items-center justify-between gap-3"><p className="text-sm text-neutral-900"><span className="font-semibold tabular-nums">3</span> selected</p>
+    <button className="inline-flex size-8 items-center justify-center rounded-md text-neutral-600 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900" type="button" aria-label="Clear selection"><svg className="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 6 12 12M6 18 18 6" /></svg></button></div>
+    <div className="mt-3 grid grid-cols-2 gap-2" role="group" aria-label="Selected item actions"><button className="inline-flex h-11 items-center justify-center rounded-md border border-neutral-300 bg-white px-5 text-sm font-medium text-neutral-900 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 gap-2" type="button" ><svg className="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7h7l2-3h9v16H3Z" /></svg>Move</button>
+    <button className="inline-flex h-11 items-center justify-center rounded-md bg-neutral-900 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 px-3" type="button" >Export selected</button></div></div>
+  )
+}

@@ -1,0 +1,35 @@
+<section class="signup-role-selection">
+  <div class="signup-role-selection__container">
+    <div>
+      <h1 class="signup-role-selection__title">Choose how you will use your account</h1>
+      <p class="signup-role-selection__lede">A short explanation of how the selected purpose shapes onboarding.</p>
+    </div>
+    <form class="signup-role-selection__form">
+      <fieldset>
+        <legend class="signup-role-selection__legend">Account purpose</legend>
+        <div><label class="signup-role-selection__option">
+          <input type="radio" aria-describedby="signup-role-selection-personal-hint" name="role" checked value="personal" class="signup-role-selection__purpose-radio">
+          <span class="signup-role-selection__purpose-description"><span class="signup-role-selection__span-span">Personal use</span><span id="signup-role-selection-personal-hint" class="signup-role-selection__signup-role-selection-personal-hint">Short benefit for an individual account.</span></span>
+        </label><label class="signup-role-selection__option">
+          <input type="radio" aria-describedby="signup-role-selection-team-hint" name="role" value="team" class="signup-role-selection__purpose-radio">
+          <span class="signup-role-selection__purpose-description"><span class="signup-role-selection__span-span">Team use</span><span id="signup-role-selection-team-hint" class="signup-role-selection__signup-role-selection-personal-hint">Short benefit for a shared workspace.</span></span>
+        </label><label class="signup-role-selection__option">
+          <input type="radio" aria-describedby="signup-role-selection-organization-hint" name="role" value="organization" class="signup-role-selection__purpose-radio">
+          <span class="signup-role-selection__purpose-description"><span class="signup-role-selection__span-span">Organization use</span><span id="signup-role-selection-organization-hint" class="signup-role-selection__signup-role-selection-personal-hint">Short benefit for managed access.</span></span>
+        </label></div>
+      </fieldset>
+      <div class="signup-role-selection__intro">
+        <h2 class="signup-role-selection__heading">Create your account</h2>
+        <div class="signup-role-selection__field">
+          <div class="signup-role-selection__purpose-description"><label for="signup-role-selection-email" class="signup-role-selection__purpose-option">Email</label><input id="signup-role-selection-email" type="email" placeholder="name@example.com" required autocomplete="email" name="email" class="signup-role-selection__credential-input"></div>
+          <div class="signup-role-selection__purpose-description">
+            <label for="signup-role-selection-password" class="signup-role-selection__purpose-option">Password</label><input id="signup-role-selection-password" type="password" required autocomplete="new-password" aria-describedby="signup-role-selection-password-hint" name="password" class="signup-role-selection__credential-input">
+            <p id="signup-role-selection-password-hint" class="signup-role-selection__password-hint">Use at least 12 characters.</p>
+          </div>
+        </div>
+        <div class="signup-role-selection__actions"><button type="submit" class="signup-role-selection__action-primary">Create account</button></div>
+        <p class="signup-role-selection__existing-account"><a href="#" class="signup-role-selection__link">Already have an account?</a></p>
+      </div>
+    </form>
+  </div>
+</section>

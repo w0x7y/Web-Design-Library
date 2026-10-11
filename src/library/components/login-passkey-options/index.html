@@ -1,0 +1,29 @@
+<section class="login-passkey-options">
+  <div class="login-passkey-options__container">
+    <div class="login-passkey-options__access-layout">
+      <div>
+        <div>
+          <h1 class="login-passkey-options__title">Access with your device</h1>
+          <p class="login-passkey-options__lede">A short explanation of the preferred account verification method.</p>
+        </div>
+        <dl class="login-passkey-options__access-notes">
+          <div><dt class="login-passkey-options__note-label">Device requirement</dt><dd class="login-passkey-options__note-description">Describe supported device authentication.</dd></div>
+          <div><dt class="login-passkey-options__note-label">Recovery option</dt><dd class="login-passkey-options__note-description">Explain when to use account credentials.</dd></div>
+        </dl>
+      </div>
+      <div class="login-passkey-options__access-card">
+        <h2 class="login-passkey-options__card-title">Use a saved passkey</h2>
+        <p class="login-passkey-options__device-instruction">Confirm access with your device security prompt.</p>
+        <div class="login-passkey-options__passkey-action"><a href="#" class="login-passkey-options__action login-passkey-options__action-primary">Continue with passkey</a></div>
+        <details class="login-passkey-options__credential-disclosure">
+          <summary class="login-passkey-options__fallback-summary">Use a password instead</summary>
+          <form class="login-passkey-options__credential-form">
+            <div class="login-passkey-options__field"><label for="login-passkey-options-email" class="login-passkey-options__label">Email</label><input id="login-passkey-options-email" type="email" placeholder="name@example.com" required autocomplete="email" name="email" class="login-passkey-options__input"></div>
+            <div class="login-passkey-options__field"><label for="login-passkey-options-password" class="login-passkey-options__label">Password</label><input id="login-passkey-options-password" type="password" required autocomplete="current-password" name="password" class="login-passkey-options__input"></div>
+            <button type="submit" class="login-passkey-options__action login-passkey-options__action-secondary">Sign in</button>
+          </form>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
