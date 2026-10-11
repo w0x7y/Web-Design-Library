@@ -1,0 +1,44 @@
+<section class="pricing-option-picker">
+  <div class="pricing-option-picker__container">
+    <div class="pricing-option-picker__picker-panel">
+      <h2 class="pricing-option-picker__product-title">Title of the configurable offer</h2>
+      <p class="pricing-option-picker__product-description">A short description that explains the offer and how size changes the included quantity.</p>
+      <fieldset aria-describedby="pricing-option-picker-terms" class="pricing-option-picker__size-fieldset">
+        <legend class="pricing-option-picker__size-legend">Choose a size</legend>
+        <div class="pricing-option-picker__size-options">
+          <label class="pricing-option-picker__size-option"><input id="pricing-option-picker-small" type="radio" name="pricing-option-picker-size" class="pricing-option-picker__size-radio"><span class="pricing-option-picker__option-name">Small</span><span class="pricing-option-picker__option-scope">Starting quantity</span><span aria-hidden="true" class="pricing-option-picker__selection-label">Selected</span></label>
+          <label class="pricing-option-picker__size-option"><input id="pricing-option-picker-medium" type="radio" name="pricing-option-picker-size" checked class="pricing-option-picker__size-radio"><span class="pricing-option-picker__option-name">Medium</span><span class="pricing-option-picker__option-scope">Expanded quantity</span><span aria-hidden="true" class="pricing-option-picker__selection-label">Selected</span></label>
+          <label class="pricing-option-picker__size-option"><input id="pricing-option-picker-large" type="radio" name="pricing-option-picker-size" class="pricing-option-picker__size-radio"><span class="pricing-option-picker__option-name">Large</span><span class="pricing-option-picker__option-scope">Complete quantity</span><span aria-hidden="true" class="pricing-option-picker__selection-label">Selected</span></label>
+        </div>
+      </fieldset>
+      <p aria-live="polite" aria-atomic="true" class="pricing-option-picker__price">
+        <span class="pricing-option-picker__price-value"><span class="pricing-option-picker__option-price pricing-option-picker__option-price--small">$19</span><span class="pricing-option-picker__option-price pricing-option-picker__option-price--medium">$49</span><span class="pricing-option-picker__option-price pricing-option-picker__option-price--large">$99</span></span>
+        <span class="pricing-option-picker__period">/order</span>
+      </p>
+      <a href="#" class="pricing-option-picker__action--primary">Primary action</a>
+      <p id="pricing-option-picker-terms" class="pricing-option-picker__terms">A short hint about the terms that apply to every size.</p>
+    </div>
+    <aside class="pricing-option-picker__included-panel">
+      <h3 class="pricing-option-picker__included-title">What's included</h3>
+      <dl class="pricing-option-picker__included-list">
+        <div class="pricing-option-picker__included-row">
+          <dt class="pricing-option-picker__included-label">Included quantity</dt>
+          <dd class="pricing-option-picker__size-legend">By chosen size</dd>
+        </div>
+        <div class="pricing-option-picker__included-row">
+          <dt class="pricing-option-picker__included-label">Core access</dt>
+          <dd class="pricing-option-picker__size-legend">Included</dd>
+        </div>
+        <div class="pricing-option-picker__included-row">
+          <dt class="pricing-option-picker__included-label">Support level</dt>
+          <dd class="pricing-option-picker__size-legend">Standard</dd>
+        </div>
+        <div class="pricing-option-picker__included-row">
+          <dt class="pricing-option-picker__included-label">Renewal</dt>
+          <dd class="pricing-option-picker__size-legend">No auto-renewal</dd>
+        </div>
+      </dl>
+      <p class="pricing-option-picker__included-note">A supporting note that explains which inclusions stay the same across all sizes.</p>
+    </aside>
+  </div>
+</section>

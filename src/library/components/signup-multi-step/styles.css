@@ -1,0 +1,326 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.signup-multi-step, .signup-multi-step *, .signup-multi-step *::before, .signup-multi-step *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.signup-multi-step { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.signup-multi-step :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.signup-multi-step a { color: inherit; text-decoration: inherit; }
+.signup-multi-step :is(b, strong) { font-weight: bolder; }
+.signup-multi-step :is(ol, ul, menu) { list-style: none; }
+.signup-multi-step :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.signup-multi-step :is(img, video) { max-width: 100%; height: auto; }
+.signup-multi-step :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.signup-multi-step ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.signup-multi-step table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.signup-multi-step summary { display: list-item; }
+
+/* Section */
+
+.signup-multi-step {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.signup-multi-step .signup-multi-step__container {
+  margin-inline: auto;
+  max-width: 48rem; /* container-3xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.signup-multi-step .signup-multi-step__content {
+  margin-inline: auto;
+  max-width: 42rem; /* container-2xl */
+}
+
+.signup-multi-step .signup-multi-step__progress,
+.signup-multi-step .signup-multi-step__last-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Supporting content */
+
+.signup-multi-step .signup-multi-step__step {
+  display: flex;
+  min-width: 0px;
+  flex: 1;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signup-multi-step .signup-multi-step__step-circle {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px; }
+
+.signup-multi-step .signup-multi-step__step-circle--completed {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+}
+
+/* Section */
+
+.signup-multi-step .signup-multi-step__completed-glyph {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Supporting content */
+
+.signup-multi-step .signup-multi-step__step-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875); }
+
+.signup-multi-step .signup-multi-step__step-label--completed {
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Section */
+
+.signup-multi-step .signup-multi-step__completed-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.signup-multi-step .signup-multi-step__connector {
+  height: 1px;
+  flex: 1;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+/* Supporting content */
+
+.signup-multi-step .signup-multi-step__step-circle--current {
+  border: 1px solid oklch(20.5% 0 none); /* neutral-900 */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: #fff; /* white */
+}
+
+.signup-multi-step .signup-multi-step__step-label--current {
+  font-weight: 500;
+}
+
+.signup-multi-step .signup-multi-step__step-circle--upcoming {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.signup-multi-step .signup-multi-step__step-label--upcoming {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Section */
+
+.signup-multi-step .signup-multi-step__mobile-caption {
+  margin-top: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+/* Form */
+
+.signup-multi-step .signup-multi-step__form {
+  margin-top: 2rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+}
+
+.signup-multi-step .signup-multi-step__fieldset {
+  min-width: 0px;
+}
+
+/* Section */
+
+.signup-multi-step .signup-multi-step__legend {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: calc(2 / 1.5); /* text-2xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+/* Heading and context */
+
+.signup-multi-step .signup-multi-step__lede {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Form */
+
+.signup-multi-step .signup-multi-step__fields {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.signup-multi-step .signup-multi-step__label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.signup-multi-step .signup-multi-step__input {
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.signup-multi-step .signup-multi-step__field-hint {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Footer */
+
+.signup-multi-step .signup-multi-step__footer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1.5rem;
+}
+
+/* Actions */
+
+.signup-multi-step .signup-multi-step__action {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  padding-inline: 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms; }
+
+.signup-multi-step .signup-multi-step__action--primary {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+.signup-multi-step .signup-multi-step__action--secondary {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Form */
+
+.signup-multi-step .signup-multi-step__input::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .signup-multi-step .signup-multi-step__action--primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+
+  .signup-multi-step .signup-multi-step__action--secondary:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+}
+
+/* Keyboard focus */
+
+.signup-multi-step .signup-multi-step__input:focus-visible,
+.signup-multi-step .signup-multi-step__action--primary:focus-visible,
+.signup-multi-step .signup-multi-step__action--secondary:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .signup-multi-step .signup-multi-step__container {
+    padding-block: 6rem;
+  }
+
+  .signup-multi-step .signup-multi-step__step-label--completed,
+  .signup-multi-step .signup-multi-step__step-label--current,
+  .signup-multi-step .signup-multi-step__step-label--upcoming {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  .signup-multi-step .signup-multi-step__mobile-caption {
+    display: none;
+  }
+
+  .signup-multi-step .signup-multi-step__form {
+    padding: 2rem;
+  }
+
+  .signup-multi-step .signup-multi-step__footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .signup-multi-step .signup-multi-step__action--primary {
+    width: auto;
+    order: 2;
+  }
+
+  .signup-multi-step .signup-multi-step__action--secondary {
+    width: auto;
+    order: 1;
+  }
+}
+
+@media (forced-colors: active) {
+  .signup-multi-step .signup-multi-step__step-circle--current {
+    border-color: Highlight;
+    background-color: Canvas;
+    color: CanvasText;
+  }
+}
+

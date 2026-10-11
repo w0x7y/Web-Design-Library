@@ -1,0 +1,59 @@
+<div class="toggles-switch-list">
+  <div class="toggles-switch-list__header">
+    <h2 class="toggles-switch-list__heading">Settings title</h2>
+    <p class="toggles-switch-list__description">Short settings guidance</p>
+  </div>
+  <ul role="list">
+    <li class="toggles-switch-list__item">
+      <div>
+        <label for="toggles-switch-list-updates" class="toggles-switch-list__label">Setting name</label>
+        <p id="toggles-switch-list-updates-hint" class="toggles-switch-list__hint">One-line setting hint</p>
+      </div>
+      <label class="toggles-switch-list__option">
+        <input id="toggles-switch-list-updates" type="checkbox" role="switch" aria-label="Setting name" aria-describedby="toggles-switch-list-updates-hint" checked class="toggles-switch-list__input">
+        <span aria-hidden="true" class="toggles-switch-list__track">
+          <span class="toggles-switch-list__knob"></span>
+        </span>
+      </label>
+    </li>
+    <li class="toggles-switch-list__item toggles-switch-list__item--divided">
+      <div>
+        <label for="toggles-switch-list-reminders" class="toggles-switch-list__label">Preference label</label>
+        <p id="toggles-switch-list-reminders-hint" class="toggles-switch-list__hint">Purpose of this preference</p>
+      </div>
+      <label class="toggles-switch-list__option">
+        <input id="toggles-switch-list-reminders" type="checkbox" role="switch" aria-label="Preference label" aria-describedby="toggles-switch-list-reminders-hint" class="toggles-switch-list__input">
+        <span aria-hidden="true" class="toggles-switch-list__track">
+          <span class="toggles-switch-list__knob"></span>
+        </span>
+      </label>
+    </li>
+    <li class="toggles-switch-list__item toggles-switch-list__item--divided">
+      <div>
+        <label for="toggles-switch-list-summary" class="toggles-switch-list__label">Option title</label>
+        <p id="toggles-switch-list-summary-hint" class="toggles-switch-list__hint">Short option description</p>
+      </div>
+      <label class="toggles-switch-list__option">
+        <input id="toggles-switch-list-summary" type="checkbox" role="switch" aria-label="Option title" aria-describedby="toggles-switch-list-summary-hint" checked class="toggles-switch-list__input">
+        <span aria-hidden="true" class="toggles-switch-list__track">
+          <span class="toggles-switch-list__knob"></span>
+        </span>
+      </label>
+    </li>
+    <li class="toggles-switch-list__item toggles-switch-list__item--divided">
+      <div class="toggles-switch-list__disabled-content">
+        <label for="toggles-switch-list-managed" class="toggles-switch-list__label toggles-switch-list__label--disabled"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="toggles-switch-list__icon">
+          <rect x="5" y="10" width="14" height="11" rx="2"></rect>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+        </svg>Locked setting</label>
+        <p id="toggles-switch-list-managed-hint" class="toggles-switch-list__hint">Managed by an admin</p>
+      </div>
+      <label class="toggles-switch-list__option">
+        <input id="toggles-switch-list-managed" type="checkbox" role="switch" aria-label="Locked setting" aria-describedby="toggles-switch-list-managed-hint" disabled class="toggles-switch-list__input">
+        <span aria-hidden="true" class="toggles-switch-list__track">
+          <span class="toggles-switch-list__knob"></span>
+        </span>
+      </label>
+    </li>
+  </ul>
+</div>

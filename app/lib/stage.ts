@@ -12,8 +12,7 @@ type Kind = 'section' | 'element'
 /**
  * How far the preview page has got, on its backdrop as data-preview-state:
  * - `loading`: not ready yet.
- * - `ready`: hydrated, the component committed and laid out, its fonts loaded, and every image
- *   made eager and decoded (an image that fails stays broken, as the browser shows it).
+ * - `ready`: hydrated, the pattern committed and laid out.
  * - `failed`: the page could not render the component (its code did not load, or the slug is unknown).
  */
 export type PreviewState = 'loading' | 'ready' | 'failed'
@@ -90,20 +89,7 @@ export function readStage(doc: Document): { state: PreviewState; frozen: boolean
   }
 }
 
-/**
- * Resolves once what `root`'s document renders can be screenshotted: laid out, with its web fonts
- * loaded and its images decoded. It refers to nothing outside itself, so a test can run it in a
- * page as it is (`locator.evaluate(settleDocument)`).
- */
+/** Settle the pattern's layout before marking a preview ready for capture. */
 export async function settleDocument(root: Element): Promise<void> {
-  // Laying the content out is what makes the browser request its fonts; before that, fonts.ready has nothing to wait for.
   root.getBoundingClientRect()
-  const doc = root.ownerDocument
-  await doc.fonts.ready
-  await Promise.all(
-    [...doc.images].map((image) => {
-      image.loading = 'eager' // images in an off-screen frame would otherwise never load lazily
-      return image.decode().catch(() => {}) // a failed image is captured as the browser shows it: broken
-    }),
-  )
 }

@@ -1,0 +1,73 @@
+<section class="dashboard-main-rail">
+  <div class="dashboard-main-rail__container">
+    <header class="dashboard-main-rail__header">
+      <h1 class="dashboard-main-rail__title">Overview title</h1>
+      <p class="dashboard-main-rail__date">Saturday, Oct 10, 2026</p>
+    </header>
+    <div class="dashboard-main-rail__layout">
+      <aside class="dashboard-main-rail__rail">
+        <h2 class="dashboard-main-rail__summary-label">Summary label</h2>
+        <p class="dashboard-main-rail__summary-value">24</p>
+        <p class="dashboard-main-rail__summary-note">Items planned for today</p>
+        <dl class="dashboard-main-rail__facts">
+          <div><dt class="dashboard-main-rail__fact-label">Completed</dt><dd class="dashboard-main-rail__fact-value">18</dd></div>
+          <div><dt class="dashboard-main-rail__fact-label">Remaining</dt><dd class="dashboard-main-rail__fact-value">6</dd></div>
+          <div><dt class="dashboard-main-rail__fact-label">In review</dt><dd class="dashboard-main-rail__fact-value">4</dd></div>
+          <div><dt class="dashboard-main-rail__fact-label">Capacity</dt><dd class="dashboard-main-rail__fact-value">32</dd></div>
+        </dl>
+        <details class="dashboard-main-rail__context">
+          <summary class="dashboard-main-rail__context-toggle">More context</summary>
+          <p class="dashboard-main-rail__context-note">A short note explaining how the summary is calculated and which items need attention before the next scheduled step.</p>
+        </details>
+      </aside>
+      <div class="dashboard-main-rail__schedule-column">
+        <div class="dashboard-main-rail__schedule-header">
+          <h2 class="dashboard-main-rail__item-title">Schedule</h2>
+          <a href="#" class="dashboard-main-rail__link">Filter schedule</a>
+        </div>
+        <ol role="list" class="dashboard-main-rail__schedule">
+          <li class="dashboard-main-rail__schedule-item">
+            <time datetime="2026-10-10T09:00:00Z" class="dashboard-main-rail__schedule-time">09:00</time>
+            <div>
+              <h3 class="dashboard-main-rail__item-title">First scheduled item</h3>
+              <p class="dashboard-main-rail__item-meta">Short context for the item</p>
+            </div>
+            <div class="dashboard-main-rail__item-status"><span class="dashboard-main-rail__status">Ready</span></div>
+          </li>
+          <li class="dashboard-main-rail__schedule-item">
+            <time datetime="2026-10-10T10:30:00Z" class="dashboard-main-rail__schedule-time">10:30</time>
+            <div>
+              <h3 class="dashboard-main-rail__item-title">Next appointment title</h3>
+              <p class="dashboard-main-rail__item-meta">Supporting detail for this slot</p>
+            </div>
+            <div class="dashboard-main-rail__item-status"><span class="dashboard-main-rail__status">Pending</span></div>
+          </li>
+          <li class="dashboard-main-rail__schedule-item">
+            <time datetime="2026-10-10T12:00:00Z" class="dashboard-main-rail__schedule-time">12:00</time>
+            <div>
+              <h3 class="dashboard-main-rail__item-title">Midday entry name</h3>
+              <p class="dashboard-main-rail__item-meta">A note about the next step</p>
+            </div>
+            <div class="dashboard-main-rail__item-status"><span class="dashboard-main-rail__status">Ready</span></div>
+          </li>
+          <li class="dashboard-main-rail__schedule-item">
+            <time datetime="2026-10-10T14:00:00Z" class="dashboard-main-rail__schedule-time">14:00</time>
+            <div>
+              <h3 class="dashboard-main-rail__item-title">Review session title</h3>
+              <p class="dashboard-main-rail__item-meta">Context for the review</p>
+            </div>
+            <div class="dashboard-main-rail__item-status"><span class="dashboard-main-rail__status">In review</span></div>
+          </li>
+          <li class="dashboard-main-rail__schedule-item">
+            <time datetime="2026-10-10T16:30:00Z" class="dashboard-main-rail__schedule-time">16:30</time>
+            <div>
+              <h3 class="dashboard-main-rail__item-title">Final scheduled item</h3>
+              <p class="dashboard-main-rail__item-meta">Closing detail for the day</p>
+            </div>
+            <div class="dashboard-main-rail__item-status"><span class="dashboard-main-rail__status">Pending</span></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>

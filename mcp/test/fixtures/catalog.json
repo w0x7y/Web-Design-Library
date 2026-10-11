@@ -1,23 +1,190 @@
 {
   "version": 1,
   "name": "Patternbook",
+  "description": "Neutral layout patterns with React + Tailwind v4 and HTML + CSS. Apply the host project's design tokens and content.",
   "url": "https://patternbook-w0x7y.vercel.app",
-  "formats": ["react", "html"],
+  "formats": [
+    "react",
+    "html"
+  ],
   "groups": [
-    {"id":"sections","label":"Sections","categories":["hero","pricing"]},
-    {"id":"elements","label":"Elements","categories":["badges"]}
+    {
+      "id": "sections",
+      "label": "Sections",
+      "categories": [
+        "hero",
+        "pricing"
+      ]
+    },
+    {
+      "id": "elements",
+      "label": "Elements",
+      "categories": [
+        "badges"
+      ]
+    }
   ],
   "categories": [
-    {"id":"hero","label":"Hero","group":"sections","count":1},
-    {"id":"pricing","label":"Pricing tables","group":"sections","count":3},
-    {"id":"badges","label":"Badges","group":"elements","count":1}
+    {
+      "id": "hero",
+      "label": "Hero",
+      "group": "sections",
+      "count": 1
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing",
+      "group": "sections",
+      "count": 3
+    },
+    {
+      "id": "badges",
+      "label": "Badges",
+      "group": "elements",
+      "count": 1
+    }
   ],
-  "tags": [{"id":"minimal","count":3},{"id":"light","count":3},{"id":"dark","count":1},{"id":"playful","count":1}],
+  "tags": [
+    {
+      "id": "split",
+      "count": 1
+    },
+    {
+      "id": "media",
+      "count": 1
+    },
+    {
+      "id": "spacious",
+      "count": 1
+    },
+    {
+      "id": "table",
+      "count": 1
+    },
+    {
+      "id": "numbers",
+      "count": 3
+    },
+    {
+      "id": "compact",
+      "count": 2
+    },
+    {
+      "id": "centered",
+      "count": 1
+    },
+    {
+      "id": "grid",
+      "count": 1
+    },
+    {
+      "id": "asymmetric",
+      "count": 1
+    },
+    {
+      "id": "list",
+      "count": 2
+    }
+  ],
   "components": [
-    {"slug":"hero-split-image","name":"Split hero with image","category":"hero","tags":["minimal","light"],"description":"A split introduction for a product launch.","kind":"section","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/hero-split-image","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/hero-split-image.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/hero-split-image.react.md","html":"https://patternbook-w0x7y.vercel.app/c/hero-split-image.html.md"}},
-    {"slug":"pricing-minimal","name":"Minimal pricing","category":"pricing","tags":["minimal","light"],"description":"Compare three plans in a clear pricing table.","kind":"section","fonts":["Inter"],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal.react.md","html":"https://patternbook-w0x7y.vercel.app/c/pricing-minimal.html.md"}},
-    {"slug":"pricing-dark","name":"Dark plan comparison","category":"pricing","tags":["minimal","dark"],"description":"Pricing cards for monthly subscriptions.","kind":"section","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/pricing-dark","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/pricing-dark.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/pricing-dark.react.md","html":"https://patternbook-w0x7y.vercel.app/c/pricing-dark.html.md"}},
-    {"slug":"plan-card","name":"Plan comparison","category":"pricing","tags":["light"],"description":"A standalone pricing card.","kind":"element","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/plan-card","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/plan-card.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/plan-card.react.md","html":"https://patternbook-w0x7y.vercel.app/c/plan-card.html.md"}},
-    {"slug":"badges-playful","name":"Badges — Playful","category":"badges","tags":["playful"],"description":"Colourful status labels for listing cards.","kind":"element","fonts":[],"addedAt":"2026-10-08","url":"https://patternbook-w0x7y.vercel.app/c/badges-playful","markdownUrl":"https://patternbook-w0x7y.vercel.app/c/badges-playful.md","formatUrls":{"react":"https://patternbook-w0x7y.vercel.app/c/badges-playful.react.md","html":"https://patternbook-w0x7y.vercel.app/c/badges-playful.html.md"}}
+    {
+      "slug": "hero-split-image",
+      "name": "Hero — Split with image",
+      "kind": "section",
+      "tags": [
+        "split",
+        "media",
+        "spacious"
+      ],
+      "category": "hero",
+      "description": "Two-column hero with a headline and actions beside an image.",
+      "fonts": [],
+      "addedAt": "2026-10-10",
+      "url": "https://patternbook-w0x7y.vercel.app/c/hero-split-image",
+      "markdownUrl": "https://patternbook-w0x7y.vercel.app/c/hero-split-image.md",
+      "formatUrls": {
+        "react": "https://patternbook-w0x7y.vercel.app/c/hero-split-image.react.md",
+        "html": "https://patternbook-w0x7y.vercel.app/c/hero-split-image.html.md"
+      }
+    },
+    {
+      "slug": "pricing-comparison-table",
+      "name": "Pricing — Comparison table",
+      "kind": "section",
+      "tags": [
+        "table",
+        "numbers",
+        "compact"
+      ],
+      "category": "pricing",
+      "description": "Compare plans and features in a pricing table.",
+      "fonts": [],
+      "addedAt": "2026-10-10",
+      "url": "https://patternbook-w0x7y.vercel.app/c/pricing-comparison-table",
+      "markdownUrl": "https://patternbook-w0x7y.vercel.app/c/pricing-comparison-table.md",
+      "formatUrls": {
+        "react": "https://patternbook-w0x7y.vercel.app/c/pricing-comparison-table.react.md",
+        "html": "https://patternbook-w0x7y.vercel.app/c/pricing-comparison-table.html.md"
+      }
+    },
+    {
+      "slug": "pricing-three-tiers",
+      "name": "Pricing — Three tiers, middle highlighted",
+      "kind": "section",
+      "tags": [
+        "centered",
+        "grid",
+        "numbers"
+      ],
+      "category": "pricing",
+      "description": "Three plan cards in a pricing grid, middle tier highlighted.",
+      "fonts": [],
+      "addedAt": "2026-10-10",
+      "url": "https://patternbook-w0x7y.vercel.app/c/pricing-three-tiers",
+      "markdownUrl": "https://patternbook-w0x7y.vercel.app/c/pricing-three-tiers.md",
+      "formatUrls": {
+        "react": "https://patternbook-w0x7y.vercel.app/c/pricing-three-tiers.react.md",
+        "html": "https://patternbook-w0x7y.vercel.app/c/pricing-three-tiers.html.md"
+      }
+    },
+    {
+      "slug": "pricing-single-plan",
+      "name": "Pricing — Single plan with benefits",
+      "kind": "section",
+      "tags": [
+        "asymmetric",
+        "list",
+        "numbers"
+      ],
+      "category": "pricing",
+      "description": "One pricing plan beside a list of benefits.",
+      "fonts": [],
+      "addedAt": "2026-10-10",
+      "url": "https://patternbook-w0x7y.vercel.app/c/pricing-single-plan",
+      "markdownUrl": "https://patternbook-w0x7y.vercel.app/c/pricing-single-plan.md",
+      "formatUrls": {
+        "react": "https://patternbook-w0x7y.vercel.app/c/pricing-single-plan.react.md",
+        "html": "https://patternbook-w0x7y.vercel.app/c/pricing-single-plan.html.md"
+      }
+    },
+    {
+      "slug": "badges-status-list",
+      "name": "Badges — Status in list rows",
+      "kind": "element",
+      "tags": [
+        "list",
+        "compact"
+      ],
+      "category": "badges",
+      "description": "Status badges at the end of compact list rows.",
+      "fonts": [],
+      "addedAt": "2026-10-10",
+      "url": "https://patternbook-w0x7y.vercel.app/c/badges-status-list",
+      "markdownUrl": "https://patternbook-w0x7y.vercel.app/c/badges-status-list.md",
+      "formatUrls": {
+        "react": "https://patternbook-w0x7y.vercel.app/c/badges-status-list.react.md",
+        "html": "https://patternbook-w0x7y.vercel.app/c/badges-status-list.html.md"
+      }
+    }
   ]
 }

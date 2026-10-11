@@ -19,7 +19,7 @@ const NAV_GROUPS = groupMetas(ALL).map((group) => ({
 
 type GroupId = (typeof NAV_GROUPS)[number]['id']
 
-const plural = (count: number) => (count === 1 ? 'component' : 'components')
+const plural = (count: number) => (count === 1 ? 'pattern' : 'patterns')
 
 /** Category links carry the current ?q and ?tags along. */
 function useLinkSearch() {
@@ -43,7 +43,7 @@ function SidebarLink({ to, label, count, current, hideOne = false }: { to: strin
     >
       <span className="truncate">{label}</span>
       <span className={`text-xs tabular-nums ${current ? 'text-zinc-600 dark:text-zinc-300' : 'text-zinc-500 dark:text-zinc-400'}`}>
-        {hideOne && count === 1 ? <span className="sr-only">1 component</span> : (
+        {hideOne && count === 1 ? <span className="sr-only">1 pattern</span> : (
           <>
             {count}
             <span className="sr-only"> {plural(count)}</span>
@@ -54,13 +54,13 @@ function SidebarLink({ to, label, count, current, hideOne = false }: { to: strin
   )
 }
 
-/** The group a page opens with: the current category's, or the first group on "All components". */
+/** The group a page opens with: the current category's, or the first group on "All patterns". */
 const openingGroup = (active: CategoryId | null): GroupId => (active ? groupOf(active).id : NAV_GROUPS[0].id)
 
 /**
  * Desktop category navigation (lg and up): a collapsible block per group, headed by its total. The
- * current category's group starts open (the first group on "All components"). Moving between
- * categories opens the new one's group and leaves the others as the reader set them. "All components"
+ * current category's group starts open (the first group on "All patterns"). Moving between
+ * categories opens the new one's group and leaves the others as the reader set them. "All patterns"
  * and the category pages are separate routes, so crossing between them starts afresh. Native
  * <details>, so the pre-rendered page opens and closes before hydration too.
  */
@@ -85,7 +85,7 @@ export function Sidebar({ active }: { active: CategoryId | null }) {
   return (
     <nav aria-label="Categories" className="hidden w-60 shrink-0 lg:block">
       <div className="sticky top-14 -ml-3 max-h-[calc(100dvh-3.5rem)] overflow-y-auto pt-10 pb-12 [scrollbar-color:var(--color-zinc-300)_transparent] [scrollbar-width:thin] dark:[scrollbar-color:var(--color-zinc-700)_transparent]">
-        <SidebarLink to={browsePath(null, search)} label="All components" count={TOTAL} current={active === null} />
+        <SidebarLink to={browsePath(null, search)} label="All patterns" count={TOTAL} current={active === null} />
         <div className="mt-4 space-y-0.5">
           {NAV_GROUPS.map((group) => (
             <details

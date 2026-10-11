@@ -1,0 +1,113 @@
+<section class="settings-sidebar-sections">
+  <div class="settings-sidebar-sections__container">
+    <h1 class="settings-sidebar-sections__title">Workspace settings</h1>
+    <p class="settings-sidebar-sections__summary">Manage identity, preferences and notifications.</p>
+    <div class="settings-sidebar-sections__layout">
+      <nav aria-label="Settings sections" class="settings-sidebar-sections__navigation">
+        <a href="#" aria-current="page" class="settings-sidebar-sections__nav-link settings-sidebar-sections__nav-link--current"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-sidebar-sections__icon">
+          <path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h4"></path>
+        </svg>General</a>
+        <a href="#" class="settings-sidebar-sections__nav-link settings-sidebar-sections__nav-link--idle"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-sidebar-sections__icon">
+          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"></path>
+        </svg>Notifications</a>
+        <a href="#" class="settings-sidebar-sections__nav-link settings-sidebar-sections__nav-link--idle"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-sidebar-sections__icon">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M17 5a4 4 0 0 1 0 8M22 21v-2a4 4 0 0 0-3-3.87"></path>
+        </svg>Members</a>
+        <a href="#" class="settings-sidebar-sections__nav-link settings-sidebar-sections__nav-link--idle"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-sidebar-sections__icon">
+          <path d="M3 5h18v14H3zM3 9h18M7 15h3"></path>
+        </svg>Billing</a>
+        <a href="#" class="settings-sidebar-sections__nav-link settings-sidebar-sections__nav-link--idle"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-sidebar-sections__icon">
+          <path d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7l8-4Z"></path>
+        </svg>Security</a>
+        <a href="#" class="settings-sidebar-sections__nav-link settings-sidebar-sections__nav-link--idle"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-sidebar-sections__icon">
+          <path d="M4 7h16M4 17h16M8 4v6M16 14v6"></path>
+        </svg>Advanced</a>
+      </nav>
+      <form class="settings-sidebar-sections__form">
+        <div class="settings-sidebar-sections__form-section settings-sidebar-sections__section--general">
+          <div>
+            <h2 class="settings-sidebar-sections__heading">General</h2>
+            <p class="settings-sidebar-sections__description">Describe the workspace identity and its default preferences.</p>
+          </div>
+          <div class="settings-sidebar-sections__fields">
+            <div class="settings-sidebar-sections__field-grid">
+              <div class="settings-sidebar-sections__field"><label for="settings-sidebar-sections-first" class="settings-sidebar-sections__label">First name</label><input id="settings-sidebar-sections-first" type="text" name="first" value="Alex" class="settings-sidebar-sections__input"></div>
+              <div class="settings-sidebar-sections__field"><label for="settings-sidebar-sections-last" class="settings-sidebar-sections__label">Last name</label><input id="settings-sidebar-sections-last" type="text" name="last" value="Rivera" class="settings-sidebar-sections__input"></div>
+            </div>
+            <div>
+              <label for="settings-sidebar-sections-url" class="settings-sidebar-sections__label">Workspace URL</label>
+              <div class="settings-sidebar-sections__url-field">
+                <span class="settings-sidebar-sections__url-prefix">/w/</span>
+                <input id="settings-sidebar-sections-url" aria-describedby="settings-sidebar-sections-url-hint" name="url" value="workspace-name" class="settings-sidebar-sections__url-input">
+              </div>
+              <p id="settings-sidebar-sections-url-hint" class="settings-sidebar-sections__field-hint">Use a short, unique workspace address.</p>
+            </div>
+            <div class="settings-sidebar-sections__field-grid">
+              <div class="settings-sidebar-sections__field"><label for="settings-sidebar-sections-language" class="settings-sidebar-sections__label">Language</label><select id="settings-sidebar-sections-language" name="language" class="settings-sidebar-sections__input"><option>English</option><option>Spanish</option><option>French</option></select></div>
+              <div class="settings-sidebar-sections__field"><label for="settings-sidebar-sections-date" class="settings-sidebar-sections__label">Date format</label><select id="settings-sidebar-sections-date" name="date" class="settings-sidebar-sections__input"><option>Mar 14, 2026</option><option>14 Mar 2026</option><option>2026-03-14</option></select></div>
+            </div>
+          </div>
+        </div>
+        <div class="settings-sidebar-sections__form-section settings-sidebar-sections__section--notifications">
+          <div>
+            <h2 class="settings-sidebar-sections__heading">Notifications</h2>
+            <p class="settings-sidebar-sections__description">Explain which activity can send an alert.</p>
+          </div>
+          <div class="settings-sidebar-sections__switch-list">
+            <div class="settings-sidebar-sections__switch-row">
+              <div class="settings-sidebar-sections__field">
+                <label for="settings-sidebar-sections-updates" class="settings-sidebar-sections__switch-label">Activity updates</label>
+                <p id="settings-sidebar-sections-updates-hint" class="settings-sidebar-sections__switch-hint">Receive a summary when shared items change.</p>
+              </div>
+              <label class="settings-sidebar-sections__switch">
+                <input id="settings-sidebar-sections-updates" type="checkbox" role="switch" aria-describedby="settings-sidebar-sections-updates-hint" name="updates" checked class="settings-sidebar-sections__switch-input">
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-track"></span>
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-knob"></span>
+              </label>
+            </div>
+            <div class="settings-sidebar-sections__switch-row">
+              <div class="settings-sidebar-sections__field">
+                <label for="settings-sidebar-sections-mentions" class="settings-sidebar-sections__switch-label">Mentions</label>
+                <p id="settings-sidebar-sections-mentions-hint" class="settings-sidebar-sections__switch-hint">Get an alert when someone mentions you.</p>
+              </div>
+              <label class="settings-sidebar-sections__switch">
+                <input id="settings-sidebar-sections-mentions" type="checkbox" role="switch" aria-describedby="settings-sidebar-sections-mentions-hint" name="mentions" checked class="settings-sidebar-sections__switch-input">
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-track"></span>
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-knob"></span>
+              </label>
+            </div>
+            <div class="settings-sidebar-sections__switch-row">
+              <div class="settings-sidebar-sections__field">
+                <label for="settings-sidebar-sections-reminders" class="settings-sidebar-sections__switch-label">Reminders</label>
+                <p id="settings-sidebar-sections-reminders-hint" class="settings-sidebar-sections__switch-hint">Receive a prompt before a scheduled date.</p>
+              </div>
+              <label class="settings-sidebar-sections__switch">
+                <input id="settings-sidebar-sections-reminders" type="checkbox" role="switch" aria-describedby="settings-sidebar-sections-reminders-hint" name="reminders" class="settings-sidebar-sections__switch-input">
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-track"></span>
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-knob"></span>
+              </label>
+            </div>
+            <div class="settings-sidebar-sections__switch-row">
+              <div class="settings-sidebar-sections__field">
+                <label for="settings-sidebar-sections-digest" class="settings-sidebar-sections__switch-label">Weekly digest</label>
+                <p id="settings-sidebar-sections-digest-hint" class="settings-sidebar-sections__switch-hint">Review recent activity in one email.</p>
+              </div>
+              <label class="settings-sidebar-sections__switch">
+                <input id="settings-sidebar-sections-digest" type="checkbox" role="switch" aria-describedby="settings-sidebar-sections-digest-hint" name="digest" class="settings-sidebar-sections__switch-input">
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-track"></span>
+                <span aria-hidden="true" class="settings-sidebar-sections__switch-knob"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <footer class="settings-sidebar-sections__footer">
+          <p class="settings-sidebar-sections__save-note">Last saved Mar 14 at 10:24</p>
+          <div class="settings-sidebar-sections__actions">
+            <button type="reset" class="settings-sidebar-sections__action settings-sidebar-sections__action--secondary">Discard</button>
+            <button type="submit" class="settings-sidebar-sections__action settings-sidebar-sections__action--primary">Save changes</button>
+          </div>
+        </footer>
+      </form>
+    </div>
+  </div>
+</section>

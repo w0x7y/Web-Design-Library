@@ -1,0 +1,51 @@
+<section class="settings-danger-zone">
+  <div class="settings-danger-zone__container">
+    <h1 class="settings-danger-zone__title">Workspace actions</h1>
+    <p class="settings-danger-zone__lede">Explain which actions affect everyone and need careful review.</p>
+    <div class="settings-danger-zone__danger-card">
+      <div class="settings-danger-zone__card-header">
+        <h2 class="settings-danger-zone__heading">Danger zone</h2>
+        <p class="settings-danger-zone__description">Review the consequences before changing workspace access.</p>
+      </div>
+      <div class="settings-danger-zone__action-row">
+        <div class="settings-danger-zone__action-copy">
+          <h3 class="settings-danger-zone__subheading">Transfer ownership</h3>
+          <p class="settings-danger-zone__description">Give another member control of this workspace.</p>
+        </div>
+        <button type="button" class="settings-danger-zone__action settings-danger-zone__action--secondary">Transfer ownership</button>
+      </div>
+      <div class="settings-danger-zone__action-row">
+        <div class="settings-danger-zone__action-copy">
+          <h3 class="settings-danger-zone__subheading">Archive workspace</h3>
+          <p class="settings-danger-zone__description">Make this workspace read-only for every member.</p>
+        </div>
+        <button type="button" class="settings-danger-zone__action settings-danger-zone__action--secondary">Archive workspace</button>
+      </div>
+      <details class="settings-danger-zone__delete">
+        <summary class="settings-danger-zone__delete-summary">
+          <span class="settings-danger-zone__action-copy"><span class="settings-danger-zone__delete-title">Delete workspace</span><span class="settings-danger-zone__delete-description">Permanently remove this workspace and all its records.</span></span>
+          <span class="settings-danger-zone__action settings-danger-zone__action--delete-prompt"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-danger-zone__icon">
+            <path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6M14 10v6"></path>
+          </svg>Delete workspace</span>
+        </summary>
+        <form class="settings-danger-zone__confirmation">
+          <div class="settings-danger-zone__warning">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-danger-zone__icon">
+              <path d="m12 3 10 18H2L12 3ZM12 9v4M12 17h.01"></path>
+            </svg>
+            <p id="settings-danger-zone-warning">This action cannot be undone. Every member will lose access to the workspace and its records.</p>
+          </div>
+          <div class="settings-danger-zone__confirmation-field">
+            <div class="settings-danger-zone__action-copy">
+              <label for="settings-danger-zone-confirm" class="settings-danger-zone__label">Type the workspace name to confirm</label><input id="settings-danger-zone-confirm" type="text" aria-describedby="settings-danger-zone-confirm-hint" name="confirm" value="" class="settings-danger-zone__input">
+              <p id="settings-danger-zone-confirm-hint" class="settings-danger-zone__field-hint">Enter the exact workspace name. The example name is Workspace name.</p>
+            </div>
+          </div>
+          <div class="settings-danger-zone__confirmation-field"><button type="submit" aria-describedby="settings-danger-zone-warning" class="settings-danger-zone__action settings-danger-zone__action--primary"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-danger-zone__icon">
+            <path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6M14 10v6"></path>
+          </svg>Delete permanently</button></div>
+        </form>
+      </details>
+    </div>
+  </div>
+</section>

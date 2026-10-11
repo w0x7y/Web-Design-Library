@@ -1,0 +1,194 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-ring-gauge, .stat-card-ring-gauge *, .stat-card-ring-gauge *::before, .stat-card-ring-gauge *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-ring-gauge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-ring-gauge :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-ring-gauge a { color: inherit; text-decoration: inherit; }
+.stat-card-ring-gauge :is(b, strong) { font-weight: bolder; }
+.stat-card-ring-gauge :is(ol, ul, menu) { list-style: none; }
+.stat-card-ring-gauge :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-ring-gauge :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-ring-gauge :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-ring-gauge ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-ring-gauge table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-ring-gauge summary { display: list-item; }
+
+/* Card */
+.stat-card-ring-gauge {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Header */
+
+.stat-card-ring-gauge .stat-card-ring-gauge__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__label {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding-inline: 0.625rem;
+  padding-block: 0.125rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+}
+
+/* Gauge and comparison */
+
+.stat-card-ring-gauge .stat-card-ring-gauge__summary {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__gauge {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  flex-shrink: 0;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__gauge-svg {
+  width: 6rem;
+  height: 6rem;
+  rotate: -90deg;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__track {
+  color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__arc {
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__percentage {
+  position: absolute;
+  inset: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* text-2xl */
+  line-height: calc(2 / 1.5); /* text-2xl */
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__comparison {
+  min-width: 0px;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__comparison-label {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__delta {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__delta-arrow {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__period {
+  margin-top: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Totals and report */
+
+.stat-card-ring-gauge .stat-card-ring-gauge__footer {
+  margin-top: 0.75rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 0.5rem;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__totals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__total {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__total-label {
+  order: 2;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__total-value {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__report-link {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__link-arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (hover: hover) {
+  .stat-card-ring-gauge .stat-card-ring-gauge__report-link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.stat-card-ring-gauge .stat-card-ring-gauge__report-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .stat-card-ring-gauge {
+    width: 20rem;
+  }
+}

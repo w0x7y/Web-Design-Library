@@ -1,0 +1,170 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-switch-states, .toggles-switch-states *, .toggles-switch-states *::before, .toggles-switch-states *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-switch-states { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-switch-states :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-switch-states a { color: inherit; text-decoration: inherit; }
+.toggles-switch-states :is(b, strong) { font-weight: bolder; }
+.toggles-switch-states :is(ol, ul, menu) { list-style: none; }
+.toggles-switch-states :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-switch-states :is(img, video) { max-width: 100%; height: auto; }
+.toggles-switch-states :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-switch-states ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-switch-states table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-switch-states summary { display: list-item; }
+
+/* Two size columns */
+
+.toggles-switch-states {
+  display: grid;
+  width: 18rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  color: oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-switch-states .toggles-switch-states__caption {
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+  color: oklch(55.6% 0 none);
+  /* neutral-500 */
+}
+
+.toggles-switch-states .toggles-switch-states__states {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.toggles-switch-states .toggles-switch-states__option {
+  position: relative;
+  display: flex;
+  min-height: 1.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: calc(1 / 0.75);
+}
+
+.toggles-switch-states .toggles-switch-states__disabled-label {
+  opacity: 0.5;
+}
+
+/* Native inputs and visible switch anatomy */
+
+.toggles-switch-states .toggles-switch-states__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.toggles-switch-states .toggles-switch-states__track {
+  position: relative;
+  display: inline-flex;
+  width: 2.75rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  align-items: center;
+  border: 1px solid oklch(87% 0 none);
+  /* neutral-300 */
+  border-radius: 9999px;
+  background-color: oklch(92.2% 0 none);
+  /* neutral-200 */
+  padding: 1px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.toggles-switch-states .toggles-switch-states__knob {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  /* shadow-sm */
+  transition: translate 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggles-switch-states .toggles-switch-states__input:checked ~ .toggles-switch-states__track {
+  background-color: oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-switch-states .toggles-switch-states__input:checked ~ .toggles-switch-states__track .toggles-switch-states__knob {
+  translate: 1.25rem 0;
+}
+
+.toggles-switch-states .toggles-switch-states__input:focus-visible {
+  outline-style: none;
+}
+
+.toggles-switch-states .toggles-switch-states__input:focus-visible ~ .toggles-switch-states__track {
+  outline: 2px solid oklch(20.5% 0 none);
+  /* neutral-900 */
+  outline-offset: 2px;
+}
+
+.toggles-switch-states .toggles-switch-states__input:disabled ~ .toggles-switch-states__track {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (hover: hover) {
+  .toggles-switch-states .toggles-switch-states__input:enabled ~ .toggles-switch-states__track:hover {
+    background-color: oklch(87% 0 none);
+    /* neutral-300 */
+  }
+  .toggles-switch-states .toggles-switch-states__input:enabled:checked ~ .toggles-switch-states__track:hover {
+    background-color: oklch(37.1% 0 none);
+    /* neutral-700 */
+  }
+}
+
+@media (forced-colors: active) {
+  .toggles-switch-states .toggles-switch-states__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .toggles-switch-states .toggles-switch-states__track {
+    border-color: ButtonText;
+  }
+  .toggles-switch-states .toggles-switch-states__knob {
+    background-color: CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggles-switch-states .toggles-switch-states__knob {
+    transition: none;
+  }
+}
+
+/* Small switch dimensions */
+
+.toggles-switch-states .toggles-switch-states__track--small {
+  width: 2.25rem;
+  height: 1.25rem;
+}
+
+.toggles-switch-states .toggles-switch-states__knob--small {
+  width: 1rem;
+  height: 1rem;
+}
+
+.toggles-switch-states .toggles-switch-states__input:checked ~ .toggles-switch-states__track--small .toggles-switch-states__knob {
+  translate: 1rem 0;
+}
+
+@media (width >= 40rem) {
+  .toggles-switch-states {
+    width: 24rem;
+  }
+}

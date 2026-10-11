@@ -1,0 +1,118 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-checkbox-nested, .toggles-checkbox-nested *, .toggles-checkbox-nested *::before, .toggles-checkbox-nested *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-checkbox-nested { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-checkbox-nested :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-checkbox-nested a { color: inherit; text-decoration: inherit; }
+.toggles-checkbox-nested :is(b, strong) { font-weight: bolder; }
+.toggles-checkbox-nested :is(ol, ul, menu) { list-style: none; }
+.toggles-checkbox-nested :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-checkbox-nested :is(img, video) { max-width: 100%; height: auto; }
+.toggles-checkbox-nested :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-checkbox-nested ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-checkbox-nested table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-checkbox-nested summary { display: list-item; }
+
+/* Fieldset and option hierarchy */
+
+.toggles-checkbox-nested {
+  width: 18rem;
+  color: oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__title {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__guidance {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none);
+  /* neutral-500 */
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__groups {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__row--disabled {
+  opacity: 0.5;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__label {
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__label--disabled {
+  cursor: not-allowed;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__hint {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none);
+  /* neutral-500 */
+}
+
+/* Native checks and conditional child rows */
+
+.toggles-checkbox-nested .toggles-checkbox-nested__checkbox {
+  margin-top: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: oklch(20.5% 0 none);
+  /* neutral-900 */
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__checkbox--disabled {
+  cursor: not-allowed;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__children {
+  display: none;
+  margin-top: 0.5rem;
+  padding-left: 1.75rem;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__children > :not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__parent-group:has(#toggles-checkbox-nested-parent:checked) .toggles-checkbox-nested__children {
+  display: block;
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.toggles-checkbox-nested .toggles-checkbox-nested__checkbox:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .toggles-checkbox-nested {
+    width: 20rem;
+  }
+}

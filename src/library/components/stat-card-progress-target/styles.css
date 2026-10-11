@@ -1,0 +1,110 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-progress-target, .stat-card-progress-target *, .stat-card-progress-target *::before, .stat-card-progress-target *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-progress-target { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-progress-target :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-progress-target a { color: inherit; text-decoration: inherit; }
+.stat-card-progress-target :is(b, strong) { font-weight: bolder; }
+.stat-card-progress-target :is(ol, ul, menu) { list-style: none; }
+.stat-card-progress-target :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-progress-target :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-progress-target :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-progress-target ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-progress-target table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-progress-target summary { display: list-item; }
+
+/* Card */
+.stat-card-progress-target {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Metric */
+
+.stat-card-progress-target .stat-card-progress-target__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-progress-target .stat-card-progress-target__period {
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 400;
+}
+
+.stat-card-progress-target .stat-card-progress-target__value-row {
+  margin-top: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.stat-card-progress-target .stat-card-progress-target__value {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-progress-target .stat-card-progress-target__target {
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Progress */
+
+.stat-card-progress-target .stat-card-progress-target__track {
+  margin-top: 1.25rem;
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.stat-card-progress-target .stat-card-progress-target__fill {
+  height: 100%;
+  width: 74.2%;
+  border-radius: 9999px;
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-progress-target .stat-card-progress-target__scale {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Remainder */
+
+.stat-card-progress-target .stat-card-progress-target__footer {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+@media (width >= 40rem) {
+  .stat-card-progress-target {
+    width: 20rem;
+  }
+}

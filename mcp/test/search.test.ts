@@ -1,9 +1,7 @@
-import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { parseCatalog } from '../src/catalog.js'
 import { closestComponents, formatSearch, searchComponents, searchInputSchema, searchResult } from '../src/search.js'
 import { fixture } from './fixtures.js'
-import { catalogFile, hasBuild } from './real-build.js'
+import { inventoryFixture, layoutQueries } from './inventory.js'
 
 const slugs = (input: Parameters<typeof searchComponents>[1]) => searchComponents(fixture, input).components.map(({ slug }) => slug)
 
@@ -21,8 +19,8 @@ describe('search', () => {
   })
 
   it('keeps each search hit on one line', () => {
-    const catalog = { ...fixture, components: [{ ...fixture.components[0], slug: ' hero-split\nimage ', name: '  Minimal\npricing  ', category: ' hero\tcategory ', tags: [' minimal\nstyle ', ' light\tstyle '], description: '  Pick\ta plan.\n' }] }
-    expect(formatSearch(searchResult(catalog, {}))).toBe('Showing 1 of 1 matches.\nhero-split image | Minimal pricing | hero category | section | minimal style, light style | Pick a plan.')
+    const catalog = { ...fixture, components: [{ ...fixture.components[0], slug: ' hero-split\nimage ', name: '  Hero\nsplit  ', category: ' hero\tcategory ', tags: [' split\nlayout ', ' media\tlayout '], description: '  Slot\tcopy.\n' }] }
+    expect(formatSearch(searchResult(catalog, {}))).toBe('Showing 1 of 1 matches.\nhero-split image | Hero split | hero category | section | split layout, media layout | Slot copy.')
   })
 
   it('weights name above slug, taxonomy and description, preserving ties', () => {
@@ -38,9 +36,9 @@ describe('search', () => {
   })
 
   it('matches case-insensitive prefixes and punctuation, allowing unmatched query words', () => {
-    expect(slugs({ query: 'PRIC' })).toEqual(['pricing-minimal', 'pricing-dark', 'plan-card'])
-    expect(slugs({ query: 'minimal, PRICING! unknown' })).toEqual(['pricing-minimal', 'pricing-dark', 'plan-card', 'hero-split-image'])
-    expect(slugs({ query: 'pricing unknown' })).toEqual(['pricing-minimal', 'pricing-dark', 'plan-card'])
+    expect(slugs({ query: 'PRIC' })).toEqual(['pricing-comparison-table', 'pricing-three-tiers', 'pricing-single-plan'])
+    expect(slugs({ query: 'split, PRICING! unknown' })).toEqual(['pricing-comparison-table', 'pricing-three-tiers', 'pricing-single-plan', 'hero-split-image'])
+    expect(slugs({ query: 'pricing unknown' })).toEqual(['pricing-comparison-table', 'pricing-three-tiers', 'pricing-single-plan'])
     expect(slugs({ query: 'unknown' })).toEqual([])
     expect(slugs({ query: '   ! ' })).toEqual(slugs({}))
     expect(slugs({ query: 'pricing pricing' })).toEqual(slugs({ query: 'pricing' }))
@@ -60,19 +58,19 @@ describe('search', () => {
 
   it('ignores common English stopwords in descriptive queries', () => {
     expect(slugs({ query: 'with for a an the and or of to in on my that this using use need want like some pricing' }))
-      .toEqual(['pricing-minimal', 'pricing-dark', 'plan-card'])
+      .toEqual(['pricing-comparison-table', 'pricing-three-tiers', 'pricing-single-plan'])
   })
 
   it('falls back to the original words when every query word is a stopword', () => {
-    expect(slugs({ query: 'with' })).toEqual(['hero-split-image'])
-    expect(slugs({ query: 'the' })).toEqual([])
+    expect(slugs({ query: 'with' })).toEqual(['hero-split-image', 'pricing-single-plan'])
+    expect(slugs({ query: 'the' })).toEqual(['badges-status-list'])
   })
 
   it('matches singular and plural words in both directions and counts them once', () => {
     for (const query of ['plan', 'plans', 'plan plans']) {
-      expect(slugs({ query })).toEqual(['pricing-dark', 'plan-card', 'pricing-minimal'])
+      expect(slugs({ query })).toEqual(['pricing-single-plan', 'pricing-comparison-table', 'pricing-three-tiers'])
     }
-    for (const query of ['badge', 'badges']) expect(slugs({ query })).toEqual(['badges-playful'])
+    for (const query of ['badge', 'badges']) expect(slugs({ query })).toEqual(['badges-status-list'])
   })
 
   it('weights exact matches twice as much as prefixes after plural normalization', () => {
@@ -135,21 +133,22 @@ describe('search', () => {
     expect(searchComponents(catalog, { query: 'sign up' }).components[0].category).toBe('signup')
   })
 
-  it('searches category labels and combines category, kind and all tags', () => {
-    expect(slugs({ query: 'tables' })).toEqual(['pricing-minimal', 'pricing-dark', 'plan-card'])
-    expect(slugs({ category: 'pricing', tags: ['minimal', 'light'], kind: 'section' })).toEqual(['pricing-minimal'])
-    expect(slugs({ category: 'pricing', kind: 'element' })).toEqual(['plan-card'])
-    expect(slugs({ tags: ['dark', 'light'] })).toEqual([])
-    expect(slugs({ query: 'hero pricing unknown', category: 'pricing', tags: ['minimal', 'light'], kind: 'section' }))
-      .toEqual(['pricing-minimal'])
+  it('combines category, kind and all layout tags', () => {
+    expect(slugs({ query: 'tables' })).toEqual(['pricing-comparison-table'])
+    expect(slugs({ category: 'pricing', tags: ['table', 'compact'], kind: 'section' })).toEqual(['pricing-comparison-table'])
+    expect(slugs({ category: 'pricing', kind: 'element' })).toEqual([])
+    expect(slugs({ category: 'badges', kind: 'element' })).toEqual(['badges-status-list'])
+    expect(slugs({ tags: ['split', 'table'] })).toEqual([])
+    expect(slugs({ query: 'hero pricing unknown', category: 'pricing', tags: ['table', 'compact'], kind: 'section' }))
+      .toEqual(['pricing-comparison-table'])
     expect(slugs({ query: 'pricing', category: 'hero' })).toEqual([])
-    expect(slugs({ query: 'minimal', tags: ['dark', 'light'] })).toEqual([])
+    expect(slugs({ query: 'compact', tags: ['split', 'table'] })).toEqual([])
   })
 
   it('reports unknown filters with valid ids', () => {
     expect(() => slugs({ category: 'wrong' })).toThrow('Valid category ids: hero, pricing, badges')
     expect(() => slugs({ category: '' })).toThrow('Valid category ids: hero, pricing, badges')
-    expect(() => slugs({ tags: ['wrong'] })).toThrow('Valid tag ids: minimal, light, dark, playful')
+    expect(() => slugs({ tags: ['wrong'] })).toThrow('Valid tag ids: split, media, spacious, table, numbers, compact, centered, grid, asymmetric, list')
   })
 
   it('validates limits and applies the default', () => {
@@ -159,38 +158,16 @@ describe('search', () => {
   })
 
   it('suggests close slugs and names deterministically', () => {
-    expect(closestComponents(fixture.components, 'pricing-minmal')[0].slug).toBe('pricing-minimal')
-    expect(closestComponents(fixture.components, 'minimal-pricing')[0].slug).toBe('pricing-minimal')
+    expect(closestComponents(fixture.components, 'pricing-comparison-tabl')[0].slug).toBe('pricing-comparison-table')
+    expect(closestComponents(fixture.components, 'comparison-table-pricing')[0].slug).toBe('pricing-comparison-table')
     expect(closestComponents([], 'anything')).toEqual([])
   })
 })
 
-describe('real-catalog search ranking', () => {
-  it.skipIf(!hasBuild).each([
-    ['dark pricing table with monthly yearly toggle', 'Pricing'],
-    ['testimonial carousel', 'Testimonials'],
-    ['minimal footer with newsletter signup', 'Footer'],
-    ['login form', 'Login'],
-    ['hero with image for a SaaS product', 'Hero'],
-    ['buttons', 'Buttons'],
-    ['testimonial card', 'Testimonial cards'],
-    ['testimonial cards', 'Testimonial cards'],
-    ['data table', 'Data table'],
-    ['call to action', 'Call to action'],
-  ])('returns relevant top-three categories for "%s"', (query, label) => {
-    const catalog = parseCatalog(JSON.parse(readFileSync(catalogFile, 'utf8')))
-    const category = catalog.categories.find((category) => category.label === label)
-    expect(category, `Missing category label "${label}" in the real catalog`).toBeDefined()
-    const result = searchComponents(catalog, { query, limit: 3 })
-    expect(result.total).toBeGreaterThanOrEqual(1)
-    expect(result.components).toHaveLength(3)
-    expect(result.components.map(({ category }) => category)).toEqual(Array(3).fill(category?.id))
+describe('planned layout search ranking', () => {
+  it.each(layoutQueries)('returns a suitable layout first for "$query"', ({ query, category, slugs }) => {
+    const result = searchComponents(inventoryFixture, { query, limit: 3 })
+    expect(slugs).toContain(result.components[0]?.slug)
+    expect(result.components.map((component) => component.category)).toEqual(Array(3).fill(category))
   })
-})
-
-it.skipIf(!hasBuild)('keeps the brief cap at least four times the largest built brief', async () => {
-  const { readdir, stat } = await import('node:fs/promises')
-  const directory = new URL('c/', catalogFile)
-  const sizes = await Promise.all((await readdir(directory)).filter((file) => file.endsWith('.md')).map(async (file) => (await stat(new URL(file, directory))).size))
-  expect(Math.max(...sizes) * 4).toBeLessThanOrEqual(1024 * 1024)
 })

@@ -1,0 +1,208 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-card-on-media, .login-card-on-media *, .login-card-on-media *::before, .login-card-on-media *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-card-on-media { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-card-on-media :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-card-on-media a { color: inherit; text-decoration: inherit; }
+.login-card-on-media :is(b, strong) { font-weight: bolder; }
+.login-card-on-media :is(ol, ul, menu) { list-style: none; }
+.login-card-on-media :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-card-on-media :is(img, video) { max-width: 100%; height: auto; }
+.login-card-on-media :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-card-on-media ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-card-on-media table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-card-on-media summary { display: list-item; }
+
+/* Section */
+
+.login-card-on-media {
+  position: relative;
+  min-height: 640px;
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Media placeholder */
+
+.login-card-on-media .login-card-on-media__media {
+  display: flex;
+  height: 10rem;
+  align-items: center;
+  justify-content: center;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.login-card-on-media .login-card-on-media__image-glyph {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Section */
+
+.login-card-on-media .login-card-on-media__container {
+  position: relative;
+  margin-inline: auto;
+  display: flex;
+  min-height: 480px;
+  max-width: 72rem; /* container-6xl */
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.login-card-on-media .login-card-on-media__card {
+  width: 100%;
+  max-width: 24rem; /* container-sm */
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 2rem;
+}
+
+/* Heading and context */
+
+.login-card-on-media .login-card-on-media__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.login-card-on-media .login-card-on-media__logo-glyph {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.login-card-on-media .login-card-on-media__title {
+  margin-top: 1.5rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+/* Form */
+
+.login-card-on-media .login-card-on-media__form {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.login-card-on-media .login-card-on-media__label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.login-card-on-media .login-card-on-media__input {
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+/* Actions */
+
+.login-card-on-media .login-card-on-media__submit {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: #fff; /* white */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Footer */
+
+.login-card-on-media .login-card-on-media__account {
+  margin-top: 1.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Actions */
+
+.login-card-on-media .login-card-on-media__link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Form */
+
+.login-card-on-media .login-card-on-media__input::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .login-card-on-media .login-card-on-media__submit:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+
+  .login-card-on-media .login-card-on-media__link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+/* Keyboard focus */
+
+.login-card-on-media .login-card-on-media__input:focus-visible,
+.login-card-on-media .login-card-on-media__submit:focus-visible,
+.login-card-on-media .login-card-on-media__link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .login-card-on-media .login-card-on-media__media {
+    height: 100%;
+    position: absolute;
+    inset: 0px;
+  }
+
+  .login-card-on-media .login-card-on-media__image-glyph {
+    position: absolute;
+    left: 25%;
+  }
+
+  .login-card-on-media .login-card-on-media__container {
+    min-height: 640px;
+    padding-block: 6rem;
+  }
+
+  .login-card-on-media .login-card-on-media__card {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+  }
+
+  .login-card-on-media .login-card-on-media__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}
+
+@media (width >= 64rem) {
+  .login-card-on-media .login-card-on-media__container {
+    justify-content: flex-end;
+  }
+}

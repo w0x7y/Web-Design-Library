@@ -1,0 +1,74 @@
+<section class="settings-described-rows">
+  <form class="settings-described-rows__form">
+    <p class="settings-described-rows__eyebrow">Workspace preferences</p>
+    <h1 class="settings-described-rows__title">Access and invitations</h1>
+    <p class="settings-described-rows__lede">Explain the scope of these preferences and who they affect.</p>
+    <div class="settings-described-rows__settings">
+      <div class="settings-described-rows__setting-row">
+        <div>
+          <h2 class="settings-described-rows__heading">Permissions</h2>
+          <p class="settings-described-rows__description">Explain who can change shared content and send invitations.</p>
+        </div>
+        <div class="settings-described-rows__field">
+          <div class="settings-described-rows__choices">
+            <div class="settings-described-rows__choice">
+              <input id="settings-described-rows-edit" type="checkbox" aria-describedby="settings-described-rows-edit-hint" name="edit" checked class="settings-described-rows__choice-input">
+              <div class="settings-described-rows__field">
+                <label for="settings-described-rows-edit" class="settings-described-rows__label">Allow members to edit</label>
+                <p id="settings-described-rows-edit-hint" class="settings-described-rows__choice-hint">Members can update shared items without approval.</p>
+              </div>
+            </div>
+            <div class="settings-described-rows__choice">
+              <input id="settings-described-rows-invite" type="checkbox" aria-describedby="settings-described-rows-invite-hint" name="invite" class="settings-described-rows__choice-input">
+              <div class="settings-described-rows__field">
+                <label for="settings-described-rows-invite" class="settings-described-rows__label">Allow member invitations</label>
+                <p id="settings-described-rows-invite-hint" class="settings-described-rows__choice-hint">Members can invite someone with a workspace link.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-described-rows__setting-row">
+        <div>
+          <h2 class="settings-described-rows__heading">Default access</h2>
+          <p class="settings-described-rows__description">Describe the access assigned to people joining the workspace.</p>
+        </div>
+        <div class="settings-described-rows__field">
+          <div class="settings-described-rows__field">
+            <label for="settings-described-rows-role" class="settings-described-rows__field-label">Default role</label><select id="settings-described-rows-role" name="role" aria-describedby="settings-described-rows-role-hint" class="settings-described-rows__text-field"><option>Member</option><option>Viewer</option><option>Admin</option></select>
+            <p id="settings-described-rows-role-hint" class="settings-described-rows__field-hint">This role applies to new members.</p>
+          </div>
+        </div>
+      </div>
+      <div class="settings-described-rows__setting-row">
+        <div>
+          <h2 class="settings-described-rows__heading">Invitations</h2>
+          <p class="settings-described-rows__description">Describe the invitation rules and how access requests are handled.</p>
+        </div>
+        <div class="settings-described-rows__field">
+          <div class="settings-described-rows__field">
+            <label for="settings-described-rows-domain" class="settings-described-rows__field-label">Email domain</label><input id="settings-described-rows-domain" type="text" aria-describedby="settings-described-rows-domain-hint" name="domain" value="example.com" class="settings-described-rows__text-field">
+            <p id="settings-described-rows-domain-hint" class="settings-described-rows__field-hint">Leave empty to allow any email domain.</p>
+          </div>
+          <fieldset class="settings-described-rows__approval">
+            <legend class="settings-described-rows__label">Invitation approval</legend>
+            <div class="settings-described-rows__approval-options">
+              <div class="settings-described-rows__choice">
+                <input id="settings-described-rows-approval-required" type="radio" name="approval" checked class="settings-described-rows__choice-input">
+                <div class="settings-described-rows__field"><label for="settings-described-rows-approval-required" class="settings-described-rows__label">Require approval</label></div>
+              </div>
+              <div class="settings-described-rows__choice">
+                <input id="settings-described-rows-approval-auto" type="radio" name="approval" class="settings-described-rows__choice-input">
+                <div class="settings-described-rows__field"><label for="settings-described-rows-approval-auto" class="settings-described-rows__label">Approve automatically</label></div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <footer class="settings-described-rows__footer">
+      <p class="settings-described-rows__save-note">Changes apply to new activity.</p>
+      <button type="submit" class="settings-described-rows__action">Save preferences</button>
+    </footer>
+  </form>
+</section>

@@ -1,0 +1,46 @@
+<section class="signup-plan-choice">
+  <form class="signup-plan-choice__form">
+    <header class="signup-plan-choice__header">
+      <div>
+        <h1 class="signup-plan-choice__title">Choose a plan and join</h1>
+        <p class="signup-plan-choice__lede">A short explanation of choosing the right level of access.</p>
+      </div>
+      <span class="signup-plan-choice__login"><a href="#" class="signup-plan-choice__link">Log in</a></span>
+    </header>
+    <fieldset class="signup-plan-choice__fieldset">
+      <legend class="signup-plan-choice__legend">Choose a plan</legend>
+      <div class="signup-plan-choice__plans">
+        <label class="signup-plan-choice__plan"><span class="signup-plan-choice__plan-header">
+          <span id="signup-plan-choice-individual-title" class="signup-plan-choice__plan-title">Individual plan</span>
+          <input type="radio" aria-labelledby="signup-plan-choice-individual-title" aria-describedby="signup-plan-choice-individual-hint" name="plan" checked value="individual" class="signup-plan-choice__choice-control">
+        </span><span class="signup-plan-choice__price-line"><span class="signup-plan-choice__price">$29</span><span class="signup-plan-choice__billing"> / month</span></span><span id="signup-plan-choice-individual-hint" class="signup-plan-choice__plan-description">Plan summary for a single member.</span></label>
+        <label class="signup-plan-choice__plan"><span class="signup-plan-choice__plan-header">
+          <span id="signup-plan-choice-team-title" class="signup-plan-choice__plan-title">Team plan</span>
+          <input type="radio" aria-labelledby="signup-plan-choice-team-title" aria-describedby="signup-plan-choice-team-hint" name="plan" value="team" class="signup-plan-choice__choice-control">
+        </span><span class="signup-plan-choice__price-line"><span class="signup-plan-choice__price">$59</span><span class="signup-plan-choice__billing"> / month</span></span><span id="signup-plan-choice-team-hint" class="signup-plan-choice__plan-description">Plan summary for working with a group.</span></label>
+        <label class="signup-plan-choice__plan"><span class="signup-plan-choice__plan-header">
+          <span id="signup-plan-choice-organization-title" class="signup-plan-choice__plan-title">Organization plan</span>
+          <input type="radio" aria-labelledby="signup-plan-choice-organization-title" aria-describedby="signup-plan-choice-organization-hint" name="plan" value="organization" class="signup-plan-choice__choice-control">
+        </span><span class="signup-plan-choice__price-line"><span class="signup-plan-choice__price">$99</span><span class="signup-plan-choice__billing"> / month</span></span><span id="signup-plan-choice-organization-hint" class="signup-plan-choice__plan-description">Plan summary for broader account needs.</span></label>
+      </div>
+    </fieldset>
+    <div class="signup-plan-choice__account-fields">
+      <div>
+        <label for="signup-plan-choice-name" class="signup-plan-choice__label">Name</label><input id="signup-plan-choice-name" type="text" autocomplete="name" required placeholder="Full name" name="name" class="signup-plan-choice__input">
+      </div>
+      <div>
+        <label for="signup-plan-choice-email" class="signup-plan-choice__label">Email</label><input id="signup-plan-choice-email" type="email" autocomplete="email" required placeholder="name@example.com" name="email" class="signup-plan-choice__input">
+      </div>
+      <div>
+        <label for="signup-plan-choice-company" class="signup-plan-choice__label">Company</label><input id="signup-plan-choice-company" type="text" autocomplete="organization" required placeholder="Company name" name="company" class="signup-plan-choice__input">
+      </div>
+    </div>
+    <div class="signup-plan-choice__consent-strip">
+      <label class="signup-plan-choice__consent">
+        <input type="checkbox" required name="terms" class="signup-plan-choice__choice-control">
+        <span>I agree to the <a href="#" class="signup-plan-choice__link">Terms</a> and <a href="#" class="signup-plan-choice__link">Privacy policy</a>.</span>
+      </label>
+      <button type="submit" class="signup-plan-choice__submit">Create account</button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,216 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-contact-form, .cta-contact-form *, .cta-contact-form *::before, .cta-contact-form *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-contact-form { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-contact-form :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-contact-form a { color: inherit; text-decoration: inherit; }
+.cta-contact-form :is(b, strong) { font-weight: bolder; }
+.cta-contact-form :is(ol, ul, menu) { list-style: none; }
+.cta-contact-form :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-contact-form :is(img, video) { max-width: 100%; height: auto; }
+.cta-contact-form :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-contact-form ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-contact-form table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-contact-form summary { display: list-item; }
+
+/* Section */
+
+.cta-contact-form {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.cta-contact-form .cta-contact-form__container {
+  margin-inline: auto;
+  display: grid;
+  max-width: 72rem;
+  gap: 3rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Copy */
+
+.cta-contact-form .cta-contact-form__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.cta-contact-form .cta-contact-form__status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid oklch(20.5% 0 none); /* neutral-900 */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.cta-contact-form .cta-contact-form__title {
+  margin-top: 1rem;
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.cta-contact-form .cta-contact-form__lede {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: calc(1.75 / 1.125);
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.cta-contact-form .cta-contact-form__alternate-label {
+  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.cta-contact-form .cta-contact-form__alternate-link {
+  margin-top: 0.5rem;
+  display: inline-block;
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Form */
+
+.cta-contact-form .cta-contact-form__form {
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+}
+
+.cta-contact-form .cta-contact-form__label {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.cta-contact-form .cta-contact-form__control {
+  width: 100%;
+  border-radius: 0.375rem; /* rounded-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
+
+.cta-contact-form .cta-contact-form__control--input {
+  height: 2.5rem;
+  padding-inline: 0.75rem;
+}
+
+.cta-contact-form .cta-contact-form__message-field {
+  margin-top: 1.5rem;
+}
+
+.cta-contact-form .cta-contact-form__control--message {
+  min-height: 8rem;
+  resize: vertical;
+  padding: 0.75rem;
+}
+
+.cta-contact-form .cta-contact-form__form-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cta-contact-form .cta-contact-form__hint {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Actions */
+
+.cta-contact-form .cta-contact-form__submit {
+  display: inline-flex;
+  height: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* rounded-md */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: #fff; /* white */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Form */
+
+.cta-contact-form .cta-contact-form__control--input::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.cta-contact-form .cta-contact-form__control--message::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .cta-contact-form .cta-contact-form__alternate-link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .cta-contact-form .cta-contact-form__submit:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.cta-contact-form .cta-contact-form__alternate-link:focus-visible,
+.cta-contact-form .cta-contact-form__control:focus-visible,
+.cta-contact-form .cta-contact-form__submit:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .cta-contact-form .cta-contact-form__container {
+    padding-block: 6rem;
+  }
+
+  .cta-contact-form .cta-contact-form__title {
+    font-size: 2.25rem;
+    line-height: calc(2.5 / 2.25);
+  }
+}
+
+@media (width >= 48rem) {
+  .cta-contact-form .cta-contact-form__container {
+    gap: 4rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 64rem) {
+  .cta-contact-form .cta-contact-form__form-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (forced-colors: active) {
+  .cta-contact-form .cta-contact-form__status-dot {
+    border-color: CanvasText;
+    background-color: CanvasText;
+  }
+}

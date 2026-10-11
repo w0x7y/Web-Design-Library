@@ -7,11 +7,11 @@ const meta = (slug: string, category: CategoryId, name: string) =>
     slug,
     name,
     category,
-    tags: ['minimal'],
+    tags: ['centered'],
     description: `${name}.`,
     preview: { kind: 'section' },
-    fonts: [],
-    brief: { layout: 'l', style: 's', states: 's', responsive: 'r' },
+    wireframe: '┌──┐\n│UI│\n└──┘',
+    brief: { layout: 'l', hierarchy: 's', usage: 'Use this layout.', states: 's', responsive: 'r' },
     addedAt: '2026-10-08',
   }) satisfies ComponentMeta
 

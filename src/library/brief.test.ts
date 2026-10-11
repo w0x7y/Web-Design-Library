@@ -6,13 +6,14 @@ const meta: ComponentMeta = {
   slug: 'demo',
   name: 'Demo hero',
   category: 'hero',
-  tags: ['minimal'],
+  tags: ['centered'],
   description: 'A centered hero with a headline and two buttons.',
   preview: { kind: 'section' },
-  fonts: [],
+  wireframe: '┌──────────┐\n│ Headline │\n└──────────┘',
   brief: {
     layout: 'Centered column, max-w-3xl.',
-    style: 'Neutral palette, large tracking-tight headline.',
+    hierarchy: 'Headline, supporting copy, then actions.',
+    usage: 'Use for a message with no media.',
     states: 'Buttons have hover and focus-visible styles.',
     responsive: 'Stacks buttons below 640px.',
   },
@@ -25,33 +26,27 @@ const src: ComponentSources = {
   css: '\n.demo { padding: 2rem; }\n\n',
 }
 
-const withFonts = (fonts: string[]): ComponentMeta => ({ ...meta, fonts })
-
-test('html snippet = font link, style block, markup', () => {
-  expect(codeForFormat(withFonts(['Inter:wght@400']), src, 'html')).toBe(
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400&amp;display=swap">\n<style>\n${src.css.trim()}\n</style>\n${src.html.trim()}\n`)
-  expect(codeForFormat(meta, src, 'html').startsWith('<style>\n')).toBe(true)
-})
 test('codeForFormat returns raw tsx for react', () => {
   expect(codeForFormat(meta, src, 'react')).toBe(src.tsx)
 })
 test('codeForFormat returns the html snippet for html', () => {
   expect(codeForFormat(meta, src, 'html')).toBe(`<style>\n${src.css.trim()}\n</style>\n${src.html.trim()}\n`)
 })
-test('brief header and sections', () => {
+test('brief framing and five sections follow the layout pattern contract', () => {
   const b = buildBrief(meta, src, 'react')
-  expect(b.startsWith(
-    '# Demo hero (Patternbook)\nSource: ' + SITE.url + '/c/demo\n\nBuild this UI component: ' + meta.description + '\n')).toBe(true)
-  for (const h of ['## Layout\n' + meta.brief.layout, '## Visual style\n' + meta.brief.style,
-                   '## States\n' + meta.brief.states, '## Responsive\n' + meta.brief.responsive])
-    expect(b).toContain(h)
-  expect(b).toContain('Fonts: system sans-serif')
-  expect(b).toContain('## Reference code (React + Tailwind v4)\n```tsx\n' + src.tsx.trimEnd() + '\n```')
-  expect(b.trimEnd().endsWith(
-    'Adapt names, tokens and conventions to the existing project; keep the layout, hierarchy and spacing rhythm.')).toBe(true)
-})
-test('fonts line directly follows the style text', () => {
-  expect(buildBrief(meta, src, 'react')).toContain(`## Visual style\n${meta.brief.style}\nFonts: system sans-serif\n\n## States`)
+  expect(b).toBe([
+    '# Demo hero (Patternbook)\nSource: ' + SITE.url + '/c/demo',
+    'Layout pattern: A centered hero with a headline and two buttons.\nThis is a neutral wireframe. Keep its structure, hierarchy and responsive behaviour; take colours, type, radius, imagery and copy from the host project.',
+    '## Wireframe\n```text\n┌──────────┐\n│ Headline │\n└──────────┘\n```',
+    '## Layout\nCentered column, max-w-3xl.',
+    '## Hierarchy and content\nHeadline, supporting copy, then actions.',
+    '## States\nButtons have hover and focus-visible styles.',
+    '## Responsive\nStacks buttons below 640px.',
+    '## When to use\nUse for a message with no media.',
+    '## Reference code (React + Tailwind v4)\n```tsx\n' + src.tsx.trimEnd() + '\n```',
+    "Map the neutral greys to the host project's design tokens and replace slot copy with real content; keep the regions, hierarchy and responsive behaviour.",
+  ].join('\n\n') + '\n')
+  expect(b).not.toContain('Fonts:')
 })
 test('brief html format has html and css blocks', () => {
   const b = buildBrief(meta, src, 'html')
@@ -59,14 +54,11 @@ test('brief html format has html and css blocks', () => {
   expect(b).toContain('```css\n' + src.css.trim())
   expect(b).not.toContain('```tsx')
 })
-test('brief html block carries the font link, css block does not', () => {
-  const b = buildBrief(withFonts(['Inter:wght@400']), src, 'html')
-  expect(b).toContain('```html\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter%3Awght%40400&amp;display=swap">\n' + src.html.trim() + '\n```')
-  expect(b).toContain('```css\n' + src.css.trim() + '\n```')
-})
-test('fonts line lists display names', () => {
-  expect(buildBrief(withFonts(['Instrument Serif:ital@0;1']), src, 'react')).toContain('Fonts: Instrument Serif')
-  expect(buildBrief(withFonts(['Inter:wght@400', 'Instrument Serif:ital@0;1']), src, 'react')).toContain('Fonts: Inter, Instrument Serif\n')
+test('HTML reference code contains only markup and CSS, with no font link', () => {
+  const b = buildBrief(meta, src, 'html')
+  expect(b).toContain('```html\n<section class="demo">Hi</section>\n```')
+  expect(b).not.toContain('<link')
+  expect(b).not.toContain('Fonts:')
 })
 test('code containing ``` gets a longer fence', () => {
   const b = buildBrief(meta, { ...src, tsx: 'const s = "```"\n' }, 'react')
@@ -82,5 +74,5 @@ test('agent markdown includes both formats', () => {
   expect(md).toContain('## Reference code (HTML + CSS)')
   expect(md.startsWith('# Demo hero (Patternbook)\nSource: ' + SITE.url + '/c/demo\n')).toBe(true)
   expect(md.trimEnd().endsWith(
-    'Adapt names, tokens and conventions to the existing project; keep the layout, hierarchy and spacing rhythm.')).toBe(true)
+    "Map the neutral greys to the host project's design tokens and replace slot copy with real content; keep the regions, hierarchy and responsive behaviour.")).toBe(true)
 })

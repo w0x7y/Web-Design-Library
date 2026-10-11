@@ -12,264 +12,202 @@
 .footer-big-wordmark table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
 .footer-big-wordmark summary { display: list-item; }
 
-/* Component */
+/* Dark footer */
+
 .footer-big-wordmark {
   overflow: hidden;
   background-color: oklch(14.5% 0 none); /* neutral-950 */
-  font-family: "Big Shoulders", ui-sans-serif, system-ui, sans-serif;
-  color: oklch(97% 0 none); /* neutral-100 */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #fff; /* white */
 }
 
-/* Cells: stacked on phones, two across from 640px, sign-up + Club + Visit across four columns from 1024px */
-.footer-big-wordmark .footer-big-wordmark__grid {
-  display: grid;
+.footer-big-wordmark .footer-big-wordmark__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-top: 4rem;
 }
+
+/* Divided directory */
+
+.footer-big-wordmark .footer-big-wordmark__directory {
+  display: grid;
+  border-top: 1px solid oklch(26.9% 0 none); /* neutral-800 */
+  border-left: 1px solid oklch(26.9% 0 none); /* neutral-800 */
+}
+
+/* Shared cells */
 
 .footer-big-wordmark .footer-big-wordmark__cell {
-  padding: 2.5rem 1rem;
+  border-right: 1px solid oklch(26.9% 0 none); /* neutral-800 */
+  border-bottom: 1px solid oklch(26.9% 0 none); /* neutral-800 */
+  padding: 1.5rem;
 }
 
-.footer-big-wordmark :is(.footer-big-wordmark__cell--club, .footer-big-wordmark__cell--visit) {
-  border-top: 2px solid oklch(97% 0 none); /* neutral-100 */
+.footer-big-wordmark .footer-big-wordmark__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #fff; /* white */
 }
 
-.footer-big-wordmark .footer-big-wordmark__title {
-  max-width: 28rem;
-  font-size: 2.5rem;
-  line-height: 0.92;
-  font-weight: 800;
-  text-transform: uppercase;
+.footer-big-wordmark .footer-big-wordmark__logo-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-.footer-big-wordmark .footer-big-wordmark__form {
-  max-width: 32rem;
-  margin-top: 2rem;
+/* Closing invitation */
+
+.footer-big-wordmark .footer-big-wordmark__closing-title {
+  margin-top: 1.5rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
 }
 
-.footer-big-wordmark :is(.footer-big-wordmark__label, .footer-big-wordmark__heading) {
-  font-size: 0.875rem;
-  line-height: calc(1.25 / 0.875);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.footer-big-wordmark .footer-big-wordmark__closing-copy {
+  margin-top: 1rem;
+  max-width: 28rem; /* container-md */
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  color: oklch(87% 0 none); /* neutral-300 */
 }
 
-.footer-big-wordmark .footer-big-wordmark__heading {
-  color: oklch(70.8% 0 none); /* neutral-400 */
+/* Shared links */
+
+.footer-big-wordmark .footer-big-wordmark__link {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(87% 0 none); /* neutral-300 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
 }
 
-.footer-big-wordmark .footer-big-wordmark__field {
-  display: flex;
-  margin-top: 0.5rem;
+.footer-big-wordmark .footer-big-wordmark__link--closing {
+  margin-top: 1.5rem;
+  display: inline-block;
 }
 
-/* The field inverts to white while it has keyboard focus */
-.footer-big-wordmark .footer-big-wordmark__input {
-  flex: 1;
-  min-width: 0;
-  height: 3.5rem;
-  padding-inline: 1rem;
-  border: 2px solid oklch(97% 0 none); /* neutral-100 */
-  border-right-width: 0;
-  font-size: 1.25rem;
-  line-height: calc(1.75 / 1.25);
+.footer-big-wordmark .footer-big-wordmark__group-title {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
   font-weight: 600;
 }
 
-.footer-big-wordmark .footer-big-wordmark__input::placeholder {
-  color: oklch(70.8% 0 none); /* neutral-400 */
-}
-
-.footer-big-wordmark .footer-big-wordmark__input:focus-visible {
-  background-color: oklch(97% 0 none); /* neutral-100 */
-  color: oklch(14.5% 0 none); /* neutral-950 */
-  outline-style: none;
-}
-
-.footer-big-wordmark .footer-big-wordmark__input:focus-visible::placeholder {
-  color: oklch(43.9% 0 none); /* neutral-600 */
-}
-
-.footer-big-wordmark .footer-big-wordmark__submit {
-  flex-shrink: 0;
-  height: 3.5rem;
-  padding-inline: 1.5rem;
-  border: 2px solid oklch(97% 0 none); /* neutral-100 */
-  background-color: oklch(89.7% 0.196 126.665); /* lime-300 */
-  font-size: 1.25rem;
-  line-height: calc(1.75 / 1.25);
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  color: oklch(14.5% 0 none); /* neutral-950 */
-  text-transform: uppercase;
-  cursor: pointer;
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* Inset ring: an outer ring would cross the input's border */
-.footer-big-wordmark .footer-big-wordmark__submit:focus-visible {
-  outline: 2px solid oklch(14.5% 0 none); /* neutral-950 */
-  outline-offset: -6px;
-}
-
-.footer-big-wordmark .footer-big-wordmark__links {
+.footer-big-wordmark .footer-big-wordmark__group-links {
   margin-top: 1rem;
-  font-size: 1.875rem;
-  line-height: 1.25;
-  font-weight: 700;
-  text-transform: uppercase;
+  display: grid;
+  gap: 0.75rem;
 }
 
-.footer-big-wordmark .footer-big-wordmark__links > li:not(:last-child) {
-  margin-bottom: 0.25rem;
-}
-
-/* Links invert to lime on hover */
-.footer-big-wordmark .footer-big-wordmark__link {
-  margin-inline: -0.25rem;
-  padding-inline: 0.25rem;
-}
-
-.footer-big-wordmark .footer-big-wordmark__link:focus-visible {
-  outline: 2px solid oklch(89.7% 0.196 126.665); /* lime-300 */
-  outline-offset: 2px;
-}
+/* Contact */
 
 .footer-big-wordmark .footer-big-wordmark__address {
   margin-top: 1rem;
-  font-size: 1.5rem;
-  line-height: 1.25;
-  font-weight: 700;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(87% 0 none); /* neutral-300 */
   font-style: normal;
-  text-transform: uppercase;
 }
 
-.footer-big-wordmark .footer-big-wordmark__hours {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 1rem;
-  row-gap: 0.25rem;
+.footer-big-wordmark .footer-big-wordmark__link--email {
   margin-top: 1.5rem;
-  font-size: 1.125rem;
-  line-height: calc(1.75 / 1.125);
-  font-weight: 500;
+  display: inline-block;
+  word-break: break-all;
 }
 
-.footer-big-wordmark .footer-big-wordmark__day {
-  font-weight: 700;
-  text-transform: uppercase;
-}
+/* Copyright and legal */
 
-.footer-big-wordmark .footer-big-wordmark__note {
-  max-width: 20rem;
-  margin-top: 1.5rem;
-  font-size: 1.125rem;
-  line-height: 1.375;
-  font-weight: 500;
-  color: oklch(70.8% 0 none); /* neutral-400 */
-}
-
-.footer-big-wordmark .footer-big-wordmark__bar {
+.footer-big-wordmark .footer-big-wordmark__legal-bar {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.25rem 1rem;
-  border-block: 2px solid oklch(97% 0 none); /* neutral-100 */
-  font-size: 0.875rem;
-  line-height: calc(1.25 / 0.875);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  border-top: 1px solid oklch(26.9% 0 none); /* neutral-800 */
+  padding-block: 1.5rem;
 }
 
-.footer-big-wordmark .footer-big-wordmark__bar-links {
+.footer-big-wordmark .footer-big-wordmark__copyright {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+.footer-big-wordmark .footer-big-wordmark__legal-navigation {
   display: flex;
   flex-wrap: wrap;
   column-gap: 1.5rem;
-  row-gap: 0.5rem;
+  row-gap: 0.75rem;
 }
 
-/* Container units: 29.4% of the row's width makes the eight letters fill it; a 0.81 line height puts the baseline on
-   the bottom edge. The glyph box then rises above the paragraph, so it ignores the pointer to keep the bar links clickable. */
-.footer-big-wordmark .footer-big-wordmark__mark {
-  container-type: inline-size;
-  padding-inline: 1rem;
-}
+/* Decorative cropped identity */
 
 .footer-big-wordmark .footer-big-wordmark__wordmark {
-  padding-top: 3cqw;
-  pointer-events: none;
-  user-select: none;
-  font-size: 29.4cqw;
-  line-height: 0.81;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  margin-bottom: -0.15em;
+  text-align: center;
+  font-size: 18vw;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
 }
+
+/* Hover */
 
 @media (hover: hover) {
-  .footer-big-wordmark .footer-big-wordmark__submit:hover {
-    background-color: #fff;
+  .footer-big-wordmark .footer-big-wordmark__logo:hover {
+    color: oklch(87% 0 none); /* neutral-300 */
   }
+
   .footer-big-wordmark .footer-big-wordmark__link:hover {
-    background-color: oklch(89.7% 0.196 126.665); /* lime-300 */
-    color: oklch(14.5% 0 none); /* neutral-950 */
+    color: #fff; /* white */
   }
 }
 
-/* Windows high contrast: the input keeps a visible focus outline */
-@media (forced-colors: active) {
-  .footer-big-wordmark .footer-big-wordmark__input:focus-visible {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
+/* Keyboard focus */
+
+.footer-big-wordmark .footer-big-wordmark__logo:focus-visible,
+.footer-big-wordmark .footer-big-wordmark__link:focus-visible {
+  outline: 2px solid #fff; /* white */
+  outline-offset: 2px;
 }
+
+/* Responsive layout */
 
 @media (width >= 40rem) {
-  .footer-big-wordmark .footer-big-wordmark__grid {
+  .footer-big-wordmark .footer-big-wordmark__container {
+    padding-top: 6rem;
+  }
+
+  .footer-big-wordmark .footer-big-wordmark__directory {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .footer-big-wordmark .footer-big-wordmark__cell {
-    padding-inline: 1.5rem;
-  }
-  .footer-big-wordmark .footer-big-wordmark__cell--signup {
+
+  .footer-big-wordmark .footer-big-wordmark__cell--closing {
     grid-column: span 2 / span 2;
   }
-  .footer-big-wordmark .footer-big-wordmark__cell--visit {
-    border-left: 2px solid oklch(97% 0 none); /* neutral-100 */
-  }
-  .footer-big-wordmark .footer-big-wordmark__title {
-    font-size: 3rem;
-  }
-  .footer-big-wordmark :is(.footer-big-wordmark__bar, .footer-big-wordmark__mark) {
-    padding-inline: 1.5rem;
+
+  .footer-big-wordmark .footer-big-wordmark__closing-title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
   }
 }
 
+/* Responsive layout */
+
 @media (width >= 48rem) {
-  .footer-big-wordmark .footer-big-wordmark__bar {
+  .footer-big-wordmark .footer-big-wordmark__legal-bar {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 }
 
+/* Responsive layout */
+
 @media (width >= 64rem) {
-  .footer-big-wordmark .footer-big-wordmark__grid {
+  .footer-big-wordmark .footer-big-wordmark__directory {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .footer-big-wordmark .footer-big-wordmark__cell {
-    padding: 3rem 2rem;
-  }
-  .footer-big-wordmark :is(.footer-big-wordmark__cell--club, .footer-big-wordmark__cell--visit) {
-    border-top-width: 0;
-    border-left: 2px solid oklch(97% 0 none); /* neutral-100 */
-  }
-  .footer-big-wordmark :is(.footer-big-wordmark__bar, .footer-big-wordmark__mark) {
-    padding-inline: 2rem;
   }
 }

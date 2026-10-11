@@ -58,13 +58,19 @@ for (const path of ['/', '/browse/hero', '/c/hero-split-image']) {
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${SITE.url}${path}`)
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', `${SITE.url}${path}`)
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', await page.title())
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', await page.locator('meta[name="description"]').getAttribute('content') ?? '')
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', image)
     await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200')
     await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630')
-    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /Patternbook/)
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /Patternbook.*neutral layout patterns/)
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image')
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', image)
     await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', await page.title())
+    await expect(page.locator('meta[name="twitter:image:alt"]')).toHaveAttribute('content', /neutral layout patterns/)
+    if (path !== '/c/hero-split-image') {
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /neutral.*layout patterns.*own design system/)
+      await expect(page).toHaveTitle(path === '/' ? /Layout patterns/ : /Hero patterns/)
+    }
   })
 }
 

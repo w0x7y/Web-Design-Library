@@ -2,8 +2,7 @@ import { SITE } from '../site'
 import { buildAgentMarkdown, buildBrief } from './brief'
 import { groupMetas, SLUG_PATTERN, type CatalogGroup } from './catalog'
 import { buildRobotsTxt, buildSitemap } from './discovery'
-import { fontDisplayName } from './fonts'
-import { STYLE_TAGS, type CategoryId, type StyleTag } from './taxonomy'
+import { LAYOUT_TAGS, type CategoryId, type LayoutTag } from './taxonomy'
 import { FORMATS, type ComponentMeta, type Format, type LibraryEntry } from './types'
 import { absoluteUrl, catalogPath, componentFormatMarkdownPath, componentMarkdownPath, componentPath, llmsPath, robotsPath, sitemapPath } from './urls'
 
@@ -41,18 +40,19 @@ export function buildAgentFiles(entries: readonly LibraryEntry[]): { path: strin
 }
 
 const LLMS_INTRO =
-  'Copy-paste UI components as React + Tailwind v4 or HTML + CSS. Each link returns a markdown brief with full source code. ' +
+  'Neutral layout patterns as React + Tailwind v4 or HTML + CSS. Apply the host project\'s design tokens and content. Each link returns a markdown brief with full source code. ' +
   `Use ${catalogPath()} for metadata and ${FORMATS.map((format) => componentFormatMarkdownPath('<slug>', format)).join(' or ')} for one format.`
 
 /** Version 1 component metadata, without briefs or sources. */
 export interface CatalogJson {
   version: 1
   name: string
+  description: string
   url: string
   formats: Format[]
   groups: { id: CatalogGroup['id']; label: string; categories: CategoryId[] }[]
   categories: { id: CategoryId; label: string; group: CatalogGroup['id']; count: number }[]
-  tags: { id: StyleTag; count: number }[]
+  tags: { id: LayoutTag; count: number }[]
   components: (Pick<ComponentMeta, 'slug' | 'name' | 'category' | 'tags' | 'description' | 'addedAt'> & {
     kind: ComponentMeta['preview']['kind']
     fonts: string[]
@@ -81,6 +81,7 @@ export function buildCatalogJson(metas: readonly ComponentMeta[]): string {
   const catalog: CatalogJson = {
     version: 1,
     name: SITE.name,
+    description: 'Neutral layout patterns with copy-paste React + Tailwind v4 and HTML + CSS. Apply the host project\'s design tokens and content.',
     url: SITE.url,
     formats: [...FORMATS],
     groups: groups.map((group) => ({ id: group.id, label: group.label, categories: group.categories.map((category) => category.id) })),
@@ -90,7 +91,7 @@ export function buildCatalogJson(metas: readonly ComponentMeta[]): string {
       group: group.id,
       count: category.metas.length,
     }))),
-    tags: STYLE_TAGS.map((id) => ({ id, count: metas.filter((meta) => meta.tags.includes(id)).length })).filter((tag) => tag.count > 0),
+    tags: LAYOUT_TAGS.map((id) => ({ id, count: metas.filter((meta) => meta.tags.includes(id)).length })).filter((tag) => tag.count > 0),
     components: groups.flatMap((group) => group.categories.flatMap((category) => category.metas.map((meta) => ({
       slug: meta.slug,
       name: meta.name,
@@ -98,7 +99,7 @@ export function buildCatalogJson(metas: readonly ComponentMeta[]): string {
       tags: meta.tags,
       description: meta.description,
       kind: meta.preview.kind,
-      fonts: meta.fonts.map(fontDisplayName),
+      fonts: [],
       addedAt: meta.addedAt,
       url: absoluteUrl(componentPath(meta.slug)),
       markdownUrl: absoluteUrl(componentMarkdownPath(meta.slug)),

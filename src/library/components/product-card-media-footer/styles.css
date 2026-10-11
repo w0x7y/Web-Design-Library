@@ -1,0 +1,120 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-media-footer, .product-card-media-footer *, .product-card-media-footer *::before, .product-card-media-footer *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-media-footer { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-media-footer :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-media-footer a { color: inherit; text-decoration: inherit; }
+.product-card-media-footer :is(b, strong) { font-weight: bolder; }
+.product-card-media-footer :is(ol, ul, menu) { list-style: none; }
+.product-card-media-footer :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-media-footer :is(img, video) { max-width: 100%; height: auto; }
+.product-card-media-footer :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-media-footer ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-media-footer table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-media-footer summary { display: list-item; }
+
+/* Card */
+.product-card-media-footer {
+  width: 18rem;
+  overflow: hidden;
+  border-radius: 0.5rem; /* radius-lg */
+  border-style: solid;
+  border-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Media */
+.product-card-media-footer .product-card-media-footer__media {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  height: 10rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.product-card-media-footer .product-card-media-footer__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Product details */
+.product-card-media-footer .product-card-media-footer__body {
+  padding: 1rem;
+}
+
+.product-card-media-footer .product-card-media-footer__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.product-card-media-footer .product-card-media-footer__name {
+  margin-top: 0.25rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.product-card-media-footer .product-card-media-footer__description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Price footer */
+.product-card-media-footer .product-card-media-footer__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+}
+
+.product-card-media-footer .product-card-media-footer__price {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+.product-card-media-footer .product-card-media-footer__details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.product-card-media-footer .product-card-media-footer__arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (hover: hover) {
+  .product-card-media-footer .product-card-media-footer__details-link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.product-card-media-footer .product-card-media-footer__details-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .product-card-media-footer {
+    width: 20rem;
+  }
+}

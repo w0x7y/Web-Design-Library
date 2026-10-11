@@ -40,7 +40,7 @@ export function ActionBar({
 
   return (
     // Below sm: the format switch and Copy code on one row, the other actions in a grid under them. From sm, one wrapping row.
-    <div role="group" aria-label="Component actions" className="grid grid-cols-[auto_1fr] gap-2 sm:flex sm:flex-wrap sm:items-center">
+    <div role="group" aria-label="Pattern actions" className="grid grid-cols-[auto_1fr] gap-2 sm:flex sm:flex-wrap sm:items-center">
       <FormatSwitch />
       <button
         type="button"

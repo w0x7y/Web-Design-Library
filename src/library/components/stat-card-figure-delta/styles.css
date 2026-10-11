@@ -1,0 +1,116 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-figure-delta, .stat-card-figure-delta *, .stat-card-figure-delta *::before, .stat-card-figure-delta *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-figure-delta { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-figure-delta :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-figure-delta a { color: inherit; text-decoration: inherit; }
+.stat-card-figure-delta :is(b, strong) { font-weight: bolder; }
+.stat-card-figure-delta :is(ol, ul, menu) { list-style: none; }
+.stat-card-figure-delta :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-figure-delta :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-figure-delta :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-figure-delta ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-figure-delta table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-figure-delta summary { display: list-item; }
+
+/* Card */
+.stat-card-figure-delta {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Metric */
+
+.stat-card-figure-delta .stat-card-figure-delta__label {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-figure-delta .stat-card-figure-delta__value {
+  margin-top: 0.5rem;
+  font-size: 2.25rem; /* text-4xl */
+  line-height: calc(2.5 / 2.25); /* text-4xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Comparison */
+
+.stat-card-figure-delta .stat-card-figure-delta__comparison {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-figure-delta .stat-card-figure-delta__delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding-inline: 0.625rem;
+  padding-block: 0.125rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-figure-delta .stat-card-figure-delta__delta-arrow {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Report */
+
+.stat-card-figure-delta .stat-card-figure-delta__footer {
+  margin-top: 1.25rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1rem;
+}
+
+.stat-card-figure-delta .stat-card-figure-delta__report-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.stat-card-figure-delta .stat-card-figure-delta__link-arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (hover: hover) {
+  .stat-card-figure-delta .stat-card-figure-delta__report-link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.stat-card-figure-delta .stat-card-figure-delta__report-link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .stat-card-figure-delta {
+    width: 20rem;
+  }
+}

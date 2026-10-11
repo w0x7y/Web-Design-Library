@@ -1,0 +1,130 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.cta-inline-banner, .cta-inline-banner *, .cta-inline-banner *::before, .cta-inline-banner *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.cta-inline-banner { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.cta-inline-banner :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.cta-inline-banner a { color: inherit; text-decoration: inherit; }
+.cta-inline-banner :is(b, strong) { font-weight: bolder; }
+.cta-inline-banner :is(ol, ul, menu) { list-style: none; }
+.cta-inline-banner :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.cta-inline-banner :is(img, video) { max-width: 100%; height: auto; }
+.cta-inline-banner :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.cta-inline-banner ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.cta-inline-banner table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.cta-inline-banner summary { display: list-item; }
+
+/* Section */
+
+.cta-inline-banner {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.cta-inline-banner .cta-inline-banner__container {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.cta-inline-banner .cta-inline-banner__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 0.5rem; /* rounded-lg */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 2rem;
+  padding-block: 2.5rem;
+  color: #fff; /* white */
+}
+
+.cta-inline-banner .cta-inline-banner__intro {
+  min-width: 0;
+}
+
+/* Copy */
+
+.cta-inline-banner .cta-inline-banner__title {
+  font-size: 1.875rem;
+  line-height: calc(2.25 / 1.875);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.cta-inline-banner .cta-inline-banner__lede {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+  color: oklch(87% 0 none); /* neutral-300 */
+}
+
+/* Actions */
+
+.cta-inline-banner .cta-inline-banner__actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cta-inline-banner .cta-inline-banner__action {
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* rounded-md */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.cta-inline-banner .cta-inline-banner__action--primary {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.cta-inline-banner .cta-inline-banner__action--secondary {
+  border: 1px solid #fff; /* white */
+  background-color: transparent;
+  color: #fff; /* white */
+}
+
+@media (hover: hover) {
+  .cta-inline-banner .cta-inline-banner__action--primary:hover {
+    background-color: oklch(92.2% 0 none); /* neutral-200 */
+  }
+
+  .cta-inline-banner .cta-inline-banner__action--secondary:hover {
+    background-color: rgb(255 255 255 / 0.1); /* white / 10% */
+  }
+}
+
+.cta-inline-banner .cta-inline-banner__action:focus-visible {
+  outline: 2px solid #fff; /* white */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .cta-inline-banner .cta-inline-banner__container {
+    padding-block: 6rem;
+  }
+
+  .cta-inline-banner .cta-inline-banner__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (width >= 64rem) {
+  .cta-inline-banner .cta-inline-banner__panel {
+    flex-direction: row;
+    padding-inline: 3rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

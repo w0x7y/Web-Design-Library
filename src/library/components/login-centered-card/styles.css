@@ -1,0 +1,211 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.login-centered-card, .login-centered-card *, .login-centered-card *::before, .login-centered-card *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.login-centered-card { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.login-centered-card :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.login-centered-card a { color: inherit; text-decoration: inherit; }
+.login-centered-card :is(b, strong) { font-weight: bolder; }
+.login-centered-card :is(ol, ul, menu) { list-style: none; }
+.login-centered-card :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.login-centered-card :is(img, video) { max-width: 100%; height: auto; }
+.login-centered-card :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.login-centered-card ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.login-centered-card table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.login-centered-card summary { display: list-item; }
+
+/* Section */
+
+.login-centered-card {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.login-centered-card .login-centered-card__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+.login-centered-card .login-centered-card__card {
+  margin-inline: auto;
+  max-width: 24rem; /* container-sm */
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+}
+
+/* Heading and context */
+
+.login-centered-card .login-centered-card__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.login-centered-card .login-centered-card__logo-glyph {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.login-centered-card .login-centered-card__title {
+  margin-top: 1.5rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.login-centered-card .login-centered-card__lede {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Form */
+
+.login-centered-card .login-centered-card__form {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.login-centered-card .login-centered-card__label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.login-centered-card .login-centered-card__input {
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+/* Section */
+
+.login-centered-card .login-centered-card__password-label-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* Form */
+
+.login-centered-card .login-centered-card__recovery {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+/* Actions */
+
+.login-centered-card .login-centered-card__link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Section */
+
+.login-centered-card .login-centered-card__remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Form */
+
+.login-centered-card .login-centered-card__checkbox {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Actions */
+
+.login-centered-card .login-centered-card__submit {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: #fff; /* white */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Footer */
+
+.login-centered-card .login-centered-card__account {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Form */
+
+.login-centered-card .login-centered-card__input::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .login-centered-card .login-centered-card__link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .login-centered-card .login-centered-card__submit:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+/* Keyboard focus */
+
+.login-centered-card .login-centered-card__input:focus-visible,
+.login-centered-card .login-centered-card__link:focus-visible,
+.login-centered-card .login-centered-card__checkbox:focus-visible,
+.login-centered-card .login-centered-card__submit:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .login-centered-card .login-centered-card__container {
+    padding-block: 6rem;
+  }
+
+  .login-centered-card .login-centered-card__card {
+    padding: 2rem;
+  }
+
+  .login-centered-card .login-centered-card__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}

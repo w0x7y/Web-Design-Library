@@ -9,13 +9,14 @@ const meta: ComponentMeta = {
   slug: 'demo',
   name: 'Demo hero',
   category: 'hero',
-  tags: ['minimal'],
+  tags: ['centered'],
   description: 'A centered hero with a headline and two buttons.',
   preview: { kind: 'section' },
-  fonts: [],
+  wireframe: '┌──────────┐\n│ Headline │\n└──────────┘',
   brief: {
     layout: 'Centered column, max-w-3xl.',
-    style: 'Neutral palette, large tracking-tight headline.',
+    hierarchy: 'Headline first.',
+    usage: 'Use with a short pitch.',
     states: 'Buttons have hover and focus-visible styles.',
     responsive: 'Stacks buttons below 640px.',
   },
@@ -80,7 +81,7 @@ test('serves the expected content types and reserves CORS for agents', () => {
 
 test('llms.txt groups by group and category in taxonomy order, skipping empty ones', () => {
   const txt = buildLlmsTxt([metaB_pricing, metaA_hero])
-  expect(txt.startsWith('# Patternbook\n\n> Copy-paste UI layouts for developers building with AI agents.\n\n')).toBe(true)
+  expect(txt.startsWith('# Patternbook\n\n> Layout patterns for developers building with AI agents.\n\n')).toBe(true)
   expect(txt.indexOf('### Hero')).toBeLessThan(txt.indexOf('### Pricing'))
   expect(txt).toContain(`- [Demo hero](${SITE.url}/c/demo.md): ` + metaA_hero.description)
   expect(txt).not.toContain('## Elements')
@@ -88,8 +89,8 @@ test('llms.txt groups by group and category in taxonomy order, skipping empty on
 test('llms.txt intro, group heading and entry layout', () => {
   expect(buildLlmsTxt([metaA_hero])).toBe(
     '# Patternbook\n\n' +
-    '> Copy-paste UI layouts for developers building with AI agents.\n\n' +
-    'Copy-paste UI components as React + Tailwind v4 or HTML + CSS. Each link returns a markdown brief with full source code. ' +
+    '> Layout patterns for developers building with AI agents.\n\n' +
+    'Neutral layout patterns as React + Tailwind v4 or HTML + CSS. Apply the host project\'s design tokens and content. Each link returns a markdown brief with full source code. ' +
     'Use /catalog.json for metadata and /c/<slug>.react.md or /c/<slug>.html.md for one format.\n\n' +
     '## Sections\n\n' +
     '### Hero\n\n' +
@@ -127,25 +128,25 @@ test('catalog.json includes versioned metadata and absolute URLs, without briefs
   const catalog: CatalogJson = JSON.parse(buildCatalogJson([{
     ...meta,
     preview: { kind: 'element', parity: { maxDiffRatio: 0.01, reason: 'Font rendering.' } },
-    fonts: ['Inter:wght@400..700', 'Instrument Serif:ital@0;1'],
     author: 'Demo author',
   }]))
   expect(catalog).toEqual({
     version: 1,
     name: 'Patternbook',
+    description: 'Neutral layout patterns with copy-paste React + Tailwind v4 and HTML + CSS. Apply the host project\'s design tokens and content.',
     url: SITE.url,
     formats: FORMATS,
     groups: [{ id: 'sections', label: 'Sections', categories: ['hero'] }],
     categories: [{ id: 'hero', label: 'Hero', group: 'sections', count: 1 }],
-    tags: [{ id: 'minimal', count: 1 }],
+    tags: [{ id: 'centered', count: 1 }],
     components: [{
       slug: 'demo',
       name: 'Demo hero',
       category: 'hero',
-      tags: ['minimal'],
+      tags: ['centered'],
       description: 'A centered hero with a headline and two buttons.',
       kind: 'element',
-      fonts: ['Inter', 'Instrument Serif'],
+      fonts: [],
       addedAt: '2026-10-08',
       url: `${SITE.url}/c/demo`,
       markdownUrl: `${SITE.url}/c/demo.md`,
@@ -156,10 +157,10 @@ test('catalog.json includes versioned metadata and absolute URLs, without briefs
 
 test('catalog.json counts populated categories and tags in taxonomy order', () => {
   const catalog: CatalogJson = JSON.parse(buildCatalogJson([
-    { ...meta, slug: 'button', category: 'buttons', tags: ['light', 'playful'] },
-    { ...metaB_pricing, tags: ['light', 'minimal'] },
+    { ...meta, slug: 'button', category: 'buttons', tags: ['spacious', 'icons'] },
+    { ...metaB_pricing, tags: ['spacious', 'centered'] },
     meta,
-    { ...meta, slug: 'second-hero', tags: ['minimal', 'light'] },
+    { ...meta, slug: 'second-hero', tags: ['centered', 'spacious'] },
   ]))
   expect(catalog.groups).toEqual([
     { id: 'sections', label: 'Sections', categories: ['hero', 'pricing'] },
@@ -171,9 +172,9 @@ test('catalog.json counts populated categories and tags in taxonomy order', () =
     { id: 'buttons', label: 'Buttons', group: 'elements', count: 1 },
   ])
   expect(catalog.tags).toEqual([
-    { id: 'minimal', count: 3 },
-    { id: 'playful', count: 1 },
-    { id: 'light', count: 3 },
+    { id: 'centered', count: 3 },
+    { id: 'icons', count: 1 },
+    { id: 'spacious', count: 3 },
   ])
 })
 
@@ -204,6 +205,7 @@ test('catalog.json keeps the schema with empty lists when the library is empty',
   expect(JSON.parse(buildCatalogJson([]))).toEqual({
     version: 1,
     name: 'Patternbook',
+    description: 'Neutral layout patterns with copy-paste React + Tailwind v4 and HTML + CSS. Apply the host project\'s design tokens and content.',
     url: SITE.url,
     formats: FORMATS,
     groups: [],

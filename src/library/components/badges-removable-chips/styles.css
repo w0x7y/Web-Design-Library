@@ -1,0 +1,160 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-removable-chips, .badges-removable-chips *, .badges-removable-chips *::before, .badges-removable-chips *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-removable-chips { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-removable-chips :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-removable-chips a { color: inherit; text-decoration: inherit; }
+.badges-removable-chips :is(b, strong) { font-weight: bolder; }
+.badges-removable-chips :is(ol, ul, menu) { list-style: none; }
+.badges-removable-chips :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-removable-chips :is(img, video) { max-width: 100%; height: auto; }
+.badges-removable-chips :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-removable-chips ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-removable-chips table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-removable-chips summary { display: list-item; }
+
+/* Pattern */
+
+.badges-removable-chips {
+  width: 18rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Filter header */
+
+.badges-removable-chips .badges-removable-chips__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.badges-removable-chips .badges-removable-chips__title {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.badges-removable-chips .badges-removable-chips__clear {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Filter chips */
+
+.badges-removable-chips .badges-removable-chips__chips {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badges-removable-chips .badges-removable-chips__chip {
+  display: inline-flex;
+  height: 1.75rem;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  padding-right: 0.25rem;
+  padding-left: 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+}
+
+.badges-removable-chips .badges-removable-chips__key {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Chip actions */
+
+.badges-removable-chips .badges-removable-chips__remove {
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.badges-removable-chips .badges-removable-chips__icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.badges-removable-chips .badges-removable-chips__add {
+  display: inline-flex;
+  height: 1.75rem;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 1px dashed oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.badges-removable-chips .badges-removable-chips__results {
+  margin-top: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .badges-removable-chips .badges-removable-chips__clear:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .badges-removable-chips .badges-removable-chips__remove:hover {
+    background-color: oklch(92.2% 0 none); /* neutral-200 */
+  }
+
+  .badges-removable-chips .badges-removable-chips__add:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+}
+
+.badges-removable-chips .badges-removable-chips__clear:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+.badges-removable-chips .badges-removable-chips__remove:focus-visible {
+  outline-style: none;
+}
+
+.badges-removable-chips .badges-removable-chips__add:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+.badges-removable-chips .badges-removable-chips__chip:has(*:is(:focus-visible)) {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .badges-removable-chips {
+    width: 28rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .badges-removable-chips .badges-removable-chips__remove:focus-visible {
+    outline-style: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
