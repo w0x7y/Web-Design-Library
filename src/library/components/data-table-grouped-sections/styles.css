@@ -1,0 +1,188 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.data-table-grouped-sections, .data-table-grouped-sections *, .data-table-grouped-sections *::before, .data-table-grouped-sections *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.data-table-grouped-sections { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.data-table-grouped-sections :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.data-table-grouped-sections a { color: inherit; text-decoration: inherit; }
+.data-table-grouped-sections :is(b, strong) { font-weight: bolder; }
+.data-table-grouped-sections :is(ol, ul, menu) { list-style: none; }
+.data-table-grouped-sections :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.data-table-grouped-sections :is(img, video) { max-width: 100%; height: auto; }
+.data-table-grouped-sections :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.data-table-grouped-sections ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.data-table-grouped-sections table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.data-table-grouped-sections summary { display: list-item; }
+
+/* Surface and section container */
+
+.data-table-grouped-sections {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Introduction */
+
+.data-table-grouped-sections .data-table-grouped-sections__title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Table and records */
+
+.data-table-grouped-sections .data-table-grouped-sections__table {
+  margin-top: 2rem;
+  width: 100%;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__thead {
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__record-heading {
+  width: calc(1 / 2 * 100%);
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__status-heading {
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__total-heading {
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: right;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__record-row {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__group-heading {
+  padding-inline: 0.75rem;
+  padding-block: 0.75rem;
+  text-align: left;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 600;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__record-name {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__status-cell {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__total-cell {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  text-align: right;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__table-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__record-count {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Interaction states and responsive layout */
+
+@media (hover: hover) {
+  .data-table-grouped-sections .data-table-grouped-sections__link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.data-table-grouped-sections .data-table-grouped-sections__link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .data-table-grouped-sections .data-table-grouped-sections__container {
+    padding-block: 6rem;
+  }
+
+  .data-table-grouped-sections .data-table-grouped-sections__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}

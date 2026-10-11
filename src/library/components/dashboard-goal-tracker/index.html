@@ -1,0 +1,72 @@
+<section class="dashboard-goal-tracker">
+  <div class="dashboard-goal-tracker__container">
+    <div>
+      <h1 class="dashboard-goal-tracker__title">Goal progress</h1>
+      <p class="dashboard-goal-tracker__lede">Review target completion and the next scheduled checkpoint.</p>
+    </div>
+    <div class="dashboard-goal-tracker__goals-layout">
+      <section>
+        <h2 class="dashboard-goal-tracker__section-title">Current goals</h2>
+        <ul role="list" class="dashboard-goal-tracker__goal-list">
+          <li class="dashboard-goal-tracker__goal-row">
+            <div class="dashboard-goal-tracker__goal-header">
+              <div>
+                <h3 class="dashboard-goal-tracker__goal-title">Goal title</h3>
+                <p class="dashboard-goal-tracker__goal-owner">Owner: Alex Rivera</p>
+              </div>
+              <span class="dashboard-goal-tracker__status-badge">On track</span>
+            </div>
+            <div role="meter" aria-label="Goal title progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" class="dashboard-goal-tracker__progress-track">
+              <div class="dashboard-goal-tracker__progress-three-quarters"></div>
+            </div>
+            <div class="dashboard-goal-tracker__progress-footer">
+              <p class="dashboard-goal-tracker__progress-value">75% complete</p>
+              <p class="dashboard-goal-tracker__goal-action"><a href="#" aria-label="View goal title" class="dashboard-goal-tracker__link">View goal</a></p>
+            </div>
+          </li>
+          <li class="dashboard-goal-tracker__goal-row">
+            <div class="dashboard-goal-tracker__goal-header">
+              <div>
+                <h3 class="dashboard-goal-tracker__goal-title">Target title</h3>
+                <p class="dashboard-goal-tracker__goal-owner">Owner: Jordan Lee</p>
+              </div>
+              <span class="dashboard-goal-tracker__status-badge">Needs review</span>
+            </div>
+            <div role="meter" aria-label="Target title progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" class="dashboard-goal-tracker__progress-track">
+              <div class="dashboard-goal-tracker__progress-half"></div>
+            </div>
+            <div class="dashboard-goal-tracker__progress-footer">
+              <p class="dashboard-goal-tracker__progress-value">50% complete</p>
+              <p class="dashboard-goal-tracker__goal-action"><a href="#" aria-label="View target title" class="dashboard-goal-tracker__link">View goal</a></p>
+            </div>
+          </li>
+          <li class="dashboard-goal-tracker__goal-row">
+            <div class="dashboard-goal-tracker__goal-header">
+              <div>
+                <h3 class="dashboard-goal-tracker__goal-title">Objective title</h3>
+                <p class="dashboard-goal-tracker__goal-owner">Owner: Sam Taylor</p>
+              </div>
+              <span class="dashboard-goal-tracker__status-badge">On track</span>
+            </div>
+            <div role="meter" aria-label="Objective title progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" class="dashboard-goal-tracker__progress-track">
+              <div class="dashboard-goal-tracker__progress-quarter"></div>
+            </div>
+            <div class="dashboard-goal-tracker__progress-footer">
+              <p class="dashboard-goal-tracker__progress-value">25% complete</p>
+              <p class="dashboard-goal-tracker__goal-action"><a href="#" aria-label="View objective title" class="dashboard-goal-tracker__link">View goal</a></p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <aside class="dashboard-goal-tracker__review-panel">
+        <h2 class="dashboard-goal-tracker__goal-title">Review period</h2>
+        <p class="dashboard-goal-tracker__review-period">Oct–Dec</p>
+        <dl class="dashboard-goal-tracker__review-details">
+          <div><dt class="dashboard-goal-tracker__progress-value">Next review</dt><dd class="dashboard-goal-tracker__review-value"><time datetime="2026-11-01">1 Nov 2026</time></dd></div>
+          <div><dt class="dashboard-goal-tracker__progress-value">Goals in scope</dt><dd class="dashboard-goal-tracker__review-value">3 goals</dd></div>
+        </dl>
+        <div class="dashboard-goal-tracker__review-action"><a href="#" class="dashboard-goal-tracker__action-secondary">Prepare review</a></div>
+      </aside>
+    </div>
+  </div>
+</section>

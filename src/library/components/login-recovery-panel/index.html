@@ -1,0 +1,39 @@
+<section class="login-recovery-panel">
+  <div class="login-recovery-panel__container">
+    <div class="login-recovery-panel__recovery-layout">
+      <div>
+        <div>
+          <h1 class="login-recovery-panel__title">Recover account access</h1>
+          <p class="login-recovery-panel__lede">Explain what happens after a recovery request.</p>
+        </div>
+        <ol role="list" class="login-recovery-panel__recovery-steps">
+          <li class="login-recovery-panel__recovery-step">
+            <span class="login-recovery-panel__step-number">01</span>
+            <div>
+              <h2 class="login-recovery-panel__step-title">Enter account email</h2>
+              <p class="login-recovery-panel__step-description">Use the email linked to your account.</p>
+            </div>
+          </li>
+          <li class="login-recovery-panel__recovery-step">
+            <span class="login-recovery-panel__step-number">02</span>
+            <div>
+              <h2 class="login-recovery-panel__step-title">Check your inbox</h2>
+              <p class="login-recovery-panel__step-description">Follow the time-limited recovery link.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <form class="login-recovery-panel__form">
+        <h2 class="login-recovery-panel__form-title">Request recovery link</h2>
+        <div class="login-recovery-panel__email-field-group">
+          <div class="login-recovery-panel__email-field">
+            <label for="login-recovery-panel-email" class="login-recovery-panel__label">Email</label><input id="login-recovery-panel-email" type="email" placeholder="name@example.com" required autocomplete="email" aria-describedby="login-recovery-panel-email-hint" name="email" class="login-recovery-panel__input">
+            <p id="login-recovery-panel-email-hint" class="login-recovery-panel__email-hint">Check spam folders if the message does not arrive.</p>
+          </div>
+        </div>
+        <div class="login-recovery-panel__email-field-group"><button type="submit" class="login-recovery-panel__action-primary">Send recovery link</button></div>
+        <p class="login-recovery-panel__return-link"><a href="#" class="login-recovery-panel__link">Back to sign in</a></p>
+      </form>
+    </div>
+  </div>
+</section>

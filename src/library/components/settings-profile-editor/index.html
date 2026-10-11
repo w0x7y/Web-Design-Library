@@ -1,0 +1,41 @@
+<section class="settings-profile-editor">
+  <div class="settings-profile-editor__container">
+    <div>
+      <h1 class="settings-profile-editor__title">Edit your profile</h1>
+      <p class="settings-profile-editor__lede">Describe which profile details are visible to other members.</p>
+    </div>
+    <form class="settings-profile-editor__profile-layout">
+      <aside class="settings-profile-editor__identity-rail">
+        <span aria-hidden="true" class="settings-profile-editor__avatar">AR</span>
+        <h2 class="settings-profile-editor__profile-name">Alex Rivera</h2>
+        <p class="settings-profile-editor__profile-note">Profile visibility summary.</p>
+        <p class="settings-profile-editor__public-profile-link"><a href="#" class="settings-profile-editor__link">View public profile</a></p>
+      </aside>
+      <div>
+        <fieldset>
+          <legend class="settings-profile-editor__section-title">Public profile</legend>
+          <div class="settings-profile-editor__public-fields">
+            <div class="settings-profile-editor__field"><label for="settings-profile-editor-name" class="settings-profile-editor__label">Display name</label><input id="settings-profile-editor-name" type="text" required name="name" value="Alex Rivera" class="settings-profile-editor__input"></div>
+            <div class="settings-profile-editor__field"><label for="settings-profile-editor-role" class="settings-profile-editor__label">Role</label><input id="settings-profile-editor-role" type="text" placeholder="Role or job title" name="role" class="settings-profile-editor__input"></div>
+          </div>
+          <div class="settings-profile-editor__biography-field">
+            <label for="settings-profile-editor-bio" class="settings-profile-editor__label">Biography</label><textarea id="settings-profile-editor-bio" name="biography" rows="3" aria-describedby="settings-profile-editor-bio-hint" placeholder="Short introduction and responsibilities" class="settings-profile-editor__textarea"></textarea>
+            <p id="settings-profile-editor-bio-hint" class="settings-profile-editor__profile-note">Keep your introduction under 160 characters.</p>
+          </div>
+        </fieldset><fieldset class="settings-profile-editor__contact-section">
+          <legend class="settings-profile-editor__section-title">Contact details</legend>
+          <div class="settings-profile-editor__biography-field">
+            <div class="settings-profile-editor__field">
+              <label for="settings-profile-editor-email" class="settings-profile-editor__label">Email</label><input id="settings-profile-editor-email" type="email" placeholder="name@example.com" required autocomplete="email" aria-describedby="settings-profile-editor-email-hint" name="email" class="settings-profile-editor__input">
+              <p id="settings-profile-editor-email-hint" class="settings-profile-editor__profile-note">Your email is private unless you choose to share it.</p>
+            </div>
+          </div>
+        </fieldset>
+        <div class="settings-profile-editor__profile-actions">
+          <button type="submit" class="settings-profile-editor__action settings-profile-editor__action-primary">Save profile</button>
+          <a href="#" class="settings-profile-editor__action settings-profile-editor__action-secondary">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

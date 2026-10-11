@@ -1,0 +1,28 @@
+<section class="empty-state-import-area">
+  <div class="empty-state-import-area__container">
+    <div>
+      <h1 class="empty-state-import-area__title">Add your first records</h1>
+      <p class="empty-state-import-area__lede">Explain what content can be imported into this empty collection.</p>
+    </div>
+    <div class="empty-state-import-area__import-layout">
+      <form class="empty-state-import-area__file-area">
+        <label for="empty-state-import-area-file" class="empty-state-import-area__file-label">Choose an import file</label>
+        <p id="empty-state-import-area-file-hint" class="empty-state-import-area__file-hint">CSV or JSON files, up to 10 MB.</p>
+        <input id="empty-state-import-area-file" type="file" accept=".csv,.json" aria-describedby="empty-state-import-area-file-hint" name="file" class="empty-state-import-area__file-picker">
+        <div class="empty-state-import-area__import-actions">
+          <button type="submit" class="empty-state-import-area__action-primary">Import records</button>
+          <a href="#" class="empty-state-import-area__link">Add manually</a>
+        </div>
+      </form>
+      <aside>
+        <h2 class="empty-state-import-area__guidance-title">Before importing</h2>
+        <ul role="list" class="empty-state-import-area__import-guidance">
+          <li>Use one record per row.</li>
+          <li>Include a header for each field.</li>
+          <li>Review required fields before uploading.</li>
+        </ul>
+        <p class="empty-state-import-area__example-link"><a href="#" class="empty-state-import-area__link">Download example file</a></p>
+      </aside>
+    </div>
+  </div>
+</section>

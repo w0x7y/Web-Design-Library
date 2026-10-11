@@ -1,0 +1,29 @@
+<div class="tabs-responsive-disclosure">
+  <details open class="tabs-responsive-disclosure__view-disclosure">
+    <summary aria-label="Choose content view" class="tabs-responsive-disclosure__view-trigger">
+      <span class="tabs-responsive-disclosure__current-overview">Overview</span>
+      <span class="tabs-responsive-disclosure__current-details">Details</span>
+      <span class="tabs-responsive-disclosure__current-activity">Activity</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-responsive-disclosure__icon">
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    </summary>
+    <div role="radiogroup" aria-label="Content view" class="tabs-responsive-disclosure__disclosure-choices">
+      <label id="tabs-responsive-disclosure-overview-label" class="tabs-responsive-disclosure__disclosure-option"><input id="tabs-responsive-disclosure-overview" type="radio" aria-controls="tabs-responsive-disclosure-overview-panel" name="tabs-responsive-disclosure" checked value="overview" class="tabs-responsive-disclosure__view-input">Overview</label>
+      <label id="tabs-responsive-disclosure-details-label" class="tabs-responsive-disclosure__disclosure-option"><input id="tabs-responsive-disclosure-details" type="radio" aria-controls="tabs-responsive-disclosure-details-panel" name="tabs-responsive-disclosure" value="details" class="tabs-responsive-disclosure__view-input">Details</label>
+      <label id="tabs-responsive-disclosure-activity-label" class="tabs-responsive-disclosure__disclosure-option"><input id="tabs-responsive-disclosure-activity" type="radio" aria-controls="tabs-responsive-disclosure-activity-panel" name="tabs-responsive-disclosure" value="activity" class="tabs-responsive-disclosure__view-input">Activity</label>
+    </div>
+  </details>
+  <section id="tabs-responsive-disclosure-overview-panel" aria-labelledby="tabs-responsive-disclosure-overview-label" class="tabs-responsive-disclosure__view-panel tabs-responsive-disclosure__view-panel--overview">
+    <h2 class="tabs-responsive-disclosure__heading">Overview heading</h2>
+    <p class="tabs-responsive-disclosure__description">Explain the selected view and the information shown here.</p>
+  </section>
+  <section id="tabs-responsive-disclosure-details-panel" aria-labelledby="tabs-responsive-disclosure-details-label" class="tabs-responsive-disclosure__view-panel tabs-responsive-disclosure__view-panel--details">
+    <h2 class="tabs-responsive-disclosure__heading">Details heading</h2>
+    <p class="tabs-responsive-disclosure__description">Explain the selected view and the information shown here.</p>
+  </section>
+  <section id="tabs-responsive-disclosure-activity-panel" aria-labelledby="tabs-responsive-disclosure-activity-label" class="tabs-responsive-disclosure__view-panel tabs-responsive-disclosure__view-panel--activity">
+    <h2 class="tabs-responsive-disclosure__heading">Activity heading</h2>
+    <p class="tabs-responsive-disclosure__description">Explain the selected view and the information shown here.</p>
+  </section>
+</div>

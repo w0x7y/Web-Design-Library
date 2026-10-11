@@ -1,0 +1,35 @@
+<section class="login-verification-code">
+  <div class="login-verification-code__container">
+    <div class="login-verification-code__verification-layout">
+      <form>
+        <div>
+          <h1 class="login-verification-code__title">Enter verification code</h1>
+          <p class="login-verification-code__lede">Use the six-digit code sent to your account email.</p>
+        </div>
+        <fieldset class="login-verification-code__code-fields">
+          <legend class="login-verification-code__code-label">Verification code</legend>
+          <div class="login-verification-code__code-digits">
+            <div><label for="login-verification-code-digit-1" class="login-verification-code__digit-label">Digit 1</label><input id="login-verification-code-digit-1" aria-describedby="login-verification-code-code-hint" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required autocomplete="one-time-code" name="digit-1" class="login-verification-code__digit-input"></div>
+            <div><label for="login-verification-code-digit-2" class="login-verification-code__digit-label">Digit 2</label><input id="login-verification-code-digit-2" aria-describedby="login-verification-code-code-hint" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required name="digit-2" class="login-verification-code__digit-input"></div>
+            <div><label for="login-verification-code-digit-3" class="login-verification-code__digit-label">Digit 3</label><input id="login-verification-code-digit-3" aria-describedby="login-verification-code-code-hint" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required name="digit-3" class="login-verification-code__digit-input"></div>
+            <div><label for="login-verification-code-digit-4" class="login-verification-code__digit-label">Digit 4</label><input id="login-verification-code-digit-4" aria-describedby="login-verification-code-code-hint" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required name="digit-4" class="login-verification-code__digit-input"></div>
+            <div><label for="login-verification-code-digit-5" class="login-verification-code__digit-label">Digit 5</label><input id="login-verification-code-digit-5" aria-describedby="login-verification-code-code-hint" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required name="digit-5" class="login-verification-code__digit-input"></div>
+            <div><label for="login-verification-code-digit-6" class="login-verification-code__digit-label">Digit 6</label><input id="login-verification-code-digit-6" aria-describedby="login-verification-code-code-hint" type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required name="digit-6" class="login-verification-code__digit-input"></div>
+          </div>
+        </fieldset>
+        <p id="login-verification-code-code-hint" class="login-verification-code__code-hint">Enter each digit separately. Codes expire after 10 minutes.</p>
+        <div class="login-verification-code__verify-action"><button type="submit" class="login-verification-code__action-primary">Verify account</button></div>
+      </form>
+      <aside class="login-verification-code__delivery-panel">
+        <h2 class="login-verification-code__delivery-title">Delivery details</h2>
+        <p class="login-verification-code__delivery-email">name@example.com</p>
+        <p class="login-verification-code__delivery-note">Check your inbox and spam folder.</p>
+        <div class="login-verification-code__recovery-links">
+          <p><a href="#" class="login-verification-code__link">Send another code</a></p>
+          <p><a href="#" class="login-verification-code__link">Change email address</a></p>
+          <p><a href="#" class="login-verification-code__link">Use recovery method</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

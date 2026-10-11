@@ -1,0 +1,183 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.navbar-split-menu-panel, .navbar-split-menu-panel *, .navbar-split-menu-panel *::before, .navbar-split-menu-panel *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.navbar-split-menu-panel { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.navbar-split-menu-panel :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.navbar-split-menu-panel a { color: inherit; text-decoration: inherit; }
+.navbar-split-menu-panel :is(b, strong) { font-weight: bolder; }
+.navbar-split-menu-panel :is(ol, ul, menu) { list-style: none; }
+.navbar-split-menu-panel :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.navbar-split-menu-panel :is(img, video) { max-width: 100%; height: auto; }
+.navbar-split-menu-panel :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.navbar-split-menu-panel ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.navbar-split-menu-panel table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.navbar-split-menu-panel summary { display: list-item; }
+
+.navbar-split-menu-panel {
+  border-bottom-style: solid;
+  border-bottom: 1px solid oklch(92.2% 0 none);
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* container */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 1.5rem;
+}
+
+/* brand row */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* brand */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* glyph logo size 6 */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__glyph-logo-size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* action text */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__action-text {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* menu panel */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__menu-panel {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 2rem;
+  border-top-style: solid;
+  border-top: 1px solid oklch(92.2% 0 none);
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1.5rem;
+}
+
+/* eyebrow */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* primary destinations */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__primary-destinations {
+  margin-top: 1rem;
+}
+
+/* action text large */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__action-text--large {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* resource destinations */
+
+.navbar-split-menu-panel .navbar-split-menu-panel__resource-destinations {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.navbar-split-menu-panel .navbar-split-menu-panel__action-text--text-sm {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.navbar-split-menu-panel .navbar-split-menu-panel__description {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.navbar-split-menu-panel :where(.navbar-split-menu-panel .navbar-split-menu-panel__primary-destinations > :not(:last-child)) {
+  margin-block-start: 0rem;
+  margin-block-end: 1rem;
+}
+
+@media (hover: hover) {
+  .navbar-split-menu-panel .navbar-split-menu-panel__brand:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .navbar-split-menu-panel .navbar-split-menu-panel__action-text:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .navbar-split-menu-panel .navbar-split-menu-panel__action-text--large:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+
+  .navbar-split-menu-panel .navbar-split-menu-panel__action-text--text-sm:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.navbar-split-menu-panel .navbar-split-menu-panel__brand:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.navbar-split-menu-panel .navbar-split-menu-panel__action-text:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.navbar-split-menu-panel .navbar-split-menu-panel__action-text--large:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.navbar-split-menu-panel .navbar-split-menu-panel__action-text--text-sm:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .navbar-split-menu-panel .navbar-split-menu-panel__resource-destinations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 48rem) {
+  .navbar-split-menu-panel .navbar-split-menu-panel__menu-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

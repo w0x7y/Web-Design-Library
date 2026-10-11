@@ -1,0 +1,38 @@
+<section class="data-table-inline-edit">
+  <div class="data-table-inline-edit__container">
+    <div>
+      <h1 class="data-table-inline-edit__title">Edit record values</h1>
+      <p class="data-table-inline-edit__lede">Update the field values for each record in place.</p>
+    </div>
+    <form class="data-table-inline-edit__form">
+      <table class="data-table-inline-edit__table">
+        <caption class="data-table-inline-edit__visually-hidden">Editable names and counts for three records</caption>
+        <thead class="data-table-inline-edit__thead">
+          <tr>
+            <th scope="col" class="data-table-inline-edit__name-heading">Name</th>
+            <th scope="col" class="data-table-inline-edit__value-heading">Count</th>
+            <th scope="col" class="data-table-inline-edit__value-heading">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="data-table-inline-edit__edit-row">
+            <td class="data-table-inline-edit__edit-cell"><label for="data-table-inline-edit-name-1" class="data-table-inline-edit__visually-hidden">Name for record 1</label><input id="data-table-inline-edit-name-1" type="text" name="name-1" value="Item label" class="data-table-inline-edit__input"></td>
+            <td class="data-table-inline-edit__edit-cell"><label for="data-table-inline-edit-count-1" class="data-table-inline-edit__visually-hidden">Count for record 1</label><input id="data-table-inline-edit-count-1" type="number" min="0" name="count-1" value="24" class="data-table-inline-edit__data-table-inline-edit-count-1"></td>
+            <td class="data-table-inline-edit__edit-cell"><button type="submit" value="1" aria-label="Save record 1" name="record" class="data-table-inline-edit__save-row-action">Save</button></td>
+          </tr>
+          <tr class="data-table-inline-edit__edit-row">
+            <td class="data-table-inline-edit__edit-cell"><label for="data-table-inline-edit-name-2" class="data-table-inline-edit__visually-hidden">Name for record 2</label><input id="data-table-inline-edit-name-2" type="text" name="name-2" value="Entry label" class="data-table-inline-edit__input"></td>
+            <td class="data-table-inline-edit__edit-cell"><label for="data-table-inline-edit-count-2" class="data-table-inline-edit__visually-hidden">Count for record 2</label><input id="data-table-inline-edit-count-2" type="number" min="0" name="count-2" value="18" class="data-table-inline-edit__data-table-inline-edit-count-1"></td>
+            <td class="data-table-inline-edit__edit-cell"><button type="submit" value="2" aria-label="Save record 2" name="record" class="data-table-inline-edit__save-row-action">Save</button></td>
+          </tr>
+          <tr class="data-table-inline-edit__edit-row">
+            <td class="data-table-inline-edit__edit-cell"><label for="data-table-inline-edit-name-3" class="data-table-inline-edit__visually-hidden">Name for record 3</label><input id="data-table-inline-edit-name-3" type="text" name="name-3" value="Record label" class="data-table-inline-edit__input"></td>
+            <td class="data-table-inline-edit__edit-cell"><label for="data-table-inline-edit-count-3" class="data-table-inline-edit__visually-hidden">Count for record 3</label><input id="data-table-inline-edit-count-3" type="number" min="0" name="count-3" value="12" class="data-table-inline-edit__data-table-inline-edit-count-1"></td>
+            <td class="data-table-inline-edit__edit-cell"><button type="submit" value="3" aria-label="Save record 3" name="record" class="data-table-inline-edit__save-row-action">Save</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="data-table-inline-edit__save-note">Short note explaining how each row is saved.</p>
+    </form>
+  </div>
+</section>

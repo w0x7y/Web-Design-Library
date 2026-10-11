@@ -1,0 +1,56 @@
+<section class="signup-interest-grid">
+  <div class="signup-interest-grid__container">
+    <div>
+      <h1 class="signup-interest-grid__title">Choose what you want to follow</h1>
+      <p class="signup-interest-grid__lede">Select the topics that should shape your first account view.</p>
+    </div>
+    <form class="signup-interest-grid__form">
+      <fieldset>
+        <legend class="signup-interest-grid__legend">Your interests</legend>
+        <div class="signup-interest-grid__interest-options">
+          <div class="signup-interest-grid__interest-card">
+            <div class="signup-interest-grid__interest-option">
+              <input id="signup-interest-grid-topic" type="checkbox" aria-describedby="signup-interest-grid-topic-hint" name="topic" checked value="topic" class="signup-interest-grid__interest-checkbox">
+              <div class="signup-interest-grid__interest-copy">
+                <label for="signup-interest-grid-topic" class="signup-interest-grid__interest-label">Topic label</label>
+                <p id="signup-interest-grid-topic-hint" class="signup-interest-grid__interest-description">Describe this content preference.</p>
+              </div>
+            </div>
+          </div>
+          <div class="signup-interest-grid__interest-card">
+            <div class="signup-interest-grid__interest-option">
+              <input id="signup-interest-grid-category" type="checkbox" aria-describedby="signup-interest-grid-category-hint" name="category" value="category" class="signup-interest-grid__interest-checkbox">
+              <div class="signup-interest-grid__interest-copy">
+                <label for="signup-interest-grid-category" class="signup-interest-grid__interest-label">Category label</label>
+                <p id="signup-interest-grid-category-hint" class="signup-interest-grid__interest-description">Describe this learning preference.</p>
+              </div>
+            </div>
+          </div>
+          <div class="signup-interest-grid__interest-card">
+            <div class="signup-interest-grid__interest-option">
+              <input id="signup-interest-grid-collection" type="checkbox" aria-describedby="signup-interest-grid-collection-hint" name="collection" value="collection" class="signup-interest-grid__interest-checkbox">
+              <div class="signup-interest-grid__interest-copy">
+                <label for="signup-interest-grid-collection" class="signup-interest-grid__interest-label">Collection label</label>
+                <p id="signup-interest-grid-collection-hint" class="signup-interest-grid__interest-description">Describe this update preference.</p>
+              </div>
+            </div>
+          </div>
+          <div class="signup-interest-grid__interest-card">
+            <div class="signup-interest-grid__interest-option">
+              <input id="signup-interest-grid-format" type="checkbox" aria-describedby="signup-interest-grid-format-hint" name="format" value="format" class="signup-interest-grid__interest-checkbox">
+              <div class="signup-interest-grid__interest-copy">
+                <label for="signup-interest-grid-format" class="signup-interest-grid__interest-label">Format label</label>
+                <p id="signup-interest-grid-format-hint" class="signup-interest-grid__interest-description">Describe this delivery preference.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="signup-interest-grid__registration-band">
+        <div class="signup-interest-grid__interest-copy"><label for="signup-interest-grid-email" class="signup-interest-grid__email-label">Email</label><input id="signup-interest-grid-email" type="email" placeholder="name@example.com" required autocomplete="email" name="email" class="signup-interest-grid__email-input"></div>
+        <button type="submit" class="signup-interest-grid__action-primary">Create account</button>
+      </div>
+      <p class="signup-interest-grid__preference-note">You can change these interests in account settings.</p>
+    </form>
+  </div>
+</section>

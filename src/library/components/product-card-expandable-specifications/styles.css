@@ -1,0 +1,162 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.product-card-expandable-specifications, .product-card-expandable-specifications *, .product-card-expandable-specifications *::before, .product-card-expandable-specifications *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.product-card-expandable-specifications { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.product-card-expandable-specifications :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.product-card-expandable-specifications a { color: inherit; text-decoration: inherit; }
+.product-card-expandable-specifications :is(b, strong) { font-weight: bolder; }
+.product-card-expandable-specifications :is(ol, ul, menu) { list-style: none; }
+.product-card-expandable-specifications :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.product-card-expandable-specifications :is(img, video) { max-width: 100%; height: auto; }
+.product-card-expandable-specifications :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.product-card-expandable-specifications ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.product-card-expandable-specifications table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.product-card-expandable-specifications summary { display: list-item; }
+
+.product-card-expandable-specifications {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* product overview */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__product-overview {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* media */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__media {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+/* glyph image size 10 */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__glyph-image-size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* product identity */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__product-identity {
+  min-width: 0px;
+}
+
+/* product name */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__product-name {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+/* product price */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__product-price {
+  margin-top: 0.5rem;
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+/* specification disclosure */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specification-disclosure {
+  margin-top: 1rem;
+  border-block-style: solid;
+  border-block-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding-block: 0.75rem;
+}
+
+/* specification toggle */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specification-toggle {
+  cursor: pointer;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+/* specifications */
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specifications {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specification-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specification-label {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specification-value {
+  text-align: right;
+}
+
+.product-card-expandable-specifications .product-card-expandable-specifications__action-primary {
+  margin-top: 1rem;
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: #fff; /* white */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.product-card-expandable-specifications :where(.product-card-expandable-specifications .product-card-expandable-specifications__specifications > :not(:last-child)) {
+  margin-block-start: 0rem;
+  margin-block-end: 0.5rem;
+}
+
+@media (hover: hover) {
+  .product-card-expandable-specifications .product-card-expandable-specifications__action-primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.product-card-expandable-specifications .product-card-expandable-specifications__specification-toggle:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.product-card-expandable-specifications .product-card-expandable-specifications__action-primary:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .product-card-expandable-specifications {
+    width: 20rem;
+  }
+}

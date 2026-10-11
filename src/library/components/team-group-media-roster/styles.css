@@ -1,0 +1,204 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.team-group-media-roster, .team-group-media-roster *, .team-group-media-roster *::before, .team-group-media-roster *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.team-group-media-roster { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.team-group-media-roster :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.team-group-media-roster a { color: inherit; text-decoration: inherit; }
+.team-group-media-roster :is(b, strong) { font-weight: bolder; }
+.team-group-media-roster :is(ol, ul, menu) { list-style: none; }
+.team-group-media-roster :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.team-group-media-roster :is(img, video) { max-width: 100%; height: auto; }
+.team-group-media-roster :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.team-group-media-roster ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.team-group-media-roster table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.team-group-media-roster summary { display: list-item; }
+
+.team-group-media-roster {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* container */
+
+.team-group-media-roster .team-group-media-roster__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* eyebrow */
+
+.team-group-media-roster .team-group-media-roster__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* heading */
+
+.team-group-media-roster .team-group-media-roster__heading {
+  margin-top: 0.75rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+/* lede */
+
+.team-group-media-roster .team-group-media-roster__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* group roster grid */
+
+.team-group-media-roster .team-group-media-roster__group-roster-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* Media */
+
+.team-group-media-roster .team-group-media-roster__media {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+/* glyph image size 10 */
+
+.team-group-media-roster .team-group-media-roster__glyph-image-size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* group caption */
+
+.team-group-media-roster .team-group-media-roster__group-caption {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* item title */
+
+.team-group-media-roster .team-group-media-roster__item-title {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+/* member grid */
+
+.team-group-media-roster .team-group-media-roster__member-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* member card */
+
+.team-group-media-roster .team-group-media-roster__member-card {
+  border-top-style: solid;
+  border-top: 1px solid oklch(92.2% 0 none);
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 1rem;
+}
+
+.team-group-media-roster .team-group-media-roster__identity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.team-group-media-roster .team-group-media-roster__avatar {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: oklch(92.2% 0 none); /* neutral-200 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.team-group-media-roster .team-group-media-roster__identity-copy {
+  min-width: 0px;
+}
+
+.team-group-media-roster .team-group-media-roster__person-name {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.team-group-media-roster .team-group-media-roster__description {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.team-group-media-roster .team-group-media-roster__action-text {
+  margin-top: 0.75rem;
+  display: inline-block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.team-group-media-roster :where(.team-group-media-roster .team-group-media-roster__group-portrait > :not(:last-child)) {
+  margin-block-start: 0rem;
+  margin-block-end: 0.75rem;
+}
+
+@media (hover: hover) {
+  .team-group-media-roster .team-group-media-roster__action-text:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.team-group-media-roster .team-group-media-roster__action-text:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .team-group-media-roster .team-group-media-roster__container {
+    padding-block: 6rem;
+  }
+
+  .team-group-media-roster .team-group-media-roster__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+
+  .team-group-media-roster .team-group-media-roster__member-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 64rem) {
+  .team-group-media-roster .team-group-media-roster__group-roster-grid {
+    grid-template-columns: 2fr 3fr;
+  }
+}

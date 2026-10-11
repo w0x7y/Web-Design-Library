@@ -1,0 +1,89 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.badges-milestone-strip, .badges-milestone-strip *, .badges-milestone-strip *::before, .badges-milestone-strip *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.badges-milestone-strip { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.badges-milestone-strip :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.badges-milestone-strip a { color: inherit; text-decoration: inherit; }
+.badges-milestone-strip :is(b, strong) { font-weight: bolder; }
+.badges-milestone-strip :is(ol, ul, menu) { list-style: none; }
+.badges-milestone-strip :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.badges-milestone-strip :is(img, video) { max-width: 100%; height: auto; }
+.badges-milestone-strip :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.badges-milestone-strip ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.badges-milestone-strip table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.badges-milestone-strip summary { display: list-item; }
+
+/* Container */
+.badges-milestone-strip {
+  width: 18rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.badges-milestone-strip .badges-milestone-strip__heading {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone-sequence {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone {
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 0.75rem;
+  text-align: center;
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone-status--outline {
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.badges-milestone-strip .badges-milestone-strip__icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone-title {
+  margin-top: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone-date {
+  margin-top: 0.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+  font-variant-numeric: tabular-nums;
+}
+
+.badges-milestone-strip .badges-milestone-strip__milestone-status--current {
+  border: 1px solid oklch(20.5% 0 none); /* neutral-900 */
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .badges-milestone-strip {
+    width: 28rem;
+  }
+}

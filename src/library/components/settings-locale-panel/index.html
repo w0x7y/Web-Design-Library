@@ -1,0 +1,42 @@
+<section class="settings-locale-panel">
+  <div class="settings-locale-panel__container">
+    <div>
+      <h1 class="settings-locale-panel__title">Language and region</h1>
+      <p class="settings-locale-panel__lede">Choose the formats used for account dates and times.</p>
+    </div>
+    <form class="settings-locale-panel__locale-layout">
+      <div class="settings-locale-panel__preference-fields">
+        <div class="settings-locale-panel__field">
+          <label for="settings-locale-panel-language" class="settings-locale-panel__label">Language</label><select id="settings-locale-panel-language" name="language" aria-describedby="settings-locale-panel-language-hint" class="settings-locale-panel__select"><option>Option label</option><option>Alternative label</option></select>
+          <p id="settings-locale-panel-language-hint" class="settings-locale-panel__field-hint">Sets labels and account messages.</p>
+        </div>
+        <div class="settings-locale-panel__field">
+          <label for="settings-locale-panel-timezone" class="settings-locale-panel__label">Time zone</label><select id="settings-locale-panel-timezone" name="timezone" aria-describedby="settings-locale-panel-timezone-hint" class="settings-locale-panel__select"><option>Option label</option><option>Alternative label</option></select>
+          <p id="settings-locale-panel-timezone-hint" class="settings-locale-panel__field-hint">Used for scheduled events and notifications.</p>
+        </div>
+        <fieldset>
+          <legend class="settings-locale-panel__clock-label">Clock format</legend>
+          <div class="settings-locale-panel__clock-options">
+            <div class="settings-locale-panel__clock-option">
+              <input id="settings-locale-panel-twelve" type="radio" name="clock" value="twelve" class="settings-locale-panel__clock-radio">
+              <div class="settings-locale-panel__field"><label for="settings-locale-panel-twelve" class="settings-locale-panel__clock-label">12-hour</label></div>
+            </div>
+            <div class="settings-locale-panel__clock-option">
+              <input id="settings-locale-panel-twenty-four" type="radio" name="clock" checked value="twenty-four" class="settings-locale-panel__clock-radio">
+              <div class="settings-locale-panel__field"><label for="settings-locale-panel-twenty-four" class="settings-locale-panel__clock-label">24-hour</label></div>
+            </div>
+          </div>
+        </fieldset><button type="submit" class="settings-locale-panel__action-primary">Save regional preferences</button>
+      </div>
+      <aside class="settings-locale-panel__example-card">
+        <h2 class="settings-locale-panel__example-title">Format examples</h2>
+        <dl class="settings-locale-panel__example-values">
+          <div class="settings-locale-panel__example-row"><dt class="settings-locale-panel__example-label">Date</dt><dd class="settings-locale-panel__example-value"><time datetime="2026-10-11">11 Oct 2026</time></dd></div>
+          <div class="settings-locale-panel__example-row"><dt class="settings-locale-panel__example-label">Time</dt><dd class="settings-locale-panel__example-value"><time datetime="09:41">09:41</time></dd></div>
+          <div class="settings-locale-panel__example-row"><dt class="settings-locale-panel__example-label">Number</dt><dd class="settings-locale-panel__number-value">1,234.56</dd></div>
+        </dl>
+        <p class="settings-locale-panel__example-note">Illustrative examples for the selected default format.</p>
+      </aside>
+    </form>
+  </div>
+</section>

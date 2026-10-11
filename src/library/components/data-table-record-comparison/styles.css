@@ -1,0 +1,152 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.data-table-record-comparison, .data-table-record-comparison *, .data-table-record-comparison *::before, .data-table-record-comparison *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.data-table-record-comparison { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.data-table-record-comparison :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.data-table-record-comparison a { color: inherit; text-decoration: inherit; }
+.data-table-record-comparison :is(b, strong) { font-weight: bolder; }
+.data-table-record-comparison :is(ol, ul, menu) { list-style: none; }
+.data-table-record-comparison :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.data-table-record-comparison :is(img, video) { max-width: 100%; height: auto; }
+.data-table-record-comparison :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.data-table-record-comparison ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.data-table-record-comparison table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.data-table-record-comparison summary { display: list-item; }
+
+/* Surface and section container */
+
+.data-table-record-comparison {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.data-table-record-comparison .data-table-record-comparison__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* Introduction */
+
+.data-table-record-comparison .data-table-record-comparison__title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.data-table-record-comparison .data-table-record-comparison__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Table and records */
+
+.data-table-record-comparison .data-table-record-comparison__table {
+  margin-top: 2rem;
+  width: 100%;
+  table-layout: fixed;
+  text-align: left;
+}
+
+.data-table-record-comparison .data-table-record-comparison__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.data-table-record-comparison .data-table-record-comparison__attribute-heading {
+  width: calc(1 / 3 * 100%);
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-record-comparison .data-table-record-comparison__record-heading {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 600;
+}
+
+.data-table-record-comparison .data-table-record-comparison__record-action {
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+.data-table-record-comparison .data-table-record-comparison__link {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.data-table-record-comparison .data-table-record-comparison__attribute-row {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: oklch(92.2% 0 none); /* neutral-200 */
+}
+
+.data-table-record-comparison .data-table-record-comparison__attribute-label {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.data-table-record-comparison .data-table-record-comparison__attribute-value {
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.data-table-record-comparison .data-table-record-comparison__scope-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Interaction states and responsive layout */
+
+@media (hover: hover) {
+  .data-table-record-comparison .data-table-record-comparison__link:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.data-table-record-comparison .data-table-record-comparison__link:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .data-table-record-comparison .data-table-record-comparison__container {
+    padding-block: 6rem;
+  }
+
+  .data-table-record-comparison .data-table-record-comparison__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}

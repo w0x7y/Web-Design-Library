@@ -1,0 +1,173 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.features-expandable-card-grid, .features-expandable-card-grid *, .features-expandable-card-grid *::before, .features-expandable-card-grid *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.features-expandable-card-grid { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.features-expandable-card-grid :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.features-expandable-card-grid a { color: inherit; text-decoration: inherit; }
+.features-expandable-card-grid :is(b, strong) { font-weight: bolder; }
+.features-expandable-card-grid :is(ol, ul, menu) { list-style: none; }
+.features-expandable-card-grid :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.features-expandable-card-grid :is(img, video) { max-width: 100%; height: auto; }
+.features-expandable-card-grid :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.features-expandable-card-grid ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.features-expandable-card-grid table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.features-expandable-card-grid summary { display: list-item; }
+
+.features-expandable-card-grid {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* container */
+
+.features-expandable-card-grid .features-expandable-card-grid__container {
+  margin-inline: auto;
+  max-width: 72rem; /* container-6xl */
+  padding-inline: 1.5rem;
+  padding-block: 4rem;
+}
+
+/* eyebrow */
+
+.features-expandable-card-grid .features-expandable-card-grid__eyebrow {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* heading */
+
+.features-expandable-card-grid .features-expandable-card-grid__heading {
+  margin-top: 0.75rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+/* lede */
+
+.features-expandable-card-grid .features-expandable-card-grid__lede {
+  margin-top: 1rem;
+  max-width: 42rem; /* container-2xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* expandable grid */
+
+.features-expandable-card-grid .features-expandable-card-grid__expandable-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* capability card */
+
+.features-expandable-card-grid .features-expandable-card-grid__capability-card {
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding: 1.5rem;
+}
+
+/* capability toggle */
+
+.features-expandable-card-grid .features-expandable-card-grid__capability-toggle {
+  cursor: pointer;
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+/* capability content */
+
+.features-expandable-card-grid .features-expandable-card-grid__capability-content {
+  margin-top: 1.25rem;
+}
+
+/* description */
+
+.features-expandable-card-grid .features-expandable-card-grid__description {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* benefits */
+
+.features-expandable-card-grid .features-expandable-card-grid__benefits {
+  margin-top: 1rem;
+}
+
+.features-expandable-card-grid .features-expandable-card-grid__benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.features-expandable-card-grid .features-expandable-card-grid__check {
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.features-expandable-card-grid .features-expandable-card-grid__glyph-check-size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
+.features-expandable-card-grid .features-expandable-card-grid__action-text {
+  margin-top: 1.25rem;
+  display: inline-block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.features-expandable-card-grid :where(.features-expandable-card-grid .features-expandable-card-grid__benefits > :not(:last-child)) {
+  margin-block-start: 0rem;
+  margin-block-end: 0.75rem;
+}
+
+@media (hover: hover) {
+  .features-expandable-card-grid .features-expandable-card-grid__action-text:hover {
+    color: oklch(43.9% 0 none); /* neutral-600 */
+  }
+}
+
+.features-expandable-card-grid .features-expandable-card-grid__capability-toggle:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+.features-expandable-card-grid .features-expandable-card-grid__action-text:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none);
+  outline-offset: 2px; /* neutral-900 */
+}
+
+@media (width >= 40rem) {
+  .features-expandable-card-grid .features-expandable-card-grid__container {
+    padding-block: 6rem;
+  }
+
+  .features-expandable-card-grid .features-expandable-card-grid__heading {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+}
+
+@media (width >= 48rem) {
+  .features-expandable-card-grid .features-expandable-card-grid__expandable-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

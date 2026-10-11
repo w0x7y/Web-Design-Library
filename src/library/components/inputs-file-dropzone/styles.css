@@ -1,0 +1,100 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-file-dropzone, .inputs-file-dropzone *, .inputs-file-dropzone *::before, .inputs-file-dropzone *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-file-dropzone { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-file-dropzone :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-file-dropzone a { color: inherit; text-decoration: inherit; }
+.inputs-file-dropzone :is(b, strong) { font-weight: bolder; }
+.inputs-file-dropzone :is(ol, ul, menu) { list-style: none; }
+.inputs-file-dropzone :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-file-dropzone :is(img, video) { max-width: 100%; height: auto; }
+.inputs-file-dropzone :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-file-dropzone ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-file-dropzone table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-file-dropzone summary { display: list-item; }
+
+/* Container */
+.inputs-file-dropzone {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px dashed oklch(87% 0 none); /* neutral-300 */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 1.25rem;
+  text-align: center;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Text and indicators */
+.inputs-file-dropzone .inputs-file-dropzone__upload-icon {
+  margin-inline: auto;
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.inputs-file-dropzone .inputs-file-dropzone__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.inputs-file-dropzone .inputs-file-dropzone__upload-label {
+  margin-top: 0.75rem;
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.4285714285714286; /* text-sm */
+  font-weight: 600;
+}
+
+/* Controls */
+.inputs-file-dropzone .inputs-file-dropzone__file-input {
+  margin-top: 0.75rem;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Text and indicators */
+.inputs-file-dropzone .inputs-file-dropzone__file-hint {
+  margin-top: 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.inputs-file-dropzone .inputs-file-dropzone__file-input::file-selector-button {
+  margin-right: 0.5rem;
+  border-radius: 0.375rem; /* radius-md */
+  border-style: solid;
+  border-width: 0;
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1.3333333333333333; /* text-xs */
+  font-weight: 500;
+  color: #fff; /* white */
+}
+
+/* Keyboard focus */
+.inputs-file-dropzone .inputs-file-dropzone__file-input:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Responsive layout */
+@media (width >= 40rem) {
+  .inputs-file-dropzone {
+    width: 24rem;
+  }
+}

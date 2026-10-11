@@ -1,0 +1,111 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-stage-funnel, .stat-card-stage-funnel *, .stat-card-stage-funnel *::before, .stat-card-stage-funnel *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-stage-funnel { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-stage-funnel :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-stage-funnel a { color: inherit; text-decoration: inherit; }
+.stat-card-stage-funnel :is(b, strong) { font-weight: bolder; }
+.stat-card-stage-funnel :is(ol, ul, menu) { list-style: none; }
+.stat-card-stage-funnel :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-stage-funnel :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-stage-funnel :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-stage-funnel ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-stage-funnel table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-stage-funnel summary { display: list-item; }
+
+/* Surface and spacing */
+
+.stat-card-stage-funnel {
+  width: 18rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__metric-label {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__value {
+  margin-top: 0.5rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.2; /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__value-unit {
+  margin-left: 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 400;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Stages */
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stages {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-count {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-label {
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-track {
+  margin-top: 0.5rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: oklch(97% 0 none); /* neutral-100 */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-fill--started {
+  width: 100%;
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-fill--qualified {
+  width: 50%;
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__stage-fill--completed {
+  width: 18.5%;
+}
+
+.stat-card-stage-funnel .stat-card-stage-funnel__period-note {
+  margin-top: 1.25rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (width >= 40rem) {
+  .stat-card-stage-funnel {
+    width: 20rem;
+  }
+}
