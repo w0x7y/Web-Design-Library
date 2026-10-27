@@ -1,0 +1,20 @@
+<fieldset class="inputs-payment-card">
+  <legend class="inputs-payment-card__legend">Card details</legend>
+  <div class="inputs-payment-card__fields">
+    <div>
+      <label for="payment-number" class="inputs-payment-card__label">Card number</label>
+      <div class="inputs-payment-card__number-field"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-payment-card__card-icon">
+        <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+        <path d="M2 10h20M6 15h4"></path>
+      </svg><input id="payment-number" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" name="card-number" class="inputs-payment-card__input inputs-payment-card__input--number"></div>
+    </div>
+    <div>
+      <div class="inputs-payment-card__pair">
+        <div class="inputs-payment-card__pair-cell"><label for="payment-expiry" class="inputs-payment-card__label">Expiry (MM / YY)</label><input id="payment-expiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" name="card-expiry" class="inputs-payment-card__input inputs-payment-card__input--pair-start"></div>
+        <div class="inputs-payment-card__pair-cell"><label for="payment-cvc" class="inputs-payment-card__label">Security code</label><input id="payment-cvc" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" aria-describedby="payment-cvc-hint" placeholder="CVC" name="card-cvc" class="inputs-payment-card__input inputs-payment-card__input--pair-end"></div>
+      </div>
+      <p id="payment-cvc-hint" class="inputs-payment-card__hint">The 3 or 4 digits printed on the card.</p>
+    </div>
+    <div><label for="payment-name" class="inputs-payment-card__label">Name on card</label><input id="payment-name" type="text" autocomplete="cc-name" placeholder="Full name as shown on the card" name="card-name" class="inputs-payment-card__input"></div>
+  </div>
+</fieldset>

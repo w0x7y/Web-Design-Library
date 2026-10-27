@@ -1,0 +1,70 @@
+<section class="signup-trial-checkout">
+  <div class="signup-trial-checkout__container">
+    <div>
+      <p class="signup-trial-checkout__eyebrow">14-day free trial</p>
+      <h1 class="signup-trial-checkout__title">Start your free trial</h1>
+      <p class="signup-trial-checkout__lede">Create your account and add a payment method. Nothing is charged until the trial ends.</p>
+    </div>
+    <aside aria-labelledby="signup-trial-checkout-summary" class="signup-trial-checkout__summary">
+      <h2 id="signup-trial-checkout-summary" class="signup-trial-checkout__heading">Order summary</h2>
+      <div class="signup-trial-checkout__plan">
+        <div class="signup-trial-checkout__plan-info">
+          <p class="signup-trial-checkout__plan-name">Plan name</p>
+          <p class="signup-trial-checkout__hint">Billed monthly, up to 10 members</p>
+        </div>
+        <a href="#" class="signup-trial-checkout__link signup-trial-checkout__link--change">Change plan</a>
+      </div>
+      <dl class="signup-trial-checkout__costs">
+        <div class="signup-trial-checkout__cost">
+          <dt class="signup-trial-checkout__cost-term">Free trial</dt>
+          <dd class="signup-trial-checkout__cost-value">14 days</dd>
+        </div>
+        <div class="signup-trial-checkout__cost">
+          <dt class="signup-trial-checkout__cost-term">First charge</dt>
+          <dd class="signup-trial-checkout__cost-value">Nov 9, 2026</dd>
+        </div>
+        <div class="signup-trial-checkout__cost">
+          <dt class="signup-trial-checkout__cost-term">Then</dt>
+          <dd class="signup-trial-checkout__cost-value">$29.00 / month</dd>
+        </div>
+        <div class="signup-trial-checkout__cost signup-trial-checkout__cost--total">
+          <dt class="signup-trial-checkout__heading">Due today</dt>
+          <dd class="signup-trial-checkout__total">$0.00</dd>
+        </div>
+      </dl>
+      <p class="signup-trial-checkout__reminder">A reminder email goes out 3 days before the first charge. Cancel before then and you pay nothing.</p>
+    </aside>
+    <form>
+      <fieldset>
+        <legend class="signup-trial-checkout__heading">Account</legend>
+        <div class="signup-trial-checkout__account-fields">
+          <div class="signup-trial-checkout__field"><label for="signup-trial-checkout-name" class="signup-trial-checkout__label">Full name</label><input id="signup-trial-checkout-name" type="text" autocomplete="name" required placeholder="Alex Rivera" name="name" class="signup-trial-checkout__input"></div>
+          <div class="signup-trial-checkout__field"><label for="signup-trial-checkout-email" class="signup-trial-checkout__label">Work email</label><input id="signup-trial-checkout-email" type="email" autocomplete="email" required placeholder="name@example.com" name="email" class="signup-trial-checkout__input"></div>
+          <div class="signup-trial-checkout__field signup-trial-checkout__field--password">
+            <label for="signup-trial-checkout-password" class="signup-trial-checkout__label">Password</label><input id="signup-trial-checkout-password" type="password" autocomplete="new-password" required minlength="12" aria-describedby="signup-trial-checkout-password-hint" name="password" class="signup-trial-checkout__input">
+            <p id="signup-trial-checkout-password-hint" class="signup-trial-checkout__hint signup-trial-checkout__hint--field">At least 12 characters.</p>
+          </div>
+        </div>
+      </fieldset>
+      <div class="signup-trial-checkout__payment">
+        <fieldset aria-describedby="signup-trial-checkout-payment-hint">
+          <legend class="signup-trial-checkout__heading">Payment</legend>
+          <p id="signup-trial-checkout-payment-hint" class="signup-trial-checkout__hint">The card is saved for the first charge after the trial.</p>
+          <div class="signup-trial-checkout__card-fields">
+            <div class="signup-trial-checkout__field signup-trial-checkout__field--card"><label for="signup-trial-checkout-card" class="signup-trial-checkout__label">Card number</label><input id="signup-trial-checkout-card" type="text" inputmode="numeric" autocomplete="cc-number" required placeholder="1234 1234 1234 1234" name="card" class="signup-trial-checkout__input"></div>
+            <div class="signup-trial-checkout__field"><label for="signup-trial-checkout-expiry" class="signup-trial-checkout__label">Expiry date</label><input id="signup-trial-checkout-expiry" type="text" inputmode="numeric" autocomplete="cc-exp" required placeholder="MM / YY" name="expiry" class="signup-trial-checkout__input"></div>
+            <div class="signup-trial-checkout__field"><label for="signup-trial-checkout-cvc" class="signup-trial-checkout__label">Security code</label><input id="signup-trial-checkout-cvc" type="text" inputmode="numeric" autocomplete="cc-csc" required placeholder="CVC" name="cvc" class="signup-trial-checkout__input"></div>
+          </div>
+        </fieldset>
+      </div>
+      <label class="signup-trial-checkout__consent">
+        <input type="checkbox" required name="terms" class="signup-trial-checkout__checkbox">
+        <span>I agree to the <a href="#" class="signup-trial-checkout__link">Terms</a> and allow a charge of $29.00 per month from Nov 9, 2026 until I cancel.</span>
+      </label>
+      <div class="signup-trial-checkout__actions">
+        <button type="submit" class="signup-trial-checkout__submit">Start free trial</button>
+        <p class="signup-trial-checkout__login">Already have an account? <a href="#" class="signup-trial-checkout__link">Log in</a></p>
+      </div>
+    </form>
+  </div>
+</section>

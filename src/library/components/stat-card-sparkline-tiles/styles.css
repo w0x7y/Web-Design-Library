@@ -1,0 +1,143 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-sparkline-tiles, .stat-card-sparkline-tiles *, .stat-card-sparkline-tiles *::before, .stat-card-sparkline-tiles *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-sparkline-tiles { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-sparkline-tiles :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-sparkline-tiles a { color: inherit; text-decoration: inherit; }
+.stat-card-sparkline-tiles :is(b, strong) { font-weight: bolder; }
+.stat-card-sparkline-tiles :is(ol, ul, menu) { list-style: none; }
+.stat-card-sparkline-tiles :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-sparkline-tiles :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-sparkline-tiles :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-sparkline-tiles ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-sparkline-tiles table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-sparkline-tiles summary { display: list-item; }
+
+/* Section */
+.stat-card-sparkline-tiles {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__container {
+  margin-inline: auto;
+  max-width: 72rem; /* max-w-6xl */
+  padding: 4rem 1.5rem;
+}
+
+/* Header */
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__heading {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  font-weight: 600;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__period {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Tiles */
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__tiles {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__tile {
+  min-width: 0;
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__label {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__figure-row {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__figure {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Change badge */
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__change {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 500;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__change-arrow {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Visually hidden direction word */
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__direction {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Trend line */
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__trend {
+  margin-top: 1rem;
+}
+
+.stat-card-sparkline-tiles .stat-card-sparkline-tiles__sparkline {
+  width: 100%;
+  height: 2.5rem;
+}
+
+@media (width >= 40rem) {
+  .stat-card-sparkline-tiles .stat-card-sparkline-tiles__container {
+    padding-block: 6rem;
+  }
+
+  .stat-card-sparkline-tiles .stat-card-sparkline-tiles__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 64rem) {
+  .stat-card-sparkline-tiles .stat-card-sparkline-tiles__tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 
-The current library has 339 patterns. The initial 183 replaced 478 retired components (spec: [layout patterns design](../specs/2026-10-10-layout-patterns-design.md), §8); another 156 add six layouts to each category. The original set came from clustering retired components by structure and adding canonical layouts they missed. `from` names retired components (in git history before the port) that show the structure.
+The current library has 389 patterns. The initial 183 replaced 478 retired components (spec: [layout patterns design](../specs/2026-10-10-layout-patterns-design.md), §8); another 156 add six layouts to each category, and 50 more bring every card, element and app UI category to 15 or 16. The original set came from clustering retired components by structure and adding canonical layouts they missed. `from` names retired components (in git history before the port) that show the structure.
 
 The pattern folders are the source of truth for names, kinds and tags. Original entries retain their planned `structure`; the additional entries describe their built layout and responsive behavior.
 
@@ -810,7 +810,7 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 
 ## Group: Cards & profiles
 
-### profile-card (13 patterns; 18 retired components reviewed)
+### profile-card (15 patterns; 18 retired components reviewed)
 
 #### profile-card-centered-stats
 - name: Profile cards — Centred with stats row
@@ -903,7 +903,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px card widens to 320px at 640px with 16px padding. A fieldset sits 16px below the biography; three equal time labels use 8px gaps, 12px vertical padding and native radio controls. The booking link is full-width and 44px tall. All three slots remain equal columns at both fixed widths. Labels use 12px text; the booking note wraps below the action.
 - from: new
 
-### team (13 patterns; 18 retired components reviewed)
+#### profile-card-provider-facts
+- name: Profile cards — Provider with rate and response facts
+- kind: element
+- tags: stacked, numbers, compact
+- structure: A 288px card (w-72) that widens to 320px at 640px (sm:w-80), with a 1px border and rounded-lg corners. The p-5 header puts a 48px avatar 16px from an identity column: the name with a verified glyph, a service line, and a star rating with review count 8px below. A full-width two-column fact strip (hourly rate, typical response) has hairlines above and below and between its cells, with 20px × 12px cell padding. A two-column action grid (gap-3, p-5) holds equal 44px Book (primary link) and Message (secondary button). Only the width changes at 640px.
+- from: new
+
+#### profile-card-business-contact-rows
+- name: Profile cards — Business card with contact rows
+- kind: element
+- tags: split, list, icons, compact
+- structure: A 288px card (w-72) that widens to 448px at 640px (sm:w-[28rem]), with a 1px border, rounded-lg corners and overflow hidden. Below 640px the two panels stack: a neutral-50 identity panel (p-5, logo above the name, job title and organization), a hairline, then the contact panel. From 640px it is a grid of two equal columns with a vertical hairline, and the identity panel stretches to the contact column's height (flex-col justify-between) so the logo sits at the top and the identity at the bottom. The contact panel (p-5) lists four 20px icon rows with 12px gaps (email, phone and website links, plus a plain location) and a full-width 44px secondary Save contact action 20px below.
+- from: new
+
+### team (15 patterns; 18 retired components reviewed)
 
 #### team-portrait-grid
 - name: Team — Centred header with portrait grid
@@ -996,7 +1010,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A max-w-6xl section holds three equal cards from 768px with 24px gaps. Each card uses a 1px border, 8px radius and 24px padding. An 18px principle statement sits above an identity footer separated by 32px spacing and a top border. Cards stack below 768px. Text remains above identity at every width; the horizontal 40px avatar row allows names and roles to wrap.
 - from: new
 
-### product-card (12 patterns; 18 retired components reviewed)
+#### team-org-chart
+- name: Team — Org chart with connector lines
+- kind: section
+- tags: centered, list, compact
+- structure: Section shell (max-w-6xl) with a max-w-2xl header (eyebrow, section headline, lede) that is left-aligned below 1024px and centered from 1024px, 48px above the chart (64px from 1024px). The chart is a nested `role="list"` tree of rounded-lg bordered p-4 person cards (40px initials avatar, name, role), each nested list labelled "Reports to <name>". From 1024px the lead card is 320px wide and centered; a 32px vertical connector drops to a horizontal rule running between the first and last column centers, and three equal manager columns (32px gap) hang their full-width cards from it by 32px stubs, all drawn as 1px neutral-300 borders on pseudo-elements. Under each manager a reports list is indented 36px behind a 1px left rule (16px gaps, 32px avatar, 14px name and role). Below 1024px the connectors disappear and the managers list is indented 36px behind a left rule too, giving an indented tree; section padding and headline size step up at 640px.
+- from: new
+
+#### team-avatar-wall
+- name: Team — Avatar wall with headcount
+- kind: section
+- tags: split, grid, numbers, compact
+- structure: Section shell (max-w-6xl) that becomes two equal, vertically centered columns with a 64px gap from 1024px and stacks with a 48px gap below. The left column holds an eyebrow, section headline, a max-w-xl lede and a wrapping row of a primary and a secondary action. The right column (max-w-lg until 1024px) is a `role="list"` wall of 24 full-width aspect-square round initials avatars with visually hidden names: six columns with 8px gaps below 640px and eight columns with 12px gaps from 640px, so the tiles always fill complete rows. The last tile is a dashed neutral-300 "+25" circle. Below the wall, 32px down, a three-column definition list (14px label over a 30px semibold figure) sits above a hairline with 24px top padding. Section padding and headline size step up at 640px.
+- from: new
+
+### product-card (16 patterns; 18 retired components reviewed)
 
 #### product-card-media-footer
 - name: Product cards — Image with price footer
@@ -1082,7 +1110,35 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px card widens to 320px at 640px with 16px padding. A 64px thumbnail leads a horizontal identity row. The specification disclosure sits 16px below with top and bottom borders and 12px vertical padding; its definition-list rows use 8px gaps. The identity row remains horizontal at both fixed widths. Specification labels and values wrap inside the card; the action fills its width.
 - from: new
 
-### stat-card (13 patterns; 18 retired components reviewed)
+#### product-card-cart-line-items
+- name: Product cards — Cart line items with quantity
+- kind: section
+- tags: list, media, form
+- structure: The container is max-w-3xl (48rem) with 24px side padding and 64px vertical padding (96px from 640px). A heading row with the title and item count sits above a bordered list, and each item is a flex row with an 80px thumbnail (96px from 640px) and a 16px gap (24px from 640px). The item body is a grid of details and a right-aligned price, with the 80px quantity select and Remove button on a second row below 640px. From 640px the body becomes three columns (details, controls, 96px price), and Check out and Continue shopping sit side by side, right-aligned, Check out first. Below 640px the actions stack full width, Check out first.
+- from: new
+
+#### product-card-gallery-buy-box
+- name: Product cards — Gallery beside buy box
+- kind: section
+- tags: split, media, form
+- structure: The container is max-w-6xl (72rem) with 24px side padding and 64px vertical padding (96px from 640px). Below 1024px the gallery and buy box stack in one column with a 40px gap. From 1024px they form two equal top-aligned columns with a 64px gap. The gallery is a 4:3 media placeholder with four square thumbnails in a 4-column grid, 16px below and 16px apart, and the first is marked current. The buy box holds an eyebrow, a 30px headline (36px from 640px), a rating row, a 24px price, a description, a size select beside a 96px quantity field, a full-width Add to cart button beside a 44px save button, and two delivery notes after a top border.
+- from: new
+
+#### product-card-purchase-options
+- name: Product cards — One-time or subscription purchase
+- kind: element
+- tags: stacked, form, compact
+- structure: The card is 288px wide (w-72) and 320px from 640px, with 16px padding, a 1px border and an 8px radius. A 48px thumbnail sits beside the name and variant, and the Purchase option fieldset follows 16px below. Two option cards (6px radius, 12px padding, 8px apart) each hold a native radio, a label and a price, and the subscription card adds a hint and a 112px-wide frequency select. The frequency row shows only while subscribe is checked, and the checked card takes a neutral-900 border. A full-width 44px Add to cart button ends the card 16px below, and nothing changes at 640px except the card width.
+- from: new
+
+#### product-card-restock-alert
+- name: Product cards — Sold-out item with restock alert
+- kind: element
+- tags: stacked, form, media
+- structure: The card is 288px wide (w-72) and 320px from 640px, with 16px padding, a 1px border and an 8px radius. A 96px-tall media placeholder leads, followed by the name and an 18px price on one row 12px below. A Sold out badge and the variant sit 4px below, then a top-bordered form holds a 14px label and hint and a row of a flexible 44px email field beside a 44px Notify me button, 8px apart. The width is the only breakpoint change, and the email row stays horizontal at every width.
+- from: new
+
+### stat-card (15 patterns; 18 retired components reviewed)
 
 #### stat-card-figure-delta
 - name: Stat cards — Figure with change and link
@@ -1175,7 +1231,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: The bordered white root is 288px w-72 wide with an 8px rounded-lg radius. The p-6 root is a 40px/flexible two-column grid with a 20px gap. It grows to 320px at 640px. A decorative rail has three equal bordered bands; the main column holds a 36px value, explicit state label and two limit rows. A full-width note closes the card. The rail and metric remain side by side at all widths. The footnote spans both columns; the root expands at 640px.
 - from: new
 
-### testimonial-card (13 patterns; 18 retired components reviewed)
+#### stat-card-sparkline-tiles
+- name: Stat cards — Sparkline tiles
+- kind: section
+- tags: grid, numbers, compact
+- structure: A white section with a max-w-6xl (1152px) container, px-6 and py-16 (sm:py-24). A header row puts an 18px heading and a 14px comparison note at opposite ends, baseline-aligned and wrapping when narrow. Below it, a dl grid with gap-4 holds four bordered rounded-lg p-6 tiles. Each tile has a label, a figure row (30px tabular figure left, pill change badge with an arrow and a hidden Up/Down word right, wrapping if tight) and a full-width 40px SVG trend line that stretches without thickening its stroke. The grid is one column below 640px, sm:grid-cols-2 from 640px and lg:grid-cols-4 from 1024px.
+- from: new
+
+#### stat-card-stacked-distribution
+- name: Stat cards — Stacked distribution bar
+- kind: element
+- tags: stacked, numbers, list
+- structure: A bordered rounded-lg card, w-72 (288px) stepping to sm:w-80 (320px), with p-6. A label and period row sits above a 30px tabular total with a small unit. Below it, a 12px rounded-full bar is split into 45/30/15/10% segments shaded neutral-900, -600, -400 and -300, separated by 2px white dividers and hidden from assistive tech. A role="list" legend follows with 8px gaps; each row has a matching 10px dot, a flex-1 name, a medium count and a 40px right-aligned percentage. A bordered note closes the card, and only the width changes at 640px. In forced-colors mode the bar and dots get a 1px outline so the dividers still mark each part.
+- from: new
+
+### testimonial-card (15 patterns; 18 retired components reviewed)
 
 #### testimonial-card-quote-author
 - name: Testimonial cards — Quote with author footer
@@ -1268,7 +1338,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: The bordered white root is 288px w-72 wide with an 8px rounded-lg radius. The p-4 figure becomes 320px sm:w-80 at 640px. Its video region is 96px h-24 tall. A 14px quote and 40px-avatar caption follow with 16px margins. A divided transcript summary starts 16px later with 12px top padding. The same vertical structure remains at all widths. Short content keeps both closed and open states within the 384px frame allowance.
 - from: new
 
-### blog-card (13 patterns; 18 retired components reviewed)
+#### testimonial-card-support-chat
+- name: Testimonial cards — Support chat excerpt
+- kind: element
+- tags: stacked, list, compact
+- structure: A bordered figure 288px wide (w-72) with 20px padding, growing to 384px (sm:w-96) with 24px padding at 640px. The figcaption comes first, with a 40px initials avatar beside the name and a channel/date line. Below it, a role="list" ordered list stacks three bubbles with 12px gaps. Customer rows align left and leave 32px (pr-8) on the right. The support row aligns right and leaves 32px (pl-8) on the left. Bubbles shrink to their text and are squared at the corner nearest the sender: customer bubbles are neutral-100, the support reply is white on neutral-900. A hairline footer sets a check-icon resolution time against a rating with space-between; only the card width and padding change at the breakpoint.
+- from: new
+
+#### testimonial-card-review-summary
+- name: Testimonial cards — Review summary with avatar stack
+- kind: element
+- tags: stacked, numbers, layered
+- structure: A bordered section 288px wide (w-72) that grows to 320px (sm:w-80) at 640px, with 24px padding and an eyebrow h2. A rating row puts a 36px (text-4xl) average beside a five-star row and a label, 12px apart. A second row overlaps four 32px initials avatars by 8px (-space-x-2, each with a 1px white border) next to the review count. A neutral-50 inset panel (p-4, rounded-lg) holds the highlighted quote and its byline, followed by an underlined text link with an arrow. Only the card width changes at the breakpoint; both rows stay on one line at both widths.
+- from: new
+
+### blog-card (15 patterns; 18 retired components reviewed)
 
 #### blog-card-cover-stacked
 - name: Blog cards — Cover image above text
@@ -1361,9 +1445,23 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: The bordered white root is 288px w-72 wide with an 8px rounded-lg radius. The p-5 article has a shared header and a two-part grid 20px below with 20px gaps. Each part has a top rule, 16px top padding, category, title, one-line note and time. At 640px the root grows to 384px and the grid becomes two columns. The articles stack on mobile and become two columns from 640px. Compact summaries keep the mobile pair below 384px.
 - from: new
 
+#### blog-card-podcast-episode
+- name: Blog cards — Podcast episode with play action
+- kind: element
+- tags: asymmetric, media, compact
+- structure: A bordered white article, 288px wide (w-72) and 352px from 640px (sm:w-[22rem]), with p-5 and rounded-lg. The header is a flex row with gap-4: an 80px square cover placeholder (size-20) and a min-w-0 column with a 12px show and episode line above a 16px semibold title link. A 14px show-notes excerpt follows 16px below. The footer is a justify-between flex row with gap-3: a 44px primary "Play episode" button with a play glyph and an aria-label naming the episode, and a right-aligned 12px duration over the date. The only breakpoint is the 640px width step; the title wraps to three lines on mobile and two from 640px.
+- from: new
+
+#### blog-card-release-notes
+- name: Blog cards — Release notes with grouped changes
+- kind: element
+- tags: stacked, list, compact
+- structure: A bordered white article, 288px wide (w-72) and 352px from 640px (sm:w-[22rem]), with p-5 and rounded-lg. A header row pairs a pill version badge with the date (gap-3), followed by an 18px semibold headline 12px below. A changes block with a 1px top rule and pt-4 stacks two groups 16px apart. Each group has a 12px label and a role="list" list whose items sit 6px apart, each a flex row with a 6px round bullet. An underlined "Read the full notes" text link with an arrow sits 20px below and names the version in its aria-label. The only breakpoint is the 640px width step; the layout stays one column and the headline wraps to two lines on mobile.
+- from: new
+
 ## Group: Elements
 
-### buttons (12 patterns; 18 retired components reviewed)
+### buttons (16 patterns; 18 retired components reviewed)
 
 #### buttons-hierarchy
 - name: Buttons — Primary, secondary and tertiary
@@ -1449,7 +1547,35 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px (w-72) root grows to 448px (sm:w-[28rem]). Three equal progress columns use 8px gaps, 2px top rules and 8px top padding. Actions sit 24px below, separated across the row. A centered exit link follows by 16px. The root is 288px below 640px and 448px from 640px. Progress always uses three columns; the action pair keeps its edge alignment and the exit link stays centered.
 - from: new
 
-### inputs (12 patterns; 18 retired components reviewed)
+#### buttons-platform-downloads
+- name: Buttons — Two-line platform download buttons
+- kind: element
+- tags: grid, icons, compact
+- structure: A 288px (w-72) root grows to 448px (sm:w-[28rem]). A role="list" grid with 12px gaps holds two 56px-tall (h-14) neutral-900 rounded-md links, each with 16px side padding, a 24px leading glyph and a two-line label (12px neutral-300 lead-in over a 16px semibold platform name). Below 640px the links stack full width; from 640px they sit in two equal columns. A footer row 16px below puts the version and size on the left and an underlined "Other platforms" link on the right at both widths.
+- from: new
+
+#### buttons-speed-dial
+- name: Buttons — Floating action button with speed dial
+- kind: element
+- tags: layered, icons, stacked
+- structure: A 288px by 320px (w-72 h-80) neutral-50 bordered rounded-lg surface stands in for the screen, widens to 320px (sm:w-80), and holds a short page-content slot at the top. A `<details open>` sits absolute 16px from the bottom-right; its summary is a 56px rounded-full neutral-900 button with shadow-lg whose plus glyph rotates 45 degrees when open. The action list sits 16px above it, right-aligned and inset 8px, in flex-col-reverse with 12px gaps, so the first action is nearest the button. Each action is one button pairing a white label chip with a 40px white icon circle 12px apart. Only the surface width changes at 640px.
+- from: new
+
+#### buttons-numbered-pagination
+- name: Buttons — Numbered pagination with ellipses
+- kind: element
+- tags: row, numbers, compact
+- structure: A nav with a 288px (w-72) root grows to 512px (sm:w-[32rem]) and spreads Previous, the middle and Next with justify-between and an 8px minimum gap. Previous and Next are 40px-tall outlined rounded-md links with 16px chevrons. Below 640px the middle is a 14px "Page 6 of 12" status. From 640px it becomes a role="list" row of 40px square page links with 4px gaps: 1, ellipsis, 5, 6 (current), 7, ellipsis, 12. The current page's fill follows aria-current="page", and forced-colors mode paints it with Highlight.
+- from: new
+
+#### buttons-vote-counters
+- name: Buttons — Vote buttons with counts
+- kind: element
+- tags: list, numbers, compact
+- structure: A 288px (w-72) role="list" card grows to 416px (sm:w-[26rem]), with a neutral-200 border, rounded-lg corners and 1px row dividers. Each row has 16px padding and centers a 48px by 56px rounded-md vote toggle (16px chevron over a 14px semibold count) beside a title and a 12px meta line, with a 16px gap. The pressed look follows aria-pressed (neutral-900 fill, white text, Highlight in forced colors), so the host only flips the attribute. Only the root width changes at 640px; titles wrap beside the fixed-size toggle.
+- from: new
+
+### inputs (16 patterns; 18 retired components reviewed)
 
 #### inputs-field-anatomy
 - name: Inputs — Label, hint and error states
@@ -1535,7 +1661,35 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px dashed-border zone grows to 384px at sm with 20px padding and centered content. A 40px icon tile precedes the 14px label by 12px. The full-width native file field has 8px padding and a compact dark chooser button. The hint follows by 12px. The zone is 288px below 640px and 384px from 640px. Its file field stays full width and permits the browser to truncate long filenames within the available space.
 - from: new
 
-### badges (12 patterns; 18 retired components reviewed)
+#### inputs-payment-card
+- name: Inputs — Card number with joined expiry and security code
+- kind: element
+- tags: stacked, form, icons, numbers, compact
+- structure: A fieldset 288px wide (w-72), 352px (sm:w-[22rem]) from 640px, with a 16px semibold legend 16px above three field groups spaced 16px apart. The card number input is 40px high with a 16px card glyph inset 12px from the left. Expiry and security code sit in a two-column grid with no gap: the left input rounds only its left corners and the right input drops its left border, so they read as one bordered box with a single divider, and a 14px hint sits 6px below. Name on card is a full-width 40px input. Only the root width changes at 640px.
+- from: new
+
+#### inputs-address-block
+- name: Inputs — Address block with country first
+- kind: element
+- tags: stacked, grid, form, compact
+- structure: A fieldset 288px wide (w-72), 448px (sm:w-[28rem]) from 640px, with a screen-reader legend and three groups spaced 16px apart. A full-width country select with an inset chevron leads, then Street address with two 40px inputs 8px apart. The last group is a grid with a 12px column gap and 16px row gap: below 640px City spans the full row above a flexible Region and a 112px Postal code (grid-cols-[1fr_7rem]). From 640px City, Region and Postal code sit in three equal columns.
+- from: new
+
+#### inputs-tag-entry
+- name: Inputs — Tag entry with chips inside the field
+- kind: element
+- tags: stacked, row, form, compact
+- structure: A root 288px wide (w-72), 416px (sm:w-[26rem]) from 640px. A label row puts Tags and a 3 of 10 count at opposite ends above a wrapping flex field at least 40px high, with a 1px border, 6px/4px padding and 6px/4px gaps. Inside it, 28px chips with 20px round remove buttons are followed by a 28px inline input at least 96px wide, and the field shows the focus outline through has-[input:focus-visible]. A 14px hint sits 6px below, and a Suggested row of 28px dashed add buttons follows 16px lower. On mobile the input wraps to a second row inside the border; at 416px it fits beside the chips.
+- from: new
+
+#### inputs-password-requirements
+- name: Inputs — Password with strength and requirements
+- kind: element
+- tags: stacked, list, form, icons, compact
+- structure: A root 288px wide (w-72), 416px (sm:w-[26rem]) from 640px. A 40px bordered field wrapper holds a flexible password input and an attached Show button with an eye icon behind a left divider. 12px below, a flexible four-column meter of 6px segments with 4px gaps sits beside a 12px Strength label. A requirements list starts 16px lower as a grid with 8px gaps, each row a 16px check or empty-circle icon before 14px text. The list is one column below 640px and two equal columns from 640px.
+- from: new
+
+### badges (16 patterns; 18 retired components reviewed)
 
 #### badges-variant-set
 - name: Badges — Styles, sizes and indicators
@@ -1621,7 +1775,35 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px root grows to 448px at sm. A 14px heading leads a three-column list by 12px. Each column shares a 1px top rule and 12px top padding, with a centered status pill, 8px title gap and 4px date gap. The three columns remain in one row. The root grows from 288px to 448px at 640px; titles may wrap to two lines on mobile while dates and badges stay compact.
 - from: new
 
-### toggles (12 patterns; 18 retired components reviewed)
+#### badges-announcement-pills
+- name: Badges — Announcement pill links
+- kind: element
+- tags: centered, stacked, compact
+- structure: A flex column, w-72 (288px) growing to sm:w-[26rem] (416px), centers three content-width pill links with gap-4 (16px). Each pill is h-8 (32px), rounded-full, max-w-full, with a 1px border and text-sm. The first has pl-1/pr-3, a 22px solid New label, the message and a 16px arrow with gap-2. The second has a neutral-50 fill, px-3 and gap-3 around a 1px × 16px divider before "Read more" and an arrow. The third is solid neutral-900 with a calendar icon, white medium text and a chevron. At sm only the column width changes. Pills never wrap; a long message truncates with an ellipsis.
+- from: new
+
+#### badges-inline-labels
+- name: Badges — Inline beside titles and links
+- kind: element
+- tags: stacked, compact
+- structure: A bordered rounded-lg card, w-72 (288px) growing to sm:w-[26rem] (416px), has three regions divided by neutral-200 rules. The header (p-4) has a text-base semibold heading that wraps with gap-2 to an outline Beta badge, then a text-sm description. The nav row (px-4) has a wrapping list of h-11 links with gap-x-5. The current link has a 2px bottom border, and Reports carries an 18px solid New badge 6px after its label. The footer row (p-4, justify-between) has a text-sm medium option name with a neutral-100 Pro badge with a lock icon, a text-xs note, and a right-aligned Upgrade text link. At sm only the card width changes; heading, nav and option name wrap instead of overflowing.
+- from: new
+
+#### badges-release-notes
+- name: Badges — Release notes with change labels
+- kind: section
+- tags: asymmetric, list
+- structure: The container is mx-auto max-w-3xl px-6 py-16 sm:py-24, with an eyebrow, a text-3xl/sm:text-4xl headline and a text-lg lede. Below that, an ordered list (mt-12) has a top border and neutral-200 dividers between releases (py-8). Below 768px each release stacks: version pill, Latest badge and date share one wrapping row (gap-x-3), then a text-lg semibold title and the change rows. From md (768px) each release is a grid-cols-[10rem_1fr] grid with gap-8: version above the date on the left, title and changes on the right. Change rows (space-y-3) baseline-align a w-20 (80px) centered label (solid New, outline Improved, dashed Fixed) with gap-3 to text-sm neutral-600 text.
+- from: new
+
+#### badges-media-overlays
+- name: Badges — Overlays on media thumbnails
+- kind: element
+- tags: grid, layered, media, compact
+- structure: A list, w-72 (288px) growing to sm:w-[26rem] (416px), forms a two-column grid with gap-x-4 and gap-y-5. Each item is a relative aspect-video neutral-100 rounded-lg video placeholder with a centered play glyph (24px, 32px from sm), followed by a truncating text-sm medium title (mt-2) and a text-xs meta line. Badges sit absolutely 8px from corners. Top left holds status (solid Live with a white dot, or a white New pill). Top right holds access (Members with a lock). Bottom right holds duration (rounded-md neutral-900/75 tag, tabular figures, visually hidden "Duration" wording). Bottom left holds schedule (Upcoming with a clock). At sm the thumbnails grow from 136px to 200px wide; badges keep their size and offsets.
+- from: new
+
+### toggles (16 patterns; 18 retired components reviewed)
 
 #### toggles-switch-states
 - name: Toggles — Switch states and sizes
@@ -1707,7 +1889,35 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px root grows to 384px at sm. A justified header pairs a short label and hint with a 44px by 24px switch. The dependent fieldset sits 16px below with 16px padding and two checkbox rows separated by 12px. A note follows by 12px. The root changes from 288px to 384px at 640px. The header and dependent checkbox stack keep their arrangement. Hiding the dependent group reduces the component height.
 - from: new
 
-### tabs (12 patterns; 18 retired components reviewed)
+#### toggles-filter-chips
+- name: Toggles — Filter chip toggles
+- kind: element
+- tags: row, form, compact
+- structure: The group is 288px wide (w-72) and widens to 448px (sm:w-[28rem]) at 640px. A header row places the 14px semibold label and a Clear text button at opposite ends, and a flex row of 32px pill chips with 8px gaps sits 12px below. A 12px hint closes the group 12px under the chips. Selected chips gain a check glyph and a neutral-900 border, and Clear shows only while a chip is selected. The seven chips wrap to two rows at 448px and to three rows at 288px.
+- from: new
+
+#### toggles-star-rating
+- name: Toggles — Star rating input
+- kind: element
+- tags: row, icons, form, compact
+- structure: The fieldset is 288px wide and widens to 320px (sm:w-80) at 640px. A 14px semibold question and a 14px hint sit above a row 12px lower, which holds five adjoining 36px star tiles with 28px icons and a 14px caption. The 180px star row stays on one line at both widths, so only the fieldset grows. The checked star and every star before it fill, and the caption shows the matching word.
+- from: new
+
+#### toggles-theme-previews
+- name: Toggles — Theme choice with previews
+- kind: element
+- tags: grid, form, compact
+- structure: The fieldset is 288px wide and widens to 448px (sm:w-[28rem]) at 640px. A 14px semibold legend and a 14px hint sit above three columns with 8px gaps, which become 16px at 640px. Each option is a 4:3 preview frame with a miniature light, dark or split screen, then a 16px radio indicator and a 14px medium name 8px below. Frames measure about 91 by 68px at 288px and 139 by 104px at 448px, with the same proportions and name rows at both widths.
+- from: new
+
+#### toggles-time-slot-grid
+- name: Toggles — Time slot grid
+- kind: element
+- tags: grid, numbers, form, compact
+- structure: The fieldset is 288px wide and widens to 448px (sm:w-[28rem]) at 640px. A 14px semibold date and a 14px time zone hint sit above two nested Morning and Afternoon fieldsets, each with a 12px legend and 16px between periods. Each period is a grid of 36px slots with 8px gaps, three columns wide below 640px and six from 640px up. On mobile each period becomes two rows, so the element is about 284px tall there against 196px on desktop.
+- from: new
+
+### tabs (16 patterns; 18 retired components reviewed)
 
 #### tabs-underline-panels
 - name: Tabs — Underline with panels
@@ -1793,7 +2003,35 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px root grows to 448px at sm. Two equal selector cards use 12px gaps, 12px padding and at least 112px height. Each holds a 20px icon, check marker, 14px title and 12px description. The 16px-padded bordered content panel follows by 12px. The root grows from 288px to 448px at 640px. Selector cards remain side by side and their short descriptions wrap on mobile. The content region stays underneath both choices.
 - from: new
 
-### dropdowns (12 patterns; 18 retired components reviewed)
+#### tabs-code-snippet
+- name: Tabs — Code snippet with copy button
+- kind: element
+- tags: stacked, row, compact
+- structure: The root is a 288px (`w-72`) neutral-950 block with rounded-lg corners, and it widens to 448px (`sm:w-[28rem]`) at 640px. A neutral-900 header with a 1px neutral-800 bottom border holds four 40px tab labels (npm, pnpm, yarn, bun) on the left and a 32px icon-only copy button on the right, with 8px side padding. Below it, each tab has a pre panel with 16px padding, font-mono text-sm, a 24px line height and a neutral-400 `$` prompt on each line, and only the checked panel displays. Commands never wrap; a long line scrolls sideways inside a keyboard-focusable block. Only the width changes at 640px.
+- from: new
+
+#### tabs-document-strip
+- name: Tabs — Document strip with close buttons
+- kind: element
+- tags: row, layered, icons, compact
+- structure: The white frame has a 1px neutral-200 border and rounded-lg corners, clipped to its edges, at 288px (`w-72`), and it grows to 576px (`sm:w-[36rem]`) at 640px. A neutral-100 strip holds the document tabs: 36px high, each with a 16px file icon, a name truncated at 112px (`max-w-28`) and a 24px close button, with 4px gaps. A 32px New document button follows the scrolling tab row and stays pinned at the right edge. The selected tab turns white and joins the document area below, which has 20px padding (24px from 640px) and holds a title, an edit line and two paragraphs. At 288px only the first tab and part of the second fit, so the row scrolls with its scrollbar hidden; at 640px all three tabs fit.
+- from: new
+
+#### tabs-icon-split-panels
+- name: Tabs — Icon tabs over split panels
+- kind: section
+- tags: centered, split, icons, media, spacious
+- structure: The white section uses a max-w-6xl container with 24px side padding and 64px vertical padding (96px from 640px). A max-w-2xl centered intro stacks the eyebrow, headline and lede, and 48px below it four tabs sit on a 2px neutral-200 track, each a 24px icon over a text-sm label. Tabs are 96px wide and grow to 144px at 640px; below 640px the row bleeds to the screen edges and scrolls sideways. The selected panel starts 48px below and stacks copy above a 4:3 image placeholder until 1024px, where it becomes two 64px-gapped columns with the copy vertically centered against the image.
+- from: new
+
+#### tabs-sticky-section-links
+- name: Tabs — Sticky links to page sections
+- kind: section
+- tags: stacked, row, spacious
+- structure: The intro (eyebrow, headline and a max-w-2xl lede) sits in a max-w-6xl container with 24px side padding and 64px top padding (96px from 640px). A full-width band with 1px neutral-200 top and bottom borders starts 40px below and sticks to the top of the viewport (`sticky top-0`, `z-10`), and its max-w-6xl row holds 36px pill links with 8px gaps. Four sections follow, each with 48px vertical padding, a 1px neutral-200 rule and a 64px scroll margin so jumps land below the band. From 1024px each section is three columns, with the heading in one and the content in two, 64px apart. Below 1024px headings stack above their content with 16px between; the feature list is one column until 640px and two after, and the band's links scroll sideways on small screens.
+- from: new
+
+### dropdowns (16 patterns; 18 retired components reviewed)
 
 #### dropdowns-action-menu
 - name: Dropdowns — Action menu with sections and shortcuts
@@ -1879,9 +2117,37 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: A 288px disclosure grows to 384px at sm. Its 44px outlined summary sits 8px above a full-width shadow-lg panel with 12px padding. Two radio rows use 8px padding, 32px initials tiles, 12px gaps and title/hint text. A top divider separates a 36px create action. The root grows from 288px to 384px at 640px. Panel width follows the root, and the two choices stay stacked. Workspace copy can wrap inside min-w-0 while initials and check markers remain fixed.
 - from: new
 
+#### dropdowns-notification-panel
+- name: Dropdowns — Notification panel with unread items
+- kind: element
+- tags: layered, list, compact
+- structure: A relative root is 288px wide (w-72) and reserves 384px (h-96); from 640px it is 384px wide (sm:w-96) and reserves 336px. A right-aligned 44px ghost bell summary carries an 8px unread dot. The full-width rounded-lg panel sits 8px below it with shadow-lg. Inside, a header row holds the title and a Mark all as read text link. Below it, a divided list holds three linked rows, each with px-4 py-3, a 32px initials avatar, a 12px gap, an actor/action line over a 12px item and time line, and an 8px unread dot on the first two rows. A neutral-50 footer centers View all notifications. Below 640px the action text wraps to two lines, which is why the mobile reserve is taller.
+- from: new
+
+#### dropdowns-date-picker
+- name: Dropdowns — Date picker with month grid
+- kind: element
+- tags: layered, grid, form, compact
+- structure: A relative 288px by 352px root (w-72 h-[22rem]) grows to 320px wide at 640px. A 14px Date label sits above a 40px outlined summary with a calendar icon, the selected value and a chevron. The full-width panel starts 4px below it with 12px padding and shadow-lg. A header row places 32px previous and next buttons either side of the month title. Below it, a fixed-layout table has a 32px weekday row and five rows of 36px day buttons centered in seven equal columns. The buttons carry their states as attributes: aria-pressed for the selected day, aria-current=date for today and disabled for unavailable days. Columns widen from about 37px to 42px at 640px while the buttons stay 36px.
+- from: new
+
+#### dropdowns-search-suggestions
+- name: Dropdowns — Search field with suggestions
+- kind: element
+- tags: layered, list, icons, compact
+- structure: A relative search form 288px wide and 352px tall (w-72 h-[22rem]) grows to 384px wide at 640px. A 40px search field has a leading icon. A full-width rounded-lg panel sits 8px below it with 4px padding, and it is a peer sibling of the input, hidden while the placeholder shows. The panel stacks a Recent searches heading over two 36px clock-icon rows, a divider, a Suggested results heading over two rows with a 40px icon tile and title/meta lines, and a divided 36px see-all row with an Enter key hint. Text truncates rather than wrapping at both widths.
+- from: new
+
+#### dropdowns-share-popover
+- name: Dropdowns — Share popover with access list
+- kind: element
+- tags: layered, form, list, compact
+- structure: A relative 288px by 376px root (w-72 h-[23.5rem]) grows to 384px wide at 640px. A right-aligned 44px outlined Share summary opens a full-width rounded-lg panel 8px below, with 16px padding and shadow-lg. The panel stacks a title, an invite row (a flexible 40px email input beside a 44px primary Invite button), and a People with access heading over two rows. Each row has a 40px avatar, a name/email column and either an Owner label or a native role select. A top-bordered footer holds a globe icon, a link-access sentence and a 44px secondary Copy link button. Below 640px, names and emails truncate and the footer sentence wraps to two lines.
+- from: new
+
 ## Group: App UI
 
-### login (13 patterns; 18 retired components reviewed)
+### login (15 patterns; 18 retired components reviewed)
 
 #### login-centered-card
 - name: Login — Centred card
@@ -1974,7 +2240,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: White section with a 1152px max-w-6xl container, 24px side gutters and 64px vertical padding, increasing to 96px at 640px. A 2fr/1fr grid with 48px gaps starts at lg. The wider form holds a six-column code row with 8px gaps and 48px-high fields. The delivery rail uses neutral-50 and p-6. Below 1024px the delivery panel moves below the form. Six min-w-0 inputs share the available width at 320px. The title and section padding increase at 640px.
 - from: new
 
-### signup (13 patterns; 18 retired components reviewed)
+#### login-qr-code
+- name: Login — QR code with phone steps
+- kind: section
+- tags: split, list, media
+- structure: A neutral-50 section with a max-w-6xl container (24px gutters, 64px vertical padding, 96px from 640px) centers a white max-w-4xl bordered card. The card body is padded 24px (40px from 640px). From 768px it becomes a minmax(0,1fr)/auto grid with a 64px gap: a 30/36px heading, 18px lede, three numbered steps with 32px number circles and a keep-signed-in checkbox on the left, and a 192px QR placeholder tile with a refresh caption on the right. Below 768px the QR tile and caption stack centered under the steps with a 40px gap. A top-ruled footer row puts a fallback question on the left and a 44px outlined "Sign in with email instead" action on the right, and wraps on narrow screens.
+- from: new
+
+#### login-reauthenticate
+- name: Login — Re-authenticate known account
+- kind: section
+- tags: centered, stacked, form, compact
+- structure: A white section with a max-w-6xl container (24px gutters, 64px vertical padding, 96px from 640px) holds a centered max-w-sm 384px column. A centered 30px heading (36px from 640px) and 14px explanation sit 32px above a bordered card. The card stacks three hairline-separated bands: a neutral-50 identity band with a 64px initials avatar, name and truncated email; a 24px-padded form with a Password label row (Forgot password? on the right), a 40px input and a full-width 44px Continue; and a footer with "Not you? Switch account". The layout is one column at every width; only padding and heading size change at 640px.
+- from: new
+
+### signup (15 patterns; 18 retired components reviewed)
 
 #### signup-centered-social
 - name: Sign-up — Centred card with providers
@@ -2067,7 +2347,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: White section with a 1152px max-w-6xl container, 24px side gutters and 64px vertical padding, increasing to 96px at 640px. A 2fr/1fr grid begins at lg with 40px gaps. The left form has 24px vertical field spacing and a nested sm two-column identity row. The p-6 neutral-50 rail lists three 24px-separated setup steps. The setup rail stacks after the form below 1024px. Name/email stack below 640px. Inputs shrink to their columns and hints wrap. The heading and section padding increase at sm.
 - from: new
 
-### settings (13 patterns; 18 retired components reviewed)
+#### signup-verification-sent
+- name: Sign-up — Verification email sent
+- kind: section
+- tags: centered, icons, compact
+- structure: A white section with a max-w-3xl container (24px gutters, py-16 sm:py-24) holds a centered max-w-md column. A text-centered header stacks a 48px icon tile with an envelope, a step eyebrow, a text-3xl/sm:text-4xl h1 and an 18px lede. Below it sit a neutral-50 bordered description list (Sent to address, link expiry) with each term and value split to opposite edges, then a full-width 44px primary "Open email app" action. A resend form under a neutral-200 top rule pairs a prompt and wait hint with a secondary "Resend email" button, followed by a centered "Wrong address? Use a different email" link. Below 640px the resend text and a full-width button stack with a 16px gap; from 640px they share one row with the button on the right.
+- from: new
+
+#### signup-trial-checkout
+- name: Sign-up — Trial checkout with order summary
+- kind: section
+- tags: asymmetric, form, numbers
+- structure: A white max-w-6xl section (24px gutters, py-16 sm:py-24) becomes a two-column grid at lg: a flexible main column and a fixed 24rem summary column, with a 64px column gap and 40px row gap. The header (eyebrow, h1, lede) and the form fill the left column. The order summary card (neutral-50, neutral-200 border, p-6) spans both rows on the right and is lg:sticky top-8; it lists the plan with a Change plan link, trial length, first charge date and recurring price, then a bordered "Due today" total in text-2xl. The form has an Account fieldset (name and email side by side from sm, full-width password) and a Payment fieldset under a top rule (full-width card number, then expiry and security code always side by side), followed by a terms checkbox and a submit row with a log-in link. Below lg everything stacks in source order (header, summary, form), so the amount due shows before any card field; below sm the name fields stack and the full-width submit sits above the log-in prompt.
+- from: new
+
+### settings (15 patterns; 18 retired components reviewed)
 
 #### settings-sidebar-sections
 - name: Settings — Sidebar navigation with sections
@@ -2160,7 +2454,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: White section with a 1152px max-w-6xl container, 24px side gutters and 64px vertical padding, increasing to 96px at 640px. A 256px/minmax(0,1fr) sidebar grid starts at lg with 40px gaps. The neutral-50 rail has 24px padding. The main form divides public and contact fields with a top border; name and role become two columns at sm. Below lg the identity rail moves above the form. Name and role stack below sm. The textarea remains full width and vertically resizable; all text can wrap at 320px.
 - from: new
 
-### data-table (13 patterns; 18 retired components reviewed)
+#### settings-api-keys
+- name: Settings — API keys with one-time reveal
+- kind: section
+- tags: stacked, table, compact
+- structure: The section is a 1024px max-w-5xl container with 24px side padding and 64px vertical padding, rising to 96px from 640px. The header stacks the heading, lede and a 44px Create key action, and sets them side by side from 640px. A neutral-50 bordered callout sits 40px below with a 40px read-only mono field and a Copy key button, in one row from 640px. The Active keys heading starts 48px below, and the keys are stacked bordered cards with a full-width Revoke below 640px. From 640px the name and Revoke share the first row and the details sit in two columns (four from 768px), and from 1024px the keys become one bordered table with a 10rem/8rem/7rem/7rem/6rem grid, 24px gaps, a visible column header row and screen-reader-only detail labels.
+- from: new
+
+#### settings-team-members
+- name: Settings — Team members with invite form
+- kind: section
+- tags: stacked, list, form
+- structure: The section is an 896px max-w-4xl container with 24px side padding and 64px vertical padding, rising to 96px from 640px. The header stacks the heading, lede and seat count, and the count moves beside the heading from 640px. A neutral-50 bordered invite form sits 40px below, with the email field, role select and Send invite stacked full width below 640px and placed in a minmax(0,1fr) 9rem 8rem grid with 24px gaps from 640px. The Members heading starts 48px below the form, and its bordered list of divided rows uses the same grid from 640px so role selects and actions line up under the invite fields. Below 640px each row shows the identity on its own line above a role select and a 7rem action, and from 768px every member fits on one row.
+- from: new
+
+### data-table (15 patterns; 18 retired components reviewed)
 
 #### data-table-toolbar-pagination
 - name: Data table — Toolbar, tabs and pagination
@@ -2253,7 +2561,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: White section with a 1152px max-w-6xl container, 24px side gutters and 64px vertical padding, increasing to 96px at 640px. A three-column fixed-layout comparison begins after 32px. Attribute and record columns share the width equally, with 12px horizontal and 16px vertical cell padding. Record header actions sit 8px below titles. All three columns remain at narrow widths; values and header actions wrap naturally rather than truncating. No column has a fixed minimum width. Title grows at sm.
 - from: new
 
-### empty-state (13 patterns; 18 retired components reviewed)
+#### data-table-grouped-headers
+- name: Data table — Grouped headers with frozen first column
+- kind: section
+- tags: table, numbers, compact
+- structure: A 1152px max-w-6xl section with a 672px lede and a bordered scroll region 32px below it. The table has 14 columns: a Record column pinned left (144px, 192px from 640px), twelve month columns under Q1 to Q4 group headers, and a Total column. Cells use 12px vertical and horizontal padding, with 16px on the Record and Total columns. A neutral-50 footer row totals each month. Below about 900px the table scrolls inside its own frame and the page never scrolls sideways; from 640px the Record column widens and section padding grows to 96px.
+- from: new
+
+#### data-table-tree-rows
+- name: Data table — Tree with nested group rows
+- kind: section
+- tags: table, list, numbers
+- structure: A 1152px max-w-6xl section with a 672px lede and a bordered tree 32px below it. Every row shares one grid: a flexible Name column plus an 80px Spent column below 640px, then Budget, Spent and Remaining at 96px each from 640px, with 16px gaps. Group and subgroup rows are native details and summary elements with a chevron that turns when open, and each nested level indents 16px below 640px and 24px from 640px. Line items have no chevron, and a neutral-50 column strip and total row frame the tree. Below 640px Budget and Remaining hide, and the tree fits 320px without horizontal scrolling.
+- from: new
+
+### empty-state (15 patterns; 18 retired components reviewed)
 
 #### empty-state-centered-icon
 - name: Empty state — Centred icon with action
@@ -2346,7 +2668,21 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - structure: White section with a 1152px max-w-6xl container, 24px side gutters and 64px vertical padding, increasing to 96px at 640px. Equal columns at lg use 48px gaps. The notice is unboxed while the p-6 saved-content card holds two divided rows with 16px vertical padding. Each row pairs a name/timestamp with an underlined action. Below 1024px saved content follows the notice. Row actions wrap beneath copy when needed. Heading size and padding increase at sm.
 - from: new
 
-### dashboard (13 patterns; 18 retired components reviewed)
+#### empty-state-all-caught-up
+- name: Empty state — All caught up with recent completions
+- kind: section
+- tags: centered, list, icons
+- structure: A max-w-3xl container with px-6 and py-16 (py-24 from sm) holds a centered header: a 40px check icon tile, the section headline and a max-w-xl lede. A full-width rounded-lg bordered card follows after 40px, with a header row (Recently completed plus a View all completed link) and three divided rows, each a 20px check-circle glyph, a title and actor line, and a right-aligned tabular time. An Other queues nav follows after 40px as a list of bordered rounded-md links with the name on the left and the open count on the right. Below 640px the queue links stack in one column and the card header's link can wrap under its heading. From 640px the links sit three across in a grid with 12px gaps, the headline steps to text-4xl and the padding to py-24.
+- from: new
+
+#### empty-state-team-invite
+- name: Empty state — Empty team with inline invite
+- kind: section
+- tags: centered, form
+- structure: A max-w-3xl container with px-6 and py-16 (py-24 from sm) holds a centered header: three 40px dashed rounded-full avatar slots with 8px gaps, the section headline and a max-w-xl lede. A rounded-lg bordered card follows after 40px. Its p-6 form holds a flexible email field, a role select and a primary Send invite button, with a hint below that is tied to the field by aria-describedby. A border-top footer (px-6 py-4) pairs an invite-link note with a secondary Copy invite link button that has a link glyph. Below 640px the fields and both buttons stack full width with 16px gaps. From 640px the form becomes one bottom-aligned row with a 144px w-36 select, the footer becomes a space-between row, and the headline steps to text-4xl.
+- from: new
+
+### dashboard (15 patterns; 18 retired components reviewed)
 
 #### dashboard-sidebar-shell
 - name: Dashboard — App shell with sidebar
@@ -2437,4 +2773,18 @@ The pattern folders are the source of truth for names, kinds and tags. Original 
 - kind: section
 - tags: grid, list, compact
 - structure: White section with a 1152px max-w-6xl container, 24px side gutters and 64px vertical padding, increasing to 96px at 640px. Three equal md columns use 24px gaps, neutral-50 surfaces and 16px padding. Status/count headers precede 12px-separated white p-4 task cards. Each column ends in an underlined Add task link. Below 768px columns stack in workflow order rather than scrolling horizontally. Task copy wraps inside each card. The heading and section padding grow at sm.
+- from: new
+
+#### dashboard-file-browser
+- name: Dashboard — File browser with folder tree
+- kind: section
+- tags: sidebar, table, icons
+- structure: A max-w-6xl container with a title row holding New folder and Upload, then one bordered panel split into a 16rem folder sidebar and a flexible content pane from 1024px. The sidebar stacks collapsible details folder rows with 24px child indents and ends with a storage meter below a divider. The content pane has a toolbar with a breadcrumb and a 16rem search field, then a file table with Name (icon tile), Modified and right-aligned Size columns. Below 1024px the sidebar sits above the pane; below 640px the toolbar stacks, the Modified column hides and each date moves under its file name.
+- from: new
+
+#### dashboard-service-status
+- name: Dashboard — Service status with uptime bars
+- kind: section
+- tags: asymmetric, list, numbers
+- structure: A max-w-6xl container with a title row and a Subscribe action, then a dark neutral-900 banner with an icon tile, the overall headline and the updated time. Below it, a grid with 48px gaps puts a bordered service list in a flexible column and a 20rem recent incidents rail from 1024px. Each service row shows its name and status badge, 30 day bars that encode state by height as well as fill, and an axis line with the uptime percentage. Below 1024px the incidents follow the list; below 640px the banner stacks and the bar gaps narrow to 2px.
 - from: new

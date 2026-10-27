@@ -1,0 +1,167 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.stat-card-stacked-distribution, .stat-card-stacked-distribution *, .stat-card-stacked-distribution *::before, .stat-card-stacked-distribution *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.stat-card-stacked-distribution { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.stat-card-stacked-distribution :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.stat-card-stacked-distribution a { color: inherit; text-decoration: inherit; }
+.stat-card-stacked-distribution :is(b, strong) { font-weight: bolder; }
+.stat-card-stacked-distribution :is(ol, ul, menu) { list-style: none; }
+.stat-card-stacked-distribution :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.stat-card-stacked-distribution :is(img, video) { max-width: 100%; height: auto; }
+.stat-card-stacked-distribution :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.stat-card-stacked-distribution ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.stat-card-stacked-distribution table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.stat-card-stacked-distribution summary { display: list-item; }
+
+/* Card */
+.stat-card-stacked-distribution {
+  width: 18rem;
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: #fff; /* white */
+  padding: 1.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Total */
+.stat-card-stacked-distribution .stat-card-stacked-distribution__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__period {
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  font-weight: 400;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__total {
+  margin-top: 0.5rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__unit {
+  margin-left: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 400;
+  letter-spacing: 0; /* tracking-normal */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Distribution bar */
+.stat-card-stacked-distribution .stat-card-stacked-distribution__bar {
+  margin-top: 1.25rem;
+  display: flex;
+  height: 0.75rem;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__segment:not(:last-child) {
+  border-right: 2px solid #fff; /* white */
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__segment--first {
+  width: 45%;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__segment--second {
+  width: 30%;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__segment--third {
+  width: 15%;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__segment--other {
+  width: 10%;
+}
+
+/* Legend */
+.stat-card-stacked-distribution .stat-card-stacked-distribution__legend {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__part {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__name {
+  flex: 1;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__count {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card-stacked-distribution .stat-card-stacked-distribution__share {
+  width: 2.5rem;
+  text-align: right;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Shades shared by segments and dots, largest share first */
+.stat-card-stacked-distribution :is(.stat-card-stacked-distribution__segment--first, .stat-card-stacked-distribution__dot--first) {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.stat-card-stacked-distribution :is(.stat-card-stacked-distribution__segment--second, .stat-card-stacked-distribution__dot--second) {
+  background-color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.stat-card-stacked-distribution :is(.stat-card-stacked-distribution__segment--third, .stat-card-stacked-distribution__dot--third) {
+  background-color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.stat-card-stacked-distribution :is(.stat-card-stacked-distribution__segment--other, .stat-card-stacked-distribution__dot--other) {
+  background-color: oklch(87% 0 none); /* neutral-300 */
+}
+
+/* Note */
+.stat-card-stacked-distribution .stat-card-stacked-distribution__note {
+  margin-top: 1rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding-top: 0.75rem;
+  font-size: 0.75rem; /* text-xs */
+  line-height: calc(1 / 0.75); /* text-xs */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (width >= 40rem) {
+  .stat-card-stacked-distribution {
+    width: 20rem;
+  }
+}
+
+/* System colors drop the fills, so outline the bar and dots */
+@media (forced-colors: active) {
+  .stat-card-stacked-distribution :is(.stat-card-stacked-distribution__bar, .stat-card-stacked-distribution__dot) {
+    border: 1px solid;
+  }
+}

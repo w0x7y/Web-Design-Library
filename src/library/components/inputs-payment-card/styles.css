@@ -1,0 +1,131 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.inputs-payment-card, .inputs-payment-card *, .inputs-payment-card *::before, .inputs-payment-card *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.inputs-payment-card { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.inputs-payment-card :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.inputs-payment-card a { color: inherit; text-decoration: inherit; }
+.inputs-payment-card :is(b, strong) { font-weight: bolder; }
+.inputs-payment-card :is(ol, ul, menu) { list-style: none; }
+.inputs-payment-card :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.inputs-payment-card :is(img, video) { max-width: 100%; height: auto; }
+.inputs-payment-card :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.inputs-payment-card ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.inputs-payment-card table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.inputs-payment-card summary { display: list-item; }
+
+/* Fieldset */
+
+.inputs-payment-card {
+  width: 18rem;
+  min-width: 0;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.inputs-payment-card .inputs-payment-card__legend {
+  margin-bottom: 1rem;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5; /* text-base */
+  font-weight: 600;
+}
+
+.inputs-payment-card .inputs-payment-card__fields {
+  display: grid;
+  gap: 1rem;
+}
+
+.inputs-payment-card .inputs-payment-card__label {
+  margin-bottom: 0.375rem;
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+/* Inputs */
+
+.inputs-payment-card .inputs-payment-card__input {
+  height: 2.5rem;
+  width: 100%;
+  min-width: 0;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.inputs-payment-card .inputs-payment-card__input::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Card number with an inset glyph */
+
+.inputs-payment-card .inputs-payment-card__number-field {
+  position: relative;
+}
+
+.inputs-payment-card .inputs-payment-card__card-icon {
+  pointer-events: none;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.inputs-payment-card .inputs-payment-card__input--number {
+  padding-left: 2.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Joined expiry and security code */
+
+.inputs-payment-card .inputs-payment-card__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inputs-payment-card .inputs-payment-card__pair-cell {
+  min-width: 0;
+}
+
+.inputs-payment-card .inputs-payment-card__input--pair-start,
+.inputs-payment-card .inputs-payment-card__input--pair-end {
+  position: relative;
+  font-variant-numeric: tabular-nums;
+}
+
+.inputs-payment-card .inputs-payment-card__input--pair-start {
+  border-radius: 0.375rem 0 0 0.375rem; /* rounded-l-md */
+}
+
+.inputs-payment-card .inputs-payment-card__input--pair-end {
+  border-left-width: 0;
+  border-radius: 0 0.375rem 0.375rem 0; /* rounded-r-md */
+}
+
+.inputs-payment-card .inputs-payment-card__hint {
+  margin-top: 0.375rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Focus */
+
+.inputs-payment-card .inputs-payment-card__input:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+.inputs-payment-card .inputs-payment-card__input--pair-start:focus-visible,
+.inputs-payment-card .inputs-payment-card__input--pair-end:focus-visible {
+  z-index: 10;
+}
+
+@media (width >= 40rem) {
+  .inputs-payment-card {
+    width: 22rem;
+  }
+}

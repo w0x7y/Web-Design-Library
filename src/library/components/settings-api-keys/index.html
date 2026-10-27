@@ -1,0 +1,103 @@
+<section class="settings-api-keys">
+  <div class="settings-api-keys__container">
+    <header class="settings-api-keys__header">
+      <div>
+        <h1 class="settings-api-keys__title">API keys</h1>
+        <p class="settings-api-keys__lede">Keys let scripts and services call the API on behalf of this workspace.</p>
+      </div>
+      <button type="button" class="settings-api-keys__button settings-api-keys__button--primary">Create key</button>
+    </header>
+    <div class="settings-api-keys__callout">
+      <h2 class="settings-api-keys__callout-title"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-api-keys__icon">
+        <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4M21 2l-9.6 9.6"></path>
+        <circle cx="7.5" cy="15.5" r="5.5"></circle>
+      </svg>New key created</h2>
+      <p id="settings-api-keys-secret-hint" class="settings-api-keys__hint">Copy this key now and store it somewhere safe. It will not be shown again.</p>
+      <label for="settings-api-keys-secret" class="settings-api-keys__label">Deploy pipeline key</label>
+      <div class="settings-api-keys__secret-row">
+        <input id="settings-api-keys-secret" type="text" readonly aria-describedby="settings-api-keys-secret-hint" name="secret" value="key_7Hq2Lm9Xc4Rt8Vb1Nz6Wd3Ys5Pk0Ja7d3f" class="settings-api-keys__secret">
+        <button type="button" class="settings-api-keys__button settings-api-keys__button--secondary"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-api-keys__icon settings-api-keys__icon--small">
+          <path d="M8 10a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2zM4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2"></path>
+        </svg>Copy key</button>
+      </div>
+    </div>
+    <div class="settings-api-keys__keys">
+      <div class="settings-api-keys__keys-header">
+        <h2 class="settings-api-keys__keys-title">Active keys</h2>
+        <p class="settings-api-keys__meta">3 keys</p>
+      </div>
+      <div class="settings-api-keys__table">
+        <div aria-hidden="true" class="settings-api-keys__columns"><span>Name</span><span>Key</span><span>Scope</span><span>Created</span><span>Last used</span></div>
+        <ul role="list" class="settings-api-keys__key-list">
+          <li class="settings-api-keys__key">
+            <h3 class="settings-api-keys__key-name">Deploy pipeline</h3>
+            <dl class="settings-api-keys__details">
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Key</dt>
+                <dd><code class="settings-api-keys__masked"><span aria-hidden="true">key_••••••••</span><span class="settings-api-keys__sr-only">ending in </span>7d3f</code></dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Scope</dt>
+                <dd><span class="settings-api-keys__badge">Read and write</span></dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Created</dt>
+                <dd class="settings-api-keys__date">Today</dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Last used</dt>
+                <dd class="settings-api-keys__date">Never</dd>
+              </div>
+            </dl>
+            <button type="button" aria-label="Revoke Deploy pipeline key" class="settings-api-keys__button settings-api-keys__button--secondary settings-api-keys__revoke">Revoke</button>
+          </li>
+          <li class="settings-api-keys__key">
+            <h3 class="settings-api-keys__key-name">Production server</h3>
+            <dl class="settings-api-keys__details">
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Key</dt>
+                <dd><code class="settings-api-keys__masked"><span aria-hidden="true">key_••••••••</span><span class="settings-api-keys__sr-only">ending in </span>4f2a</code></dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Scope</dt>
+                <dd><span class="settings-api-keys__badge">Read and write</span></dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Created</dt>
+                <dd class="settings-api-keys__date">Mar 14, 2026</dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Last used</dt>
+                <dd class="settings-api-keys__date">2 hours ago</dd>
+              </div>
+            </dl>
+            <button type="button" aria-label="Revoke Production server key" class="settings-api-keys__button settings-api-keys__button--secondary settings-api-keys__revoke">Revoke</button>
+          </li>
+          <li class="settings-api-keys__key">
+            <h3 class="settings-api-keys__key-name">Analytics export</h3>
+            <dl class="settings-api-keys__details">
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Key</dt>
+                <dd><code class="settings-api-keys__masked"><span aria-hidden="true">key_••••••••</span><span class="settings-api-keys__sr-only">ending in </span>9c1e</code></dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Scope</dt>
+                <dd><span class="settings-api-keys__badge">Read only</span></dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Created</dt>
+                <dd class="settings-api-keys__date">Feb 2, 2026</dd>
+              </div>
+              <div class="settings-api-keys__detail">
+                <dt class="settings-api-keys__detail-label">Last used</dt>
+                <dd class="settings-api-keys__date">Yesterday</dd>
+              </div>
+            </dl>
+            <button type="button" aria-label="Revoke Analytics export key" class="settings-api-keys__button settings-api-keys__button--secondary settings-api-keys__revoke">Revoke</button>
+          </li>
+        </ul>
+      </div>
+      <p class="settings-api-keys__meta settings-api-keys__note">Revoking a key blocks every request that uses it right away. <a href="#" class="settings-api-keys__link">Read the authentication guide</a></p>
+    </div>
+  </div>
+</section>

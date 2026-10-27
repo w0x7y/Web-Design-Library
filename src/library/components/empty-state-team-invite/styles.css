@@ -1,0 +1,229 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.empty-state-team-invite, .empty-state-team-invite *, .empty-state-team-invite *::before, .empty-state-team-invite *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.empty-state-team-invite { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.empty-state-team-invite :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.empty-state-team-invite a { color: inherit; text-decoration: inherit; }
+.empty-state-team-invite :is(b, strong) { font-weight: bolder; }
+.empty-state-team-invite :is(ol, ul, menu) { list-style: none; }
+.empty-state-team-invite :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.empty-state-team-invite :is(img, video) { max-width: 100%; height: auto; }
+.empty-state-team-invite :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.empty-state-team-invite ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.empty-state-team-invite table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.empty-state-team-invite summary { display: list-item; }
+
+
+/* Section */
+
+.empty-state-team-invite {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.empty-state-team-invite .empty-state-team-invite__container {
+  margin-inline: auto;
+  max-width: 48rem; /* container-3xl */
+  padding: 4rem 1.5rem;
+}
+
+/* Introduction */
+
+.empty-state-team-invite .empty-state-team-invite__intro {
+  text-align: center;
+}
+
+.empty-state-team-invite .empty-state-team-invite__slots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.empty-state-team-invite .empty-state-team-invite__slot {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px dashed oklch(87% 0 none); /* neutral-300 */
+  color: oklch(70.8% 0 none); /* neutral-400 */
+}
+
+.empty-state-team-invite .empty-state-team-invite__slot-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.empty-state-team-invite .empty-state-team-invite__title {
+  margin-top: 1.5rem;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: calc(2.25 / 1.875); /* text-3xl */
+  font-weight: 600;
+  letter-spacing: -0.025em; /* tracking-tight */
+  text-wrap: balance;
+}
+
+.empty-state-team-invite .empty-state-team-invite__lede {
+  margin: 1rem auto 0;
+  max-width: 36rem; /* container-xl */
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125); /* text-lg */
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Invite card */
+
+.empty-state-team-invite .empty-state-team-invite__card {
+  margin-top: 2.5rem;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+}
+
+.empty-state-team-invite .empty-state-team-invite__form {
+  padding: 1.5rem;
+}
+
+.empty-state-team-invite .empty-state-team-invite__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empty-state-team-invite .empty-state-team-invite__email {
+  min-width: 0;
+  flex: 1;
+}
+
+.empty-state-team-invite .empty-state-team-invite__label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+}
+
+.empty-state-team-invite .empty-state-team-invite__control {
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem; /* radius-md */
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  padding-inline: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+}
+
+.empty-state-team-invite .empty-state-team-invite__control::placeholder {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.empty-state-team-invite .empty-state-team-invite__hint {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Invite link footer */
+
+.empty-state-team-invite .empty-state-team-invite__link-share {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  padding: 1rem 1.5rem;
+}
+
+.empty-state-team-invite .empty-state-team-invite__link-note {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+/* Actions */
+
+.empty-state-team-invite .empty-state-team-invite__action {
+  display: inline-flex;
+  height: 2.75rem;
+  width: 100%;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  padding-inline: 1.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875); /* text-sm */
+  font-weight: 500;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.empty-state-team-invite .empty-state-team-invite__action--primary {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+.empty-state-team-invite .empty-state-team-invite__action--secondary {
+  gap: 0.5rem;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.empty-state-team-invite .empty-state-team-invite__action-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Interaction states */
+
+@media (hover: hover) {
+  .empty-state-team-invite .empty-state-team-invite__action--primary:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+
+  .empty-state-team-invite .empty-state-team-invite__action--secondary:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+}
+
+.empty-state-team-invite .empty-state-team-invite__control:focus-visible,
+.empty-state-team-invite .empty-state-team-invite__action:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* Breakpoints */
+
+@media (width >= 40rem) {
+  .empty-state-team-invite .empty-state-team-invite__container {
+    padding-block: 6rem;
+  }
+
+  .empty-state-team-invite .empty-state-team-invite__title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: calc(2.5 / 2.25); /* text-4xl */
+  }
+
+  .empty-state-team-invite .empty-state-team-invite__fields {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .empty-state-team-invite .empty-state-team-invite__role {
+    width: 9rem;
+  }
+
+  .empty-state-team-invite .empty-state-team-invite__action {
+    width: auto;
+  }
+
+  .empty-state-team-invite .empty-state-team-invite__link-share {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

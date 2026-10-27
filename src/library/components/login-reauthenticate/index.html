@@ -1,0 +1,29 @@
+<section class="login-reauthenticate">
+  <div class="login-reauthenticate__container">
+    <div class="login-reauthenticate__column">
+      <div class="login-reauthenticate__intro">
+        <h1 class="login-reauthenticate__title">Confirm it's you</h1>
+        <p class="login-reauthenticate__lede">Your session expired after a period of inactivity. Enter your password to continue where you left off.</p>
+      </div>
+      <div class="login-reauthenticate__card">
+        <div class="login-reauthenticate__identity">
+          <span aria-hidden="true" class="login-reauthenticate__avatar">AR</span>
+          <p class="login-reauthenticate__name">Alex Rivera</p>
+          <p class="login-reauthenticate__email">alex@example.com</p>
+        </div>
+        <form class="login-reauthenticate__form">
+          <input type="hidden" autocomplete="username" name="username" value="alex@example.com">
+          <div>
+            <div class="login-reauthenticate__label-row">
+              <label for="login-reauthenticate-password" class="login-reauthenticate__label">Password</label>
+              <span class="login-reauthenticate__recovery"><a href="#" class="login-reauthenticate__link">Forgot password?</a></span>
+            </div>
+            <input id="login-reauthenticate-password" type="password" autocomplete="current-password" required name="password" class="login-reauthenticate__input">
+          </div>
+          <button type="submit" class="login-reauthenticate__submit">Continue</button>
+        </form>
+        <p class="login-reauthenticate__switch">Not you? <a href="#" class="login-reauthenticate__link">Switch account</a></p>
+      </div>
+    </div>
+  </div>
+</section>

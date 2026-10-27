@@ -1,0 +1,48 @@
+<div class="inputs-password-requirements">
+  <label for="password-new" class="inputs-password-requirements__label">New password</label>
+  <div class="inputs-password-requirements__field">
+    <input id="password-new" type="password" autocomplete="new-password" aria-describedby="password-strength password-rules" name="new-password" value="Sample123!" class="inputs-password-requirements__input">
+    <button type="button" aria-label="Show password" class="inputs-password-requirements__show"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-password-requirements__show-icon">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </svg>Show</button>
+  </div>
+  <div class="inputs-password-requirements__strength">
+    <div aria-hidden="true" class="inputs-password-requirements__meter">
+      <span class="inputs-password-requirements__segment inputs-password-requirements__segment--filled"></span>
+      <span class="inputs-password-requirements__segment inputs-password-requirements__segment--filled"></span>
+      <span class="inputs-password-requirements__segment inputs-password-requirements__segment--filled"></span>
+      <span class="inputs-password-requirements__segment inputs-password-requirements__segment--empty"></span>
+    </div>
+    <p id="password-strength" class="inputs-password-requirements__strength-label">Strength: Good</p>
+  </div>
+  <ul role="list" id="password-rules" aria-label="Password requirements" class="inputs-password-requirements__rules">
+    <li class="inputs-password-requirements__rule inputs-password-requirements__rule--unmet">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-password-requirements__rule-icon inputs-password-requirements__rule-icon--unmet">
+        <circle cx="12" cy="12" r="9"></circle>
+      </svg>
+      <span><span class="inputs-password-requirements__sr-only">Not met: </span>At least 12 characters</span>
+    </li>
+    <li class="inputs-password-requirements__rule inputs-password-requirements__rule--met">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-password-requirements__rule-icon">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="m8 12 3 3 5-6"></path>
+      </svg>
+      <span><span class="inputs-password-requirements__sr-only">Met: </span>One uppercase letter</span>
+    </li>
+    <li class="inputs-password-requirements__rule inputs-password-requirements__rule--met">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-password-requirements__rule-icon">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="m8 12 3 3 5-6"></path>
+      </svg>
+      <span><span class="inputs-password-requirements__sr-only">Met: </span>One number</span>
+    </li>
+    <li class="inputs-password-requirements__rule inputs-password-requirements__rule--met">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-password-requirements__rule-icon">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="m8 12 3 3 5-6"></path>
+      </svg>
+      <span><span class="inputs-password-requirements__sr-only">Met: </span>One symbol</span>
+    </li>
+  </ul>
+</div>

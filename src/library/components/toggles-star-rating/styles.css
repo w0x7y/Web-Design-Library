@@ -1,0 +1,148 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.toggles-star-rating, .toggles-star-rating *, .toggles-star-rating *::before, .toggles-star-rating *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.toggles-star-rating { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.toggles-star-rating :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.toggles-star-rating a { color: inherit; text-decoration: inherit; }
+.toggles-star-rating :is(b, strong) { font-weight: bolder; }
+.toggles-star-rating :is(ol, ul, menu) { list-style: none; }
+.toggles-star-rating :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.toggles-star-rating :is(img, video) { max-width: 100%; height: auto; }
+.toggles-star-rating :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.toggles-star-rating ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.toggles-star-rating table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.toggles-star-rating summary { display: list-item; }
+
+/* Fieldset, hint and rating row */
+
+.toggles-star-rating {
+  width: 18rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.toggles-star-rating .toggles-star-rating__title {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 600;
+}
+
+.toggles-star-rating .toggles-star-rating__hint {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.toggles-star-rating .toggles-star-rating__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+/* Stars */
+
+.toggles-star-rating .toggles-star-rating__stars {
+  display: flex;
+  margin-left: -0.25rem;
+}
+
+.toggles-star-rating .toggles-star-rating__star {
+  position: relative;
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.toggles-star-rating .toggles-star-rating__input,
+.toggles-star-rating .toggles-star-rating__name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.toggles-star-rating .toggles-star-rating__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* Caption */
+
+.toggles-star-rating .toggles-star-rating__caption {
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+}
+
+.toggles-star-rating .toggles-star-rating__unrated {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.toggles-star-rating .toggles-star-rating__word {
+  display: none;
+}
+
+/* Checked star and the stars before it, caption word and focus */
+
+.toggles-star-rating .toggles-star-rating__star:has(:checked),
+.toggles-star-rating .toggles-star-rating__star:has(~ .toggles-star-rating__star :checked) {
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.toggles-star-rating .toggles-star-rating__star:has(:checked) .toggles-star-rating__icon,
+.toggles-star-rating .toggles-star-rating__star:has(~ .toggles-star-rating__star :checked) .toggles-star-rating__icon {
+  fill: currentcolor;
+}
+
+.toggles-star-rating:has(.toggles-star-rating__input:checked) .toggles-star-rating__unrated {
+  display: none;
+}
+
+.toggles-star-rating:has(#toggles-star-rating-1:checked) .toggles-star-rating__word--poor,
+.toggles-star-rating:has(#toggles-star-rating-2:checked) .toggles-star-rating__word--fair,
+.toggles-star-rating:has(#toggles-star-rating-3:checked) .toggles-star-rating__word--good,
+.toggles-star-rating:has(#toggles-star-rating-4:checked) .toggles-star-rating__word--very-good,
+.toggles-star-rating:has(#toggles-star-rating-5:checked) .toggles-star-rating__word--excellent {
+  display: inline;
+}
+
+.toggles-star-rating .toggles-star-rating__input:focus-visible {
+  outline-style: none;
+}
+
+@media (hover: hover) {
+  .toggles-star-rating .toggles-star-rating__star:hover {
+    background-color: oklch(97% 0 none); /* neutral-100 */
+  }
+}
+
+.toggles-star-rating .toggles-star-rating__star:has(:focus-visible) {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  .toggles-star-rating .toggles-star-rating__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+}
+
+@media (width >= 40rem) {
+  .toggles-star-rating {
+    width: 20rem;
+  }
+}

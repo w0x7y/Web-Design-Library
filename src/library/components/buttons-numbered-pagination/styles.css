@@ -1,0 +1,152 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-numbered-pagination, .buttons-numbered-pagination *, .buttons-numbered-pagination *::before, .buttons-numbered-pagination *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-numbered-pagination { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-numbered-pagination :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-numbered-pagination a { color: inherit; text-decoration: inherit; }
+.buttons-numbered-pagination :is(b, strong) { font-weight: bolder; }
+.buttons-numbered-pagination :is(ol, ul, menu) { list-style: none; }
+.buttons-numbered-pagination :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-numbered-pagination :is(img, video) { max-width: 100%; height: auto; }
+.buttons-numbered-pagination :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-numbered-pagination ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-numbered-pagination table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-numbered-pagination summary { display: list-item; }
+
+/* Pagination row */
+
+.buttons-numbered-pagination {
+  display: flex;
+  width: 18rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Previous and Next */
+
+.buttons-numbered-pagination .buttons-numbered-pagination__step {
+  display: inline-flex;
+  height: 2.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid oklch(87% 0 none); /* neutral-300 */
+  border-radius: 0.375rem; /* radius-md */
+  background-color: #fff; /* white */
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__step--previous {
+  padding-right: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__step--next {
+  padding-right: 0.5rem;
+  padding-left: 0.75rem;
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__chevron {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Mobile page status */
+
+.buttons-numbered-pagination .buttons-numbered-pagination__status {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  color: oklch(43.9% 0 none); /* neutral-600 */
+  font-variant-numeric: tabular-nums;
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__status-page {
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Page numbers */
+
+.buttons-numbered-pagination .buttons-numbered-pagination__pages {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__page,
+.buttons-numbered-pagination .buttons-numbered-pagination__gap {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__page {
+  border-radius: 0.375rem; /* radius-md */
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  font-variant-numeric: tabular-nums;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__gap {
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+@media (hover: hover) {
+  .buttons-numbered-pagination .buttons-numbered-pagination__step:hover {
+    background-color: oklch(98.5% 0 none); /* neutral-50 */
+  }
+
+  .buttons-numbered-pagination .buttons-numbered-pagination__page:hover {
+    background-color: oklch(97% 0 none); /* neutral-100 */
+  }
+
+  .buttons-numbered-pagination .buttons-numbered-pagination__page[aria-current="page"]:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.buttons-numbered-pagination .buttons-numbered-pagination__step:focus-visible,
+.buttons-numbered-pagination .buttons-numbered-pagination__page:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+/* The current page follows aria-current, so moving the attribute moves the fill */
+.buttons-numbered-pagination .buttons-numbered-pagination__page[aria-current="page"] {
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+}
+
+@media (width >= 40rem) {
+  .buttons-numbered-pagination {
+    width: 32rem;
+  }
+
+  .buttons-numbered-pagination .buttons-numbered-pagination__status {
+    display: none;
+  }
+
+  .buttons-numbered-pagination .buttons-numbered-pagination__pages {
+    display: flex;
+  }
+}
+
+@media (forced-colors: active) {
+  .buttons-numbered-pagination .buttons-numbered-pagination__page[aria-current="page"] {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+}

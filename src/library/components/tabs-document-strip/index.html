@@ -1,0 +1,74 @@
+<div class="tabs-document-strip">
+  <div class="tabs-document-strip__strip">
+    <div role="group" aria-label="Open documents" class="tabs-document-strip__tabs">
+      <div class="tabs-document-strip__tab">
+        <label id="tabs-document-strip-brief-label" class="tabs-document-strip__label">
+          <input id="tabs-document-strip-brief" type="radio" aria-controls="tabs-document-strip-brief-panel" name="tabs-document-strip" checked class="tabs-document-strip__input">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__file-icon">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 3v5h5M9 13h6M9 17h6"></path>
+          </svg>
+          <span class="tabs-document-strip__name">Project brief</span>
+        </label>
+        <button type="button" aria-label="Close Project brief" class="tabs-document-strip__button tabs-document-strip__button--close">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__button-icon">
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="tabs-document-strip__tab">
+        <label id="tabs-document-strip-notes-label" class="tabs-document-strip__label">
+          <input id="tabs-document-strip-notes" type="radio" aria-controls="tabs-document-strip-notes-panel" name="tabs-document-strip" class="tabs-document-strip__input">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__file-icon">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 3v5h5M9 13h6M9 17h6"></path>
+          </svg>
+          <span class="tabs-document-strip__name">Meeting notes</span>
+        </label>
+        <button type="button" aria-label="Close Meeting notes" class="tabs-document-strip__button tabs-document-strip__button--close">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__button-icon">
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="tabs-document-strip__tab">
+        <label id="tabs-document-strip-plan-label" class="tabs-document-strip__label">
+          <input id="tabs-document-strip-plan" type="radio" aria-controls="tabs-document-strip-plan-panel" name="tabs-document-strip" class="tabs-document-strip__input">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__file-icon">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 3v5h5M9 13h6M9 17h6"></path>
+          </svg>
+          <span class="tabs-document-strip__name">Launch plan</span>
+        </label>
+        <button type="button" aria-label="Close Launch plan" class="tabs-document-strip__button tabs-document-strip__button--close">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__button-icon">
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <button type="button" aria-label="New document" class="tabs-document-strip__button tabs-document-strip__button--new">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-document-strip__button-icon">
+        <path d="M12 5v14M5 12h14"></path>
+      </svg>
+    </button>
+  </div>
+  <section id="tabs-document-strip-brief-panel" aria-labelledby="tabs-document-strip-brief-label" class="tabs-document-strip__panel tabs-document-strip__panel--brief">
+    <h2 class="tabs-document-strip__title">Project brief</h2>
+    <p class="tabs-document-strip__meta">Edited 2 hours ago by Alex Rivera</p>
+    <p class="tabs-document-strip__body tabs-document-strip__body--first">Opening paragraph that states what the document covers, who it is for and the decision it supports.</p>
+    <p class="tabs-document-strip__body">Supporting paragraph with the details, constraints and open questions a reader needs before the next step.</p>
+  </section>
+  <section id="tabs-document-strip-notes-panel" aria-labelledby="tabs-document-strip-notes-label" class="tabs-document-strip__panel tabs-document-strip__panel--notes">
+    <h2 class="tabs-document-strip__title">Meeting notes</h2>
+    <p class="tabs-document-strip__meta">Edited yesterday by Jordan Lee</p>
+    <p class="tabs-document-strip__body tabs-document-strip__body--first">Summary of what was discussed, in the order the topics came up, with the people involved.</p>
+    <p class="tabs-document-strip__body">Decisions and follow-up actions, each with an owner and a date so progress is easy to check.</p>
+  </section>
+  <section id="tabs-document-strip-plan-panel" aria-labelledby="tabs-document-strip-plan-label" class="tabs-document-strip__panel tabs-document-strip__panel--plan">
+    <h2 class="tabs-document-strip__title">Launch plan</h2>
+    <p class="tabs-document-strip__meta">Edited Oct 24 by Sam Kim</p>
+    <p class="tabs-document-strip__body tabs-document-strip__body--first">Overview of the milestones, the order they happen in and what must be ready before each one.</p>
+    <p class="tabs-document-strip__body">Risks and fallback steps for each milestone, with the person to contact when something slips.</p>
+  </section>
+</div>

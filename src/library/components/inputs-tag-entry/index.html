@@ -1,0 +1,38 @@
+<div class="inputs-tag-entry">
+  <div class="inputs-tag-entry__label-row">
+    <label for="tag-entry-input" class="inputs-tag-entry__label">Tags</label>
+    <span id="tag-entry-count" class="inputs-tag-entry__count">3 of 10</span>
+  </div>
+  <div class="inputs-tag-entry__field">
+    <ul role="list" aria-label="Added tags" class="inputs-tag-entry__chips">
+      <li class="inputs-tag-entry__pill inputs-tag-entry__pill--chip">Research<button type="button" aria-label="Remove tag Research" class="inputs-tag-entry__remove">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-tag-entry__icon">
+          <path d="M6 6l12 12M18 6 6 18"></path>
+        </svg>
+      </button></li>
+      <li class="inputs-tag-entry__pill inputs-tag-entry__pill--chip">Draft<button type="button" aria-label="Remove tag Draft" class="inputs-tag-entry__remove">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-tag-entry__icon">
+          <path d="M6 6l12 12M18 6 6 18"></path>
+        </svg>
+      </button></li>
+      <li class="inputs-tag-entry__pill inputs-tag-entry__pill--chip">Internal<button type="button" aria-label="Remove tag Internal" class="inputs-tag-entry__remove">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-tag-entry__icon">
+          <path d="M6 6l12 12M18 6 6 18"></path>
+        </svg>
+      </button></li>
+    </ul>
+    <input id="tag-entry-input" type="text" autocomplete="off" aria-describedby="tag-entry-count tag-entry-hint" placeholder="Add a tag" name="tag" class="inputs-tag-entry__input">
+  </div>
+  <p id="tag-entry-hint" class="inputs-tag-entry__hint">Press Enter after each tag to add it.</p>
+  <div class="inputs-tag-entry__suggestions">
+    <p id="tag-entry-suggested" class="inputs-tag-entry__suggestions-label">Suggested</p>
+    <ul role="list" aria-labelledby="tag-entry-suggested" class="inputs-tag-entry__suggestion-list">
+      <li><button type="button" aria-label="Add tag Planning" class="inputs-tag-entry__pill inputs-tag-entry__pill--suggestion"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-tag-entry__icon">
+        <path d="M12 5v14M5 12h14"></path>
+      </svg>Planning</button></li>
+      <li><button type="button" aria-label="Add tag Review" class="inputs-tag-entry__pill inputs-tag-entry__pill--suggestion"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-tag-entry__icon">
+        <path d="M12 5v14M5 12h14"></path>
+      </svg>Review</button></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<fieldset class="inputs-address-block">
+  <legend class="inputs-address-block__sr-only">Shipping address</legend>
+  <div class="inputs-address-block__fields">
+    <div>
+      <label for="address-country" class="inputs-address-block__label">Country or region</label>
+      <div class="inputs-address-block__select-field"><select id="address-country" name="country" autocomplete="country" class="inputs-address-block__control inputs-address-block__control--select"><option value="" disabled selected>Select a country</option><option value="first">First country</option><option value="second">Second country</option></select><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="inputs-address-block__chevron">
+        <path d="m6 9 6 6 6-6"></path>
+      </svg></div>
+    </div>
+    <div><label for="address-line1" class="inputs-address-block__label">Street address</label><input id="address-line1" type="text" autocomplete="address-line1" placeholder="House number and street" name="address-line1" class="inputs-address-block__control inputs-address-block__control--text"><input id="address-line2" type="text" autocomplete="address-line2" aria-label="Address line 2 (optional)" placeholder="Apartment, suite or unit (optional)" name="address-line2" class="inputs-address-block__control inputs-address-block__control--text inputs-address-block__control--second-line"></div>
+    <div class="inputs-address-block__locality">
+      <div class="inputs-address-block__cell inputs-address-block__cell--city"><label for="address-city" class="inputs-address-block__label">City</label><input id="address-city" type="text" autocomplete="address-level2" placeholder="City or town" name="city" class="inputs-address-block__control inputs-address-block__control--text"></div>
+      <div class="inputs-address-block__cell"><label for="address-region" class="inputs-address-block__label">Region</label><input id="address-region" type="text" autocomplete="address-level1" placeholder="State or province" name="region" class="inputs-address-block__control inputs-address-block__control--text"></div>
+      <div class="inputs-address-block__cell"><label for="address-postal" class="inputs-address-block__label">Postal code</label><input id="address-postal" type="text" autocomplete="postal-code" placeholder="00000" name="postal-code" class="inputs-address-block__control inputs-address-block__control--text"></div>
+    </div>
+  </div>
+</fieldset>

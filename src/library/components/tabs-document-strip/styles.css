@@ -1,0 +1,215 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.tabs-document-strip, .tabs-document-strip *, .tabs-document-strip *::before, .tabs-document-strip *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.tabs-document-strip { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.tabs-document-strip :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.tabs-document-strip a { color: inherit; text-decoration: inherit; }
+.tabs-document-strip :is(b, strong) { font-weight: bolder; }
+.tabs-document-strip :is(ol, ul, menu) { list-style: none; }
+.tabs-document-strip :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.tabs-document-strip :is(img, video) { max-width: 100%; height: auto; }
+.tabs-document-strip :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.tabs-document-strip ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.tabs-document-strip table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.tabs-document-strip summary { display: list-item; }
+
+/* Pattern */
+.tabs-document-strip {
+  width: 18rem;
+  overflow: hidden;
+  border-radius: 0.5rem; /* radius-lg */
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+/* Tab strip */
+.tabs-document-strip .tabs-document-strip__strip {
+  display: flex;
+  align-items: flex-end;
+  background-color: oklch(97% 0 none); /* neutral-100 */
+  padding-right: 0.5rem;
+}
+
+.tabs-document-strip .tabs-document-strip__tabs {
+  display: flex;
+  min-width: 0;
+  align-items: flex-end;
+  gap: 0.25rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.5rem 0;
+  scrollbar-width: none;
+}
+
+.tabs-document-strip .tabs-document-strip__tab {
+  display: flex;
+  height: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.375rem 0.375rem 0 0; /* radius-md */
+  padding-right: 0.375rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  color: oklch(43.9% 0 none); /* neutral-600 */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tabs-document-strip .tabs-document-strip__label {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  padding-left: 0.75rem;
+}
+
+.tabs-document-strip .tabs-document-strip__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.tabs-document-strip .tabs-document-strip__file-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.tabs-document-strip .tabs-document-strip__name {
+  max-width: 7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Close and New document buttons */
+.tabs-document-strip .tabs-document-strip__button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* radius-md */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tabs-document-strip .tabs-document-strip__button--close {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.tabs-document-strip .tabs-document-strip__button--new {
+  margin: 0 0 0.125rem 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.tabs-document-strip .tabs-document-strip__button-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Document panels */
+.tabs-document-strip .tabs-document-strip__panel {
+  display: none;
+  padding: 1.25rem;
+}
+
+.tabs-document-strip .tabs-document-strip__title {
+  font-size: 1.125rem; /* text-lg */
+  line-height: calc(1.75 / 1.125);
+  font-weight: 600;
+}
+
+.tabs-document-strip .tabs-document-strip__meta {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+.tabs-document-strip .tabs-document-strip__body {
+  margin-top: 0.75rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  text-wrap: pretty;
+  color: oklch(43.9% 0 none); /* neutral-600 */
+}
+
+.tabs-document-strip .tabs-document-strip__body--first {
+  margin-top: 1rem;
+}
+
+/* Selection and focus */
+.tabs-document-strip:has(#tabs-document-strip-brief:checked) .tabs-document-strip__panel--brief,
+.tabs-document-strip:has(#tabs-document-strip-notes:checked) .tabs-document-strip__panel--notes,
+.tabs-document-strip:has(#tabs-document-strip-plan:checked) .tabs-document-strip__panel--plan {
+  display: block;
+}
+
+@media (hover: hover) {
+  .tabs-document-strip .tabs-document-strip__tab:hover {
+    background-color: oklch(92.2% 0 none / 0.5); /* neutral-200/50 */
+    color: oklch(20.5% 0 none); /* neutral-900 */
+  }
+
+  .tabs-document-strip .tabs-document-strip__button:hover {
+    background-color: oklch(92.2% 0 none); /* neutral-200 */
+    color: oklch(20.5% 0 none); /* neutral-900 */
+  }
+}
+
+.tabs-document-strip .tabs-document-strip__tab:has(:checked) {
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.tabs-document-strip .tabs-document-strip__input:focus-visible {
+  outline-style: none;
+}
+
+.tabs-document-strip .tabs-document-strip__tab:has(input:focus-visible) {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: -2px;
+}
+
+.tabs-document-strip .tabs-document-strip__button:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (width >= 40rem) {
+  .tabs-document-strip {
+    width: 36rem;
+  }
+
+  .tabs-document-strip .tabs-document-strip__panel {
+    padding: 1.5rem;
+  }
+}
+
+/* Forced colors: fills disappear, so the selected tab gets a border */
+@media (forced-colors: active) {
+  .tabs-document-strip .tabs-document-strip__input:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .tabs-document-strip .tabs-document-strip__tab:has(:checked) {
+    border: 1px solid;
+    border-bottom-width: 0;
+  }
+}

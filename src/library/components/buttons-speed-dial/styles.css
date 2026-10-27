@@ -1,0 +1,161 @@
+/* Scoped reset: mirrors Tailwind preflight for this component only */
+.buttons-speed-dial, .buttons-speed-dial *, .buttons-speed-dial *::before, .buttons-speed-dial *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+.buttons-speed-dial { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+.buttons-speed-dial :is(h1, h2, h3, h4, h5, h6) { font-size: inherit; font-weight: inherit; }
+.buttons-speed-dial a { color: inherit; text-decoration: inherit; }
+.buttons-speed-dial :is(b, strong) { font-weight: bolder; }
+.buttons-speed-dial :is(ol, ul, menu) { list-style: none; }
+.buttons-speed-dial :is(img, svg, video, canvas, picture) { display: block; vertical-align: middle; }
+.buttons-speed-dial :is(img, video) { max-width: 100%; height: auto; }
+.buttons-speed-dial :is(button, input, select, optgroup, textarea) { font: inherit; letter-spacing: inherit; color: inherit; background-color: transparent; border-radius: 0; opacity: 1; }
+.buttons-speed-dial ::placeholder { opacity: 1; color: color-mix(in oklab, currentcolor 50%, transparent); }
+.buttons-speed-dial table { text-indent: 0; border-color: inherit; border-collapse: collapse; }
+.buttons-speed-dial summary { display: list-item; }
+
+/* Screen surface and page content */
+
+.buttons-speed-dial {
+  position: relative;
+  height: 20rem;
+  width: 18rem;
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  border-radius: 0.5rem; /* radius-lg */
+  background-color: oklch(98.5% 0 none); /* neutral-50 */
+  padding: 1rem;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.buttons-speed-dial .buttons-speed-dial__content-title {
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+}
+
+.buttons-speed-dial .buttons-speed-dial__content-note {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  color: oklch(55.6% 0 none); /* neutral-500 */
+}
+
+/* Floating button */
+
+.buttons-speed-dial .buttons-speed-dial__dial {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.buttons-speed-dial .buttons-speed-dial__trigger {
+  display: flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: oklch(20.5% 0 none); /* neutral-900 */
+  color: #fff; /* white */
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.buttons-speed-dial .buttons-speed-dial__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.buttons-speed-dial .buttons-speed-dial__plus {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: rotate 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttons-speed-dial .buttons-speed-dial__dial[open] .buttons-speed-dial__plus {
+  rotate: 45deg;
+}
+
+/* Speed-dial actions, nearest first */
+
+.buttons-speed-dial .buttons-speed-dial__actions {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.buttons-speed-dial .buttons-speed-dial__action {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+}
+
+.buttons-speed-dial .buttons-speed-dial__action-label {
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  border-radius: 0.375rem; /* radius-md */
+  background-color: #fff; /* white */
+  padding: 0.25rem 0.625rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: calc(1.25 / 0.875);
+  font-weight: 500;
+  white-space: nowrap;
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow-sm */
+}
+
+.buttons-speed-dial .buttons-speed-dial__action-icon {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid oklch(92.2% 0 none); /* neutral-200 */
+  border-radius: 9999px;
+  background-color: #fff; /* white */
+  color: oklch(20.5% 0 none); /* neutral-900 */
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow-sm */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, background-image;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.buttons-speed-dial .buttons-speed-dial__glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (hover: hover) {
+  .buttons-speed-dial .buttons-speed-dial__action:hover .buttons-speed-dial__action-icon {
+    background-color: oklch(97% 0 none); /* neutral-100 */
+  }
+
+  .buttons-speed-dial .buttons-speed-dial__trigger:hover {
+    background-color: oklch(37.1% 0 none); /* neutral-700 */
+  }
+}
+
+.buttons-speed-dial .buttons-speed-dial__trigger:focus-visible,
+.buttons-speed-dial .buttons-speed-dial__action:focus-visible {
+  outline: 2px solid oklch(20.5% 0 none); /* neutral-900 */
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buttons-speed-dial .buttons-speed-dial__plus {
+    transition: none;
+  }
+}
+
+@media (width >= 40rem) {
+  .buttons-speed-dial {
+    width: 20rem;
+  }
+}

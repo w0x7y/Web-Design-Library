@@ -1,0 +1,250 @@
+<section class="dashboard-service-status">
+  <div class="dashboard-service-status__container">
+    <header class="dashboard-service-status__header">
+      <h1 class="dashboard-service-status__title">System status</h1>
+      <a href="#" class="dashboard-service-status__subscribe">Subscribe to updates</a>
+    </header>
+    <div class="dashboard-service-status__banner">
+      <span aria-hidden="true" class="dashboard-service-status__banner-icon">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-service-status__icon">
+          <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path>
+        </svg>
+      </span>
+      <div class="dashboard-service-status__banner-body">
+        <h2 class="dashboard-service-status__heading">Degraded performance on one service</h2>
+        <p class="dashboard-service-status__banner-summary">Short summary of the current impact and when the next update is due.</p>
+      </div>
+      <p class="dashboard-service-status__banner-updated">Updated <time datetime="2026-10-26T09:41:00Z">09:41 UTC</time></p>
+    </div>
+    <div class="dashboard-service-status__grid">
+      <section aria-labelledby="dashboard-service-status-services">
+        <div class="dashboard-service-status__services-header">
+          <h2 id="dashboard-service-status-services" class="dashboard-service-status__heading">Services</h2>
+          <ul role="list" aria-label="Uptime legend" class="dashboard-service-status__legend">
+            <li class="dashboard-service-status__legend-item"><span aria-hidden="true" class="dashboard-service-status__legend-key">
+              <span class="dashboard-service-status__key dashboard-service-status__key--up"></span>
+            </span>Operational</li>
+            <li class="dashboard-service-status__legend-item"><span aria-hidden="true" class="dashboard-service-status__legend-key">
+              <span class="dashboard-service-status__key dashboard-service-status__key--degraded"></span>
+            </span>Degraded</li>
+            <li class="dashboard-service-status__legend-item"><span aria-hidden="true" class="dashboard-service-status__legend-key">
+              <span class="dashboard-service-status__key dashboard-service-status__key--outage"></span>
+            </span>Outage</li>
+          </ul>
+        </div>
+        <ul role="list" class="dashboard-service-status__services">
+          <li class="dashboard-service-status__service">
+            <div class="dashboard-service-status__service-header">
+              <h3 class="dashboard-service-status__service-name">Web application</h3>
+              <span class="dashboard-service-status__badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-service-status__badge-icon">
+                <path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+              </svg>Operational</span>
+            </div>
+            <div role="img" aria-label="Web application, last 30 days: 29 days operational, 1 degraded" class="dashboard-service-status__bars">
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--degraded"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+            </div>
+            <p class="dashboard-service-status__axis">
+              <span>30 days ago</span>
+              <span class="dashboard-service-status__uptime">99.98% uptime</span>
+              <span>Today</span>
+            </p>
+          </li>
+          <li class="dashboard-service-status__service">
+            <div class="dashboard-service-status__service-header">
+              <h3 class="dashboard-service-status__service-name">Public API</h3>
+              <span class="dashboard-service-status__badge dashboard-service-status__badge--alert"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-service-status__badge-icon">
+                <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path>
+              </svg>Degraded</span>
+            </div>
+            <div role="img" aria-label="Public API, last 30 days: 28 days operational, 1 degraded, 1 with an outage" class="dashboard-service-status__bars">
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--outage"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--degraded"></span>
+            </div>
+            <p class="dashboard-service-status__axis">
+              <span>30 days ago</span>
+              <span class="dashboard-service-status__uptime">99.71% uptime</span>
+              <span>Today</span>
+            </p>
+          </li>
+          <li class="dashboard-service-status__service">
+            <div class="dashboard-service-status__service-header">
+              <h3 class="dashboard-service-status__service-name">Background jobs</h3>
+              <span class="dashboard-service-status__badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-service-status__badge-icon">
+                <path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+              </svg>Operational</span>
+            </div>
+            <div role="img" aria-label="Background jobs, last 30 days: 30 days operational" class="dashboard-service-status__bars">
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+            </div>
+            <p class="dashboard-service-status__axis">
+              <span>30 days ago</span>
+              <span class="dashboard-service-status__uptime">100% uptime</span>
+              <span>Today</span>
+            </p>
+          </li>
+          <li class="dashboard-service-status__service">
+            <div class="dashboard-service-status__service-header">
+              <h3 class="dashboard-service-status__service-name">Email delivery</h3>
+              <span class="dashboard-service-status__badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="dashboard-service-status__badge-icon">
+                <path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+              </svg>Operational</span>
+            </div>
+            <div role="img" aria-label="Email delivery, last 30 days: 28 days operational, 2 degraded" class="dashboard-service-status__bars">
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--degraded"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--degraded"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+              <span class="dashboard-service-status__bar dashboard-service-status__bar--up"></span>
+            </div>
+            <p class="dashboard-service-status__axis">
+              <span>30 days ago</span>
+              <span class="dashboard-service-status__uptime">99.92% uptime</span>
+              <span>Today</span>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section aria-labelledby="dashboard-service-status-incidents">
+        <h2 id="dashboard-service-status-incidents" class="dashboard-service-status__heading">Recent incidents</h2>
+        <ol role="list" class="dashboard-service-status__incidents">
+          <li class="dashboard-service-status__incident">
+            <div class="dashboard-service-status__incident-meta">
+              <time datetime="2026-10-26T08:52:00Z" class="dashboard-service-status__incident-time">Oct 26, 08:52</time>
+              <span class="dashboard-service-status__badge">Monitoring</span>
+            </div>
+            <h3 class="dashboard-service-status__incident-title">Slower responses from the public API</h3>
+            <p class="dashboard-service-status__incident-update">A fix is in place and response times are returning to normal.</p>
+          </li>
+          <li class="dashboard-service-status__incident">
+            <div class="dashboard-service-status__incident-meta">
+              <time datetime="2026-10-19T14:10:00Z" class="dashboard-service-status__incident-time">Oct 19, 14:10</time>
+              <span class="dashboard-service-status__badge">Resolved</span>
+            </div>
+            <h3 class="dashboard-service-status__incident-title">Delayed email delivery</h3>
+            <p class="dashboard-service-status__incident-update">Queued messages were sent within 40 minutes of the delay.</p>
+          </li>
+          <li class="dashboard-service-status__incident">
+            <div class="dashboard-service-status__incident-meta">
+              <time datetime="2026-10-14T02:30:00Z" class="dashboard-service-status__incident-time">Oct 14, 02:30</time>
+              <span class="dashboard-service-status__badge">Resolved</span>
+            </div>
+            <h3 class="dashboard-service-status__incident-title">Public API unavailable during maintenance</h3>
+            <p class="dashboard-service-status__incident-update">Requests failed for 12 minutes while a database update finished.</p>
+          </li>
+        </ol>
+        <p class="dashboard-service-status__history"><a href="#" class="dashboard-service-status__link">View all incidents</a></p>
+      </section>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+<section class="settings-team-members">
+  <div class="settings-team-members__container">
+    <header class="settings-team-members__header">
+      <div>
+        <h1 class="settings-team-members__title">Team members</h1>
+        <p class="settings-team-members__lede">Invite people to this workspace and choose what each person can change.</p>
+      </div>
+      <p class="settings-team-members__meta">4 of 10 seats used</p>
+    </header>
+    <form class="settings-team-members__invite">
+      <h2 class="settings-team-members__invite-title">Invite people</h2>
+      <div class="settings-team-members__invite-fields">
+        <div class="settings-team-members__invite-field">
+          <label for="settings-team-members-invite-email" class="settings-team-members__label">Email addresses</label>
+          <input id="settings-team-members-invite-email" type="email" multiple autocomplete="off" placeholder="name@example.com" aria-describedby="settings-team-members-invite-hint" name="emails" class="settings-team-members__field">
+        </div>
+        <div class="settings-team-members__invite-field">
+          <label for="settings-team-members-invite-role" class="settings-team-members__label">Role</label>
+          <select id="settings-team-members-invite-role" name="role" class="settings-team-members__field"><option>Admin</option><option selected>Member</option><option>Viewer</option></select>
+        </div>
+        <button type="submit" class="settings-team-members__button settings-team-members__button--primary">Send invite</button>
+      </div>
+      <p id="settings-team-members-invite-hint" class="settings-team-members__meta settings-team-members__invite-hint">Separate several addresses with commas. Invitations expire after 7 days.</p>
+    </form>
+    <div class="settings-team-members__members">
+      <div class="settings-team-members__members-header">
+        <h2 class="settings-team-members__members-title">Members</h2>
+        <p class="settings-team-members__meta">3 members, 1 pending</p>
+      </div>
+      <ul role="list" class="settings-team-members__member-list">
+        <li class="settings-team-members__member">
+          <div class="settings-team-members__identity">
+            <span aria-hidden="true" class="settings-team-members__avatar settings-team-members__avatar--initials">AR</span>
+            <div class="settings-team-members__identity-text">
+              <p class="settings-team-members__name">Alex Rivera <span class="settings-team-members__you">(You)</span></p>
+              <p class="settings-team-members__meta settings-team-members__email">alex.rivera@example.com</p>
+            </div>
+          </div>
+          <p class="settings-team-members__role-text">Owner</p>
+        </li>
+        <li class="settings-team-members__member">
+          <div class="settings-team-members__identity">
+            <span aria-hidden="true" class="settings-team-members__avatar settings-team-members__avatar--initials">JL</span>
+            <div class="settings-team-members__identity-text">
+              <p class="settings-team-members__name">Jordan Lee</p>
+              <p class="settings-team-members__meta settings-team-members__email">jordan.lee@example.com</p>
+            </div>
+          </div>
+          <div class="settings-team-members__role"><label for="settings-team-members-role-jordan" class="settings-team-members__sr-only">Role for Jordan Lee</label><select id="settings-team-members-role-jordan" name="role-jordan" class="settings-team-members__field"><option selected>Admin</option><option>Member</option><option>Viewer</option></select></div>
+          <button type="button" aria-label="Remove Jordan Lee" class="settings-team-members__button settings-team-members__button--secondary">Remove</button>
+        </li>
+        <li class="settings-team-members__member">
+          <div class="settings-team-members__identity">
+            <span aria-hidden="true" class="settings-team-members__avatar settings-team-members__avatar--initials">ST</span>
+            <div class="settings-team-members__identity-text">
+              <p class="settings-team-members__name">Sam Taylor</p>
+              <p class="settings-team-members__meta settings-team-members__email">sam.taylor@example.com</p>
+            </div>
+          </div>
+          <div class="settings-team-members__role"><label for="settings-team-members-role-sam" class="settings-team-members__sr-only">Role for Sam Taylor</label><select id="settings-team-members-role-sam" name="role-sam" class="settings-team-members__field"><option>Admin</option><option selected>Member</option><option>Viewer</option></select></div>
+          <button type="button" aria-label="Remove Sam Taylor" class="settings-team-members__button settings-team-members__button--secondary">Remove</button>
+        </li>
+        <li class="settings-team-members__member">
+          <div class="settings-team-members__identity">
+            <span aria-hidden="true" class="settings-team-members__avatar settings-team-members__avatar--pending">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="settings-team-members__icon">
+                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm18 3-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <div class="settings-team-members__identity-text">
+              <div class="settings-team-members__name-row">
+                <p class="settings-team-members__name settings-team-members__name--wrap">casey.morgan@example.com</p>
+                <span class="settings-team-members__badge">Pending</span>
+              </div>
+              <p class="settings-team-members__meta">Sent Mar 12, expires Mar 19. <a href="#" aria-label="Resend invitation to casey.morgan@example.com" class="settings-team-members__link">Resend</a></p>
+            </div>
+          </div>
+          <div class="settings-team-members__role"><label for="settings-team-members-role-casey" class="settings-team-members__sr-only">Role for casey.morgan@example.com</label><select id="settings-team-members-role-casey" name="role-casey" class="settings-team-members__field"><option>Admin</option><option>Member</option><option selected>Viewer</option></select></div>
+          <button type="button" aria-label="Revoke invitation for casey.morgan@example.com" class="settings-team-members__button settings-team-members__button--secondary">Revoke</button>
+        </li>
+      </ul>
+      <p class="settings-team-members__meta settings-team-members__note">Admins manage members and billing. Members edit content. Viewers can read but not change anything.</p>
+    </div>
+  </div>
+</section>

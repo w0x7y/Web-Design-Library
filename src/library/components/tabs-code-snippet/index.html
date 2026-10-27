@@ -1,0 +1,20 @@
+<div class="tabs-code-snippet">
+  <div class="tabs-code-snippet__header">
+    <div role="radiogroup" aria-label="Package manager" class="tabs-code-snippet__choices">
+      <label id="tabs-code-snippet-npm-label" class="tabs-code-snippet__choice"><input id="tabs-code-snippet-npm" type="radio" aria-controls="tabs-code-snippet-npm-panel" name="tabs-code-snippet" checked class="tabs-code-snippet__input">npm</label>
+      <label id="tabs-code-snippet-pnpm-label" class="tabs-code-snippet__choice"><input id="tabs-code-snippet-pnpm" type="radio" aria-controls="tabs-code-snippet-pnpm-panel" name="tabs-code-snippet" class="tabs-code-snippet__input">pnpm</label>
+      <label id="tabs-code-snippet-yarn-label" class="tabs-code-snippet__choice"><input id="tabs-code-snippet-yarn" type="radio" aria-controls="tabs-code-snippet-yarn-panel" name="tabs-code-snippet" class="tabs-code-snippet__input">yarn</label>
+      <label id="tabs-code-snippet-bun-label" class="tabs-code-snippet__choice"><input id="tabs-code-snippet-bun" type="radio" aria-controls="tabs-code-snippet-bun-panel" name="tabs-code-snippet" class="tabs-code-snippet__input">bun</label>
+    </div>
+    <button type="button" aria-label="Copy commands" class="tabs-code-snippet__copy">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabs-code-snippet__copy-icon">
+        <rect x="8" y="8" width="13" height="13" rx="2"></rect>
+        <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path>
+      </svg>
+    </button>
+  </div>
+  <section id="tabs-code-snippet-npm-panel" aria-labelledby="tabs-code-snippet-npm-label" class="tabs-code-snippet__panel tabs-code-snippet__panel--npm"><pre tabindex="0" class="tabs-code-snippet__code"><code><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>npm install package-name</span><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>npx package-name init</span></code></pre></section>
+  <section id="tabs-code-snippet-pnpm-panel" aria-labelledby="tabs-code-snippet-pnpm-label" class="tabs-code-snippet__panel tabs-code-snippet__panel--pnpm"><pre tabindex="0" class="tabs-code-snippet__code"><code><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>pnpm add package-name</span><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>pnpm dlx package-name init</span></code></pre></section>
+  <section id="tabs-code-snippet-yarn-panel" aria-labelledby="tabs-code-snippet-yarn-label" class="tabs-code-snippet__panel tabs-code-snippet__panel--yarn"><pre tabindex="0" class="tabs-code-snippet__code"><code><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>yarn add package-name</span><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>yarn dlx package-name init</span></code></pre></section>
+  <section id="tabs-code-snippet-bun-panel" aria-labelledby="tabs-code-snippet-bun-label" class="tabs-code-snippet__panel tabs-code-snippet__panel--bun"><pre tabindex="0" class="tabs-code-snippet__code"><code><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>bun add package-name</span><span class="tabs-code-snippet__line"><span aria-hidden="true" class="tabs-code-snippet__prompt">$ </span>bunx package-name init</span></code></pre></section>
+</div>
